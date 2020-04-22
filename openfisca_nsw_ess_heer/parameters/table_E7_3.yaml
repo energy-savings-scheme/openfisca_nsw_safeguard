@@ -1,0 +1,45 @@
+description: Values from Table E7.3.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+small_business_electricity_savings_factor:
+ 2 - 5-year warranty:
+  BCA Climate Zones 2 and 3:
+   values:
+     2020-01-01:
+       value: 0.04
+  BCA Climate Zone 4:
+   values:
+     2020-01-01:
+       value: -0.02
+  BCA Climate Zone 5:
+   values:
+     2020-01-01:
+       value: 0
+  BCA Climate Zone 6:
+   values:
+     2020-01-01:
+       value: -0.01
+  BCA Climate Zones 7 and 8:
+   values:
+     2020-01-01:
+       value: -0.02
+ 5-year > warranty:
+  BCA Climate Zones 2 and 3:
+   values:
+     2020-01-01:
+       value: 0.07
+  BCA Climate Zone 4:
+   values:
+     2020-01-01:
+       value: -0.05
+  BCA Climate Zone 5:
+   values:
+     2020-01-01:
+       value: 0
+  BCA Climate Zone 6:
+   values:
+     2020-01-01:
+       value: -0.03
+  BCA Climate Zones 7 and 8:
+   values:
+     2020-01-01:
+       value: -0.05

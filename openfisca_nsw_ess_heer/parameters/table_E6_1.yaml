@@ -1,0 +1,15 @@
+description: Values from Table E6.1.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+electricity_savings_factor:
+ Electric resistance water heater:
+   values:
+     2020-01-01:
+       value: 1.9
+ Electrically boosted solar water heater:
+   values:
+     2020-01-01:
+       value: 1.1
+ Electric heat pump water heater:
+   values:
+     2020-01-01:
+       value: 1.1

@@ -1,0 +1,75 @@
+description: Values from Table E3.1. MWh per PAR lamp replaced.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+residential_savings_factor:
+ 80W ≤ LCP < 100W:
+  ≥ 1200 lm:
+   ≤15 W:
+     values:
+       2020-01-01:
+         value: 0.6
+   ≤25 W :
+     values:
+       2020-01-01:
+         value: 0
+   ≤30 W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40 W:
+     values:
+       2020-01-01:
+         value: 0
+ 100W ≤ LCP < 120W:
+  ≥ 1500 lm:
+   ≤15 W:
+     values:
+       2020-01-01:
+         value: 0.8
+   ≤25 W :
+     values:
+       2020-01-01:
+         value: 0.75
+   ≤30 W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40 W:
+     values:
+       2020-01-01:
+         value: 0
+ 120W ≤ LCP < 140W:
+  ≥ 1900 lm:
+   ≤15 W:
+     values:
+       2020-01-01:
+         value: 1.0
+   ≤25 W :
+     values:
+       2020-01-01:
+         value: 0.95
+   ≤30 W:
+     values:
+       2020-01-01:
+         value: 0.9
+   ≤40 W:
+     values:
+       2020-01-01:
+         value: 0
+ 140W ≤ LCP < 160W:
+  ≥ 2300 lm:
+   ≤15 W:
+     values:
+       2020-01-01:
+         value: 1.2
+   ≤25 W :
+     values:
+       2020-01-01:
+         value: 1.15
+   ≤30 W:
+     values:
+       2020-01-01:
+         value: 1.1
+   ≤40 W:
+     values:
+       2020-01-01:
+         value: 1

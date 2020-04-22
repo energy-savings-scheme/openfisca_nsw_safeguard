@@ -1,0 +1,651 @@
+description: Values from Table E5.1.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+small_business_savings_factor:
+ 550 ≤ 700 mm (1  lamp):
+  ≥ 600 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0.24
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 700 ≤ 1150 mm (1  lamp):
+  ≥ 1100 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0.42
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0.35
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 1150 ≤ 1350 mm (1  lamp):
+  ≥ 1500 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0.44
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0.36
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0.29
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 1350 ≤ 1500 (1  lamp):
+  ≥ 2400 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0.69
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0.62
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0.54
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0.47
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0.39
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 550 ≤ 700 mm (2  lamps):
+  ≥ 1200 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0.63
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0.56
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0.48
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 700 ≤ 1150 mm (2  lamps):
+  ≥ 2200 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0.92
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0.84
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0.77
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0.69
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0.62
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 1150 ≤ 1350 mm (2  lamps):
+  ≥ 3000 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0.95
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0.87
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0.8
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0.72
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0.65
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0.57
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 1350 ≤ 1500 (2 lamps):
+  ≥ 4900 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 1.46
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 1.38
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 1.31
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 1.23
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 1.08
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0.93
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0.78
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 550 ≤ 700 mm (3 or more lamps):
+  ≥ 1900 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0.95
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0.87
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0.8
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0.72
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 700 ≤ 1150 mm (3 or more lamps):
+  ≥ 3300 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 1.34
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 1.26
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 1.19
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 1.11
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 1.04
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 0.96
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 1150 ≤ 1350 mm (3 or more lamps):
+  ≥ 4500 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 1.46
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 1.38
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 1.31
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 1.23
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 1.08
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 0.93
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 0
+ 1350 ≤ 1500 (3 or more lamps):
+  ≥ 7300 lm:
+   ≤10W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤15W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤20W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤25W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤30W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤35W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤45W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤50W:
+     values:
+       2020-01-01:
+         value: 2.22
+   ≤60W:
+     values:
+       2020-01-01:
+         value: 2.07
+   ≤70W:
+     values:
+       2020-01-01:
+         value: 1.92
+   ≤80W:
+     values:
+       2020-01-01:
+         value: 1.77
+   ≤90W:
+     values:
+       2020-01-01:
+         value: 1.62

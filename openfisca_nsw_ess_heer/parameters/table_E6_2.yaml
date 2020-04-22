@@ -1,0 +1,15 @@
+description: Values from Table E6.2.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+gas_savings_factor:
+ Gas fired storage water heater:
+   values:
+     2020-01-01:
+       value: 3.4
+ Gas fired instantaneous water heater:
+   values:
+     2020-01-01:
+       value: 3.1
+ Gas boosted solar water heater:
+   values:
+     2020-01-01:
+       value: 1.2

@@ -1,0 +1,75 @@
+description: Values from Table E3.1.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+small_business_savings_factor:
+ 80W ≤ LCP < 100W:
+  ≥ 1200 lm:
+   ≤15 W:
+     values:
+       2020-01-01:
+         value: 1.8
+   ≤25 W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤30 W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40 W:
+     values:
+       2020-01-01:
+         value: 0
+ 100W ≤ LCP < 120W:
+  ≥ 1500 lm:
+   ≤15 W:
+     values:
+       2020-01-01:
+         value: 2.4
+   ≤25 W:
+     values:
+       2020-01-01:
+         value: 2.25
+   ≤30 W:
+     values:
+       2020-01-01:
+         value: 0
+   ≤40 W:
+     values:
+       2020-01-01:
+         value: 0
+ 120W ≤ LCP < 140W:
+  ≥ 1900 lm:
+   ≤15 W:
+     values:
+       2020-01-01:
+         value: 3.0
+   ≤25 W:
+     values:
+       2020-01-01:
+         value: 2.85
+   ≤30 W:
+     values:
+       2020-01-01:
+         value: 2.7
+   ≤40 W:
+     values:
+       2020-01-01:
+         value: 0
+ 140W ≤ LCP < 160W:
+  ≥ 2300 lm:
+   ≤15 W:
+     values:
+       2020-01-01:
+         value: 3.6
+   ≤25 W:
+     values:
+       2020-01-01:
+         value: 3.45
+   ≤30 W:
+     values:
+       2020-01-01:
+         value: 3.3
+   ≤40 W:
+     values:
+       2020-01-01:
+         value: 3

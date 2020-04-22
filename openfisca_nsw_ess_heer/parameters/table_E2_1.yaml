@@ -1,0 +1,218 @@
+description: Values from Table E2.1.
+reference:
+Energy Savings Scheme Rule, beginning 30 March 2020.residential_savings_factor:
+ 100W ≤ LCP < 150W::
+  LED_luminaire_floodlight:
+   <= 30W::
+     values:
+       2020-01-01:
+         value: 0.27
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 0
+  CFLi:
+   <= 30W:
+     values:
+       2020-01-01:
+         value: 0.27
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 0
+ 150W ≤ LCP < 200W:
+  LED_luminaire_floodlight:
+   <= 30W:
+     values:
+       2020-01-01:
+         value: 0.46
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0.38
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 0
+  CFLi:
+    <= 30W:
+     values:
+       2020-01-01:
+         value: 0.46
+    <= 45W:
+     values:
+       2020-01-01:
+         value: 0.38
+    <= 60W::
+       values:
+         2020-01-01:
+           value: 0
+    <= 90W:
+     values:
+       2020-01-01:
+         value: 0
+    <= 150W:
+       values:
+         2020-01-01:
+           value: 0
+ 200W ≤ LCP < 300W:
+  LED_luminaire_floodlight:
+   <= 30W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0.57
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0.51
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 0
+  CFLi:
+   <= 30W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0.57
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0.51
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 0
+ 300W ≤ LCP < 500W:
+  LED_luminaire_floodlight:
+   <= 30W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0.88
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 0.73
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 0
+  CFLi:
+   <= 30W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0.88
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 0.73
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 0
+ 500W ≤ LCP:
+  LED_luminaire_floodlight:
+   <= 30W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 1.46
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 1.17
+  CFLi:
+   <= 30W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 45W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 60W:
+     values:
+       2020-01-01:
+         value: 0
+   <= 90W:
+     values:
+       2020-01-01:
+         value: 1.46
+   <= 150W:
+     values:
+       2020-01-01:
+         value: 1.17

@@ -1,0 +1,23 @@
+description: Values from Table E4.1.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+residential_savings_factor:
+ 2 foot (600mm):
+  savings_factor:
+     values:
+       2020-01-01:
+         value: 0.1
+ 3 foot (900mm):
+  savings_factor:
+     values:
+       2020-01-01:
+         value: 0.12
+ 4 foot (1200mm):
+  savings_factor:
+     values:
+       2020-01-01:
+         value: 0.14
+ 5 foot (1500mm):
+  savings_factor:
+     values:
+       2020-01-01:
+         value: 0.16

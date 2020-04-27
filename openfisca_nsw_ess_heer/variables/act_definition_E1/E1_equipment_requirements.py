@@ -77,7 +77,7 @@ class light_beam_angles_are_consistent(Variable):
 
 
 class is_compatible_with_circuit_dimmers(Variable):
-    value_type = float
+    value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'asks whether the new lamp is compatible with any dimmer installed' \

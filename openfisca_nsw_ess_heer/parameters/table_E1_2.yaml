@@ -110,6 +110,19 @@ small_business_savings_factor:
          2020-01-01:
            value: 1.08
   tungsten_halogen_240V:
+    LED_lamp_only_ELV:
+     under_or_equal_to_five_watts:
+       values:
+         2020-01-01:
+           value: 0
+     under_or_equal_to_ten_watts:
+       values:
+         2020-01-01:
+           value: 0
+     under_or_equal_to_fifteen_watts:
+       values:
+         2020-01-01:
+           value: 0
     LED_lamp_only_240V_self_ballasted:
      under_or_equal_to_five_watts:
        values:

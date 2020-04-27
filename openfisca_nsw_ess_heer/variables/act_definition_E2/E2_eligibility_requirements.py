@@ -16,7 +16,7 @@ class existing_lamp_is_linear_halogen_floodlight(Variable):
         existing_lamp_type = buildings('existing_lamp_type', period)
         EquipmentClassStatus = existing_lamp_type.possible_values  # imports functionality of Table A9.1 and Table A9.3 to define existing lamp type
         is_tungsten_halogen_240V = (existing_lamp_type == EquipmentClassStatus.linear_halogen_floodlight)
-        return is_tungsten_halogen_240V + is_tungsten_ha
+        return is_tungsten_halogen_240V
 
 
 class E2_existing_lamp_rating(Variable):
@@ -46,3 +46,17 @@ class E2_is_in_working_order(Variable):
     label = 'Asks whether the existing lamp and luminaire is in working order' \
             ' as required in Eligibility Requirement 3 in Activity Definition' \
             ' E1.'  # insert definition requirements
+
+
+class E2_eligibility_requirements(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'asks whether all of the eligiblity requirements for E2 have been' \
+            ' successfully met.'
+
+    def formula(buildings, period, parameters):
+        is_linear_halogen_floodlight = buildings('existing_lamp_is_linear_halogen_floodlight', period)
+        existing_lamp_more_than_100W = buildings('existing_lamp_rating_is_more_than_100W', period)
+        existing_lamp_in_working_order = buildings('E2_is_in_working_order', period)
+        return is_linear_halogen_floodlight * existing_lamp_more_than_100W * existing_lamp_in_working_order

@@ -3,7 +3,7 @@ reference: Energy Savings Scheme Rule, beginning 30 March 2020.
 residential_savings_factor:
  80W ≤ LCP < 100W:
   ≥ 1200 lm:
-   ≤15 W:
+   under_fifteen_watts:
      values:
        2020-01-01:
          value: 0.6

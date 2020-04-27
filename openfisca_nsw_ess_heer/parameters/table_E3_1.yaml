@@ -1,75 +1,279 @@
 description: Values from Table E3.1. MWh per PAR lamp replaced.
 reference: Energy Savings Scheme Rule, beginning 30 March 2020.
 residential_savings_factor:
- 80W ≤ LCP < 100W:
-  ≥ 1200 lm:
-   under_fifteen_watts:
+ existing_LCP_80_to_100W:
+  between_1200_and_1500_lm:
+   under_or_equal_to_fifteen_watts:
      values:
        2020-01-01:
          value: 0.6
-   ≤25 W :
+   fifteen_to_twenty_five_watts:
      values:
        2020-01-01:
          value: 0
-   ≤30 W:
+   twenty_five_to_thirty_watts:
      values:
        2020-01-01:
          value: 0
-   ≤40 W:
+   thirty_to_fourty_watts:
      values:
        2020-01-01:
          value: 0
- 100W ≤ LCP < 120W:
-  ≥ 1500 lm:
-   ≤15 W:
+  between_1500_and_1900_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0.6
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  between_1900_and_2300_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0.6
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  more_than_2300_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0.6
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+ existing_LCP_100_to_120W:
+  between_1200_and_1500_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  between_1500_and_1900_lm:
+   under_or_equal_to_fifteen_watts:
      values:
        2020-01-01:
          value: 0.8
-   ≤25 W :
+   fifteen_to_twenty_five_watts:
      values:
        2020-01-01:
          value: 0.75
-   ≤30 W:
+   twenty_five_to_thirty_watts:
      values:
        2020-01-01:
          value: 0
-   ≤40 W:
+   thirty_to_fourty_watts:
      values:
        2020-01-01:
          value: 0
- 120W ≤ LCP < 140W:
-  ≥ 1900 lm:
-   ≤15 W:
+  between_1900_and_2300_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0.8
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0.75
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  more_than_2300_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0.8
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0.75
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+ existing_LCP_120_to_140W:
+  between_1200_and_1500_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  between_1500_and_1900_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  between_1900_and_2300_lm:
+   under_or_equal_to_fifteen_watts:
      values:
        2020-01-01:
          value: 1.0
-   ≤25 W :
+   fifteen_to_twenty_five_watts:
      values:
        2020-01-01:
          value: 0.95
-   ≤30 W:
+   twenty_five_to_thirty_watts:
      values:
        2020-01-01:
          value: 0.9
-   ≤40 W:
+   thirty_to_fourty_watts:
      values:
        2020-01-01:
          value: 0
- 140W ≤ LCP < 160W:
-  ≥ 2300 lm:
-   ≤15 W:
+  more_than_2300_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 1.0
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0.95
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0.9
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+ existing_LCP_140_to_160W:
+  between_1200_and_1500_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  between_1500_and_1900_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  between_1900_and_2300_lm:
+   under_or_equal_to_fifteen_watts:
+     values:
+       2020-01-01:
+         value: 0
+   fifteen_to_twenty_five_watts:
+     values:
+       2020-01-01:
+         value: 0
+   twenty_five_to_thirty_watts:
+     values:
+       2020-01-01:
+         value: 0
+   thirty_to_fourty_watts:
+     values:
+       2020-01-01:
+         value: 0
+  more_than_2300_lm:
+   under_or_equal_to_fifteen_watts:
      values:
        2020-01-01:
          value: 1.2
-   ≤25 W :
+   fifteen_to_twenty_five_watts:
      values:
        2020-01-01:
          value: 1.15
-   ≤30 W:
+   twenty_five_to_thirty_watts:
      values:
        2020-01-01:
          value: 1.1
-   ≤40 W:
+   thirty_to_fourty_watts:
      values:
        2020-01-01:
          value: 1

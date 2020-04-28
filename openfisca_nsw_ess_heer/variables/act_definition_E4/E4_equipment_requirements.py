@@ -26,7 +26,7 @@ class is_not_T5_adaptor_kit(Variable):
     definition_period = ETERNITY
     label = 'Asks whether the existing lamp is a T5 adaptor kit fixed to a' \
             ' luminaire, as this is not allowed in Equipment Requirement' \
-            ' 1 in Activity Definition E1, and defined in Table A9.1 or A9.3.' \
+            ' 1 in Activity Definition E1, and defined in Table A9.1 or A9.3.'
 
     def formula(buildings, period, parameters):
         new_lamp_type = buildings('new_lamp_type', period)

@@ -6,4 +6,4 @@
     new_lamp_light_output: 2000
     new_lamp_circuit_power: 3
   output:
-    E3_small_business_savings_factor: 2
+    E3_small_business_savings_factor: 1.8

@@ -9,7 +9,7 @@ class E6_new_end_user_equipment_is_showerhead(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'The End-User Equipment must be a showerhead as defined in' \
-            ' AS/NZS 3662– Performance of showers for bathing.'  #IPART to define what this means
+            ' AS/NZS 3662– Performance of showers for bathing.'  # IPART to define what this means
 
 
 class WELS_rating(Variable):
@@ -43,7 +43,7 @@ class WELS_rating_and_flow_rating_are_eligible(Variable):
         return condition_minimum_WELS_rating * condition_nominal_flow_rating
 
 
-class warranty_length(Variable):
+class E6_warranty_length(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -58,5 +58,5 @@ class minimum_warranty_length(Variable):
             ' 2 years, as required by Equipment Requirement 3.'
 
     def formula(buildings, period, parameters):
-        warranty_length = buildings('warranty_length', period)
+        warranty_length = buildings('E6_warranty_length', period)
         return warranty_length >= 2

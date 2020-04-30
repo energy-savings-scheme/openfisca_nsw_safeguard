@@ -17,9 +17,9 @@ class E6_electricity_savings_factor(Variable):
         water_supply_service = select([(hot_water_supply_service == HotWaterSupplyService.electric_resistance_water_heater),
                 (hot_water_supply_service == HotWaterSupplyService.electric_boosted_solar_water_heater),
                 (hot_water_supply_service == HotWaterSupplyService.electric_heat_pump_water_heater)],
-                ['electric_resistance_water_heater',
-                'electric_boosted_solar_water_heater',
-                'electric_heat_pump_water_heater'])
+            ['electric_resistance_water_heater',
+            'electric_boosted_solar_water_heater',
+            'electric_heat_pump_water_heater'])
         electricity_savings_factor = parameters(period).table_E6_1.electricity_savings_factor[water_supply_service]
         return electricity_savings_factor
 
@@ -37,8 +37,8 @@ class E6_gas_savings_factor(Variable):
         water_supply_service = select([(hot_water_supply_service == HotWaterSupplyService.gas_fired_storage_water_heater),
                 (hot_water_supply_service == HotWaterSupplyService.gas_fired_instantaneous_water_heater),
                 (hot_water_supply_service == HotWaterSupplyService.gas_boosted_solar_water_heater)],
-                ['gas_fired_storage_water_heater',
-                'gas_fired_instantaneous_water_heater',
-                'gas_boosted_solar_water_heater'])
+            ['gas_fired_storage_water_heater',
+            'gas_fired_instantaneous_water_heater',
+            'gas_boosted_solar_water_heater'])
         electricity_savings_factor = parameters(period).table_E6_2.gas_savings_factor[water_supply_service]
         return electricity_savings_factor

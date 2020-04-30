@@ -21,7 +21,7 @@ class E6_hot_water_supply_service_is_eligible(Variable):
         is_gas_fired_storage = (hot_water_supply_service == HotWaterSupplyService.gas_fired_storage_water_heater)
         is_gas_fired_instantaneous = (hot_water_supply_service == HotWaterSupplyService.gas_fired_instantaneous_water_heater)
         is_gas_boosted_solar = (hot_water_supply_service == HotWaterSupplyService.gas_boosted_solar_water_heater)
-        return is_electric_resistance + is_electric_boosted_solar + is_electric_heat_pump + is_gas_fired_storage + is_gas_fired_instantaneous + is_gas_boosted_solar # note addition is used to define "or" with booleans
+        return is_electric_resistance + is_electric_boosted_solar + is_electric_heat_pump + is_gas_fired_storage + is_gas_fired_instantaneous + is_gas_boosted_solar  # note addition is used to define "or" with booleans
 
 
 class E6_shower_has_existing_showerhead(Variable):

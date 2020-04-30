@@ -11,7 +11,7 @@ class E8_windows_have_gaps_between_door_and_frame(Variable):
     label = 'Windows to be draught-proofed must have gaps between the door and' \
             ' frame and/or threshold that permit the infiltration of air into' \
             ' or out of the Site. Prescribed by Equipment Requirement 1 of' \
-            ' Energy Savings Scheme Rule 2020.'  #IPART to define what this means and how to measure this
+            ' Energy Savings Scheme Rule 2020.'  # IPART to define what this means and how to measure this
 
 
 class window_is_external(Variable):

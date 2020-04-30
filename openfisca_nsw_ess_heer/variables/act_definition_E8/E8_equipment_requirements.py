@@ -31,12 +31,13 @@ class E8_new_equipment_is_eligible_product(Variable):
         window_weather_sealing_product = buildings('new_equipment_is_weather_stripping_product', period)
         return window_sealing_product + window_weather_sealing_product
 
+
 class E8_new_equipment_is_fit_for_purpose(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Asks whether the product is fit for purpose, as prescribed by' \
-            ' Equipment Requirement 2.'#IPART to define what this means
+            ' Equipment Requirement 2.'  # IPART to define what this means
 
 
 class E8_sealing_surface_material_is_eligible(Variable):

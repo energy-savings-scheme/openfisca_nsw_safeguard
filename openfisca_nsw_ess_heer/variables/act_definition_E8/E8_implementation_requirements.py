@@ -38,6 +38,7 @@ class all_external_windows_are_draught_proofed(Variable):
             ' Requirements, excluding sliding doors have been draught proofed,' \
             ' in accordance with Implementation Requirement 4.'  # this means you need to run the eligibility requirement for every door on the size and probably have a flag saying
 
+
 class installed_in_accordance_with_BCA (Variable):
     value_type = bool
     entity = Building

@@ -8,21 +8,21 @@ class product_applied_to_door_bottom_seal(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Product is applied to door bottom seal.' \
+    label = 'Product is applied to door bottom seal.'
 
 
 class product_applied_to_set_door_jamb(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Product is applied to set door jamb.' \
+    label = 'Product is applied to set door jamb.'
 
 
 class product_applied_to_head_seals(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Product is applied to door head seals.' \
+    label = 'Product is applied to door head seals.'
 
 
 class product_applied_to_correct_part_of_door(Variable):

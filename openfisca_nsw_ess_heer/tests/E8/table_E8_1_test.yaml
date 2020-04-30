@@ -1,0 +1,7 @@
+- name: test of Table E6.1 - gas fired storage water heater
+  period: 2020
+  input:
+    E8_warranty_length: 4
+    BCA_Climate_Zone: BCA_Climate_Zone_6
+  output:
+    E8_residential_electricity_savings_factor: 0.01

@@ -1,45 +1,45 @@
-description: Values from Table E8.2. 
-reference:Energy Savings Scheme Rule, beginning 30 March 2020.
+description: Values from Table E8.2.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
 residential_gas_savings_factor:
- 2 - 5-year warranty:
+ two_to_five_year_warranty:
     climate_zones_2_and_3:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zone_4:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zone_5:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zone_6:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zones_7_and_8:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.02
- > 5-year warranty:
+ over_five_year_warranty:
     climate_zones_2_and_3:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zone_4:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.03
     climate_zone_5:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zone_6:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.02
     climate_zones_7_and_8:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.04

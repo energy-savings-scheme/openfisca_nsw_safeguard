@@ -1,0 +1,6 @@
+- name: test of Activity Definition E11 - residential
+  period: 2020
+  input:
+    building_type: residential_building
+  output:
+    E12_deemed_electricity_savings_factor: 0.91

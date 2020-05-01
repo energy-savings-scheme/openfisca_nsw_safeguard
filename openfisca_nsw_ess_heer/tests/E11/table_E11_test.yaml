@@ -1,0 +1,14 @@
+- name: test of Activity Definition E11 - residential
+  period: 2020
+  input:
+    new_lamp_circuit_power: 100
+    new_lamp_light_output: 2200
+  output:
+    E11_residential_electricity_savings_factor: 0.04
+- name: test of Activity Definition E11 - small_business
+  period: 2020
+  input:
+    new_lamp_circuit_power: 100
+    new_lamp_light_output: 2200
+  output:
+    E11_small_business_electricity_savings_factor: 0.04

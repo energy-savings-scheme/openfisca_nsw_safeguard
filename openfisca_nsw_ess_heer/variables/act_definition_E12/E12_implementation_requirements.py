@@ -46,14 +46,6 @@ class all_exhaust_fans_are_sealed(Variable):
             ' as prescribed by Implementation Requirement 5.'
 
 
-class all_exhaust_fans_are_sealed(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Asks whether all exhaust fan at the site have been sealed,' \
-            ' as prescribed by Implementation Requirement 5.'
-
-
 class complies_with_relevant_standards(Variable):
     value_type = bool
     entity = Building

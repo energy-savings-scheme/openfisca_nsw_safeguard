@@ -1,0 +1,42 @@
+- name: test of Table D5.1 - Electricity Savings Factor for five star rated pump
+  period: 2020
+  input:
+    star_rating: five_stars
+  output:
+    D5_electricity_savings_factor: 2.5
+- name: test of Table D5.1 - Electricity Savings Factor for five star rated pump
+  period: 2020
+  input:
+    star_rating: five_point_five_stars
+  output:
+    D5_electricity_savings_factor: 3.5
+- name: test of Table D5.1 - Electricity Savings Factor for six star rated pump
+  period: 2020
+  input:
+    star_rating: six_stars
+  output:
+    D5_electricity_savings_factor: 4.5
+- name: test of Table D5.1 - Electricity Savings Factor for seven star rated pump
+  period: 2020
+  input:
+    star_rating: seven_stars
+  output:
+    D5_electricity_savings_factor: 6.1
+- name: test of Table D5.1 - Electricity Savings Factor for five star rated pump
+  period: 2020
+  input:
+    star_rating: eight_stars
+  output:
+    D5_electricity_savings_factor: 7.4
+- name: test of Table D5.1 - Electricity Savings Factor for five star rated pump
+  period: 2020
+  input:
+    star_rating: nine_stars
+  output:
+    D5_electricity_savings_factor: 8.4
+- name: test of Table D5.1 - Electricity Savings Factor for five star rated pump
+  period: 2020
+  input:
+    star_rating: ten_stars
+  output:
+    D5_electricity_savings_factor: 9.2

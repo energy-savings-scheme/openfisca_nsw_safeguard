@@ -12,6 +12,7 @@ class new_equipment_can_be_closed_to_seal_exhaust(Variable):
             ' other sealing product that can be closed to seal the exhaust' \
             ' of a fan, as prescribed by Equipment Requirement 1.'
 
+
 class egress_of_air_is_allowed(Variable):
     value_type = bool
     entity = Building

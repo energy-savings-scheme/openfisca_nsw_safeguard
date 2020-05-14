@@ -4,7 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class E2_placeholder(Variable):
+class placeholder_5_4(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

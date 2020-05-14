@@ -1,0 +1,493 @@
+description: Determines whether the Implementation is in a 1politan Levy
+    Area, based on postcode.
+brackets:
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 0 # zero and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2000 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2012 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2015 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2051 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2052 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2053 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2060 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2078 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2079 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2091 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2092 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2098 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2099 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2123 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2125 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2149 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2150 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2169 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2170 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2180 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2190 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2201 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2203 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2215 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2216 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2235 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2250 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2252 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2256 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2266 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2267 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2268 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2278 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2279 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2280 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2288 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2289 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2301 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2302 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2309 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2314 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2328 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2334 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2336 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2500 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2501 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2502 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2503 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2505 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2507 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2508 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2509 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2515 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2520 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2525 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2531 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2533 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2537 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2538 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2542 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2555 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2561 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2563 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2568 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2570 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2572 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2575 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2580 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2622 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2623 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2745 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2746 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2747 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2751 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2753 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2764 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2765 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2771 # 2012 and above postcodes are 0
+  - amount:
+      2020-01-01:
+        value: 1
+    threshold:
+      2020-01-01:
+        value: 2775 # 2000 and above postcodes are 1
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2776 # 2012 and above postcodes are 0
+metadata:
+  type: single_amount
+  threshold_unit: postcode
+  amount_unit: 0.01

@@ -8,17 +8,18 @@ class is_installed_by_licensed_plumber_or_electrician(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the pool pump installed by a licensed plumber or electrician?'  #ask if this is required by the standards?
-    page = 'Variable X'
+    label = 'Is the pool pump installed by a licensed plumber or electrician?'  # ask if this is required by the standards?
+    documentation = 'Variable X'
+
 
 class is_decommissioned_pool_pump_removed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the decomissioned pool pump removed?'  #  what does removed mean
-            #  in this context? note that we refer specifically to the existing
-            #  standard for defining what removed means. there's no definition
-            #  for removed in 9.8 (which governs HEER.)
+    label = 'Is the decomissioned pool pump removed?'  # what does removed mean
+    # in this context? note that we refer specifically to the existing
+    # standard for defining what removed means. there's no definition
+    # for removed in 9.8 (which governs HEER.)
 
 
 class is_installed_by_relevant_installer(Variable):

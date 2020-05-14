@@ -13,9 +13,11 @@ class new_end_user_equipment_is_eligible_type(Variable):
             ' only - 240V Self Ballasted, as required in Equipment Requirement' \
             ' 1 in Activity Definition E1, and defined in Table A9.1 or A9.3.' \
 
+
     def formula(buildings, period, parameters):
         is_single_phase_motor = buildings('new_product_is_single_phase_motor', period)
         is_eligible_type = buildings('new_product_is_eligible_type', period)
+        return is_single_phase_motor * is_eligible_type
 
 
 class new_product_is_single_phase_motor(Variable):
@@ -52,7 +54,7 @@ class eligible_pump_input_power(Variable):
         return condition_input_power
 
 
-class eligible_pump_input_power(Variable):
+class eligible_pump_input_type_and_power(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -63,6 +65,7 @@ class eligible_pump_input_power(Variable):
         eligible_type = buildings('new_end_user_equipment_is_eligible_type', period)
         eligible_input_power = buildings('eligible_pump_input_power', period)
         return eligible_type * eligible_input_power
+
 
 class StarRating(Enum):
     zero_point_five_stars = 'The pool pump has a rating of 0.5 stars.'
@@ -100,7 +103,7 @@ class star_rating_above_minimum(Variable):
             ' accordanc with AS5102.2?'
 
     def formula(buildings, period, parameters):
-        star_rating = buildings(star_rating)
+        star_rating = buildings('star_rating', period)
         return ((star_rating == four_point_five_stars) + (star_rating == five_stars)
                + (star_rating == five_point_five_stars) + (star_rating == six_stars)
                + (star_rating == seven_stars) + (star_rating == eight_stars)

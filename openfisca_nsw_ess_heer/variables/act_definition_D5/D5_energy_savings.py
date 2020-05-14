@@ -13,6 +13,5 @@ class D5_electricity_savings_factor(Variable):
 
     def formula(buildings, period, parameters):
         star_rating = buildings('star_rating', period)
-        StarRating = star_rating.possible_values  # imports functionality of star rating enum from user_inputs
         electricity_savings_factor = (parameters(period).table_D5_1.electricity_savings_factor[star_rating])
         return electricity_savings_factor

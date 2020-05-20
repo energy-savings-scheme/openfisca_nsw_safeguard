@@ -303,6 +303,23 @@ class postcode(Variable):
                 ' clause 10.1 - Recognised Energy Saving Activity.'  # need to figure out a way to check postcode against list
 
 
+class implementation_is_metro_and_lighting_mercury_is_recycled(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'If the implementation is in a Metropolitan Levy Area, and the old' \
+            ' End User Equipment is lighting, has the mercury contained within' \
+            ' this old equipment, if any, been recycled according to the' \
+            ' Recycling Requirements of a Product Stewardship Scheme?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3A (a) - Recognised Energy Saving Activity.'
+
+    def formula(buildings, period, parameters):
+        in_metro = buildings('implementation_is_in_metro_levy_area', period)
+        mercury_is_recycled = buildings('lighting_mercury_is_recycled', period)
+        return (in_metro * mercury_is_recycled) + not(in_metro)  # note that if the implementation is not in metro, this condition is automatically true as there is no need to recycle mercury
+
+
 class implementation_is_in_metro_levy_area(Variable):
     value_type = bool
     entity = Building
@@ -310,7 +327,7 @@ class implementation_is_in_metro_levy_area(Variable):
     label = 'Is the implementation in a Metropolitan Levy Area as listed in' \
             ' Table A25?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
-                ' clause 5.3A (a) - Recognised Energy Saving Activity.'
+                ' clause 5.3A (b) (i) - Recognised Energy Saving Activity.'
 
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
@@ -328,3 +345,62 @@ class lighting_mercury_is_recycled(Variable):
             ' Product Stewardship Scheme?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' clause 10.1 - Recognised Energy Saving Activity.'
+
+
+class evidence_obtained_for_refrigerant_disposal(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Has evidence been obtained for the disposal of any refrigerants'
+            ' , such as a tax invoice or recycling receipt?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3A (b) (ii) - Recognised Energy Saving Activity.'
+
+
+class baseline_efficiency_for_end_user_equipment_class(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'As published by the Scheme Administrator, what is the baseline' \
+            ' efficiency for this class of End-User Equipment?'  # note that the concept of "End User Equipment" is not defined in the Rule!
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3B (a) - Recognised Energy Saving Activity.'
+
+
+class sales_weighted_market_baseline_efficiency(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'As supported by sales-weighted market data, what is the baseline' \
+            ' efficiency for the class of End-User Equipment?'
+
+
+class sales_weighted_market_baseline_efficiency(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'As supported by sales-weighted market data, what is the baseline' \
+            ' efficiency for the class of End-User Equipment?'
+
+
+class product_weighted_average_baseline_efficiency(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'As supported by product-weighted efficiency data, based on' \
+            ' products registered as complying with the relevant AS/NZS, what' \
+            ' is the baseline efficiency for the class of End-User Equipment?'
+
+
+class regional_network_factor(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Regional Network Factor is the value from Table A24 of Schedule' \
+            ' A corresponding to the postcode of the Address of the Site or' \
+            ' Sites where the Implementation(s) took place.'
+
+    def formula(buildings, period, parameters):
+        postcode = buildings('postcode', period)
+        rnf = parameters(period).energy_savings_scheme.table_a24.regional_network_factor
+        return rnf.calc(postcode)

@@ -84,3 +84,23 @@ class building_type(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Defines what building type the Implementation is conducted within.'
+
+
+class ImplementationState(Enum):
+    ACT = u"Implementation is in ACT."
+    NSW = u"Implementation is in NSW."
+    NT = u"Implementation is in NT."
+    QLD = u"Implementation is in QLD."
+    SA = u"Implementation is in SA."
+    TAS = u"Implementation is in TAS."
+    VIC = u"Implementation is in VIC."
+    WA = u"Implementation is in WA."
+
+
+class implementation_state(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = BuildingState
+    default_value = BuildingState.NSW
+    definition_period = ETERNITY
+    label = "State within which the relevant NABERS rated building is located."

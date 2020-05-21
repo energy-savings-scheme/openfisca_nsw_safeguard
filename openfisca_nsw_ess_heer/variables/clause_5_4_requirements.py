@@ -135,7 +135,7 @@ class activity_exports_to_the_electricity_network(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the activity result in generating electricity which is'
+    label = 'Does the activity result in generating electricity which is' \
             ' exported to the Electricity Network?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' clause 5.4 (i) (i) - Activities which are not Recognised' \
@@ -203,7 +203,7 @@ class fuel_switching_activity_leads_to_greenhouse_emissions_increase(Variable):
         is_fuel_switching = buildings('is_fuel_switching_activity', period)
         baseline_emissions = buildings('baseline_greenhouse_gas_emissions', period)
         current_emissions = buildings('current_greenhouse_gas_emissions', period)
-        return (is_fuel_switching * (current_emissions > baseline_emissions)) + not(is_fuel_switching)
+        return (is_fuel_switching * (current_emissions > baseline_emissions)) + (not(is_fuel_switching))
 
 
 class in_ACT_and_required_to_report_under_national_schemes(Variable):
@@ -223,7 +223,7 @@ class in_ACT_and_required_to_report_under_national_schemes(Variable):
         national_greenhouse_act = buildings('required_to_report_under_national_greenhouse_act', period)
         EE_in_govt_operations = buildings('required_to_report_under_energy_efficiency_in_government_operations_policy', period)
         carbon_neutral_framework = buildings('required_to_report_under_carbon_neutral_ACT_government_framework', period)
-        return (in_ACT * (national_greenhouse_act + EE_in_govt_operations + carbon_neutral_framework)) + not(in_ACT)
+        return (in_ACT * (national_greenhouse_act + EE_in_govt_operations + carbon_neutral_framework)) + (not(in_ACT))
 
 
 class required_to_report_under_national_greenhouse_act(Variable):
@@ -233,7 +233,7 @@ class required_to_report_under_national_greenhouse_act(Variable):
     label = 'Is the activity required to report energy consumption under the' \
             ' National Greenhouse and Energy Reporting Act 2007?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
-                ' clause 5.4 (j) (i) - Activities which are not Recognised' \
+                ' clause 5.4 (k) (i) - Activities which are not Recognised' \
                 ' Energy Saving Activities.'
 
 
@@ -244,7 +244,7 @@ class required_to_report_under_energy_efficiency_in_government_operations_policy
     label = 'Is the activity required to report energy consumption under the' \
             ' Energy Efficiency in Government Operations Policy?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
-                ' clause 5.4 (j) (ii) - Activities which are not Recognised' \
+                ' clause 5.4 (k) (ii) - Activities which are not Recognised' \
                 ' Energy Saving Activities.'
 
 
@@ -255,5 +255,58 @@ class required_to_report_under_carbon_neutral_ACT_government_framework(Variable)
     label = 'Is the activity required to report energy consumption under the' \
             ' Energy Efficiency in Government Operations Policy?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
-                ' clause 5.4 (j) (iii) - Activities which are not Recognised' \
+                ' clause 5.4 (k) (iii) - Activities which are not Recognised' \
+                ' Energy Saving Activities.'
+
+
+class ACT_lighting_upgrade_as_part_of_development(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity a. in the ACT, b. a Lighting Upgrade, and c.' \
+            ' undertaken as part of a development or refurbishment requiring' \
+            ' development approval, under the Planning and Development Act 2007?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.4 (l) - Activities which are not Recognised' \
+                ' Energy Saving Activities.'
+
+    def formula(buildings, period, parameters):
+        state = buildings('implementation_state', period)
+        ImplementationState = state.possible_values
+        in_ACT = (state == ImplementationState.ACT)  # need to code in activity type Enum
+        activity_undertaken_as_part_of_development = buildings('activity_undertaken_as_part_of_development', period)
+        activity_undertaken_as_part_of_refurbishment = buildings('activity_undertaken_as_part_of_refurbishment_requiring_development_approval', period)
+        return (in_ACT * (activity_undertaken_as_part_of_development + activity_undertaken_as_part_of_refurbishment)) + (not(in_ACT))
+
+
+class activity_undertaken_as_part_of_development(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity undertaken as part of a development under the' \
+            ' Planning and Development Act?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.4 (l) - Activities which are not Recognised' \
+                ' Energy Saving Activities.'
+
+
+class activity_undertaken_as_part_of_refurbishment_requiring_development_approval(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity undertaken as part of a refurbishment requiring' \
+            ' development approval under the Planning and Development Act?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.4 (l) - Activities which are not Recognised' \
+                ' Energy Saving Activities.'
+
+
+class activity_is_ineligible_for_RESA_criteria(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the activity meet any of the criteria which makes it' \
+            ' ineligible to be considered a RESA?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.4 - Activities which are not Recognised' \
                 ' Energy Saving Activities.'

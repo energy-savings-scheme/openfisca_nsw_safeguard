@@ -100,7 +100,7 @@ class ImplementationState(Enum):
 class implementation_state(Variable):
     value_type = Enum
     entity = Building
-    possible_values = BuildingState
-    default_value = BuildingState.NSW
+    possible_values = ImplementationState
+    default_value = ImplementationState.NSW
     definition_period = ETERNITY
     label = "State within which the relevant NABERS rated building is located."

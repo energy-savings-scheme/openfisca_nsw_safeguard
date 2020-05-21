@@ -4,6 +4,35 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
+class RESAEfficiencyIncreaseMethod(Enum):
+    modifying_end_equipment = 'Implementation increases efficiency by reducing' \
+                              ' consumption of energy compared to what would have' \
+                              ' otherwise been consumed, through modifying existing' \
+                              ' equipment.'
+    replacing_end_equipment = 'Implementation increases efficiency by reducing' \
+                              ' consumption of energy compared to what would have' \
+                              ' otherwise been consumed, through replacing existing' \
+                              ' equipment.'
+    installing_new_equipment = 'Implementation increases efficiency by reducing' \
+                               ' consumption of energy compared to what would have' \
+                               ' otherwise been consumed, through installing new' \
+                               ' equipment which consumes less energy than' \
+                               ' comparable equipment.'
+    removing_end_equipment = 'Implementation increases efficiency by reducing' \
+                             ' consumption of energy compared to what would have' \
+                             ' otherwise been consumed, through removing existing' \
+                             ' equipment.'
+
+
+class resa_method(Variable):
+    value_type = Enum
+    possible_values = RESAEfficiencyIncreaseMethod
+    default_value = RESAEfficiencyIncreaseMethod.installing_new_equipment
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What method of increasing energy efficiency does the RESA use?'
+
+
 class resa_criteria_increased_efficiency(Variable):
     value_type = bool
     entity = Building
@@ -14,12 +43,25 @@ class resa_criteria_increased_efficiency(Variable):
                 ' clause 5.3 (a)- Recognised Energy Saving Activity.'
 
     def formula(buildings, period, parameters):
-        clause_5_3_i = buildings('modification_results_in_reduction_of_consumption', period)
-        clause_5_3_ii = buildings('replacement_with_new_equipment_results_in_reduction_of_consumption', period)
-        clause_5_3_iii = buildings('installed_equipment_consumes_less_energy_than_comparable_equipment', period)
-        clause_5_3_iv = buildings('removed_equipment_creates_reduction_in_energy_consumption', period)
-        clause_5_3_A = buildings('removal_of_equipment_meets_removal_requirements', period)
-        return clause_5_3_i * clause_5_3_ii * clause_5_3_iii * clause_5_3_iv * clause_5_3_A
+        resa_method = buildings('resa_method', period)
+        modifying_equipment = (resa_method == RESAEfficiencyIncreaseMethod.modifying_end_equipment)
+        replacing_equipment = (resa_method == RESAEfficiencyIncreaseMethod.replacing_end_equipment)
+        installing_equipment = (resa_method == RESAEfficiencyIncreaseMethod.installing_new_equipment)
+        removing_equipment = (resa_method == RESAEfficiencyIncreaseMethod.removing_end_equipment)
+        modification_creates_energy_consumption_reduction = buildings('modification_results_in_reduction_of_consumption', period)
+        replacement_creates_energy_consumption_reduction = buildings('replacement_with_new_equipment_results_in_reduction_of_consumption', period)
+        installation_creates_energy_consumption_reduction = buildings('installed_equipment_consumes_less_energy_than_comparable_equipment', period)
+        removed_equipment_creates_reduction_in_energy_consumption = buildings('replacement_with_new_equipment_results_in_reduction_of_consumption', period)
+        removal_requirements_are_met = buildings('activity_meets_removal_requirements', period)  # this is Clause 5.3A
+        new_equipment_efficiency_greater_than_average = buildings('efficiency_of_new_equipment_greater_than_average_equivalent', period)
+        return select([modifying_equipment,
+                       replacing_equipment,
+                       installing_equipment,
+                       removing_equipment],
+                      [modification_creates_energy_consumption_reduction,
+                       (replacement_creates_energy_consumption_reduction * removal_requirements_are_met),
+                       (installation_creates_energy_consumption_reduction * new_equipment_efficiency_greater_than_average),
+                       (removed_equipment_creates_reduction_in_energy_consumption * removal_requirements_are_met)])
 
 
 class modification_results_in_reduction_of_consumption(Variable):
@@ -72,6 +114,46 @@ class installed_equipment_consumes_less_energy_than_comparable_equipment(Variabl
         same_service = buildings('comparable_equipment_is_same_service', period)
         return ((comparable_consumption > current_consumption)
         * (same_type + same_function + same_output + same_service))
+
+
+class comparable_equipment_is_same_type(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the new End User Equipment the same or a comparable type as the' \
+            ' existing End User Equipment, as defined by the Scheme Administrator?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3 (a) (iv) - Recognised Energy Saving Activity.'
+
+
+class comparable_equipment_is_same_function(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the new End User Equipment provide the same or a comparable function as the' \
+            ' existing End User Equipment, as defined by the Scheme Administrator?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3 (a) (iv) - Recognised Energy Saving Activity.'
+
+
+class comparable_equipment_is_same_output(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the new End User Equipment provide the same or a comparable output as the' \
+            ' existing End User Equipment, as defined by the Scheme Administrator?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3 (a) (iv) - Recognised Energy Saving Activity.'
+
+
+class comparable_equipment_is_same_service(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the new End User Equipment provide the same or a comparable service as the' \
+            ' existing End User Equipment, as defined by the Scheme Administrator?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3 (a) (iv) - Recognised Energy Saving Activity.'
 
 
 class removed_equipment_creates_reduction_in_energy_consumption(Variable):
@@ -243,6 +325,34 @@ class electricity_generation_provides_equivalent_services(Variable):
                 ' clause 5.3 (e) (iv) - Recognised Energy Saving Activity.'
 
 
+class activity_is_replacement_or_removal_of_equipment(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the act involve the replacement or removal of End-User' \
+            ' Equipment, and thus require fulfilling the requirements of' \
+            ' Clause 5.3A?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3A - Recognised Energy Saving Activity.'
+
+
+class activity_meets_removal_requirements(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the activity meet the requirements required for removal' \
+            ' activities to be defined as a RESA?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3A - Recognised Energy Saving Activity.'  # need to build \
+    # in logic for lighting and refrigerant activities
+
+    def formula(buildings, period, parameters):
+        does_not_refurbish_reuse_or_resell = buildings('does_not_refurbish_reuse_or_resell_old_equipment', period)
+        metro_lighting_activity_recycles_mercury = buildings('implementation_is_metro_and_lighting_mercury_is_recycled', period)
+        refrigerants_are_recycled = buildings('evidence_obtained_for_refrigerant_disposal', period)
+        return does_not_refurbish_reuse_or_resell * metro_lighting_activity_recycles_mercury * refrigerants_are_recycled
+
+
 class does_not_refurbish_reuse_or_resell_old_equipment(Variable):
     value_type = bool
     entity = Building
@@ -317,7 +427,7 @@ class implementation_is_metro_and_lighting_mercury_is_recycled(Variable):
     def formula(buildings, period, parameters):
         in_metro = buildings('implementation_is_in_metro_levy_area', period)
         mercury_is_recycled = buildings('lighting_mercury_is_recycled', period)
-        return (in_metro * mercury_is_recycled) + not(in_metro)  # note that if the implementation is not in metro, this condition is automatically true as there is no need to recycle mercury
+        return (in_metro * mercury_is_recycled) + (not(in_metro))  # note that if the implementation is not in metro, this condition is automatically true as there is no need to recycle mercury
 
 
 class implementation_is_in_metro_levy_area(Variable):
@@ -351,10 +461,25 @@ class evidence_obtained_for_refrigerant_disposal(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Has evidence been obtained for the disposal of any refrigerants'
+    label = 'Has evidence been obtained for the disposal of any refrigerants' \
             ' , such as a tax invoice or recycling receipt?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' clause 5.3A (b) (ii) - Recognised Energy Saving Activity.'
+
+
+class efficiency_of_new_equipment_greater_than_average_equivalent(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the efficiency of energy consumption of the new end user' \
+            ' equipment greater than the average efficiency of new equipment' \
+            ' that provides the same type, function, output or service?'  # note \
+    # that IPART decides which of these three values to use for determining this: \
+    # 1. baseline_efficiency_for_end_user_equipment_class \
+    # 2. sales_weighted_market_baseline_efficiency \
+    # 3. product_weighted_average_baseline_efficiency.
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.3B - Recognised Energy Saving Activity.'
 
 
 class baseline_efficiency_for_end_user_equipment_class(Variable):
@@ -362,17 +487,12 @@ class baseline_efficiency_for_end_user_equipment_class(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'As published by the Scheme Administrator, what is the baseline' \
-            ' efficiency for this class of End-User Equipment?'  # note that the concept of "End User Equipment" is not defined in the Rule!
+            ' efficiency for this class of End-User Equipment?'  # note that \
+    # the concept of "End User Equipment" is not defined in the Rule! \
+    # also this should probably directly pull from the Scheme \
+    # Administrator's Product Class baseline efficiency list
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' clause 5.3B (a) - Recognised Energy Saving Activity.'
-
-
-class sales_weighted_market_baseline_efficiency(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'As supported by sales-weighted market data, what is the baseline' \
-            ' efficiency for the class of End-User Equipment?'
 
 
 class sales_weighted_market_baseline_efficiency(Variable):
@@ -403,4 +523,28 @@ class regional_network_factor(Variable):
     def formula(buildings, period, parameters):
         postcode = buildings('postcode', period)
         rnf = parameters(period).energy_savings_scheme.table_a24.regional_network_factor
-        return rnf.calc(postcode)
+        return rnf.calc(postcode)   # This is a built in OpenFisca function that \
+        # is used to calculate a single value for regional network factor based on a zipcode provided
+
+
+class activity_meets_all_RESA_criteria(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the activity meet all of the criteria detailed in clause 5.3?'  # note that \
+    # the formula below (return where...) is written in that way to reflect \
+    # the intention of removal activities being required to meet the addition \
+    # criteria detailed in Clause 5.3A, and installation of new equipment needing to
+    # meet additional criteria in Clause 5.3B.
+    # Essentially, where the activity is \
+    # a removal activity, it has to meet Clause 5.3 and Clause 5.3A, where \
+    # the activity is NOT a removal activity, it only has to meet Clause 5.3.
+
+    def formula(buildings, period, parameters):
+        increased_efficiency = buildings('resa_criteria_increased_efficiency', period)
+        reduces_production_or_service_levels = buildings('activity_reduces_production_or_service_levels', period)
+        in_jurisdiction = buildings('site_in_ESS_jurisdiction', period)
+        activity_is_unlawful = buildings('activity_is_unlawful', period)
+        increases_consumption_efficiency = buildings('activity_increases_efficiency_of_energy_consumption', period)
+        return (increased_efficiency * (not(reduces_production_or_service_levels))
+        * in_jurisdiction * (not(activity_is_unlawful)) * increases_consumption_efficiency)

@@ -4,13 +4,21 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class placeholder_5_4(Variable):
+class installed_ineligible_end_equipment(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'Equation 1 of the ESS Rule 2009, used to calculate the number' \
             ' of ESCs generated from a Recognised Energy Savings Activity.' \
             ' As defined in Clause 6.5 of the ESS Rule 2009.'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 5.4 (a) (i) - Activities which are not Recognised' \
+                ' Energy Saving Activities.'
+
+    def formula(buildings, period, parameters):
+        T5_adaptor_kits_are_ineligible = buildings('T5_adaptor_kits_are_ineligible', period)
+        retrofit_LED_linear_lamps_are_ineligible = buildings('retrofit_LED_linear_lamps_are_ineligible', period)
+        return T5_adaptor_kits_are_ineligible + retrofit_LED_linear_lamps_are_ineligible
 
 
 class T5_adaptor_kits_are_ineligible(Variable):
@@ -27,7 +35,7 @@ class T5_adaptor_kits_are_ineligible(Variable):
         new_lamp_type = buildings('new_lamp_type', period)
         EquipmentClassStatus = new_lamp_type.possible_values  # imports functionality of Table A9.1 and Table A9.3 to define existing lamp type
         is_T5_adaptor_kit = (new_lamp_type == EquipmentClassStatus.T5_adaptor_kit)
-        return not(is_T5_adaptor_kit)
+        return is_T5_adaptor_kit
 
 
 class retrofit_LED_linear_lamps_are_ineligible(Variable):
@@ -44,8 +52,8 @@ class retrofit_LED_linear_lamps_are_ineligible(Variable):
     def formula(buildings, period, parameters):
         new_lamp_type = buildings('new_lamp_type', period)
         EquipmentClassStatus = new_lamp_type.possible_values  # imports functionality of Table A9.1 and Table A9.3 to define existing lamp type
-        is_T5_adaptor_kit = (new_lamp_type == EquipmentClassStatus.retrofit_luminaire_LED_linear_lamp)
-        return not(is_T5_adaptor_kit)
+        is_LED_linear_lamp = (new_lamp_type == EquipmentClassStatus.retrofit_luminaire_LED_linear_lamp)
+        return is_LED_linear_lamp
 
 
 class activity_required_to_comply_with_mandatory_legal_requirements(Variable):
@@ -91,7 +99,7 @@ class production_or_service_levels_are_reduced(Variable):
             ' energy by reducing production levels, service levels, or both?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' clause 5.4 (e) - Activities which are not Recognised' \
-                ' Energy Saving Activities.'
+                ' Energy Saving Activities.'  # Note duplication w. 5.3 (b)
 
     def formula(buildings, period, parameters):
         reduces_production_or_service_levels = buildings('activity_reduces_production_or_service_levels', period)
@@ -223,7 +231,7 @@ class in_ACT_and_required_to_report_under_national_schemes(Variable):
         national_greenhouse_act = buildings('required_to_report_under_national_greenhouse_act', period)
         EE_in_govt_operations = buildings('required_to_report_under_energy_efficiency_in_government_operations_policy', period)
         carbon_neutral_framework = buildings('required_to_report_under_carbon_neutral_ACT_government_framework', period)
-        return (in_ACT * (national_greenhouse_act + EE_in_govt_operations + carbon_neutral_framework)) + (not(in_ACT))
+        return (in_ACT * (national_greenhouse_act + EE_in_govt_operations + carbon_neutral_framework))
 
 
 class required_to_report_under_national_greenhouse_act(Variable):
@@ -268,7 +276,7 @@ class ACT_lighting_upgrade_as_part_of_development(Variable):
             ' development approval, under the Planning and Development Act 2007?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' clause 5.4 (l) - Activities which are not Recognised' \
-                ' Energy Saving Activities.'
+                ' Energy Saving Activities.'  # need to remember to code in logic for it being a Lighting Upgrade
 
     def formula(buildings, period, parameters):
         state = buildings('implementation_state', period)
@@ -276,7 +284,7 @@ class ACT_lighting_upgrade_as_part_of_development(Variable):
         in_ACT = (state == ImplementationState.ACT)  # need to code in activity type Enum
         activity_undertaken_as_part_of_development = buildings('activity_undertaken_as_part_of_development', period)
         activity_undertaken_as_part_of_refurbishment = buildings('activity_undertaken_as_part_of_refurbishment_requiring_development_approval', period)
-        return (in_ACT * (activity_undertaken_as_part_of_development + activity_undertaken_as_part_of_refurbishment)) + (not(in_ACT))
+        return (in_ACT * (activity_undertaken_as_part_of_development + activity_undertaken_as_part_of_refurbishment))
 
 
 class activity_undertaken_as_part_of_development(Variable):
@@ -310,3 +318,41 @@ class activity_is_ineligible_for_RESA_criteria(Variable):
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' clause 5.4 - Activities which are not Recognised' \
                 ' Energy Saving Activities.'
+
+    def formula(buildings, period, parameters):
+        state = buildings('implementation_state', period)
+        ImplementationState = state.possible_values
+        in_ACT = (state == ImplementationState.ACT)
+        in_NSW = (state == ImplementationState.NSW)
+        not_in_ACT_or_NSW = (state != ImplementationState.ACT and state != ImplementationState.NSW)
+        installed_ineligible_end_equipment = buildings('installed_ineligible_end_equipment', period)
+        activity_complies_with_mandatory_legal_requirement = buildings('activity_required_to_comply_with_mandatory_legal_requirements', period)
+        control_or_transmission_service = buildings('activity_is_standard_control_service_or_prescribed_transmission_service', period)
+        supply_or_purchase_for_greenhouse_reductions = buildings('activity_is_supply_purchase_from_retailer_for_emissions_reduction', period)
+        production_or_service_levels_are_reduced = buildings('production_or_service_levels_are_reduced', period)
+        increases_non_renewable_fuel_consumption = buildings('increases_non_renewable_fuel_consumption_for_equivalent_services', period)
+        eligible_to_create_RECs = buildings('is_eligible_to_create_RECs', period)
+        activity_flares_gas = buildings('activity_flares_gas', period)
+        activity_exports_to_the_electricity_network = buildings('activity_exports_to_the_electricity_network', period)
+        generating_system_more_than_30MW = buildings('generating_system_more_than_30MW', period)
+        fuel_switching_leads_to_increased_greenhouse_emissions = buildings('fuel_switching_activity_leads_to_greenhouse_emissions_increase', period)
+        in_ACT_and_required_to_report_under_national_schemes = buildings('in_ACT_and_required_to_report_under_national_schemes', period)
+        ACT_lighting_upgrade_as_part_of_development = buildings('ACT_lighting_upgrade_as_part_of_development', period)
+        return select([in_ACT, in_NSW, not_in_ACT_or_NSW],
+                    [(installed_ineligible_end_equipment + activity_complies_with_mandatory_legal_requirement
+                    + control_or_transmission_service + supply_or_purchase_for_greenhouse_reductions
+                    + production_or_service_levels_are_reduced + increases_non_renewable_fuel_consumption
+                    + eligible_to_create_RECs + activity_flares_gas + activity_exports_to_the_electricity_network
+                    + generating_system_more_than_30MW + fuel_switching_leads_to_increased_greenhouse_emissions
+                    + in_ACT_and_required_to_report_under_national_schemes + ACT_lighting_upgrade_as_part_of_development),
+                    (installed_ineligible_end_equipment + activity_complies_with_mandatory_legal_requirement
+                    + control_or_transmission_service + supply_or_purchase_for_greenhouse_reductions
+                    + production_or_service_levels_are_reduced + increases_non_renewable_fuel_consumption
+                    + eligible_to_create_RECs + activity_flares_gas + activity_exports_to_the_electricity_network
+                    + generating_system_more_than_30MW + fuel_switching_leads_to_increased_greenhouse_emissions),
+                    True])
+
+#  first select pulls in ACT specific requirements, second select pulls in \
+#  NSW specific requirements, third select returns ineligible because only \
+#  NSW and ACT are within the ESS Jurisdiction (i.e. when outside of NSW and ACT, \
+#  the user is ineligible to create ESC no matter the response to other requirements.)

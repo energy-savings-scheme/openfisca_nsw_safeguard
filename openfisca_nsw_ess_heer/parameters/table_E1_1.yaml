@@ -4,13 +4,13 @@ reference: Energy Savings Scheme Rule, beginning 30 March 2020.
 residential_savings_factor:
   tungsten_halogen_ELV:
     LED_lamp_only_ELV:
-     under_or_equal_to_five_watts:
-       values:
-         2020-01-01:
-           value: 0.52
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0.52
      under_or_equal_to_ten_watts:
-       values:
-         2020-01-01:
+      values:
+        2020-01-01:
            value: 0.44
      under_or_equal_to_fifteen_watts:
        values:

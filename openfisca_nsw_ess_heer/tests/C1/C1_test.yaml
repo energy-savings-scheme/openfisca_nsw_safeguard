@@ -1,0 +1,44 @@
+- name: test of C1 - Electricity Savings Factor - activity is eligible
+  period: 2020
+  input:
+    building_type: residential_building
+    refrigerator_or_freezer_group: group_1
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_or_freezer_is_in_working_order: True
+    another_fridge_available_to_provide_primary_refrigeration: True
+    one_fewer_fridge_following_activity: True
+  output:
+    C1_requirements_are_met: True
+- name: test of C1 - Electricity Savings Factor - activity is ineligible (is a small building site)
+  period: 2020
+  input:
+    building_type: small_business_site
+    refrigerator_or_freezer_group: group_2
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_or_freezer_is_in_working_order: True
+    another_fridge_available_to_provide_primary_refrigeration: True
+    one_fewer_fridge_following_activity: True
+  output:
+    C1_requirements_are_met: False
+- name: test of C1 - Electricity Savings Factor - activity is eligible
+  period: 2020
+  input:
+    building_type: residential_building
+    refrigerator_or_freezer_group: group_1
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_or_freezer_is_in_working_order: True
+    another_fridge_available_to_provide_primary_refrigeration: True
+    one_fewer_fridge_following_activity: True
+  output:
+    C1_electricity_savings: 5.7
+- name: test of C1 - Electricity Savings Factor - activity is ineligible (is a small building site)
+  period: 2020
+  input:
+    building_type: small_business_site
+    refrigerator_or_freezer_group: group_2
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_or_freezer_is_in_working_order: True
+    another_fridge_available_to_provide_primary_refrigeration: True
+    one_fewer_fridge_following_activity: True
+  output:
+    C1_electricity_savings: 0

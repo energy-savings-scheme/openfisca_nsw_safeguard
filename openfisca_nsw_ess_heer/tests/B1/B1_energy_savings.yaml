@@ -1,0 +1,55 @@
+- name: test of B1 - Electricity Savings Factor - 4 star rating
+  period: 2020
+  input:
+    B1_end_user_equipment_is_clothes_washing_machine: True
+    B1_end_user_equipment_is_labelled_for_energy_labelling: True
+    B1_end_user_equipment_is_front_loader: True
+    B1_end_user_equipment_is_top_loader: False
+    B1_end_user_equipment_load: 4.8
+    washing_machine_star_rating: 4
+  output:
+    B1_electricity_savings: 2.5
+- name: test of B1 - Electricity Savings Factor - 4.5 star rating
+  period: 2020
+  input:
+    B1_end_user_equipment_is_clothes_washing_machine: True
+    B1_end_user_equipment_is_labelled_for_energy_labelling: True
+    B1_end_user_equipment_is_front_loader: True
+    B1_end_user_equipment_is_top_loader: False
+    B1_end_user_equipment_load: 4.8
+    washing_machine_star_rating: 4.5
+  output:
+    B1_electricity_savings: 2.9
+- name: test of B1 - Electricity Savings Factor - 5 star rating
+  period: 2020
+  input:
+    B1_end_user_equipment_is_clothes_washing_machine: True
+    B1_end_user_equipment_is_labelled_for_energy_labelling: True
+    B1_end_user_equipment_is_front_loader: True
+    B1_end_user_equipment_is_top_loader: False
+    B1_end_user_equipment_load: 4.8
+    washing_machine_star_rating: 5
+  output:
+    B1_electricity_savings: 3.3
+- name: test of B1 - Electricity Savings Factor - 5.5 star rating
+  period: 2020
+  input:
+    B1_end_user_equipment_is_clothes_washing_machine: True
+    B1_end_user_equipment_is_labelled_for_energy_labelling: True
+    B1_end_user_equipment_is_front_loader: True
+    B1_end_user_equipment_is_top_loader: False
+    B1_end_user_equipment_load: 4.8
+    washing_machine_star_rating: 5
+  output:
+    B1_electricity_savings: 3.3
+- name: test of B1 - Electricity Savings Factor - 6 star rating
+  period: 2020
+  input:
+    B1_end_user_equipment_is_clothes_washing_machine: True
+    B1_end_user_equipment_is_labelled_for_energy_labelling: True
+    B1_end_user_equipment_is_front_loader: True
+    B1_end_user_equipment_is_top_loader: False
+    B1_end_user_equipment_load: 4.8
+    washing_machine_star_rating: 5
+  output:
+    B1_electricity_savings: 3.3

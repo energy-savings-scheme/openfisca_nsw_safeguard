@@ -1,0 +1,10 @@
+- name: test of B2 - Electricity Savings Factor - activity is eligible
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    B2_end_user_equipment_load: 6.2
+    dryer_star_rating: 3.5
+  output:
+    B2_electricity_savings: 0

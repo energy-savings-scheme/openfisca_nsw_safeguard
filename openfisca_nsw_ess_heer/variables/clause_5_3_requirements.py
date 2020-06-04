@@ -281,7 +281,7 @@ class activity_increases_efficiency_of_energy_consumption(Variable):
         increases_gas_efficiency = buildings('activity_increases_efficiency_of_gas_combusted_for_stationary_energy', period)
         is_fuel_switching = buildings('is_fuel_switching_activity', period)
         elec_generation_provides_equivalent_services = buildings('electricity_generation_provides_equivalent_services', period)
-        return increases_elec_efficiency * increases_gas_efficiency * is_fuel_switching * elec_generation_provides_equivalent_services
+        return increases_elec_efficiency + increases_gas_efficiency + is_fuel_switching + elec_generation_provides_equivalent_services
 
 
 class activity_increases_efficiency_of_electricity_consumption(Variable):

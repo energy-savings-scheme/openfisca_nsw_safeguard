@@ -40,7 +40,7 @@ class C1_energy_savings(Variable):
                 ' Schedule C, Activity Definition C1.'
 
     def formula(buildings, period, parameters):
-        elec_savings = buildings('B1_electricity_savings', period) # this should be a parameter but it's not in a table in the Rule, pls advise
+        elec_savings = buildings('B1_electricity_savings', period)  # this should be a parameter but it's not in a table in the Rule, pls advise
         B1_requirements_are_met = buildings('B1_meets_all_equipment_requirements', period)
-        condition_requirements_are_met = (B1_requirements_are_met == True)
+        condition_requirements_are_met = (B1_requirements_are_met)
         return where(condition_requirements_are_met, elec_savings, 0)

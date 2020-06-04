@@ -22,8 +22,7 @@ class B2_electricity_savings(Variable):
         machine_star_rating == 10],
         ["two_point_five_stars", "three_stars", "three_point_five_stars", "four_stars",
         "four_point_five_stars", "five_stars", "five_point_five_stars", "six_stars",
-        "seven_stars", "eight_stars", "nine_stars", "ten_stars",
-        ])
+        "seven_stars", "eight_stars", "nine_stars", "ten_stars"])
         washing_load = select([machine_washing_load <= 5,
         machine_washing_load >= 5 and machine_washing_load < 8,
         machine_washing_load > 8],

@@ -8,53 +8,53 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0.52
-     under_or_equal_to_ten_watts:
-      values:
-        2020-01-01:
-           value: 0.44
-     under_or_equal_to_fifteen_watts:
-       values:
-         2020-01-01:
-           value: 0.35
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+             value: 0.44
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0.35
     LED_lamp_and_driver:
-     under_or_equal_to_five_watts:
-       values:
-         2020-01-01:
-           value: 0.54
-     under_or_equal_to_ten_watts:
-       values:
-         2020-01-01:
-           value: 0.46
-     under_or_equal_to_fifteen_watts:
-       values:
-         2020-01-01:
-           value: 0.39
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0.54
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0.46
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0.39
     LED_luminaire_recessed:
-     under_or_equal_to_five_watts:
-       values:
-         2020-01-01:
-           value: 0.54
-     under_or_equal_to_ten_watts:
-       values:
-         2020-01-01:
-           value: 0.46
-     under_or_equal_to_fifteen_watts:
-       values:
-         2020-01-01:
-           value: 0.39
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0.54
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0.46
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0.39
     LED_lamp_only_240V_self_ballasted:
-     under_or_equal_to_five_watts:
-       values:
-         2020-01-01:
-           value: 0.54
-     under_or_equal_to_ten_watts:
-       values:
-         2020-01-01:
-           value: 0.46
-     under_or_equal_to_fifteen_watts:
-       values:
-         2020-01-01:
-           value: 0.39
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0.54
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0.46
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0.39
   infrared_coated_ELV:
     LED_lamp_only_ELV:
       under_or_equal_to_five_watts:
@@ -66,9 +66,9 @@ residential_savings_factor:
           2020-01-01:
             value: 0.44
       under_or_equal_to_fifteen_watts:
-         values:
-           2020-01-01:
-             value: 0.35
+        values:
+          2020-01-01:
+            value: 0.35
     LED_lamp_and_driver:
      under_or_equal_to_five_watts:
        values:
@@ -110,54 +110,54 @@ residential_savings_factor:
            value: 0.39
   tungsten_halogen_240V:
     LED_lamp_only_ELV:
-     under_or_equal_to_five_watts:
-       values:
-         2020-01-01:
-           value: 0
-     under_or_equal_to_ten_watts:
-       values:
-         2020-01-01:
-           value: 0
-     under_or_equal_to_fifteen_watts:
-       values:
-         2020-01-01:
-           value: 0
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
     LED_lamp_only_240V_self_ballasted:
       under_or_equal_to_five_watts:
-       values:
-         2020-01-01:
-           value: 0.68
+        values:
+          2020-01-01:
+            value: 0.68
       under_or_equal_to_ten_watts:
         values:
-         2020-01-01:
-           value: 0.6
+          2020-01-01:
+            value: 0.6
       under_or_equal_to_fifteen_watts:
         values:
-         2020-01-01:
-           value: 0.53
+          2020-01-01:
+            value: 0.53
     LED_lamp_and_driver:
       under_or_equal_to_five_watts:
-       values:
-         2020-01-01:
-           value: 0.68
+        values:
+          2020-01-01:
+            value: 0.68
       under_or_equal_to_ten_watts:
-       values:
-         2020-01-01:
-           value: 0.6
+        values:
+          2020-01-01:
+            value: 0.6
       under_or_equal_to_fifteen_watts:
-       values:
-         2020-01-01:
-           value: 0.53
+        values:
+          2020-01-01:
+            value: 0.53
     LED_luminaire_recessed:
       under_or_equal_to_five_watts:
-       values:
-         2020-01-01:
-           value: 0.68
+        values:
+          2020-01-01:
+            value: 0.68
       under_or_equal_to_ten_watts:
-       values:
-         2020-01-01:
-           value: 0.6
+        values:
+          2020-01-01:
+            value: 0.6
       under_or_equal_to_fifteen_watts:
-       values:
-         2020-01-01:
-           value: 0.53
+        values:
+          2020-01-01:
+            value: 0.53

@@ -204,7 +204,7 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0.9
-     thirty_to_fourty_watts:
+      thirty_to_fourty_watts:
         values:
           2020-01-01:
             value: 0

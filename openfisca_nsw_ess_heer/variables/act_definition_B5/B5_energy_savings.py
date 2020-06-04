@@ -16,18 +16,19 @@ class B5_electricity_savings(Variable):
         machine_star_rating = buildings('refrigerator_star_rating', period)  # this should be a parameter but it's not in a table in the Rule, pls advise
         refrigerator_volume = buildings('refrigerator_or_freezer_capacity', period)
         star_rating = select([
-        machine_star_rating == 3, machine_star_rating == 3.5, machine_star_rating == 4,
+        machine_star_rating == 3.5, machine_star_rating == 4,
         machine_star_rating == 4.5, machine_star_rating == 5, machine_star_rating == 5.5,
         machine_star_rating == 6, machine_star_rating == 7, machine_star_rating == 8,
         machine_star_rating == 9, machine_star_rating == 10],
-        ["three_stars", "three_point_five_stars", "four_stars",
+        ["three_point_five_stars", "four_stars",
         "four_point_five_stars", "five_stars", "five_point_five_stars", "six_stars",
         "seven_stars", "eight_stars", "nine_stars", "ten_stars",
         ])
-        volume = select([refrigerator_volume < 200,
-        refrigerator_volume >= 200 and refrigerator_volume < 250,
-        refrigerator_volume >= 250],
-        ["volume_less_than_200_litres", "volume_200_to_250_litres",
-        "volume_over_250_litres"])
+        volume = select([refrigerator_volume < 300,
+        refrigerator_volume >= 300 and refrigerator_volume < 450,
+        refrigerator_volume >= 450 and refrigerator_volume < 550,
+        refrigerator_volume >= 550],
+        ["volume_less_than_300_litres", "volume_300_to_450_litres",
+        "volume_450_to_550_litres", "volume_550_litres_or_over"])
         deemed_equipment_electricity_savings = (parameters(period).table_B5_1.deemed_equipment_electricity_savings[star_rating][volume])
         return deemed_equipment_electricity_savings

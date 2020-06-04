@@ -3,6 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 
+
 class C2_implementation_must_be_residential_or_small_business(Variable):
     value_type = bool
     entity = Building

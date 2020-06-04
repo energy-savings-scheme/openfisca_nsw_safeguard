@@ -15,5 +15,5 @@ class C2_energy_savings(Variable):
     def formula(buildings, period, parameters):
         elec_savings = 2.4  # this should be a parameter but it's not in a table in the Rule, pls advise
         C2_requirements_are_met = buildings('C2_requirements_are_met', period)
-        condition_requirements_are_met = (C2_requirements_are_met == True)
+        condition_requirements_are_met = (C2_requirements_are_met)
         return where(condition_requirements_are_met, elec_savings, 0)

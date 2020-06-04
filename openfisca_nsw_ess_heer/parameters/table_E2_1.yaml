@@ -7,19 +7,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0.27
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 0
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 0
@@ -28,19 +28,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0.27
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 0
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 0
@@ -50,19 +50,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0.46
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0.38
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 0
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 0
@@ -93,19 +93,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0.57
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0.51
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 0
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 0
@@ -114,19 +114,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0.57
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0.51
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 0
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 0
@@ -136,19 +136,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0.88
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 0.73
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 0
@@ -157,19 +157,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0.88
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 0.73
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 0
@@ -179,19 +179,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 1.46
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 1.17
@@ -200,19 +200,19 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0
-     more_than_30W_and_less_than_or_equal_to_45W:
+      more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
             value: 0
-     more_than_45W_and_less_than_or_equal_to_60W:
+      more_than_45W_and_less_than_or_equal_to_60W:
         values:
           2020-01-01:
             value: 0
-     more_than_60W_and_less_than_or_equal_to_90W:
+      more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
             value: 1.46
-     more_than_90W_and_less_than_or_equal_to_150W:
+      more_than_90W_and_less_than_or_equal_to_150W:
         values:
           2020-01-01:
             value: 1.17

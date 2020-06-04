@@ -3,6 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 
+
 class B3_end_user_equipment_is_dishwasher(Variable):
     value_type = bool
     entity = Building
@@ -32,7 +33,7 @@ class B3_end_user_equipment_has_registered_place_settings(Variable):
 
     def formula(buildings, period, parameters):
         place_settings = buildings('B3_number_of_place_settings', period)
-        condition_has_place_settings = (place_settings != 0 and place_settings != None)
+        condition_has_place_settings = (place_settings != 0 and place_settings is not None)
         return condition_has_place_settings
 
 

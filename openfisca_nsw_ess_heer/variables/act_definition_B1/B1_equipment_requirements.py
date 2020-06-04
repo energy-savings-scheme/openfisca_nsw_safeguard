@@ -3,6 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 
+
 class B1_end_user_equipment_is_clothes_washing_machine(Variable):
     value_type = bool
     entity = Building
@@ -64,7 +65,7 @@ class B1_end_user_equipment_has_a_load(Variable):
 
     def formula(buildings, period, parameters):
         equipment_load = buildings('B1_end_user_equipment_load', period)
-        condition_has_load = (equipment_load != 0 and equipment_load != None)
+        condition_has_load = (equipment_load != 0 and equipment_load is not None)
         return condition_has_load
 
 

@@ -10,51 +10,51 @@ residential_savings_factor:
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤25W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤30W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤35W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤40W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤45W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤50W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤60W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   700 ≤ 1150 mm (1  lamp):
     ≥ 1100  lm:
       ≤10W:
@@ -72,49 +72,49 @@ residential_savings_factor:
       ≤25W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤30W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤35W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤40W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤45W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤50W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤60W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   1150 ≤ 1350 mm (1  lamp):
     ≥ 1500  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
@@ -130,49 +130,49 @@ residential_savings_factor:
       ≤30W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤35W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤40W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤45W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤50W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤60W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   1350 ≤ 1500 (1  lamp):
     ≥ 2400  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
@@ -192,37 +192,37 @@ residential_savings_factor:
       ≤40W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤45W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤50W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤60W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   550 ≤ 700 mm (2  lamps):
     ≥ 1200  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
@@ -238,49 +238,49 @@ residential_savings_factor:
       ≤30W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤35W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤40W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤45W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤50W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤60W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   700 ≤ 1150 mm (2  lamps):
     ≥ 2200  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
@@ -304,45 +304,45 @@ residential_savings_factor:
       ≤45W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤50W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤60W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   1150 ≤ 1350 mm (2  lamps):
     ≥ 3000  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤25W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤30W:
         values:
           2020-01-01:
@@ -366,41 +366,41 @@ residential_savings_factor:
       ≤60W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   1350 ≤ 1500 (2 lamps):
     ≥ 4900  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤25W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤30W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤35W:
         values:
           2020-01-01:
@@ -428,21 +428,21 @@ residential_savings_factor:
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   550 ≤ 700 mm (3 or more lamps):
     ≥ 1900  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
@@ -470,41 +470,41 @@ residential_savings_factor:
       ≤50W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤60W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   700 ≤ 1150 mm (3 or more lamps):
     ≥ 3300  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤25W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤30W:
         values:
           2020-01-01:
@@ -532,45 +532,45 @@ residential_savings_factor:
       ≤70W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤80W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   1150 ≤ 1350 mm (3 or more lamps):
     ≥ 4500  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤25W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤30W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤35W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤40W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤45W:
         values:
           2020-01-01:
@@ -594,45 +594,45 @@ residential_savings_factor:
       ≤90W:
         values:
           2020-01-01:
-            value: -
+            value: 0
   1350 ≤ 1500 (3 or more lamps):
     ≥ 7300  lm:
       ≤10W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤15W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤20W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤25W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤30W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤35W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤40W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤45W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤50W:
         values:
           2020-01-01:
-            value: -
+            value: 0
       ≤60W:
         values:
           2020-01-01:

@@ -15,15 +15,14 @@ class B3_electricity_savings(Variable):
     def formula(buildings, period, parameters):
         machine_star_rating = buildings('dishwasher_star_rating', period)  # this should be a parameter but it's not in a table in the Rule, pls advise
         number_of_place_settings = buildings('B3_number_of_place_settings', period)
-        star_rating = select([
-        machine_star_rating == 3.5, machine_star_rating == 4, machine_star_rating == 4.5,
-        machine_star_rating == 5, machine_star_rating == 5.5, machine_star_rating == 6,
+        star_rating = select([machine_star_rating == 3.5, machine_star_rating == 4,
+        machine_star_rating == 4.5, machine_star_rating == 5,
+        machine_star_rating == 5.5, machine_star_rating == 6,
         machine_star_rating == 7, machine_star_rating == 8, machine_star_rating == 9,
         machine_star_rating == 10],
         ["three_point_five_stars", "four_stars",
         "four_point_five_stars", "five_stars", "five_point_five_stars", "six_stars",
-        "seven_stars", "eight_stars", "nine_stars", "ten_stars",
-        ])
+        "seven_stars", "eight_stars", "nine_stars", "ten_stars"])
         place_settings = select([number_of_place_settings < 9,
         number_of_place_settings >= 9 and number_of_place_settings < 13,
         number_of_place_settings >= 13],

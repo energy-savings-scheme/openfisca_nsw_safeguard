@@ -3,6 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 
+
 class B4_refrigerator_is_in_eligible_group(Variable):
     value_type = bool
     entity = Building
@@ -68,8 +69,8 @@ class B4_end_user_equipment_has_registered_volume(Variable):
 
     def formula(buildings, period, parameters):
         refrigerator_volume = buildings('refrigerator_or_freezer_capacity', period)
-        condition_has_volume = (refrigerator_volume != 0 and refrigerator_volume != None)
-        return condition_has_volume
+        condition_volume_is_not_zero = (refrigerator_volume != 0 and refrigerator_volume is not None)
+        return condition_volume_is_not_zero
 
 
 class B4_meets_all_equipment_requirements(Variable):
@@ -85,4 +86,4 @@ class B4_meets_all_equipment_requirements(Variable):
         in_eligible_group_and_has_one_door = buildings('B4_refrigerator_in_eligible_group_with_one_door', period)
         is_labelled_for_energy_labelling = buildings('B4_end_user_equipment_is_labelled_for_energy_labelling', period)
         has_volume = buildings('B4_end_user_equipment_has_registered_volume', period)
-        return (is_dishwasher * is_labelled_for_energy_labelling * has_volume)
+        return (in_eligible_group_and_has_one_door * is_labelled_for_energy_labelling * has_volume)

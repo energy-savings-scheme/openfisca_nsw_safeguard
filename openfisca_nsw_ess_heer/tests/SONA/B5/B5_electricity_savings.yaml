@@ -1,0 +1,1760 @@
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    three and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    three and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    three and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    three and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    three and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    three and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    three and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    three and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    three and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    three and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    three and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    three and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    three and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    three and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    three and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    three and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 3.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    four stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    four stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    four stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    four stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    four stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 0.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    four stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 0.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    four stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 0.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    four stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 0.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    four stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    four stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    four stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    four stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    four stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    four stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    four stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    four stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 4
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    four and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    four and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    four and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    four and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    four and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    four and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    four and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    four and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    four and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    four and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    four and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    four and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 0
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    four and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    four and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    four and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    four and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 4.5
+  output:
+    B5_electricity_savings: 1.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    five stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 1.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    five stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 1.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    five stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 1.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    five stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 1.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    five stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 1.7
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    five stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 1.7
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    five stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 1.7
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    five stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 1.7
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    five stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 0.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    five stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 0.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    five stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 0.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    five stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 0.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    five stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 2.4
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    five stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 2.4
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    five stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 2.4
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    five stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 5
+  output:
+    B5_electricity_savings: 2.4
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    five and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 1.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    five and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 1.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    five and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 1.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    five and a half stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 1.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    five and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    five and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    five and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    five and a half stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    five and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 1.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    five and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 1.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    five and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 1.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    five and a half stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 1.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    five and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    five and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    five and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    five and a half stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 5.5
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    six stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 2.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    six stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 2.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    six stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 2.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    six stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 2.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    six stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 2.4
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    six stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 2.4
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    six stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 2.4
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    six stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 2.4
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    six stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 1.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    six stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 1.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    six stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 1.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    six stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 1.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    six stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 3.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    six stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 3.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    six stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 3.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    six stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 6
+  output:
+    B5_electricity_savings: 3.3
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    seven stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    seven stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    seven stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    seven stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    seven stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    seven stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    seven stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    seven stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    seven stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    seven stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    seven stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    seven stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 2.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    seven stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 3.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    seven stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 3.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    seven stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 3.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    seven stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 7
+  output:
+    B5_electricity_savings: 3.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    eight stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 2.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    eight stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 2.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    eight stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 2.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    eight stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 2.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    eight stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    eight stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    eight stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    eight stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    eight stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 2.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    eight stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 2.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    eight stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 2.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    eight stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 2.6
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    eight stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 4.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    eight stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 4.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    eight stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 4.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    eight stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 8
+  output:
+    B5_electricity_savings: 4.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    nine stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 3.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    nine stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 3.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    nine stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 3.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    nine stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 3.1
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    nine stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 3.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    nine stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 3.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    nine stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 3.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    nine stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 3.5
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    nine stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    nine stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    nine stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    nine stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 2.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    nine stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 4.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    nine stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 4.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    nine stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 4.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    nine stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 9
+  output:
+    B5_electricity_savings: 4.9
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    ten stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    ten stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    ten stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    ten stars, refrigerator capacity 250L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 250
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    ten stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    ten stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    ten stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    ten stars, refrigerator capacity 400L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.8
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    ten stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    ten stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    ten stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    ten stars, refrigerator capacity 500L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 500
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 3.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4,
+    ten stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 5.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B,
+    ten stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 5.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T,
+    ten stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 5.2
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S,
+    ten stars, refrigerator capacity 600L)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 600
+    refrigerator_star_rating: 10
+  output:
+    B5_electricity_savings: 5.2

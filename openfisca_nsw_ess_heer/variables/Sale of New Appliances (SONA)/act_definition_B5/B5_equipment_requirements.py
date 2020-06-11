@@ -70,7 +70,8 @@ class B5_end_user_equipment_has_registered_volume(Variable):
 
     def formula(buildings, period, parameters):
         refrigerator_volume = buildings('refrigerator_or_freezer_capacity', period)
-        condition_volume_is_not_zero = (refrigerator_volume != 0 and refrigerator_volume is not None)
+        condition_volume_is_not_zero = ((refrigerator_volume != 0) and (refrigerator_volume != 0.0)
+        and (refrigerator_volume is not None))
         return condition_volume_is_not_zero
 
 

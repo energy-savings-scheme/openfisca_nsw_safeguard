@@ -1,0 +1,27 @@
+- name: test of B3 - Electricity Savings Factor - activity is eligible
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_1
+    number_of_refrigerator_doors: 1
+    refrigerator_star_rating: 3
+    refrigerator_or_freezer_capacity: 150
+  output:
+    B4_electricity_savings: 0
+- name: test of B3 - Electricity Savings Factor - activity is eligible
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_1
+    number_of_refrigerator_doors: 1
+    refrigerator_star_rating: 3
+    refrigerator_or_freezer_capacity: 225
+  output:
+    B4_electricity_savings: 0.5
+- name: test of B3 - Electricity Savings Factor - activity is eligible
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_1
+    number_of_refrigerator_doors: 1
+    refrigerator_star_rating: 3
+    refrigerator_or_freezer_capacity: 300
+  output:
+    B4_electricity_savings: 0

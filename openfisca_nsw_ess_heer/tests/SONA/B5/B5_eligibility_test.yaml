@@ -1,0 +1,72 @@
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 4)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_4
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+  output:
+    B5_meets_all_equipment_requirements: True
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5B)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+  output:
+    B5_meets_all_equipment_requirements: True
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5T)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5T
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+  output:
+    B5_meets_all_equipment_requirements: True
+- name: test of B5 - Electricity Savings Factor - activity is eligible (group 5S)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+  output:
+    B5_meets_all_equipment_requirements: True
+- name: test of B5 - Electricity Savings Factor - activity is ineligible (wrong group)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_7
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+  output:
+    B5_meets_all_equipment_requirements: False
+- name: test of B5 - Electricity Savings Factor - activity is ineligible (only one doors)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5B
+    number_of_refrigerator_doors: 1
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 400
+  output:
+    B5_meets_all_equipment_requirements: False
+- name: test of B5 - Electricity Savings Factor - activity is eligible (volume of 0)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 0.0
+  output:
+    B5_meets_all_equipment_requirements: False
+- name: test of B5 - Electricity Savings Factor - activity is eligible (volume of 0)
+  period: 2020
+  input:
+    refrigerator_or_freezer_group: group_5S
+    number_of_refrigerator_doors: 7
+    B5_end_user_equipment_is_labelled_for_energy_labelling: True
+    refrigerator_or_freezer_capacity: 0
+  output:
+    B5_meets_all_equipment_requirements: False

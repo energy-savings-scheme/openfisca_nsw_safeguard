@@ -1,5 +1,5 @@
 description: Table B1.1, Energy Savings Scheme Rules - Residential Building
-  Electricity Savings Factor (MWh per Lamp replaced)
+  Electricity Savings Factor (MWh per Washing Machine Sold)
 reference: Energy Savings Scheme Rule, beginning 30 March 2020.
 deemed_equipment_electricity_savings:
   four_stars:
@@ -94,16 +94,16 @@ deemed_equipment_electricity_savings:
     between_4kg_and_6_and_a_half_kg:
       values:
         2020-01-01:
-          value: 3.7
+          value: 4.0
     between_6_and_a_half_and_7kg:
       values:
         2020-01-01:
-          value: 2.6
+          value: 2.9
     between_7kg_and_7_and_a_half_kg:
       values:
         2020-01-01:
-          value: 2.2
+          value: 2.6
     more_than_7_and_a_half_kg:
       values:
         2020-01-01:
-          value: 2.3
+          value: 2.7

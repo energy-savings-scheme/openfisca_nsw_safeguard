@@ -13,17 +13,16 @@ class B7_electricity_savings(Variable):
                 ' Schedule C, Activity Definition C1.'
 
     def formula(buildings, period, parameters):
-        machine_star_rating = buildings('refrigerator_star_rating', period)  # this should be a parameter but it's not in a table in the Rule, pls advise
-        freezer_volume = buildings('refrigerator_or_freezer_capacity', period)
-        star_rating = select([machine_star_rating == 3, machine_star_rating == 3.5,
-        machine_star_rating == 4, machine_star_rating == 4.5, machine_star_rating == 5,
-        machine_star_rating == 5.5, machine_star_rating == 6, machine_star_rating == 7,
-        machine_star_rating == 8, machine_star_rating == 9, machine_star_rating == 10],
-        ["three_stars", "three_point_five_stars", "four_stars",
-        "four_point_five_stars", "five_stars", "five_point_five_stars", "six_stars",
-        "seven_stars", "eight_stars", "nine_stars", "ten_stars"])
-        volume = select([freezer_volume < 150, freezer_volume >= 150 and freezer_volume < 300,
-        freezer_volume >= 300 and freezer_volume < 500, freezer_volume >= 550],
-        ["under_150L", "150_to_300L", "300_to_500L", "over_500L"])
-        deemed_equipment_electricity_savings = (parameters(period).table_B6_1.deemed_equipment_electricity_savings[star_rating][volume])
+        television_star_rating = buildings('television_star_rating', period)  # this should be a parameter but it's not in a table in the Rule, pls advise
+        television_screen_size = buildings('television_screen_size', period)
+        star_rating = select([television_star_rating < 7,
+        television_star_rating == 7, television_star_rating == 8,
+        television_star_rating == 9, television_star_rating == 10],
+        ["under_seven_stars", "seven_stars", "eight_stars", "nine_stars", "ten_stars"])
+        screen_size = select([television_screen_size < 40,
+        television_screen_size > 40 and television_screen_size <= 65,
+        television_screen_size > 65 and television_screen_size <= 120,
+        television_screen_size >= 120],
+        ["under_40cm", "40_to_65cm", "65_to_120cm", "over_120cm"])
+        deemed_equipment_electricity_savings = (parameters(period).table_B7_1.deemed_equipment_electricity_savings[star_rating][screen_size])
         return deemed_equipment_electricity_savings

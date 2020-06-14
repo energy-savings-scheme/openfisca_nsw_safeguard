@@ -1,10 +1,360 @@
-- name: test of B2 - Electricity Savings Factor - activity is eligible
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 2.5 star rating, equipment load 3.4kg
   period: 2020
   input:
     B2_end_user_equipment_is_clothes_dryer: True
     B2_end_user_equipment_is_labelled_for_energy_labelling: True
     B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 2.5
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 0.1
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 2.5 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 2.5
     B2_end_user_equipment_load: 6.2
-    dryer_star_rating: 3.5
   output:
     B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 2.5 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 2.5
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 3 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 3
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 0.2
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 3 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 3
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 3 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 3
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 3.5 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 3.5
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 0.4
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 3.5 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 3.5
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 3.5 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 3.5
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 4 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 4
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 0.5
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 4 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 4
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 4 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 4
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 4.5 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 4.5
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 0.6
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 4.5 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 4.5
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 4.5 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 4.5
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 5 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 0.7
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 5 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 5 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 5.5 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5.5
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 0.8
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 5.5 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5.5
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 5.5 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5.5
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 6 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5.5
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 0.8
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 6 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5.5
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 6 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 5.5
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 7 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 7
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 1
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 7 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 7
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 1.3
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 7 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 7
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0.6
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 8 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 8
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 1.1
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 8 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 8
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 1.5
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 8 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 8
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 0.6
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 9 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 9
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 1.2
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 9 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 9
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 1.6
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 9 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 9
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 1.1
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 10 star rating, equipment load 3.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 10
+    B2_end_user_equipment_load: 3.4
+  output:
+    B2_electricity_savings: 1.2
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 10 star rating, equipment load 6.2kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 10
+    B2_end_user_equipment_load: 6.2
+  output:
+    B2_electricity_savings: 1.6
+- name: test of B2 - Electricity Savings Factor - activity is eligible. 10 star rating, equipment load 9.4kg
+  period: 2020
+  input:
+    B2_end_user_equipment_is_clothes_dryer: True
+    B2_end_user_equipment_is_labelled_for_energy_labelling: True
+    B2_end_user_equipment_is_combination_washer_dryer: False
+    dryer_star_rating: 10
+    B2_end_user_equipment_load: 9.4
+  output:
+    B2_electricity_savings: 1.1

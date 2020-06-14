@@ -33,7 +33,8 @@ class B7_end_user_equipment_has_registered_screen_size(Variable):
 
     def formula(buildings, period, parameters):
         screen_size = buildings('television_screen_size', period)
-        condition_screen_size_is_not_zero = (screen_size != 0 and screen_size is not None)
+        condition_screen_size_is_not_zero = ((screen_size != 0)
+        and (screen_size != 0.0) and (screen_size is not None))
         return condition_screen_size_is_not_zero
 
 
@@ -47,7 +48,7 @@ class B7_meets_all_equipment_requirements(Variable):
                 ' Schedule B, Activity Definition B1.'
 
     def formula(buildings, period, parameters):
-        in_television = buildings('B7_equipment_is_television', period)
+        is_television = buildings('B7_equipment_is_television', period)
         is_labelled_for_energy_labelling = buildings('B7_end_user_equipment_is_labelled_for_energy_labelling', period)
         has_screen_size = buildings('B7_end_user_equipment_has_registered_screen_size', period)
-        return (in_eligible_group * is_labelled_for_energy_labelling * has_volume)
+        return (is_television * is_labelled_for_energy_labelling * has_screen_size)

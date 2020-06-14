@@ -1,0 +1,16 @@
+- name: test of B3 - Electricity Savings Factor - activity is eligible
+  period: 2020
+  input:
+    B7_equipment_is_television: True
+    B7_end_user_equipment_is_labelled_for_energy_labelling: True
+    television_screen_size: 60
+  output:
+    B7_meets_all_equipment_requirements: True
+- name: test of B3 - Electricity Savings Factor - activity is eligible
+  period: 2020
+  input:
+    B7_equipment_is_television: True
+    B7_end_user_equipment_is_labelled_for_energy_labelling: True
+    television_screen_size: 0
+  output:
+    B7_meets_all_equipment_requirements: False

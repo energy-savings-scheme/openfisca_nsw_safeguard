@@ -18,7 +18,7 @@ class B6_refrigerator_is_in_eligible_group(Variable):
         in_group_6C = (refrigerator_group == RefrigeratorGroup.group_6C)
         in_group_6U = (refrigerator_group == RefrigeratorGroup.group_6U)
         in_group_7 = (refrigerator_group == RefrigeratorGroup.group_7)
-        return in_group_4 + in_group_5B + in_group_5S + in_group_5T
+        return in_group_6C + in_group_6U + in_group_7
 
 
 class B6_end_user_equipment_is_labelled_for_energy_labelling(Variable):
@@ -41,7 +41,8 @@ class B6_end_user_equipment_has_registered_volume(Variable):
 
     def formula(buildings, period, parameters):
         refrigerator_volume = buildings('refrigerator_or_freezer_capacity', period)
-        condition_volume_is_not_zero = (refrigerator_volume != 0 and refrigerator_volume is not None)
+        condition_volume_is_not_zero = ((refrigerator_volume != 0) and (refrigerator_volume != 0.0)
+        and (refrigerator_volume is not None))
         return condition_volume_is_not_zero
 
 

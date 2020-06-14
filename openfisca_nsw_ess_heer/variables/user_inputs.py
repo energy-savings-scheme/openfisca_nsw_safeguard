@@ -174,3 +174,19 @@ class refrigerator_star_rating(Variable):
     definition_period = ETERNITY
     label = 'What is the star rating for the refrigerator, as' \
             ' rated in GEMS?'
+
+
+class television_screen_size(Variable):
+    value_type = float  # note need to recode as Enum once reading AS2040
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the screen size for the television, as' \
+            ' rated in GEMS?'
+
+
+class television_star_rating(Variable):
+    value_type = float  # note need to recode as Enum once reading AS2040
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the star rating for the television, as' \
+            ' rated in GEMS?'

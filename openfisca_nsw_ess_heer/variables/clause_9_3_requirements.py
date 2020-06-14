@@ -16,13 +16,13 @@ class meets_all_equipment_requirements(Variable):
 
     def formula(buildings, period, parameters):
         activity_definition = buildings('SONA_activity_definition', period)
-        B1_activity = activity_definition = SONAActivityDefinition.B1
-        B2_activity = activity_definition = SONAActivityDefinition.B2
-        B3_activity = activity_definition = SONAActivityDefinition.B3
-        B4_activity = activity_definition = SONAActivityDefinition.B4
-        B5_activity = activity_definition = SONAActivityDefinition.B5
-        B6_activity = activity_definition = SONAActivityDefinition.B6
-        B7_activity = activity_definition = SONAActivityDefinition.B7
+        B1_activity = (activity_definition == SONAActivityDefinition.B1)
+        B2_activity = (activity_definition == SONAActivityDefinition.B2)
+        B3_activity = (activity_definition == SONAActivityDefinition.B3)
+        B4_activity = (activity_definition == SONAActivityDefinition.B4)
+        B5_activity = (activity_definition == SONAActivityDefinition.B5)
+        B6_activity = (activity_definition == SONAActivityDefinition.B6)
+        B7_activity = (activity_definition == SONAActivityDefinition.B7)
         B1_equipment_requirements = buildings('B1_meets_all_equipment_requirements', period)
         B2_equipment_requirements = buildings('B2_meets_all_equipment_requirements', period)
         B3_equipment_requirements = buildings('B3_meets_all_equipment_requirements', period)
@@ -44,6 +44,15 @@ class equipment_is_sold_by_appliance_retailer(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Is each item of End-User Equipment sold by a Retailer?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 9.3.1 (b) - Sale of New Appliances.'
+
+
+class equipment_retailer(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the name of the retailer who sold the end user equipment?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' clause 9.3.1 (b) - Sale of New Appliances.'
 
@@ -87,7 +96,6 @@ class delivery_or_sold_address_recorded(Variable):
     #  below, to be more than zero - but note it doesn't require the Address to be \
     #  recorded if it's delivered.
 
-
     def formula(buildings, period, parameters):
         delivered_to_address = buildings('equipment_is_delivered_to_address', period)
         sold_with_recorded_address = buildings('equipment_sold_with_recorded_address', period)
@@ -117,30 +125,43 @@ class date_of_sale(Variable):
                 ' clause 9.3.2 - Sale of New Appliances.'
 
 
-class SONA_installation_date(Variable):
-    value_type = date
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the Installation Date of the End User Equipment?'
-    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
-                ' clause 9.3.2 - Sale of New Appliances.'
-
-    def formula(buildings, period, parameters):
-        date_of_sale = buildings('date_of_sale', period)
-        return date_of_sale
-
-
 class implementation_site(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
     label = 'What is the site of the Implementation?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
-                ' clause 9.3.1 (d) - Sale of New Appliances.'
+                ' clause 9.3.3 - Sale of New Appliances.'
 
     def formula(buildings, period, parameters):
         delivery_or_purchaser_address = buildings('delivery_or_purchaser_address', period)
         return delivery_or_purchaser_address
+
+
+class SONA_installation_date(Variable):
+    value_type = date
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the Installation Date of the End User Equipment?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 9.3.4 - Sale of New Appliances.'
+
+    def formula(buildings, period, parameters):
+        date_of_sale = buildings('date_of_sale', period)
+        return date_of_sale
+
+
+class SONA_energy_saver(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Who is the Energy Saver for the Implementation?'
+    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+                ' clause 9.3.5 - Sale of New Appliances.'
+
+    def formula(buildings, period, parameters):
+        retailer = buildings('equipment_retailer', period)
+        return retailer
 
 
 class SONAActivityDefinition(Enum):

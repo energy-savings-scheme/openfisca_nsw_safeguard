@@ -1,32 +1,11 @@
-- name: test of B3 - Electricity Savings Factor - activity is eligible
+- name: test of B4 - Deemed Equipment Electricity Savings - activity is eligible,
+    refrigerator group 1, 3 star rating, 150L capacity
   period: 2020
   input:
-    B3_end_user_equipment_is_dishwasher: True
-    B3_end_user_equipment_is_labelled_for_energy_labelling: True
-    B3_number_of_place_settings: 4
+    refrigerator_or_freezer_group: group_1
+    B4_end_user_equipment_is_labelled_for_energy_labelling: True
+    number_of_refrigerator_doors: 1
+    refrigerator_star_rating: 3
+    refrigerator_or_freezer_capacity: 150
   output:
-    B3_meets_all_equipment_requirements: True
-- name: test of B3 - Electricity Savings Factor - activity is not eligible (is not dishwasher)
-  period: 2020
-  input:
-    B3_end_user_equipment_is_dishwasher: False
-    B3_end_user_equipment_is_labelled_for_energy_labelling: True
-    B3_number_of_place_settings: 13
-  output:
-    B3_meets_all_equipment_requirements: False
-- name: test of B3 - Electricity Savings Factor - activity is not eligible (is not labelled for energy labelling)
-  period: 2020
-  input:
-    B3_end_user_equipment_is_dishwasher: True
-    B3_end_user_equipment_is_labelled_for_energy_labelling: False
-    B3_number_of_place_settings: 13
-  output:
-    B3_meets_all_equipment_requirements: False
-- name: test of B3 - Electricity Savings Factor - activity is not eligible (has no place settings)
-  period: 2020
-  input:
-    B3_end_user_equipment_is_dishwasher: True
-    B3_end_user_equipment_is_labelled_for_energy_labelling: True
-    B3_number_of_place_settings: 0
-  output:
-    B3_meets_all_equipment_requirements: False
+    B4_meets_all_equipment_requirements: True

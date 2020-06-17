@@ -1,0 +1,320 @@
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.52
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.44
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.35
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_and_driver
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.54
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_and_driver
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.46
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_and_driver
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.39
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_luminaire_recessed
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.54
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_luminaire_recessed
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.46
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_luminaire_recessed
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.39
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.54
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.46
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp and Driver or LED Luminaire - recessed and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.39
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: infrared_coated_ELV
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.52
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: infrared_coated_ELV
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.44
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: infrared_coated_ELV
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.35
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.54
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.46
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.39
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: infrared_coated_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.54
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: infrared_coated_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.46
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: infrared_coated_ELV
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.39
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.68
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.6
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_lamp_only_ELV
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.53
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.6
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_lamp_only_240V_self_ballasted
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.53
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_lamp_and_driver
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.68
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_lamp_and_driver
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.6
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_lamp_and_driver
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.53
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 3W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_luminaire_recessed
+    new_lamp_circuit_power: 3
+  output:
+   E1_residential_savings_factor: 0.68
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 8W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_luminaire_recessed
+    new_lamp_circuit_power: 8
+  output:
+   E1_residential_savings_factor: 0.6
+- name: Test Electricity Savings for Activity Definition E1.
+    For existing lamp type of Tungsten Halogen ELV and new lamp type of
+     LED Lamp only – 240V Self Ballasted or LED Lamp and Driver or LED recessed and new lamp LCP of 13W
+  period: 2020
+  input:
+    existing_lamp_type: tungsten_halogen_240V
+    new_lamp_type: LED_luminaire_recessed
+    new_lamp_circuit_power: 13
+  output:
+   E1_residential_savings_factor: 0.53

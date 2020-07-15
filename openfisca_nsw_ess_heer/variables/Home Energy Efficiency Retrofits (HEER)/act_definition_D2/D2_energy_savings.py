@@ -66,7 +66,7 @@ class D2_residential_gas_savings_factor(Variable):
         return residential_gas_savings_factor
 
 
-class D1_small_business_electricity_savings_factor(Variable):
+class D2_small_business_electricity_savings_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -97,7 +97,7 @@ class D1_small_business_electricity_savings_factor(Variable):
         return small_business_electricity_savings_factor
 
 
-class D1_small_business_gas_savings_factor(Variable):
+class D2S_small_business_gas_savings_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

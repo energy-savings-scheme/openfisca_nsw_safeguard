@@ -94,7 +94,7 @@ class new_product_WERS_heating_star_rating(Variable):
     label = "What is the WERS rating in heating mode, following installation of the new glazing product?"
 
 
-class above_minimum_WERS_heating_rating(Variable):
+class D2_above_minimum_WERS_heating_rating(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

@@ -1,67 +1,66 @@
-description: Values from Table D2.5. 
-reference:
-Energy Savings Scheme Rule, beginning 30 March 2020.
+description: Values from Table D2.5.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
 small_business_gas_savings_factor:
-  Uw ≤ 3:
+  uW_less_than_3:
     climate_zones_2_and_3:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0
     climate_zone_4:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.02
     climate_zone_5:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zone_6:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zones_7_and_8:
       values:
-        2020-01-01: 
+        2020-01-01:
            value: 0.05
-  Uw  ≤ 2:
+  uW_less_than_2:
     climate_zones_2_and_3:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0
     climate_zone_4:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.02
     climate_zone_5:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zone_6:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zones_7_and_8:
       values:
-        2020-01-01: 
+        2020-01-01:
            value: 0.05
-  Uw  ≤ 1:
+  uW_less_than_1:
     climate_zones_2_and_3:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0
     climate_zone_4:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.02
     climate_zone_5:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zone_6:
       values:
-        2020-01-01: 
+        2020-01-01:
           value: 0.01
     climate_zones_7_and_8:
       values:
-        2020-01-01: 
+        2020-01-01:
            value: 0.05

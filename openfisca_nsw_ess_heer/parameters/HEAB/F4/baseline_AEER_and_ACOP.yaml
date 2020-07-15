@@ -1,0 +1,173 @@
+description: Table F4.2, Energy Savings Scheme Rules - Residential Building
+  Electricity Savings Factor (MWh per Washing Machine Sold)
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+AEER:
+  product_class_one:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_two:
+    values:
+      2021-04-01:
+        value: 2.50
+  product_class_three:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_four:
+    values:
+      2021-04-01:
+        value: 2.50
+  product_class_five:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_six:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_seven:
+    values:
+      2021-04-01:
+        value: 2.90
+  product_class_eight:
+    values:
+      2021-04-01:
+        value: 3.66
+  product_class_nine:
+    values:
+      2021-04-01:
+        value: 3.22
+  product_class_ten:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_eleven:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_twelve:
+    values:
+      2021-04-01:
+        value: 2.90
+  product_class_thirteen:
+    values:
+      2021-04-01:
+        value: 3.66
+  product_class_fourteen:
+    values:
+      2021-04-01:
+        value: 3.22
+  product_class_fifteen:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_sixteen:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_seventeen:
+    values:
+      2021-04-01:
+        value: 2.90
+  product_class_eighteen:
+    values:
+      2021-04-01:
+        value: 3.66
+  product_class_nineteen:
+    values:
+      2021-04-01:
+        value: 3.22
+  product_class_twenty:
+    values:
+      2021-04-01:
+        value: 3.10
+  product_class_twenty_one:
+    values:
+      2021-04-01:
+        value: 2.90
+ACOP:
+  product_class_one:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_two:
+    values:
+      2021-04-01:
+        value: 1.75
+  product_class_three:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_four:
+    values:
+      2021-04-01:
+        value: 1.75
+  product_class_five:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_six:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_seven:
+    values:
+      2021-04-01:
+        value: 1.95
+  product_class_eight:
+    values:
+      2021-04-01:
+        value: 2.33
+  product_class_nine:
+    values:
+      2021-04-01:
+        value: 2.11
+  product_class_ten:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_eleven:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_twelve:
+    values:
+      2021-04-01:
+        value: 1.95
+  product_class_thirteen:
+    values:
+      2021-04-01:
+        value: 2.33
+  product_class_fourteen:
+    values:
+      2021-04-01:
+        value: 2.11
+  product_class_fifteen:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_sixteen:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_seventeen:
+    values:
+      2021-04-01:
+        value: 1.95
+  product_class_eighteen:
+    values:
+      2021-04-01:
+        value: 2.33
+  product_class_nineteen:
+    values:
+      2021-04-01:
+        value: 2.11
+  product_class_twenty:
+    values:
+      2021-04-01:
+        value: 2.05
+  product_class_twenty_one:
+    values:
+      2021-04-01:
+        value: 1.95

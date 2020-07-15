@@ -10,6 +10,7 @@ class new_lamp_circuit_power(Variable):
     definition_period = ETERNITY
     label = 'Allows the user to input the Lamp Circuit Power for the new lamp' \
             'in W, as measured in accordance with Table A9.4.'
+    #  need to put in what activities this is relevant for
 
 
 class existing_lamp_LCP(Variable):
@@ -18,6 +19,7 @@ class existing_lamp_LCP(Variable):
     definition_period = ETERNITY
     label = 'Allows the user to input the Lamp Circuit Power for the new lamp' \
             'in W, as measured in accordance with Table A9.4.'
+    #  need to put in what activities this is relevant for
 
 
 class new_lamp_light_output(Variable):
@@ -26,6 +28,7 @@ class new_lamp_light_output(Variable):
     definition_period = ETERNITY
     label = 'Allows the user to input the light output for the new lamp' \
             'in lm, as measured in accordance with Table A9.4.'
+    #  need to put in what activities this is relevant for
 
 
 class existing_lamp_light_output(Variable):
@@ -34,6 +37,7 @@ class existing_lamp_light_output(Variable):
     definition_period = ETERNITY
     label = 'Allows the user to input the light output for the existing lamp' \
             'in lm, as measured in accordance with Table A9.4.'
+    #  need to put in what activities this is relevant for
 
 
 class BCAClimateZone(Enum):
@@ -44,6 +48,7 @@ class BCAClimateZone(Enum):
     BCA_Climate_Zone_6 = 'Implementation takes place in BCA Climate Zone 6.'
     BCA_Climate_Zones_7_and_8 = 'Implementation takes place in BCA Climate' \
                                 ' Zone 7 or BCA Climate Zone 8.'
+    #  need to put in what activities this is relevant for
 
 
 class BCA_Climate_Zone(Variable):
@@ -54,6 +59,7 @@ class BCA_Climate_Zone(Variable):
     definition_period = ETERNITY
     label = 'Defines what Climate Zone, as defined by the BCA, the' \
             ' Implementation is conducted within.'
+    #  need to put in what activities this is relevant for
 
 
 class BuildingType(Enum):
@@ -75,6 +81,7 @@ class BuildingType(Enum):
                           ' Seller, and has an annual electricity consumption' \
                           ' below the Upper Consumption Threshold for' \
                           ' electricity.'
+    #  need to put in what activities this is relevant for
 
 
 class building_type(Variable):
@@ -84,6 +91,7 @@ class building_type(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Defines what building type the Implementation is conducted within.'
+    #  need to put in what activities this is relevant for
 
 
 class ImplementationState(Enum):
@@ -95,6 +103,7 @@ class ImplementationState(Enum):
     TAS = u"Implementation is in TAS."
     VIC = u"Implementation is in VIC."
     WA = u"Implementation is in WA."
+    #  need to put in what activities this is relevant for
 
 
 class implementation_state(Variable):
@@ -104,6 +113,7 @@ class implementation_state(Variable):
     default_value = ImplementationState.NSW
     definition_period = ETERNITY
     label = "State within which the relevant NABERS rated building is located."
+    #  need to put in what activities this is relevant for
 
 
 class RefrigeratorGroup(Enum):
@@ -117,6 +127,7 @@ class RefrigeratorGroup(Enum):
     group_6C = u"Refrigerator is in Group 6C."
     group_6U = u"Refrigerator is in Group 6U."
     group_7 = u"Refrigerator is in Group 7."
+    #  need to put in what activities this is relevant for
 
 
 class refrigerator_or_freezer_group(Variable):
@@ -126,6 +137,7 @@ class refrigerator_or_freezer_group(Variable):
     default_value = RefrigeratorGroup.group_1
     definition_period = ETERNITY
     label = "What is the refrigerator group for the new End User Equipment?"
+    #  need to put in what activities this is relevant for
 
 
 class refrigerator_or_freezer_capacity(Variable):
@@ -135,6 +147,7 @@ class refrigerator_or_freezer_capacity(Variable):
     label = 'What is the capacity of the refrigerator or freezer, in L?'
     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
                 ' Schedule C, Activity Definition C1, Equipment Requirement 3.'
+    #  need to put in what activities this is relevant for
 
 
 class washing_machine_star_rating(Variable):
@@ -143,6 +156,7 @@ class washing_machine_star_rating(Variable):
     definition_period = ETERNITY
     label = 'What is the star rating for the clothes washing machine, as' \
             ' rated in GEMS?'
+    #  need to put in what activities this is relevant for
 
 
 class dryer_star_rating(Variable):
@@ -151,6 +165,7 @@ class dryer_star_rating(Variable):
     definition_period = ETERNITY
     label = 'What is the star rating for the clothes washing machine, as' \
             ' rated in GEMS?'
+    # for use in Activity Definition B3.
 
 
 class dishwasher_star_rating(Variable):
@@ -159,6 +174,7 @@ class dishwasher_star_rating(Variable):
     definition_period = ETERNITY
     label = 'What is the star rating for the dishwasher, as' \
             ' rated in GEMS?'
+    # for use in Activity Definition B3.
 
 
 class number_of_refrigerator_doors(Variable):
@@ -166,6 +182,7 @@ class number_of_refrigerator_doors(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'How many doors does the refrigerator have?'
+    # for use in Activity Definition B4, B5.
 
 
 class refrigerator_star_rating(Variable):
@@ -174,6 +191,7 @@ class refrigerator_star_rating(Variable):
     definition_period = ETERNITY
     label = 'What is the star rating for the refrigerator, as' \
             ' rated in GEMS?'
+    # for use in Activity Definition B4, B5, B6.
 
 
 class television_screen_size(Variable):
@@ -182,6 +200,7 @@ class television_screen_size(Variable):
     definition_period = ETERNITY
     label = 'What is the screen size for the television, as' \
             ' rated in GEMS?'
+    # for use in Activity Definition B7.
 
 
 class television_star_rating(Variable):
@@ -190,3 +209,50 @@ class television_star_rating(Variable):
     definition_period = ETERNITY
     label = 'What is the star rating for the television, as' \
             ' rated in GEMS?'
+    # for use in Activity Definition B7.
+
+
+class D1_system_U_value(Variable):
+    value_type = float  # note need to recode as Enum once reading AS2040
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the system U-Value for the thermally efficient window' \
+            ' or door?'
+    # for use in Activity Definition D1.
+
+
+class D2_system_U_value(Variable):
+    value_type = float  # note need to recode as Enum once reading AS2040
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the system U-Value for the thermally efficient window' \
+            ' or door?'
+    # for use in Activity Definition D2.
+
+
+class AS3823CoolingStarRating(Enum):
+    no_rating = u'Equipment has no star rating.'
+    one_star = u'Equipment has a Star Rating of 1 star, as defined in AS3823.2.'
+    one_and_a_half_stars = u'Equipment has a Star Rating of 1.5 stars, as defined in AS3823.2.'
+    two_stars = u'Equipment has a Star Rating of 2 stars, as defined in AS3823.2.'
+    two_and_a_half_stars = u'Equipment has a Star Rating of 2.5 stars, as defined in AS3823.2.'
+    three_stars = u'Equipment has a Star Rating of 3 stars, as defined in AS3823.2.'
+    three_and_a_half_stars = u'Equipment has a Star Rating of 3.5 stars, as defined in AS3823.2.'
+    four_stars = u'Equipment has a Star Rating of 4 stars, as defined in AS3823.2.'
+    four_and_a_half_stars = u'Equipment has a Star Rating of 4.5 stars, as defined in AS3823.2.'
+    five_stars = u'Equipment has a Star Rating of 5 stars, as defined in AS3823.2.'
+    five_and_a_half_stars = u'Equipment has a Star Rating of 5.5 stars, as defined in AS3823.2.'
+    six_stars = u'Equipment has a Star Rating of 6 stars, as defined in AS3823.2.'
+    seven_stars = u'Equipment has a Star Rating of 7 stars, as defined in AS3823.2.'
+    eight_stars = u'Equipment has a Star Rating of 8 stars, as defined in AS3823.2.'
+    nine_stars = u'Equipment has a Star Rating of 9 stars, as defined in AS3823.2.'
+    ten_stars = u'Equipment has a Star Rating of 10 stars, as defined in AS3823.2.'
+
+
+class air_con_cooling_rating(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = AS3823CoolingStarRating
+    default_value = AS3823CoolingStarRating.no_rating
+    definition_period = ETERNITY
+    label = 'What is the cooling star rating for the air conditioner, as defined in AS3823.2?'

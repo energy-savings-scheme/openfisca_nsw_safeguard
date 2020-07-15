@@ -1,0 +1,67 @@
+description: Values from Table D1.3. 
+reference:
+Energy Savings Scheme Rule, beginning 30 March 2020.
+residential_gas_savings_factor:
+  Uw  ≤ 3:
+    climate_zones_2_and_3:
+      values:
+        2020-01-01: 
+          value: 0.09
+    climate_zone_4:
+      values:
+        2020-01-01: 
+          value: 0.26
+    climate_zone_5:
+      values:
+        2020-01-01: 
+          value: 0.13
+    climate_zone_6:
+      values:
+        2020-01-01: 
+          value: 0.18
+    climate_zones_7_and_8:
+      values:
+        2020-01-01: 
+           value: 0.39
+  Uw  ≤ 2:
+    climate_zones_2_and_3:
+      values:
+        2020-01-01: 
+          value: 0.11
+    climate_zone_4:
+      values:
+        2020-01-01: 
+          value: 0.3
+    climate_zone_5:
+      values:
+        2020-01-01: 
+          value: 0.14
+    climate_zone_6:
+      values:
+        2020-01-01: 
+          value: 0.2
+    climate_zones_7_and_8:
+      values:
+        2020-01-01: 
+           value: 0.46
+  Uw  ≤ 1:
+    climate_zones_2_and_3:
+      values:
+        2020-01-01: 
+          value: 0.12
+    climate_zone_4:
+      values:
+        2020-01-01: 
+          value: 0.33
+    climate_zone_5:
+      values:
+        2020-01-01: 
+          value: 0.16
+    climate_zone_6:
+      values:
+        2020-01-01: 
+          value: 0.23
+    climate_zones_7_and_8:
+      values:
+        2020-01-01: 
+           value: 0.53

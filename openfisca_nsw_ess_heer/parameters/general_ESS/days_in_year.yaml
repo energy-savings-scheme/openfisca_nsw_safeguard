@@ -1,0 +1,5 @@
+description: Number of days in a year, to 2 dcp.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+values:
+  2021-04-01:
+    value: 365.24

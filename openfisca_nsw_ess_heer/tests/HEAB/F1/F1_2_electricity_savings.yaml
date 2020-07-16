@@ -1,0 +1,50 @@
+- name: Test electricity savings for proposed Activity Definition F1.2, for 2021 RC
+    for model no. SD521LV
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    F1_2_daily_total_electricity_consumption: 4.334
+    F1_2_net_volume: 394
+    F1_product_class: product_class_five
+  output:
+    F1_2_electricity_savings: -2.4356540736000003
+- name: Test electricity savings for proposed Activity Definition F1.2, for 2021 RC
+    for model no. VSJ755
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    F1_2_daily_total_electricity_consumption: 4.4
+    F1_2_net_volume: 320
+    F1_product_class: product_class_five
+  output:
+    F1_2_electricity_savings: -4.126919808000001
+- name: Test electricity savings for proposed Activity Definition F1.2, for 2021 RC
+    for model no. EFE3802
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    F1_2_daily_total_electricity_consumption: 2.118
+    F1_2_net_volume: 258
+    F1_product_class: product_class_five
+  output:
+    F1_2_electricity_savings: 1.2854694848
+- name: Test electricity savings for proposed Activity Definition F1.2, for 2021 RC
+    for model no. AT400
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    F1_2_daily_total_electricity_consumption: 4.78
+    F1_2_net_volume: 378
+    F1_product_class: product_class_five
+  output:
+    F1_2_electricity_savings: -4.062812883200003
+- name: Test electricity savings for proposed Activity Definition F1.2, for 2021 RC
+    for model no. EFI5603
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    F1_2_daily_total_electricity_consumption: 3.639
+    F1_2_net_volume: 485
+    F1_product_class: product_class_five
+  output:
+    F1_2_electricity_savings: 1.617447078000001

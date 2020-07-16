@@ -1,0 +1,30 @@
+- name: Test electricity savings for proposed Activity Definition F1.1, for 2021 RC
+    for model no. Dolce Vita Elle 13
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    F1_4_daily_total_electricity_consumption: 16.88
+    F1_4_total_display_area: 0.77
+    F1_product_class: product_class_six
+  output:
+    F1_4_electricity_savings: 29.705407488000002
+- name: Test electricity savings for proposed Activity Definition F1.1, for 2021 RC
+    for model no. Mirrabella 6
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    F1_4_daily_total_electricity_consumption: 11.25
+    F1_4_total_display_area: 0.36
+    F1_product_class: product_class_six
+  output:
+    F1_4_electricity_savings: 17.020768384000007
+- name: Test electricity savings for proposed Activity Definition F1.1, for 2021 RC
+    for model no. GD0007S
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    F1_4_daily_total_electricity_consumption: 6.13
+    F1_4_total_display_area: 0.6
+    F1_product_class: product_class_six
+  output:
+    F1_4_electricity_savings: 49.035661440000005

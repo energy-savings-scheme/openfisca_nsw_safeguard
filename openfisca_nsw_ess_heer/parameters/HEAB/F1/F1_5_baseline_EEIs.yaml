@@ -1,0 +1,56 @@
+description: Table B1.1, Energy Savings Scheme Rules - Residential Building
+  Electricity Savings Factor (MWh per Washing Machine Sold)
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+EEI:
+  product_class_three:
+    heavy_duty:
+      values:
+        2021-04-01:
+          value: 90
+    normal_duty:
+      values:
+        2021-04-01:
+          value: 77
+    light_duty:
+      values:
+        2021-04-01:
+          value: 77
+  product_class_four:
+    heavy_duty:
+      values:
+        2021-04-01:
+          value: 90
+    normal_duty:
+      values:
+        2021-04-01:
+          value: 77
+    light_duty:
+      values:
+        2021-04-01:
+          value: 77
+  product_class_nine:
+    heavy_duty:
+      values:
+        2021-04-01:
+          value: 90
+    normal_duty:
+      values:
+        2021-04-01:
+          value: 77
+    light_duty:
+      values:
+        2021-04-01:
+          value: 77
+  product_class_ten:
+    heavy_duty:
+      values:
+        2021-04-01:
+          value: 90
+    normal_duty:
+      values:
+        2021-04-01:
+          value: 77
+    light_duty:
+      values:
+        2021-04-01:
+          value: 77

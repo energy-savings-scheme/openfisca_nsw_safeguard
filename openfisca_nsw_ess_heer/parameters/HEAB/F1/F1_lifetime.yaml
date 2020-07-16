@@ -1,0 +1,130 @@
+description: Table B1.1, Energy Savings Scheme Rules - Residential Building
+  Electricity Savings Factor (MWh per Washing Machine Sold)
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+lifetime:
+  product_class_one:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+  product_class_two:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+  product_class_three:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+  product_class_four:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+  product_class_five:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+  product_class_six:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+  product_class_seven:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+  product_class_eight:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+  product_class_ten:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+  product_class_eleven:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 8
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+  product_class_twelve:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+  product_class_thirteen:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+  product_class_fourteen:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+  product_class_fifteen:
+    tda_less_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12
+    tda_more_than_three_point_three:
+      values:
+        2021-04-01:
+          value: 12

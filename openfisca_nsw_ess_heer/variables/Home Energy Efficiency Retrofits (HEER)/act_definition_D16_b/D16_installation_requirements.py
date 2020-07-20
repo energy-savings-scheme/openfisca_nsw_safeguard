@@ -4,21 +4,21 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class D16_a_existing_end_user_equipment_is_disconnected(Variable):
+class D16_b_existing_end_user_equipment_is_disconnected(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Has the existing End User Equipment been disconnected?'
 
 
-class D16_a_existing_end_user_equipment_is_removed(Variable):
+class D16_b_existing_end_user_equipment_is_removed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Has the existing End User Equipment been removed?'
 
 
-class D16_a_existing_EUE_is_disconnected_and_removed(Variable):
+class D16_b_existing_EUE_is_disconnected_and_removed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -30,14 +30,14 @@ class D16_a_existing_EUE_is_disconnected_and_removed(Variable):
         return has_been_disconnected * has_been_removed
 
 
-class D16_a_new_EUE_is_installed(Variable):
+class D16_b_new_EUE_is_installed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Has the new End User Equipment been installed?'
 
 
-class D16_a_activity_is_performed_by_qualified_person(Variable):
+class D16_b_activity_is_performed_by_qualified_person(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -48,7 +48,7 @@ class D16_a_activity_is_performed_by_qualified_person(Variable):
             ' standards?'
 
 
-class D16_a_activity_is_supervised_by_qualified_person(Variable):
+class D16_b_activity_is_supervised_by_qualified_person(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -59,7 +59,7 @@ class D16_a_activity_is_supervised_by_qualified_person(Variable):
             ' standards?'
 
 
-class D16_a_activity_is_performed_or_supervised_by_qualified_person(Variable):
+class D16_b_activity_is_performed_or_supervised_by_qualified_person(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -70,12 +70,12 @@ class D16_a_activity_is_performed_or_supervised_by_qualified_person(Variable):
             ' standards?'
 
     def formula(buildings, period, parameters):
-        performed_by_qualified_person = buildings('D16_a_activity_is_performed_by_qualified_person', period)
-        supervised_by_qualified_person = buildings('D16_a_activity_is_supervised_by_qualified_person', period)
+        performed_by_qualified_person = buildings('activity_is_performed_by_qualified_person', period)
+        supervised_by_qualified_person = buildings('activity_is_supervised_by_qualified_person', period)
         return (performed_by_qualified_person + supervised_by_qualified_person)
 
 
-class D16_a_meets_all_implementation_requirements(Variable):
+class D16_b_meets_all_implementation_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -83,7 +83,7 @@ class D16_a_meets_all_implementation_requirements(Variable):
             ' in Activity Definition F16 - version A?'
 
     def formula(buildings, period, parameters):
-        existing_equipment_disconnected_and_removed = buildings('D16_a_existing_EUE_is_disconnected_and_removed', period)
-        new_equipment_installed = buildings('D16_a_new_EUE_is_installed', period)
-        performed_or_supervised_by_qualified_person = buildings('D16_a_activity_is_performed_or_supervised_by_qualified_person', period)
+        existing_equipment_disconnected_and_removed = buildings('existing_EUE_is_disconnected_and_removed', period)
+        new_equipment_installed = buildings('new_EUE_is_installed', period)
+        performed_or_supervised_by_qualified_person = buildings('activity_is_performed_or_supervised_by_qualified_person', period)
         return (existing_equipment_disconnected_and_removed * new_equipment_installed * performed_or_supervised_by_qualified_person)

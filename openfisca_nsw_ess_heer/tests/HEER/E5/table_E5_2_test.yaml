@@ -1,9 +1,0 @@
-- name: test of Table E4.1 - 2 foot replacement lamp
-  period: 2020
-  input:
-    E5_existing_lamp_length: 600
-    E5_number_of_existing_lamps: 1
-    new_lamp_light_output: 650
-    new_lamp_circuit_power: 7
-  output:
-    E5_small_business_savings_factor: 0.42

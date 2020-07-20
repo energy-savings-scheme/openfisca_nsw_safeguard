@@ -284,3 +284,18 @@ class F1_product_class(Variable):
     definition_period = ETERNITY
     label = 'What is the product class for the RDC installed in Activity' \
             ' Definition F1?'
+
+
+class HeatPumpSystemSize(Enum):
+    small_system = 'Heat pump is a small heat pump system.'
+    medium_system = 'Heat pump is a medium heat pump system.'
+
+
+class heat_pump_system_size(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = HeatPumpSystemSize
+    default_value = HeatPumpSystemSize.small_system
+    definition_period = ETERNITY
+    label = 'What is the system size for the heat pump system installed in' \
+            ' proposed Activity Definitions D16-D22?'

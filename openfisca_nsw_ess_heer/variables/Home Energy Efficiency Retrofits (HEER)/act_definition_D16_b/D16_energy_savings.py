@@ -3,7 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 
-class D16_a_deemed_activity_electricity_savings(Variable):
+class D16_b_deemed_activity_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -25,17 +25,17 @@ class D16_a_deemed_activity_electricity_savings(Variable):
                                         "HP5_AU"])  # need to confirm mapping of BCA climate zones to HP climate zones
         heat_pump_system_size = buildings('heat_pump_system_size', period)
         HeatPumpSystemSize = heat_pump_system_size.possible_values  # imports functionality of heat pump system size enum from user_inputs
-        supplementary_energy = buildings('D16_a_annual_supplementary_energy', period)
+        supplementary_energy = buildings('D16_b_annual_supplementary_energy', period)
         supplementary_energy_MWh = supplementary_energy / parameters(period).general_ESS.GJ_to_MWh
-        electricial_energy = buildings('D16_a_annual_electrical_energy', period)
+        electricial_energy = buildings('D16_b_annual_electrical_energy', period)
         electricial_energy_MWh = electricial_energy / parameters(period).general_ESS.GJ_to_MWh
-        baseline_A = parameters(period).HEER.D16.table_D16_a_baseline_A[heat_pump_system_size]
-        coefficient_a = parameters(period).HEER.D16.table_D16_a_coefficient_a[HP_climate_zone]
+        baseline_A = parameters(period).HEER.D16.table_D16_b_baseline_A[heat_pump_system_size]
+        coefficient_a = parameters(period).HEER.D16.table_D16_b_coefficient_a[HP_climate_zone]
         electricity_savings_factor = (baseline_A - coefficient_a * (supplementary_energy_MWh + electricial_energy_MWh))
         return electricity_savings_factor
 
 
-class D16_a_annual_supplementary_energy(Variable):
+class D16_b_annual_supplementary_energy(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -43,7 +43,7 @@ class D16_a_annual_supplementary_energy(Variable):
             ' measured in GJ?'
 
 
-class D16_a_annual_electrical_energy(Variable):
+class D16_b_annual_electrical_energy(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -3,16 +3,16 @@
   input:
     BCA_Climate_Zone: BCA_Climate_Zones_7_and_8
     heat_pump_system_size: small_system
-    D17_a_annual_supplementary_energy: 20
-    D17_a_annual_electrical_energy: 20
+    D17_a_annual_supplementary_energy: 3.708
+    D17_a_annual_electrical_energy: 0
   output:
-    D17_a_deemed_activity_electricity_savings: 2.5
+    D17_a_deemed_activity_electricity_savings: 13.68
 - name: test of proposed Activity Definition D17 - version A (VEU Registry integration)
   period: 2022
   input:
     BCA_Climate_Zone: BCA_Climate_Zones_7_and_8
     heat_pump_system_size: medium_system
-    D17_a_annual_supplementary_energy: 20
-    D17_a_annual_electrical_energy: 20
+    D17_a_annual_supplementary_energy: 6.104
+    D17_a_annual_electrical_energy: 0
   output:
-    D17_a_deemed_activity_electricity_savings: 2.5
+    D17_a_deemed_activity_electricity_savings: 20.01

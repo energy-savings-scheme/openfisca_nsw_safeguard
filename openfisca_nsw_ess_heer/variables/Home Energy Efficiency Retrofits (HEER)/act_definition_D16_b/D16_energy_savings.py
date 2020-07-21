@@ -26,12 +26,12 @@ class D16_b_deemed_activity_electricity_savings(Variable):
         heat_pump_system_size = buildings('heat_pump_system_size', period)
         HeatPumpSystemSize = heat_pump_system_size.possible_values  # imports functionality of heat pump system size enum from user_inputs
         supplementary_energy = buildings('D16_b_annual_supplementary_energy', period)
-        supplementary_energy_MWh = supplementary_energy / parameters(period).general_ESS.GJ_to_MWh
+        supplementary_energy  = supplementary_energy / parameters(period).general_ESS.GJ_to_MWh
         electricial_energy = buildings('D16_b_annual_electrical_energy', period)
-        electricial_energy_MWh = electricial_energy / parameters(period).general_ESS.GJ_to_MWh
+        electricial_energy = electricial_energy / parameters(period).general_ESS.GJ_to_MWh
         baseline_A = parameters(period).HEER.D16.table_D16_b_baseline_A[heat_pump_system_size]
         coefficient_a = parameters(period).HEER.D16.table_D16_b_coefficient_a[HP_climate_zone]
-        electricity_savings_factor = (baseline_A - coefficient_a * (supplementary_energy_MWh + electricial_energy_MWh))
+        electricity_savings_factor = (baseline_A - coefficient_a * (supplementary_energy  + electricial_energy))
         return electricity_savings_factor
 
 

@@ -14,7 +14,7 @@ class is_registered_in_GEMS(Variable):
     # dropdown from said Registry in the form of an Enum?
 
 
-class complies_with_GEMS_2019_AC(Variable):
+class F4_complies_with_GEMS_2019_AC(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class complies_with_GEMS_2019_AC(Variable):
     # what does complying with this Determination mean?
 
 
-class complies_with_GEMS_2013_AC(Variable):
+class F4_complies_with_GEMS_2013_AC(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

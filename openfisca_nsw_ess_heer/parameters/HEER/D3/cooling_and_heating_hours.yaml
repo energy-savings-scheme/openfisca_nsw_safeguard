@@ -1,0 +1,29 @@
+description: Table B1.1, Energy Savings Scheme Rules - Residential Building
+  Electricity Savings Factor (MWh per Washing Machine Sold)
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+cooling_hours:
+  hot_zone:
+    values:
+      2021-04-01:
+        value: 1274
+  average_zone:
+    values:
+      2021-04-01:
+        value: 429
+  cold_zone:
+    values:
+      2021-04-01:
+        value: 285
+heating_hours:
+  hot_zone:
+    values:
+      2021-04-01:
+        value: 109
+  average_zone:
+    values:
+      2021-04-01:
+        value: 648
+  cold_zone:
+    values:
+      2021-04-01:
+        value: 1534

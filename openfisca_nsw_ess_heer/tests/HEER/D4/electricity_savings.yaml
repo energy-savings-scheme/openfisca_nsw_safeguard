@@ -1,0 +1,22 @@
+- name: Test reference cooling annual energy use for activity definition D3.
+  period: 2022
+  input:
+    cooling_capacity: 5.275
+    heating_capacity: 5.6
+    weather_zone: hot_zone
+    D3_product_class: product_class_nine
+    cooling_power_input: 1.39
+    heating_power_input: 1.435
+  output:
+    D3_electricity_savings: 5.21
+- name: Test reference cooling annual energy use for activity definition D3.
+  period: 2022
+  input:
+    cooling_capacity: 5.275
+    heating_capacity: 5.6
+    weather_zone: hot_zone
+    D3_product_class: product_class_nine
+    cooling_power_input: 1.39
+    heating_power_input: 1.435
+  output:
+    D3_electricity_savings: 5.21

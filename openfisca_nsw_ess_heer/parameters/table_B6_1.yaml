@@ -18,7 +18,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 0.9
-  three_point_five_stars:
+  three_and_a_half_stars:
     under_150L:
       values:
         2020-01-01:
@@ -52,7 +52,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 2.2
-  four_point_five_stars:
+  four_and_a_half_stars:
     under_150L:
       values:
         2020-01-01:
@@ -86,7 +86,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 3.3
-  five_point_five_stars:
+  five_and_a_half_stars:
     under_150L:
       values:
         2020-01-01:

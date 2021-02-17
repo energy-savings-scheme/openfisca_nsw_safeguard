@@ -2,7 +2,7 @@ description: Table B1.1, Energy Savings Scheme Rules - Residential Building
   Electricity Savings Factor (MWh per Lamp replaced)
 reference: Energy Savings Scheme Rule, beginning 30 March 2020.
 deemed_equipment_electricity_savings:
-  two_point_five_stars:
+  two_and_a_half_stars:
     less_than_5kg:
       values:
         2020-01-01:
@@ -28,7 +28,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 0
-  three_point_five_stars:
+  three_and_a_half_stars:
     less_than_5kg:
       values:
         2020-01-01:
@@ -54,7 +54,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 0
-  four_point_five_stars:
+  four_and_a_half_stars:
     less_than_5kg:
       values:
         2020-01-01:
@@ -80,7 +80,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 0
-  five_point_five_stars:
+  five_and_a_half_stars:
     less_than_5kg:
       values:
         2020-01-01:

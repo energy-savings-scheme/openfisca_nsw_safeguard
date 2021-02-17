@@ -23,7 +23,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 0
-  four_point_five_stars:
+  four_and_a_half_stars:
     less_than_4kg:
       values:
         2020-01-01:
@@ -65,7 +65,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 1.7
-  five_point_five_stars:
+  five_and_a_half_stars:
     less_than_4kg:
       values:
         2020-01-01:
@@ -86,7 +86,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 2.3
-  six_stars_or_above:
+  six_stars:
     less_than_4kg:
       values:
         2020-01-01:

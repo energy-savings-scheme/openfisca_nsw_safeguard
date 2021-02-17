@@ -149,27 +149,56 @@ class refrigerator_or_freezer_capacity(Variable):
                 ' Schedule C, Activity Definition C1, Equipment Requirement 3.'
     #  need to put in what activities this is relevant for
 
-
-class washing_machine_star_rating(Variable):
-    value_type = float  # note need to recode as Enum once reading AS2040
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the star rating for the clothes washing machine, as' \
-            ' rated in GEMS?'
-    #  need to put in what activities this is relevant for
-
+class DryerStarRating(Enum):
+    zero_stars = 'Dryer is rated at zero stars.'
+    one_star = 'Dryer is rated at one star.'
+    one_and_a_half_star = 'Dryer is rated at one and a half star.'
+    two_stars = 'Dryer is rated at two stars.'
+    two_and_a_half_stars = 'Dryer is rated at two and a half stars.'
+    three_stars = 'Dryer is rated at three stars.'
+    three_and_a_half_stars = 'Dryer is rated at three and a half stars.'
+    four_stars = 'Dryer is rated at four stars.'
+    four_and_a_half_stars = 'Dryer is rated at four and a half stars.'
+    five_stars = 'Dryer is rated at five stars.'
+    five_and_a_half_stars = 'Dryer is rated at five and a half stars.'
+    six_stars = 'Dryer is rated at six stars.'
+    seven_stars = 'Dryer is rated at seven stars.'
+    eight_stars = 'Dryer is rated at eight stars.'
+    nine_stars = 'Dryer is rated at nine stars.'
+    ten_stars = 'Dryer is rated at ten stars.'
 
 class dryer_star_rating(Variable):
-    value_type = float  # note need to recode as Enum once reading AS2040
+    value_type = Enum
+    possible_values = DryerStarRating
+    default_value = DryerStarRating.zero_stars
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the star rating for the clothes washing machine, as' \
+    label = 'What is the star rating for the clothes dryer, as' \
             ' rated in GEMS?'
     # for use in Activity Definition B3.
 
+class DishwasherStarRating(Enum):
+    zero_stars = 'Dishwasher is rated at zero stars.'
+    one_star = 'Dishwasher is rated at one star.'
+    one_and_a_half_star = 'Dishwasher is rated at one and a half star.'
+    two_stars = 'Dishwasher is rated at two stars.'
+    two_and_a_half_stars = 'Dishwasher is rated at two and a half stars.'
+    three_stars = 'Dishwasher is rated at three stars.'
+    three_and_a_half_stars = 'Dishwasher is rated at three and a half stars.'
+    four_stars = 'Dishwasher is rated at four stars.'
+    four_and_a_half_stars = 'Dishwasher is rated at four and a half stars.'
+    five_stars = 'Dishwasher is rated at five stars.'
+    five_and_a_half_stars = 'Dishwasher is rated at five and a half stars.'
+    six_stars = 'Dishwasher is rated at six stars.'
+    seven_stars = 'Dishwasher is rated at seven stars.'
+    eight_stars = 'Dishwasher is rated at eight stars.'
+    nine_stars = 'Dishwasher is rated at nine stars.'
+    ten_stars = 'Dishwasher is rated at ten stars.'
 
 class dishwasher_star_rating(Variable):
-    value_type = float  # note need to recode as Enum once reading AS2040
+    value_type = Enum
+    possible_values = DishwasherStarRating
+    default_value = DishwasherStarRating.zero_stars
     entity = Building
     definition_period = ETERNITY
     label = 'What is the star rating for the dishwasher, as' \
@@ -185,13 +214,33 @@ class number_of_refrigerator_doors(Variable):
     # for use in Activity Definition B4, B5.
 
 
+class RefrigeratorStarRating(Enum):
+    zero_stars = 'Refrigerator is rated at zero stars.'
+    one_star = 'Refrigerator is rated at one star.'
+    one_and_a_half_star = 'Refrigerator is rated at one and a half star.'
+    two_stars = 'Refrigerator is rated at two stars.'
+    two_and_a_half_stars = 'Refrigerator is rated at two and a half stars.'
+    three_stars = 'Refrigerator is rated at three stars.'
+    three_and_a_half_stars = 'Refrigerator is rated at three and a half stars.'
+    four_stars = 'Refrigerator is rated at four stars.'
+    four_and_a_half_stars = 'Refrigerator is rated at four and a half stars.'
+    five_stars = 'Refrigerator is rated at five stars.'
+    five_and_a_half_stars = 'Refrigerator is rated at five and a half stars.'
+    six_stars = 'Refrigerator is rated at six stars.'
+    seven_stars = 'Refrigerator is rated at seven stars.'
+    eight_stars = 'Refrigerator is rated at eight stars.'
+    nine_stars = 'Refrigerator is rated at nine stars.'
+    ten_stars = 'Refrigerator is rated at ten stars.'
+
 class refrigerator_star_rating(Variable):
-    value_type = float  # note need to recode as Enum once reading AS2040
+    value_type = Enum
+    possible_values = RefrigeratorStarRating
+    default_value = RefrigeratorStarRating.zero_stars
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the star rating for the refrigerator, as' \
+    label = 'What is the star rating for the dishwasher, as' \
             ' rated in GEMS?'
-    # for use in Activity Definition B4, B5, B6.
+    # for use in Activity Definition B3.
 
 
 class television_screen_size(Variable):
@@ -203,13 +252,33 @@ class television_screen_size(Variable):
     # for use in Activity Definition B7.
 
 
+class TelevisionStarRating(Enum):
+    zero_stars = 'Television is rated at zero stars.'
+    one_star = 'Television is rated at one star.'
+    one_and_a_half_star = 'Television is rated at one and a half star.'
+    two_stars = 'Television is rated at two stars.'
+    two_and_a_half_stars = 'Television is rated at two and a half stars.'
+    three_stars = 'Television is rated at three stars.'
+    three_and_a_half_stars = 'Television is rated at three and a half stars.'
+    four_stars = 'Television is rated at four stars.'
+    four_and_a_half_stars = 'Television is rated at four and a half stars.'
+    five_stars = 'Television is rated at five stars.'
+    five_and_a_half_stars = 'Television is rated at five and a half stars.'
+    six_stars = 'Television is rated at six stars.'
+    seven_stars = 'Television is rated at seven stars.'
+    eight_stars = 'Television is rated at eight stars.'
+    nine_stars = 'Television is rated at nine stars.'
+    ten_stars = 'Television is rated at ten stars.'
+
 class television_star_rating(Variable):
-    value_type = float  # note need to recode as Enum once reading AS2040
+    value_type = Enum
+    possible_values = TelevisionStarRating
+    default_value = TelevisionStarRating.zero_stars
     entity = Building
     definition_period = ETERNITY
     label = 'What is the star rating for the television, as' \
             ' rated in GEMS?'
-    # for use in Activity Definition B7.
+    # for use in Activity Definition B3.
 
 
 class D1_system_U_value(Variable):

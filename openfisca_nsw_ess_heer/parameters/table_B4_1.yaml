@@ -15,7 +15,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 0
-  three_point_five_stars:
+  three_and_a_half_stars:
     volume_less_than_200_litres:
       values:
         2020-01-01:
@@ -41,7 +41,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 0.4
-  four_point_five_stars:
+  four_and_a_half_stars:
     volume_less_than_200_litres:
       values:
         2020-01-01:
@@ -67,7 +67,7 @@ deemed_equipment_electricity_savings:
       values:
         2020-01-01:
           value: 1.0
-  five_point_five_stars:
+  five_and_a_half_stars:
     volume_less_than_200_litres:
       values:
         2020-01-01:

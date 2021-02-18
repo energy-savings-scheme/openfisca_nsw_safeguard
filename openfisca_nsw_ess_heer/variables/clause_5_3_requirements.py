@@ -395,22 +395,22 @@ class removed_equipment_is_resold(Variable):
                 ' clause 5.3A (a) - Recognised Energy Saving Activity.'
 
 
-class implementation_date(Variable):
-    value_type = date
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the Implementation Date for the RESA?'
-    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
-                ' clause 10.1 - Recognised Energy Saving Activity.'
+# class implementation_date(Variable):
+#     value_type = date
+#     entity = Building
+#     definition_period = ETERNITY
+#     label = 'What is the Implementation Date for the RESA?'
+#     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+#                 ' clause 10.1 - Recognised Energy Saving Activity.'
 
 
-class postcode(Variable):
-    value_type = int
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the Postcode for the RESA?'
-    reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
-                ' clause 10.1 - Recognised Energy Saving Activity.'  # need to figure out a way to check postcode against list
+# class postcode(Variable):
+#     value_type = int
+#     entity = Building
+#     definition_period = ETERNITY
+#     label = 'What is the Postcode for the RESA?'
+#     reference = 'Energy Savings Scheme Rule of 2009, Effective 30 March 2020,' \
+#                 ' clause 10.1 - Recognised Energy Saving Activity.'  # need to figure out a way to check postcode against list
 
 
 class implementation_is_metro_and_lighting_mercury_is_recycled(Variable):
@@ -512,19 +512,19 @@ class product_weighted_average_baseline_efficiency(Variable):
             ' is the baseline efficiency for the class of End-User Equipment?'
 
 
-class regional_network_factor(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Regional Network Factor is the value from Table A24 of Schedule' \
-            ' A corresponding to the postcode of the Address of the Site or' \
-            ' Sites where the Implementation(s) took place.'
+# class regional_network_factor(Variable):
+#     value_type = float
+#     entity = Building
+#     definition_period = ETERNITY
+#     label = 'Regional Network Factor is the value from Table A24 of Schedule' \
+#             ' A corresponding to the postcode of the Address of the Site or' \
+#             ' Sites where the Implementation(s) took place.'
 
-    def formula(buildings, period, parameters):
-        postcode = buildings('postcode', period)
-        rnf = parameters(period).energy_savings_scheme.table_a24.regional_network_factor
-        return rnf.calc(postcode)   # This is a built in OpenFisca function that \
-        # is used to calculate a single value for regional network factor based on a zipcode provided
+#     def formula(buildings, period, parameters):
+#         postcode = buildings('postcode', period)
+#         rnf = parameters(period).energy_savings_scheme.table_a24.regional_network_factor
+#         return rnf.calc(postcode)   # This is a built in OpenFisca function that \
+#         # is used to calculate a single value for regional network factor based on a zipcode provided
 
 
 class activity_meets_all_RESA_criteria(Variable):

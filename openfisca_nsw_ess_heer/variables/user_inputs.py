@@ -84,16 +84,6 @@ class BuildingType(Enum):
     #  need to put in what activities this is relevant for
 
 
-class building_type(Variable):
-    value_type = Enum
-    possible_values = BuildingType
-    default_value = BuildingType.residential_building
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Defines what building type the Implementation is conducted within.'
-    #  need to put in what activities this is relevant for
-
-
 class ImplementationState(Enum):
     ACT = u"Implementation is in ACT."
     NSW = u"Implementation is in NSW."

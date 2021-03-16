@@ -1,0 +1,6 @@
+- name: test PDRS Air Conditioner Baseline Power input
+  period: 2020
+  input:
+    PDRS__Air_Conditioner__cooling_capacity: 90
+  output:
+    PDRS__Air_Conditioner__baseline_power_input: 90

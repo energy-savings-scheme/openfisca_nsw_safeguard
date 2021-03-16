@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="openfisca_nsw_ess_heer",
+    name="openfisca_nsw_pdrs",
     version="0.0.1",
     author="Department of Planning Industry and Environment - NSW Government",
     author_email = 'liam.mccann@environment.nsw.gov.au',
@@ -13,10 +13,10 @@ setup(
         "Programming Language :: Python",
         "Topic :: Scientific/Engineering :: Information Analysis",
         ],
-    description="An OpenFisca extension that adds some variables to an already-existing tax and benefit system",
-    keywords = 'benefit microsimulation social tax',
+    description="An OpenFisca extension for PDRS scheme ",
+    keywords = 'Peak Demand Reduction Scheme',
     license="http://www.fsf.org/licensing/licenses/agpl-3.0.html",
-    url = "https://github.com/Openfisca-NSW/openfisca_nsw_ess_heer",
+    url = "https://github.com/energy-savings-scheme/openfisca_nsw_pdrs",
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
         ("share/openfisca/openfisca_nsw_ess_heer", ["CHANGELOG.md", "LICENSE", "README.md"]),

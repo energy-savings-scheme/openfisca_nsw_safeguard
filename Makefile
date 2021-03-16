@@ -1,4 +1,4 @@
-all: test 
+all: test
 
 uninstall:
 	pip freeze | grep -v "^-e" | xargs pip uninstall -y
@@ -39,4 +39,4 @@ check-style:
 test:
 	python -m pip install openfisca_nsw_base
 	pip install -e .
-	openfisca test openfisca_nsw_ess_heer/tests --country-package openfisca_nsw_base --extensions openfisca_nsw_ess_heer
+	openfisca test openfisca_nsw_pdrs/tests --country-package openfisca_nsw_base --extensions openfisca_nsw_pdrs

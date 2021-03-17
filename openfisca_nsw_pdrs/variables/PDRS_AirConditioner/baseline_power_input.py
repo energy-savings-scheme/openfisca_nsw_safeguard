@@ -1,6 +1,7 @@
-from openfisca_core.variables import Variable, Enum, ETERNITY
-import openfisca_nsw_pdrs.variables.PDRS_AirConditioner.appliance_entity as appliance_entity
-
+from openfisca_core.variables import Variable
+from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
+from openfisca_nsw_base.entities import Building
 
 class AC_Type(Enum):
     type_1 = 'Wall mounted, unitary, and double duct'
@@ -16,28 +17,26 @@ class AC_Type(Enum):
     type_11='Air to air single split outdoor units, whether supplied or offered for supply to create a ducted or non-ducted system'
     type_12='Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
 
-class PDRS__Air_Conditioner__AC_Type(Variable):
+class PDRS__Air_Conditioner__AC_type(Variable):
     # name="AC Type as defined in GEMS or MEPS"
     reference="GEMS or MEPS"
     value_type=Enum
     possible_values=AC_Type
     default_value=AC_Type.type_6
-    entity=appliance_entity.Appliance
+    entity=Building
     definition_period=ETERNITY
 
-# TODO: think about how to code up the table
 
 class PDRS__Air_Conditioner__cooling_capacity(Variable):
     # name="Air Conditioner Cooling Capacity in kW"
     reference="unit in kw"
     value_type=float
-    entity=appliance_entity.Appliance
+    entity=Building
     label="What is the product cooling capacity in the label?"
     definition_period=ETERNITY
 
 
 
-# TODO: how to combine the Enums with the variable that uses it
 
 class installation_type(Enum):
     new="Installation of a new product"
@@ -49,7 +48,7 @@ class PDRS__Appliance__installation_type(Variable):
     value_type=Enum
     possible_values=installation_type
     default_value=installation_type.new
-    entity=appliance_entity.Appliance
+    entity=Building
     definition_period=ETERNITY
     label="Is it a new installation or a replacement?"
 
@@ -57,20 +56,23 @@ class PDRS__Appliance__installation_type(Variable):
 
 class PDRS__Air_Conditioner__baseline_power_input(Variable):
     value_type = float
-    entity = appliance_entity.Appliance
+    entity = Building
     label = 'returns the baseline power input for an Air Conditioner'
     definition_period=ETERNITY
 
 
-    def formula(appliance, period):
+    def formula(building, period):
         # install_type=appliance('installation_type', period)
-        cooling_capacity = appliance('PDRS__Air_Conditioner__cooling_capacity', period)
-        return cooling_capacity
+        cooling_capacity = building('PDRS__Air_Conditioner__cooling_capacity', period)
+        replace_or_new = building('PDRS__Appliance__installation_type', period)
+        AC_type = building('PDRS__Air_Conditioner__AC_type', period)
+        print(AC_type)
+        print(replace_or_new)
+        print(cooling_capacity)
+        return replace_or_new
 
 
 
-# formula = PDRS__Air_Conditioner__baseline_power_input.get_formula(period=None)
-# is_input = PDRS__Air_Conditioner__baseline_power_input.is_input_variable()
-
+# formula = PDRS__Air_Conditioner__baseline_power_input.get_formula(ETERNITY)
 # print(formula)
-# print(is_input)
+

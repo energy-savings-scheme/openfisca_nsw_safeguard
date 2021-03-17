@@ -1,6 +1,7 @@
-from openfisca_core.variables import Variable, ETERNITY, Enum
-import openfisca_nsw_pdrs.variables.PDRS_AirConditioner.appliance_entity as appliance_entity
-# from enum import Enum
+from openfisca_core.variables import Variable
+from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
+from openfisca_nsw_base.entities import Building
 
 
 # Where to put global constants ? Do they need to be displayed?
@@ -22,7 +23,7 @@ class installation_purpose(Enum):
 
 class PDRS__Appliance__installation_purpose(Variable):
     # name="Appliance Installation Local Type" #alias
-    entity=appliance_entity.Appliance
+    entity=Building
     value_type=Enum
     possible_values=installation_purpose
     default_value=installation_purpose.residential
@@ -36,7 +37,7 @@ class PDRS__Appliance__installation_purpose(Variable):
 class PDRS__Air_Conditioner__load_factor(Variable):
     # name="Load Factor in computation of firmness factor" #specific to AC or general?
     reference=""
-    entity=appliance_entity.Appliance
+    entity=Building
     value_type=float
     definition_period=ETERNITY
 

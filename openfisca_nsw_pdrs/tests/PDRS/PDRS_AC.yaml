@@ -1,0 +1,8 @@
+- name: test PDRS Air Conditioner Baseline_Power_input
+  period: 2020
+  input:
+    PDRS__Air_Conditioner__cooling_capacity: [90, 56]
+    PDRS__Air_Conditioner__AC_type: [type_1, type_2]
+    PDRS__Appliance__installation_type: [new, replacement]
+  output:
+    PDRS__Air_Conditioner__baseline_power_input: [new, replacement]

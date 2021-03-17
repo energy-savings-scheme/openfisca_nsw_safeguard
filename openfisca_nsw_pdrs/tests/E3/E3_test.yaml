@@ -1,4 +1,5 @@
-- name: test of Table E1.1 - Tungsten Halogen ELV replaced with <=5W LED Lamp only
+- name:
+    test of Table E1.1 - Tungsten Halogen ELV replaced with <=5W LED Lamp only
     240V Self Ballasted
   period: 2020
   input:

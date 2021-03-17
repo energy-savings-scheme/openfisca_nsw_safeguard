@@ -34,8 +34,7 @@ class PDRS__Air_Conditioner__cooling_capacity(Variable):
     entity=Building
     label="What is the product cooling capacity in the label?"
     definition_period=ETERNITY
-
-
+    metadata={"foo": "bar"}
 
 
 class installation_type(Enum):

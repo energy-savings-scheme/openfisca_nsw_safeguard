@@ -3,9 +3,21 @@ reference: PDRS Air conditioner
 new:
   type_1:
     description: 'Wall mounted, unitary, and double duct'
-    values:
-      2021-01-01:
-        value: 0.32
+    metadata:
+      type: single_amount
+    brackets:
+      - amount:
+          2021-01-01:
+          value: 0.32
+        threshold:
+          2021-01-01:
+          value: 0
+      - amount:
+          2021-01-01:
+          value: 0
+        threshold:
+          2021-01-01:
+          value: 65
   type_2:
     description: 'Portable, unitary, and double duct'
     values:
@@ -15,9 +27,19 @@ new:
 replacement:
   type_1:
     description: 'Wall mounted, unitary, and double duct'
-    values:
-      2021-01-01:
-        value: 0.36
+    brackets:
+      - amount:
+          2021-01-01:
+          value: 0.36
+        threshold:
+          2021-01-01:
+          value: 0
+      - amount:
+          2021-01-01:
+          value: 0
+        threshold:
+          2021-01-01:
+          value: 65
   type_2:
     description: 'Portable, unitary, and double duct'
     values:

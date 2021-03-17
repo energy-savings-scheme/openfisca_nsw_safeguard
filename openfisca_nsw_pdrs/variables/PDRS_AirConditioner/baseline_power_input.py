@@ -58,7 +58,7 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
     entity = Building
     label = 'returns the baseline power input for an Air Conditioner'
     definition_period=ETERNITY
-    
+
 
     def formula(building, period, parameters):
         # install_type=appliance('installation_type', period)
@@ -66,12 +66,14 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
         replace_or_new = building('PDRS__Appliance__installation_type', period)
         AC_type = building('PDRS__Air_Conditioner__AC_type', period)
         baseline_unit=parameters(period).AC_baseline_power_per_capacity_reference_table[replace_or_new]
-        print(baseline_unit[AC_type])
+        scale = baseline_unit[AC_Type]
+
         print(AC_type)
         print(replace_or_new)
         print(cooling_capacity)
-        unit = baseline_unit[AC_Type]
-        return unit
+        print(scale.calc(cooling_capacity))
+
+        return scale.calc(cooling_capacity)
 
 
 

@@ -22,6 +22,7 @@ setup(
         ("share/openfisca/openfisca_nsw_ess_heer", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
+        'OpenFisca-Core[web-api] @ git+https://github.com/openfisca/openfisca-core.git@add-variable-metadata',
         'OpenFisca_nsw_base'
 
         ],

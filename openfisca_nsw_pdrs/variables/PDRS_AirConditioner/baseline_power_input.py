@@ -58,7 +58,7 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
     entity = Building
     label = 'returns the baseline power input for an Air Conditioner'
     definition_period=ETERNITY
-
+    
 
     def formula(building, period, parameters):
         # install_type=appliance('installation_type', period)

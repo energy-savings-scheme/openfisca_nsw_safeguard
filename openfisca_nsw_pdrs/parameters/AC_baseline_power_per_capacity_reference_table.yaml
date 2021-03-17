@@ -1,0 +1,25 @@
+description: Air conditioner Baseline Power Per Capacity Reference Table (slide 11)
+reference: PDRS Air conditioner
+new:
+  type_1:
+    description: 'Wall mounted, unitary, and double duct'
+    values:
+      2021-01-01:
+        value: 0.32
+  type_2:
+    description: 'Portable, unitary, and double duct'
+    values:
+      2021-01-01:
+        value: 0.40
+
+replacement:
+  type_1:
+    description: 'Wall mounted, unitary, and double duct'
+    values:
+      2021-01-01:
+        value: 0.36
+  type_2:
+    description: 'Portable, unitary, and double duct'
+    values:
+      2021-01-01:
+        value: 0.43

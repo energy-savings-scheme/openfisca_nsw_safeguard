@@ -1,3 +1,5 @@
+import numpy as np
+
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
@@ -64,7 +66,8 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
         # install_type=appliance('installation_type', period)
         cooling_capacity = building('PDRS__Air_Conditioner__cooling_capacity', period)
         replace_or_new = building('PDRS__Appliance__installation_type', period)
-        AC_type = building('PDRS__Air_Conditioner__AC_type', period)
+        AC_type = building('PDRS__Air_Conditioner__AC_type', period).decode_to_str()[0]   # this fixes it, but is pretty sloppy code. I don't thing we're meant
+        # to use `decode_to_str()[0]` every time... Maybe worth looking into the source code for a better way to get the string value of an ENUM?
         baseline_unit=parameters(period).AC_baseline_power_per_capacity_reference_table[replace_or_new]
         scale = baseline_unit[AC_Type]
 

@@ -28,7 +28,6 @@ new:
       values:
         2021-01-01:
           value: 0
-
   type_2:
     description: 'Portable, unitary, and double duct'
     less_than_4:
@@ -51,6 +50,222 @@ new:
       values:
         2021-01-01:
           value: 0.4
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_3:
+    description: 'Wall mounted, unitary, and single duct'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_4:
+    description: 'Portable, unitary, and single duct'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.4
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.4
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.4
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.4
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_5:
+    description: 'Air to air unitary, ducted or non-ducted, excluding classes 1 to 4'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.34
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_6:
+    description: 'Air to air single split system, non-ducted'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.27
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.31
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.34
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_7:
+    description: 'Air to air single split system, ducted'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.34
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_8:
+    description: 'Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.27
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.31
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.34
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_9:
+    description: 'Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.34
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_10:
+    description: 'Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.27
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.31
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.34
     more_than_65:
       description: 'cooling capacity is more than 65kW'
       values:
@@ -107,6 +322,222 @@ replacement:
       values:
         2021-01-01:
           value: 0.43
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_3:
+    description: 'Wall mounted, unitary, and single duct'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_4:
+    description: 'Portable, unitary, and single duct'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.43
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.43
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.43
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.43
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_5:
+    description: 'Air to air unitary, ducted or non-ducted, excluding classes 1 to 4'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_6:
+    description: 'Air to air single split system, non-ducted'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.3
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.34
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_7:
+    description: 'Air to air single split system, ducted'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_8:
+    description: 'Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.3
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.34
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_9:
+    description: 'Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
+  type_10:
+    description: 'Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.30
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.34
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.36
     more_than_65:
       description: 'cooling capacity is more than 65kW'
       values:

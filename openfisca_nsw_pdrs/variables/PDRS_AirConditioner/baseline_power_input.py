@@ -15,7 +15,7 @@ class AC_Type(Enum):
     type_7 = 'Air to air single split system, ducted'
     type_8='Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
     type_9='Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
-    type_12='Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
+    type_10='Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
 
 class PDRS__Air_Conditioner__AC_type(Variable):
     # name="AC Type as defined in GEMS or MEPS"
@@ -39,9 +39,9 @@ class AC_cooling_capacity(Enum):
 class PDRS__Air_Conditioner__cooling_capacity(Variable):
     # name="Air Conditioner Cooling Capacity in kW"
     reference="unit in kw"
-    value_type=Enum
-    possible_values=AC_cooling_capacity
-    default_value=AC_cooling_capacity.less_than_4
+    value_type=float
+    # possible_values=AC_cooling_capacity
+    # default_value=AC_cooling_capacity.less_than_4
     entity=Building
     label="What is the product cooling capacity in the label?"
     definition_period=ETERNITY
@@ -71,28 +71,34 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
     definition_period=ETERNITY
 
 
+
     def formula(building, period, parameters):
         # install_type=appliance('installation_type', period)
         cooling_capacity = building('PDRS__Air_Conditioner__cooling_capacity', period)
+        print(cooling_capacity)
+
+        cooling_capacity_enum=np.select(
+            [
+                cooling_capacity < 4, 
+                (cooling_capacity < 10) & (cooling_capacity >= 4),
+                (cooling_capacity < 39) & (cooling_capacity >= 10),
+                (cooling_capacity < 65) & (cooling_capacity >= 39), 
+                cooling_capacity>65
+            ], 
+            [
+                AC_cooling_capacity.less_than_4,
+                AC_cooling_capacity.between_4_and_10,
+                AC_cooling_capacity.between_10_and_39,
+                AC_cooling_capacity.between_39_and_65,
+                AC_cooling_capacity.more_than_65
+            ])
+
+
         replace_or_new = building('PDRS__Appliance__installation_type', period)
         AC_type = building('PDRS__Air_Conditioner__AC_type', period)
         baseline_unit=parameters(period).AC_baseline_power_per_capacity_reference_table[replace_or_new]
         scale = baseline_unit[AC_type]
 
-        print(replace_or_new)
-        print(AC_type)
-        print(cooling_capacity)
-
-        return scale[cooling_capacity]
+        return scale[cooling_capacity_enum]*cooling_capacity
 
 
-# formula = PDRS__Air_Conditioner__baseline_power_input.get_formula(ETERNITY)
-# print(formula)
-
-    #   less_than_4:
-    #     values:
-    #       2020-01-01: value:0.32
-    #   between_4_and_10:
-    #   between_10_and_39:
-    #   between_39_and_65:
-    #   more_than_65:

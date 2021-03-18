@@ -38,9 +38,6 @@ check-style:
 
 test:
 	@#python -m pip install openfisca_nsw_base
-	@#pip install -e .
+	pip install -e .
 	openfisca test openfisca_nsw_pdrs/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_pdrs
 
-
-run:
-	python openfisca_nsw_pdrs/variables/PDRS_AirConditioner/baseline_power_input.py --country-package openfisca_nsw_base --extensions openfisca_nsw_pdrs

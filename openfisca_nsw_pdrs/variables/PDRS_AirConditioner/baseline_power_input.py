@@ -75,7 +75,6 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
     def formula(building, period, parameters):
         # install_type=appliance('installation_type', period)
         cooling_capacity = building('PDRS__Air_Conditioner__cooling_capacity', period)
-        print(cooling_capacity)
 
         cooling_capacity_enum=np.select(
             [

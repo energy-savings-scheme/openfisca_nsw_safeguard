@@ -4,10 +4,26 @@ CONTRIBUTION_FACTOR:
     2021-01-01:
       value: 1
 
-NUMBER_OF_PEAK_WINDOW_HOURS:
+DAILY_PEAK_WINDOW_HOURS:
+  description: '6 hours per day'
+  metadata:
+    unit: hours/Day
+  values:
+    2021-01-01:
+      value: 6
+
+ANNUAL_PEAK_WINDOW_HOURS:
   description: '6 hours per day * 105 days /year'
   metadata:
     unit: hours/year
   values:
     2021-01-01:
       value: 630
+
+FORWARD_CREATION_PERIOD:
+  description: '10 years'
+  metadata:
+    unit: years
+  values:
+    2021-01-01:
+      value: 10

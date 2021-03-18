@@ -50,7 +50,7 @@ class PDRS__Air_Conditioner__duration_factor(Variable):
         operation_hrs = parameters(period).AC_hours_of_operation_by_zone_table[zone_type]
         ratio = parameters(period).AC_peak_operation_hrs_to_all_operation_hrs_by_zone_table[zone_type]
         weekdays_ratio = float(5/7)
-        peak_hours = parameters(period).AC_related_constants.NUMBER_OF_PEAK_WINDOW_HOURS
+        peak_hours = parameters(period).AC_related_constants.ANNUAL_PEAK_WINDOW_HOURS
 
 
         return operation_hrs[installation_purpose]*ratio[installation_purpose]*weekdays_ratio/peak_hours

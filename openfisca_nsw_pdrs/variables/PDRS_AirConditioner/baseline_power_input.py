@@ -26,7 +26,10 @@ class PDRS__Air_Conditioner__AC_type(Variable):
     entity=Building
     definition_period=ETERNITY
     metadata={
-        "variable-type": "user-input"
+        "variable-type": "user-input",
+        "alias":"Air Contionder Type",
+        "major-cat":"Peak Demand",
+        "monor-cat":"Installation or Replacement of an Air Conditioner"
         }
 
 
@@ -48,7 +51,14 @@ class PDRS__Air_Conditioner__cooling_capacity(Variable):
     entity=Building
     label="What is the product cooling capacity in the label?"
     definition_period=ETERNITY
-    metadata={"variable-type": "user-input"}
+    metadata={
+        "variable-type": "user-input",
+        "alias":"Air Conditioner Cooling Capacity",
+        "major-cat":"Peak Demand",
+        "monor-cat":"Installation or Replacement of an Air Conditioner"
+        }
+
+
 
 
 class installation_type(Enum):

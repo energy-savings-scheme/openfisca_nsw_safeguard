@@ -25,6 +25,9 @@ class PDRS__Air_Conditioner__AC_type(Variable):
     default_value=AC_Type.type_6
     entity=Building
     definition_period=ETERNITY
+    metadata={
+        "variable-type": "user-input"
+        }
 
 
 class AC_cooling_capacity(Enum):
@@ -45,7 +48,7 @@ class PDRS__Air_Conditioner__cooling_capacity(Variable):
     entity=Building
     label="What is the product cooling capacity in the label?"
     definition_period=ETERNITY
-    metadata={"foo": "bar"}
+    metadata={"variable-type": "user-input"}
 
 
 class installation_type(Enum):
@@ -61,6 +64,8 @@ class PDRS__Appliance__installation_type(Variable):
     entity=Building
     definition_period=ETERNITY
     label="Is it a new installation or a replacement?"
+    metadata={"variable-type":"user-input"}
+
 
 
 
@@ -69,21 +74,21 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
     entity = Building
     label = 'returns the baseline power input for an Air Conditioner'
     definition_period=ETERNITY
+    metadata={"variable-type":"inter-interesting"}
 
 
 
     def formula(building, period, parameters):
-        # install_type=appliance('installation_type', period)
         cooling_capacity = building('PDRS__Air_Conditioner__cooling_capacity', period)
 
         cooling_capacity_enum=np.select(
             [
-                cooling_capacity < 4, 
+                cooling_capacity < 4,
                 (cooling_capacity < 10) & (cooling_capacity >= 4),
                 (cooling_capacity < 39) & (cooling_capacity >= 10),
-                (cooling_capacity < 65) & (cooling_capacity >= 39), 
+                (cooling_capacity < 65) & (cooling_capacity >= 39),
                 cooling_capacity>65
-            ], 
+            ],
             [
                 AC_cooling_capacity.less_than_4,
                 AC_cooling_capacity.between_4_and_10,

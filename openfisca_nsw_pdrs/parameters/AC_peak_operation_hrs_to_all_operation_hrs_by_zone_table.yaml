@@ -1,0 +1,31 @@
+description: Ratio of peak operation hours to all operation hours
+reference: Uses AccuRate load profile analysis of average zone air conditioner simulation based on 2016 temperature data; assumes that air conditioner is operational between 7am and 6pm
+metadata:
+  unit: hour/year
+hot:
+  residential:
+    values:
+      2021-01-01:
+        value: 0
+  commercial:
+    values:
+      2021-01-01:
+        value: 0
+average:
+  residential:
+    values:
+      2021-01-01:
+        value: 0.53
+  commercial:
+    values:
+      2021-01-01:
+        value: 0.23
+cold:
+  residential:
+    values:
+      2021-01-01:
+        value: 0
+  commercial:
+    values:
+      2021-01-01:
+        value: 0

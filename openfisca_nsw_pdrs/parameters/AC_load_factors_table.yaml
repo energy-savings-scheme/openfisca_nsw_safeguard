@@ -1,0 +1,10 @@
+description: The Load Factors table for multiple end-uses by sector
+reference: ''
+residential:
+  values:
+    2021-01-01:
+      value: 0.79
+commercial:
+  values:
+    2021-01-01:
+      value: 0.81

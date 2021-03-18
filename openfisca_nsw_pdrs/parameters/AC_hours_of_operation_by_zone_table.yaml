@@ -1,0 +1,31 @@
+description: Cooling Hours of Operation by climate Zone for residential/SME or Commercial installations
+reference: Based on cooling hours from AS/NZS 3823.4.1(residential) amd Greenhouse and Energy Minimum Standards (up to 65 kW) Determination 2019 (commercial)
+metadata:
+  unit: hour/year
+hot:
+  residential:
+    values:
+      2021-01-01:
+        value: 1274
+  commercial:
+    values:
+      2021-01-01:
+        value: 1754
+average:
+  residential:
+    values:
+      2021-01-01:
+        value: 429
+  commercial:
+    values:
+      2021-01-01:
+        value: 801
+cold:
+  residential:
+    values:
+      2021-01-01:
+        value: 285
+  commercial:
+    values:
+      2021-01-01:
+        value: 649

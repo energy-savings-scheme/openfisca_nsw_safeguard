@@ -1,0 +1,9 @@
+- name: test PDRS Air Conditioning firmness factor
+  period: 2021
+  absolute_error_margin: 0.005
+  input:
+    PDRS__Appliance__installation_purpose: [residential, commercial]
+    PDRS__Appliance__zone_type: [average, average]
+  output:
+    PDRS__Air_Conditioner__duration_factor: [0.25778912, 0.20887755]
+    PDRS__Air_Conditioner__firmness_factor: [0.2036534, 0.16919082]

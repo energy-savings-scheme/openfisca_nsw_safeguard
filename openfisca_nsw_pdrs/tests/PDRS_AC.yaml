@@ -1,17 +1,9 @@
-# - name: test PDRS Air Conditioner Baseline_Power_input
-#   period: 2021
-#   input:
-#     PDRS__Air_Conditioner__cooling_capacity: [5, 10]
-#     PDRS__Air_Conditioner__AC_type: [type_1, type_2]
-#     PDRS__Appliance__installation_type: [new, replacement]
-#   output:
-#     PDRS__Air_Conditioner__baseline_power_input: [0.32, 0.43]
-
 - name: test PDRS Air Conditioner Baseline_Power_input brackets
   period: 2021
   input:
-    PDRS__Air_Conditioner__cooling_capacity: 98
-    PDRS__Air_Conditioner__AC_type: type_1
-    PDRS__Appliance__installation_type: new
+    PDRS__Air_Conditioner__cooling_capacity:
+      [less_than_4, between_4_and_10, between_10_and_39, more_than_65]
+    PDRS__Air_Conditioner__AC_type: [type_1, type_1, type_2, type_2]
+    PDRS__Appliance__installation_type: [new, replacement, new, replacement]
   output:
-    PDRS__Air_Conditioner__baseline_power_input: 0
+    PDRS__Air_Conditioner__baseline_power_input: [0.32, 0.36, 0.4, 0]

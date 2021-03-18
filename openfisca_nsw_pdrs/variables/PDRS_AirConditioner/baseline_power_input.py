@@ -13,10 +13,8 @@ class AC_Type(Enum):
     type_5 = 'Air to air unitary, ducted or non-ducted, excluding classes 1 to 4'
     type_6 = 'Air to air single split system, non-ducted'
     type_7 = 'Air to air single split system, ducted'
-    type_8='Air to air single split system, ducted or non-ducted'
-    type_9='Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
-    type_10='Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
-    type_11='Air to air single split outdoor units, whether supplied or offered for supply to create a ducted or non-ducted system'
+    type_8='Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
+    type_9='Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
     type_12='Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
 
 class PDRS__Air_Conditioner__AC_type(Variable):
@@ -29,10 +27,21 @@ class PDRS__Air_Conditioner__AC_type(Variable):
     definition_period=ETERNITY
 
 
+class AC_cooling_capacity(Enum):
+    less_than_4="cooling capacity < 4kW"
+    between_4_and_10="4kw =< cooling capacity < 10kW"
+    between_10_and_39="10kw =< cooling capacity < 39kW"
+    between_39_and_65="39kw =< cooling capacity < 65kW"
+    more_than_65="cooling capacity >= 65kW"
+
+
+
 class PDRS__Air_Conditioner__cooling_capacity(Variable):
     # name="Air Conditioner Cooling Capacity in kW"
     reference="unit in kw"
-    value_type=float
+    value_type=Enum
+    possible_values=AC_cooling_capacity
+    default_value=AC_cooling_capacity.less_than_4
     entity=Building
     label="What is the product cooling capacity in the label?"
     definition_period=ETERNITY
@@ -66,20 +75,24 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
         # install_type=appliance('installation_type', period)
         cooling_capacity = building('PDRS__Air_Conditioner__cooling_capacity', period)
         replace_or_new = building('PDRS__Appliance__installation_type', period)
-        AC_type = building('PDRS__Air_Conditioner__AC_type', period).decode_to_str()[0]   # this fixes it, but is pretty sloppy code. I don't thing we're meant
-        # to use `decode_to_str()[0]` every time... Maybe worth looking into the source code for a better way to get the string value of an ENUM?
+        AC_type = building('PDRS__Air_Conditioner__AC_type', period)
         baseline_unit=parameters(period).AC_baseline_power_per_capacity_reference_table[replace_or_new]
-        scale = baseline_unit[AC_Type]
+        scale = baseline_unit[AC_type]
 
-        print(AC_type)
         print(replace_or_new)
+        print(AC_type)
         print(cooling_capacity)
-        print(scale.calc(cooling_capacity))
 
-        return scale.calc(cooling_capacity)
-
+        return scale[cooling_capacity]
 
 
 # formula = PDRS__Air_Conditioner__baseline_power_input.get_formula(ETERNITY)
 # print(formula)
 
+    #   less_than_4:
+    #     values:
+    #       2020-01-01: value:0.32
+    #   between_4_and_10:
+    #   between_10_and_39:
+    #   between_39_and_65:
+    #   more_than_65:

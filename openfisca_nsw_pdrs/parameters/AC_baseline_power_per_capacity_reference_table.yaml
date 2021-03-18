@@ -3,45 +3,112 @@ reference: PDRS Air conditioner
 new:
   type_1:
     description: 'Wall mounted, unitary, and double duct'
-    metadata:
-      type: single_amount
-    brackets:
-      - amount:
-          2021-01-01:
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
           value: 0.32
-        threshold:
-          2021-01-01:
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.32
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
           value: 0
-      - amount:
-          2021-01-01:
-          value: 0
-        threshold:
-          2021-01-01:
-          value: 65
+
   type_2:
     description: 'Portable, unitary, and double duct'
-    values:
-      2021-01-01:
-        value: 0.40
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.4
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.4
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.4
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.4
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0
 
 replacement:
   type_1:
     description: 'Wall mounted, unitary, and double duct'
-    brackets:
-      - amount:
-          2021-01-01:
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
           value: 0.36
-        threshold:
-          2021-01-01:
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.36
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
           value: 0
-      - amount:
-          2021-01-01:
-          value: 0
-        threshold:
-          2021-01-01:
-          value: 65
   type_2:
     description: 'Portable, unitary, and double duct'
-    values:
-      2021-01-01:
-        value: 0.43
+    less_than_4:
+      description: 'cooling capacity is less than 4kw'
+      values:
+        2021-01-01:
+          value: 0.43
+    between_4_and_10:
+      description: 'cooling capacity is more than or equal to 4kw and less than 10kW'
+      values:
+        2021-01-01:
+          value: 0.43
+    between_10_and_39:
+      description: 'cooling capacity is more than or equal to 10kW and less than 39kW'
+      values:
+        2021-01-01:
+          value: 0.43
+    between_39_and_65:
+      description: 'cooling capacity is more than or equal to 39kW and less than 65kW'
+      values:
+        2021-01-01:
+          value: 0.43
+    more_than_65:
+      description: 'cooling capacity is more than 65kW'
+      values:
+        2021-01-01:
+          value: 0

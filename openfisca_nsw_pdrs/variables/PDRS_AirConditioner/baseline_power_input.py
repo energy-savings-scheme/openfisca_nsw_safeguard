@@ -84,7 +84,7 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
     entity = Building
     label = 'returns the baseline power input for an Air Conditioner'
     definition_period=ETERNITY
-    metadata={"variable-type":"inter-interesting"}
+    metadata={"variable-type":"inter-interesting"} # what is this?
 
 
 
@@ -114,5 +114,3 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
         scale = baseline_unit[AC_type]
 
         return scale[cooling_capacity_enum]*cooling_capacity
-
-

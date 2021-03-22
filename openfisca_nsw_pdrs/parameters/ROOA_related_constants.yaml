@@ -35,6 +35,7 @@ FORWARD_CREATION_PERIOD:
       value: 7
 
 AVERAGE_kWh_SAVED:
+  # what is this? not in the formula
   description: 'Average kWh saved as part of the ROOA method.'
   metadata:
     unit: kWh
@@ -43,6 +44,7 @@ AVERAGE_kWh_SAVED:
       value: 5700
 
 TOTAL_DEEMING_HOURS:
+  # what is this? not in the formula
   description: 'Total number of hours for the 7 years of deeming within the PDRS ROOA Method'
   metadata:
     unit: hours

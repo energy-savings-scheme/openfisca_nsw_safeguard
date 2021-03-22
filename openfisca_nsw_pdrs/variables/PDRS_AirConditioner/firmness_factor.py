@@ -4,9 +4,6 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-# Where to put global constants ? Do they need to be displayed?
-
-
 class zone_type(Enum):
     hot="Hot"
     average="Average"
@@ -66,7 +63,6 @@ class PDRS__Air_Conditioner__firmness_factor(Variable):
         zone_type = building('PDRS__Appliance__zone_type', period)
         load_factor = parameters(period).AC_load_factors_table[installation_purpose]
         contribution_factor = parameters(period).AC_related_constants.CONTRIBUTION_FACTOR
-        ## call the duration factor computed from above? How to call the formula under PDRS__Air_Conditioner__duration_factor ?
         duration_factor=building('PDRS__Air_Conditioner__duration_factor', period)
 
         return contribution_factor*load_factor*duration_factor

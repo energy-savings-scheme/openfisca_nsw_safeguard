@@ -1,0 +1,889 @@
+description: Table F4.2, Energy Savings Scheme Rules - Residential Building
+  Electricity Savings Factor (MWh per Washing Machine Sold)
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+AEER:
+  new:
+    type_1:
+      description: 'Wall mounted, unitary, and double duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 3.10
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_2:
+      description: 'Portable, unitary, and double duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.50
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.50
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.50
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.50
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_3:
+      description: 'Wall mounted, unitary, and single duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 3.10
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_4:
+      description: 'Portable, unitary, and single duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.50
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.50
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.50
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.50
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_5:
+      description: 'Air to air unitary, ducted or non-ducted, excluding classes 1 to 4'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_6:
+      description: 'Air to air single split system, non-ducted'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.66
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 3.22
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_7:
+      description: 'Air to air single split system, ducted'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_8:
+      description: 'Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.66
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 3.22
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_9:
+      description: 'Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_10:
+      description: 'Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.66
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 3.22
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 3.10
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+  replacement:
+    type_1:
+      description: 'Wall mounted, unitary, and double duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.80
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_2:
+      description: 'Portable, unitary, and double duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.35
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.35
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.35
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.35
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_3:
+      description: 'Wall mounted, unitary, and single duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.80
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_4:
+      description: 'Portable, unitary, and single duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.35
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.35
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.35
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.35
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_5:
+      description: 'Air to air unitary, ducted or non-ducted, excluding classes 1 to 4'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.80
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_6:
+      description: 'Air to air single split system, non-ducted'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.33
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.93
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.75
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_7:
+      description: 'Air to air single split system, ducted'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.75
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_8:
+      description: 'Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.33
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.93
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.75
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_9:
+      description: 'Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.75
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_10:
+      description: 'Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 3.33
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.93
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.80
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.75
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+ACOP:
+  new:
+    type_1:
+      description: 'Wall mounted, unitary, and double duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.05
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_2:
+      description: 'Portable, unitary, and double duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.75
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.75
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.75
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.75
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_3:
+      description: 'Wall mounted, unitary, and single duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 2.05
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_4:
+      description: 'Portable, unitary, and single duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.75
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.75
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.75
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.75
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_5:
+      description: 'Air to air unitary, ducted or non-ducted, excluding classes 1 to 4'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.95
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_6:
+      description: 'Air to air single split system, non-ducted'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.33
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.11
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.95
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_7:
+      description: 'Air to air single split system, ducted'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.95
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_8:
+      description: 'Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.33
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.11
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.95
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_9:
+      description: 'Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.95
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_10:
+      description: 'Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.33
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 2.11
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 2.05
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.95
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+  replacement:
+    type_1:
+      description: 'Wall mounted, unitary, and double duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_2:
+      description: 'Portable, unitary, and double duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.68
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.68
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.68
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.68
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_3:
+      description: 'Wall mounted, unitary, and single duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_4:
+      description: 'Portable, unitary, and single duct'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.68
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.68
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.68
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.68
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_5:
+      description: 'Air to air unitary, ducted or non-ducted, excluding classes 1 to 4'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.88
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_6:
+      description: 'Air to air single split system, non-ducted'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.17
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.97
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.88
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_7:
+      description: 'Air to air single split system, ducted'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.88
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_8:
+      description: 'Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.17
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.97
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_9:
+      description: 'Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.90
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0
+    type_10:
+      description: 'Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
+      less_than_4:
+        values:
+          2021-01-01:
+            value: 2.17
+      between_4_and_10:
+        values:
+          2021-01-01:
+            value: 1.97
+      between_10_and_39:
+        values:
+          2021-01-01:
+            value: 1.90
+      between_39_and_65:
+        values:
+          2021-01-01:
+            value: 1.88
+      more_than_65:
+        values:
+          2021-01-01:
+            value: 0

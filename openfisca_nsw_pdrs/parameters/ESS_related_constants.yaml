@@ -1,0 +1,16 @@
+MWh_to_kWh:
+  description: number of kWh in a MWh
+  metadata:
+    unit: kWh
+  values:
+    2021-01-01:
+      value: 1000
+
+
+kWh_to_MWh:
+  description: number of MWh in a kWh
+  metadata:
+    unit: MWh
+  values:
+    2021-01-01:
+      value: 0.001

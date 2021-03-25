@@ -17,6 +17,7 @@ class AC_Type(Enum):
     type_9='Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
     type_10='Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
 
+
 class PDRS__Air_Conditioner__AC_type(Variable):
     # name="AC Type as defined in GEMS or MEPS"
     reference="GEMS or MEPS"
@@ -26,10 +27,10 @@ class PDRS__Air_Conditioner__AC_type(Variable):
     entity=Building
     definition_period=ETERNITY
     metadata={
-        "variable-type": "user-input",
-        "alias":"Air Contionder Type",
-        "major-cat":"Peak Demand",
-        "monor-cat":"Installation or Replacement of an Air Conditioner"
+        "variable-type": "input",
+        "alias":"Air Conditioner Type",
+        "activity-group":"PDRS: Air Conditioner",
+        "activity-name":"Installation or Replacement of an Air Conditioner"
         }
 
 
@@ -52,10 +53,10 @@ class PDRS__Air_Conditioner__cooling_capacity(Variable):
     label="What is the product cooling capacity in the label?"
     definition_period=ETERNITY
     metadata={
-        "variable-type": "user-input",
+        "variable-type": "input",
         "alias":"Air Conditioner Cooling Capacity",
-        "major-cat":"Peak Demand",
-        "monor-cat":"Installation or Replacement of an Air Conditioner"
+        "activity-group":"PDRS: Air Conditioner",
+        "activity-name":"Installation or Replacement of an Air Conditioner"
         }
 
 
@@ -74,9 +75,12 @@ class PDRS__Appliance__installation_type(Variable):
     entity=Building
     definition_period=ETERNITY
     label="Is it a new installation or a replacement?"
-    metadata={"variable-type":"user-input"}
-
-
+    metadata={
+        "variable-type": "input",
+        "alias":"New or Replacement?",
+        "activity-group":"PDRS: Air Conditioner",
+        "activity-name":"Installation or Replacement of an Air Conditioner"
+        }
 
 
 class PDRS__Air_Conditioner__baseline_power_input(Variable):
@@ -84,7 +88,12 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
     entity = Building
     label = 'returns the baseline power input for an Air Conditioner'
     definition_period=ETERNITY
-    metadata={"variable-type":"inter-interesting"}
+    metadata={
+        "variable-type": "intermediary",
+        "alias" :"Baseline Power Input",
+        "activity-group":"PDRS: Air Conditioner",
+        "activity-name":"Installation or Replacement of an Air Conditioner"
+        }
 
 
 
@@ -114,5 +123,3 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
         scale = baseline_unit[AC_type]
 
         return scale[cooling_capacity_enum]*cooling_capacity
-
-

@@ -2,6 +2,8 @@ from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
+from openfisca_nsw_pdrs.variables.PDRS_AirConditioner.firmness_factor import zone_type
+from openfisca_nsw_pdrs.variables.PDRS_AirConditioner.baseline_power_input import AC_Type
 
 
 # Where to put global constants ? Do they need to be displayed?
@@ -22,6 +24,22 @@ class ESS_D16__heating_power_input(Variable):
     reference="Clause **"
     label="What is the measured cooling power input at 35C as recorded in the GEMS register?"
     metadata={"variable-type":"user_input"}
+
+
+class ESS__Appliance__zone_type(Variable):
+    entity=Building
+    value_type=Enum
+    possible_values=zone_type
+    default_value=zone_type.average
+    definition_period=ETERNITY
+    reference="Clause **"
+    label="What is the Zone type of the area?"
+    metadata ={
+        'alias' : "Zone Type",
+        'activity-group' : "Air Conditioners?",
+        'activity-name' : "Replace or Install an Air Conditioner",
+        'variable-type' : "input"
+    }
 
 
 class ESS_D16__cooling_annual_energy_use(Variable):

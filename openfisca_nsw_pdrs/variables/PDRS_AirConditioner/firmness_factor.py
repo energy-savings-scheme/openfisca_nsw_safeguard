@@ -4,9 +4,6 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-# Where to put global constants ? Do they need to be displayed?
-
-
 class zone_type(Enum):
     hot="Hot"
     average="Average"
@@ -20,7 +17,12 @@ class PDRS__Appliance__zone_type(Variable):
     definition_period=ETERNITY
     reference="Clause **"
     label="What is the Zone type of the area?" 
-
+    metadata ={
+        'alias' : "Zone Type",
+        'activity-group' : "Air Conditioners?", 
+        'activity-name' : "Replace or Install an Air Conditioner",    
+        'variable-type' : "input"    
+    }
 
 class installation_purpose(Enum):
     residential='Residential/SME'
@@ -35,6 +37,12 @@ class PDRS__Appliance__installation_purpose(Variable):
     definition_period=ETERNITY
     reference="Clause **"
     label="Is the air-conditioner(s) installed for Residential or Commercial purpose?" #wording as form input. 
+    metadata ={
+        'alias' : "Residential or Commercial?",
+        'activity-group' : "Air Conditioners?", 
+        'activity-name' : "Replace or Install an Air Conditioner",    
+        'variable-type' : "input"    
+    }
 
 
 
@@ -43,6 +51,12 @@ class PDRS__Air_Conditioner__duration_factor(Variable):
     entity=Building
     value_type=float
     definition_period=ETERNITY
+    metadata ={
+        'alias' : "Duration Factor",
+        'activity-group' : "Air Conditioners?", 
+        'activity-name' : "Replace or Install an Air Conditioner",    
+        'variable-type' : "intermediary"    
+    }
 
     def formula(building, period, parameters):
         installation_purpose=building('PDRS__Appliance__installation_purpose', period)
@@ -60,13 +74,18 @@ class PDRS__Air_Conditioner__firmness_factor(Variable):
     entity=Building
     value_type=float
     definition_period=ETERNITY
+    metadata ={
+        'alias' : "Firmness Factor",
+        'activity-group' : "Air Conditioners?", 
+        'activity-name' : "Replace or Install an Air Conditioner",    
+        'variable-type' : "intermediary"    
+    }
 
     def formula(building, period, parameters):
         installation_purpose=building('PDRS__Appliance__installation_purpose', period)
         zone_type = building('PDRS__Appliance__zone_type', period)
         load_factor = parameters(period).AC_load_factors_table[installation_purpose]
         contribution_factor = parameters(period).AC_related_constants.CONTRIBUTION_FACTOR
-        ## call the duration factor computed from above? How to call the formula under PDRS__Air_Conditioner__duration_factor ?
         duration_factor=building('PDRS__Air_Conditioner__duration_factor', period)
 
         return contribution_factor*load_factor*duration_factor

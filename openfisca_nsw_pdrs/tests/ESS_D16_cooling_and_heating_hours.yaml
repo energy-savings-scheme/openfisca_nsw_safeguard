@@ -1,3 +1,18 @@
+- name: test ESS AC cooling annual energy use
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS_D16__cooling_power_input:
+      [
+        1,
+        1,
+        1,
+      ]
+    ESS__Appliance__zone_type:
+      [hot, average, cold]
+  output:
+    ESS_D16__cooling_annual_energy_use:
+      [109, 648, 1534]
 - name: test ESS AC heating annual energy use
   period: 2021
   absolute_error_margin: 0.1

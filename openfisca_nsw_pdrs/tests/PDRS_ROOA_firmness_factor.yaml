@@ -1,0 +1,6 @@
+- name: test PDRS Air Conditioning firmness factor
+  period: 2021
+  absolute_error_margin: 0.005
+  output:
+    PDRS__ROOA__peak_demand_savings:
+        [2.9999177]

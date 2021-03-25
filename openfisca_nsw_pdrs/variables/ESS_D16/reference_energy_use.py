@@ -4,6 +4,7 @@ from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
+from openfisca_nsw_pdrs.variables.PDRS_AirConditioner.baseline_power_input import AC_Type, installation_type, AC_cooling_capacity
 
 
 # Where to put global constants ? Do they need to be displayed?
@@ -76,6 +77,47 @@ class ESS_D16__Air_Conditioner__heating_annual_energy_use(Variable):
         }
 
 
+class ESS__Air_Conditioner__AC_type(Variable):
+    # name="AC Type as defined in GEMS or MEPS"
+    reference="GEMS or MEPS"
+    value_type=Enum
+    possible_values=AC_Type
+    default_value=AC_Type.type_6
+    entity=Building
+    definition_period=ETERNITY
+    metadata={
+        "variable-type": "input",
+        "alias":"Air Conditioner Type",
+        "activity-group":"ESS: Air Conditioner",
+        "activity-name":"Installation or Replacement of an Air Conditioner"
+        }
+
+
+class ESS__Appliance__installation_type(Variable):
+    # name="New or Replacement?"
+    reference=""
+    value_type=Enum
+    possible_values=installation_type
+    default_value=installation_type.new
+    entity=Building
+    definition_period=ETERNITY
+    label="Is it a new installation or a replacement?"
+    metadata={
+        "variable-type": "input",
+        "alias":"New or Replacement?",
+        "activity-group":"ESS: Air Conditioner",
+        "activity-name":"Installation or Replacement of an Air Conditioner"
+        }
+
+
+class AC_heating_capacity(Enum):
+    less_than_4="heating capacity < 4kW"
+    between_4_and_10="4kw =< heating capacity < 10kW"
+    between_10_and_39="10kw =< heating capacity < 39kW"
+    between_39_and_65="39kw =< heating capacity < 65kW"
+    more_than_65="heating capacity >= 65kW"
+
+
 class ESS_D16__reference_cooling_energy_use(Variable):
     entity=Building
     value_type=float
@@ -87,8 +129,6 @@ class ESS_D16__reference_cooling_energy_use(Variable):
     def formula(building, period, parameters):
         cooling_capacity = building('ESS_D16__Air_Conditioner__cooling_capacity', period)
         climate_zone = building('ESS__Appliance__zone_type', period)
-        cooling_capacity_band = building('ESS_AC_capacity_bands', period)
-        AC_cooling_capacity = cooling_capacity_band.possible_values
         cooling_capacity_enum = np.select(
             [
                 cooling_capacity < 4,
@@ -122,8 +162,6 @@ class ESS_D16__reference_heating_energy_use(Variable):
     def formula(building, period, parameters):
         heating_capacity = building('ESS_D16__Air_Conditioner__heating_capacity', period)
         climate_zone = building('ESS__Appliance__zone_type', period)
-        heating_capacity_band = building('ESS_AC_capacity_bands', period)
-        AC_heating_capacity = heating_capacity_band.possible_values
         heating_capacity_enum = np.select(
             [
                 heating_capacity < 4,

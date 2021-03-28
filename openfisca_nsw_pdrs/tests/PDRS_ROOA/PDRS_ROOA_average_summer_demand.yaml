@@ -1,4 +1,4 @@
-- name: test PDRS ROOA peak demand savings
+- name: test PDRS ROOA average summer demand
   period: 2021
   absolute_error_margin: 0.1
   output:

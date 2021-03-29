@@ -13,9 +13,9 @@ class PDRS__ROOA__average_summer_demand(Variable):
     label="The average summer demand for the removed equipment."
     metadata ={
         'alias' : "Average Summer Demand",
-        'activity-group' : "Removal Of Old Appliances", 
-        'activity-name' : "Removal of a Spare Refrigerator or Freezer",    
-        'variable-type' : "intermediary"    
+        'activity-group' : "Removal Of Old Appliances",
+        'activity-name' : "Removal of a Spare Refrigerator or Freezer",
+        'variable-type' : "intermediary"
     }
 
     def formula(building, period, parameters):
@@ -36,15 +36,15 @@ class PDRS__ROOA__peak_demand_savings(Variable):
     label="The final peak demand savings from the air conditioner"
     metadata ={
         'alias' : "Peak Demand Savings",
-        'activity-group' : "Removal Of Old Appliances", 
-        'activity-name' : "Removal of a Spare Refrigerator or Freezer",    
-        'variable-type' : "output"    
+        'activity-group' : "Removal Of Old Appliances",
+        'activity-name' : "Removal of a Spare Refrigerator or Freezer",
+        'variable-type' : "output"
     }
 
     def formula(building, period, parameters):
         average_summer_demand = building('PDRS__ROOA__average_summer_demand', period)
         firmness_factor = building('PDRS__ROOA__firmness_factor', period)
-        daily_peak_hours = parameters(period).ROOA_related_constants.DAILY_PEAK_WINDOW_HOURS
+        daily_peak_hours = parameters(period).PDRS.PDRS_wide_constants.DAILY_PEAK_WINDOW_HOURS
         forward_creation_period=parameters(period).ROOA_related_constants.FORWARD_CREATION_PERIOD
 
 

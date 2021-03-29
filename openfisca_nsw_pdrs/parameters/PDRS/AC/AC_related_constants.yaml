@@ -1,0 +1,7 @@
+FORWARD_CREATION_PERIOD:
+    description: "10 years"
+    metadata:
+        unit: years
+    values:
+        2021-01-01:
+            value: 10

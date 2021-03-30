@@ -4,7 +4,6 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-
 class PDRS__Air_Conditioner__duration_factor(Variable):
     reference='computing duration factor during the peak hour usage as part of the firmness factor in PDRS Air Conditioner savings.'
     entity=Building

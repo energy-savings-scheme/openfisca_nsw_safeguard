@@ -147,7 +147,7 @@ class ESS_D16__reference_cooling_energy_use(Variable):
         equivalent_cooling_hours = parameters(period).D16_cooling_and_heating_hours['cooling_hours'][climate_zone]
         AC_type = building('ESS__Air_Conditioner__AC_type', period)
         installation_type = building('ESS__Appliance__installation_type', period)
-        AEER = parameters(period).D16_baseline_AEER_and_ACOP['AEER'][installation_type][AC_type][cooling_capacity_enum]
+        AEER = parameters(period).ESS.ESS_D16.D16_baseline_AEER_and_ACOP['AEER'][installation_type][AC_type][cooling_capacity_enum]
         return ((cooling_capacity * equivalent_cooling_hours) * AEER)
 
 
@@ -180,5 +180,5 @@ class ESS_D16__reference_heating_energy_use(Variable):
         equivalent_heating_hours = parameters(period).D16_cooling_and_heating_hours['heating_hours'][climate_zone]
         AC_type = building('ESS__Air_Conditioner__AC_type', period)
         installation_type = building('ESS__Appliance__installation_type', period)
-        AEER = parameters(period).D16_baseline_AEER_and_ACOP['ACOP'][installation_type][AC_type][heating_capacity_enum]
+        AEER = parameters(period).ESS.ESS_D16.D16_baseline_AEER_and_ACOP['ACOP'][installation_type][AC_type][heating_capacity_enum]
         return ((heating_capacity * equivalent_heating_hours) * AEER)

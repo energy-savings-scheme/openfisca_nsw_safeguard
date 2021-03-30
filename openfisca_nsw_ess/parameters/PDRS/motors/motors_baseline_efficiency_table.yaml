@@ -1,0 +1,18 @@
+description: The Baseline motor efficiency (%) table for the PDRS-motors method  Left=<kW<Right, 2 poles
+reference: "ESS F7.3"
+metadata:
+    type: single_amount
+    threshold_unit: percentage
+brackets:
+    - amount:
+          2021-01-01:
+              value: 94.3
+      threshold:
+          2021-01-01:
+              value: 110
+    - amount:
+          2021-01-01:
+              value: 89.4
+      threshold:
+          2021-01-01:
+              value: 11

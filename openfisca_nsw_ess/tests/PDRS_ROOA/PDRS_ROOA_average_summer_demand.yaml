@@ -1,6 +1,0 @@
-- name: test PDRS ROOA average summer demand
-  period: 2021
-  absolute_error_margin: 0.1
-  output:
-      PDRS__ROOA__average_summer_demand:
-        [0.10503914]

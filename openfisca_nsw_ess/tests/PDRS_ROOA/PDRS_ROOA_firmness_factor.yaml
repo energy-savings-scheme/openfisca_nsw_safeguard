@@ -1,6 +1,0 @@
-- name: test PDRS ROOA firmness factor
-  period: 2021
-  absolute_error_margin: 0.005
-  output:
-    PDRS__ROOA__firmness_factor:
-        [0.68]

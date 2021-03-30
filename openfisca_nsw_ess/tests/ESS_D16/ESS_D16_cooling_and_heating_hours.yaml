@@ -12,7 +12,7 @@
       [hot, average, cold]
   output:
     ESS_D16__cooling_annual_energy_use:
-      [109, 648, 1534]
+      [1274, 429, 285]
 - name: test ESS AC heating annual energy use
   period: 2021
   absolute_error_margin: 0.1

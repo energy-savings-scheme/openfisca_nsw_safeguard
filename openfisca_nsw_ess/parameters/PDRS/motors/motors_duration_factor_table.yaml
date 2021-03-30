@@ -1,0 +1,10 @@
+description: The Duration Factors table for the PDRS-motors method for commercial settings only.
+reference: "We elect to use an average figure here"
+refrigeration:
+    values:
+        2021-01-01:
+            value: 1
+ventilation:
+    values:
+        2021-01-01:
+            value: 0.21

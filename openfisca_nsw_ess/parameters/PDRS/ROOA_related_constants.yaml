@@ -1,0 +1,31 @@
+DURATION_FACTOR:
+    description: used in computing the firmness value in PDRS ROOA Peak Demand Savings
+    values:
+        2021-01-01:
+            value: 1
+
+FORWARD_CREATION_PERIOD:
+    description: "7 years"
+    metadata:
+        unit: years
+    values:
+        2021-01-01:
+            value: 7
+
+AVERAGE_kWh_SAVED:
+    # what is this? not in the formula
+    description: "Average kWh saved as part of the ROOA method."
+    metadata:
+        unit: kWh
+    values:
+        2021-01-01:
+            value: 5700
+
+TOTAL_DEEMING_HOURS:
+    # what is this? not in the formula
+    description: "Total number of hours for the 7 years of deeming within the PDRS ROOA Method"
+    metadata:
+        unit: hours
+    values:
+        2021-01-01:
+            value: 61320

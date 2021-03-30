@@ -1,0 +1,48 @@
+description: The Asset Life table for the PDRS-motors method in estimating the forward creation period based on rated output (kW), Left=<kW<Right
+reference: "ESS F7.4 Asset Life for High Efficiency Motors"
+metadata:
+    type: single_amount
+    threshold_unit: kW
+brackets:
+    - amount:
+          2021-01-01:
+              value: 0
+      threshold:
+          2021-01-01:
+              value: 185
+    - amount:
+          2021-01-01:
+              value: 25
+      threshold:
+          2021-01-01:
+              value: 100
+    - amount:
+          2021-01-01:
+              value: 22
+      threshold:
+          2021-01-01:
+              value: 41
+    - amount:
+          2021-01-01:
+              value: 20
+      threshold:
+          2021-01-01:
+              value: 9.2
+    - amount:
+          2021-01-01:
+              value: 15
+      threshold:
+          2021-01-01:
+              value: 2.6
+    - amount:
+          2021-01-01:
+              value: 12
+      threshold:
+          2021-01-01:
+              value: 0.73
+    - amount:
+          2021-01-01:
+              value: 0
+      threshold:
+          2021-01-01:
+              value: 0

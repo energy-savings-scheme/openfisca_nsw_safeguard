@@ -24,8 +24,8 @@ class PDRS__Air_Conditioner__peak_demand_savings(Variable):
         power_input = building('PDRS__Air_Conditioner__power_input', period)
         baseline_power_input = building('PDRS__Air_Conditioner__baseline_power_input', period)
         firmness_factor = building('PDRS__Air_Conditioner__firmness_factor', period)
-        daily_peak_hours = parameters(period).PDRS.AC.related_constants.DAILY_PEAK_WINDOW_HOURS
-        forward_creation_period=parameters(period).PDRS.AC.related_constants.FORWARD_CREATION_PERIOD
+        daily_peak_hours = parameters(period).PDRS.AC.AC_related_constants.DAILY_PEAK_WINDOW_HOURS
+        forward_creation_period=parameters(period).PDRS.AC.AC_related_constants.FORWARD_CREATION_PERIOD
 
 
         return (baseline_power_input-power_input)*daily_peak_hours*firmness_factor*forward_creation_period

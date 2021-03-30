@@ -19,8 +19,8 @@ class PDRS__ROOA__average_summer_demand(Variable):
     }
 
     def formula(building, period, parameters):
-        average_demand = parameters(period).ROOA_related_constants.AVERAGE_kWh_SAVED
-        daily_peak_hours = parameters(period).ROOA_related_constants.TOTAL_DEEMING_HOURS
+        average_demand = parameters(period).PDRS.ROOA.ROOA_related_constants.AVERAGE_kWh_SAVED
+        daily_peak_hours = parameters(period).PDRS.ROOA.ROOA_related_constants.TOTAL_DEEMING_HOURS
 
         return (average_demand * 1.13) / daily_peak_hours # formula in Steve's
                                                           # draft document is 5,700 kWh
@@ -45,7 +45,7 @@ class PDRS__ROOA__peak_demand_savings(Variable):
         average_summer_demand = building('PDRS__ROOA__average_summer_demand', period)
         firmness_factor = building('PDRS__ROOA__firmness_factor', period)
         daily_peak_hours = parameters(period).PDRS.PDRS_wide_constants.DAILY_PEAK_WINDOW_HOURS
-        forward_creation_period=parameters(period).ROOA_related_constants.FORWARD_CREATION_PERIOD
+        forward_creation_period=parameters(period).PDRS.ROOA.ROOA_related_constants.FORWARD_CREATION_PERIOD
 
 
         return average_summer_demand*firmness_factor*daily_peak_hours*forward_creation_period

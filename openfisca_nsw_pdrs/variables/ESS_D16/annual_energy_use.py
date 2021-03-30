@@ -2,8 +2,8 @@ from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
-from openfisca_nsw_pdrs.variables.PDRS_AirConditioner.firmness_factor import zone_type
-from openfisca_nsw_pdrs.variables.PDRS_AirConditioner.baseline_power_input import AC_Type
+from openfisca_nsw_ess.variables.PDRS_AirConditioner.firmness_factor import zone_type
+from openfisca_nsw_ess.variables.PDRS_AirConditioner.baseline_power_input import AC_Type
 
 
 # Where to put global constants ? Do they need to be displayed?

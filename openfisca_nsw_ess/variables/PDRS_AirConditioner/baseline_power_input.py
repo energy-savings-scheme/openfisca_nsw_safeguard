@@ -119,7 +119,7 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
 
         replace_or_new = building('PDRS__Appliance__installation_type', period)
         AC_type = building('PDRS__Air_Conditioner__AC_type', period)
-        baseline_unit=parameters(period).AC_baseline_power_per_capacity_reference_table[replace_or_new]
+        baseline_unit=parameters(period).PDRS.AC.baseline_power_per_capacity_reference_table[replace_or_new]
         scale = baseline_unit[AC_type]
 
         return scale[cooling_capacity_enum]*cooling_capacity

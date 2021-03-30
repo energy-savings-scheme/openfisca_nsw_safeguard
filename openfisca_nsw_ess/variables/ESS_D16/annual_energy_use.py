@@ -53,7 +53,7 @@ class ESS_D16__cooling_annual_energy_use(Variable):
     def formula(building, period, parameters):
         cooling_power_input = building('ESS_D16__cooling_power_input', period)
         zone_type = building('ESS__Appliance__zone_type', period)
-        equivalent_cooling_hours = parameters(period).D16_cooling_and_heating_hours['cooling_hours'][zone_type]
+        equivalent_cooling_hours = parameters(period).ESS.ESS_D16.cooling_and_heating_hours['cooling_hours'][zone_type]
         return cooling_power_input * equivalent_cooling_hours
 
 
@@ -68,5 +68,5 @@ class ESS_D16__heating_annual_energy_use(Variable):
     def formula(building, period, parameters):
         heating_power_input = building('ESS_D16__heating_power_input', period)
         zone_type = building('PDRS__Appliance__zone_type', period)
-        equivalent_heating_hours = parameters(period).D16_cooling_and_heating_hours['heating_hours'][zone_type]
+        equivalent_heating_hours = parameters(period).ESS.ESS_D16.cooling_and_heating_hours['heating_hours'][zone_type]
         return heating_power_input * equivalent_heating_hours

@@ -1,0 +1,67 @@
+- name: test ESS NABERS measured electricity consumption calculation
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2019-03-31,
+        2020-02-29,
+        2018-03-31,
+        2019-03-31,
+        2020-02-29,
+        2021-03-30,
+      ]
+  output:
+    ESS__NABERS_current_rating_year:
+      [
+        2019,
+        2020,
+        2018,
+        2019,
+        2020,
+        2021,
+      ]
+- name: test ESS NABERS measured electricity consumption calculation
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2015-03-31,
+        2016-03-31,
+        2017-03-31,
+        2018-03-31,
+        2019-03-31,
+        2020-03-31,
+        2021-03-31,
+        2022-03-31,
+        2023-03-31,
+        2024-03-31,
+      ]
+    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
+      [
+        2015-06-30,
+        2015-06-30,
+        2015-06-30,
+        2015-06-30,
+        2015-06-30,
+        2015-06-30,
+        2015-06-30,
+        2015-06-30,
+        2015-06-30,
+        2015-06-30,
+      ]
+  output:
+    ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
+        False,
+      ]

@@ -1,0 +1,17 @@
+years_between_historical_and_current_rating:
+  description: the maximum number of years between a Historical Rating Date and the end
+               of the Current Rating Year
+  metadata:
+    unit: years
+  values:
+    2021-01-01:
+      value: 7
+
+
+kWh_to_MWh:
+  description: number of MWh in a kWh
+  metadata:
+    unit: MWh
+  values:
+    2021-01-01:
+      value: 0.001

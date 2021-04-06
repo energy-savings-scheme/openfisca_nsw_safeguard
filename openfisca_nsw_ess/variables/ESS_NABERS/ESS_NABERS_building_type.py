@@ -15,7 +15,7 @@ class NABERS_BuildingType(Enum):
     shopping_centre = 'Building is a shopping centre.'
 
 
-class NABERS_building_type(Variable):
+class ESS__NABERS_building_type(Variable):
     value_type = Enum
     entity = Building
     possible_values = NABERS_BuildingType

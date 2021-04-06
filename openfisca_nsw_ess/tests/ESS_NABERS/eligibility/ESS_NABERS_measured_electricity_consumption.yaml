@@ -1,0 +1,23 @@
+- name: test ESS NABERS measured electricity consumption calculation
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS_NABERS_electricity:
+      [
+        1,
+        1,
+        1,
+      ]
+    ESS_NABERS_onsite_unaccounted_electricity:
+      [
+        1,
+        1,
+        1,
+      ]
+  output:
+    ESS_NABERS_measured_electricity_consumption:
+      [
+        2,
+        2,
+        2,
+      ]

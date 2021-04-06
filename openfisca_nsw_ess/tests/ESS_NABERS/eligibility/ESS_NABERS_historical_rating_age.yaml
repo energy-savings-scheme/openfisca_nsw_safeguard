@@ -1,0 +1,19 @@
+- name: test ESS NABERS measured electricity consumption calculation
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
+      [
+        2018-03-31,
+        2018-08-31,
+        2019-03-31,
+        2020-02-29,
+      ]
+  output:
+    ESS__NABERS_age_of_historical_rating:
+      [
+        3,
+        2,
+        2,
+        1,
+      ]

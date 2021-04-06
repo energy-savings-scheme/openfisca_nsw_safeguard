@@ -1,0 +1,27 @@
+- name: test ESS NABERS measured electricity consumption calculation
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_building_type:
+      [
+        aged_care,
+        apartment_building,
+        data_centre,
+        hospital,
+        hotel,
+        office,
+        retirement_living,
+        shopping_centre
+      ]
+  output:
+    ESS__NABERS_rating_calculated_using_NABERS_rating_tools:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]

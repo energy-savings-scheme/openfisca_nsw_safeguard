@@ -11,7 +11,7 @@
 			"module": "openfisca_core.scripts.openfisca_command",
 			"args": [
 				"test",
-				// "openfisca_nsw_safeguard/tests/",
+				"openfisca_nsw_safeguard/tests/",
 				// "serve",
 				"--country-package",
                 "openfisca_nsw_base",

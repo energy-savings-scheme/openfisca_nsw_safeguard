@@ -1,0 +1,28 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug OpenFisca tests",
+			"type": "python",
+			"request": "launch",
+			"module": "openfisca_core.scripts.openfisca_command",
+			"args": [
+				"test",
+				"openfisca_nsw_ess/tests/ESS/ESS_NABERS/eligibility/",
+				// "serve",
+				"--country-package",
+                "openfisca_nsw_base",
+
+				"--extension",
+				"openfisca_nsw_ess"
+			],
+			"console": "integratedTerminal",
+			"justMyCode": false
+		}
+	]
+}
+
+// openfisca serve --country-package openfisca_nsw_base --extension openfisca_nsw_pdrs

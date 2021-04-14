@@ -1,6 +1,6 @@
 # Openfisca Extension: NSW Energy Security Safeguard
 
-This is an openfisca extension to openfisca_nsw_base package. It contains the coded rulesets for the **Energy Savings Scheme (ESS)** and the **Peak Demand Reduction Scheme**
+This is an openfisca extension to openfisca_nsw_base package. It contains the coded rulesets for the **Energy Savings Scheme (ESS)** and the **Peak Demand Reduction Scheme (PDRS)**
 
 ## Initialising
 You'll need to rename the openfisca_nsw_extension_template directory to the name

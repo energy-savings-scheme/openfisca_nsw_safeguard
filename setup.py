@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="openfisca_nsw_ess",
+    name="openfisca_nsw_safeguard",
     version="0.0.1",
     author="Department of Planning Industry and Environment - NSW Government",
     author_email = 'liam.mccann@environment.nsw.gov.au',
@@ -13,16 +13,14 @@ setup(
         "Programming Language :: Python",
         "Topic :: Scientific/Engineering :: Information Analysis",
         ],
-    description="An OpenFisca extension for the Energy Savings Scheme ",
-    keywords = 'Energy Savings Scheme',
+    description="An OpenFisca extension for the NSW Energy Security Safeguard ",
+    keywords = 'Energy Savings Safeguard',
     license="http://www.fsf.org/licensing/licenses/agpl-3.0.html",
-    url = "https://github.com/energy-savings-scheme/openfisca_nsw_ess",
+    url = "https://github.com/energy-savings-scheme/openfisca_nsw_safeguard",
     include_package_data = True,  # Will read MANIFEST.in
-    data_files = [
-        ("share/openfisca/openfisca_nsw_ess_heer", ["CHANGELOG.md", "LICENSE", "README.md"]),
-        ],
+    data_files = [],
     install_requires = [
-        'OpenFisca-Core[web-api] @ git+https://github.com/openfisca/openfisca-core.git@add-variable-metadata',
+        'OpenFisca-Core[web-api] @ git+https://github.com/energy-savings-scheme/openfisca-core.git',
         'OpenFisca_nsw_base'
 
         ],

@@ -39,5 +39,5 @@ check-style:
 test:
 	@#python -m pip install openfisca_nsw_base
 	@#pip install -e .
-	openfisca test openfisca_nsw_ess/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_ess
+	openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
 

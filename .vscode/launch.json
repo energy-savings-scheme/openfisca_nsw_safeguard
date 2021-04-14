@@ -11,13 +11,13 @@
 			"module": "openfisca_core.scripts.openfisca_command",
 			"args": [
 				"test",
-				"openfisca_nsw_ess/tests/ESS/ESS_NABERS/eligibility/",
+				// "openfisca_nsw_safeguard/tests/",
 				// "serve",
 				"--country-package",
                 "openfisca_nsw_base",
 
 				"--extension",
-				"openfisca_nsw_ess"
+				"openfisca_nsw_safeguard"
 			],
 			"console": "integratedTerminal",
 			"justMyCode": false
@@ -25,4 +25,3 @@
 	]
 }
 
-// openfisca serve --country-package openfisca_nsw_base --extension openfisca_nsw_pdrs

@@ -1,11 +1,12 @@
 from openfisca_core.variables import *
-from openfisca_core.periods import ETERNITY
+from openfisca_core.periods import YEAR, ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 import numpy as np
 import datetime
 import time
 from datetime import datetime as py_datetime
+from datetime import date
 
 
 epoch = time.gmtime(0).tm_year # epoch used to ensure current_rating year, used in A20, is calculated correctly

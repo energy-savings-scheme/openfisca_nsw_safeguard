@@ -1,3 +1,4 @@
+import numpy as np
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
@@ -37,5 +38,6 @@ class PDRS__Air_Conditioner__peak_demand_savings(Variable):
         daily_peak_hours = parameters(period).PDRS.PDRS_wide_constants.DAILY_PEAK_WINDOW_HOURS
         forward_creation_period=parameters(period).PDRS.AC.AC_related_constants.FORWARD_CREATION_PERIOD
 
+        diff = np.where((baseline_power_input - power_input)> 0, baseline_power_input - power_input, 0)
 
-        return (baseline_power_input-power_input)*daily_peak_hours*firmness_factor*forward_creation_period
+        return diff*daily_peak_hours*firmness_factor*forward_creation_period

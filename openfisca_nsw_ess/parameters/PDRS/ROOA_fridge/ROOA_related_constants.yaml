@@ -4,6 +4,13 @@ DURATION_FACTOR:
         2021-01-01:
             value: 1
 
+LOAD_FACTOR:
+    description: The Load Factors table for multiple end-uses by sector, for the ROOA PDRS method.
+    reference: ""
+    values:
+        2021-01-01:
+            value: 0.68
+
 FORWARD_CREATION_PERIOD:
     description: "7 years"
     metadata:
@@ -12,20 +19,10 @@ FORWARD_CREATION_PERIOD:
         2021-01-01:
             value: 7
 
-AVERAGE_kWh_SAVED:
-    # what is this? not in the formula
-    description: "Average kWh saved as part of the ROOA method."
+AVERAGE_SUMMER_DEMAND:
+    description: "Average summer demand to estimate the amount of energy saved by removing a fridge in PDRS ROOA methods."
     metadata:
-        unit: kWh
+        unit: kW
     values:
         2021-01-01:
-            value: 5700
-
-TOTAL_DEEMING_HOURS:
-    # what is this? not in the formula
-    description: "Total number of hours for the 7 years of deeming within the PDRS ROOA Method"
-    metadata:
-        unit: hours
-    values:
-        2021-01-01:
-            value: 61320
+            value: 0.093

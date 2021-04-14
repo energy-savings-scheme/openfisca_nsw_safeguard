@@ -38,8 +38,8 @@ class PDRS__motors__firmness_factor(Variable):
     }
 
     def formula(building, period, parameters):
-        contribution_factor = parameters(period).PDRS_wide_constants.CONTRIBUTION_FACTOR
+        contribution_factor = parameters(period).PDRS.PDRS_wide_constants.CONTRIBUTION_FACTOR
         motor_type=building('PDRS__motors__motor_type', period)
-        load_factor = parameters(period).motors.motors_load_factor_table[motor_type]
-        duration_factor = parameters(period).motors.motors_duration_factor_table[motor_type]
+        load_factor = parameters(period).PDRS.motors.motors_load_factor_table[motor_type]
+        duration_factor = parameters(period).PDRS.motors.motors_duration_factor_table[motor_type]
         return duration_factor*load_factor*contribution_factor

@@ -1,0 +1,53 @@
+- name: test PDRS motors baseline motor efficiency--linear interpolation
+  period: 2021
+  absolute_error_margin: 1
+  input:
+    PDRS__motors__number_of_poles:
+      [ poles_2, poles_4, poles_6, poles_8, poles_4, poles_2 ]
+    PDRS__motors__new_motor_rated_output: [ 2.9, 11, 28, 50, 90, 185 ]
+  output:
+    PDRS__motors__baseline_motor_efficiency:
+      [ 84.425, 89.8, 91.5, 90.85, 94.2, 95.0 ]
+
+
+
+- name: test PDRS motors existing efficiency--old efficiency present
+  period: 2021
+  absolute_error_margin: 1
+  input:
+    PDRS__motors__number_of_poles:
+      [ poles_2, poles_4, poles_6, poles_8, poles_4, poles_2 ]
+    PDRS__motors__new_motor_rated_output: [ 2.9, 11, 28, 50, 90, 185 ]
+    PDRS__motors__old_efficiency: [81, 87, 88, 91, 94, 94]
+  output:
+    PDRS__motors__baseline_motor_efficiency:
+      [ 84.425, 89.8, 91.5, 90.85, 94.2, 95.0 ]
+    PDRS__motors__existing_motor_efficiency: [81, 87, 88, 91, 94, 94]
+
+
+
+- name: test PDRS motors existing efficiency--old efficiency absent
+  period: 2021
+  absolute_error_margin: 1
+  input:
+    PDRS__motors__number_of_poles:
+      [ poles_2, poles_4, poles_6, poles_8, poles_4, poles_2 ]
+    PDRS__motors__new_motor_rated_output: [ 2.9, 11, 28, 50, 90, 185 ]
+  output:
+    PDRS__motors__baseline_motor_efficiency:
+      [ 84.425, 89.8, 91.5, 90.85, 94.2, 95.0 ]
+    PDRS__motors__existing_motor_efficiency: [ 84.425, 89.8, 91.5, 90.85, 94.2, 95.0 ]
+
+- name: test PDRS motors existing efficiency--steve data
+  period: 2021
+  absolute_error_margin: 1
+  input:
+    PDRS__motors__number_of_poles:
+      [ poles_2 ]
+    PDRS__motors__new_motor_rated_output: [168 ]
+  output:
+    PDRS__motors__baseline_motor_efficiency:
+      [ 94.902855 ]
+    PDRS__motors__existing_motor_efficiency: [95]
+
+

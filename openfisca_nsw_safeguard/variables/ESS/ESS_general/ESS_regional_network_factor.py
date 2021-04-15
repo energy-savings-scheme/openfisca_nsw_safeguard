@@ -4,7 +4,7 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-class ESS_regional_network_factor(Variable):
+class ESS__regional_network_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -3,4 +3,4 @@
   input:
     postcode: [2313, 2583, 4382, 4386]
   output:
-    ESS_regional_network_factor: [1.0, 1.03, 1.0, 1.0]
+    ESS__regional_network_factor: [1.0, 1.03, 1.0, 1.0]

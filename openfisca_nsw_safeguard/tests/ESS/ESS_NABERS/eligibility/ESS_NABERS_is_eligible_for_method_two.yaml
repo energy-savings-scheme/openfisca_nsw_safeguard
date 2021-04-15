@@ -56,6 +56,15 @@
         False,
         False,
       ]
+    ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
   output:
     ESS__NABERS_is_eligible_for_method_two:
       [

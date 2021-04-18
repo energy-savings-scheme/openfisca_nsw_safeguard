@@ -2,7 +2,7 @@
   period: 2021
   absolute_error_margin: 0.1
   input:
-    ESS_NABERS_electricity:
+    ESS__NABERS__NABERS_electricity:
       [
         1,
         1,

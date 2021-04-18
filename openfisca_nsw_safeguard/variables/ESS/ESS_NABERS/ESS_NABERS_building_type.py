@@ -22,10 +22,22 @@ class ESS__NABERS_building_type(Variable):
     default_value = NABERS_BuildingType.office
     definition_period = ETERNITY
     label = 'What is the building type for the NABERS rated building?'
+    metadata={
+        "variable-type": "user-input",
+        "alias":"NABERS Building Type",
+        "major-cat":"Energy Savings Scheme",
+        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        }
 
 
-class postcode(Variable):
+class ESS__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = "What is the postcode for the building you are calculating ESCs for?"
+    metadata={
+        "variable-type": "user-input",
+        "alias":"ESS Postcode",
+        "major-cat":"Energy Savings Scheme",
+        "monor-cat":'Energy Savings Scheme - General'
+        }

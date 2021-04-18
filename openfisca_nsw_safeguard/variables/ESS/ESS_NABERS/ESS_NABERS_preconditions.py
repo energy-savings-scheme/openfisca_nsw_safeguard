@@ -454,6 +454,12 @@ class ESS__NABERS_is_eligible_for_method_two(Variable):
     definition_period = ETERNITY
     reference="Clause 8.8.3"
     label = 'Is the user eligible to use Method 2?'
+    metadata={
+        "variable-type": "inter-interesting",
+        "alias":"NABERS User is Eligible for Calculation Method 2",
+        "major-cat":"Energy Savings Scheme",
+        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        }
 
     def formula(buildings, period, parameters):
         eligible_for_method_one = buildings('ESS__NABERS_is_eligible_for_method_one', period)
@@ -561,6 +567,27 @@ class ESS__NABERS_current_rating_period_length(Variable):
         # need to troubleshoot this later
 
 
+class ESS__NABERS_TypeOfCreation(Enum):
+    annual_creation = 'The ESCS will be annually created.'
+    forward_creation = 'The ESCS will be forward created.'
+
+
+class ESS__NABERS_type_of_creation(Variable):
+    value_type = Enum
+    possible_values = ESS__NABERS_TypeOfCreation
+    default_value = ESS__NABERS_TypeOfCreation.annual_creation
+    entity = Building
+    definition_period = ETERNITY
+    reference="Clause 8.8"
+    label = 'Do you want to annually create or forward create ESCs?'
+    metadata={
+        "variable-type": "user-input",
+        "alias":"NABERS Type of Creation",
+        "major-cat":"Energy Savings Scheme",
+        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        }
+
+
 class ESS__NABERS_previous_forward_creation_occurred(Variable):
     value_type = bool
     entity = Building
@@ -614,8 +641,6 @@ class ESS__NABERS_historical_rating_previously_used_to_set_baseline(Variable):
         "major-cat":"Energy Savings Scheme",
         "monor-cat":'Metered Baseline Method - NABERS baseline'
         }
-
-
 
 
 class ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date(Variable):

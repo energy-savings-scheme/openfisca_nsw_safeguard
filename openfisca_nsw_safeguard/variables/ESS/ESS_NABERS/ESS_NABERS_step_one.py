@@ -16,11 +16,11 @@ class ESS_NABERS_measured_electricity_consumption(Variable):
         }
 
     def formula(buildings, period, parameters):
-        return (buildings('ESS_NABERS_electricity', period)
+        return (buildings('ESS__NABERS__NABERS_electricity', period)
         + buildings('ESS_NABERS_onsite_unaccounted_electricity', period))
 
 
-class ESS_NABERS_electricity(Variable):
+class ESS__NABERS__NABERS_electricity(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class ESS_NABERS_onsite_unaccounted_electricity(Variable):
         }
 
 
-class ESS_NABERS_gas(Variable):
+class ESS__NABERS_NABERS_gas(Variable):
     value_type = float
     entity = Building
     definition_period = YEAR

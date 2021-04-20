@@ -2,7 +2,7 @@
   period: 2021
   absolute_error_margin: 0.005
   input:
-      PDRS__Appliance__installation_purpose:
+      Appliance__installation_purpose:
           [
               residential,
               residential,
@@ -11,7 +11,7 @@
               commercial,
               commercial,
           ]
-      PDRS__Appliance__zone_type: [hot, average, cold, hot, average, cold]
+      Appliance__zone_type: [hot, average, cold, hot, average, cold]
 
   output:
       PDRS__Air_Conditioner__duration_factor:
@@ -21,7 +21,7 @@
   period: 2021
   absolute_error_margin: 0.005
   input:
-      PDRS__Appliance__installation_purpose:
+      Appliance__installation_purpose:
           [
               residential,
               residential,
@@ -30,7 +30,7 @@
               commercial,
               commercial,
           ]
-      PDRS__Appliance__zone_type: [hot, average, cold, hot, average, cold]
+      Appliance__zone_type: [hot, average, cold, hot, average, cold]
   output:
       PDRS__Air_Conditioner__firmness_factor:
           [0., 0.2036534, 0., 0., 0.16919082, 0.]

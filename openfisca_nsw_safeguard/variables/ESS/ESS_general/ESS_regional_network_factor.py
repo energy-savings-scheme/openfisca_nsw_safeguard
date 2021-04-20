@@ -14,8 +14,8 @@ class ESS__regional_network_factor(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"ESS Regional Network Factor",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Energy Savings Scheme - General'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Energy Savings Scheme - General'
         }
 
     def formula(buildings, period, parameters):

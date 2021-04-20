@@ -3,6 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 class PDRS__Air_Conditioner__duration_factor(Variable):
     reference = 'computing duration factor during the peak hour usage as part of the firmness factor in PDRS Air Conditioner savings.'
@@ -11,9 +12,12 @@ class PDRS__Air_Conditioner__duration_factor(Variable):
     definition_period = ETERNITY
     metadata = {
         'alias': "Duration Factor",
-        'activity-group': "Air Conditioners?",
-        'activity-name': "Replace or Install an Air Conditioner",
-        'variable-type': "intermediary"
+        # 'activity-group': "Air Conditioners?",
+        # 'activity-name': "Replace or Install an Air Conditioner",
+        'variable-type': "intermediary",
+        # "activity-group": "PDRS: Air Conditioner",
+        # "activity-name": "Installation or Replacement of an Air Conditioner"
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
     def formula(building, period, parameters):
@@ -37,9 +41,10 @@ class PDRS__Air_Conditioner__firmness_factor(Variable):
     definition_period = ETERNITY
     metadata = {
         'alias': "Firmness Factor",
-        'activity-group': "Air Conditioners?",
-        'activity-name': "Replace or Install an Air Conditioner",
-        'variable-type': "intermediary"
+        # 'activity-group': "Air Conditioners?",
+        # 'activity-name': "Replace or Install an Air Conditioner",
+        'variable-type': "intermediary",
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
     def formula(building, period, parameters):

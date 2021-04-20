@@ -4,6 +4,8 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+
 class PDRS__Air_Conditioner__power_input(Variable):
     entity=Building
     value_type=float
@@ -13,8 +15,9 @@ class PDRS__Air_Conditioner__power_input(Variable):
     metadata={
         "variable-type": "input",
         "alias" :"AC power input",
-        "activity-group":"PDRS: Air Conditioner",
-        "activity-name":"Installation or Replacement of an Air Conditioner"
+        # "activity-group":"PDRS: Air Conditioner",
+        # "activity-name":"Installation or Replacement of an Air Conditioner"
+        "regulation_reference": PDRS_2022["8","5"]
         }
 
 
@@ -27,8 +30,9 @@ class PDRS__Air_Conditioner__peak_demand_savings(Variable):
     metadata={
         "variable-type": "output",
         "alias" :"AC Peak Demand Savings",
-        "activity-group":"PDRS: Air Conditioner",
-        "activity-name":"Installation or Replacement of an Air Conditioner"
+        # "activity-group":"PDRS: Air Conditioner",
+        # "activity-name":"Installation or Replacement of an Air Conditioner"
+        "regulation_reference": PDRS_2022["8","5"]
         }
 
     def formula(building, period, parameters):

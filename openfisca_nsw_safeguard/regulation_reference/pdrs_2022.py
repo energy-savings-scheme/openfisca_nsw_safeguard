@@ -16,3 +16,4 @@ clause_8.add_parts([("1", PT.CLAUSE, None),
                   ("7", PT.CLAUSE, "Example MNO"),
                   ("8", PT.CLAUSE, "Example PQR"),
                   ("9", PT.CLAUSE, "Example STU"),
+])

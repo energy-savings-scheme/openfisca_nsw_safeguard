@@ -3,6 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 class PDRS_replace_motors_meets_implementation_requirements(Variable):
     value_type = bool
@@ -11,7 +12,11 @@ class PDRS_replace_motors_meets_implementation_requirements(Variable):
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Implementation' \
             ' Requirements defined in PDRS replace or install high efficiency motors activity?'
-
+    metadata = {
+        'alias': "Replacement motor meets implementation requirements",
+        "regulation_reference": PDRS_2022["8","5"]
+    }
+    
     def formula(buildings, period, parameters):
 
         is_removed = buildings('Appliance_is_removed', period)
@@ -27,6 +32,10 @@ class PDRS_replace_motors_meets_all_requirements(Variable):
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the' \
             ' Requirements defined in PDRS replace or install high efficiency motors activity?'
+    metadata = {
+        'alias': "Replacement motor meets all requirements",
+        "regulation_reference": PDRS_2022["8","5"]
+    }
 
     def formula(buildings, period, parameters):
         implementation = buildings(

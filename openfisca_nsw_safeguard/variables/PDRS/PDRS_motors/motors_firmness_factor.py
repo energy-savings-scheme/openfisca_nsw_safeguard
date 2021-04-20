@@ -3,6 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 class motor_type(Enum):
     refrigeration = "Refrigeration"
@@ -19,9 +20,10 @@ class PDRS__motors__motor_type(Variable):
     label = "What is the motor type of your replacement, refrigeration or ventilation?"
     metadata = {
         'alias': "Motor Type",
-        'activity-group': "High Efficiency Appliances for Business",
-        'activity-name': "Replace an existing motor by a high efficiency motor",
-        'variable-type': "input"
+        # 'activity-group': "High Efficiency Appliances for Business",
+        # 'activity-name': "Replace an existing motor by a high efficiency motor",
+        'variable-type': "input",
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
 
@@ -31,9 +33,10 @@ class PDRS__motors__firmness_factor(Variable):
     definition_period = ETERNITY
     metadata = {
         'alias': "Firmness Factor",
-        'activity-group': "High Efficiency Appliances for Business",
-        'activity-name': "Replace an existing motor by a high efficiency motor",
-        'variable-type': "intermediary"
+        # 'activity-group': "High Efficiency Appliances for Business",
+        # 'activity-name': "Replace an existing motor by a high efficiency motor",
+        'variable-type': "intermediary",
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
     def formula(building, period, parameters):

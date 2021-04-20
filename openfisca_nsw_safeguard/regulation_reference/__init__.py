@@ -12,3 +12,4 @@
 """
 
 from openfisca_nsw_safeguard.regulation_reference.ess_2021 import ESS_2021
+from openfisca_nsw_safeguard.regulation_reference.pdrs_2022 import PDRS_2022

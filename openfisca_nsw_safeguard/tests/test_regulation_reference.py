@@ -20,3 +20,7 @@ def test_regulation_reference():
     accessor = ESS_2020["B","1"]
     assert accessor["identifier"] == "ESS 2020"
     assert accessor["part"]["identifier"] == "B"
+
+    # Test invalid accessor raises error
+    with pytest.raises(KeyError):
+        invalid = ESS_2020["C","1"]

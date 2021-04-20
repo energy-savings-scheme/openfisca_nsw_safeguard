@@ -42,7 +42,10 @@ class _Part:
         def __init__(self, part, keys):
             self._part = part
             if tuple(keys):
-                child = part._parts[keys[0]]
+                try:
+                    child = part._parts[keys[0]]
+                except KeyError:
+                    raise KeyError(f'Cannot find key "{keys[0]}" in regulation_reference {part.identifier}')
                 self._child = type(self)(child, keys[1:])
             else:
                 self._child = None

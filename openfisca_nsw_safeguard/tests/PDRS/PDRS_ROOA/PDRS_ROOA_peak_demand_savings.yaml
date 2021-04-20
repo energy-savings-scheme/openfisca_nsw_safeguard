@@ -1,9 +1,7 @@
 - name: test PDRS ROOA peak demand savings
   period: 2021
   absolute_error_margin: 0.005
+  input:
+      PDRS_ROOA_meets_all_requirements: [true, false]
   output:
-      PDRS__ROOA__peak_demand_savings: [2.655]
-# Note to Yuguang:
-# TODO: 2. check if it is only for fridge
-# TODO: 3. check the numbers in test data
-
+      PDRS__ROOA__peak_demand_savings: [2.655, 0]

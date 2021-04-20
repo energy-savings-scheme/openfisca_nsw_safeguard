@@ -24,6 +24,16 @@ class Appliance_is_removed(Variable):
     }
 
 
+class Appliance_follows_removal_requirements(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the removal of the appliance follows the removal of appliance requirements under Clause 5.3A? (e.g. Recycled, degassed, not resold etc.)'
+    metadata: {
+        'alias':  'Is removal of existing appliance follows the requirement under Clause 5.3A?'
+    }
+
+
 class Appliance_is_performed_by_qualified_person(Variable):
     value_type = bool
     entity = Building

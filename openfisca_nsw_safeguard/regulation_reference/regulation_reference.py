@@ -34,8 +34,9 @@ class _Part:
     def json(self):
         return json.dumps(self, cls=_JSONEncoder)
 
+
     def __getitem__(self, key):
-        return self._PartView(self, key)
+        return json.loads(self._PartView(self, key).json())
 
     class _PartView:
         def __init__(self, part, keys):

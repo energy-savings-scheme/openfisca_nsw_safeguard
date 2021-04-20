@@ -3,6 +3,8 @@ from openfisca_core.periods import ETERNITY, YEAR
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import ESS_2021
+
 class ESS_NABERS_measured_electricity_consumption(Variable):
     value_type = float
     entity = Building
@@ -11,8 +13,9 @@ class ESS_NABERS_measured_electricity_consumption(Variable):
     metadata={
         "variable-type": "inter-interesting", # need to check this metadata
         "alias":"Measured Electricity Consumption (MWh)",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -31,8 +34,9 @@ class ESS__NABERS__NABERS_electricity(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Electricity (MWh)",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -46,8 +50,9 @@ class ESS_NABERS_onsite_unaccounted_electricity(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS On-site Unaccounted Electricity (MWh)",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -60,6 +65,7 @@ class ESS__NABERS_NABERS_gas(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Gas (MWh)",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }

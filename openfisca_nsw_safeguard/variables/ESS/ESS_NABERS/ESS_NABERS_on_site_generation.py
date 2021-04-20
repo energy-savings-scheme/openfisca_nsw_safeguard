@@ -3,6 +3,7 @@ from openfisca_core.periods import ETERNITY, YEAR
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 class all_on_site_sources_identified(Variable):
     value_type = bool
@@ -12,8 +13,9 @@ class all_on_site_sources_identified(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS All On Site Electricity Generation Sources Identified",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -27,6 +29,7 @@ class unaccounted_elec_metered_and_recorded(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Unaccounted Electricity Metered and Recorded",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }

@@ -3,6 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 class NABERS_BuildingType(Enum):
     aged_care = 'Building is an residential aged care building.'
@@ -25,8 +26,9 @@ class ESS__NABERS_building_type(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Building Type",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -38,6 +40,6 @@ class ESS__postcode(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"ESS Postcode",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Energy Savings Scheme - General'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Energy Savings Scheme - General'
         }

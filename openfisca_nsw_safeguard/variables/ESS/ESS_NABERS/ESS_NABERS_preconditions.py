@@ -8,6 +8,7 @@ import time
 from datetime import datetime as py_datetime
 from datetime import date
 
+from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 epoch = time.gmtime(0).tm_year # epoch used to ensure current_rating year, used in A20, is calculated correctly
 today_date_and_time = np.datetime64(datetime.datetime.now())
@@ -71,8 +72,9 @@ class ESS__NABERS_rating_calculated_using_NABERS_rating_tools(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Uses Eligible Calculation Tool",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -99,8 +101,9 @@ class ESS__NABERS_building_has_GreenPower(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Has Greenpower",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -113,8 +116,9 @@ class ESS__NABERS_all_sources_of_on_site_electricity_generation_identified(Varia
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS On-Site Generation Identified",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -128,8 +132,9 @@ class ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded(Variable)
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Unaccounted Electricity Metered and Recorded",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -142,8 +147,9 @@ class ESS__NABERS_current_NABERS_star_rating(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Current Star Rating",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -157,8 +163,9 @@ class ESS__NABERS_start_date_of_current_NABERS_rating_period(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Current Rating Start Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -172,8 +179,9 @@ class ESS__NABERS_end_date_of_current_NABERS_rating_period(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Current Rating End Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -185,8 +193,9 @@ class ESS__NABERS_current_rating_year(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Current Rating Year",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -204,8 +213,9 @@ class ESS__NABERS_historical_NABERS_star_rating(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Historical Star Rating",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -219,8 +229,9 @@ class ESS__NABERS_start_date_of_historical_NABERS_rating_period(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Historical Rating Start Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -234,8 +245,9 @@ class ESS__NABERS_end_date_of_historical_NABERS_rating_period(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Historical Rating End Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -247,8 +259,9 @@ class ESS__NABERS_historical_rating_year(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Historical Rating Year",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -267,8 +280,9 @@ class ESS__NABERS_age_of_historical_rating(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Historical Rating Age",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -297,8 +311,9 @@ class ESS__NABERS_building_date(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Building Construction Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -312,8 +327,9 @@ class ESS__NABERS_exceeds_A20_benchmark_rating_by_half_star(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS First Building Rating",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -337,8 +353,9 @@ class ESS__NABERS_first_NABERS_rating(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS First Building Rating",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -353,8 +370,9 @@ class ESS__NABERS_rating_obtained_for_legal_requirements(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Obtained for Legal Requirement",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -367,8 +385,9 @@ class ESS__NABERS_is_eligible_for_method_one(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Eligible To Use Calculation Method 1",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -389,8 +408,9 @@ class ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating(Variab
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Current Star Rating Exceeds Method Two Benchmark Rating",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -417,8 +437,9 @@ class ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_ratin
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Historical Baseline NABERS Rating No More Than 7 Years Before Current Rating Year",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -443,8 +464,9 @@ class ESS__NABERS_historical_rating_meets_similar_configuration_criteria(Variabl
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Historical Rating Meets Similar Configuration Criteria",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -457,8 +479,9 @@ class ESS__NABERS_is_eligible_for_method_two(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS User is Eligible for Calculation Method 2",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -481,8 +504,9 @@ class ESS__NABERS_implementation_date(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Implementation Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -502,8 +526,9 @@ class ESS__NABERS_name_of_energy_saver(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Energy Saver",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -518,8 +543,9 @@ class ESS__NABERS_energy_savings_date(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Energy Savings Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -536,8 +562,9 @@ class ESS__NABERS_ESC_creation_date(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS ESC Creation Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -551,8 +578,9 @@ class ESS__NABERS_current_rating_period_length(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS ESC Creation Date",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -583,8 +611,9 @@ class ESS__NABERS_type_of_creation(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Type of Creation",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -597,8 +626,9 @@ class ESS__NABERS_previous_forward_creation_occurred(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Has Previous Forward Creation Occurred",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -638,8 +668,9 @@ class ESS__NABERS_historical_rating_previously_used_to_set_baseline(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"NABERS Previous or Equal Historical NABERS Rating",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
 
@@ -653,8 +684,9 @@ class ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date(Va
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS ESC Creation Within 7 Years of Historical Rating",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -673,8 +705,9 @@ class ESS__NABERS_is_eligible_for_forward_creation(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"NABERS Is Eligible To Forward Create ESCs",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):
@@ -697,8 +730,9 @@ class ESS__NABERS_is_eligible(Variable):
     metadata={
         "variable-type": "output",
         "alias":"NABERS Eligible to Create ESCs",
-        "major-cat":"Energy Savings Scheme",
-        "monor-cat":'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8","8"]
         }
 
     def formula(buildings, period, parameters):

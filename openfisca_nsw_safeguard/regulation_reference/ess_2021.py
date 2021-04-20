@@ -28,4 +28,10 @@ schedule_B = ESS_2021.add_part("B", PT.SCHEDULE, "Activity Definitions for the S
 schedule_B.add_parts([
                      ("1", PT.ACTIVITY, "Sell a High Efficiency Clothes Washing Machine"),
                      ("2", PT.ACTIVITY, "Sell a High Efficiency Clothes Dryer")
-                     ])    
+                     ])
+
+schedule_D = ESS_2021.add_part("D", PT.SCHEDULE, "Activity Definitions for General Activities for Home Energy Efficiency Retrofits")
+schedule_D.add_parts([
+                     ("1", PT.ACTIVITY, "Replace an External Single Glazed Window or Door with a Thermally Efficient Window or Door"),
+                     ("16", PT.ACTIVITY, "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner with a High Efficiency Air Conditioner")
+                     ])

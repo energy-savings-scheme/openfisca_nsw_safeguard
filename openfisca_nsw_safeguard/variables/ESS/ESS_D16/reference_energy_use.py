@@ -4,6 +4,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 class ESS_D16__Air_Conditioner__heating_capacity(Variable):
     reference = "unit in kw"
@@ -14,8 +15,9 @@ class ESS_D16__Air_Conditioner__heating_capacity(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "Air Conditioner Cooling Capacity",
-        "major-cat": "Energy Savings Scheme",
-        "monor-cat": "Installation or Replacement of an Air Conditioner"
+        # "major-cat": "Energy Savings Scheme",
+        # "monor-cat": "Installation or Replacement of an Air Conditioner",
+        "regulation_reference": ESS_2021["D", "16"]
     }
 
 
@@ -28,8 +30,9 @@ class ESS_D16__Air_Conditioner__cooling_annual_energy_use(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "Air Conditioner Cooling Annual Energy Use",
-        "major-cat": "Energy Savings Scheme",
-        "monor-cat": "Installation or Replacement of an Air Conditioner"
+        # "major-cat": "Energy Savings Scheme",
+        # "monor-cat": "Installation or Replacement of an Air Conditioner",
+        "regulation_reference": ESS_2021["D", "16"]
     }
 
 
@@ -42,8 +45,9 @@ class ESS_D16__Air_Conditioner__heating_annual_energy_use(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "Air Conditioner Heating Annual Energy Use",
-        "major-cat": "Energy Savings Scheme",
-        "monor-cat": "Installation or Replacement of an Air Conditioner"
+        # "major-cat": "Energy Savings Scheme",
+        # "monor-cat": "Installation or Replacement of an Air Conditioner",
+        "regulation_reference": ESS_2021["D", "16"]
     }
 
 
@@ -61,7 +65,11 @@ class ESS_D16__reference_cooling_energy_use(Variable):
     definition_period = ETERNITY
     reference = "Clause **"
     label = "The reference cooling annual energy use for the air conditioning equipment.."
-    metadata = {"variable-type": "inter-interesting"}
+    metadata = {"variable-type": "inter-interesting",         
+                # "major-cat": "Energy Savings Scheme",
+                # "monor-cat": "Installation or Replacement of an Air Conditioner",
+                "regulation_reference": ESS_2021["D", "16"]
+                }
 
     def formula(building, period, parameters):
         cooling_capacity = building(
@@ -84,7 +92,11 @@ class ESS_D16__reference_heating_energy_use(Variable):
     definition_period = ETERNITY
     reference = "Clause **"
     label = "The reference heating annual energy use for the air conditioning equipment.."
-    metadata = {"variable-type": "inter-interesting"}
+    metadata = {"variable-type": "inter-interesting",         
+                # "major-cat": "Energy Savings Scheme",
+                # "monor-cat": "Installation or Replacement of an Air Conditioner",
+                "regulation_reference": ESS_2021["D", "16"]
+                }
 
     def formula(building, period, parameters):
         heating_capacity = building(

@@ -2,6 +2,8 @@
   period: 2021
   absolute_error_margin: 1
   input:
+      PDRS_replace_motors_meets_all_requirements:
+          [true, true, true, true, true, true, true]
       PDRS__motors__motor_type:
           [
               ventilation,

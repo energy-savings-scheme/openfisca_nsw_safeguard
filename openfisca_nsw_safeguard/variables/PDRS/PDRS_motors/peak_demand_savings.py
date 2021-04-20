@@ -2,6 +2,7 @@ from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 class PDRS__motors__new_efficiency(Variable):
     entity = Building
@@ -12,8 +13,9 @@ class PDRS__motors__new_efficiency(Variable):
     metadata = {
         "variable-type": "input",
         "alias": "Efficiency (%) of The New Motor",
-        "activity-group": "High Efficiency Appliances for Business",
-        "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        # "activity-group": "High Efficiency Appliances for Business",
+        # "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
 
@@ -26,8 +28,9 @@ class PDRS__motors__new_motor_rated_output(Variable):
     metadata = {
         "variable-type": "input",
         "alias": "Rated Output of The New Motor",
-        "activity-group": "High Efficiency Appliances for Business",
-        "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        # "activity-group": "High Efficiency Appliances for Business",
+        # "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
 
@@ -40,8 +43,9 @@ class PDRS__motors__peak_demand_savings(Variable):
     metadata = {
         "variable-type": "output",
         "alias": "Motors Peak demand savings",
-        "activity-group": "High Efficiency Appliances for Business",
-        "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        # "activity-group": "High Efficiency Appliances for Business",
+        # "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
     def formula(building, period, parameters):

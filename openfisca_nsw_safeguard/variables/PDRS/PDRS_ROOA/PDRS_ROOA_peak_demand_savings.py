@@ -3,6 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 class PDRS__ROOA__peak_demand_savings(Variable):
     entity = Building
@@ -14,7 +15,8 @@ class PDRS__ROOA__peak_demand_savings(Variable):
         'alias': "Peak Demand Savings",
         'activity-group': "Removal Of Old Appliances",
         'activity-name': "Removal of a Spare Refrigerator or Freezer",
-        'variable-type': "output"
+        'variable-type': "output",
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
     def formula(building, period, parameters):

@@ -3,6 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 class ESS__D16__deemed_elec_savings(Variable):
     entity=Building
@@ -10,7 +11,9 @@ class ESS__D16__deemed_elec_savings(Variable):
     definition_period=ETERNITY
     reference="Clause **"
     label="The final deemed electricity savings for installing a high efficiency AC."
-    metadata={"variable-type":"final_output"}
+    metadata={"variable-type":"final_output", 
+              "regulation_reference": ESS_2021["D", "16"]
+              }
 
     def formula(building, period, parameters):
         reference_cooling_energy_use = building('ESS_D16__reference_cooling_energy_use', period)

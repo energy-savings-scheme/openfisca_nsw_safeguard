@@ -3,7 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
-
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 class PDRS__ROOA__firmness_factor(Variable):
     entity=Building
@@ -13,7 +13,8 @@ class PDRS__ROOA__firmness_factor(Variable):
         'alias' : "Firmness Factor",
         'activity-group' : "Removal Of Old Appliances",
         'activity-name' : "Removal of a Spare Refrigerator or Freezer",
-        'variable-type' : "intermediary"
+        'variable-type' : "intermediary",
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
     def formula(building, period, parameters):

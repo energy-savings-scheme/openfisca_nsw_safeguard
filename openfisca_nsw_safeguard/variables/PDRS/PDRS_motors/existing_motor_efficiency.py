@@ -5,6 +5,8 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 from openfisca_core.parameters import load_parameter_file
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+
 class motor_poles_number(Enum):
     poles_2="poles_2"
     poles_4="poles_4"
@@ -23,9 +25,10 @@ class PDRS__motors__number_of_poles(Variable):
     label="How many poles does your new motor have?"
     metadata ={
         'alias' : "New Motor Poles Number ",
-        'activity-group' : "High Efficiency Appliances for Business",
-        'activity-name' : "Replace an existing motor by a high efficiency motor",
-        'variable-type' : "input"
+        # 'activity-group' : "High Efficiency Appliances for Business",
+        # 'activity-name' : "Replace an existing motor by a high efficiency motor",
+        'variable-type' : "input",
+        "regulation_reference": PDRS_2022["8","5"]
     }
 
 
@@ -40,8 +43,9 @@ class PDRS__motors__old_efficiency(Variable):
     metadata={
         "variable-type": "input",
         "alias" :"Efficiency (%) of The Old Motor",
-        "activity-group":"High Efficiency Appliances for Business",
-        "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        # "activity-group":"High Efficiency Appliances for Business",
+        # "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        "regulation_reference": PDRS_2022["8","5"]
         }
 
 
@@ -54,8 +58,9 @@ class PDRS__motors__baseline_motor_efficiency(Variable):
     metadata={
         "variable-type": "intermediary",
         "alias" :"Baseline Motor Efficiency",
-        "activity-group":"High Efficiency Appliances for Business",
-        "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        # "activity-group":"High Efficiency Appliances for Business",
+        # "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        "regulation_reference": PDRS_2022["8","5"]
         }
 
     def formula(building, period, parameters):
@@ -93,8 +98,9 @@ class PDRS__motors__existing_motor_efficiency(Variable):
     metadata={
         "variable-type": "intermediary",
         "alias" :"Existing Motor Efficiency (baseline efficiency if not supplied)",
-        "activity-group":"High Efficiency Appliances for Business",
-        "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        # "activity-group":"High Efficiency Appliances for Business",
+        # "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
+        "regulation_reference": PDRS_2022["8","5"]
         }
 
     def formula(building, period, paramters):

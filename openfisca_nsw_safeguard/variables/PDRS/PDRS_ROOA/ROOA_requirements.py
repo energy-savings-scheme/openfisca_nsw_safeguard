@@ -3,6 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 class PDRS_ROOA_meets_implementation_requirements(Variable):
     value_type = bool
@@ -11,6 +12,10 @@ class PDRS_ROOA_meets_implementation_requirements(Variable):
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Implementation' \
             ' Requirements defined in Removal of Old Appliance (fridge)?'
+    metadata = {
+        'alias': "ROOA meets implementation requirements",
+        "regulation_reference": PDRS_2022["8","5"]
+    }
 
     def formula(buildings, period, parameters):
         one_less = buildings('Fridge_total_number_one_less', period)
@@ -28,6 +33,10 @@ class PDRS_ROOA_meets_eligibility_requirements(Variable):
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Eligibility' \
             ' Requirements defined in Removal of Old Appliance (fridge)?'
+    metadata = {
+        'alias': "ROOA meets eligibility requirements",
+        "regulation_reference": PDRS_2022["8","5"]
+    }
 
     def formula(buildings, period, parameters):
         is_residential = buildings(
@@ -45,6 +54,10 @@ class PDRS_ROOA_meets_equipment_requirements(Variable):
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Equipment' \
             ' Requirements defined in Removal of Old Appliance (fridge)?'
+    metadata = {
+        'alias': "ROOA meets equipment requirements",
+        "regulation_reference": PDRS_2022["8","5"]
+    }
 
     def formula(buildings, period, parameters):
         is_working = buildings(
@@ -61,6 +74,10 @@ class PDRS_ROOA_meets_all_requirements(Variable):
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the' \
             ' Requirements defined in Removal of Old Appliance (fridge)?'
+    metadata = {
+        'alias': "ROOA meets all requirements",
+        "regulation_reference": PDRS_2022["8","5"]
+    }
 
     def formula(buildings, period, parameters):
         implementation = buildings(

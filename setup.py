@@ -21,8 +21,7 @@ setup(
     data_files = [],
     install_requires = [
         'OpenFisca-Core[web-api] @ git+https://github.com/energy-savings-scheme/openfisca-core.git',
-        'OpenFisca_nsw_base'
-
+        'openfisca_nsw_base @ git+https://github.com/tjharrop/openfisca_nsw_base.git'
         ],
     extras_require = {
         "dev": [

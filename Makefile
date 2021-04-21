@@ -14,7 +14,7 @@ install: deps
 	@# Install OpenFisca-Extension-Template for development.
 	@# `make install` installs the editable version of OpenFisca-France.
 	@# This allows contributors to test as they code.
-	pip install --editable .[dev] --upgrade
+	pip install --editable .[dev] --upgrade --use-deprecated=legacy-resolver
 
 build: clean deps
 	@# Install OpenFisca-Extension-Template for deployment and publishing.
@@ -38,6 +38,6 @@ check-style:
 
 test:
 	@#python -m pip install openfisca_nsw_base
-	pip install -e .
+	pip install -e . --use-deprecated=legacy-resolver
 	openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
 

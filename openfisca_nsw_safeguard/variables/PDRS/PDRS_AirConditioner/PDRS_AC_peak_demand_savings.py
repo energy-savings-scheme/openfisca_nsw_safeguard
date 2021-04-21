@@ -17,7 +17,7 @@ class PDRS__Air_Conditioner__power_input(Variable):
         "alias" :"AC power input",
         # "activity-group":"PDRS: Air Conditioner",
         # "activity-name":"Installation or Replacement of an Air Conditioner"
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
         }
 
 
@@ -32,7 +32,7 @@ class PDRS__Air_Conditioner__peak_demand_savings(Variable):
         "alias" :"AC Peak Demand Savings",
         # "activity-group":"PDRS: Air Conditioner",
         # "activity-name":"Installation or Replacement of an Air Conditioner"
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
         }
 
     def formula(building, period, parameters):

@@ -17,7 +17,7 @@ class PDRS__Air_Conditioner__duration_factor(Variable):
         'variable-type': "intermediary",
         # "activity-group": "PDRS: Air Conditioner",
         # "activity-name": "Installation or Replacement of an Air Conditioner"
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
     }
 
     def formula(building, period, parameters):
@@ -44,7 +44,7 @@ class PDRS__Air_Conditioner__firmness_factor(Variable):
         # 'activity-group': "Air Conditioners?",
         # 'activity-name': "Replace or Install an Air Conditioner",
         'variable-type': "intermediary",
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
     }
 
     def formula(building, period, parameters):

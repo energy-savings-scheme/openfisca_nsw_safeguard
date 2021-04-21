@@ -14,7 +14,7 @@ class PDRS_ROOA_meets_implementation_requirements(Variable):
             ' Requirements defined in Removal of Old Appliance (fridge)?'
     metadata = {
         'alias': "ROOA meets implementation requirements",
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
     }
 
     def formula(buildings, period, parameters):
@@ -35,7 +35,7 @@ class PDRS_ROOA_meets_eligibility_requirements(Variable):
             ' Requirements defined in Removal of Old Appliance (fridge)?'
     metadata = {
         'alias': "ROOA meets eligibility requirements",
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
     }
 
     def formula(buildings, period, parameters):
@@ -56,7 +56,7 @@ class PDRS_ROOA_meets_equipment_requirements(Variable):
             ' Requirements defined in Removal of Old Appliance (fridge)?'
     metadata = {
         'alias': "ROOA meets equipment requirements",
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
     }
 
     def formula(buildings, period, parameters):
@@ -76,7 +76,7 @@ class PDRS_ROOA_meets_all_requirements(Variable):
             ' Requirements defined in Removal of Old Appliance (fridge)?'
     metadata = {
         'alias': "ROOA meets all requirements",
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
     }
 
     def formula(buildings, period, parameters):

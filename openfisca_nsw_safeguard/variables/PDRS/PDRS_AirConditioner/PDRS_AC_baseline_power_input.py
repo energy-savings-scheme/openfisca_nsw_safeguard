@@ -16,7 +16,7 @@ class PDRS__Air_Conditioner__baseline_power_input(Variable):
         "alias": "Baseline Power Input",
         # "activity-group": "PDRS: Air Conditioner",
         # "activity-name": "Installation or Replacement of an Air Conditioner"
-        "regulation_reference": PDRS_2022["8","5"]
+        "regulation_reference": PDRS_2022["X","X.5"]
     }
 
     def formula(building, period, parameters):

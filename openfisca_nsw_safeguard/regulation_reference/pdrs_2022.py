@@ -3,17 +3,17 @@ from openfisca_nsw_safeguard.regulation_reference.regulation_reference import Re
 
 PDRS_2022 = Regulation("PDRS 2022", "Peak Demand Reduction Scheme Rule 2022", "01 July 2022")
 
-clause_8 = PDRS_2022.add_part("8", PT.CLAUSE, "Example")
-clause_8.add_parts([("1", PT.CLAUSE, None),
-                  ("2", PT.CLAUSE, None),
-                  ("3", PT.CLAUSE, None),
-                  ("3.A", PT.CLAUSE, None),
-                  ("4", PT.CLAUSE, None),
-                  ("4.A", PT.CLAUSE, "Example ABC"),
-                  ("4.B", PT.CLAUSE, "Example DEF"),
-                  ("5", PT.CLAUSE, "Example GHI"),
-                  ("6", PT.CLAUSE, "Example JKL"),
-                  ("7", PT.CLAUSE, "Example MNO"),
-                  ("8", PT.CLAUSE, "Example PQR"),
-                  ("9", PT.CLAUSE, "Example STU"),
+clause_8 = PDRS_2022.add_part("X", PT.CLAUSE, "PDRS Method (example)")
+clause_8.add_parts([("X.1", PT.CLAUSE, None),
+                  ("X.2", PT.CLAUSE, None),
+                  ("X.3", PT.CLAUSE, None),
+                  ("X.3.A", PT.CLAUSE, None),
+                  ("X.4", PT.CLAUSE, None),
+                  ("X.4.A", PT.CLAUSE, "Example ABC"),
+                  ("X.4.B", PT.CLAUSE, "Example DEF"),
+                  ("X.5", PT.ACTIVITY, "PDRS Activity A"),
+                  ("X.6", PT.ACTIVITY, "PDRS Activity B"),
+                  ("X.7", PT.ACTIVITY, "PDRS Activity C"),
+                  ("X.8", PT.ACTIVITY, "PDRS Activity D"),
+                  ("X.9", PT.ACTIVITY, "PDRS Activity E"),
 ])

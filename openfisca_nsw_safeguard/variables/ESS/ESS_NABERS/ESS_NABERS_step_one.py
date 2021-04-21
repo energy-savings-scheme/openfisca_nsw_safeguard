@@ -15,7 +15,7 @@ class ESS_NABERS_measured_electricity_consumption(Variable):
         "alias":"Measured Electricity Consumption (MWh)",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8","8"]
+        "regulation_reference": ESS_2021["8","8.8"]
         }
 
     def formula(buildings, period, parameters):
@@ -36,7 +36,7 @@ class ESS__NABERS__NABERS_electricity(Variable):
         "alias":"NABERS Electricity (MWh)",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8","8"]
+        "regulation_reference": ESS_2021["8","8.8"]
         }
 
 
@@ -52,7 +52,7 @@ class ESS_NABERS_onsite_unaccounted_electricity(Variable):
         "alias":"NABERS On-site Unaccounted Electricity (MWh)",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8","8"]
+        "regulation_reference": ESS_2021["8","8.8"]
         }
 
 
@@ -67,5 +67,5 @@ class ESS__NABERS_NABERS_gas(Variable):
         "alias":"NABERS Gas (MWh)",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8","8"]
+        "regulation_reference": ESS_2021["8","8.8"]
         }

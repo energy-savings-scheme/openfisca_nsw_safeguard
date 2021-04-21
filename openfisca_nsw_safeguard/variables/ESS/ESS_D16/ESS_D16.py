@@ -12,7 +12,7 @@ class ESS__D16__deemed_elec_savings(Variable):
     reference="Clause **"
     label="The final deemed electricity savings for installing a high efficiency AC."
     metadata={"variable-type":"final_output", 
-              "regulation_reference": ESS_2021["D", "16"]
+              "regulation_reference": ESS_2021["D", "D16"]
               }
 
     def formula(building, period, parameters):

@@ -28,7 +28,7 @@ class ESS__NABERS_building_type(Variable):
         "alias":"NABERS Building Type",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8","8"]
+        "regulation_reference": ESS_2021["8","8.8"]
         }
 
 

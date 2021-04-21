@@ -14,7 +14,7 @@ class ESS_D16__cooling_power_input(Variable):
     metadata = {
                 "alias": "Air Conditioner Cooling Input Power",
                 "variable-type": "user_input", 
-                "regulation_reference": ESS_2021["D", "16"]
+                "regulation_reference": ESS_2021["D", "D16"]
                 }
 
 
@@ -27,7 +27,7 @@ class ESS_D16__heating_power_input(Variable):
     metadata = {
                 "alias": "Air Conditioner Heating Input Power",
                 "variable-type": "user_input", 
-                "regulation_reference": ESS_2021["D", "16"]
+                "regulation_reference": ESS_2021["D", "D16"]
                 }
 
 
@@ -40,7 +40,7 @@ class ESS_D16__cooling_annual_energy_use(Variable):
     metadata = {
                 "alias": "Air Conditioner Cooling Annual Energy Use",
                 "variable-type": "inter-interesting", 
-                "regulation_reference": ESS_2021["D", "16"]
+                "regulation_reference": ESS_2021["D", "D16"]
                 }
 
     def formula(building, period, parameters):
@@ -60,7 +60,7 @@ class ESS_D16__heating_annual_energy_use(Variable):
     metadata = {
                 "alias": "Air Conditioner Heating Annual Energy Use",
                 "variable-type": "inter-interesting", 
-                "regulation_reference": ESS_2021["D", "16"]
+                "regulation_reference": ESS_2021["D", "D16"]
                 }
 
     def formula(building, period, parameters):

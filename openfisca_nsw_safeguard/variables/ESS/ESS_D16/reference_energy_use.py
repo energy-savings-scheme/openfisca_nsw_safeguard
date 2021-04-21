@@ -17,7 +17,7 @@ class ESS_D16__Air_Conditioner__heating_capacity(Variable):
         "alias": "Air Conditioner Cooling Capacity",
         # "major-cat": "Energy Savings Scheme",
         # "monor-cat": "Installation or Replacement of an Air Conditioner",
-        "regulation_reference": ESS_2021["D", "16"]
+        "regulation_reference": ESS_2021["D", "D16"]
     }
 
 
@@ -32,7 +32,7 @@ class ESS_D16__Air_Conditioner__cooling_annual_energy_use(Variable):
         "alias": "Air Conditioner Cooling Annual Energy Use",
         # "major-cat": "Energy Savings Scheme",
         # "monor-cat": "Installation or Replacement of an Air Conditioner",
-        "regulation_reference": ESS_2021["D", "16"]
+        "regulation_reference": ESS_2021["D", "D16"]
     }
 
 
@@ -47,7 +47,7 @@ class ESS_D16__Air_Conditioner__heating_annual_energy_use(Variable):
         "alias": "Air Conditioner Heating Annual Energy Use",
         # "major-cat": "Energy Savings Scheme",
         # "monor-cat": "Installation or Replacement of an Air Conditioner",
-        "regulation_reference": ESS_2021["D", "16"]
+        "regulation_reference": ESS_2021["D", "D16"]
     }
 
 
@@ -68,7 +68,7 @@ class ESS_D16__reference_cooling_energy_use(Variable):
     metadata = {"variable-type": "inter-interesting",         
                 # "major-cat": "Energy Savings Scheme",
                 # "monor-cat": "Installation or Replacement of an Air Conditioner",
-                "regulation_reference": ESS_2021["D", "16"]
+                "regulation_reference": ESS_2021["D", "D16"]
                 }
 
     def formula(building, period, parameters):
@@ -95,7 +95,7 @@ class ESS_D16__reference_heating_energy_use(Variable):
     metadata = {"variable-type": "inter-interesting",         
                 # "major-cat": "Energy Savings Scheme",
                 # "monor-cat": "Installation or Replacement of an Air Conditioner",
-                "regulation_reference": ESS_2021["D", "16"]
+                "regulation_reference": ESS_2021["D", "D16"]
                 }
 
     def formula(building, period, parameters):

@@ -15,7 +15,7 @@ class all_on_site_sources_identified(Variable):
         "alias":"NABERS All On Site Electricity Generation Sources Identified",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8","8"]
+        "regulation_reference": ESS_2021["8","8.8"]
         }
 
 
@@ -31,5 +31,5 @@ class unaccounted_elec_metered_and_recorded(Variable):
         "alias":"NABERS Unaccounted Electricity Metered and Recorded",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8","8"]
+        "regulation_reference": ESS_2021["8","8.8"]
         }

@@ -23,7 +23,7 @@ class PDRS__motors__motor_type(Variable):
         # 'activity-group': "High Efficiency Appliances for Business",
         # 'activity-name': "Replace an existing motor by a high efficiency motor",
         'variable-type': "input",
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
     }
 
 
@@ -36,7 +36,7 @@ class PDRS__motors__firmness_factor(Variable):
         # 'activity-group': "High Efficiency Appliances for Business",
         # 'activity-name': "Replace an existing motor by a high efficiency motor",
         'variable-type': "intermediary",
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
     }
 
     def formula(building, period, parameters):

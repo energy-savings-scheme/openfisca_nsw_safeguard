@@ -14,7 +14,7 @@ class PDRS__ROOA__firmness_factor(Variable):
         'activity-group' : "Removal Of Old Appliances",
         'activity-name' : "Removal of a Spare Refrigerator or Freezer",
         'variable-type' : "intermediary",
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.7"]
     }
 
     def formula(building, period, parameters):

@@ -28,7 +28,7 @@ class PDRS__motors__number_of_poles(Variable):
         # 'activity-group' : "High Efficiency Appliances for Business",
         # 'activity-name' : "Replace an existing motor by a high efficiency motor",
         'variable-type' : "input",
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
     }
 
 
@@ -45,7 +45,7 @@ class PDRS__motors__old_efficiency(Variable):
         "alias" :"Efficiency (%) of The Old Motor",
         # "activity-group":"High Efficiency Appliances for Business",
         # "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
         }
 
 
@@ -60,7 +60,7 @@ class PDRS__motors__baseline_motor_efficiency(Variable):
         "alias" :"Baseline Motor Efficiency",
         # "activity-group":"High Efficiency Appliances for Business",
         # "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
         }
 
     def formula(building, period, parameters):
@@ -100,7 +100,7 @@ class PDRS__motors__existing_motor_efficiency(Variable):
         "alias" :"Existing Motor Efficiency (baseline efficiency if not supplied)",
         # "activity-group":"High Efficiency Appliances for Business",
         # "activity-name":"Replace a new high efficiency Motor (Refrigerations or Ventillations)"
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
         }
 
     def formula(building, period, paramters):

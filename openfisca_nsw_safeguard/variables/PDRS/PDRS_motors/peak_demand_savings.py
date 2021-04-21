@@ -15,7 +15,7 @@ class PDRS__motors__new_efficiency(Variable):
         "alias": "Efficiency (%) of The New Motor",
         # "activity-group": "High Efficiency Appliances for Business",
         # "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
     }
 
 
@@ -30,7 +30,7 @@ class PDRS__motors__new_motor_rated_output(Variable):
         "alias": "Rated Output of The New Motor",
         # "activity-group": "High Efficiency Appliances for Business",
         # "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
     }
 
 
@@ -45,7 +45,7 @@ class PDRS__motors__peak_demand_savings(Variable):
         "alias": "Motors Peak demand savings",
         # "activity-group": "High Efficiency Appliances for Business",
         # "activity-name": "Replace a new high efficiency Motor (Refrigerations or Ventillations)"
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
     }
 
     def formula(building, period, parameters):

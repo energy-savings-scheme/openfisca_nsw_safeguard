@@ -14,7 +14,7 @@ class PDRS_replace_motors_meets_implementation_requirements(Variable):
             ' Requirements defined in PDRS replace or install high efficiency motors activity?'
     metadata = {
         'alias': "Replacement motor meets implementation requirements",
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
     }
     
     def formula(buildings, period, parameters):
@@ -34,7 +34,7 @@ class PDRS_replace_motors_meets_all_requirements(Variable):
             ' Requirements defined in PDRS replace or install high efficiency motors activity?'
     metadata = {
         'alias': "Replacement motor meets all requirements",
-        "regulation_reference": PDRS_2022["X","X.5"]
+        "regulation_reference": PDRS_2022["X","X.6"]
     }
 
     def formula(buildings, period, parameters):

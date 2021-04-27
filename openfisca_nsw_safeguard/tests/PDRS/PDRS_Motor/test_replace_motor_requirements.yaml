@@ -1,9 +1,0 @@
-- name: test PDRS replace motors implementation requirements
-  period: 2021
-  absolute_error_margin: 0
-  input:
-      Appliance_is_removed: [true, true, false, false]
-      Appliance_is_performed_by_qualified_person: [true, false, true, false]
-  output:
-      PDRS_replace_motors_meets_implementation_requirements:
-          [true, false, false, false]

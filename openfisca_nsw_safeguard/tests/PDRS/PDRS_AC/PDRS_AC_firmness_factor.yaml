@@ -14,8 +14,7 @@
       Appliance__zone_type: [hot, average, cold, hot, average, cold]
 
   output:
-      PDRS__Air_Conditioner__duration_factor:
-          [0., 0.2577891, 0., 0., 0.20887755, 0.]
+      PDRS_AC_duration_factor: [0., 0.2577891, 0., 0., 0.20887755, 0.]
 
 - name: test PDRS Air Conditioning duration factor
   period: 2021
@@ -32,5 +31,4 @@
           ]
       Appliance__zone_type: [hot, average, cold, hot, average, cold]
   output:
-      PDRS__Air_Conditioner__firmness_factor:
-          [0., 0.2036534, 0., 0., 0.16919082, 0.]
+      PDRS_AC_firmness_factor: [0., 0.2036534, 0., 0., 0.16919082, 0.]

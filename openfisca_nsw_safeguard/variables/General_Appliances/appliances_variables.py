@@ -51,7 +51,7 @@ class Appliance__installation_purpose(Variable):
 
 
 class installation_type(Enum):
-    new = "Installation of a new product"
+    install = "Installation of a new product"
     replacement = "Replacement of an old product"
 
 
@@ -60,13 +60,11 @@ class Appliance__installation_type(Variable):
     reference = ""
     value_type = Enum
     possible_values = installation_type
-    default_value = installation_type.new
+    default_value = installation_type.install
     entity = Building
     definition_period = ETERNITY
     label = "Is it a new installation or a replacement?"
     metadata = {
         "variable-type": "input",
         "alias": "New or Replacement?",
-        "activity-group": "PDRS: Air Conditioner",
-        "activity-name": "Installation or Replacement of an Air Conditioner"
     }

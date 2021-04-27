@@ -1,33 +1,15 @@
-- name: test PDRS Air Conditioner Baseline_Power_input calculation
+- name: test PDRS Air Conditioner Baseline_Power_input calculation-replace
   period: 2021
   input:
-      Air_Conditioner__cooling_capacity: [2, 5, 11, 43, 78, 3, 4, 10, 39, 89]
-      Air_Conditioner_type:
-          [
-              type_1,
-              type_2,
-              type_3,
-              type_4,
-              type_5,
-              type_6,
-              type_7,
-              type_8,
-              type_9,
-              type_10,
-          ]
-      Appliance__installation_type:
-          [
-              new,
-              new,
-              new,
-              new,
-              new,
-              replacement,
-              replacement,
-              replacement,
-              replacement,
-              replacement,
-          ]
+      Air_Conditioner__cooling_capacity: [3, 4, 10, 39, 89]
+      Air_Conditioner_type: [type_6, type_7, type_8, type_9, type_10]
   output:
-      PDRS__Air_Conditioner__baseline_power_input:
-          [0.64, 2., 3.52, 17.2, 0., 0.9, 1.44, 3.6, 14.04, 0.]
+      PDRS_AC_replace_baseline_power_input: [0.9, 1.44, 3.6, 14.04, 0.]
+- name: test PDRS Air Conditioner Baseline_Power_input calculation-install
+  period: 2021
+  input:
+      Air_Conditioner__cooling_capacity: [2, 5, 11, 43, 78]
+      Air_Conditioner_type: [type_1, type_2, type_3, type_4, type_5]
+
+  output:
+      PDRS_AC_install_baseline_power_input: [0.64, 2., 3.52, 17.2, 0.]

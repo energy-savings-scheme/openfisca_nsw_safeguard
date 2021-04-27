@@ -5,6 +5,7 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+from openfisca_nsw_safeguard.variables.General_Appliances.appliances_variables import installation_type
 
 
 class PDRS_AC_duration_factor(Variable):
@@ -70,7 +71,7 @@ class PDRS_AC_power_input(Variable):
     }
 
 
-class PDRS_AC_install_baseline_power_input(Variable):
+class PDRS_AC_baseline_power_input(Variable):
     value_type = float
     entity = Building
     label = 'returns the baseline power input for an Air Conditioner'
@@ -86,10 +87,11 @@ class PDRS_AC_install_baseline_power_input(Variable):
             'Air_Conditioner__cooling_capacity', period)
 
         cooling_capacity_enum = building('AC_cooling_capacity_enum', period)
-        # replace_or_install = building('Appliance__installation_type', period)
         AC_type = building('Air_Conditioner_type', period)
+        replace_or_install = building('Appliance__installation_type', period)
+
         baseline_unit = parameters(
-            period).PDRS.AC.AC_baseline_power_per_capacity_reference_table['install']
+            period).PDRS.AC.AC_baseline_power_per_capacity_reference_table[replace_or_install]
         scale = baseline_unit[AC_type]
 
         return scale[cooling_capacity_enum]*cooling_capacity
@@ -110,7 +112,7 @@ class PDRS_AC_install_peak_demand_savings(Variable):
     def formula(building, period, parameters):
         power_input = building('PDRS_AC_power_input', period)
         baseline_power_input = building(
-            'PDRS_AC_install_baseline_power_input', period)
+            'PDRS_AC_baseline_power_input', period)
         firmness_factor = building(
             'PDRS_AC_firmness_factor', period)
         daily_peak_hours = parameters(

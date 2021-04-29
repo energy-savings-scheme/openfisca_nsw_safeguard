@@ -1,0 +1,12 @@
+electricity_certificate_conversion_factor:
+  description: electricity certificate conversion factor
+  values:
+    2021-01-01:
+      value: 1.06
+
+
+gas_certificate_conversion_factor:
+  description: gas certificate conversion factor
+  values:
+    2021-01-01:
+      value: 0.39

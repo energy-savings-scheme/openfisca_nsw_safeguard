@@ -17,4 +17,4 @@
     ESS__NABERS_benchmark_elec_consumption: 50
     ESS__NABERS_type_of_creation: forward_creation
   output:
-    ESS__NABERS_electricity_savings: 0
+    ESS__NABERS_electricity_savings: 144

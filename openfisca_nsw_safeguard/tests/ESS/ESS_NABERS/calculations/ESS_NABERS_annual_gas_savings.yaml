@@ -2,19 +2,17 @@
   period: 2021
   absolute_error_margin: 0.1
   input:
-    ESS__NABERS_NABERS_electricity: 1
-    ESS__NABERS_onsite_unaccounted_electricity: 1
-    ESS__NABERS_benchmark_elec_consumption: 50
+    ESS__NABERS_NABERS_gas: 1
+    ESS__NABERS_benchmark_gas_consumption: 50
     ESS__NABERS_type_of_creation: annual_creation
   output:
-    ESS__NABERS_electricity_savings: 48
+    ESS__NABERS_annual_gas_savings: 49
 - name: test ESS NABERS annual electricity savings calculation
   period: 2021
   absolute_error_margin: 0.1
   input:
-    ESS__NABERS_NABERS_electricity: 1
-    ESS__NABERS_onsite_unaccounted_electricity: 1
-    ESS__NABERS_benchmark_elec_consumption: 50
+    ESS__NABERS_NABERS_gas: 1
+    ESS__NABERS_benchmark_gas_consumption: 50
     ESS__NABERS_type_of_creation: forward_creation
   output:
-    ESS__NABERS_electricity_savings: 0
+    ESS__NABERS_annual_gas_savings: 0

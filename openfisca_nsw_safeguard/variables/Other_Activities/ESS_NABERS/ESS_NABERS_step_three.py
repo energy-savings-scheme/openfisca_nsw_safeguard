@@ -5,6 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
+
 class ESS__NABERS_benchmark_elec_consumption(Variable):
     value_type = float
     entity = Building
@@ -20,7 +21,6 @@ class ESS__NABERS_benchmark_elec_consumption(Variable):
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
         "regulation_reference": ESS_2021["8","8.8"]
         }
-
 
 
 class ESS__NABERS_benchmark_gas_consumption(Variable):

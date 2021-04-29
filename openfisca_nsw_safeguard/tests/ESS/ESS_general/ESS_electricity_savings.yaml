@@ -15,7 +15,16 @@
     ESS__NABERS_NABERS_electricity: 1
     ESS__NABERS_onsite_unaccounted_electricity: 1
     ESS__NABERS_benchmark_elec_consumption: 50
+    ESS__NABERS_type_of_creation: forward_creation
+  output:
+    ESS__electricity_savings: 144
+- name: test ESS NABERS annual electricity savings calculation
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_NABERS_electricity: 1
+    ESS__NABERS_onsite_unaccounted_electricity: 1
+    ESS__NABERS_benchmark_elec_consumption: 50
     ESS__NABERS_type_of_creation: annual_creation
-    ESS__method_type: 0
   output:
     ESS__electricity_savings: 48

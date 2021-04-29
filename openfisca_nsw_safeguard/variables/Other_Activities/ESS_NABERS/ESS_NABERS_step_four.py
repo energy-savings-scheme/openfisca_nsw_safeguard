@@ -57,12 +57,12 @@ class ESS__NABERS_annual_gas_savings(Variable):
         TypeOfCreation = (type_of_creation.possible_values)
         is_annually_created = (type_of_creation == TypeOfCreation.annual_creation)
         is_forward_created = (type_of_creation == TypeOfCreation.forward_creation)
-        NABERS_gas = buildings('ESS__NABERS_measured_gas_consumption', period)
+        NABERS_gas = buildings('ESS__NABERS_NABERS_gas', period)
         benchmark_gas = buildings('ESS__NABERS_benchmark_gas_consumption', period)
         counted_gas_savings = buildings('ESS__NABERS_counted_gas_savings', period)
         return (is_annually_created
-                * (((benchmark_electricity - NABERS_electricity))
-                - (counted_electricity_savings))
+                * (((benchmark_gas - NABERS_gas))
+                - (counted_gas_savings))
                 * np.logical_not(is_forward_created))
 
 

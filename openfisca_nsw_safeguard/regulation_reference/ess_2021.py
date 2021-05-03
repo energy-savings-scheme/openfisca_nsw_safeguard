@@ -49,7 +49,6 @@ schedule_D.add_parts([
 schedule_F = ESS_2021.add_part(
     "F", PT.SCHEDULE, "Activity Definitions for Installation of High Efficiency Appliances for Businesses (clause 9.9)")
 schedule_F.add_parts([
-                     ("F4", PT.ACTIVITY, "Install A New High Efficiency Air Conditioner
-                      "),
+                     ("F4", PT.ACTIVITY, "Install A New High Efficiency Air Conditioner"),
                      ("F7", PT.ACTIVITY, "Install a New High Efficiency Motor")
                      ])

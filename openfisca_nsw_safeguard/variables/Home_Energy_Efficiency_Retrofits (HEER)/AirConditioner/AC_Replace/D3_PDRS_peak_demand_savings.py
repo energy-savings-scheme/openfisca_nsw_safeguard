@@ -7,7 +7,7 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class PDRS_AC_replace_peak_demand_savings(Variable):
+class D3_PDRS_AC_replace_peak_demand_savings(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY

@@ -18,20 +18,17 @@ clause_8.add_parts([("X.1", PT.CLAUSE, None),
                     ])
 
 
-schedule_D = ESS_2021.add_part(
+schedule_D = PDRS_2022.add_part(
     "D", PT.SCHEDULE, "Activity Definitions for General Activities for Home Energy Efficiency Retrofits")
 schedule_D.add_parts([
-                     ("D1", PT.ACTIVITY, "Replace an External Single Glazed Window or Door with a Thermally Efficient Window or Door"),
                      ("D3", PT.ACTIVITY, "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner"),
                      ("D4", PT.ACTIVITY, "Install A High Efficiency Air Conditioner"),
-                     ("D16", PT.ACTIVITY, "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner with a High Efficiency Air Conditioner")
                      ])
 
 
-schedule_F = ESS_2021.add_part(
+schedule_F = PDRS_2022.add_part(
     "F", PT.SCHEDULE, "Activity Definitions for Installation of High Efficiency Appliances for Businesses (clause 9.9)")
 schedule_F.add_parts([
-                     ("F4", PT.ACTIVITY, "Install A New High Efficiency Air Conditioner
-                      "),
+                     ("F4", PT.ACTIVITY, "Install A New High Efficiency Air Conditioner"),
                      ("F7", PT.ACTIVITY, "Install a New High Efficiency Motor")
                      ])

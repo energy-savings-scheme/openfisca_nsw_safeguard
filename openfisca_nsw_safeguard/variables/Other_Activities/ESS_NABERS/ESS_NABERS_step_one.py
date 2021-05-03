@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
-class ESS_NABERS_measured_electricity_consumption(Variable):
+class ESS__NABERS_measured_electricity_consumption(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -19,11 +19,11 @@ class ESS_NABERS_measured_electricity_consumption(Variable):
         }
 
     def formula(buildings, period, parameters):
-        return (buildings('ESS__NABERS__NABERS_electricity', period)
-        + buildings('ESS_NABERS_onsite_unaccounted_electricity', period))
+        return (buildings('ESS__NABERS_NABERS_electricity', period)
+        + buildings('ESS__NABERS_onsite_unaccounted_electricity', period))
 
 
-class ESS__NABERS__NABERS_electricity(Variable):
+class ESS__NABERS_NABERS_electricity(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -40,7 +40,7 @@ class ESS__NABERS__NABERS_electricity(Variable):
         }
 
 
-class ESS_NABERS_onsite_unaccounted_electricity(Variable):
+class ESS__NABERS_onsite_unaccounted_electricity(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -59,7 +59,7 @@ class ESS_NABERS_onsite_unaccounted_electricity(Variable):
 class ESS__NABERS_NABERS_gas(Variable):
     value_type = float
     entity = Building
-    definition_period = YEAR
+    definition_period = ETERNITY
     label = 'NABERS Gas, in MWh, is the total of the Gas accounted for in' \
             ' the NABERS rating'
     metadata={

@@ -1,0 +1,9 @@
+- name: test ESS gas savings - from NABERS method
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_NABERS_gas: 1
+    ESS__NABERS_benchmark_gas_consumption: 50
+    ESS__NABERS_type_of_creation: annual_creation
+  output:
+    ESS__gas_savings: 49

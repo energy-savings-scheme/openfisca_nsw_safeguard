@@ -22,7 +22,7 @@ class PDRS_replace_motors_meets_implementation_requirements(Variable):
 
         is_removed = buildings('Appliance_is_removed', period)
         performed_by_qualified_person = buildings(
-            'Appliance_is_performed_by_qualified_person', period)
+            'implementation_is_performed_by_qualified_person', period)
         return is_removed * performed_by_qualified_person
 
 

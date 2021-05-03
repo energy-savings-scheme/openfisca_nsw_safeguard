@@ -3,7 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 from openfisca_core.variables import Variable
-from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
 class AC_Type(Enum):
@@ -28,10 +28,8 @@ class Air_Conditioner_type(Variable):
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        "variable-type": "input",
         "alias": "Air Conditioner Type",
-        "activity-group": "PDRS: Air Conditioner",
-        "activity-name": "Installation or Replacement of an Air Conditioner"
+        "regulation_reference": ESS_2021
     }
 
 
@@ -50,10 +48,8 @@ class Air_Conditioner__cooling_capacity(Variable):
     label = "What is the product cooling capacity in the label?"
     definition_period = ETERNITY
     metadata = {
-        "variable-type": "input",
         "alias": "Air Conditioner Cooling Capacity",
-        "activity-group": "PDRS: Air Conditioner",
-        "activity-name": "Installation or Replacement of an Air Conditioner"
+        "regulation_reference": ESS_2021
     }
 
 
@@ -66,6 +62,7 @@ class AC_cooling_capacity_enum(Variable):
     default_value = AC_cooling_capacity.less_than_4
     metadata = {
         "alias": "Air Conditioner Cooling Capacity Enum",
+        "regulation_reference": ESS_2021
     }
 
     def formula(building, period):

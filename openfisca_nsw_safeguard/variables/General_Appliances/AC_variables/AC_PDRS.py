@@ -3,7 +3,7 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 from openfisca_core.variables import Variable
-from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
 class PDRS_AC_baseline_power_input(Variable):
@@ -12,9 +12,8 @@ class PDRS_AC_baseline_power_input(Variable):
     label = 'returns the baseline power input for an Air Conditioner'
     definition_period = ETERNITY
     metadata = {
-        "variable-type": "intermediary",
         "alias": "Baseline Power Input",
-        "regulation_reference": PDRS_2022["X", "X.5"]
+        "regulation_reference": PDRS_2022
     }
 
     def formula(building, period, parameters):
@@ -39,8 +38,7 @@ class PDRS_AC_duration_factor(Variable):
     definition_period = ETERNITY
     metadata = {
         'alias': "Duration Factor",
-        'variable-type': "intermediary",
-        "regulation_reference": PDRS_2022["X", "X.5"]
+        "regulation_reference": PDRS_2022
     }
 
     def formula(building, period, parameters):
@@ -63,9 +61,8 @@ class PDRS_AC_firmness_factor(Variable):
     value_type = float
     definition_period = ETERNITY
     metadata = {
-        'alias': "Firmness Factor",
-        'variable-type': "intermediary",
-        "regulation_reference": PDRS_2022["X", "X.5"]
+        'alias': "PDRS AC Firmness Factor",
+        "regulation_reference": PDRS_2022
     }
 
     def formula(building, period, parameters):
@@ -89,7 +86,6 @@ class PDRS_AC_power_input(Variable):
     reference = "Clause **"
     label = "What is the measured full capacity power input at 35C as recorded in the GEMS register?"
     metadata = {
-        "variable-type": "input",
         "alias": "AC power input",
-        "regulation_reference": PDRS_2022["X", "X.5"]
+        "regulation_reference": PDRS_2022
     }

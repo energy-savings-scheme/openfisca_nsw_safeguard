@@ -16,8 +16,6 @@ class ESS_D16__Air_Conditioner__heating_capacity(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "Air Conditioner Cooling Capacity",
-        # "major-cat": "Energy Savings Scheme",
-        # "monor-cat": "Installation or Replacement of an Air Conditioner",
         "regulation_reference": ESS_2021["D", "D16"]
     }
 
@@ -31,8 +29,6 @@ class ESS_D16__Air_Conditioner__cooling_annual_energy_use(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "Air Conditioner Cooling Annual Energy Use",
-        # "major-cat": "Energy Savings Scheme",
-        # "monor-cat": "Installation or Replacement of an Air Conditioner",
         "regulation_reference": ESS_2021["D", "D16"]
     }
 
@@ -46,8 +42,6 @@ class ESS_D16__Air_Conditioner__heating_annual_energy_use(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "Air Conditioner Heating Annual Energy Use",
-        # "major-cat": "Energy Savings Scheme",
-        # "monor-cat": "Installation or Replacement of an Air Conditioner",
         "regulation_reference": ESS_2021["D", "D16"]
     }
 
@@ -67,8 +61,6 @@ class ESS_D16__reference_cooling_energy_use(Variable):
     reference = "Clause **"
     label = "The reference cooling annual energy use for the air conditioning equipment.."
     metadata = {"variable-type": "inter-interesting",
-                # "major-cat": "Energy Savings Scheme",
-                # "monor-cat": "Installation or Replacement of an Air Conditioner",
                 "regulation_reference": ESS_2021["D", "D16"]
                 }
 
@@ -94,8 +86,6 @@ class ESS_D16__reference_heating_energy_use(Variable):
     reference = "Clause **"
     label = "The reference heating annual energy use for the air conditioning equipment.."
     metadata = {"variable-type": "inter-interesting",
-                # "major-cat": "Energy Savings Scheme",
-                # "monor-cat": "Installation or Replacement of an Air Conditioner",
                 "regulation_reference": ESS_2021["D", "D16"]
                 }
 

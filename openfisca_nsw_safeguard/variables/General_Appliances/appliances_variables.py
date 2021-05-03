@@ -2,8 +2,7 @@ from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
-
-# This file defines Appliance specific variables consistent through PDRS
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
 class zone_type(Enum):
@@ -22,9 +21,7 @@ class Appliance__zone_type(Variable):
     label = "What is the Zone type of the area?"
     metadata = {
         'alias': "Zone Type",
-        'activity-group': "Air Conditioners?",
-        'activity-name': "Replace or Install an Air Conditioner",
-        'variable-type': "input"
+        "regulation_reference": ESS_2021
     }
 
 
@@ -40,13 +37,10 @@ class Appliance__installation_purpose(Variable):
     default_value = installation_purpose.residential
     definition_period = ETERNITY
     reference = "Clause **"
-    # wording as form input.
     label = "Is the air-conditioner(s) installed for Residential or Commercial purpose?"
     metadata = {
         'alias': "Residential or Commercial?",
-        'activity-group': "Air Conditioners?",
-        'activity-name': "Replace or Install an Air Conditioner",
-        'variable-type': "input"
+        "regulation_reference": ESS_2021
     }
 
 
@@ -56,7 +50,6 @@ class installation_type(Enum):
 
 
 class Appliance__installation_type(Variable):
-    # name="New or Replacement?"
     reference = ""
     value_type = Enum
     possible_values = installation_type
@@ -65,6 +58,6 @@ class Appliance__installation_type(Variable):
     definition_period = ETERNITY
     label = "Is it a new installation or a replacement?"
     metadata = {
-        "variable-type": "input",
         "alias": "New or Replacement?",
+        "regulation_reference": ESS_2021
     }

@@ -62,7 +62,7 @@ class PDRS_AC_firmness_factor(Variable):
     definition_period = ETERNITY
     metadata = {
         'alias': "PDRS AC Firmness Factor",
-        "regulation_reference": PDRS_2022[None]
+        "regulation_reference": PDRS_2022["X"]
     }
 
     def formula(building, period, parameters):

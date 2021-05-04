@@ -10,16 +10,24 @@ class F4_electricity_savings(Variable):
     definition_period = ETERNITY
     label = 'What is the electricity savings for the activity conducted within' \
             ' Activity Definition F4?'
+    metadata = {
+        "alias": "F4 Electricity Savings",
+        "regulation_reference": ESS_2021["F", "F4"]
+    }
 
     def formula(buildings, period, parameters):
-        reference_cooling_annual_energy_use = buildings('F4_reference_cooling_annual_energy_use', period)
-        cooling_annual_energy_use = buildings('F4_cooling_annual_energy_use', period)
-        reference_heating_annual_energy_use = buildings('F4_reference_heating_annual_energy_use', period)
-        heating_annual_energy_use = buildings('F4_heating_annual_energy_use', period)
+        reference_cooling_annual_energy_use = buildings(
+            'F4_reference_cooling_annual_energy_use', period)
+        cooling_annual_energy_use = buildings(
+            'F4_cooling_annual_energy_use', period)
+        reference_heating_annual_energy_use = buildings(
+            'F4_reference_heating_annual_energy_use', period)
+        heating_annual_energy_use = buildings(
+            'F4_heating_annual_energy_use', period)
         lifetime = parameters(period).HEAB.F4.lifetime
         MWh_conversion = parameters(period).general_ESS.MWh_conversion
         return (((reference_cooling_annual_energy_use - cooling_annual_energy_use)
-        + (reference_heating_annual_energy_use - heating_annual_energy_use)) * lifetime / MWh_conversion)
+                 + (reference_heating_annual_energy_use - heating_annual_energy_use)) * lifetime / MWh_conversion)
 
 
 class F4_reference_cooling_annual_energy_use(Variable):
@@ -32,9 +40,11 @@ class F4_reference_cooling_annual_energy_use(Variable):
     def formula(buildings, period, parameters):
         cooling_capacity = buildings('cooling_capacity', period)
         weather_zone = buildings('weather_zone', period)
-        cooling_hours = parameters(period).HEAB.F4.cooling_and_heating_hours.cooling_hours[weather_zone]
+        cooling_hours = parameters(
+            period).HEAB.F4.cooling_and_heating_hours.cooling_hours[weather_zone]
         product_class = buildings('F4_product_class', period)
-        baseline_cooling_AEER = parameters(period).HEAB.F4.baseline_AEER_and_ACOP.AEER[product_class]
+        baseline_cooling_AEER = parameters(
+            period).HEAB.F4.baseline_AEER_and_ACOP.AEER[product_class]
         return cooling_capacity * cooling_hours / baseline_cooling_AEER
 
 
@@ -55,9 +65,11 @@ class F4_reference_heating_annual_energy_use(Variable):
     def formula(buildings, period, parameters):
         heating_capacity = buildings('heating_capacity', period)
         weather_zone = buildings('weather_zone', period)
-        heating_hours = parameters(period).HEAB.F4.cooling_and_heating_hours.heating_hours[weather_zone]
+        heating_hours = parameters(
+            period).HEAB.F4.cooling_and_heating_hours.heating_hours[weather_zone]
         product_class = buildings('F4_product_class', period)
-        baseline_heating_ACOP = parameters(period).HEAB.F4.baseline_AEER_and_ACOP.ACOP[product_class]
+        baseline_heating_ACOP = parameters(
+            period).HEAB.F4.baseline_AEER_and_ACOP.ACOP[product_class]
         return heating_capacity * heating_hours / baseline_heating_ACOP
 
 
@@ -78,7 +90,8 @@ class F4_cooling_annual_energy_use(Variable):
     def formula(buildings, period, parameters):
         cooling_power_input = buildings('cooling_power_input', period)
         weather_zone = buildings('weather_zone', period)
-        cooling_hours = parameters(period).HEAB.F4.cooling_and_heating_hours.cooling_hours[weather_zone]
+        cooling_hours = parameters(
+            period).HEAB.F4.cooling_and_heating_hours.cooling_hours[weather_zone]
         cooling_annual_energy_use = cooling_power_input * cooling_hours
         return cooling_annual_energy_use
 
@@ -100,7 +113,8 @@ class F4_heating_annual_energy_use(Variable):
     def formula(buildings, period, parameters):
         heating_power_input = buildings('heating_power_input', period)
         weather_zone = buildings('weather_zone', period)
-        heating_hours = parameters(period).HEAB.F4.cooling_and_heating_hours.heating_hours[weather_zone]
+        heating_hours = parameters(
+            period).HEAB.F4.cooling_and_heating_hours.heating_hours[weather_zone]
         heating_annual_energy_use = heating_power_input * heating_hours
         return heating_annual_energy_use
 

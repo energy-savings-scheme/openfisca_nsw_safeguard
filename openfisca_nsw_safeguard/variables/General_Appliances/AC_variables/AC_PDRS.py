@@ -13,7 +13,7 @@ class PDRS_AC_baseline_power_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Baseline Power Input",
-        "regulation_reference": PDRS_2022
+        "regulation_reference": PDRS_2022[None]
     }
 
     def formula(building, period, parameters):
@@ -38,7 +38,7 @@ class PDRS_AC_duration_factor(Variable):
     definition_period = ETERNITY
     metadata = {
         'alias': "Duration Factor",
-        "regulation_reference": PDRS_2022
+        "regulation_reference": PDRS_2022[None]
     }
 
     def formula(building, period, parameters):
@@ -62,7 +62,7 @@ class PDRS_AC_firmness_factor(Variable):
     definition_period = ETERNITY
     metadata = {
         'alias': "PDRS AC Firmness Factor",
-        "regulation_reference": PDRS_2022
+        "regulation_reference": PDRS_2022[None]
     }
 
     def formula(building, period, parameters):
@@ -87,5 +87,5 @@ class PDRS_AC_power_input(Variable):
     label = "What is the measured full capacity power input at 35C as recorded in the GEMS register?"
     metadata = {
         "alias": "AC power input",
-        "regulation_reference": PDRS_2022
+        "regulation_reference": PDRS_2022[None]
     }

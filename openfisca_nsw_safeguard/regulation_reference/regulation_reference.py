@@ -34,7 +34,6 @@ class _Part:
     def json(self):
         return json.dumps(self, cls=_JSONEncoder)
 
-
     def __getitem__(self, key):
         return json.loads(self._PartView(self, key).json())
 
@@ -45,7 +44,8 @@ class _Part:
                 try:
                     child = part._parts[keys[0]]
                 except KeyError:
-                    raise KeyError(f'Cannot find key "{keys[0]}" in regulation_reference {part.identifier}')
+                    raise KeyError(
+                        f'Cannot find key "{keys[0]}" in regulation_reference {part.identifier}')
                 self._child = type(self)(child, keys[1:])
             else:
                 self._child = None
@@ -57,7 +57,7 @@ class _Part:
         @property
         def __jsonkeys__(self):
             return (self._part.__jsonkeys__ + (('part',)
-                    if self._child is not None else ()))
+                                               if self._child is not None else ()))
 
         def __getattr__(self, name):
             return getattr(self._part, name)
@@ -75,6 +75,9 @@ class Regulation(_Part):
         self.version = version
         self.commencement = commencement
         self._parts = {}
+
+    def __str__(self):
+        return json.loads(self.json())
 
 
 class _JSONEncoder(json.JSONEncoder):

@@ -21,7 +21,7 @@ class Appliance__zone_type(Variable):
     label = "What is the Zone type of the area?"
     metadata = {
         'alias': "Zone Type",
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
     }
 
 
@@ -40,7 +40,7 @@ class Appliance__installation_purpose(Variable):
     label = "Is the air-conditioner(s) installed for Residential or Commercial purpose?"
     metadata = {
         'alias': "Residential or Commercial?",
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
     }
 
 
@@ -59,5 +59,5 @@ class Appliance__installation_type(Variable):
     label = "Is it a new installation or a replacement?"
     metadata = {
         "alias": "New or Replacement?",
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
     }

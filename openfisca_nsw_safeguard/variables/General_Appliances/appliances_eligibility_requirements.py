@@ -12,7 +12,7 @@ class Appliance_located_in_residential_building(Variable):
     label = 'Site is located in a residential building?'
     metadata: {
         'alias':  'Site is located in a residential building?',
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
 
     }
 
@@ -24,5 +24,5 @@ class Appliance_located_in_small_biz_building(Variable):
     label = 'Site is located in a small business building?'
     metadata: {
         'alias':  'Site is located in a small business building?',
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
     }

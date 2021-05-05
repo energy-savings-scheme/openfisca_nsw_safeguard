@@ -12,7 +12,7 @@ class Appliance_is_installed(Variable):
     label = 'Is the product installed?'
     metadata: {
         'alias':  'Is the Appliance Installed?',
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
     }
 
 
@@ -23,7 +23,7 @@ class Appliance_is_removed(Variable):
     label = 'Is the existing end user appliance disconnected and removed?'
     metadata: {
         'alias':  'Is the existing appliance disconnected and removed?',
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
     }
 
 
@@ -34,7 +34,7 @@ class Appliance_follows_removal_requirements(Variable):
     label = 'Does the removal of the appliance follows the removal of appliance requirements under Clause 5.3A? (e.g. Recycled, degassed, not resold etc.)'
     metadata: {
         'alias':  'Is removal of existing appliance follows the requirement under Clause 5.3A?',
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
     }
 
 
@@ -47,5 +47,5 @@ class implementation_is_performed_by_qualified_person(Variable):
     # vague guidelines
     metadata: {
         'alias':  'Is the implementation performed by a qualified person?',
-        "regulation_reference": ESS_2021[None]
+        "regulation_reference": ESS_2021.json()
     }

@@ -29,7 +29,7 @@ class Air_Conditioner_type(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Air Conditioner Type",
-        "regulation_reference": ESS_2021.json()
+        "regulation_reference": ESS_2021
     }
 
 
@@ -49,7 +49,7 @@ class Air_Conditioner__cooling_capacity(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Air Conditioner Cooling Capacity",
-        "regulation_reference": ESS_2021.json()
+        "regulation_reference": ESS_2021
     }
 
 
@@ -62,7 +62,7 @@ class AC_cooling_capacity_enum(Variable):
     default_value = AC_cooling_capacity.less_than_4
     metadata = {
         "alias": "Air Conditioner Cooling Capacity Enum",
-        "regulation_reference": ESS_2021.json()
+        "regulation_reference": ESS_2021
     }
 
     def formula(building, period):

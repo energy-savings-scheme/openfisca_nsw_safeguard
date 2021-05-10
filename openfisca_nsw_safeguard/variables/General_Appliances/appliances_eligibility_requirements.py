@@ -13,7 +13,6 @@ class Appliance_located_in_residential_building(Variable):
     metadata: {
         'alias':  'Site is located in a residential building?',
         "regulation_reference": ESS_2021["XX", "GA"]
-
     }
 
 

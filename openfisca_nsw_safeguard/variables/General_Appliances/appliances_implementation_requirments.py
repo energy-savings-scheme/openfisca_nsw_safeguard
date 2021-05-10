@@ -9,9 +9,9 @@ class Appliance_is_installed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the product installed?'
+    label = 'Is the new product installed?'
     metadata: {
-        'alias':  'Is the Appliance Installed?',
+        'alias':  'Is The New Appliance Installed?',
         "regulation_reference": ESS_2021["XX", "GA"]
     }
 

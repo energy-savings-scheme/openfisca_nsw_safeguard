@@ -76,9 +76,6 @@ class Regulation(_Part):
         self.commencement = commencement
         self._parts = {}
 
-    def __str__(self):
-        return json.loads(self.json())
-
 
 class _JSONEncoder(json.JSONEncoder):
     def default(self, o):

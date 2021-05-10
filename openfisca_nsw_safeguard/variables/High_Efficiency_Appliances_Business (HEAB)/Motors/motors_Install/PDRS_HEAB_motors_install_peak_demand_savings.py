@@ -15,7 +15,7 @@ class PDRS__motors_install_peak_demand_savings(Variable):
     metadata = {
         "variable-type": "output",
         "alias": "Motors Peak demand savings",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(building, period, parameters):

@@ -5,10 +5,9 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
-from openfisca_nsw_safeguard.variables.General_Appliances.appliances_variables import installation_type
 
 
-class D4_PDRS_AC_install_peak_demand_savings(Variable):
+class PDRS_HEAB_AC_replace_peak_demand_savings(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -17,13 +16,14 @@ class D4_PDRS_AC_install_peak_demand_savings(Variable):
     metadata = {
         "variable-type": "output",
         "alias": "AC Peak Demand Savings",
-        "regulation_reference": PDRS_2022["XX", "AC"]
+        "regulation_reference": PDRS_2022["HEAB", "AC_replace"]
     }
 
     def formula(building, period, parameters):
         power_input = building('PDRS_AC_power_input', period)
         baseline_power_input = building(
-            'PDRS_AC_baseline_power_input', period)
+            'PDRS_AC_baseline_power_input',  period)
+        # needs to figure out how to evaluate with an argument
         firmness_factor = building(
             'PDRS_AC_firmness_factor', period)
         daily_peak_hours = parameters(

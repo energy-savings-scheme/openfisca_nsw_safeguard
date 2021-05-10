@@ -7,7 +7,7 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class PDRS_AC_replace_peak_demand_savings(Variable):
+class PDRS_HEER_AC_replace_peak_demand_savings(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class PDRS_AC_replace_peak_demand_savings(Variable):
     metadata = {
         "variable-type": "output",
         "alias": "AC Peak Demand Savings",
-        "regulation_reference": PDRS_2022["XX", "AC"]
+        "regulation_reference": PDRS_2022["HEER", "AC_replace"]
     }
 
     def formula(building, period, parameters):

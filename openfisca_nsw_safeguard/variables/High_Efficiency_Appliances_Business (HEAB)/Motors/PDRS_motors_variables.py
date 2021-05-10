@@ -23,7 +23,7 @@ class motor_type_var(Variable):
     metadata = {
         'alias': "Motor Type",
         'variable-type': "input",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
 
@@ -45,7 +45,7 @@ class motor_poles_number_var(Variable):
     metadata = {
         'alias': "New Motor Poles Number ",
         'variable-type': "input",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
 
@@ -58,7 +58,7 @@ class PDRS__motors__baseline_motor_efficiency(Variable):
     metadata = {
         "variable-type": "intermediary",
         "alias": "Baseline Motor Efficiency",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(building, period, parameters):
@@ -120,5 +120,5 @@ class motors_rated_output(Variable):
     metadata = {
         "variable-type": "input",
         "alias": "Rated Output of The New Motor",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }

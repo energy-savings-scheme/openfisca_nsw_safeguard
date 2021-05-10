@@ -21,5 +21,6 @@ class installation_requirements_are_met(Variable):
             ' Definition F4 are met.'
 
     def formula(buildings, period, parameters):
-        installed_in_residential = buildings('is_installed_in_residential_buildings', period)
+        installed_in_residential = buildings(
+            'is_installed_in_residential_buildings', period)
         return not(installed_in_residential)

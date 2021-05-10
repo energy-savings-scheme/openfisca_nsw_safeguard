@@ -5,6 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
+
 class PDRS_ROOA_meets_implementation_requirements(Variable):
     value_type = bool
     entity = Building
@@ -14,7 +15,7 @@ class PDRS_ROOA_meets_implementation_requirements(Variable):
             ' Requirements defined in Removal of Old Appliance (fridge)?'
     metadata = {
         'alias': "ROOA meets implementation requirements",
-        "regulation_reference": PDRS_2022["X","X.7"]
+        "regulation_reference": PDRS_2022["ROOA", "fridge"]
     }
 
     def formula(buildings, period, parameters):
@@ -35,7 +36,7 @@ class PDRS_ROOA_meets_eligibility_requirements(Variable):
             ' Requirements defined in Removal of Old Appliance (fridge)?'
     metadata = {
         'alias': "ROOA meets eligibility requirements",
-        "regulation_reference": PDRS_2022["X","X.7"]
+        "regulation_reference": PDRS_2022["ROOA", "fridge"]
     }
 
     def formula(buildings, period, parameters):
@@ -56,7 +57,7 @@ class PDRS_ROOA_meets_equipment_requirements(Variable):
             ' Requirements defined in Removal of Old Appliance (fridge)?'
     metadata = {
         'alias': "ROOA meets equipment requirements",
-        "regulation_reference": PDRS_2022["X","X.7"]
+        "regulation_reference": PDRS_2022["ROOA", "fridge"]
     }
 
     def formula(buildings, period, parameters):
@@ -76,7 +77,7 @@ class PDRS_ROOA_meets_all_requirements(Variable):
             ' Requirements defined in Removal of Old Appliance (fridge)?'
     metadata = {
         'alias': "ROOA meets all requirements",
-        "regulation_reference": PDRS_2022["X","X.7"]
+        "regulation_reference": PDRS_2022["ROOA", "fridge"]
     }
 
     def formula(buildings, period, parameters):

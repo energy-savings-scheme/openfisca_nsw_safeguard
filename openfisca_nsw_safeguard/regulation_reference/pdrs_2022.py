@@ -4,6 +4,12 @@ from openfisca_nsw_safeguard.regulation_reference.regulation_reference import Re
 PDRS_2022 = Regulation(
     "PDRS 2022", "Peak Demand Reduction Scheme Rule 2022", "01 July 2022")
 
+# Identify Common Variables---------------
+generic_PDRS = PDRS_2022.add_part("XX", PT.NOTES, "Generic")
+generic_PDRS_GA = generic_PDRS.add_part("GA", PT.NOTES, "General Appliances")
+generic_PDRS_AC = generic_PDRS.add_part("AC", PT.NOTES, "Air Conditioner")
+
+
 clause_8 = PDRS_2022.add_part("X", PT.CLAUSE, "PDRS Method (example)")
 clause_8.add_parts([("X.1", PT.CLAUSE, None),
                     ("X.2", PT.CLAUSE, None),

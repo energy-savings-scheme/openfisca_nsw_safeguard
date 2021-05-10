@@ -1,0 +1,39 @@
+- name: test PDRS HEAB AC install- eligibility
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+      Appliance_located_in_residential_building: [true, false, false]
+      No_Existing_AC: [true, false, true]
+  output:
+      PDRS_HEAB_AC_install_meets_eligibility_requirements: [false, false, true]
+
+- name: test PDRS HEAB AC install- equipment
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+      Appliance_is_registered_in_GEMS: [true, false, false]
+      AC_has_5_years_warranty: [true, false, true]
+      Appliance_demand_response_capability: [true, false, true]
+  output:
+      PDRS_HEAB_AC_install_meets_equipment_requirements: [true, false, false]
+
+- name: test PDRS HEAB AC install- implementation
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+      Appliance_is_installed: [true, false, false]
+      implementation_is_performed_by_qualified_person: [true, false, true]
+  output:
+      PDRS_HEAB_AC_install_meets_implementation_requirements:
+          [true, false, false]
+
+- name: test PDRS HEAB AC install- meets all
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+      PDRS_HEAB_AC_install_meets_eligibility_requirements: [true, false, false]
+      PDRS_HEAB_AC_install_meets_equipment_requirements: [true, false, true]
+      PDRS_HEAB_AC_install_meets_implementation_requirements:
+          [true, true, false]
+  output:
+      PDRS_HEAB_AC_install_meets_all_requirements: [true, false, false]

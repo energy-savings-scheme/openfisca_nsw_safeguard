@@ -2,6 +2,8 @@
   period: 2021
   absolute_error_margin: 0.1
   input:
+      PDRS_HEAB_AC_install_meets_implementation_requirements:
+          [true, true, true, true, true]
       Air_Conditioner__cooling_capacity: [2, 5, 11, 43, 78]
       Air_Conditioner_type: [type_1, type_2, type_3, type_4, type_5]
       PDRS_AC_power_input: [0.67, 0.94, 2.63, 0.51, 0.765]
@@ -14,7 +16,7 @@
       PDRS_AC_baseline_power_input: [0.64, 2., 3.52, 17.2, 0.]
       PDRS_AC_duration_factor: [0., 0.20887755, 0., 0., 0.25778912]
       PDRS_AC_firmness_factor: [0., 0.16919082, 0., 0., 0.2036534]
-      D4_PDRS_AC_install_peak_demand_savings: [0., 10.76053592, 0., 0., 0]
+      PDRS_HEAB_AC_install_peak_demand_savings: [0., 10.76053592, 0., 0., 0]
 # - name: Steve's test on PDRS Air Conditioner peak demand savings-replacement
 #   period: 2021
 #   absolute_error_margin: 0.1

@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class PDRS_ROOA_fridge_firmness_factor(Variable):
+class PDRS_ROOA_firmness_factor(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -45,7 +45,7 @@ class PDRS_ROOA_fridge_peak_demand_savings(Variable):
             'PDRS_ROOA_meets_all_requirements', period)
         average_summer_demand = parameters(
             period).PDRS.ROOA_fridge.ROOA_related_constants.AVERAGE_SUMMER_DEMAND
-        firmness_factor = building('PDRS__ROOA__firmness_factor', period)
+        firmness_factor = building('PDRS_ROOA_firmness_factor', period)
         daily_peak_hours = parameters(
             period).PDRS.PDRS_wide_constants.DAILY_PEAK_WINDOW_HOURS
         forward_creation_period = parameters(

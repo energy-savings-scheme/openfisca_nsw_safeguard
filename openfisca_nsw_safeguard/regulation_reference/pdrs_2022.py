@@ -48,7 +48,7 @@ HEAB.add_parts([
 HEER = PDRS_2022.add_part(
     "HEER", PT.SCHEDULE, "Home Energy Efficiency Retrofits")
 HEER.add_parts([
-    ("AC_install", PT.ACTIVITY,
+    ("AC_replace", PT.ACTIVITY,
      "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner (non-business)"),
     ("AC_install", PT.ACTIVITY,
      "Install A High Efficiency Air Conditioner (non-business)"),

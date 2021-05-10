@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class PDRS__ROOA__firmness_factor(Variable):
+class PDRS_ROOA_fridge_firmness_factor(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -15,7 +15,7 @@ class PDRS__ROOA__firmness_factor(Variable):
         'activity-group': "Removal Of Old Appliances",
         'activity-name': "Removal of a Spare Refrigerator or Freezer",
         'variable-type': "intermediary",
-        "regulation_reference": PDRS_2022["X", "X.7"]
+        "regulation_reference": PDRS_2022["ROOA", "fridge"]
     }
 
     def formula(building, period, parameters):
@@ -28,18 +28,15 @@ class PDRS__ROOA__firmness_factor(Variable):
         return contribution_factor*load_factor*duration_factor
 
 
-class PDRS__ROOA__peak_demand_savings(Variable):
+class PDRS_ROOA_fridge_peak_demand_savings(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
     reference = "Clause **"
     label = "The final peak demand savings from the air conditioner"
     metadata = {
-        'alias': "Peak Demand Savings",
-        'activity-group': "Removal Of Old Appliances",
-        'activity-name': "Removal of a Spare Refrigerator or Freezer",
-        'variable-type': "output",
-        "regulation_reference": PDRS_2022["X", "X.7"]
+        'alias': "PDRS ROOA Spare Fridge Peak Demand Savings",
+        "regulation_reference": PDRS_2022["ROOA", "fridge"]
     }
 
     def formula(building, period, parameters):

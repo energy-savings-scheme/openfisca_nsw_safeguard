@@ -15,7 +15,7 @@ class PDRS_motor_install_meets_equipment_requirements(Variable):
             ' Requirements?'
     metadata = {
         'alias': "Install Motors meets equipment requirements",
-        "regulation_reference": PDRS_2022["X", "X.7"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(buildings, period, parameters):
@@ -39,7 +39,7 @@ class PDRS_motor_install_meets_implementation_requirements(Variable):
             ' Requirements?'
     metadata = {
         'alias': "Install Motors meets implementation requirements",
-        "regulation_reference": PDRS_2022["X", "X.7"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(buildings, period, parameters):
@@ -58,7 +58,7 @@ class PDRS_motor_install_meets_all_requirements(Variable):
             ' Requirements ?'
     metadata = {
         'alias': "PDRS Motors Install meets all requirements",
-        "regulation_reference": PDRS_2022["X", "X.7"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(buildings, period, parameters):

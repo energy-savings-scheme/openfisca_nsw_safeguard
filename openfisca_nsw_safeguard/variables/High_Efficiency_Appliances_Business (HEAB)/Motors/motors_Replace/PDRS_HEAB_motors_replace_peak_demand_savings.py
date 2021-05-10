@@ -15,7 +15,7 @@ class PDRS__motors__old_efficiency(Variable):
     metadata = {
         "variable-type": "input",
         "alias": "Efficiency (%) of The Old Motor",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
 
@@ -28,7 +28,7 @@ class PDRS__motors__existing_motor_efficiency(Variable):
     metadata = {
         "variable-type": "intermediary",
         "alias": "Existing Motor Efficiency (use baseline efficiency if not supplied)",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(building, period, paramters):
@@ -45,7 +45,7 @@ class PDRS__motors__firmness_factor(Variable):
     metadata = {
         'alias': "Firmness Factor",
         'variable-type': "intermediary",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(building, period, parameters):
@@ -68,7 +68,7 @@ class PDRS__motors__new_efficiency(Variable):
     metadata = {
         "variable-type": "input",
         "alias": "Efficiency (%) of The New Motor",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
 
@@ -81,7 +81,7 @@ class PDRS__motors_replace_peak_demand_savings(Variable):
     metadata = {
         "variable-type": "output",
         "alias": "Motors Peak demand savings",
-        "regulation_reference": PDRS_2022["X", "X.6"]
+        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(building, period, parameters):

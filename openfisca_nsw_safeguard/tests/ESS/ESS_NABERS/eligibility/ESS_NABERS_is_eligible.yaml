@@ -1,4 +1,4 @@
-- name: test ESS NABERS measured electricity consumption calculation
+- name: test ESS NABERS eligibility - eligibility within method 1
   period: 2021
   absolute_error_margin: 0.1
   input:
@@ -84,6 +84,137 @@
         False,
 ]
   output:
+    ESS__NABERS_is_eligible:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
+- name: test ESS NABERS eligibility - eligibility within method 2
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_building_type:
+      [
+        office,
+        office,
+        office,
+        apartment_building,
+        apartment_building,
+        apartment_building,
+      ]
+    ESS__NABERS_building_has_GreenPower:
+      [
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+      ]
+    ESS__NABERS_all_sources_of_on_site_electricity_generation_identified:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
+    ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2018-03-31,
+        2019-03-31,
+        2020-02-29,
+        2018-03-31,
+        2019-03-31,
+        2020-02-29,
+      ]
+    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
+      [
+        2016-07-31,
+        2016-07-31,
+        2016-07-31,
+        2016-07-31,
+        2016-07-31,
+        2016-07-31,
+      ]
+    ESS__NABERS_current_NABERS_star_rating:
+      [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+      ]
+    ESS__NABERS_historical_NABERS_star_rating:
+      [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+      ]
+    ESS__NABERS_building_date:
+      [
+        built_before_nov_2006,
+        built_before_nov_2006,
+        built_before_nov_2006,
+        built_before_nov_2006,
+        built_before_nov_2006,
+        built_before_nov_2006,
+      ]
+    ESS__NABERS_first_NABERS_rating:
+      [
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+      ]
+    ESS__NABERS_rating_obtained_for_legal_requirements:
+      [
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+      ]
+    ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
+  output:
+    ESS__NABERS_is_eligible_for_method_two:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
     ESS__NABERS_is_eligible:
       [
         True,

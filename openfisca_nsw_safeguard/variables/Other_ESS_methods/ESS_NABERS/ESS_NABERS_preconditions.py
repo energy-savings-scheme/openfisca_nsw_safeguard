@@ -745,4 +745,5 @@ class ESS__NABERS_is_eligible(Variable):
                                             * (np.logical_not(has_GreenPower)) * on_site_generation_identified
                                             * unaccounted_electricity_metered_and_recorded)
         eligible_for_method_one = buildings('ESS__NABERS_is_eligible_for_method_one', period)
-        return (meets_overall_NABERS_requirements * (eligible_for_method_one))
+        eligible_for_method_two = buildings('ESS__NABERS_is_eligible_for_method_two', period)
+        return (meets_overall_NABERS_requirements * (eligible_for_method_one + eligible_for_method_two))

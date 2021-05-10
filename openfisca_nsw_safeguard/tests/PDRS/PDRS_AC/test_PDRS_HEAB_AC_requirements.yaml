@@ -6,7 +6,7 @@
       No_Existing_AC: [true, false, true]
   output:
       PDRS_HEAB_AC_install_meets_eligibility_requirements: [false, false, true]
-      PDRS_HEAB_AC_replace_meets_eligibility_requirements: [false, false, true]
+      PDRS_HEAB_AC_replace_meets_eligibility_requirements: [false, true, false]
 
 - name: test PDRS HEAB AC install- equipment
   period: 2021

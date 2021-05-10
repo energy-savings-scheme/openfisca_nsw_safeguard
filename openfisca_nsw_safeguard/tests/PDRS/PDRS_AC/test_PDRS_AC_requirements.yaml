@@ -37,3 +37,12 @@
           [true, true, false]
   output:
       PDRS_HEAB_AC_install_meets_all_requirements: [true, false, false]
+
+- name: test PDRS HEAB AC install- formula
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+      PDRS_HEAB_AC_install_meets_implementation_requirements: [true, false]
+      PDRS_AC_peak_demand_savings: [23.0, 85.0]
+  output:
+      PDRS_HEAB_AC_install_peak_demand_savings: [23.0, 0]

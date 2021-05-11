@@ -5,11 +5,13 @@ from enum import Enum
 class PartType(Enum):
     PART = "Part"
     CLAUSE = "Clause"
+    SUBMETHOD = "SubMethod"
     SCHEDULE = "Schedule"
     ACTIVITY = "Activity Definition"
-    DIVISION = "Division"
-    CHAPTER = "Chapter"
-    NOTES = "Notes"
+    # DIVISION = "Division"
+    # CHAPTER = "Chapter"
+    # REQUIREMENT = "Requirement"
+    EQUIPMENT = "Equipment"
 
 
 class _Part:

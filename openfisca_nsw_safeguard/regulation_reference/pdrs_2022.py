@@ -7,32 +7,19 @@ PDRS_2022 = Regulation(
 # Identify Common Variables---------------
 generic_PDRS = PDRS_2022.add_part("XX", PT.NOTES, "Generic")
 generic_PDRS_GA = generic_PDRS.add_part(
-    "GA", PT.NOTES, "PDRS General Appliances")
-generic_PDRS_AC = generic_PDRS.add_part("AC", PT.NOTES, "PDRS Air Conditioner")
+    "GA", PT.EQUIPMENT, "General Appliances")
+generic_PDRS_AC = generic_PDRS.add_part("AC", PT.EQUIPMENT, "Air Conditioner")
 generic_PDRS_motors = generic_PDRS.add_part(
-    "motors", PT.NOTES, "PDRS motors")
+    "motors", PT.EQUIPMENT, "Motors")
 
 generic_PDRS_motors = generic_PDRS.add_part(
-    "fridge", PT.NOTES, "PDRS fridge")
-
-# clause_8 = PDRS_2022.add_part("X", PT.CLAUSE, "PDRS Method (example)")
-# clause_8.add_parts([("X.1", PT.CLAUSE, None),
-#                     ("X.2", PT.CLAUSE, None),
-#                     ("X.3", PT.CLAUSE, None),
-#                     ("X.3.A", PT.CLAUSE, None),
-#                     ("X.4", PT.CLAUSE, None),
-#                     ("X.4.A", PT.CLAUSE, "Example ABC"),
-#                     ("X.4.B", PT.CLAUSE, "Example DEF"),
-#                     ("X.5", PT.ACTIVITY, "PDRS Air Conditioners"),
-#                     ("X.6", PT.ACTIVITY, "PDRS Motors"),
-#                     ("X.7", PT.ACTIVITY, "PDRS Removal of Old Appliances"),
-#                     ])
+    "fridge", PT.EQUIPMENT, "Refrigerator or Freezer")
 
 
 # Identify Methods and Activities---------------
 
 HEAB = PDRS_2022.add_part(
-    "HEAB", PT.SCHEDULE, "High Efficiency Appliances For Business")
+    "HEAB", PT.SUBMETHOD, "High Efficiency Appliances For Business")
 HEAB.add_parts([
     ("AC_replace", PT.ACTIVITY,
      "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner for Business"),
@@ -46,7 +33,7 @@ HEAB.add_parts([
 
 
 HEER = PDRS_2022.add_part(
-    "HEER", PT.SCHEDULE, "Home Energy Efficiency Retrofits")
+    "HEER", PT.SUBMETHOD, "Home Energy Efficiency Retrofits")
 HEER.add_parts([
     ("AC_replace", PT.ACTIVITY,
      "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner (non-business)"),
@@ -56,7 +43,7 @@ HEER.add_parts([
 
 
 ROOA = PDRS_2022.add_part(
-    "ROOA", PT.SCHEDULE, "")
+    "ROOA", PT.SUBMETHOD, "Removal Of Old Appliances")
 ROOA.add_parts([
     ("fridge", PT.ACTIVITY, "Remove A Spare Refrigerator or Freezer"),
 ])

@@ -5,7 +5,7 @@ PDRS_2022 = Regulation(
     "PDRS 2022", "Peak Demand Reduction Scheme Rule 2022", "01 July 2022")
 
 # Identify Common Variables---------------
-generic_PDRS = PDRS_2022.add_part("XX", PT.NOTES, "Generic")
+generic_PDRS = PDRS_2022.add_part("XX", PT.PART, "Generic")
 generic_PDRS_GA = generic_PDRS.add_part(
     "GA", PT.EQUIPMENT, "General Appliances")
 generic_PDRS_AC = generic_PDRS.add_part("AC", PT.EQUIPMENT, "Air Conditioner")

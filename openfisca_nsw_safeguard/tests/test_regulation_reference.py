@@ -23,14 +23,9 @@ def test_regulation_reference():
     activity_B2 = schedule_B.add_part(
         "2", PT.ACTIVITY, "Sell a High Efficiency Clothes Dryer")
 
-    generic_ESS = ESS_2020.add_part("XX", PT.NOTES, "Generic")
-    generic_ESS_AC = generic_ESS.add_part("AC", PT.NOTES, "Air Conditioner")
-
-    generic_ImR = ESS_2020.add_part(
-        "ImR", PT.NOTES, "Common Implementation Requirement")
-
-    generic_ImR_GA = generic_ImR.add_part(
-        "GA", PT.NOTES, "General Appliances")
+    generic_ESS = ESS_2020.add_part("XX", PT.EQUIPMENT, "Generic")
+    generic_ESS_AC = generic_ESS.add_part(
+        "AC", PT.EQUIPMENT, "Air Conditioner")
 
     # Test accessing of Regulation object
     accessor = ESS_2020["B", "1"]

@@ -5,18 +5,10 @@ ESS_2021 = Regulation(
     "ESS 2021", "Energy Savings Scheme (Amendment No. 1) Rule 2021", "01 May 2021")
 
 # Identify Common Variables---------------
-generic_ESS = ESS_2021.add_part("XX", PT.NOTES, "Generic")
-generic_ESS_GA = generic_ESS.add_part("GA", PT.NOTES, "General Appliances")
-generic_ESS_AC = generic_ESS.add_part("AC", PT.NOTES, "Air Conditioner")
+generic_ESS = ESS_2021.add_part("XX", PT.EQUIPMENT, "Generic")
+generic_ESS_GA = generic_ESS.add_part("GA", PT.EQUIPMENT, "General Appliances")
+generic_ESS_AC = generic_ESS.add_part("AC", PT.EQUIPMENT, "Air Conditioner")
 
-
-# common_ImR = ESS_2021.add_part(
-#     "ImR", PT.NOTES, "Common Implementation Requirement")
-# common_ImR_AC = common_ImR.add_part(
-#     "AC", PT.NOTES, "Air Conditioner")
-
-# common_ImR_AC = common_ImR.add_part(
-#     "GA", PT.NOTES, "General Appliances")
 
 #  Variables Specific to Clauses ---------------
 

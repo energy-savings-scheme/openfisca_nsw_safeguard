@@ -10,3 +10,10 @@
     ESS__NABERS_type_of_creation: annual_creation
   output:
     ESS__number_of_ESCs: 54
+- name: test ESS gas savings - not eligible (increase in energy consumption)
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__electricity_savings: -100
+  output:
+    ESS__number_of_ESCs: 0

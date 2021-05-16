@@ -72,4 +72,5 @@ class ESS__number_of_ESCs(Variable):
             period).ESS.ESS_general.ESS_certificate_conversion_factors.gas_certificate_conversion_factor
         number_of_certificates = np.floor((electricity_savings * electricity_certificate_conversion_factor)
                                           + (gas_savings * gas_certificate_conversion_factor))
+        number_of_certificates = np.where(number_of_certificates < 0, 0, number_of_certificates)
         return number_of_certificates

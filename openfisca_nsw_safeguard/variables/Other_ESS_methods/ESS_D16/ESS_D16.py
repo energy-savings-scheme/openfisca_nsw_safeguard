@@ -22,5 +22,5 @@ class ESS__D16__deemed_elec_savings(Variable):
         heating_energy_use = building('ESS_D16__Air_Conditioner__heating_annual_energy_use', period)
         lifetime = parameters(period).ESS.ESS_D16.related_constants.LIFETIME
         MWh_to_kWh = parameters(period).ESS.ESS_related_constants.MWh_to_kWh # note that formula requires dividing by 1000
-                                                                         # * by 0.001 is better, as end unit is MWh
+                                                                             # * by 0.001 is better, as end unit is MWh
         return (((reference_cooling_energy_use - cooling_energy_use) + (reference_heating_energy_use - heating_energy_use)) * lifetime / MWh_to_kWh)

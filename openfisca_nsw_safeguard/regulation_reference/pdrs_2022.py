@@ -35,7 +35,7 @@ HEAB_motors_replace = HEAB.add_part("motors_replace", PT.ACTIVITY,
                                     "Replace High Efficiency Motors")
 
 
-HEAB_AC_install.add_parts([("equipment", PT.REQUIREMENT,
+HEAB_AC_replace.add_parts([("equipment", PT.REQUIREMENT,
                             "Equipment Requirements"),
                            ("implementation", PT.REQUIREMENT,
                             "Implementation Requirements"),

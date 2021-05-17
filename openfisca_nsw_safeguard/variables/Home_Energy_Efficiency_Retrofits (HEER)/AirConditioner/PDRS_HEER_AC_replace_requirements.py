@@ -15,7 +15,7 @@ class PDRS_HEER_AC_replace_meets_eligibility_requirements(Variable):
             ' Requirements defined in replacing a high efficiency air conditioner for Residential?'
     metadata = {
         'alias': "HEER AC replace meets eligibility requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_replace"]
+        "regulation_reference": PDRS_2022["HEER", "AC_replace", "eligibility"]
     }
 
     def formula(buildings, period, parameters):
@@ -36,7 +36,7 @@ class PDRS_HEER_AC_replace_meets_equipment_requirements(Variable):
             ' Requirements defined in replacing a high efficiency air conditioner for Residential?'
     metadata = {
         'alias': "HEER AC replace meets equipment requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_replace"]
+        "regulation_reference": PDRS_2022["HEER", "AC_replace", "equipments"]
     }
 
     def formula(buildings, period, parameters):
@@ -59,7 +59,7 @@ class PDRS_HEER_AC_replace_meets_implementation_requirements(Variable):
             ' Requirements defined in replacing a high efficiency air conditioner for Residential?'
     metadata = {
         'alias': "HEER AC replace meets implementation requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_replace"]
+        "regulation_reference": PDRS_2022["HEER", "AC_replace", "implementation"]
     }
 
     def formula(buildings, period, parameters):
@@ -81,7 +81,7 @@ class PDRS_HEER_AC_replace_meets_all_requirements(Variable):
             ' Requirements defined in replacing a high efficiency air conditioner for Residential?'
     metadata = {
         'alias': "HEER AC replace meets all requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_replace"]
+        # "regulation_reference": PDRS_2022["HEER", "AC_replace"]
     }
 
     def formula(buildings, period, parameters):

@@ -16,7 +16,7 @@ class PDRS_HEAB_AC_replace_meets_eligibility_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
         'alias': "HEAB AC replace meets eligibility requirements",
-        "regulation_reference": PDRS_2022["HEAB", "AC_replace"]
+        "regulation_reference": PDRS_2022["HEAB", "AC_replace", "eligibility"]
     }
 
     def formula(buildings, period, parameters):
@@ -35,7 +35,7 @@ class PDRS_HEAB_AC_replace_meets_equipment_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
         'alias': "HEAB AC replace meets equipment requirements",
-        "regulation_reference": PDRS_2022["HEAB", "AC_replace"]
+        "regulation_reference": PDRS_2022["HEAB", "AC_replace", "equipment"]
     }
 
     def formula(buildings, period, parameters):
@@ -58,7 +58,7 @@ class PDRS_HEAB_AC_replace_meets_implementation_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
         'alias': "HEAB AC replace meets implementation requirements",
-        "regulation_reference": PDRS_2022["HEAB", "AC_replace"]
+        "regulation_reference": PDRS_2022["HEAB", "AC_replace", "implementation"]
     }
 
     def formula(buildings, period, parameters):
@@ -80,7 +80,7 @@ class PDRS_HEAB_AC_replace_meets_all_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
         'alias': "HEAB AC replace meets all requirements",
-        "regulation_reference": PDRS_2022["HEAB", "AC_replace"]
+        # "regulation_reference": PDRS_2022["HEAB", "AC_replace"]
     }
 
     def formula(buildings, period, parameters):

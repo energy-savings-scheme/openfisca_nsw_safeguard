@@ -17,7 +17,7 @@ class PDRS_HEER_AC_install_peak_demand_savings(Variable):
     metadata = {
         "variable-type": "output",
         "alias": "AC Peak Demand Savings",
-        "regulation_reference": PDRS_2022["HEER", "AC_install"]
+        "regulation_reference": PDRS_2022["HEER", "AC_install", "energy_savings"]
     }
 
     def formula(building, period, parameters):

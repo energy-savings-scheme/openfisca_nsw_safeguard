@@ -10,7 +10,7 @@ class PartType(Enum):
     ACTIVITY = "Activity Definition"
     # DIVISION = "Division"
     # CHAPTER = "Chapter"
-    # REQUIREMENT = "Requirement"
+    REQUIREMENT = "Requirement"
     EQUIPMENT = "Equipment"
 
 

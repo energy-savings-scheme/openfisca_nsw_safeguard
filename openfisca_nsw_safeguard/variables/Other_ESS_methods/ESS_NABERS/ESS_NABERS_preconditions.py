@@ -594,13 +594,13 @@ class ESS__NABERS_ESC_creation_date(Variable):
     }
 
 
-class ESS__NABERS_current_rating_period_length(Variable):
-    value_type = int
+class ESS__NABERS_ESC_creation_within_12_months(Variable):
+    value_type = bool
     entity = Building
     definition_period = ETERNITY
     reference = "Clause 8.8.8"
-    label = 'What is the length of the Current NABERS Rating Period, as' \
-            ' using the current start date and current end date?'
+    label = 'Are the ESCs created no more than 12 months after the end of the' \
+            ' NABERS Rating Period?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "NABERS ESC Creation Date",
@@ -618,7 +618,7 @@ class ESS__NABERS_current_rating_period_length(Variable):
         ))
         rating_period_length = np.fromiter(
             map(count_months, start_date, end_date), int)
-        return rating_period_length
+        return rating_period_length <= 12
         # need to troubleshoot this later
 
 
@@ -779,11 +779,12 @@ class ESS__NABERS_is_eligible(Variable):
             'ESS__NABERS_all_sources_of_on_site_electricity_generation_identified', period)
         unaccounted_electricity_metered_and_recorded = buildings(
             'ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded', period)
-        eligible_for_method_one = buildings(
-            'ESS__NABERS_is_eligible_for_method_one', period)
+        creation_within_12_months = buildings(
+            'ESS__NABERS_ESC_creation_within_12_months', period)
         meets_overall_NABERS_requirements = (uses_NABERS_rating_tool
                                              * (np.logical_not(has_GreenPower)) * on_site_generation_identified
-                                             * unaccounted_electricity_metered_and_recorded)
+                                             * unaccounted_electricity_metered_and_recorded
+                                             * creation_within_12_months)
         eligible_for_method_one = buildings(
             'ESS__NABERS_is_eligible_for_method_one', period)
         eligible_for_method_two = buildings(

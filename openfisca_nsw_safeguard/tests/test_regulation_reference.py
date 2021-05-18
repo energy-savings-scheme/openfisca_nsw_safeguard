@@ -24,11 +24,12 @@ def test_regulation_reference():
         "2", PT.ACTIVITY, "Sell a High Efficiency Clothes Dryer")
 
     generic_ESS = ESS_2020.add_part("XX", PT.EQUIPMENT, "Generic")
-    generic_ESS_AC = generic_ESS.add_part(
-        "AC", PT.EQUIPMENT, "Air Conditioner")
+
+    activity_B1.add_parts([("equipment", PT.REQUIREMENT,
+                            "Equipment Requirements"), ("installation", PT.REQUIREMENT, "Equipment Requirements")])
 
     # Test accessing of Regulation object
-    accessor = ESS_2020["B", "1"]
+    accessor = ESS_2020["B", "1", 'installation']
     assert accessor["identifier"] == "ESS 2020"
     assert accessor["part"]["identifier"] == "B"
 

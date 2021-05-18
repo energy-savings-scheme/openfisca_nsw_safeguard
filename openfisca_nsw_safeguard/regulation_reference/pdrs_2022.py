@@ -20,27 +20,88 @@ generic_PDRS_motors = generic_PDRS.add_part(
 
 HEAB = PDRS_2022.add_part(
     "HEAB", PT.SUBMETHOD, "High Efficiency Appliances For Business")
-HEAB.add_parts([
-    ("AC_replace", PT.ACTIVITY,
-     "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner for Business"),
-    ("AC_install", PT.ACTIVITY,
-     "Install A High Efficiency Air Conditioner for Business"),
-    ("motors_install", PT.ACTIVITY,
-     "Install High Efficiency Motors"),
-    ("motors_replace", PT.ACTIVITY,
-     "Replace High Efficiency Motors"),
-])
+
+HEAB_AC_replace = HEAB.add_part("AC_replace", PT.ACTIVITY,
+                                "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner for Business")
+
+HEAB_AC_install = HEAB.add_part("AC_install", PT.ACTIVITY,
+                                "Install A High Efficiency Air Conditioner for Business")
+
+HEAB_motors_install = HEAB.add_part("motors_install", PT.ACTIVITY,
+                                    "Install High Efficiency Motors")
+
+
+HEAB_motors_replace = HEAB.add_part("motors_replace", PT.ACTIVITY,
+                                    "Replace High Efficiency Motors")
+
+
+HEAB_AC_replace.add_parts([("equipment", PT.REQUIREMENT,
+                            "Equipment Requirements"),
+                           ("implementation", PT.REQUIREMENT,
+                            "Implementation Requirements"),
+                           ("eligibility", PT.REQUIREMENT,
+                            "Eligibility Requirements"),
+                           ("energy_savings", PT.REQUIREMENT,
+                            "Energy Savings"),
+                           ])
+
+
+HEAB_AC_install.add_parts([("equipment", PT.REQUIREMENT,
+                            "Equipment Requirements"),
+                           ("implementation", PT.REQUIREMENT,
+                            "Implementation Requirements"),
+                           ("eligibility", PT.REQUIREMENT,
+                            "Eligibility Requirements"),
+                           ("energy_savings", PT.REQUIREMENT,
+                            "Energy Savings"),
+                           ])
+HEAB_motors_install.add_parts([("equipment", PT.REQUIREMENT,
+                                "Equipment Requirements"),
+                               ("implementation", PT.REQUIREMENT,
+                                "Implementation Requirements"),
+                               ("eligibility", PT.REQUIREMENT,
+                                "Eligibility Requirements"),
+                               ("energy_savings", PT.REQUIREMENT,
+                                "Energy Savings"),
+                               ])
+HEAB_motors_replace.add_parts([("equipment", PT.REQUIREMENT,
+                                "Equipment Requirements"),
+                               ("implementation", PT.REQUIREMENT,
+                                "Implementation Requirements"),
+                               ("eligibility", PT.REQUIREMENT,
+                                "Eligibility Requirements"),
+                               ("energy_savings", PT.REQUIREMENT,
+                                "Energy Savings"),
+                               ])
 
 
 HEER = PDRS_2022.add_part(
     "HEER", PT.SUBMETHOD, "Home Energy Efficiency Retrofits")
-HEER.add_parts([
-    ("AC_replace", PT.ACTIVITY,
-     "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner (non-business)"),
-    ("AC_install", PT.ACTIVITY,
-     "Install A High Efficiency Air Conditioner (non-business)"),
-])
 
+HEER_AC_replace = HEER.add_part("AC_replace", PT.ACTIVITY,
+                                "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner (non-business)")
+
+HEER_AC_install = HEER.add_part("AC_install", PT.ACTIVITY,
+                                "Install A High Efficiency Air Conditioner (non-business)")
+
+HEER_AC_replace.add_parts([("equipment", PT.REQUIREMENT,
+                            "Equipment Requirements"),
+                           ("implementation", PT.REQUIREMENT,
+                            "Implementation Requirements"),
+                           ("eligibility", PT.REQUIREMENT,
+                            "Eligibility Requirements"),
+                           ("energy_savings", PT.REQUIREMENT,
+                            "Energy Savings"),
+                           ])
+HEER_AC_install.add_parts([("equipment", PT.REQUIREMENT,
+                            "Equipment Requirements"),
+                           ("implementation", PT.REQUIREMENT,
+                            "Implementation Requirements"),
+                           ("eligibility", PT.REQUIREMENT,
+                            "Eligibility Requirements"),
+                           ("energy_savings", PT.REQUIREMENT,
+                            "Energy Savings"),
+                           ])
 
 ROOA = PDRS_2022.add_part(
     "ROOA", PT.SUBMETHOD, "Removal Of Old Appliances")

@@ -14,7 +14,7 @@ class PDRS_HEAB_AC_install_peak_demand_savings(Variable):
     label = "The final peak demand savings from installing an air conditioner"
     metadata = {
         "alias": "AC Peak Demand Savings",
-        "regulation_reference": PDRS_2022["HEAB", "AC_install"]
+        "regulation_reference": PDRS_2022["HEAB", "AC_install", "energy_savings"]
     }
 
     def formula(building, period, parameters):

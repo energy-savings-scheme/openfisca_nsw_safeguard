@@ -23,7 +23,7 @@ class Appliance_is_removed(Variable):
     label = 'Is the existing end user appliance disconnected and removed?'
     metadata: {
         'alias':  'Is the existing appliance disconnected and removed?',
-        "regulation_reference": ESS_2021["XX", "GA"]
+        "regulation_reference": ESS_2021["XX", "GA"],
     }
 
 

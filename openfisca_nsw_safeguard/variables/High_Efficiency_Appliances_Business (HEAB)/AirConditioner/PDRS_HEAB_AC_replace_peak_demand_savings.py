@@ -19,7 +19,7 @@ class PDRS_HEAB_AC_replace_peak_demand_savings(Variable):
 
     def formula(building, period, parameters):
         meets_all_requirements = building(
-            "PDRS_HEAB_AC_replace_meets_implementation_requirements", period)
+            "PDRS_HEAB_AC_replace_meets_all_requirements", period)
 
         savings = building("PDRS_AC_peak_demand_savings", period)
 

@@ -2,6 +2,16 @@
   period: 2021
   absolute_error_margin: 1
   input:
+      Appliance__installation_type:
+          [
+              "replacement",
+              "replacement",
+              "replacement",
+              "replacement",
+              "replacement",
+              "replacement",
+              "replacement",
+          ]
       motor_type_var:
           [
               ventilation,

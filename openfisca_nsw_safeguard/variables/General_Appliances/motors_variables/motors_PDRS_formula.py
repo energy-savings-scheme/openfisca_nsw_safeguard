@@ -1,3 +1,4 @@
+from numpy.core.defchararray import _replace_dispatcher
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
@@ -33,10 +34,15 @@ class PDRS__motors__existing_motor_efficiency(Variable):
     }
 
     def formula(building, period, paramters):
+        install_or_replace = building('Appliance__installation_type', period)
         old_efficiency = building('PDRS__motors__old_efficiency', period)
         baseline_efficiency = building(
             'PDRS__motors__baseline_motor_efficiency', period)
-        return np.where(old_efficiency > 0, old_efficiency, baseline_efficiency)
+
+        replace_baseline = np.where(
+            old_efficiency > 0, old_efficiency, baseline_efficiency)
+        # 0 is install, 1 is replacement
+        return np.where(install_or_replace == 0, baseline_efficiency, replace_baseline)
 
 
 class PDRS__motors__firmness_factor(Variable):

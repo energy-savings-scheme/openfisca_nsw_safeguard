@@ -17,9 +17,9 @@ class PDRS_HEAB_AC_install_peak_demand_savings(Variable):
         "regulation_reference": PDRS_2022["HEAB", "AC_install", "energy_savings"]
     }
 
-    def formula(building, period, parameters):
+    def formula(building, period):
         meets_all_requirements = building(
-            "PDRS_HEAB_AC_install_meets_implementation_requirements", period)
+            "PDRS_HEAB_AC_install_meets_all_requirements", period)
 
         savings = building("PDRS_AC_peak_demand_savings", period)
 

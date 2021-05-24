@@ -81,7 +81,6 @@ class PDRS_HEER_AC_replace_meets_all_requirements(Variable):
             ' Requirements defined in replacing a high efficiency air conditioner for Residential?'
     metadata = {
         'alias': "HEER AC replace meets all requirements",
-        # "regulation_reference": PDRS_2022["HEER", "AC_replace"]
     }
 
     def formula(buildings, period, parameters):

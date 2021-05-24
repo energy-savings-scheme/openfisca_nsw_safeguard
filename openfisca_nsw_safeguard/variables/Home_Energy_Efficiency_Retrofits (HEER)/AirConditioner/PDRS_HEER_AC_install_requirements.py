@@ -81,7 +81,6 @@ class PDRS_HEER_AC_install_meets_all_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Residential?'
     metadata = {
         'alias': "HEER AC install meets all requirements",
-        # "regulation_reference": PDRS_2022["HEER", "AC_install"]
     }
 
     def formula(buildings, period, parameters):

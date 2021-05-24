@@ -14,7 +14,7 @@ class PDRS_HEER_AC_install_peak_demand_savings(Variable):
     label = "The final peak demand savings from the air conditioner"
     metadata = {
         "variable-type": "output",
-        "alias": "AC Peak Demand Savings",
+        "alias": "HEER AC install Peak Demand Savings",
         "regulation_reference": PDRS_2022["HEER", "AC_install", "energy_savings"]
     }
 

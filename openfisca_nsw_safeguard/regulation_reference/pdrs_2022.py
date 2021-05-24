@@ -57,27 +57,32 @@ HEER_AC_replace = HEER.add_part("AC_replace", PT.ACTIVITY,
 HEER_AC_install = HEER.add_part("AC_install", PT.ACTIVITY,
                                 "Install A High Efficiency Air Conditioner (non-business)")
 
-HEER_AC_replace.add_parts([("equipment", PT.REQUIREMENT,
-                            "Equipment Requirements"),
-                           ("implementation", PT.REQUIREMENT,
-                            "Implementation Requirements"),
-                           ("eligibility", PT.REQUIREMENT,
-                            "Eligibility Requirements"),
-                           ("energy_savings", PT.REQUIREMENT,
-                            "Energy Savings"),
-                           ])
-HEER_AC_install.add_parts([("equipment", PT.REQUIREMENT,
-                            "Equipment Requirements"),
-                           ("implementation", PT.REQUIREMENT,
-                            "Implementation Requirements"),
-                           ("eligibility", PT.REQUIREMENT,
-                            "Eligibility Requirements"),
-                           ("energy_savings", PT.REQUIREMENT,
-                            "Energy Savings"),
-                           ])
+HEER_activities = [HEER_AC_install, HEER_AC_replace,
+                   ]
+
+for item in HEER_activities:
+    item.add_parts([("equipment", PT.REQUIREMENT,
+                     "Equipment Requirements"),
+                    ("implementation", PT.REQUIREMENT,
+                     "Implementation Requirements"),
+                    ("eligibility", PT.REQUIREMENT,
+                     "Eligibility Requirements"),
+                    ("energy_savings", PT.REQUIREMENT,
+                     "Energy Savings"),
+                    ])
+
 
 ROOA = PDRS_2022.add_part(
     "ROOA", PT.SUBMETHOD, "Removal Of Old Appliances")
-ROOA.add_parts([
-    ("fridge", PT.ACTIVITY, "Remove A Spare Refrigerator or Freezer"),
-])
+ROOA_fridge = ROOA.add_part("fridge", PT.ACTIVITY,
+                            "Remove A Spare Refrigerator or Freezer")
+
+ROOA_fridge.add_parts([("equipment", PT.REQUIREMENT,
+                        "Equipment Requirements"),
+                       ("implementation", PT.REQUIREMENT,
+                        "Implementation Requirements"),
+                       ("eligibility", PT.REQUIREMENT,
+                        "Eligibility Requirements"),
+                       ("energy_savings", PT.REQUIREMENT,
+                        "Energy Savings"),
+                       ])

@@ -11,11 +11,7 @@ class PDRS_ROOA_firmness_factor(Variable):
     value_type = float
     definition_period = ETERNITY
     metadata = {
-        'alias': "Firmness Factor",
-        'activity-group': "Removal Of Old Appliances",
-        'activity-name': "Removal of a Spare Refrigerator or Freezer",
-        'variable-type': "intermediary",
-        "regulation_reference": PDRS_2022["ROOA", "fridge"]
+        'alias': "ROOA fridge Firmness Factor",
     }
 
     def formula(building, period, parameters):
@@ -36,7 +32,7 @@ class PDRS_ROOA_fridge_peak_demand_savings(Variable):
     label = "The final peak demand savings from the air conditioner"
     metadata = {
         'alias': "PDRS ROOA Spare Fridge Peak Demand Savings",
-        "regulation_reference": PDRS_2022["ROOA", "fridge"]
+        "regulation_reference": PDRS_2022["ROOA", "fridge", "energy_savings"]
     }
 
     def formula(building, period, parameters):

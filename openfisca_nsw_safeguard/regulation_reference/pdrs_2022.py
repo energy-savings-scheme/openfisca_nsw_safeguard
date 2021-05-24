@@ -30,49 +30,22 @@ HEAB_AC_install = HEAB.add_part("AC_install", PT.ACTIVITY,
 HEAB_motors_install = HEAB.add_part("motors_install", PT.ACTIVITY,
                                     "Install High Efficiency Motors")
 
-
 HEAB_motors_replace = HEAB.add_part("motors_replace", PT.ACTIVITY,
                                     "Replace High Efficiency Motors")
 
+HEAB_activities = [HEAB_AC_install, HEAB_AC_replace,
+                   HEAB_motors_install, HEAB_motors_replace]
 
-HEAB_AC_replace.add_parts([("equipment", PT.REQUIREMENT,
-                            "Equipment Requirements"),
-                           ("implementation", PT.REQUIREMENT,
-                            "Implementation Requirements"),
-                           ("eligibility", PT.REQUIREMENT,
-                            "Eligibility Requirements"),
-                           ("energy_savings", PT.REQUIREMENT,
-                            "Energy Savings"),
-                           ])
-
-
-HEAB_AC_install.add_parts([("equipment", PT.REQUIREMENT,
-                            "Equipment Requirements"),
-                           ("implementation", PT.REQUIREMENT,
-                            "Implementation Requirements"),
-                           ("eligibility", PT.REQUIREMENT,
-                            "Eligibility Requirements"),
-                           ("energy_savings", PT.REQUIREMENT,
-                            "Energy Savings"),
-                           ])
-HEAB_motors_install.add_parts([("equipment", PT.REQUIREMENT,
-                                "Equipment Requirements"),
-                               ("implementation", PT.REQUIREMENT,
-                                "Implementation Requirements"),
-                               ("eligibility", PT.REQUIREMENT,
-                                "Eligibility Requirements"),
-                               ("energy_savings", PT.REQUIREMENT,
-                                "Energy Savings"),
-                               ])
-HEAB_motors_replace.add_parts([("equipment", PT.REQUIREMENT,
-                                "Equipment Requirements"),
-                               ("implementation", PT.REQUIREMENT,
-                                "Implementation Requirements"),
-                               ("eligibility", PT.REQUIREMENT,
-                                "Eligibility Requirements"),
-                               ("energy_savings", PT.REQUIREMENT,
-                                "Energy Savings"),
-                               ])
+for item in HEAB_activities:
+    item.add_parts([("equipment", PT.REQUIREMENT,
+                     "Equipment Requirements"),
+                    ("implementation", PT.REQUIREMENT,
+                     "Implementation Requirements"),
+                    ("eligibility", PT.REQUIREMENT,
+                     "Eligibility Requirements"),
+                    ("energy_savings", PT.REQUIREMENT,
+                     "Energy Savings"),
+                    ])
 
 
 HEER = PDRS_2022.add_part(

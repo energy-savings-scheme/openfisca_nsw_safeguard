@@ -1,8 +1,6 @@
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
-from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
-import numpy as np
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
@@ -15,7 +13,7 @@ class PDRS_motor_install_meets_equipment_requirements(Variable):
             ' Requirements?'
     metadata = {
         'alias': "Install Motors meets equipment requirements",
-        "regulation_reference": PDRS_2022["XX", "motors"]
+        "regulation_reference": PDRS_2022["HEAB", "motors_install", "equipment"]
     }
 
     def formula(buildings, period, parameters):
@@ -39,8 +37,7 @@ class PDRS_motor_install_meets_implementation_requirements(Variable):
             ' Requirements?'
     metadata = {
         'alias': "Install Motors meets implementation requirements",
-        "regulation_reference": PDRS_2022["XX", "motors"]
-    }
+        "regulation_reference": PDRS_2022["HEAB", "motors_install", "implementation"]}
 
     def formula(buildings, period, parameters):
         is_installed = buildings(
@@ -58,7 +55,6 @@ class PDRS_motor_install_meets_all_requirements(Variable):
             ' Requirements ?'
     metadata = {
         'alias': "PDRS Motors Install meets all requirements",
-        "regulation_reference": PDRS_2022["XX", "motors"]
     }
 
     def formula(buildings, period, parameters):

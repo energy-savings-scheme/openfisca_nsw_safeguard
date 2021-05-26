@@ -11,7 +11,7 @@ class No_Existing_AC(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Is there existing air conditioner fixed in place that provides cooling to the conditioned space?'
-    metadata: {
+    metadata = {
         'alias':  'No Existing Air Conditioner fixed in place',
         "regulation_reference": PDRS_2022["XX", "AC"]
     }
@@ -22,7 +22,7 @@ class AC_has_5_years_warranty(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Does the Air Conditioner has at least 5 years of Warranty?'
-    metadata: {
+    metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty',
         "regulation_reference": PDRS_2022["XX", "AC"]
     }

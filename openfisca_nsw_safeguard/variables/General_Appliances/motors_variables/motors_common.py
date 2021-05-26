@@ -96,7 +96,7 @@ class motor_registered_under_GEM(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Is the electric motor a registered product under GEMS?'
-    metadata: {
+    metadata = {
         'alias':  'electric motor is a registered product under GEMS'
     }
 
@@ -106,7 +106,7 @@ class motor_3_phase_high_efficiency(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Is the equipment a 3 phase electric motor rated "high efficiency"?'
-    metadata: {
+    metadata = {
         'alias':  'electric motor is 3 phase high efficiency'
     }
 

@@ -10,7 +10,7 @@ class Appliance_located_in_residential_building(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Site is located in a residential building?'
-    metadata: {
+    metadata = {
         'alias':  'Site is located in a residential building?',
         "regulation_reference": ESS_2021["XX", "GA"]
     }
@@ -21,7 +21,7 @@ class Appliance_located_in_small_biz_building(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Site is located in a small business building?'
-    metadata: {
+    metadata = {
         'alias':  'Site is located in a small business building?',
         "regulation_reference": ESS_2021["XX", "GA"]
     }

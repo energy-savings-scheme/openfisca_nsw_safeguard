@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54f7d87c-60e7-4bca-a070-30255ddc5e0c" name="Default Changelist" comment="" />
+    <list default="true" id="54f7d87c-60e7-4bca-a070-30255ddc5e0c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openfisca_nsw_safeguard/regulation_reference/regulation_reference.py" beforeDir="false" afterPath="$PROJECT_DIR$/openfisca_nsw_safeguard/regulation_reference/regulation_reference.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +19,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/openfisca_nsw_safeguard/variables/High_Efficiency_Appliances_Business (HEAB)/AirConditioner/PDRS_HEAB_AC_replace_requirements.py" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/openfisca_nsw_safeguard/variables/High_Efficiency_Appliances_Business (HEAB)/AirConditioner/PDRS_HEAB_AC_replace_peak_demand_savings.py" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1sjIbFG4U6vKTa4YizxjBgyoz3T" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -54,5 +61,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

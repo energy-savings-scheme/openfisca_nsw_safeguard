@@ -8,8 +8,6 @@ class PartType(Enum):
     SUBMETHOD = "SubMethod"
     SCHEDULE = "Schedule"
     ACTIVITY = "Activity Definition"
-    # DIVISION = "Division"
-    # CHAPTER = "Chapter"
     REQUIREMENT = "Requirement"
     EQUIPMENT = "Equipment"
 

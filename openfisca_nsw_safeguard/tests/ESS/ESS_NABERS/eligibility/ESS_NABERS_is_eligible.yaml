@@ -40,8 +40,8 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2018-03-31,
-        2019-03-31,
+        2021-03-31,
+        2020-07-31,
         2020-02-29,
         2018-03-31,
         2019-03-31,
@@ -97,10 +97,10 @@
       [
         True,
         True,
-        True,
-        True,
-        True,
-        True,
+        False,
+        False,
+        False,
+        False,
       ]
 - name: initial test ESS NABERS eligibility - eligibility within method 2
   period: 2021
@@ -149,7 +149,7 @@
       ]
     ESS__NABERS_is_eligible:
       [
-        True,
+        False,
       ]
 - name: test ESS NABERS eligibility - eligibility within method 2
   period: 2021
@@ -193,7 +193,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2018-03-31,
+        2021-03-31,
         2019-03-31,
         2020-02-29,
         2018-03-31,
@@ -303,9 +303,9 @@
     ESS__NABERS_is_eligible:
       [
         True,
-        True,
-        True,
-        True,
-        True,
-        True,
+        False,
+        False,
+        False,
+        False,
+        False,
       ]

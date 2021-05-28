@@ -342,11 +342,23 @@ class ESS__NABERS_exceeds_A20_benchmark_rating_by_half_star(Variable):
     def formula(buildings, period, parameters):
         current_NABERS_rating = buildings(
             'ESS__NABERS_current_NABERS_star_rating', period)
-        current_rating_year = np.where((buildings('ESS__NABERS_current_rating_year', period) >
-                                        parameters(period).ESS.MBM.NABERS.table_a20.max_year),
-                                       parameters(
-                                           period).ESS.MBM.NABERS.table_a20.max_year,
-                                       buildings('ESS__NABERS_current_rating_year', period))
+        current_rating_year = np.select([
+                                         (buildings('ESS__NABERS_current_rating_year', period) >
+                                          parameters(period).ESS.MBM.NABERS.table_a20.max_year),
+                                          (buildings('ESS__NABERS_current_rating_year', period) <
+                                           parameters(period).ESS.MBM.NABERS.table_a20.min_year),
+                                         ((buildings('ESS__NABERS_current_rating_year', period) >=
+                                           parameters(period).ESS.MBM.NABERS.table_a20.min_year)
+                                           *
+                                          (buildings('ESS__NABERS_current_rating_year', period) <=
+                                           parameters(period).ESS.MBM.NABERS.table_a20.max_year))],
+                                           [
+                                            parameters(
+                                            period).ESS.MBM.NABERS.table_a20.max_year,
+                                            parameters(
+                                            period).ESS.MBM.NABERS.table_a20.min_year,
+                                            buildings('ESS__NABERS_current_rating_year', period)
+                                           ])
         building_type = buildings('ESS__NABERS_building_type', period)
         building_date = buildings('ESS__NABERS_building_date', period)
         benchmark_rating = parameters(
@@ -582,6 +594,11 @@ class ESS__NABERS_energy_savings_date(Variable):
 class ESS__NABERS_ESC_creation_date(Variable):
     value_type = date
     entity = Building
+    default_value = date.today() # we should assume the date of creation is the
+                                 # date they're accessing the rules - i.e. today, unless
+                                 # otherwise specified. not defining your ESC creation date
+                                 # will mean python assumes it's the epoch - which won't work for
+                                 # gating eligibility off time from ESC creation date 
     definition_period = ETERNITY
     reference = "Clause 8.8.8"
     label = 'What is the date on which ESCs are registered and created?'
@@ -638,21 +655,6 @@ class ESS__NABERS_type_of_creation(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "NABERS Type of Creation",
-        # "major-cat":"Energy Savings Scheme",
-        # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8", "8.8"]
-    }
-
-
-class ESS__NABERS_previous_forward_creation_occurred(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    reference = "Clause 8.8.3 (a) (ii)"
-    label = "Has forward creation for ESCs within the ESS previously occurred for this building?"
-    metadata = {
-        "variable-type": "user-input",
-        "alias": "NABERS Has Previous Forward Creation Occurred",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
         "regulation_reference": ESS_2021["8", "8.8"]
@@ -745,14 +747,14 @@ class ESS__NABERS_is_eligible_for_forward_creation(Variable):
             'ESS__NABERS_is_eligible_for_method_one', period)
         eligible_for_method_two = buildings(
             'ESS__NABERS_is_eligible_for_method_two', period)
-        previous_forward_creation = buildings(
-            'ESS__NABERS_previous_forward_creation_occurred', period)
+        previous_same_or_higher_forward_creation = buildings(
+            'ESS__NABERS_historical_rating_previously_used_to_set_baseline', period)
         forward_creation_within_15_months = buildings(
             'ESS__NABERS_forward_creation_within_15_months', period)
         ESCs_within_7_years = buildings(
             'ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date', period)
         return (np.logical_not(eligible_for_method_one)
-                * (eligible_for_method_two * np.logical_not(previous_forward_creation)
+                * (eligible_for_method_two * np.logical_not(previous_same_or_higher_forward_creation)
                    * forward_creation_within_15_months * ESCs_within_7_years))
 
 
@@ -767,7 +769,7 @@ class ESS__NABERS_is_eligible(Variable):
         "alias": "NABERS Eligible to Create ESCs",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8", "8.8"]
+        "regulation_reference": ESS_2021["8"]
     }
 
     def formula(buildings, period, parameters):

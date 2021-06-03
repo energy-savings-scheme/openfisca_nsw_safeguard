@@ -10,7 +10,7 @@ class ESS__electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'What are the Electricity Savings created from an Implementation?'
+    label = 'What are the Electricity Savings created from an Implementation, in MWh?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "ESS Electricity Savings",
@@ -57,7 +57,7 @@ class ESS__number_of_ESCs(Variable):
     definition_period = ETERNITY
     label = 'What is the number of ESCs created from an Implementation?'
     metadata = {
-        "variable-type": "inter-interesting",
+        "variable-type": "output",
         "alias": "ESS Number of Energy Savings Certificates",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Energy Savings Scheme - General'
@@ -65,11 +65,9 @@ class ESS__number_of_ESCs(Variable):
 
     def formula(buildings, period, parameters):
         electricity_savings = buildings('ESS__electricity_savings', period)
-        electricity_certificate_conversion_factor = parameters(
-            period).ESS.ESS_general.ESS_certificate_conversion_factors.electricity_certificate_conversion_factor
+        electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('ESS__gas_savings', period)
-        gas_certificate_conversion_factor = parameters(
-            period).ESS.ESS_general.ESS_certificate_conversion_factors.gas_certificate_conversion_factor
+        gas_certificate_conversion_factor = 0.39
         number_of_certificates = np.floor((electricity_savings * electricity_certificate_conversion_factor)
                                           + (gas_savings * gas_certificate_conversion_factor))
         number_of_certificates = np.where(number_of_certificates < 0, 0, number_of_certificates)

@@ -454,6 +454,60 @@ class ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating(Variab
         return (hist_rating + annual_rating_adj * (cur_year - hist_year))
 
 
+class ESS__NABERS_benchmark_star_rating(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the Benchmark NABERS Rating for this Implementation?'
+    metadata = {
+        "variable-type": "inter-interesting",
+        "alias": "NABERS Benchmark Star Rating",
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8", "8.8"]
+    }
+
+    def formula(buildings, period, parameters):
+        first_NABERS_rating = buildings('ESS__NABERS_first_NABERS_rating', period)
+        current_rating_year = np.select([
+                                         (buildings('ESS__NABERS_current_rating_year', period) >
+                                          parameters(period).ESS.MBM.NABERS.table_a20.max_year),
+                                          (buildings('ESS__NABERS_current_rating_year', period) <
+                                           parameters(period).ESS.MBM.NABERS.table_a20.min_year),
+                                         ((buildings('ESS__NABERS_current_rating_year', period) >=
+                                           parameters(period).ESS.MBM.NABERS.table_a20.min_year)
+                                           *
+                                          (buildings('ESS__NABERS_current_rating_year', period) <=
+                                           parameters(period).ESS.MBM.NABERS.table_a20.max_year))],
+                                           [
+                                            parameters(
+                                            period).ESS.MBM.NABERS.table_a20.max_year,
+                                            parameters(
+                                            period).ESS.MBM.NABERS.table_a20.min_year,
+                                            buildings('ESS__NABERS_current_rating_year', period)
+                                           ])
+        building_type = buildings('ESS__NABERS_building_type', period)
+        building_date = buildings('ESS__NABERS_building_date', period)
+        historical_NABERS_rating = buildings('ESS__NABERS_historical_NABERS_star_rating', period)
+        cur_year = buildings('ESS__NABERS_current_rating_year', period)
+        hist_year = buildings('ESS__NABERS_historical_rating_year', period)
+        building_type = buildings("ESS__NABERS_building_type", period)
+        hist_rating_age = buildings(
+            'ESS__NABERS_age_of_historical_rating', period)
+        adjustment_year_string = np.where(hist_rating_age > 1,
+                                          "two_to_seven_year_old",
+                                          "one_year_old")
+        annual_rating_adj = (parameters(period).ESS.MBM.NABERS.table_a21.building_category
+                             [building_type][adjustment_year_string])
+        benchmark_NABERS_rating = np.where(first_NABERS_rating,
+                                           parameters(
+                                           period).ESS.MBM.NABERS.table_a20.ratings_index[current_rating_year][building_type][building_date],
+                                           (historical_NABERS_rating + annual_rating_adj * (cur_year - hist_year))
+                                           ) # when "is first NABERS rating?" is true, pull value from A20 -
+                                             # otherwise calculate the benchmark rating according to Step 2 (b)
+        return benchmark_NABERS_rating
+
+
 class ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date(Variable):
     value_type = bool
     entity = Building
@@ -598,7 +652,7 @@ class ESS__NABERS_ESC_creation_date(Variable):
                                  # date they're accessing the rules - i.e. today, unless
                                  # otherwise specified. not defining your ESC creation date
                                  # will mean python assumes it's the epoch - which won't work for
-                                 # gating eligibility off time from ESC creation date 
+                                 # gating eligibility off time from ESC creation date
     definition_period = ETERNITY
     reference = "Clause 8.8.8"
     label = 'What is the date on which ESCs are registered and created?'

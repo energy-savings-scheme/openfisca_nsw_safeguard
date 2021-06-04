@@ -11,7 +11,7 @@ class PDRS_ROOA_firmness_factor(Variable):
     value_type = float
     definition_period = ETERNITY
     metadata = {
-        'alias': "ROOA fridge Firmness Factor",
+        'alias': "ROOA Refrigerator Firmness Factor",
     }
 
     def formula(building, period, parameters):

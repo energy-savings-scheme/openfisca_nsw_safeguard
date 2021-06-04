@@ -15,7 +15,7 @@ class ESS__NABERS_forward_electricity_savings(Variable):
     label = 'Forward Electricity Savings (in MWh)'
     metadata={
         "variable-type": "inter-interesting", # need to check this metadata
-        "alias":"Annual Electricity Savings (MWh)",
+        "alias":"Forward Electricity Savings (MWh)",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
         "regulation_reference": ESS_2021["8","8.8"]
@@ -47,7 +47,7 @@ class ESS__NABERS_forward_gas_savings(Variable):
     label = 'Forward Electricity Savings (in MWh)'
     metadata={
         "variable-type": "inter-interesting", # need to check this metadata
-        "alias":"Annual Electricity Savings (MWh)",
+        "alias":"Forward Gas Savings (MWh)",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
         "regulation_reference": ESS_2021["8","8.8"]

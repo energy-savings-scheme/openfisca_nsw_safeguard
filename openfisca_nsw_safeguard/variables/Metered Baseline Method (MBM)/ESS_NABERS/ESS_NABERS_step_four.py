@@ -46,7 +46,7 @@ class ESS__NABERS_annual_gas_savings(Variable):
     label = 'Annual Gas Savings (in MWh)'
     metadata={
         "variable-type": "inter-interesting", # need to check this metadata
-        "alias":"Annual Electricity Savings (MWh)",
+        "alias":"Annual Gas Savings (MWh)",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
         "regulation_reference": ESS_2021["8","8.8"]

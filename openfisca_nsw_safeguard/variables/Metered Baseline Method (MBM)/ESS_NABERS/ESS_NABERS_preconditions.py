@@ -725,8 +725,9 @@ class ESS__NABERS_forward_creation_within_15_months(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "NABERS Forward Creation Within 15 Months",
-        "major-cat": "Energy Savings Scheme",
-        "monor-cat": 'Metered Baseline Method - NABERS baseline'
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
+        "regulation_reference": ESS_2021["8", "8.8"]
     }
 
     def formula(buildings, period, parameters):
@@ -823,7 +824,7 @@ class ESS__NABERS_is_eligible(Variable):
         "alias": "NABERS Eligible to Create ESCs",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": ESS_2021["8"]
+        "regulation_reference": ESS_2021["8", "8.8"]
     }
 
     def formula(buildings, period, parameters):

@@ -441,6 +441,8 @@ class ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating(Variab
     def formula(buildings, period, parameters):
         hist_rating = buildings(
             'ESS__NABERS_historical_NABERS_star_rating', period)
+        cur_rating = buildings(
+            'ESS__NABERS_current_NABERS_star_rating', period)
         cur_year = buildings('ESS__NABERS_current_rating_year', period)
         hist_year = buildings('ESS__NABERS_historical_rating_year', period)
         building_type = buildings("ESS__NABERS_building_type", period)
@@ -451,8 +453,8 @@ class ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating(Variab
                                           "one_year_old")
         annual_rating_adj = (parameters(period).ESS.MBM.NABERS.table_a21.building_category
                              [building_type][adjustment_year_string])
-        return (hist_rating + annual_rating_adj * (cur_year - hist_year))
-
+        benchmark_rating = (hist_rating + annual_rating_adj * (cur_year - hist_year))
+        return (cur_rating - benchmark_rating) >= 0.5
 
 class ESS__NABERS_benchmark_star_rating(Variable):
     value_type = float

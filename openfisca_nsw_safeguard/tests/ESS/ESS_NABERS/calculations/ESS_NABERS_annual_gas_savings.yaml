@@ -73,3 +73,12 @@
        337.689,
        59.911,
       ]
+- name: test ESS NABERS annual gas savings calculation
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_NABERS_gas: 50
+    ESS__NABERS_benchmark_gas_consumption: 892.996
+    ESS__NABERS_type_of_creation: annual_creation
+  output:
+    ESS__NABERS_annual_gas_savings: 842.996

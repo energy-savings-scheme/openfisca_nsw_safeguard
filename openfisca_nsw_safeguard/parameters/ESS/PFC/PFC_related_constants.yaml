@@ -1,0 +1,19 @@
+description: Annual Operating Hours for Power Factor Correction Method, defined in
+    Equation 13
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+annual_operating_hours:
+  values:
+    2020-01-01:
+      value: 1750
+site_life:
+  values:
+    2020-01-01:
+      value: 10
+default_initial_power_factor:
+    values:
+      2020-01-01:
+        value: 0.9
+default_final_power_factor:
+    values:
+      2020-01-01:
+        value: 0.98

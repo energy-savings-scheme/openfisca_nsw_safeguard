@@ -1,0 +1,29 @@
+- name: Test electricity savings for power factor correction implementation.
+  period: 2020
+  absolute_error_margin: 0.0001
+  input:
+    ESS__PFC_real_power_component:
+      [
+       2,
+       ]
+    ESS__PFC_distribution_district:
+      [
+       AusGrid,
+       ]
+    ESS__PFC_initial_power_factor:
+      [
+      0.5
+      ]
+    ESS__PFC_final_power_factor:
+      [
+      0.98
+      ]
+    ESS__PFC_installed_capacitors_rating:
+      [
+      0.4
+      ]
+  output:
+    ESS__PFC_power_savings:
+      [
+       0.01893563,
+      ]

@@ -206,7 +206,7 @@ class ESS__NABERS_current_rating_year(Variable):
             'ESS__NABERS_end_date_of_current_NABERS_rating_period', period)
         current_rating_year = end_date_of_current_NABERS_rating_period.astype(
             'datetime64[Y]') + epoch  # need to check if this works on Windows
-        return current_rating_year.astype(int)
+        return current_rating_year
 
 
 class ESS__NABERS_historical_NABERS_star_rating(Variable):
@@ -274,15 +274,15 @@ class ESS__NABERS_historical_rating_year(Variable):
             'ESS__NABERS_end_date_of_historical_NABERS_rating_period', period)
         historical_rating_year = end_date_of_historical_NABERS_rating_period.astype(
             'datetime64[Y]') + epoch  # need to check if this works on Windows
-        return historical_rating_year.astype(int)
+        return historical_rating_year
 
 
 class ESS__NABERS_age_of_historical_rating(Variable):
-    value_type = float
+    value_type = int
     entity = Building
     definition_period = ETERNITY
     reference = "Clause 8.8.2 (b)"
-    label = 'Calculate the age of the historical rating, in years, for use in determining' \
+    label = 'Calculate the age of the historical rating, for use in determining' \
             ' Annual Rating Adjustment from Table A21.'  # need to determine what unit is used to determine the age of the historical rating.
     metadata = {
         "variable-type": "inter-interesting",
@@ -300,7 +300,6 @@ class ESS__NABERS_age_of_historical_rating(Variable):
             'ESS__NABERS_historical_rating_year', period
         )
         return (current_rating_year - historical_rating_year)
-
 
 class ESS__NABERS_BuildingDate(Enum):
     built_before_nov_2006 = 'building was built before 1 November 2006.'
@@ -784,7 +783,7 @@ class ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date(Va
         ESC_creation_date = buildings('ESS__NABERS_ESC_creation_date', period).astype('datetime64[D]')
         distance_between_in_years = (
             ESC_creation_date - end_date_historical_rating_period).astype('datetime64[D]').astype('datetime64[Y]').astype('int')
-        return (distance_between_in_years <= 7)
+        return distance_between_in_years <= 7
 
 
 class ESS__NABERS_is_eligible_for_forward_creation(Variable):
@@ -854,5 +853,8 @@ class ESS__NABERS_is_eligible(Variable):
             'ESS__NABERS_type_of_creation', period)
         is_annually_created = (type_of_creation == ESS__NABERS_TypeOfCreation.annual_creation)
         is_forward_created = (type_of_creation == ESS__NABERS_TypeOfCreation.forward_creation)
-        eligible_for_forward_creation = buildings('ESS__NABERS_is_eligible_for_forward_creation', period)
-        return (meets_overall_NABERS_requirements * (eligible_for_method_one + eligible_for_method_two) * (is_annually_created + (is_forward_created * eligible_for_forward_creation)))
+        eligible_for_forward_creation = buildings(
+        'ESS__NABERS_is_eligible_for_forward_creation', period)
+        return (meets_overall_NABERS_requirements
+                * (eligible_for_method_one + eligible_for_method_two)
+                * (is_annually_created + (is_forward_created * eligible_for_forward_creation)))

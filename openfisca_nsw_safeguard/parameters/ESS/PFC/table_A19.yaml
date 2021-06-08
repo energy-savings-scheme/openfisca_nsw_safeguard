@@ -1,0 +1,14 @@
+description: Table A19, Energy Savings Scheme Rules - Distribution Loss Factor
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+Endeavour_Energy:
+  values:
+    2020-01-01:
+      value: 1.054
+Essential_Energy:
+  values:
+    2020-01-01:
+      value: 1.074
+AusGrid:
+  values:
+    2020-01-01:
+      value: 1.074

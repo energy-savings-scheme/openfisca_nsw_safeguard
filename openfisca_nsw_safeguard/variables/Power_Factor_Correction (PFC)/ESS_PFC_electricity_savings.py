@@ -137,9 +137,11 @@ class ESS__PFC_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
+        is_eligible = buildings('ESS__PFC_power_factor_correction_meets_eligibility_requirements', period)
         power_savings = buildings('ESS__PFC_power_savings', period)
         operating_hours = parameters(period).ESS.PFC.PFC_related_constants.annual_operating_hours
         site_life = parameters(period).ESS.PFC.PFC_related_constants.site_life
         regional_network_factor = buildings('ESS__regional_network_factor', period)
-        electricity_savings = (power_savings) / 1000 * (operating_hours) * (site_life) * regional_network_factor
+        electricity_savings = ((power_savings) / 1000 * (operating_hours) * (site_life)
+                                * regional_network_factor * is_eligible)
         return electricity_savings

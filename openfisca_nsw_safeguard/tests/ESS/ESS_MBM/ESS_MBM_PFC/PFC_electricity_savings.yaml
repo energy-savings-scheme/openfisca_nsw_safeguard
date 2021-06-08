@@ -1,6 +1,30 @@
 - name: Test electricity savings for power factor correction implementation.
   period: 2020
   input:
+    ESS__PFC_network_voltage:
+      [
+       40,
+       ]
+    ESS__PFC_lagging_factor:
+      [
+       0.91,
+       ]
+    ESS__PFC_capacitors_are_installed_as_part_of_mandatory_program:
+      [
+      False
+      ]
+    ESS__PFC_capacitors_installed_at_main_switchboard:
+      [
+      True
+      ]
+    ESS__PFC_site_is_connected_to_electricity_network:
+      [
+      True
+      ]
+    ESS__PFC_installed_capacitors_are_new:
+      [
+      True
+      ]
     ESS__PFC_real_power_component:
       [
        2,

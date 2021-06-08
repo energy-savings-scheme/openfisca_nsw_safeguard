@@ -453,8 +453,8 @@
       [
         3,
         3.45,
-        3.49,
         3.5,
+        4.0,
       ]
     ESS__NABERS_building_date:
       [
@@ -477,6 +477,13 @@
         True,
         True,
         True,
+      ]
+    ESS__NABERS_age_of_historical_rating:
+      [
+        2,
+        2,
+        2,
+        2,
       ]
     ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating:
       [
@@ -505,4 +512,89 @@
         False,
         False,
         True,
+      ]
+- name: test ESS NABERS eligibility - Jess test case 4.1 - 08/06/2021
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_building_type:
+      [
+        office,
+      ]
+    ESS__NABERS_building_has_GreenPower:
+      [
+        False,
+      ]
+    ESS__NABERS_all_sources_of_on_site_electricity_generation_identified:
+      [
+        True,
+      ]
+    ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
+      [
+        True,
+      ]
+    ESS__NABERS_first_NABERS_rating:
+      [
+        False,
+      ]
+    ESS__NABERS_historical_NABERS_star_rating:
+      [
+        3,
+      ]
+    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
+      [
+        2019-12-31,
+      ]
+    ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
+      [
+        True,
+      ]
+    ESS__NABERS_type_of_creation: 
+      [
+        forward_creation,
+      ]
+    ESS__NABERS_historical_rating_previously_used_to_set_baseline:
+      [
+        True,
+      ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2021-01-01,
+      ]
+    ESS__NABERS_current_NABERS_star_rating:
+      [
+        4.5,
+      ]
+    ESS__NABERS_building_date:
+      [
+        built_before_nov_2006,
+      ]
+    ESS__NABERS_rating_obtained_for_legal_requirements:
+      [
+        False,
+      ]
+  output:
+    ESS__NABERS_rating_calculated_using_NABERS_rating_tools:
+      [
+        True,
+      ]
+    ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating:
+      [
+        True,
+      ]
+    ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date:
+      [
+        True,
+      ]
+    ESS__NABERS_is_eligible_for_method_two:
+      [
+        True,
+      ]
+    ESS__NABERS_is_eligible_for_forward_creation:
+      [
+        False,
+      ]
+    ESS__NABERS_is_eligible:
+      [
+        False,
       ]

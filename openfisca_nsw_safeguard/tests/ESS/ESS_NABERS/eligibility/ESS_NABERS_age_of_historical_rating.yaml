@@ -1,0 +1,40 @@
+- name: test ESS NABERS eligibility - Jess test case 3.3 - 08/06/2021
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
+      [
+        2019-12-31,
+        2019-12-31,
+        2019-12-31,
+        2019-12-31,
+      ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2021-01-01,
+        2021-03-01,
+        2021-05-01,
+        2022-01-01,
+      ]
+  output:
+    ESS__NABERS_current_rating_year:
+      [
+        2021,
+        2021,
+        2021,
+        2022,
+      ]
+    ESS__NABERS_historical_rating_year:
+      [
+        2019,
+        2019,
+        2019,
+        2019,
+      ]
+    ESS__NABERS_age_of_historical_rating:
+      [
+        2,
+        2,
+        2,
+        3,
+      ]

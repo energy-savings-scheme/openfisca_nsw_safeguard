@@ -314,16 +314,16 @@
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
+        2020-07-31,
+        2020-07-31,
+        2020-07-31,
+        2020-07-31,
+        2020-07-31,
+        2020-07-31,
+        2020-07-31,
+        2020-07-31,
+        2020-07-31,
+        2020-07-31,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -376,6 +376,19 @@
         forward_creation,
         forward_creation,
         forward_creation,
+      ]
+    ESS__NABERS_historical_rating_previously_used_to_set_baseline:
+      [
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
       ]
     ESS__NABERS_NABERS_electricity:
       [
@@ -430,6 +443,45 @@
         True,
         True,
       ]
+    ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
+    ESS__NABERS_forward_creation_within_15_months:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
+    ESS__NABERS_is_eligible_for_method_one:
+      [
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+      ]
     ESS__NABERS_is_eligible:
       [
         True,
@@ -468,4 +520,97 @@
        4547,
        4388,
        4070,
+      ]
+- name: test NABERS electricity savings - forward created ESCs within NABERS method 2
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_building_type:
+      [
+        office,
+      ]
+    ESS__NABERS_building_has_GreenPower:
+      [
+        False,
+      ]
+    ESS__NABERS_all_sources_of_on_site_electricity_generation_identified:
+      [
+        True,
+      ]
+    ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
+      [
+        True,
+      ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2021-03-31,
+      ]
+    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
+      [
+        2020-07-31,
+      ]
+    ESS__NABERS_current_NABERS_star_rating:
+      [
+        6,
+      ]
+    ESS__NABERS_historical_NABERS_star_rating:
+      [
+        2,
+      ]
+    ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
+      [
+        True,
+      ]
+    ESS__NABERS_type_of_creation:
+      [
+        forward_creation,
+      ]
+    ESS__NABERS_historical_rating_previously_used_to_set_baseline:
+      [
+        False,
+      ]
+    ESS__NABERS_NABERS_electricity:
+      [
+       50,
+      ]
+    ESS__NABERS_onsite_unaccounted_electricity:
+      [
+       0,
+      ]
+    ESS__NABERS_benchmark_elec_consumption:
+      [
+       2125.963,
+      ]
+  output:
+    ESS__NABERS_is_eligible_for_method_two:
+      [
+        True,
+      ]
+    ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date:
+      [
+        True,
+      ]
+    ESS__NABERS_forward_creation_within_15_months:
+      [
+        True,
+      ]
+    ESS__NABERS_is_eligible_for_method_one:
+      [
+        False,
+      ]
+    ESS__NABERS_is_eligible_for_forward_creation:
+      [
+        True,
+      ]
+    ESS__NABERS_is_eligible:
+      [
+        True,
+      ]
+    ESS__NABERS_forward_electricity_savings:
+      [
+       6227.87,
+      ]
+    ESS__number_of_ESCs:
+      [
+       6601,
       ]

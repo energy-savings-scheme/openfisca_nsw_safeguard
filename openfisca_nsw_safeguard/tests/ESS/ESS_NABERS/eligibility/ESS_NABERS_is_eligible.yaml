@@ -1,4 +1,4 @@
-- name: test ESS NABERS eligibility - eligibility within method 1
+- name: test ESS NABERS eligibility - NABERS UAT test cases 1.1 - 1.6 - eligibility within method 1
   period: 2021
   absolute_error_margin: 0.1
   input:
@@ -7,16 +7,25 @@
         office,
         office,
         office,
-        apartment_building,
-        apartment_building,
-        apartment_building,
+        office,
+        office,
+        office,
+      ]
+    ESS__postcode:
+      [
+        4125,
+        213,
+        2000,
+        2000,
+        2000,
+        2000,
       ]
     ESS__NABERS_building_has_GreenPower:
       [
         False,
         False,
         False,
-        False,
+        True,
         False,
         False,
       ]
@@ -26,7 +35,7 @@
         True,
         True,
         True,
-        True,
+        False,
         True,
       ]
     ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
@@ -36,25 +45,25 @@
         True,
         True,
         True,
-        True,
+        False,
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-03-31,
-        2020-07-31,
-        2020-02-29,
-        2018-03-31,
-        2019-03-31,
-        2020-02-29,
+        2021-01-01,
+        2021-01-01,
+        2021-01-01,
+        2021-01-01,
+        2021-01-01,
+        2021-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
+        5.5,
+        5.5,
+        5.5,
+        5.5,
+        5.5,
+        5.5,
       ]
     ESS__NABERS_building_date:
       [
@@ -84,7 +93,7 @@
         False,
 ]
   output:
-    ESS__NABERS_exceeds_A20_benchmark_rating_by_half_star:
+    ESS__NABERS_is_eligible_for_method_one:
       [
         True,
         True,
@@ -97,61 +106,12 @@
       [
         True,
         True,
-        False,
-        False,
-        False,
-        False,
-      ]
-- name: initial test ESS NABERS eligibility - eligibility within method 2
-  period: 2021
-  absolute_error_margin: 0.1
-  input:
-    ESS__NABERS_building_type:
-      [
-        office,
-      ]
-    ESS__NABERS_building_has_GreenPower:
-      [
-        False,
-      ]
-    ESS__NABERS_all_sources_of_on_site_electricity_generation_identified:
-      [
         True,
-      ]
-    ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
-      [
-        True,
-      ]
-    ESS__NABERS_end_date_of_current_NABERS_rating_period:
-      [
-        2018-03-31,
-      ]
-    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
-      [
-        2016-07-31,
-      ]
-    ESS__NABERS_current_NABERS_star_rating:
-      [
-        5,
-      ]
-    ESS__NABERS_historical_NABERS_star_rating:
-      [
-        2,
-      ]
-    ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
-      [
-        True,
-      ]
-  output:
-    ESS__NABERS_is_eligible_for_method_two:
-      [
-        True,
-      ]
-    ESS__NABERS_is_eligible:
-      [
+        False,
+        False,
         False,
       ]
-- name: test ESS NABERS eligibility - eligibility within method 2
+- name: test ESS NABERS eligibility - NABERS UAT test cases 2.1 - 2.5 - eligibility within method 1
   period: 2021
   absolute_error_margin: 0.1
   input:
@@ -160,13 +120,19 @@
         office,
         office,
         office,
-        apartment_building,
-        apartment_building,
-        apartment_building,
+        office,
+        office,
+      ]
+    ESS__postcode:
+      [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
       ]
     ESS__NABERS_building_has_GreenPower:
       [
-        False,
         False,
         False,
         False,
@@ -180,7 +146,6 @@
         True,
         True,
         True,
-        True,
       ]
     ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
       [
@@ -189,74 +154,41 @@
         True,
         True,
         True,
-        True,
       ]
+    ESS__NABERS_rating_obtained_for_legal_requirements:
+      [
+        True,
+        False,
+        False,
+        False,
+        False,
+]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-03-31,
-        2019-03-31,
-        2020-02-29,
-        2018-03-31,
-        2019-03-31,
-        2020-02-29,
-      ]
-    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
-      [
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
+        2021-01-01,
+        2021-01-01,
+        2021-01-01,
+        2021-01-01,
+        2019-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-      ]
-    ESS__NABERS_historical_NABERS_star_rating:
-      [
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
+        5.5,
+        4.5,
+        5.5,
+        6,
+        5.5,
       ]
     ESS__NABERS_building_date:
       [
         built_before_nov_2006,
         built_before_nov_2006,
-        built_before_nov_2006,
-        built_before_nov_2006,
-        built_before_nov_2006,
-        built_before_nov_2006,
+        built_after_nov_2006,
+        built_after_nov_2006,
+        built_after_nov_2006,
       ]
     ESS__NABERS_first_NABERS_rating:
       [
-        False,
-        False,
-        False,
-        False,
-        False,
-        False,
-      ]
-    ESS__NABERS_rating_obtained_for_legal_requirements:
-      [
-        False,
-        False,
-        False,
-        False,
-        False,
-        False,
-      ]
-    ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
-      [
-        True,
         True,
         True,
         True,
@@ -264,125 +196,23 @@
         True,
       ]
   output:
-    ESS__NABERS_rating_calculated_using_NABERS_rating_tools:
+    ESS__NABERS_is_eligible_for_method_one:
       [
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-      ]
-    ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating:
-      [
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-      ]
-    ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date:
-      [
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-      ]
-    ESS__NABERS_is_eligible_for_method_two:
-      [
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-      ]
-    ESS__NABERS_is_eligible:
-      [
-        True,
         False,
         False,
         False,
-        False,
-        False,
-      ]
-- name: test ESS NABERS eligibility - Jess test case 08/06/2021
-  period: 2021
-  absolute_error_margin: 0.1
-  input:
-    ESS__NABERS_building_type:
-      [
-        office,
-      ]
-    ESS__NABERS_building_has_GreenPower:
-      [
-        False,
-      ]
-    ESS__NABERS_all_sources_of_on_site_electricity_generation_identified:
-      [
         True,
-      ]
-    ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
-      [
-        True,
-      ]
-    ESS__NABERS_first_NABERS_rating:
-      [
         False,
-      ]
-    ESS__NABERS_historical_NABERS_star_rating:
-      [
-        3,
-      ]
-    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
-      [
-        2019-12-31,
-      ]
-    ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
-      [
-        True,
-      ]
-    ESS__NABERS_end_date_of_current_NABERS_rating_period:
-      [
-        2021-01-01,
-      ]
-    ESS__NABERS_current_NABERS_star_rating:
-      [
-        3,
-      ]
-    ESS__NABERS_building_date:
-      [
-        built_before_nov_2006,
-      ]
-    ESS__NABERS_rating_obtained_for_legal_requirements:
-      [
-        False,
-      ]
-  output:
-    ESS__NABERS_rating_calculated_using_NABERS_rating_tools:
-      [
-        True,
-      ]
-    ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating:
-      [
-        False,
-      ]
-    ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date:
-      [
-        True,
       ]
     ESS__NABERS_is_eligible:
       [
         False,
-      ]
-    ESS__NABERS_is_eligible_for_method_two:
-      [
+        False,
+        False,
+        True,
         False,
       ]
-- name: test ESS NABERS eligibility - Jess test case 3.3 - 08/06/2021
+- name: test ESS NABERS eligibility - NABERS UAT test cases 3.1 - 3.5 - eligibility within method 2
   period: 2021
   absolute_error_margin: 0.1
   input:
@@ -392,9 +222,19 @@
         office,
         office,
         office,
+        office,
+      ]
+    ESS__postcode:
+      [
+        2000,
+        2000,
+        2000,
+        2000,
+        2000,
       ]
     ESS__NABERS_building_has_GreenPower:
       [
+        False,
         False,
         False,
         False,
@@ -406,6 +246,7 @@
         True,
         True,
         True,
+        True,
       ]
     ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
       [
@@ -413,23 +254,27 @@
         True,
         True,
         True,
+        True,
       ]
-    ESS__NABERS_first_NABERS_rating:
+    ESS__NABERS_rating_obtained_for_legal_requirements:
       [
-        False,
-        False,
-        False,
-        False,
+        True,
+        True,
+        True,
+        True,
+        True,
       ]
     ESS__NABERS_historical_NABERS_star_rating:
       [
-        3,
-        3,
-        3,
-        3,
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
+        2012-12-31,
         2019-12-31,
         2019-12-31,
         2019-12-31,
@@ -438,72 +283,50 @@
     ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
       [
         True,
+        False,
         True,
         True,
         True,
-      ]
-    ESS__NABERS_end_date_of_current_NABERS_rating_period:
-      [
-        2021-01-01,
-        2021-01-01,
-        2021-01-01,
-        2021-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
-        3,
-        3.45,
-        3.5,
+        5.5,
+        5.5,
+        3.0,
+        4.0,
         4.0,
       ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2021-01-01,
+        2021-01-01,
+        2021-01-01,
+        2019-01-01,
+        2021-01-01,
+      ]
     ESS__NABERS_building_date:
       [
         built_before_nov_2006,
         built_before_nov_2006,
         built_before_nov_2006,
         built_before_nov_2006,
+        built_before_nov_2006,
       ]
-    ESS__NABERS_rating_obtained_for_legal_requirements:
+    ESS__NABERS_first_NABERS_rating:
       [
+        False,
         False,
         False,
         False,
         False,
       ]
   output:
-    ESS__NABERS_rating_calculated_using_NABERS_rating_tools:
-      [
-        True,
-        True,
-        True,
-        True,
-      ]
-    ESS__NABERS_age_of_historical_rating:
-      [
-        2,
-        2,
-        2,
-        2,
-      ]
-    ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating:
-      [
-        False,
-        False,
-        False,
-        True,
-      ]
-    ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date:
-      [
-        True,
-        True,
-        True,
-        True,
-      ]
     ESS__NABERS_is_eligible_for_method_two:
       [
         False,
         False,
         False,
+        True,
         True,
       ]
     ESS__NABERS_is_eligible:
@@ -511,90 +334,130 @@
         False,
         False,
         False,
+        False,
         True,
       ]
-- name: test ESS NABERS eligibility - Jess test case 4.1 - 08/06/2021
+- name: test ESS NABERS eligibility - NABERS UAT test cases 4.1 - 4.5 - eligibility within method 1
   period: 2021
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
       [
         office,
+        office,
+        office,
+        office,
+      ]
+    ESS__postcode:
+      [
+        2000,
+        2000,
+        2000,
+        2000,
       ]
     ESS__NABERS_building_has_GreenPower:
       [
+        False,
+        False,
+        False,
         False,
       ]
     ESS__NABERS_all_sources_of_on_site_electricity_generation_identified:
       [
         True,
+        True,
+        True,
+        True,
       ]
     ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
       [
         True,
+        True,
+        True,
+        True,
       ]
-    ESS__NABERS_first_NABERS_rating:
+    ESS__NABERS_rating_obtained_for_legal_requirements:
       [
-        False,
+        True,
+        True,
+        True,
+        True,
       ]
     ESS__NABERS_historical_NABERS_star_rating:
       [
-        3,
+        3.0,
+        3.0,
+        3.0,
+        3.0,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
+        2019-12-31,
+        2019-12-31,
+        2019-12-31,
         2019-12-31,
       ]
     ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
       [
         True,
+        True,
+        True,
+        True,
+      ]
+    ESS__NABERS_current_NABERS_star_rating:
+      [
+        4.5,
+        3.0,
+        4.5,
+        4.5,
+      ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2021-01-01,
+        2021-01-01,
+        2019-01-01,
+        2021-01-01,
+      ]
+    ESS__NABERS_building_date:
+      [
+        built_before_nov_2006,
+        built_before_nov_2006,
+        built_before_nov_2006,
+        built_before_nov_2006,
+      ]
+    ESS__NABERS_first_NABERS_rating:
+      [
+        False,
+        False,
+        False,
+        False,
       ]
     ESS__NABERS_type_of_creation: 
       [
+        forward_creation,
+        forward_creation,
+        forward_creation,
         forward_creation,
       ]
     ESS__NABERS_historical_rating_previously_used_to_set_baseline:
       [
         True,
-      ]
-    ESS__NABERS_end_date_of_current_NABERS_rating_period:
-      [
-        2021-01-01,
-      ]
-    ESS__NABERS_current_NABERS_star_rating:
-      [
-        4.5,
-      ]
-    ESS__NABERS_building_date:
-      [
-        built_before_nov_2006,
-      ]
-    ESS__NABERS_rating_obtained_for_legal_requirements:
-      [
+        False,
+        False,
         False,
       ]
   output:
-    ESS__NABERS_rating_calculated_using_NABERS_rating_tools:
-      [
-        True,
-      ]
-    ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating:
-      [
-        True,
-      ]
-    ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date:
-      [
-        True,
-      ]
     ESS__NABERS_is_eligible_for_method_two:
       [
         True,
-      ]
-    ESS__NABERS_is_eligible_for_forward_creation:
-      [
         False,
+        True,
+        True,
       ]
     ESS__NABERS_is_eligible:
       [
         False,
+        False,
+        False,
+        True,
       ]

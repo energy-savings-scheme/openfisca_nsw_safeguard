@@ -337,7 +337,7 @@
         False,
         True,
       ]
-- name: test ESS NABERS eligibility - NABERS UAT test cases 4.1 - 4.5 - eligibility within method 2
+- name: test ESS NABERS eligibility - NABERS UAT test cases 4.1 - 4.4 - eligibility within method 2
   period: 2021
   absolute_error_margin: 0.1
   input:

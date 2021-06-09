@@ -58,3 +58,4 @@ class Fridge_total_number_one_less(Variable):
         'alias':  'One less fridge/freezer on the site',
         "regulation_reference": PDRS_2022["XX", "fridge"]
     }
+

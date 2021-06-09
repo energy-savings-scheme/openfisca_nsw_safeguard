@@ -1,0 +1,12 @@
+minimum_R_value:
+  ceiling:
+    BCA_Climate_Zone_2:
+      values:
+        2009-07-01:
+          value:
+            5.0
+    BCA_Climate_Zone_3:
+      values:
+        2009-07-01:
+          value:
+            5.0

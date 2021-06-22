@@ -461,3 +461,56 @@
         False,
         True,
       ]
+- name: test ESS NABERS eligibility - NABERS UAT test cases 11.15 - eligibility within method 2
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_building_type:
+      [
+        office,
+      ]
+    ESS__postcode:
+      [
+        2000,
+      ]
+    ESS__NABERS_building_has_GreenPower:
+      [
+        False,
+      ]
+    ESS__NABERS_all_sources_of_on_site_electricity_generation_identified:
+      [
+        True,
+      ]
+    ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded:
+      [
+        True,
+      ]
+    ESS__NABERS_rating_obtained_for_legal_requirements:
+      [
+        False,
+      ]
+    ESS__NABERS_current_NABERS_star_rating:
+      [
+        6.0,
+      ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2021-01-01,
+      ]
+    ESS__NABERS_building_date:
+      [
+        built_after_nov_2006,
+      ]
+    ESS__NABERS_first_NABERS_rating:
+      [
+        True,
+      ]
+  output:
+    ESS__NABERS_is_eligible_for_method_one:
+      [
+        True,
+      ]
+    ESS__NABERS_is_eligible:
+      [
+        True,
+      ]

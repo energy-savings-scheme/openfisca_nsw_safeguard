@@ -8,10 +8,10 @@ class PDRS__is_eligible_activity(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Is the activity eligible within the requirements of the PDRS?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Is An Eligible Activity",
     }
 
     def formula(buildings, period, parameters):
@@ -55,10 +55,10 @@ class PDRS__provides_capacity_to_reduce_demand(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Does the activity provide the capacity to reduce demand?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Activity Reduces Demand",
     }
 
 
@@ -66,10 +66,10 @@ class PDRS__is_eligible_for_PDRS_creation(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Is the activity eligible for creation?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Is Eligible for PDRS Creation",
     }
 
 
@@ -77,10 +77,10 @@ class PDRS__is_in_PDRS_jurisdiction(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Does the activity occur within the PDRS jurisdiction?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Activity is in Jurisdiction",
     }
 
 
@@ -88,10 +88,10 @@ class PDRS__is_unlawful_activity(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Is the activity unlawful to conduct?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Is Unlawful Activity",
     }
 
 
@@ -99,10 +99,10 @@ class PDRS__greenhouse_emissions_increase(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Does the activity result in an increase in emissions?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Activity Increases Emissions",
     }
 
 
@@ -110,10 +110,10 @@ class PDRS__meets_mandatory_requirement(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Is the activity conducted to meet mandatory requirements of...?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Activity Meets Mandatory Requirements",
     }
 
 
@@ -121,10 +121,10 @@ class PDRS__is_standard_control_service(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Is the activity a Standard Control Service?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Activity is Standard Control Service",
     }
 
 
@@ -132,10 +132,10 @@ class PDRS__is_prescribed_transmission_service(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Is the activity a Prescribed Transmission Service?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Activity is Prescribed Transmission Service",
     }
 
 
@@ -143,10 +143,10 @@ class PDRS__is_non_network_option(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Is the activity a Non-Network Option?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Is Non-Network Option",
     }
 
 
@@ -154,8 +154,8 @@ class PDRS__reduces_safety_levels(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible within the overarching requirements of the PDRS?'
+    label = 'Does the activity result in a reduction in safety levels?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Eligible Activity",
+        "alias": "PDRS Reduces Safety Levels",
     }

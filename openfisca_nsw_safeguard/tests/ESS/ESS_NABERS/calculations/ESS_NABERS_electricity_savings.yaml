@@ -62,25 +62,25 @@
       [
         True,
       ]
-    ESS__NABERS_NABERS_electricity: 
+    ESS__NABERS_NABERS_electricity:
       [
         300.0,
       ]
-    ESS__NABERS_NABERS_gas: 
+    ESS__NABERS_NABERS_gas:
       [
-        27.77,
+        33.33,
       ]
-    ESS__NABERS_onsite_unaccounted_electricity:    
+    ESS__NABERS_onsite_unaccounted_electricity:
       [
         0,
       ]
     ESS__NABERS_benchmark_elec_consumption:
       [
-        666.363,
+        663.415,
       ]
     ESS__NABERS_benchmark_gas_consumption:
       [
-        61.6636,
+        73.7128,
       ]
   output:
     ESS__NABERS_is_eligible_for_method_one:
@@ -93,15 +93,15 @@
       ]
     ESS__NABERS_electricity_savings:
       [
-        366.36298,
+        363.41498,
       ]
     ESS__NABERS_gas_savings:
       [
-        33.8936,
+        40.3827,
       ]
     ESS__number_of_ESCs:
       [
-        401,
+        400,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.19 - eligibility within method 1
   period: 2021
@@ -147,25 +147,25 @@
       [
         True,
       ]
-    ESS__NABERS_NABERS_electricity: 
+    ESS__NABERS_NABERS_electricity:
       [
         300.0,
       ]
-    ESS__NABERS_NABERS_gas: 
+    ESS__NABERS_NABERS_gas:
       [
-        27.77,
+        33.3333,
       ]
-    ESS__NABERS_onsite_unaccounted_electricity:    
+    ESS__NABERS_onsite_unaccounted_electricity:
       [
         0,
       ]
     ESS__NABERS_benchmark_elec_consumption:
       [
-        901.800,
+        897.810,
       ]
     ESS__NABERS_benchmark_gas_consumption:
       [
-        83.400,
+        99.7567,
       ]
   output:
     ESS__NABERS_is_eligible_for_method_one:
@@ -178,11 +178,11 @@
       ]
     ESS__NABERS_electricity_savings:
       [
-        601.8,
+        597.81,
       ]
     ESS__NABERS_gas_savings:
       [
-        55.63,
+        66.4234,
       ]
     ESS__number_of_ESCs:
       [
@@ -238,7 +238,7 @@
       ]
     ESS__NABERS_NABERS_electricity:
       [
-       2527.635,
+       2533.176,
       ]
     ESS__NABERS_onsite_unaccounted_electricity:
       [
@@ -246,15 +246,15 @@
       ]
     ESS__NABERS_benchmark_elec_consumption:
       [
-       2786.336,
+       2800.505,
       ]
     ESS__NABERS_NABERS_gas:
       [
-       267.631,
+       253.3175,
       ]
     ESS__NABERS_benchmark_gas_consumption:
       [
-       295.016,
+       280.0503,
       ]
   output:
     ESS__NABERS_is_eligible_for_method_two:
@@ -283,15 +283,15 @@
       ]
     ESS__NABERS_annual_electricity_savings:
       [
-       258.70093,
+       267.32886,
       ]
     ESS__NABERS_annual_gas_savings:
       [
-       27.38498,
+       26.732788,
       ]
     ESS__number_of_ESCs:
       [
-       284,
+       293,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.9 - ESC creation within method 2
   period: 2021
@@ -343,7 +343,7 @@
       ]
     ESS__NABERS_NABERS_electricity:
       [
-       2055.137,
+       2058.391,
       ]
     ESS__NABERS_onsite_unaccounted_electricity:
       [
@@ -351,15 +351,15 @@
       ]
     ESS__NABERS_benchmark_elec_consumption:
       [
-       2269.108,
+       2274.033,
       ]
     ESS__NABERS_NABERS_gas:
       [
-       217.602,
+       205.8389,
       ]
     ESS__NABERS_benchmark_gas_consumption:
       [
-       240.148,
+       227.4033,
       ]
   output:
     ESS__NABERS_is_eligible_for_method_two:
@@ -388,15 +388,15 @@
       ]
     ESS__NABERS_annual_electricity_savings:
       [
-       213.97,
+       215.64185,
       ]
     ESS__NABERS_annual_gas_savings:
       [
-       22.54599,
+       21.5644,
       ]
     ESS__number_of_ESCs:
       [
-       235,
+       236,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.18 - ESC creation within method 2
   period: 2021
@@ -456,15 +456,15 @@
       ]
     ESS__NABERS_benchmark_elec_consumption:
       [
-       2798.896,
+       2800.505,
       ]
     ESS__NABERS_NABERS_gas:
       [
-       253.317,
+       253.3175,
       ]
     ESS__NABERS_benchmark_gas_consumption:
       [
-       279.889,
+       280.0503,
       ]
   output:
     ESS__NABERS_is_eligible_for_method_two:
@@ -493,15 +493,15 @@
       ]
     ESS__NABERS_forward_electricity_savings:
       [
-       797.1599,
+       801.9866,
       ]
     ESS__NABERS_forward_gas_savings:
       [
-       79.71602,
+       80.19833,
       ]
     ESS__number_of_ESCs:
       [
-       876,
+       881,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.21 - ESC creation within method 2
   period: 2021
@@ -561,15 +561,15 @@
       ]
     ESS__NABERS_benchmark_elec_consumption:
       [
-       5055.012,
+       5057.920,
       ]
     ESS__NABERS_NABERS_gas:
       [
-       253.317,
+       457.6581,
       ]
     ESS__NABERS_benchmark_gas_consumption:
       [
-       457.658,
+       505.7919,
       ]
   output:
     ESS__NABERS_is_eligible_for_method_two:
@@ -598,15 +598,15 @@
       ]
     ESS__NABERS_forward_electricity_savings:
       [
-       1435.2935,
+       1444.017,
       ]
     ESS__NABERS_forward_gas_savings:
       [
-       613.022295,
+       144.4017,
       ]
     ESS__number_of_ESCs:
       [
-       1760,
+       1586,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.23 - ESC creation within method 2
   period: 2021

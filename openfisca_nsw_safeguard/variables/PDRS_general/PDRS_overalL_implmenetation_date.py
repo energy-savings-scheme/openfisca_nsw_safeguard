@@ -10,7 +10,7 @@ from datetime import date
 
 
 class PDRS__can_create_PDRS_certificate(Variable):
-    value_type = date
+    value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Can you create the PDRS certificate?'

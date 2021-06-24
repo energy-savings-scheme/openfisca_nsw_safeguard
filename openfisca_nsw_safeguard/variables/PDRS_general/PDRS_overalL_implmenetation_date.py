@@ -66,7 +66,7 @@ class PDRS__have_accreditation(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Can you create the PDRS certificate?'
+    label = 'Do you have an accreditation for the PDRS activity?'
     metadata = {
         "variable-type": "user-input",
         "alias": "PDRS Have Implemented PDR Activity",
@@ -92,10 +92,10 @@ class PDRS__certificates_have_been_calculated(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the implementation after 1 July 2022?'
+    label = 'Have PDRS certificates been created?'
     metadata = {
         "variable-type": "user-input",
-        "alias": "PDRS Have Implemented PDR Activity",
+        "alias": "PDRS Certificates Been Created",
         # "major-cat":"Peak Demand Reduction Scheme",
         # "monor-cat":'General Requirements'
     }
@@ -105,10 +105,10 @@ class PDRS__application_during_transition_period(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the implementation after 1 July 2022?'
+    label = 'Is the application to create certificates during the Transition Period?'
     metadata = {
         "variable-type": "user-input",
-        "alias": "PDRS Have Implemented PDR Activity",
+        "alias": "PDRS Application during Transition Period",
         # "major-cat":"Peak Demand Reduction Scheme",
         # "monor-cat":'General Requirements'
     }
@@ -134,7 +134,7 @@ class PDRS__certificate_already_been_created_during_compliance_period(Variable):
     label = 'Have certificates already been created for these demand savings within the compliance period?'
     metadata = {
         "variable-type": "user-input",
-        "alias": "PDRS Have Implemented PDR Activity",
+        "alias": "PDRS Certificates Already Created",
         # "major-cat":"Peak Demand Reduction Scheme",
         # "monor-cat":'General Requirements'
     }

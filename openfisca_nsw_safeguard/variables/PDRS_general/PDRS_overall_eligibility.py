@@ -25,6 +25,7 @@ class PDRS__is_eligible_activity(Variable):
         is_prescribed_transmission_service = buildings('PDRS__is_prescribed_transmission_service', period)
         is_non_network_option = buildings('PDRS__is_non_network_option', period)
         reduces_safety_levels = buildings('PDRS__reduces_safety_levels', period)
+        is_eligible_for_RET = buildings('PDRS__is_eligible_for_RET', period)
 
         is_eligible_peak_demand_reduction_activity = (
         provides_capacity_to_reduce_demand * 
@@ -42,6 +43,7 @@ class PDRS__is_eligible_activity(Variable):
         * (np.logical_not(is_non_network_option))
         )
         + reduces_safety_levels
+        + is_eligible_for_RET
         )
 
         is_eligible = (
@@ -158,4 +160,15 @@ class PDRS__reduces_safety_levels(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Reduces Safety Levels",
+    }
+
+
+class PDRS__is_eligible_for_RET(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity eligible to generate activities within the RET?'
+    metadata = {
+        "variable-type": "inter-interesting",
+        "alias": "PDRS Eligible for RET",
     }

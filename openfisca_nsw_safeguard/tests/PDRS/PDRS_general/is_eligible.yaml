@@ -42,6 +42,10 @@
           [
             False,
           ]
+      PDRS__is_eligible_for_RET:
+          [
+            False,
+          ]
   output:
       PDRS__is_eligible_activity:
           [

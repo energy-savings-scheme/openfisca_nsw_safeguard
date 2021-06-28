@@ -9,7 +9,7 @@ class ESS__SONA_activity_is_eligible(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity eligible for the SONA method?' 
+    label = 'Is the activity eligible for the SONA method?'
     metadata = {
         "variable-type": "inter-interesting",
         'alias': "SONA Activity is Eligible",
@@ -143,7 +143,7 @@ class ESS__SONA_has_acceptable_evidence(Variable):
                 ' clause 9.3.5 - Sale of New Appliances.'
 
     def formula(buildings, period, parameters):
-        retailer = buildings('equipment_retailer', period)
+        retailer = buildings('ESS__SONA_equipment_retailer', period)
         return retailer
 
 
@@ -165,7 +165,7 @@ class ESS__SONA_implementation_site(Variable):
                 ' clause 9.3.3 - Sale of New Appliances.'
 
     def formula(buildings, period, parameters):
-        delivery_or_purchaser_address = buildings('delivery_or_purchaser_address', period)
+        delivery_or_purchaser_address = buildings('ESS__SONA_delivery_or_purchaser_address', period)
         return delivery_or_purchaser_address
 
 
@@ -191,5 +191,57 @@ class ESS__SONA_energy_saver(Variable):
                 ' clause 9.3.5 - Sale of New Appliances.'
 
     def formula(buildings, period, parameters):
-        retailer = buildings('equipment_retailer', period)
+        retailer = buildings('ESS__SONA_equipment_retailer', period)
         return retailer
+
+
+class ESS__SONA_EquipmentType(Enum):
+    washing_machine = 'Equipment is a washing machine.'
+    dryer = 'Equipment is a dryer.'
+    dishwasher = 'Equipment is a dishwasher.'
+    refrigerator = 'Equipment is a refrigerator.'
+    television = 'Equipment is a TV.'
+
+
+class ESS__SONA_equipment_type(Variable):
+    value_type = Enum
+    possible_values = ESS__SONA_EquipmentType
+    default_value = ESS__SONA_EquipmentType.washing_machine
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the type of equipment being sold?'
+
+
+class ESS__SONA_StarRating(Enum):
+    zero_stars = 'Equipment is rated at zero stars.'
+    one_star = 'Equipment is rated at one star.'
+    one_and_a_half_star = 'Equipment is rated at one and a half star.'
+    two_stars = 'Equipment is rated at two stars.'
+    two_and_a_half_stars = 'Equipment is rated at two and a half stars.'
+    three_stars = 'Equipment is rated at three stars.'
+    three_and_a_half_stars = 'Equipment is rated at three and a half stars.'
+    four_stars = 'Equipment is rated at four stars.'
+    four_and_a_half_stars = 'Equipment is rated at four and a half stars.'
+    five_stars = 'Equipment is rated at five stars.'
+    five_and_a_half_stars = 'Equipment is rated at five and a half stars.'
+    six_stars = 'Equipment is rated at six stars.'
+    seven_stars = 'Equipment is rated at seven stars.'
+    eight_stars = 'Equipment is rated at eight stars.'
+    nine_stars = 'Equipment is rated at nine stars.'
+    ten_stars = 'Equipment is rated at ten stars.'
+
+
+class ESS__SONA_star_rating(Variable):
+    value_type = Enum
+    possible_values = ESS__SONA_StarRating
+    default_value = ESS__SONA_StarRating.zero_stars
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the star rating of the equipment being sold?'
+
+
+class ESS__SONA_equipment_labelled_for_energy_labelling(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the equipment labelled for energy labelling purposes?'

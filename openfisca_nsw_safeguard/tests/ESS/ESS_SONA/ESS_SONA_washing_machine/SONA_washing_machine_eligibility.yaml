@@ -1,0 +1,34 @@
+- name: Test whether an ESS SONA activity is eligible - activity is eligible
+  period: 2020
+  input:
+    ESS__SONA_equipment_type:
+      [
+      washing_machine,
+      dryer,
+      television,
+      ]
+    ESS__SONA_equipment_is_top_or_front_loader:
+      [
+      True,
+      False,
+      False,
+      ]
+    ESS__SONA_equipment_labelled_for_energy_labelling:
+      [
+      True,
+      False,
+      False,
+      ]
+  output:
+    ESS__SONA_end_user_equipment_is_clothes_washing_machine:
+      [
+      True,
+      False,
+      False,
+      ]
+    ESS__SONA_washing_machine_is_eligible:
+      [
+      True,
+      False,
+      False,
+      ]

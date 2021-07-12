@@ -424,7 +424,7 @@ class ESS__NABERS_is_eligible_for_method_one(Variable):
                 * (exceeds_benchmark))
 
 
-class ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating(Variable):
+class ESS__NABERS_current_star_rating_exceeds_method_two_historical_star_rating(Variable):
     value_type = bool
     entity = Building
     definition_period = YEAR
@@ -443,18 +443,7 @@ class ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating(Variab
             'ESS__NABERS_historical_NABERS_star_rating', period)
         cur_rating = buildings(
             'ESS__NABERS_current_NABERS_star_rating', period)
-        cur_year = buildings('ESS__NABERS_current_rating_year', period)
-        hist_year = buildings('ESS__NABERS_historical_rating_year', period)
-        building_type = buildings("ESS__NABERS_building_type", period)
-        hist_rating_age = buildings(
-            'ESS__NABERS_age_of_historical_rating', period)
-        adjustment_year_string = np.where(hist_rating_age > 1,
-                                          "two_to_seven_year_old",
-                                          "one_year_old")
-        annual_rating_adj = (parameters(period).ESS.MBM.NABERS.table_a21.building_category
-                             [building_type][adjustment_year_string])
-        benchmark_rating = (hist_rating + (annual_rating_adj * (cur_year - hist_year)))
-        return (cur_rating - benchmark_rating) >= 0.5
+        return (cur_rating - hist_rating) >= 0.5
 
 
 class ESS__NABERS_benchmark_star_rating(Variable):
@@ -605,13 +594,13 @@ class ESS__NABERS_is_eligible_for_method_two(Variable):
     def formula(buildings, period, parameters):
         eligible_for_method_one = buildings(
             'ESS__NABERS_is_eligible_for_method_one', period)
-        exceeds_benchmark_rating = buildings(
-            'ESS__NABERS_current_star_rating_exceeds_method_two_benchmark_rating', period)
+        exceeds_historical_rating = buildings(
+            'ESS__NABERS_current_star_rating_exceeds_method_two_historical_star_rating', period)
         no_more_than_7_years_between_ratings = buildings(
             'ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date', period)
         meets_similar_configuration_criteria = buildings(
             'ESS__NABERS_historical_rating_meets_similar_configuration_criteria', period)
-        return (np.logical_not(eligible_for_method_one) * exceeds_benchmark_rating
+        return (np.logical_not(eligible_for_method_one) * exceeds_historical_rating
                 * no_more_than_7_years_between_ratings * meets_similar_configuration_criteria)
 
 

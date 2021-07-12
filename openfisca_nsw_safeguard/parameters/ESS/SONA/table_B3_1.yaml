@@ -1,0 +1,212 @@
+description: Table B1.1, Energy Savings Scheme Rules - Residential Building
+  Electricity Savings Factor (MWh per Lamp replaced)
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+deemed_equipment_electricity_savings:
+  zero_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+  one_star:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+  one_and_a_half_star:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+  two_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+  two_and_a_half_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+  three_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+  three_and_a_half_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0.1
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 0.4
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+  four_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0.3
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 0.8
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0
+  four_and_a_half_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0.5
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 1.1
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 0.9
+  five_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0.7
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 1.4
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 1.2
+  five_and_a_half_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0.8
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 1.6
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 1.5
+  six_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 0.9
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 1.8
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 1.7
+  seven_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 1.1
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 2.0
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 2.0
+  eight_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 1.2
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 2.2
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 2.3
+  nine_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 1.3
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 2.4
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 2.4
+  ten_stars:
+    less_than_9_place_settings:
+      values:
+        2020-01-01:
+          value: 1.3
+    between_9_and_13_place_settings:
+      values:
+        2020-01-01:
+          value: 2.5
+    13_or_more_place_settings:
+      values:
+        2020-01-01:
+          value: 2.5

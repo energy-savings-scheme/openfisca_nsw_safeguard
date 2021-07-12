@@ -502,14 +502,43 @@ class ESS__NABERS_benchmark_star_rating(Variable):
                                           "one_year_old")
         annual_rating_adj = (parameters(period).ESS.MBM.NABERS.table_a21.building_category
                              [building_type][adjustment_year_string])
-        benchmark_NABERS_rating = np.where(first_NABERS_rating,
+        benchmark_rating = np.where(first_NABERS_rating,
                                            parameters(
                                            period).ESS.MBM.NABERS.table_a20.ratings_index[current_rating_year][building_type][building_date],
                                            (historical_NABERS_rating + annual_rating_adj * (cur_year - hist_year))
                                            ) # when "is first NABERS rating?" is true, pull value from A20 -
                                              # otherwise calculate the benchmark rating according to Step 2 (b)
+        benchmark_NABERS_rating = np.select([benchmark_rating < 0.5,
+                                             benchmark_rating < 1,
+                                             benchmark_rating < 1.5,
+                                             benchmark_rating < 2,
+                                             benchmark_rating < 2.5,
+                                             benchmark_rating < 3,
+                                             benchmark_rating < 3.5,
+                                             benchmark_rating < 4,
+                                             benchmark_rating < 4.5,
+                                             benchmark_rating < 5,
+                                             benchmark_rating < 5.5,
+                                             benchmark_rating < 6,
+                                             benchmark_rating >= 6,
+                                             ],
+                                             [0,
+                                             0.5,
+                                             1,
+                                             1.5,
+                                             2,
+                                             2.5,
+                                             3,
+                                             3.5,
+                                             4,
+                                             4.5,
+                                             5,
+                                             5.5,
+                                             6]
+                                             )
         return benchmark_NABERS_rating
-
+        # note the need to implement logic gate if NABERS decide to implement
+        # incremental star ratings
 
 class ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date(Variable):
     value_type = bool

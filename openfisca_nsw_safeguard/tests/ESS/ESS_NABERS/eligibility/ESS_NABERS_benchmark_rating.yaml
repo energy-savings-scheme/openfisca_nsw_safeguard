@@ -600,12 +600,12 @@
   output:
     ESS__NABERS_benchmark_star_rating:
       [
-      3.63,
-      3.54,
-      3.45,
-      3.36,
-      3.27,
-      3.18,
+      3.5,
+      3.5,
+      3,
+      3,
+      3,
+      3,
       3,
       4,
       ]
@@ -671,12 +671,12 @@
   output:
     ESS__NABERS_benchmark_star_rating:
       [
-      3.28,
-      3.24,
-      3.2,
-      3.16,
-      3.12,
-      3.08,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
       3,
       4,
       ]
@@ -742,12 +742,12 @@
   output:
     ESS__NABERS_benchmark_star_rating:
       [
-      3.91,
-      3.78,
-      3.65,
-      3.52,
-      3.39,
-      3.26,
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3,
+      3,
       3,
       4,
       ]
@@ -813,12 +813,12 @@
   output:
     ESS__NABERS_benchmark_star_rating:
       [
-      3.28,
-      3.24,
-      3.2,
-      3.16,
-      3.12,
-      3.08,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
       3,
       4,
       ]
@@ -884,12 +884,12 @@
   output:
     ESS__NABERS_benchmark_star_rating:
       [
-      3.28,
-      3.24,
-      3.20,
-      3.16,
-      3.12,
-      3.08,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
       3,
       4,
       ]
@@ -963,4 +963,198 @@
       3,
       3,
       4,
+      ]
+- name: calculate benchmark NABERS rating - method 2 of NABERS method - offices
+    - test rounding down for 0.5 to 6 star ratings (3yrs of adjustment - 0.27 raw
+      adjustment rounded down to 0)
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_first_NABERS_rating:
+      [
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      ]
+    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
+      [
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      2018-03-01,
+      ]
+    ESS__NABERS_historical_NABERS_star_rating:
+      [
+      0,
+      0.5,
+      1,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5,
+      5.5,
+      ]
+    ESS__NABERS_building_type:
+      [
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      ]
+  output:
+    ESS__NABERS_benchmark_star_rating:
+      [
+      0,
+      0.5,
+      1,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5,
+      5.5,
+      ]
+- name: calculate benchmark NABERS rating - method 2 of NABERS method - offices
+    - test rounding down for 0.5 to 6 star ratings (6yrs of adjustment - 0.54 raw
+      adjustment rounded down to 0.5)
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS__NABERS_first_NABERS_rating:
+      [
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      False,
+      ]
+    ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      2021-03-01,
+      ]
+    ESS__NABERS_end_date_of_historical_NABERS_rating_period:
+      [
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      2015-03-01,
+      ]
+    ESS__NABERS_historical_NABERS_star_rating:
+      [
+      0,
+      0.5,
+      1,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5,
+      5.5,
+      ]
+    ESS__NABERS_building_type:
+      [
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      office,
+      ]
+  output:
+    ESS__NABERS_benchmark_star_rating:
+      [
+      0.5,
+      1,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5,
+      5.5,
+      6,
       ]

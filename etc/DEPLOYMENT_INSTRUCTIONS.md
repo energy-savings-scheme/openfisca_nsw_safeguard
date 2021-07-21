@@ -5,12 +5,6 @@ These instructions apply to any linux virtual machine (including Azure)
 - Files stored in this directory are config files intended to be copied onto the virtual machine.
 - All commands assume you have SSH'ed into the virtual machine and have command line access.
 
-#### Install `Gunicorn`
-
-Gunicorn assigns 'workers' to process Django requests.
-
-1. Activate your virtual environment: e.g. `~/venv/bin/activate`
-2. Install gunicorn `pip install gunicorn`
 
 #### Install `Nginx`
 
@@ -25,7 +19,7 @@ We want to direct http requests to our Django service
 #### Install `Supervisor`
 
 'Supervisor' is a process manager.
-We want to configure it to start the Gunicorn process when the virtual machine boots up.
+We want to configure it to start the openfisca process when the virtual machine boots up.
 
 1. run `sudo apt-get install supervisor`
 2. copy the contents of the file `etc/supervisor/conf.d/safeguard_supervisor_config.conf` to the location `etc/supervisor/conf.d/safeguard_supervisor_config.conf` on the virtual machine

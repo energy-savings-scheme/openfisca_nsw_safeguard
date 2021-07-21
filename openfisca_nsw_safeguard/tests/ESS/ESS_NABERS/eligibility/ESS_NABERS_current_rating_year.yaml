@@ -4,6 +4,7 @@
   input:
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
+        2015-12-31,
         2018-03-31,
         2019-03-31,
         2020-02-29,
@@ -11,6 +12,7 @@
   output:
     ESS__NABERS_current_rating_year:
       [
+        2015,
         2018,
         2019,
         2020,

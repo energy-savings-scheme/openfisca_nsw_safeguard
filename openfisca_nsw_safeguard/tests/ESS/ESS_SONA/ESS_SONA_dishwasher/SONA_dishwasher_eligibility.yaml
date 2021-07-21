@@ -1,0 +1,20 @@
+- name: Test whether an ESS SONA activity is eligible - activity is eligible
+  period: 2020
+  input:
+    ESS__SONA_equipment_type:
+      [
+      dishwasher,
+      ]
+    ESS__SONA_end_user_equipment_has_registered_place_settings:
+      [
+      True,
+      ]
+    ESS__SONA_equipment_labelled_for_energy_labelling:
+      [
+      True,
+      ]
+  output:
+    ESS__SONA_dishwasher_is_eligible:
+      [
+      True,
+      ]

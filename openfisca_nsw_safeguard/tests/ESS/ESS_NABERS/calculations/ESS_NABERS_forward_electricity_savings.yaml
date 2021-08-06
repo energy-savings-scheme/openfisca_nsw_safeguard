@@ -1,5 +1,5 @@
 - name: test ESS NABERS annual electricity savings calculation
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_electricity: 1
@@ -9,7 +9,7 @@
   output:
     ESS__NABERS_forward_electricity_savings: 0
 - name: test ESS NABERS annual electricity savings calculation
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_electricity: 1
@@ -19,7 +19,7 @@
   output:
     ESS__NABERS_forward_electricity_savings: 144
 - name: test NABERS electricity savings - forward created electricity savings within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -245,7 +245,7 @@
        3839.76,
       ]
 - name: test NABERS electricity savings - forward created electricity savings within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:

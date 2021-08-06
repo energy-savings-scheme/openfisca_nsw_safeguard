@@ -1,5 +1,5 @@
 - name: test ESS NABERS annual electricity savings calculation
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_gas: 1
@@ -8,7 +8,7 @@
   output:
     ESS__NABERS_forward_gas_savings: 0
 - name: test ESS NABERS annual electricity savings calculation
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_gas: 1

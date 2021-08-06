@@ -4,7 +4,7 @@ years_between_historical_and_current_rating:
   metadata:
     unit: years
   values:
-    2021-01-01:
+    2020-01-01:
       value: 7
 
 
@@ -13,5 +13,5 @@ kWh_to_MWh:
   metadata:
     unit: MWh
   values:
-    2021-01-01:
+    2020-01-01:
       value: 0.001

@@ -427,7 +427,7 @@ class ESS__NABERS_is_eligible_for_method_one(Variable):
 class ESS__NABERS_current_star_rating_exceeds_method_two_historical_star_rating(Variable):
     value_type = bool
     entity = Building
-    definition_period = YEAR
+    definition_period = ETERNITY
     label = 'Does the NABERS Star Rating used to calculate ESCs within' \
             ' method 1 exceed the minimum star rating?'
     metadata = {

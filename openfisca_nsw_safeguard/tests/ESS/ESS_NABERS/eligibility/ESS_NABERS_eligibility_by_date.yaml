@@ -1,5 +1,5 @@
 - name: test ESS NABERS eligibility - checking dates prior to 2014
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:

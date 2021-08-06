@@ -1,5 +1,5 @@
 - name: test ESS NABERS annual electricity savings calculation
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_electricity: 1
@@ -9,7 +9,7 @@
   output:
     ESS__NABERS_electricity_savings: 48
 - name: test ESS NABERS annual electricity savings calculation
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_electricity: 1
@@ -19,7 +19,7 @@
   output:
     ESS__NABERS_electricity_savings: 144
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.15 - eligibility within method 1
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -104,7 +104,7 @@
         400,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.19 - eligibility within method 1
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -189,7 +189,7 @@
         659,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.3 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -294,7 +294,7 @@
        293,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.9 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -399,7 +399,7 @@
        236,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.18 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -504,7 +504,7 @@
        881,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.21 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -609,7 +609,7 @@
        1586,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.23 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:

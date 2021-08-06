@@ -1,5 +1,5 @@
 - name: test ESS gas savings - from NABERS method
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_electricity: 1
@@ -11,14 +11,14 @@
   output:
     ESS__number_of_ESCs: 54
 - name: test ESS gas savings - not eligible (increase in energy consumption)
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__electricity_savings: -100
   output:
     ESS__number_of_ESCs: 0
 - name: test NABERS electricity savings - annual created ESCs within NABERS method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -244,7 +244,7 @@
        1356,
       ]
 - name: test NABERS electricity savings - forward created ESCs within NABERS method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -522,7 +522,7 @@
        4070,
       ]
 - name: test NABERS electricity savings - forward created ESCs within NABERS method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -615,7 +615,7 @@
        6601,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.15 - eligibility within method 1
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -658,15 +658,15 @@
       [
         True,
       ]
-    ESS__NABERS_NABERS_electricity: 
+    ESS__NABERS_NABERS_electricity:
       [
         300.0,
       ]
-    ESS__NABERS_NABERS_gas: 
+    ESS__NABERS_NABERS_gas:
       [
         27.77,
       ]
-    ESS__NABERS_onsite_unaccounted_electricity:    
+    ESS__NABERS_onsite_unaccounted_electricity:
       [
         0,
       ]
@@ -700,7 +700,7 @@
         401,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.19 - eligibility within method 1
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -743,15 +743,15 @@
       [
         True,
       ]
-    ESS__NABERS_NABERS_electricity: 
+    ESS__NABERS_NABERS_electricity:
       [
         300.0,
       ]
-    ESS__NABERS_NABERS_gas: 
+    ESS__NABERS_NABERS_gas:
       [
         27.77,
       ]
-    ESS__NABERS_onsite_unaccounted_electricity:    
+    ESS__NABERS_onsite_unaccounted_electricity:
       [
         0,
       ]
@@ -785,7 +785,7 @@
         659,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.3 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -890,7 +890,7 @@
        284,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.9 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -995,7 +995,7 @@
        235,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.18 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -1100,7 +1100,7 @@
        876,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.21 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -1205,7 +1205,7 @@
        1586,
       ]
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.23 - ESC creation within method 2
-  period: 2021
+  period: 2021-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:

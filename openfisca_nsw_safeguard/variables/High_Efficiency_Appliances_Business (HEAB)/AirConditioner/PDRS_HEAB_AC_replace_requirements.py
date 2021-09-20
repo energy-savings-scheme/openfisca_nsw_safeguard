@@ -6,6 +6,7 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
+# detailed in PDRS activity XX
 
 class PDRS_HEAB_AC_replace_meets_eligibility_requirements(Variable):
     value_type = bool

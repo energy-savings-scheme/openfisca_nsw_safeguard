@@ -16,10 +16,13 @@ class ESS_SONA_freezer_electricity_savings(Variable):
     def formula(buildings, period, parameters):
         star_rating = buildings('refrigerator_star_rating', period)  # this should be a parameter but it's not in a table in the Rule, pls advise
         freezer_volume = buildings('refrigerator_or_freezer_capacity', period)
-        volume = select([freezer_volume < 150, freezer_volume >= 150 and freezer_volume < 300,
-        freezer_volume >= 300 and freezer_volume < 500, freezer_volume >= 550],
+        volume = np.select(
+                            [freezer_volume < 150,
+                             ((freezer_volume >= 150) * (freezer_volume < 300)),
+                             ((freezer_volume >= 300) * (freezer_volume < 500)),
+                             freezer_volume >= 550],
         ["under_150L", "150_to_300L", "300_to_500L", "over_500L"])
-        deemed_equipment_electricity_savings = (parameters(period).SONA.table_B6_1.deemed_equipment_electricity_savings[star_rating][volume])
+        deemed_equipment_electricity_savings = (parameters(period).ESS.SONA.table_B6_1.deemed_equipment_electricity_savings[star_rating][volume])
         return deemed_equipment_electricity_savings
 
 

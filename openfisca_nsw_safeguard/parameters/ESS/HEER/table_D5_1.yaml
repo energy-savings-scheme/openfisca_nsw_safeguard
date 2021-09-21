@@ -1,0 +1,68 @@
+description: Table D5.1, Energy Savings Scheme Rules - Saving Factors for replacing
+    pool pump.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+electricity_savings_factor:
+  zero_stars:
+    values:
+      2020-01-01:
+         value: 0
+  one_star:
+    values:
+      2020-01-01:
+        value: 0
+  one_and_a_half_stars:
+    values:
+      2020-01-01:
+         value: 0
+  two_stars:
+    values:
+      2020-01-01:
+         value: 0
+  two_and_a_half_stars:
+    values:
+      2020-01-01:
+         value: 0
+  three_stars:
+    values:
+      2020-01-01:
+        value: 0
+  three_and_a_half_stars:
+    values:
+      2020-01-01:
+       value: 0
+  four_stars:
+    values:
+      2020-01-01:
+        value: 0
+  four_and_a_half_stars:
+    values:
+      2020-01-01:
+        value: 1.3
+  five_stars:
+    values:
+      2020-01-01:
+        value: 2.5
+  five_and_a_half_stars:
+    values:
+      2020-01-01:
+        value: 3.5
+  six_stars:
+    values:
+      2020-01-01:
+        value: 4.5
+  seven_stars:
+    values:
+      2020-01-01:
+        value: 6.1
+  eight_stars:
+    values:
+      2020-01-01:
+        value: 7.4
+  nine_stars:
+    values:
+      2020-01-01:
+        value: 8.4
+  ten_stars:
+    values:
+      2020-01-01:
+        value: 9.2

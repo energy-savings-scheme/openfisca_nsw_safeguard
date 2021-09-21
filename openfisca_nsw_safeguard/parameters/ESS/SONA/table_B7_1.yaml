@@ -204,7 +204,7 @@ deemed_equipment_electricity_savings:
     over_120cm:
       values:
         2020-01-01:
-          value: 0.00
+          value: 0
   seven_stars:
     under_40cm:
       values:

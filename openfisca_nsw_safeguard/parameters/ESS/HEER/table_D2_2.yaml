@@ -1,0 +1,103 @@
+description: Values from Table D2.2.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+residential_electricity_savings_factor:
+  system_U_value_over_3:
+    climate_zone_1:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_2_and_3:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zone_4:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zone_5:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zone_6:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_7_and_8:
+      values:
+        2020-01-01:
+          value: 0
+  system_U_value_over_2:
+    climate_zone_1:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_2_and_3:
+      values:
+        2020-01-01:
+          value: 0.06
+    climate_zone_4:
+      values:
+        2020-01-01:
+          value: 0.11
+    climate_zone_5:
+      values:
+        2020-01-01:
+          value: 0.06
+    climate_zone_6:
+      values:
+        2020-01-01:
+          value: 0.09
+    climate_zones_7_and_8:
+      values:
+        2020-01-01:
+           value: 0.13
+  system_U_value_over_1:
+    climate_zone_1:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_2_and_3:
+      values:
+        2020-01-01:
+          value: 0.08
+    climate_zone_4:
+      values:
+        2020-01-01:
+          value: 0.13
+    climate_zone_5:
+      values:
+        2020-01-01:
+          value: 0.07
+    climate_zone_6:
+      values:
+        2020-01-01:
+          value: 0.11
+    climate_zones_7_and_8:
+      values:
+        2020-01-01:
+           value: 0.15
+  system_U_value_under_1:
+    climate_zone_1:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_2_and_3:
+      values:
+        2020-01-01:
+          value: 0.1
+    climate_zone_4:
+      values:
+        2020-01-01:
+          value: 0.15
+    climate_zone_5:
+      values:
+        2020-01-01:
+          value: 0.08
+    climate_zone_6:
+      values:
+        2020-01-01:
+          value: 0.13
+    climate_zones_7_and_8:
+      values:
+        2020-01-01:
+           value: 0.18

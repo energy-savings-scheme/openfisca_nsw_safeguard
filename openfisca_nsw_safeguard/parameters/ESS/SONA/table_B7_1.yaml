@@ -1,0 +1,275 @@
+description: Values from Table B7.1.
+reference: Energy Savings Scheme Rule 2009, Activity Definition B7 - Sell a High Efficiency Television
+deemed_equipment_electricity_savings:
+  zero_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  one_star:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  one_and_a_half_star:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  two_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  two_and_a_half_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  three_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  three_and_a_half_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  four_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  four_and_a_half_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  five_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  five_and_a_half_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  six_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 0.00
+  seven_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.5
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 1.1
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 3.4
+  eight_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.6
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 1.4
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 4.0
+  nine_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.7
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 1.6
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 4.5
+  ten_stars:
+    under_40cm:
+      values:
+        2020-01-01:
+          value: 0.00
+    40_to_65cm:
+      values:
+        2020-01-01:
+          value: 0.8
+    65_to_120cm:
+      values:
+        2020-01-01:
+          value: 1.8
+    over_120cm:
+      values:
+        2020-01-01:
+          value: 4.9

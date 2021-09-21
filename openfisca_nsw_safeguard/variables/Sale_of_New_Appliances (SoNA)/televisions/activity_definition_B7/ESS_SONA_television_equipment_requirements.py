@@ -52,6 +52,14 @@ class television_star_rating(Variable):
     # for use in Activity Definition B3.
 
 
+class television_screen_size(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the screen size for the television, as' \
+            ' rated in GEMS?'
+
+
 class ESS_SONA_television_end_user_equipment_has_registered_screen_size(Variable):
     value_type = bool
     entity = Building

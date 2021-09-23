@@ -1,0 +1,19 @@
+description: Values from Table E4.2.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+small_business_savings_factor:
+  2_foot:
+    values:
+      2020-01-01:
+        value: 0.42
+  3_foot:
+    values:
+      2020-01-01:
+        value: 0.50
+  4_foot:
+    values:
+      2020-01-01:
+        value: 0.59
+  5_foot:
+    values:
+      2020-01-01:
+        value: 0.67

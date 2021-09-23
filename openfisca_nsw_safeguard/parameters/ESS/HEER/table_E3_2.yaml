@@ -1,0 +1,639 @@
+description: Values from Table E3.1.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+small_business_savings_factor:
+  existing_LCP_less_than_80W:
+    less_than_1200_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1200_and_1500_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0.6
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1500_and_1900_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0.6
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1900_and_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0.6
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    more_than_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0.6
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_LCP_80_to_100W:
+    less_than_1200_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1200_and_1500_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 1.8
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1500_and_1900_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 1.8
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1900_and_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 1.8
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    more_than_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 1.8
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_LCP_100_to_120W:
+    less_than_1200_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1200_and_1500_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1500_and_1900_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 2.4
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 2.25
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1900_and_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 2.4
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 2.25
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    more_than_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 2.4
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 2.25
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_LCP_120_to_140W:
+    less_than_1200_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1200_and_1500_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1500_and_1900_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1900_and_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 3.0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 2.85
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 2.7
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    more_than_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 3.0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 2.85
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 2.7
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_LCP_140_to_160W:
+    less_than_1200_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1200_and_1500_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1500_and_1900_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1900_and_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    more_than_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 3.6
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 3.45
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 3.3
+      30W_to_40W:
+        values:
+         2020-01-01:
+           value: 3
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_LCP_160W_or_more:
+    less_than_1200_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1200_and_1500_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1500_and_1900_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+              value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    between_1900_and_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0
+    more_than_2300_lm:
+      less_than_15W:
+        values:
+          2020-01-01:
+            value: 0
+      15W_to_25W:
+        values:
+          2020-01-01:
+            value: 0
+      25W_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      30W_to_40W:
+        values:
+          2020-01-01:
+            value: 0
+      over_40W:
+        values:
+          2020-01-01:
+            value: 0

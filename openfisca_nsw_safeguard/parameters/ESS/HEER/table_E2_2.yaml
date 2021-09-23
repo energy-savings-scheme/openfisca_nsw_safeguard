@@ -1,0 +1,309 @@
+description: Values from Table E2.2.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+small_business_savings_factor:
+  existing_lamp_LCP_less_than_100W:
+    LED_luminaire_floodlight:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    CFLi:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_lamp_LCP_between_100W_and_150W:
+    LED_luminaire_floodlight:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0.75
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    CFLi:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0.75
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_lamp_LCP_between_150W_and_200W:
+    LED_luminaire_floodlight:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 1.25
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 1.05
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    CFLi:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 1.25
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 1.05
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_lamp_LCP_between_200W_and_300W:
+    LED_luminaire_floodlight:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 1.55
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 1.40
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    CFLi:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 1.55
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 1.40
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_lamp_LCP_between_300W_and_500W:
+    LED_luminaire_floodlight:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 2.40
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 2.00
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    CFLi:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 2.40
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 2.00
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+  existing_lamp_LCP_more_than_500W:
+    LED_luminaire_floodlight:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 4.00
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 3.20
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    CFLi:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 4.00
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 3.20
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0

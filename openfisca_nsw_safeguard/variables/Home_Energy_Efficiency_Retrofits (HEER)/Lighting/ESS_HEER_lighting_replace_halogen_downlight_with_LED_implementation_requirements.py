@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class is_installed_by_authorised_person(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_is_installed_by_authorised_person(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

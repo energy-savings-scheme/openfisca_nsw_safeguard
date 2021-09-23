@@ -1,0 +1,36 @@
+- name: Test residential electricity savings for E3 (replace T8 or T12 w. T5 lamp)
+  period: 2020
+  input:
+    ESS_HEER_existing_lamp_length:
+      [
+        2,
+        3,
+        4,
+        5,
+      ]
+  output:
+    ESS_HEER_lighting_replace_T8_or_T12_w_T5_residential_savings_factor:
+      [
+        0.1,
+        0.12,
+        0.14,
+        0.16,
+      ]
+- name: Test small business electricity savings for E3 (replace PAR lamp)
+  period: 2020
+  input:
+    ESS_HEER_existing_lamp_length:
+      [
+        2,
+        3,
+        4,
+        5,
+      ]
+  output:
+    ESS_HEER_lighting_replace_T8_or_T12_w_T5_small_business_savings_factor:
+      [
+        0.42,
+        0.5,
+        0.59,
+        0.67,
+      ]

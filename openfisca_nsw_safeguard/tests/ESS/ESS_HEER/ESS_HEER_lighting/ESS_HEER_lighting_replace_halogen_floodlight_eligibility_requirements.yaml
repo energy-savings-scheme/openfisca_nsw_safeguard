@@ -1,0 +1,16 @@
+- name: Test eligibility requirements for E1 (replace tungsten halogen ELV) - activity is eligible
+  period: 2020
+  input:
+    ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_linear_halogen_floodlight: [
+                                                                                              True,
+                                                                                              ]
+    ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_in_working_order: [
+                                                                                     True,
+                                                                                     ]
+    ESS_HEER_existing_lamp_rating: [
+                                     120,
+                                     ]
+  output:
+    ESS_HEER_lighting_replace_halogen_floodlight_eligibility_requirements: [
+                                                                            True,
+                                                                            ]

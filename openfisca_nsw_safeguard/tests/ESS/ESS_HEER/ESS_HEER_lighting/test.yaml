@@ -1,0 +1,45 @@
+- name: Test residential electricity savings for E5 (replace T8 or T12 w. LED lamp)
+    - 2 lamps, 650mm, 1250lx new lamp light output, testing LCP
+  period: 2020
+  input:
+    ESS_HEER_number_of_existing_lamps:
+      [
+        2,
+        2,
+        2,
+        2,
+        2,
+      ]
+    ESS_HEER_existing_lamp_length:
+      [
+        650,
+        650,
+        650,
+        650,
+        650,
+      ]
+    ESS_HEER_lighting_new_lamp_light_output:
+      [
+        1250,
+        1300,
+        1400,
+        1499,
+        1500,
+      ]
+    ESS_HEER_lighting_new_lamp_circuit_power:
+      [
+        10,
+        10,
+        10,
+        10,
+        10,
+      ]
+  output:
+    ESS_HEER_lighting_replace_T8_or_T12_with_LED_residential_savings_factor:
+      [
+        0.63,
+        0.63,
+        0.63,
+        0.63,
+        0.63,
+      ]

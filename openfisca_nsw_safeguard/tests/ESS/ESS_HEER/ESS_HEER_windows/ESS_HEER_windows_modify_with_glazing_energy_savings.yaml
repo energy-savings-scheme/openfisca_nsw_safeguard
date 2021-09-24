@@ -24,7 +24,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_residential_electricity_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_residential_electricity_savings_factor:
       [
         0,
         0,
@@ -61,7 +61,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_residential_electricity_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_residential_electricity_savings_factor:
       [
         0,
         0.06,
@@ -98,7 +98,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_residential_electricity_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_residential_electricity_savings_factor:
       [
         0,
         0.08,
@@ -135,7 +135,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_residential_electricity_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_residential_electricity_savings_factor:
       [
         0,
         0.1,
@@ -172,7 +172,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_residential_gas_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_residential_gas_savings_factor:
       [
         0,
         0,
@@ -209,7 +209,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_residential_gas_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_residential_gas_savings_factor:
       [
         0,
         0.05,
@@ -246,7 +246,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_residential_gas_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_residential_gas_savings_factor:
       [
         0,
         0.05,
@@ -283,7 +283,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_residential_gas_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_residential_gas_savings_factor:
       [
         0,
         0.06,
@@ -320,7 +320,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_small_business_electricity_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_small_business_electricity_savings_factor:
       [
         0,
         0,
@@ -357,7 +357,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_small_business_electricity_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_small_business_electricity_savings_factor:
       [
         0,
         0.18,
@@ -394,7 +394,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_small_business_electricity_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_small_business_electricity_savings_factor:
       [
         0,
         0.25,
@@ -431,7 +431,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_small_business_electricity_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_small_business_electricity_savings_factor:
       [
         0,
         0.34,
@@ -468,7 +468,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_small_business_gas_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_small_business_gas_savings_factor:
       [
         0,
         0,
@@ -505,7 +505,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_small_business_gas_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_small_business_gas_savings_factor:
       [
         0,
         0,
@@ -542,7 +542,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_small_business_gas_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_small_business_gas_savings_factor:
       [
         0,
         0,
@@ -579,7 +579,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_small_business_gas_savings_factor:
+    ESS_HEER_windows_modify_with_glazing_small_business_gas_savings_factor:
       [
         0,
         0,

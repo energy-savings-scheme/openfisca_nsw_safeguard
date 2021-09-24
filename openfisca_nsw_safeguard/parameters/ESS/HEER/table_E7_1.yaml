@@ -1,0 +1,78 @@
+description: Values from Table E7.1.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+residential_electricity_savings_factor:
+  less_than_two_year_warranty:
+    climate_zone_1:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_2_and_3:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zone_4:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zone_5:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zone_6:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_7_and_8:
+      values:
+        2020-01-01:
+          value: 0
+  two_to_five_year_warranty:
+    climate_zone_1:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_2_and_3:
+      values:
+        2020-01-01:
+          value: 0.06
+    climate_zone_4:
+      values:
+        2020-01-01:
+          value: 0.08
+    climate_zone_5:
+      values:
+        2020-01-01:
+          value: 0.05
+    climate_zone_6:
+      values:
+        2020-01-01:
+          value: 0.06
+    climate_zones_7_and_8:
+      values:
+        2020-01-01:
+          value: 0.1
+  over_five_year_warranty:
+    climate_zone_1:
+      values:
+        2020-01-01:
+          value: 0
+    climate_zones_2_and_3:
+      values:
+        2020-01-01:
+          value: 0.13
+    climate_zone_4:
+      values:
+        2020-01-01:
+          value: 0.16
+    climate_zone_5:
+      values:
+        2020-01-01:
+          value: 0.1
+    climate_zone_6:
+      values:
+        2020-01-01:
+          value: 0.12
+    climate_zones_7_and_8:
+      values:
+        2020-01-01:
+          value: 0.21

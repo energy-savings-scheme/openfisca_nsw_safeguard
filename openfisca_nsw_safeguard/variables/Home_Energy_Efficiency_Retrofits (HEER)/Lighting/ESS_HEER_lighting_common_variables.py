@@ -168,7 +168,14 @@ class ESS_HEER_existing_lamp_length(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the length of the lamp, in feet?'
+    label = 'What is the length of the lamp, in millimetres?'
+
+
+class ESS_HEER_number_of_existing_lamps(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'How many lamps are in the existing luminaire?'
 
 
 class ESS_HEER_lighting_new_lamp_circuit_power(Variable):

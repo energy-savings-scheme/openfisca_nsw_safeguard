@@ -1,0 +1,44 @@
+- name: Test electricity savings for Activity Definition E6 (replace showerheads)
+  period: 2020
+  input:
+    ESS_HEER_hot_water_supply_service:
+      [
+        electric_resistance_water_heater,
+        electric_boosted_solar_water_heater,
+        electric_heat_pump_water_heater,
+        gas_fired_storage_water_heater,
+        gas_fired_instantaneous_water_heater,
+        gas_boosted_solar_water_heater
+      ]
+  output:
+    ESS_HEER_showerheads_replace_with_low_flow_showerhead_electricity_savings_factor:
+      [
+        1.9,
+        1.1,
+        1.1,
+        0,
+        0,
+        0,
+      ]
+- name: Test gas savings for Activity Definition E6 (replace showerheads)
+  period: 2020
+  input:
+    ESS_HEER_hot_water_supply_service:
+      [
+        electric_resistance_water_heater,
+        electric_boosted_solar_water_heater,
+        electric_heat_pump_water_heater,
+        gas_fired_storage_water_heater,
+        gas_fired_instantaneous_water_heater,
+        gas_boosted_solar_water_heater
+      ]
+  output:
+    ESS_HEER_showerheads_replace_with_low_flow_showerhead_gas_savings_factor:
+      [
+        0,
+        0,
+        0,
+        3.4,
+        3.1,
+        1.2,
+      ]

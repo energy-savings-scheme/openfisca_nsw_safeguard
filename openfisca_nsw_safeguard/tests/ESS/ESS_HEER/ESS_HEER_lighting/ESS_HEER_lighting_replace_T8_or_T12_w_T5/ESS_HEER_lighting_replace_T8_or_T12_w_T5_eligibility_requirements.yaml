@@ -1,0 +1,19 @@
+- name: Test eligibility requirements for E5 (replace tungsten halogen ELV) - activity is eligible
+  period: 2020
+  input:
+    ESS_HEER_lighting_existing_lamp_type: [
+                                      T12_linear,
+                                      T8_linear,
+                                      ]
+    ESS_HEER_lighting_replace_T8_or_T12_w_T5_is_in_working_order: [
+                                                                     True,
+                                                                     True,
+                                                                     ]
+    ESS_HEER_lighting_replace_T8_or_T12_w_T5_is_not_modified_with_T5_adaptor_kit: [
+                                                                                   True,
+                                                                                   True,
+                                                                                   ]
+  output:
+    ESS_HEER_lighting_replace_T8_or_T12_w_T5_meets_eligibility_requirements: [
+                                                                              True,
+                                                                              ]

@@ -1,6 +1,6 @@
-description: Values from Table E5.1.
+description: Values from Table E5.2.
 reference: Energy Savings Scheme Rule, beginning 30 March 2020.
-residential_savings_factor:
+small_business_savings_factor:
   one_lamp:
     under_550mm:
       600_to_1100_lumens:
@@ -692,7 +692,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -749,7 +749,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -806,7 +806,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -863,7 +863,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -920,7 +920,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -977,7 +977,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -1034,7 +1034,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -1091,7 +1091,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -1148,7 +1148,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -1205,7 +1205,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -1262,7 +1262,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -1319,7 +1319,7 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.24
+              value: 0.67
         between_10W_and_15W:
           values:
             2020-01-01:
@@ -1434,11 +1434,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1491,11 +1491,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1548,11 +1548,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1605,11 +1605,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1662,11 +1662,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1719,11 +1719,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1776,11 +1776,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1833,11 +1833,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1890,11 +1890,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -1947,11 +1947,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -2004,11 +2004,11 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.42
+              value: 1.18
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.35
+              value: 0.97
         between_15W_and_20W:
           values:
             2020-01-01:
@@ -2237,15 +2237,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -2294,15 +2294,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -2351,15 +2351,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -2408,15 +2408,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -2465,15 +2465,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -2522,15 +2522,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -2579,15 +2579,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -2636,15 +2636,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -2693,15 +2693,15 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.44
+              value: 1.22
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.36
+              value: 1.01
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.29
+              value: 0.80
         between_25W_and_30W:
           values:
             2020-01-01:
@@ -3097,23 +3097,23 @@ residential_savings_factor:
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.54
+              value: 1.51
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.47
+              value: 1.30
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.39
+              value: 1.09
         between_40W_and_45W:
           values:
             2020-01-01:
@@ -3154,23 +3154,23 @@ residential_savings_factor:
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.54
+              value: 1.51
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.47
+              value: 1.30
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.39
+              value: 1.09
         between_40W_and_45W:
           values:
             2020-01-01:
@@ -3211,23 +3211,23 @@ residential_savings_factor:
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.54
+              value: 1.51
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.47
+              value: 1.30
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.39
+              value: 1.09
         between_40W_and_45W:
           values:
             2020-01-01:
@@ -3268,23 +3268,23 @@ residential_savings_factor:
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.54
+              value: 1.51
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.47
+              value: 1.30
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.39
+              value: 1.09
         between_40W_and_45W:
           values:
             2020-01-01:
@@ -3325,23 +3325,23 @@ residential_savings_factor:
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.54
+              value: 1.51
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.47
+              value: 1.30
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.39
+              value: 1.09
         between_40W_and_45W:
           values:
             2020-01-01:
@@ -3382,23 +3382,23 @@ residential_savings_factor:
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.54
+              value: 1.51
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.47
+              value: 1.30
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.39
+              value: 1.09
         between_40W_and_45W:
           values:
             2020-01-01:
@@ -4232,15 +4232,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4289,15 +4289,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4346,15 +4346,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4403,15 +4403,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4460,15 +4460,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4517,15 +4517,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4574,15 +4574,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4631,15 +4631,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4688,15 +4688,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4745,15 +4745,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4917,15 +4917,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -4974,15 +4974,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5031,15 +5031,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5088,15 +5088,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5145,15 +5145,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5202,15 +5202,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5259,15 +5259,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5316,15 +5316,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5373,15 +5373,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5430,15 +5430,15 @@ residential_savings_factor:
         less_than_10W:
           values:
             2020-01-01:
-              value: 0.63
+              value: 1.76
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.56
+              value: 1.55
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.48
+              value: 1.34
         between_20W_and_25W:
           values:
             2020-01-01:
@@ -5777,23 +5777,23 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.92
+              value: 2.56
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.84
+              value: 2.35
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.77
+              value: 2.14
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_35W_and_40W:
           values:
             2020-01-01:
@@ -5834,23 +5834,23 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.92
+              value: 2.56
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.84
+              value: 2.35
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.77
+              value: 2.14
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_35W_and_40W:
           values:
             2020-01-01:
@@ -5891,23 +5891,23 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.92
+              value: 2.56
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.84
+              value: 2.35
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.77
+              value: 2.14
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_35W_and_40W:
           values:
             2020-01-01:
@@ -5948,23 +5948,23 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.92
+              value: 2.56
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.84
+              value: 2.35
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.77
+              value: 2.14
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_35W_and_40W:
           values:
             2020-01-01:
@@ -6005,23 +6005,23 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.92
+              value: 2.56
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.84
+              value: 2.35
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.77
+              value: 2.14
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_35W_and_40W:
           values:
             2020-01-01:
@@ -6062,23 +6062,23 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.92
+              value: 2.56
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.84
+              value: 2.35
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.77
+              value: 2.14
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_35W_and_40W:
           values:
             2020-01-01:
@@ -6119,23 +6119,23 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.92
+              value: 2.56
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.84
+              value: 2.35
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.77
+              value: 2.14
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.69
+              value: 1.93
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.62
+              value: 1.72
         between_35W_and_40W:
           values:
             2020-01-01:
@@ -6584,27 +6584,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 0.65
+              value: 1.81
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.57
+              value: 1.60
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -6641,27 +6641,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 0.65
+              value: 1.81
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.57
+              value: 1.60
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -6698,27 +6698,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 0.65
+              value: 1.81
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.57
+              value: 1.60
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -6755,27 +6755,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 0.65
+              value: 1.81
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.57
+              value: 1.60
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -6812,27 +6812,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 0.65
+              value: 1.81
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.57
+              value: 1.60
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -7448,31 +7448,31 @@ residential_savings_factor:
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.46
+              value: 4.07
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.38
+              value: 3.86
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.31
+              value: 3.65
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 1.23
+              value: 3.44
         between_50W_and_60W:
           values:
             2020-01-01:
-              value: 1.08
+              value: 3.02
         between_60W_and_70W:
           values:
             2020-01-01:
-              value: 0.93
+              value: 2.60
         between_70W_and_80W:
           values:
             2020-01-01:
-              value: 0.78
+              value: 2.18
         between_80W_and_90W:
           values:
             2020-01-01:
@@ -7505,31 +7505,31 @@ residential_savings_factor:
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.46
+              value: 4.07
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.38
+              value: 3.86
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.31
+              value: 3.65
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 1.23
+              value: 3.44
         between_50W_and_60W:
           values:
             2020-01-01:
-              value: 1.08
+              value: 3.02
         between_60W_and_70W:
           values:
             2020-01-01:
-              value: 0.93
+              value: 2.60
         between_70W_and_80W:
           values:
             2020-01-01:
-              value: 0.78
+              value: 2.18
         between_80W_and_90W:
           values:
             2020-01-01:
@@ -9146,19 +9146,19 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_30W_and_35W:
           values:
             2020-01-01:
@@ -9203,19 +9203,19 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_30W_and_35W:
           values:
             2020-01-01:
@@ -9260,19 +9260,19 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_30W_and_35W:
           values:
             2020-01-01:
@@ -9317,19 +9317,19 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_30W_and_35W:
           values:
             2020-01-01:
@@ -9374,19 +9374,19 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_30W_and_35W:
           values:
             2020-01-01:
@@ -9431,19 +9431,19 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_30W_and_35W:
           values:
             2020-01-01:
@@ -9488,19 +9488,19 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_30W_and_35W:
           values:
             2020-01-01:
@@ -9545,19 +9545,19 @@ residential_savings_factor:
         between_10W_and_15W:
           values:
             2020-01-01:
-              value: 0.95
+              value: 2.65
         between_15W_and_20W:
           values:
             2020-01-01:
-              value: 0.87
+              value: 2.44
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 0.80
+              value: 2.23
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 0.72
+              value: 2.02
         between_30W_and_35W:
           values:
             2020-01-01:
@@ -10067,27 +10067,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 1.34
+              value: 3.74
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 1.26
+              value: 3.53
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.19
+              value: 3.32
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.11
+              value: 3.11
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.04
+              value: 2.90
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.96
+              value: 2.69
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -10124,27 +10124,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 1.34
+              value: 3.74
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 1.26
+              value: 3.53
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.19
+              value: 3.32
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.11
+              value: 3.11
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.04
+              value: 2.90
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.96
+              value: 2.69
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -10181,27 +10181,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 1.34
+              value: 3.74
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 1.26
+              value: 3.53
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.19
+              value: 3.32
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.11
+              value: 3.11
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.04
+              value: 2.90
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.96
+              value: 2.69
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -10238,27 +10238,27 @@ residential_savings_factor:
         between_20W_and_25W:
           values:
             2020-01-01:
-              value: 1.34
+              value: 3.74
         between_25W_and_30W:
           values:
             2020-01-01:
-              value: 1.26
+              value: 3.53
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.19
+              value: 3.32
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.11
+              value: 3.11
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.04
+              value: 2.90
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 0.96
+              value: 2.69
         between_50W_and_60W:
           values:
             2020-01-01:
@@ -10817,31 +10817,31 @@ residential_savings_factor:
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.46
+              value: 0
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.38
+              value: 4.07
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.31
+              value: 3.86
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 1.23
+              value: 3.65
         between_50W_and_60W:
           values:
             2020-01-01:
-              value: 1.08
+              value: 3.44
         between_60W_and_70W:
           values:
             2020-01-01:
-              value: 0.93
+              value: 3.02
         between_70W_and_80W:
           values:
             2020-01-01:
-              value: 0
+              value: 2.60
         between_80W_and_90W:
           values:
             2020-01-01:
@@ -10874,31 +10874,31 @@ residential_savings_factor:
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.46
+              value: 0
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.38
+              value: 4.07
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.31
+              value: 3.86
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 1.23
+              value: 3.65
         between_50W_and_60W:
           values:
             2020-01-01:
-              value: 1.08
+              value: 3.44
         between_60W_and_70W:
           values:
             2020-01-01:
-              value: 0.93
+              value: 3.02
         between_70W_and_80W:
           values:
             2020-01-01:
-              value: 0
+              value: 2.60
         between_80W_and_90W:
           values:
             2020-01-01:
@@ -10931,31 +10931,31 @@ residential_savings_factor:
         between_30W_and_35W:
           values:
             2020-01-01:
-              value: 1.46
+              value: 0
         between_35W_and_40W:
           values:
             2020-01-01:
-              value: 1.38
+              value: 4.07
         between_40W_and_45W:
           values:
             2020-01-01:
-              value: 1.31
+              value: 3.86
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 1.23
+              value: 3.65
         between_50W_and_60W:
           values:
             2020-01-01:
-              value: 1.08
+              value: 3.44
         between_60W_and_70W:
           values:
             2020-01-01:
-              value: 0.93
+              value: 3.02
         between_70W_and_80W:
           values:
             2020-01-01:
-              value: 0
+              value: 2.60
         between_80W_and_90W:
           values:
             2020-01-01:
@@ -11628,23 +11628,23 @@ residential_savings_factor:
         between_45W_and_50W:
           values:
             2020-01-01:
-              value: 2.22
+              value: 6.22
         between_50W_and_60W:
           values:
             2020-01-01:
-              value: 2.07
+              value: 5.80
         between_60W_and_70W:
           values:
             2020-01-01:
-              value: 1.92
+              value: 5.38
         between_70W_and_80W:
           values:
             2020-01-01:
-              value: 1.77
+              value: 4.96
         between_80W_and_90W:
           values:
             2020-01-01:
-              value: 1.62
+              value: 4.54
         more_than_90W:
           values:
             2020-01-01:

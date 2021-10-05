@@ -19,6 +19,7 @@ class LightingEquipmentClass(Enum):
                 ' Double-capped fluorescent lamps – Performance specifications' \
                 ' with a tube diameter of 15.9mm.  These are also referred to' \
                 ' as T16.'
+    PAR = 'Light is a 240V parabolic aluminised reflector lamp.'
     T5_or_T8_circular = u'A double-capped circular fluorescent Lamp with a' \
                         ' typical tube diameter of 16mm or 29mm as defined by' \
                         ' AS/NZS 4782.1 Double-capped fluorescent lamps – ' \
@@ -168,7 +169,7 @@ class ESS_HEER_existing_lamp_length(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the length of the lamp, in millimetres?'
+    label = 'What is the length of the existing lamp, in millimetres?'
 
 
 class ESS_HEER_number_of_existing_lamps(Variable):
@@ -198,6 +199,13 @@ class ESS_HEER_lighting_new_lamp_light_output(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'What is the light output of the new lamp?'
+
+
+class ESS_HEER_new_lamp_length(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the length of the new lamp, in millimetres?'
 
 
 class ESS_HEER_downward_light_output(Variable):

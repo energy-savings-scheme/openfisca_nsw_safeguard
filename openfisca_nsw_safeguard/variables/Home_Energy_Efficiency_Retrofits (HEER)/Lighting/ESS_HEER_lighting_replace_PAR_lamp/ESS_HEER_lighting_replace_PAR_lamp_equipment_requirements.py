@@ -1,10 +1,12 @@
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
+from openfisca_core.variables import Variable
+from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
+from openfisca_nsw_base.entities import Building
+
+import numpy as np
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_new_end_user_equipment_is_eligible(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_new_end_user_equipment_is_eligible(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -17,12 +19,13 @@ class ESS_HEER_lighting_replace_halogen_floodlight_new_end_user_equipment_is_eli
     def formula(buildings, period, parameters):
         existing_lamp_type = buildings('ESS_HEER_lighting_existing_lamp_type', period)
         EquipmentClassStatus = existing_lamp_type.possible_values  # imports functionality of Table A9.1 and Table A9.3 to define existing lamp type
+        is_LED_lamp_only_240V_self_ballasted = (existing_lamp_type == EquipmentClassStatus.LED_lamp_only_240V_self_ballasted)
         is_CFLi = (existing_lamp_type == EquipmentClassStatus.CFLi)
         is_LED_luminaire_floodlight = (existing_lamp_type == EquipmentClassStatus.LED_luminaire_floodlight)
-        return (is_CFLi + is_LED_luminaire_floodlight)
+        return is_LED_lamp_only_240V_self_ballasted + is_CFLi + is_LED_luminaire_floodlight
 
 
-class meets_A9_4_requirements(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_meets_A9_4_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +33,7 @@ class meets_A9_4_requirements(Variable):
             ' table A9.4, as required by Equipment Requirement 2.'
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_minimum_lamp_life(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_minimum_lamp_life(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -40,15 +43,15 @@ class ESS_HEER_lighting_replace_halogen_floodlight_minimum_lamp_life(Variable):
 
     def formula(buildings, period, parameters):
         existing_lamp_type = buildings('ESS_HEER_lighting_existing_lamp_type', period)
-        EquipmentClassStatus = existing_lamp_type.possible_values  # imports functionality of Table A9.1 and Table A9.3 to define existing lamp type
         is_CFLi = (existing_lamp_type == EquipmentClassStatus.CFLi)
+        is_LED_lamp_only_240V_self_ballasted = (existing_lamp_type == EquipmentClassStatus.LED_lamp_only_240V_self_ballasted)
         is_LED_luminaire_floodlight = (existing_lamp_type == EquipmentClassStatus.LED_luminaire_floodlight)
         new_lamp_life = buildings('ESS_HEER_new_lamp_life', period)
-        condition_new_lamp_life = new_lamp_life >= 10000 # need to rewrite as parameter
-        return (is_CFLi * condition_new_lamp_life) + is_LED_luminaire_floodlight
+        condition_new_lamp_life = new_lamp_life >= 10000
+        return (is_CFLi * condition_new_lamp_life) + is_LED_lamp_only_240V_self_ballasted + is_LED_luminaire_floodlight
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_light_beam_angles_are_consistent(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_light_beam_angles_are_consistent(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -63,19 +66,25 @@ class ESS_HEER_lighting_replace_halogen_floodlight_light_beam_angles_are_consist
         return light_beam_angles_are_consistent
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_meets_equipment_requirements(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Does the Implementation satisfy the Equipment Requirements detailed in' \
-            ' Activity Definition E2?'
+            ' Activity Definition E3?'
 
     def formula(buildings, period, parameters):
-        end_user_equipment_is_eligible = buildings('ESS_HEER_lighting_replace_halogen_floodlight_new_end_user_equipment_is_eligible', period)
-        has_minimum_lamp_life = buildings('ESS_HEER_lighting_replace_halogen_floodlight_minimum_lamp_life', period)
-        light_beams_are_consistent = buildings('ESS_HEER_lighting_replace_halogen_floodlight_light_beam_angles_are_consistent', period)
-        return (
-                end_user_equipment_is_eligible *
-                has_minimum_lamp_life *
-                light_beams_are_consistent
-                )
+        new_equipment_is_eligible = buildings(
+        'ESS_HEER_lighting_replace_PAR_lamp_new_end_user_equipment_is_eligible', period)
+        meets_A9_4_requirements = buildings(
+        'ESS_HEER_lighting_replace_PAR_lamp_meets_A9_4_requirements', period)
+        has_minimum_lamp_life = buildings(
+        'ESS_HEER_lighting_replace_PAR_lamp_minimum_lamp_life', period)
+        light_beam_angles_are_consistent = buildings(
+        'ESS_HEER_lighting_replace_PAR_lamp_light_beam_angles_are_consistent', period)
+        return(
+        new_equipment_is_eligible *
+        meets_A9_4_requirements *
+        has_minimum_lamp_life *
+        light_beam_angles_are_consistent
+        )

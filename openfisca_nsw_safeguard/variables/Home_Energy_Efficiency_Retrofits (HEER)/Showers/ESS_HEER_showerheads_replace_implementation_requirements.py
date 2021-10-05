@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class E6_is_installed_by_licensed_plumber(Variable):
+class ESS_HEER_showerheads_replace_is_installed_by_licensed_plumber(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -15,7 +15,7 @@ class E6_is_installed_by_licensed_plumber(Variable):
             ' Plumbing Code of Australia.'
 
 
-class only_one_showerhead_is_replaced(Variable):
+class ESS_HEER_showerheads_replace_only_one_showerhead_is_replaced(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,9 +23,25 @@ class only_one_showerhead_is_replaced(Variable):
             ' prescribed by Implementation Requirement 2.'
 
 
-class showerhead_is_compatible_with_heating_system(Variable):
+class ESS_HEER_showerheads_replace_showerhead_is_compatible_with_heating_system(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Asks whether the showerhead is compatible with the installed' \
             ' water heating system.'
+
+
+class ESS_HEER_showerheads_replace_meets_implementation_requirements(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Asks whether the Implementation meets the Implementation Requirements' \
+            ' in Activity Definition E6.'
+
+    def formula(buildings, period, parameters):
+        installed_by_licensed_plumber = buildings(
+        'ESS_HEER_showerheads_replace_is_installed_by_licensed_plumber', period)
+        only_one_showerhead_replaced = buildings(
+        'ESS_HEER_showerheads_replace_only_one_showerhead_is_replaced', period)
+        is_compatible_with_heating_system = buildings(
+        'ESS_HEER_showerheads_replace_showerhead_is_compatible_with_heating_system', period)

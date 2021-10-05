@@ -1,0 +1,32 @@
+- name: Test electricity savings for Activity Definition E6 (replace showerheads)
+  period: 2020
+  input:
+    ESS_HEER_modify_door_draught_proofing_new_equipment_is_door_bottom_sealing_product:
+                                                                                        [
+                                                                                          True,
+                                                                                        ]
+    ESS_HEER_modify_door_draught_proofing_new_equipment_is_door_perimeter_weather_stripping_product:
+                                                                                                [
+                                                                                                  False,
+                                                                                                ]
+    ESS_HEER_modify_door_draught_proofing_new_equipment_is_fit_for_purpose:
+                                                                            [
+                                                                              True,
+                                                                            ]
+    ESS_HEER_modify_door_draught_proofing_sealing_surface_material_is_eligible:
+                                                                                [
+                                                                                  True,
+                                                                                ]
+    ESS_HEER_modify_door_draught_proofing_new_equipment_impairs_door_operation:
+                                                                                [
+                                                                                  False,
+                                                                                ]
+    ESS_HEER_new_product_warranty_length:
+                                          [
+                                            10,
+                                          ]
+  output:
+    ESS_HEER_modify_door_draught_proofing_meets_equipment_requirements:
+                                                                        [
+                                                                          True,
+                                                                        ]

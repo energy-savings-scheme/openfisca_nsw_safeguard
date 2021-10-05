@@ -29,11 +29,11 @@ class ESS__HEER_activity_is_eligible(Variable):
         minimum_contribution_is_paid_or_exempt = buildings(
         'ESS__HEER_purchaser_has_paid_minimum_contribution_or_is_exempt', period)
         is_eligible = (
-          site_is_residential_or_small_business * 
+          site_is_residential_or_small_business *
           site_assessment_conducted_before_implementation_date *
-          activity_eligibility_requirements_are_met * 
-          products_meet_equipment_requirements * 
-          implementation_meets_implementation_requirements * 
+          activity_eligibility_requirements_are_met *
+          products_meet_equipment_requirements *
+          implementation_meets_implementation_requirements *
           minimum_contribution_is_paid_or_exempt
         )
         return is_eligible
@@ -49,6 +49,15 @@ class ESS__HEER_site_is_residential_or_small_business(Variable):
         'alias': "HEER Implementation is at Residential or Small Business Site",
     }
     # need to build building type enum and link it to this
+    def formula(buildings, period, parameters):
+        site_type = buildings('ESS_site_type', period)
+        ESS_SiteType = site_type.possible_values
+        is_residential = (site_type == ESS_SiteType.residential)
+        is_small_business = (site_type == ESS_SiteType.small_business)
+        return(
+        is_residential *
+        is_small_business
+        )
 
 
 class ESS__HEER_site_assessment_conducted_before_implementation_date(Variable):

@@ -1,0 +1,36 @@
+description: Table F3.1 - baseline EER values.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+EER_baseline:
+  less_than_19_05_kW:
+    values:
+      2021-04-01:
+        value: 3.21
+  19_05_kW_to_39_50_kW:
+    values:
+      2021-04-01:
+        value: 3.18
+  39_50_kW_to_70_kW:
+    values:
+      2021-04-01:
+        value: 3.20
+  more_than_70_kW:
+    values:
+      2021-04-01:
+        value: 3.18
+hours:
+  less_than_19_05_kW:
+    values:
+      2021-04-01:
+        value: 5694
+  19_05_kW_to_39_50_kW:
+    values:
+      2021-04-01:
+        value: 5694
+  39_50_kW_to_70_kW:
+    values:
+      2021-04-01:
+        value: 5694
+  more_than_70_kW:
+    values:
+      2021-04-01:
+        value: 5694

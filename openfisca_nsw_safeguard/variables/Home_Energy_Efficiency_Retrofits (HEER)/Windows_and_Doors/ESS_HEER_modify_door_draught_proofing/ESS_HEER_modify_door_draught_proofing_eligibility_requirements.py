@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class ESS_HEER_modify_door_draught_proofing_doors_have_gaps_between_door_and_frame(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_doors_have_gaps_between_door_and_frame(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class ESS_HEER_modify_door_draught_proofing_doors_have_gaps_between_door_and_fra
             ' Energy Savings Scheme Rule 2020.'  # IPART to define what this means and how to measure this
 
 
-class ESS_HEER_modify_door_draught_proofing_door_is_external(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_door_is_external(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class ESS_HEER_modify_door_draught_proofing_door_is_external(Variable):
             ' Equipment Requirement 1 of Energy Savings Scheme Rule 2020.'
 
 
-class ESS_HEER_modify_door_draught_proofing_meets_eligibility_requirements(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -33,8 +33,8 @@ class ESS_HEER_modify_door_draught_proofing_meets_eligibility_requirements(Varia
 
     def formula(buildings, period, parameters):
         has_gaps_between_door_frame = buildings(
-        'ESS_HEER_modify_door_draught_proofing_doors_have_gaps_between_door_and_frame', period)
+        'ESS_HEER_modify_external_door_draught_proofing_doors_have_gaps_between_door_and_frame', period)
         is_external_door = buildings(
-        'ESS_HEER_modify_door_draught_proofing_door_is_external', period)
+        'ESS_HEER_modify_external_door_draught_proofing_door_is_external', period)
         return (has_gaps_between_door_frame *
                 is_external_door)

@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class ESS_HEER_modify_door_draught_proofing_new_equipment_is_door_bottom_sealing_product(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_new_equipment_is_door_bottom_sealing_product(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -14,7 +14,7 @@ class ESS_HEER_modify_door_draught_proofing_new_equipment_is_door_bottom_sealing
             ' product.'
 
 
-class ESS_HEER_modify_door_draught_proofing_new_equipment_is_door_perimeter_weather_stripping_product(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_new_equipment_is_door_perimeter_weather_stripping_product(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -22,7 +22,7 @@ class ESS_HEER_modify_door_draught_proofing_new_equipment_is_door_perimeter_weat
             ' product.'
 
 
-class ESS_HEER_modify_door_draught_proofing_new_equipment_is_eligible_product(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_new_equipment_is_eligible_product(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -32,13 +32,13 @@ class ESS_HEER_modify_door_draught_proofing_new_equipment_is_eligible_product(Va
 
     def formula(buildings, period, parameters):
         door_bottom_sealing_product = buildings(
-        'ESS_HEER_modify_door_draught_proofing_new_equipment_is_door_bottom_sealing_product', period)
+        'ESS_HEER_modify_external_door_draught_proofing_new_equipment_is_door_bottom_sealing_product', period)
         door_perimeter_weather_sealing_product = buildings(
-        'ESS_HEER_modify_door_draught_proofing_new_equipment_is_door_perimeter_weather_stripping_product', period)
+        'ESS_HEER_modify_external_door_draught_proofing_new_equipment_is_door_perimeter_weather_stripping_product', period)
         return door_bottom_sealing_product + door_perimeter_weather_sealing_product
 
 
-class ESS_HEER_modify_door_draught_proofing_new_equipment_is_fit_for_purpose(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_new_equipment_is_fit_for_purpose(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -46,7 +46,7 @@ class ESS_HEER_modify_door_draught_proofing_new_equipment_is_fit_for_purpose(Var
             ' Equipment Requirement 2.'  # IPART to define what this means
 
 
-class ESS_HEER_modify_door_draught_proofing_sealing_surface_material_is_eligible(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_sealing_surface_material_is_eligible(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -56,14 +56,14 @@ class ESS_HEER_modify_door_draught_proofing_sealing_surface_material_is_eligible
             ' seal or similar. As prescribed by Equipment Requirement 3.'
 
 
-class ESS_HEER_modify_door_draught_proofing_new_equipment_impairs_door_operation(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_new_equipment_impairs_door_operation(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Asks whether the product is fit for purpose.'  # IPART to define what this means
 
 
-class ESS_HEER_modify_door_draught_proofing_minimum_warranty_length(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_minimum_warranty_length(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -74,7 +74,7 @@ class ESS_HEER_modify_door_draught_proofing_minimum_warranty_length(Variable):
         warranty_length = buildings('ESS_HEER_new_product_warranty_length', period)
         return warranty_length >= 2
 
-class ESS_HEER_modify_door_draught_proofing_meets_equipment_requirements(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -83,13 +83,13 @@ class ESS_HEER_modify_door_draught_proofing_meets_equipment_requirements(Variabl
 
     def formula(buildings, period, parameters):
         new_product_is_eligible = buildings(
-        'ESS_HEER_modify_door_draught_proofing_new_equipment_is_eligible_product', period)
+        'ESS_HEER_modify_external_door_draught_proofing_new_equipment_is_eligible_product', period)
         new_product_is_fit_for_purpose = buildings(
-        'ESS_HEER_modify_door_draught_proofing_new_equipment_is_fit_for_purpose', period)
+        'ESS_HEER_modify_external_door_draught_proofing_new_equipment_is_fit_for_purpose', period)
         impairs_door_operation = buildings(
-        'ESS_HEER_modify_door_draught_proofing_new_equipment_impairs_door_operation', period)
+        'ESS_HEER_modify_external_door_draught_proofing_new_equipment_impairs_door_operation', period)
         has_minimum_warranty_length = buildings(
-        'ESS_HEER_modify_door_draught_proofing_minimum_warranty_length', period)
+        'ESS_HEER_modify_external_door_draught_proofing_minimum_warranty_length', period)
         return (new_product_is_eligible *
                 new_product_is_fit_for_purpose *
                 np.logical_not(impairs_door_operation) *

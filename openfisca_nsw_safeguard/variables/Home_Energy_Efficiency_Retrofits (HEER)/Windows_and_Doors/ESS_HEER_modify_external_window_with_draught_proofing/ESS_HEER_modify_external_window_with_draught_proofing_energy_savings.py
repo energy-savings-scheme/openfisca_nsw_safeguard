@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 import numpy as np
 
-class ESS_HEER_windows_modify_with_draught_proofing_residential_electricity_savings_factor(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_residential_electricity_savings_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class ESS_HEER_windows_modify_with_draught_proofing_residential_electricity_savi
         return residential_electricity_savings_factor * window_length
 
 
-class ESS_HEER_windows_modify_with_draught_proofing_residential_gas_savings_factor(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_residential_gas_savings_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

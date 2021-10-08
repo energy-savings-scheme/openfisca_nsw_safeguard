@@ -1,0 +1,104 @@
+description: Table F2.1 - baseline IPLV values.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+IPLV:
+  air_cooled:
+    less_than_350_kWR: 
+      values:
+        2021-04-01:
+          value: 0
+    350_to_499_kWR:
+      values:
+        2021-04-01:
+          value: 4.6
+    500_to_699_kWR:
+      values:
+        2021-04-01:
+          value: 4.7
+    700_to_999_kWR:
+      values:
+        2021-04-01:
+          value: 4.7
+    1000_to_1499_kWR:
+      values:
+        2021-04-01:
+          value: 4.7
+    greater_than_1500_kWR:
+      values:
+        2021-04-01:
+          value: 5.1
+  water_cooled:
+    less_than_350_kWR: 
+      values:
+        2021-04-01:
+          value: 0
+    350_to_499_kWR:
+      values:
+        2021-04-01:
+          value: 9.0
+    500_to_699_kWR:
+      values:
+        2021-04-01:
+          value: 8.6
+    700_to_999_kWR:
+      values:
+        2021-04-01:
+          value: 9.7
+    1000_to_1499_kWR:
+      values:
+        2021-04-01:
+          value: 9.0
+    greater_than_1500_kWR:
+      values:
+        2021-04-01:
+          value: 9.9
+equivalent_full_load_hours:
+  air_cooled:
+    less_than_350_kWR: 
+      values:
+        2021-04-01:
+          value: 0
+    350_to_499_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+    500_to_699_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+    700_to_999_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+    1000_to_1499_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+    greater_than_1500_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+  water_cooled:
+    less_than_350_kWR: 
+      values:
+        2021-04-01:
+          value: 0
+    350_to_499_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+    500_to_699_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+    700_to_999_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+    1000_to_1499_kWR:
+      values:
+        2021-04-01:
+          value: 2323
+    greater_than_1500_kWR:
+      values:
+        2021-04-01:
+          value: 2323

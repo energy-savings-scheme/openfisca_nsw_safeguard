@@ -1,0 +1,42 @@
+from openfisca_core.variables import Variable
+from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
+from openfisca_nsw_base.entities import Building
+
+
+class F4_product_is_installed(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the product installed?'
+    # probably should link in w. 5.3 requirements, if needed. What does it mean \
+    # to be installed?
+
+class F4_activity_is_performed_by_qualified_licence_holder(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity performed by a qualified licence holder?'
+    # what licence? this is vague and unclear
+
+
+class F4_activity_is_supervised_by_qualified_licence_holder(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity supervised by a qualified licence holder?'
+    # what licence? this is vague and unclear
+
+
+class F4_meets_implementation_requirements(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the implementation meet all of the Implementation' \
+            ' Requirements defined in Activity Definition F4?'
+
+    def formula(buildings, period, parameters):
+        is_installed = buildings('F4_product_is_installed', period)
+        performed_by_licence_holder = buildings('activity_is_performed_by_qualified_licence_holder', period)
+        supervised_by_licence_holder = buildings('activity_is_supervised_by_qualified_licence_holder', period)
+        return is_installed * (performed_by_licence_holder + supervised_by_licence_holder)

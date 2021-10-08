@@ -1,7 +1,7 @@
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
+from openfisca_core.variables import Variable
+from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
+from openfisca_nsw_base.entities import Building
 
 
 class ESS_HEER_install_external_blind_new_equipment_is_external_shading_device(Variable):

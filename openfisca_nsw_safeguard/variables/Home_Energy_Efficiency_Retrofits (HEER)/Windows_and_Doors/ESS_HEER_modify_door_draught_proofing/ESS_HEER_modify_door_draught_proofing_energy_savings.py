@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class ESS_HEER_modify_door_draught_proofing_residential_electricity_savings_factor(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_residential_electricity_savings_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -50,7 +50,7 @@ class ESS_HEER_modify_door_draught_proofing_residential_electricity_savings_fact
         return residential_electricity_savings_factor
 
 
-class ESS_HEER_modify_door_draught_proofing_residential_gas_savings_factor(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_residential_gas_savings_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -94,7 +94,7 @@ class ESS_HEER_modify_door_draught_proofing_residential_gas_savings_factor(Varia
         return residential_gas_savings_factor
 
 
-class ESS_HEER_modify_door_draught_proofing_small_business_electricity_savings_factor(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_small_business_electricity_savings_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -139,7 +139,7 @@ class ESS_HEER_modify_door_draught_proofing_small_business_electricity_savings_f
         return small_business_electricity_savings_factor
 
 
-class ESS_HEER_modify_door_draught_proofing_small_business_gas_savings_factor(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_small_business_gas_savings_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

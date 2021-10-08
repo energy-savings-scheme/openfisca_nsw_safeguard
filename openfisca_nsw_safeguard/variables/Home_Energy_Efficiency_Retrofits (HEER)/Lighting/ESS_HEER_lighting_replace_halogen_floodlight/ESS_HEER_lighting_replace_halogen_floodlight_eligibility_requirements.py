@@ -1,7 +1,7 @@
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
+from openfisca_core.variables import Variable
+from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
+from openfisca_nsw_base.entities import Building
 
 
 class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_linear_halogen_floodlight(Variable):

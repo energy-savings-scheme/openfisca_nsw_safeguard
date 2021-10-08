@@ -36,7 +36,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_with_draught_proofing_residential_electricity_savings_factor:
+    ESS_HEER_modify_external_window_with_draught_proofing_residential_electricity_savings_factor:
       [
         0,
         0,
@@ -85,7 +85,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_with_draught_proofing_residential_electricity_savings_factor:
+    ESS_HEER_modify_external_window_with_draught_proofing_residential_electricity_savings_factor:
       [
         0,
         0.01,
@@ -134,7 +134,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_with_draught_proofing_residential_electricity_savings_factor:
+    ESS_HEER_modify_external_window_with_draught_proofing_residential_electricity_savings_factor:
       [
         0,
         0.01,
@@ -183,7 +183,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_with_draught_proofing_residential_gas_savings_factor:
+    ESS_HEER_modify_external_window_with_draught_proofing_residential_gas_savings_factor:
       [
         0,
         0,
@@ -232,7 +232,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_with_draught_proofing_residential_gas_savings_factor:
+    ESS_HEER_modify_external_window_with_draught_proofing_residential_gas_savings_factor:
       [
         0,
         0.01,
@@ -281,7 +281,7 @@
         BCA_Climate_Zone_8,
         ]
   output:
-    ESS_HEER_windows_modify_with_draught_proofing_residential_gas_savings_factor:
+    ESS_HEER_modify_external_window_with_draught_proofing_residential_gas_savings_factor:
       [
         0,
         0.01,

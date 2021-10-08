@@ -14,7 +14,6 @@ class ESS_HEER_lighting_replace_halogen_downlight_existing_end_user_equipment_is
             ' only - 240V Self Ballasted, as required in Equipment Requirement' \
             ' 1 in Activity Definition E1, and defined in Table A9.1 or A9.3.' \
 
-
     def formula(buildings, period, parameters):
         existing_lamp_type = buildings('ESS_HEER_lighting_existing_lamp_type', period)
         EquipmentClassStatus = existing_lamp_type.possible_values  # imports functionality of Table A9.1 and Table A9.3 to define existing lamp type

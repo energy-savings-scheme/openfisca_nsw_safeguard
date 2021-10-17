@@ -1,0 +1,36 @@
+- name: Test eligibility - Eligibility Requirements - for Activity Definition F15.
+  period: 2020
+  input:
+    ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_is_installed_on_single_gas_fired_steam_boiler:
+      [
+        True,
+      ]
+    ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_is_installed_on_multiple_gas_fired_steam_boilers:
+      [
+        False,
+      ]
+    ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_replaces_existing_end_user_equipment:
+      [
+        False,
+      ]
+    ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_has_existing_sensor_based_blowdown_control:
+      [
+        True,
+      ]
+    ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_sensor_based_blowdown_control_installed_at_commissioning:
+      [
+        True,
+      ]
+    ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_fluid_stream_below_40C_available_at_all_times:
+      [
+        True,
+      ]
+    BCA_building_class:
+      [
+        BCA_Class_8,
+      ]
+  output:
+    ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_meets_eligibility_requirements:
+      [
+        True,
+        ]

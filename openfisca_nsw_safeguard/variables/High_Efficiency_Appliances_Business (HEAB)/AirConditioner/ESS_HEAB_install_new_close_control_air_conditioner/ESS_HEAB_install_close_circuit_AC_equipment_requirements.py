@@ -4,14 +4,14 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class F3_is_close_control_air_conditioner(Variable):
+class ESS_HEAB_install_close_circuit_AC_is_close_control_air_conditioner(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the product a close control air conditioner?'
 
 
-class F3_is_registered_in_GEMS(Variable):
+class ESS_HEAB_install_close_circuit_AC_is_registered_in_GEMS(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +21,7 @@ class F3_is_registered_in_GEMS(Variable):
     # dropdown from said Registry in the form of an Enum?
 
 
-class F3_complies_with_GEMS_2012_CCAC(Variable):
+class ESS_HEAB_install_close_circuit_AC_complies_with_GEMS_2012_CCAC(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +30,7 @@ class F3_complies_with_GEMS_2012_CCAC(Variable):
     # what does complying with this Determination mean?
 
 
-class F3_EER_20_percent_higher_than_baseline(Variable):
+class ESS_HEAB_install_close_circuit_AC_EER_20_percent_higher_than_baseline(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -50,21 +50,21 @@ class F3_EER_20_percent_higher_than_baseline(Variable):
                            '19_05_kW_to_39_50_kW',
                            '39_50_kW_to_70_kW',
                            'more_than_70_kW'])
-        baseline = parameters(period).HEAB.F3.F3_1[capacity]
+        baseline = parameters(period).ESS.HEAB.table_F3_1.EER_baseline[capacity]
         percentage_increase = ((EER - baseline) * 100)  # i'm sure there's a more efficient way to write this
         return percentage_increase > 20
 
 
-class F3_meets_equipment_requirements(Variable):
+class ESS_HEAB_install_close_circuit_AC_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Does the equipment meet the Equipment Requirements of Activity' \
-            ' Definition F4?'
+            ' Definition F3?'
 
     def formula(buildings, period, parameters):
-        is_CCAC = buildings('F3_is_close_control_air_conditioner', period)
-        registered_in_GEMS = buildings('F3_is_registered_in_GEMS', period)
-        complies_with_GEMS_2012 = buildings('F3_complies_with_GEMS_2012_CCAC', period)
-        EER_higher_than_baseline = buildings('F3_EER_20_percent_higher_than_baseline', period)
+        is_CCAC = buildings('ESS_HEAB_install_close_circuit_AC_is_close_control_air_conditioner', period)
+        registered_in_GEMS = buildings('ESS_HEAB_install_close_circuit_AC_is_registered_in_GEMS', period)
+        complies_with_GEMS_2012 = buildings('ESS_HEAB_install_close_circuit_AC_complies_with_GEMS_2012_CCAC', period)
+        EER_higher_than_baseline = buildings('ESS_HEAB_install_close_circuit_AC_EER_20_percent_higher_than_baseline', period)
         return (is_CCAC * registered_in_GEMS * complies_with_GEMS_2012 * EER_higher_than_baseline)

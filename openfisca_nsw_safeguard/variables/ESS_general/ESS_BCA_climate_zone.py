@@ -27,3 +27,81 @@ class ESS__BCA_climate_zone(Variable):
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Energy Savings Scheme - General'
         }
+
+
+class BCABuildingClass(Enum):
+    BCA_Class_1a = 'A single dwelling, i.e. a detached house.'
+    BCA_Class_1b = 'A boarding house, guest house, hostel or the like.'
+    BCA_Class_2 = 'A building containing two or more sole-occupancy units, with' \
+                  ' each being a separate dwelling.'
+    BCA_Class_3 = 'A residential building, which is a common place for long term' \
+                  ' or transient living for a number of unrelated persons. '
+    BCA_Class_4 = 'A dwelling in a Class 5, 6, 7, 8 or 9 building, which is the' \
+                  ' only dwelling in the building.'
+    BCA_Class_5 = 'An office building used for professional or commercial' \
+                  ' purposes, excluding buildings in Class 6, 7, 8 or 9.'
+    BCA_Class_6_shop = 'A shop, shopping centre or other building used for the' \
+                       ' sale of good by retail,' \
+                       ' or supply of services direct to the public.'
+    BCA_Class_6_cafe_or_rest = 'A cafe or restaurant.'
+    BCA_Class_7a = 'A building which is a car park.'
+    BCA_Class_7b = 'A building which is for storage or display of goods or' \
+                   ' produce for sale by wholesale.'
+    BCA_Class_8 = 'A laboratory, or building in which a handicraft or the process' \
+                  ' for for the production of godd or produce is carried on for' \
+                  ' trade, sale or gain.'
+    BCA_Class_9a_clinic = 'A clinic, including those parts of the' \
+                          ' building set aside as a laboratory.'
+    BCA_Class_9a_hospital = 'A clinic, including those parts of the' \
+                            ' building set aside as a laboratory.'
+    BCA_Class_9b_schools = 'A school.'
+    BCA_Class_9b_theatres = 'An assembly building, including a trade workshop, laboratory' \
+                            ' or the like, in a primary or secondary school - but excluding' \
+                            ' other parts of the building that are of another class.'
+    BCA_Class_10a = 'A private garage, carport, shed or the like.'
+    BCA_Class_10b = 'A structure being a fence, mast, antenna, retaining or' \
+                    ' free standing wall, swimming pool or the like.'
+    BCA_Class_10c = 'A private bushfire shelter.'
+
+
+class BCA_building_class(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = BCABuildingClass
+    default_value = BCABuildingClass.BCA_Class_1a
+    definition_period = ETERNITY
+    label = 'What is the building class for the implementation?'
+
+
+class ESS_is_not_residential_building(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the existing end user equipment installed at a BCA Class 2, 3,' \
+            ' 5, 6, 7, 8, 9 or 10 building - i.e, not a residential building?'
+
+    def formula(buildings, period, parameters):
+        BCA_building_class = buildings('BCA_building_class', period)
+        BCABuildingClass = BCA_building_class.possible_values
+        in_BCA_Class_2 = (BCA_building_class == BCABuildingClass.BCA_Class_2)
+        in_BCA_Class_3 = (BCA_building_class == BCABuildingClass.BCA_Class_3)
+        in_BCA_Class_5 = (BCA_building_class == BCABuildingClass.BCA_Class_5)
+        in_BCA_Class_6_shop = (BCA_building_class == BCABuildingClass.BCA_Class_6_shop)
+        in_BCA_Class_6_cafe_or_rest = (BCA_building_class == BCABuildingClass.BCA_Class_6_cafe_or_rest)
+        in_BCA_Class_7a = (BCA_building_class == BCABuildingClass.BCA_Class_7a)
+        in_BCA_Class_7b = (BCA_building_class == BCABuildingClass.BCA_Class_7b)
+        in_BCA_Class_8 = (BCA_building_class == BCABuildingClass.BCA_Class_8)
+        in_BCA_Class_9a_clinic = (BCA_building_class == BCABuildingClass.BCA_Class_9a_clinic)
+        in_BCA_Class_9a_hospital = (BCA_building_class == BCABuildingClass.BCA_Class_9a_hospital)
+        in_BCA_Class_9b_schools = (BCA_building_class == BCABuildingClass.BCA_Class_9b_schools)
+        in_BCA_Class_9b_theatres = (BCA_building_class == BCABuildingClass.BCA_Class_9b_theatres)
+        in_BCA_Class_10a = (BCA_building_class == BCABuildingClass.BCA_Class_10a)
+        in_BCA_Class_10b = (BCA_building_class == BCABuildingClass.BCA_Class_10b)
+        in_BCA_Class_10c = (BCA_building_class == BCABuildingClass.BCA_Class_10c)
+        return (in_BCA_Class_2 + in_BCA_Class_3 + in_BCA_Class_5 + in_BCA_Class_6_shop
+                + in_BCA_Class_6_cafe_or_rest + in_BCA_Class_7a + in_BCA_Class_7b
+                + in_BCA_Class_8 + in_BCA_Class_9a_clinic + in_BCA_Class_9a_hospital
+                + in_BCA_Class_9b_schools + in_BCA_Class_9b_theatres + in_BCA_Class_10a
+                + in_BCA_Class_10b + in_BCA_Class_10c)
+        # in retrospect, probably cleaner to just code in the residential enum responses \
+        # and then use a not variable?

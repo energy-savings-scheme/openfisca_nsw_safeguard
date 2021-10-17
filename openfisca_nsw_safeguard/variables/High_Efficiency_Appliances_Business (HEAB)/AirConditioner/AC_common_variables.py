@@ -31,3 +31,13 @@ class new_AC_heating_capacity(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'What is the heating capacity for the new Air Conditioner?'
+
+
+class new_AC_EER(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the EER for the new AC?' 
+    # to do - check to see how EER is calced \
+    # across CC ACs and regular, <65kW ACs
+ 

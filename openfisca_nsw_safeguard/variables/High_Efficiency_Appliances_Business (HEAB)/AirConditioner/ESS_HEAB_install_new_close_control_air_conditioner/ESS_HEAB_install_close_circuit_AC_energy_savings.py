@@ -4,7 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class F3_electricity_savings(Variable):
+class ESS_HEAB_install_close_circuit_AC_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -28,26 +28,12 @@ class F3_electricity_savings(Variable):
                                 'more_than_70_kW'
                            ]
                          )
-        baseline = parameters(period).HEAB.F3.F3_1[capacity]
-        EFLH = parameters(period).HEAB.F3.hours
-        lifetime = parameters(period).HEAB.F3.lifetime
+        baseline = parameters(period).ESS.HEAB.table_F3_1.EER_baseline[capacity]
+        EFLH = parameters(period).ESS.HEAB.table_F3_1.EER_baseline[capacity]
+        lifetime = parameters(period).ESS.HEAB.table_F3_2
         MWh_conversion = parameters(period).general_ESS.unit_conversion_factors['kWh_to_MWh']
         energy_savings = ((((cooling_capacity / baseline) - (cooling_capacity / EER))
                          * EFLH * lifetime) / MWh_conversion)
         return energy_savings
 
 
-class F3_CCAC_cooling_capacity(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the cooling capacity for the new close control air' \
-            ' conditioner, as determined by AS4965.1?'
-
-
-class F3_EER(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the EER for the new close control air conditioner, as' \
-            ' determined by AS4965.1?'

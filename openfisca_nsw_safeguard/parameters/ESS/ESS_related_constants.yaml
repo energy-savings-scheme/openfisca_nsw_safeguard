@@ -14,3 +14,12 @@ kWh_to_MWh:
   values:
     2021-01-01:
       value: 0.001
+
+
+days_in_year:
+  description: number of days in a year (averaged across leap years)
+  metadata:
+    unit: days
+  values:
+    2021-01-01:
+      value: 365.24

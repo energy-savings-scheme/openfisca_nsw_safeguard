@@ -4,19 +4,19 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class F3_CCAC_is_installed(Variable):
+class ESS_HEAB_install_close_circuit_AC_CCAC_is_installed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Has the close control air conditioner been installed?'  # note no definition of what installed means
 
 
-class F3_installation_requirements_are_met(Variable):
+class ESS_HEAB_install_close_circuit_AC_installation_requirements_are_met(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Asks whether all of the installation requirements for Activity' \
-            ' Definition F2 are met.'
+            ' Definition F3 are met.'
 
     def formula(buildings, period, parameters):
         CCAC_is_installed = buildings('F3_CCAC_is_installed', period)

@@ -1,0 +1,22 @@
+description: Values from Table F8.1 - Default Efficiency Improvement for replacing
+    existing End-User Equipment.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+default_efficiency_improvement:
+  boiler_installed_pre_1990:
+    burner_more_than_10_years_old:
+      values:
+        2020-01-01:
+          value: 0.064
+    burner_10_or_fewer_years_old:
+      values:
+        2020-01-01:
+          value: 0.053
+  boiler_installed_1990_or_later:
+    burner_more_than_10_years_old:
+      values:
+        2020-01-01:
+          value: 0.059
+    burner_10_or_fewer_years_old:
+      values:
+        2020-01-01:
+          value: 0.048

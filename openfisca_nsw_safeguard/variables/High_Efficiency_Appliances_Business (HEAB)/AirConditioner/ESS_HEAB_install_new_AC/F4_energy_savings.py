@@ -129,7 +129,7 @@ class weather_zone(Variable):
 
 
 class ESS_HEAB_install_new_ACProductClass(Enum):
-    product_class_one = 'Product is in Product Class 1.'
+    product_class_one = 'Product is in AC  Product Class 1.'
     product_class_two = 'Product is in Product Class 2.'
     product_class_three = 'Product is in Product Class 3.'
     product_class_four = 'Product is in Product Class 4.'

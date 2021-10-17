@@ -1,0 +1,15 @@
+description: Table F5.4 - lifetime for installing motor for cooling purposes
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+lifetime:
+  refrigerated_cabinet:
+    values:
+      2021-04-01:
+        value: 4
+  reach_in_freezer:
+    values:
+      2021-04-01:
+        value: 4
+  cool_room:
+    values:
+      2021-04-01:
+        value: 7

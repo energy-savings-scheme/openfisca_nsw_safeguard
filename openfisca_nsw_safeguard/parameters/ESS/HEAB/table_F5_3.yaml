@@ -1,0 +1,29 @@
+description: Table F5.2 - average power variable, dependent on the control system
+    used.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+COP:
+  refrigerated_cabinet:
+    values:
+      2021-04-01:
+        value: 2.8
+  reach_in_freezer:
+    values:
+      2021-04-01:
+        value: 1.8
+  cool_room:
+    values:
+      2021-04-01:
+        value: 2.6
+hours:
+  refrigerated_cabinet:
+    values:
+      2021-04-01:
+        value: 8000
+  reach_in_freezer:
+    values:
+      2021-04-01:
+        value: 8000
+  cool_room:
+    values:
+      2021-04-01:
+        value: 8000

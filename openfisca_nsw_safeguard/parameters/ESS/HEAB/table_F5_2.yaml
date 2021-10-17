@@ -1,0 +1,19 @@
+description: Table F5.2 - average power variable, dependent on the control system
+    used.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+no_control_system:
+  values:
+    2021-04-01:
+      value: 1
+temperature_dependent_speed_control:
+  values:
+    2021-04-01:
+      value: 0.8
+pressure_dependent_speed_control:
+  values:
+    2021-04-01:
+      value: 0.8
+timer_speed_control:
+  values:
+    2021-04-01:
+      value: 0.8

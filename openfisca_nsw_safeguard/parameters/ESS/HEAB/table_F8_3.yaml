@@ -1,0 +1,6 @@
+description: Values from Table F8.3.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+lifetime:
+  values:
+    2021-04-01:
+      value: 10

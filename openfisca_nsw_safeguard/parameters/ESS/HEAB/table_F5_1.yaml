@@ -1,0 +1,22 @@
+description: Table F5.1 - average power variable, dependent on the control system
+    used.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+nominal_input_power:
+  less_than_or_equal_to_34_kW:
+    coefficient_a:
+        values:
+          2020-04-01:
+            value: 1.7692
+    coefficient_b:
+        values:
+          2020-04-01:
+            value: 19.385
+  more_than_34_kW:
+    coefficient_a:
+        values:
+          2020-04-01:
+            value: 1.2698
+    coefficient_b:
+        values:
+          2020-04-01:
+            value: 6.453

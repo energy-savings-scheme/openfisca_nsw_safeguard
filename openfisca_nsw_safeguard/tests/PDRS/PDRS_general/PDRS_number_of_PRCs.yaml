@@ -1,0 +1,95 @@
+- name: test PDRS is Peak Demand Reduction Activity - number of 
+      PRCs created by replacing motors
+  period: 2021
+  absolute_error_margin: 0
+  input:
+    PDRS__postcode: [
+                    2000,
+                    ]
+    PDRS_activity_type: [
+                          replace_motors,
+                        ]
+    Appliance_is_removed: [
+                            True,
+                          ]
+    implementation_is_performed_by_qualified_person: [
+                                                      True,
+                                                      ]
+    motors_rated_output: [
+                          10,
+                          ]
+    PDRS__motors__new_efficiency: [
+                                    50,
+                                    ]
+    PDRS__motors__existing_motor_efficiency:
+                                            [
+                                              10,  
+                                            ]
+    PDRS__motors__firmness_factor: [
+                                    10,
+                                    ]
+  output:
+    PDRS_replace_motors_meets_all_requirements: [
+                                                  True,
+                                                ]
+    PDRS_motors_peak_demand_savings: [
+                                      4800,
+                                      ]
+    PDRS_number_of_peak_demand_reduction_certificates: [
+                                                        4800,
+                                                        ]
+- name: test PDRS is Peak Demand Reduction Activity - number of 
+      PRCs created by installing motors
+  period: 2021
+  absolute_error_margin: 0
+  input:
+    PDRS__postcode: [
+                    2000,
+                    ]
+    PDRS_activity_type: [
+                          install_motors,
+                        ]
+    Appliance_is_installed: [
+                              True,
+                            ]
+    motor_registered_under_GEM: [
+                            True,
+                                ]
+    motor_3_phase_high_efficiency: [
+                                    True,
+                                    ]
+    Appliance_is_removed: [
+                            True,
+                          ]
+    implementation_is_performed_by_qualified_person: [
+                                                      True,
+                                                      ]
+    motors_rated_output: [
+                          10,
+                          ]
+    PDRS__motors__new_efficiency: [
+                                    50,
+                                    ]
+    PDRS__motors__existing_motor_efficiency:
+                                            [
+                                              10,  
+                                            ]
+    PDRS__motors__firmness_factor: [
+                                    10,
+                                    ]
+  output:
+    PDRS_motor_install_meets_implementation_requirements: [
+                                                            True,
+                                                          ]
+    PDRS_motor_install_meets_equipment_requirements: [
+                                                      True,
+                                                      ]
+    PDRS_motor_install_meets_all_requirements: [
+                                                True,
+                                                ]
+    PDRS_motors_peak_demand_savings: [
+                                      4800,
+                                      ]
+    PDRS_number_of_peak_demand_reduction_certificates: [
+                                                        4800,
+                                                        ]

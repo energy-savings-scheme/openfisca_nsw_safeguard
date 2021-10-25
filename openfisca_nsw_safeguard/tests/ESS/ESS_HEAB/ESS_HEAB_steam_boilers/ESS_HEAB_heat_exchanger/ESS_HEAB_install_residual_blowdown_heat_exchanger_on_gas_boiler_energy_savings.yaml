@@ -1,0 +1,16 @@
+- name: Test energy saviongs for Activity Definition F15.
+  period: 2022
+  input:
+    ESS_HEAB_steam_boiler_current_equipment_capacity:
+      [
+        200,
+      ]
+    ESS_HEAB_steam_boiler_new_equipment_operating_pressure:
+      [
+        10,
+      ]
+  output:
+    ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_gas_savings:
+      [
+        13.353744,
+        ]

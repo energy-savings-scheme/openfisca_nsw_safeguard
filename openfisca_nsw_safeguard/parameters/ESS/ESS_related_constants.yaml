@@ -23,3 +23,13 @@ days_in_year:
   values:
     2021-01-01:
       value: 365.24
+
+
+hours_in_year:
+  description: number of days in a year (averaged across leap years)
+  metadata:
+    unit: hours
+  values:
+    2021-01-01:
+      value: 8760
+

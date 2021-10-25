@@ -17,7 +17,7 @@ class RefrigeratorGroup(Enum):
     group_6U = u"Refrigerator is in Group 6U."
     group_7 = u"Refrigerator is in Group 7."
     #  need to put in what activities this is relevant for
-\
+
 class refrigerator_or_freezer_group(Variable):
     value_type = Enum
     entity = Building

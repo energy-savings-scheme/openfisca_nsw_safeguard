@@ -1,0 +1,38 @@
+- name: Test eligibility requirements for proposed Activity Definition F12.
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_gas_fired_steam_boiler: [
+                                                                                                                False
+                                                                                                                ]
+    ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_hot_water_boiler: [
+                                                                                                          False
+                                                                                                          ]
+    ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_water_heater: [
+                                                                                                      True
+                                                                                                      ]
+    BCA_building_class: [
+                        BCA_Class_8
+                        ]
+    ESS_HEAB_steam_boiler_replaces_existing_equipment: [
+                                                        False
+                                                      ]
+    ESS_HEAB_install_economiser_on_gas_boiler_existing_steam_boiler_is_condensing_boiler: [
+                                                                                            False
+                                                                                          ]
+    ESS_HEAB_install_economiser_on_gas_boiler_existing_hot_water_boiler_is_condensing_boiler: [
+                                                                                                False
+                                                                                              ]
+    ESS_HEAB_install_economiser_on_gas_boiler_existing_water_heater_is_condensing_heater: [
+                                                                                            False
+                                                                                          ]
+    ESS_HEAB_install_economiser_on_gas_boiler_is_heating_feedwater_stream: [
+                                                                            False
+                                                                            ]
+    ESS_HEAB_install_economiser_on_gas_boiler_has_heat_rejection_stream: [
+                                                                          True
+                                                                          ]
+  output:
+    ESS_HEAB_install_economiser_on_gas_boiler_meets_eligibility_requirements: [
+                                                                                True
+                                                                              ]

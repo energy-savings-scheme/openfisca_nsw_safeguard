@@ -1,0 +1,16 @@
+description: Values from Table F12.1 - Default Efficiency Improvement for replacing
+    existing End-User Equipment.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+default_efficiency_improvement:
+  steam_boiler:
+    values:
+      2020-01-01:
+        value: 0.041
+  hot_water_boiler:
+    values:
+      2020-01-01:
+        value: 0.030
+  water_heater:
+    values:
+      2020-01-01:
+        value: 0.030

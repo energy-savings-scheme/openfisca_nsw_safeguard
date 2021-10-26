@@ -1,7 +1,9 @@
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
+from openfisca_core.variables import Variable
+from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
+from openfisca_nsw_base.entities import Building
+import numpy as np
+
 
 class ESS_HEAB_steam_boiler_current_equipment_capacity(Variable):
     value_type = float
@@ -57,3 +59,25 @@ class ESS_HEAB_sensor_based_blowdown_control_installed_at_commissioning(Variable
             ' at the time of commissioning the End User Equipment?'
 
 
+class SteamBoilerEquipmentType(Enum):
+    steam_boiler = 'Trim system is installed on a steam boiler.'
+    hot_water_boiler = 'Trim system is installed on a hot water boiler.'
+    water_heater = 'Trim system is installed on a water heater.'
+    condensing_steam_boiler = 'Trim system is installed on a condensing steam boiler.'
+
+
+class ESS_HEAB_steam_boiler_existing_equipment_type(Variable):
+    value_type = Enum
+    possible_values = SteamBoilerEquipmentType
+    default_value = SteamBoilerEquipmentType.steam_boiler
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the type of existing equipment that the trim system is being installed on?'
+
+
+class ESS_HEAB_steam_boiler_exhaust_temperature(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the exhaust temperature of the End User Equipment, while' \
+            ' at high-firing, in degrees C?'

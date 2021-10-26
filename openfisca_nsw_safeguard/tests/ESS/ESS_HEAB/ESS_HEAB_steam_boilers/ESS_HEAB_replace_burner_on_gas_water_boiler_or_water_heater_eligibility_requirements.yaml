@@ -1,0 +1,29 @@
+- name: Test eligibility requirements for proposed Activity Definition F12.
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    BCA_building_class: [
+                        BCA_Class_8
+                        ]
+    ESS_HEAB_existing_end_user_equipment_is_gas_fired_burner: [
+                                                                True
+                                                                ]
+    ESS_HEAB_existing_end_user_equipment_installed_on_gas_fired_steam_boiler: [
+                                                                              False
+                                                                              ]
+    ESS_HEAB_existing_end_user_equipment_installed_on_hot_water_boiler: [
+                                                                         False
+                                                                        ]
+    ESS_HEAB_existing_equipment_installation_date: [
+                                                    2000-02-01,
+                                                    ]
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_in_working_order: [
+                                                                                                      True
+                                                                                                      ]
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_has_air_fuel_ratio: [
+                                                                                                        True
+                                                                                                        ]
+  output:
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_meets_eligibility_requirements: [
+                                                                                                True
+                                                                                                ]

@@ -1,0 +1,26 @@
+- name: Test eligibility requirements for proposed Activity Definition F12.
+  period: 2022
+  absolute_error_margin: 0.0001
+  input:
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_end_user_equipment_is_disconnected_and_removed: [
+                                                                                                                    True
+                                                                                                                    ]
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_disconnection_and_removal_performed_by_qualified_person: [
+                                                                                              True
+                                                                                              ]
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_disconnection_and_removal_supervised_by_qualified_person: [
+                                                                                                              True  
+                                                                                                              ]
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_installed_in_accordance_with_manufacturer_guidelines: [
+                                                                                                                  True
+                                                                                                                  ]
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_installed_in_accordance_with_relevant_standards_and_legislation: [
+                                                                                                                                  True,
+                                                                                                                                  ]
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_installed_in_accordance_with_scheme_administrator_requirements: [
+                                                                                                                                  True,
+                                                                                                                                ]
+  output:
+    ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_meets_implementation_requirements: [
+                                                                                                True
+                                                                                                ]

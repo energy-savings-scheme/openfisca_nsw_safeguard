@@ -1,0 +1,7 @@
+description: Values from Table F11.2 - Load Utilisation Factor for gas fired
+    steam boilers.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+load_utilisation_factor:
+  values:
+    2020-01-01:
+      value: 0.206

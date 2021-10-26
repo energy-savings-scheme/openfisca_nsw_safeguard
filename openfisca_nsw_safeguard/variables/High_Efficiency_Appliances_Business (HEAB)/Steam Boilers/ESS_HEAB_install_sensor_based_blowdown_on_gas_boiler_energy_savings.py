@@ -4,8 +4,6 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 import numpy as np
 
-import numpy as np
-
 class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_gas_savings(Variable):
     value_type = float
     entity = Building

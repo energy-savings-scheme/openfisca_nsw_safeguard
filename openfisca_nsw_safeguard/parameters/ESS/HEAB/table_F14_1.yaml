@@ -1,0 +1,24 @@
+description: Values from Table F14.1 - Default Efficiency Improvement for replacing
+    existing End-User Equipment.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+default_efficiency_improvement:
+  under_eight_bars:
+    values:
+      2020-01-01:
+        value: 0.0052
+  eight_bars:
+    values:
+      2020-01-01:
+        value: 0.0052
+  ten_bars:
+    values:
+      2020-01-01:
+        value: 0.0059
+  twelve_bars:
+    values:
+      2020-01-01:
+        value: 0.0065
+  fifteen_bars:
+    values:
+      2020-01-01:
+        value: 0.0072

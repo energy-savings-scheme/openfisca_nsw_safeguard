@@ -16,3 +16,44 @@ class ESS_HEAB_steam_boiler_new_equipment_operating_pressure(Variable):
     definition_period = ETERNITY
     label = 'What is the type of operating pressure of the boiler, as defined' \
             ' in AS3814, in bars of pressure?'
+
+
+class ESS_HEAB_new_equipment_installed_on_single_boiler(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the existing end user equipment installed on a single gas fired' \
+            ' steam boiler?'
+
+
+class ESS_HEAB_new_equipment_installed_on_multiple_boiler(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the existing end user equipment installed on multiple gas fired' \
+            ' steam boilers?'
+
+
+class ESS_HEAB_steam_boiler_replaces_existing_equipment(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the equipment replace existing End User Equipment?'
+
+
+class ESS_HEAB_steam_boiler_existing_equipment_has_sensor_based_blowdown_control(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the equipment have a sensor based blowdown control installed' \
+            ' at the time of commissioning the End User Equipment?'
+
+
+class ESS_HEAB_sensor_based_blowdown_control_installed_at_commissioning(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the equipment have a sensor based blowdown control installed' \
+            ' at the time of commissioning the End User Equipment?'
+
+

@@ -1,0 +1,20 @@
+- name: Test eligibility - Equipment Requirements - for Activity Definition F13.
+  period: 2020
+  input:
+    ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_manufacturer_guidelines:
+      [
+        True,
+      ]
+    ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_relevant_standards_and_legislation:
+      [
+        True,
+      ]
+    ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_scheme_administrator_requirements:
+      [
+        True,
+      ]
+  output:
+    ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_meets_implementation_requirements:
+      [
+        True,
+        ]

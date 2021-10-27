@@ -15,7 +15,7 @@ class ESS_HEAB_install_economiser_on_gas_boiler_gas_savings(Variable):
 
     def formula(buildings, period, parameters):
         current_capacity = buildings('ESS_HEAB_steam_boiler_current_equipment_capacity', period)
-        existing_equipment_type = buildings('ESS_HEAB_steam_boiler_existing_equipment_type', period)
+        existing_equipment_type = buildings('ESS_HEAB_install_trim_system_steam_boiler_existing_equipment_type', period)
         default_efficiency_improvement = parameters(period).ESS.HEAB.table_F12_1.default_efficiency_improvement[existing_equipment_type]
         load_utilisation_factor = parameters(period).ESS.HEAB.table_F12_2.load_utilisation_factor
         lifetime = parameters(period).ESS.HEAB.table_F12_3.lifetime

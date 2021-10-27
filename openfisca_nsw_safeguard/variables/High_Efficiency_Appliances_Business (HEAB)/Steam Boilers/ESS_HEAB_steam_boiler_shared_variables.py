@@ -88,13 +88,28 @@ class SteamBoilerEquipmentType(Enum):
     condensing_steam_boiler = 'Trim system is installed on a condensing steam boiler.'
 
 
-class ESS_HEAB_steam_boiler_existing_equipment_type(Variable):
+class ESS_HEAB_install_trim_system_steam_boiler_existing_equipment_type(Variable):
     value_type = Enum
     possible_values = SteamBoilerEquipmentType
     default_value = SteamBoilerEquipmentType.steam_boiler
     entity = Building
     definition_period = ETERNITY
     label = 'What is the type of existing equipment that the trim system is being installed on?'
+
+
+class HeaterEquipmentType(Enum):
+    gas_fired_steam_boiler = 'Existing equipment is a gas fired steam boiler.'
+    hot_water_boiler = 'Existing equipment is a hot water boiler.'
+    water_heater = 'Existing equipment is a water heater.'
+
+
+class ESS_HEAB_existing_heater_equipment_type(Variable):
+    value_type = Enum
+    possible_values = HeaterEquipmentType
+    default_value = HeaterEquipmentType.gas_fired_steam_boiler
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the type of existing equipment used for heating purposes?'
 
 
 class ESS_HEAB_steam_boiler_exhaust_temperature(Variable):

@@ -38,7 +38,7 @@ class PDRS_number_of_peak_demand_reduction_certificates(Variable):
                                                     )
         regional_network_factor = buildings('PDRS__regional_network_factor', period)
         return np.floor(peak_demand_reduction_capacity * regional_network_factor)
-
+        # check w. Steve/Rod if we round down
 
 class PDRS__postcode(Variable):
     value_type = int
@@ -58,8 +58,9 @@ class PDRSActivity(Enum):
     install_motors = 'The implementation uses the Install Motors activity definition.'
     replace_AC = 'The implementation uses the replace AC activity definition.'
     install_AC = 'The implementation uses the install AC activity definition.'
+    install_RC = 'The implementation uses the install RC activity definition.'
     remove_fridge = 'The implementation uses the remove fridge activity definition.'
-
+    replace_water_heater = 'The implementation uses the replace water heater activity definition.'
 
 class PDRS_activity_type(Variable):
     value_type = Enum

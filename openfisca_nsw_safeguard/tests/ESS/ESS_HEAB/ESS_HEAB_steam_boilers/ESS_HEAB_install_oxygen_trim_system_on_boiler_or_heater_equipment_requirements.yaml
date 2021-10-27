@@ -1,0 +1,20 @@
+- name: Test eligibility requirements for proposed Activity Definition F12.
+  period: 2021
+  absolute_error_margin: 0.0001
+  input:
+    ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_end_user_equipment_has_oxygen_trim_system: [
+                                                                                                        True,
+                                                                                                        ]
+    ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_oxygen_trim_system_has_flue_gas_sensor: [
+                                                                                                    True,
+                                                                                                    ]
+    ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_trim_system_capable_of_controlling_burner_air_supply: [
+                                                                                                                  True,
+                                                                                                                  ]
+    ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_trim_system_capable_of_controlling_variable_speed_drive: [
+                                                                                                                      True,
+                                                                                                                    ]                            
+  output:
+    ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_meets_equipment_requirements: [
+                                                                                          True,
+                                                                                          ]

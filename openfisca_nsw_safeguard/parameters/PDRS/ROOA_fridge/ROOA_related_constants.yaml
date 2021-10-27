@@ -26,3 +26,19 @@ AVERAGE_SUMMER_DEMAND:
     values:
         2021-01-01:
             value: 0.093
+
+baseline_input_power:
+    description: 'Baseline input power for use in the remove a spare refridgerator or freezer activity.'
+    metadata:
+        unit: kW
+    values:
+        2021-01-01:
+            value: 0.93
+
+input_power:
+    description: 'Baseline input power for use in the remove a spare refridgerator or freezer activity.'
+    metadata:
+        unit: kW
+    values:
+        2021-01-01:
+            value: 0

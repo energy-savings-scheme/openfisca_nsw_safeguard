@@ -42,10 +42,7 @@ class PDRS_ROOA_meets_eligibility_requirements(Variable):
     def formula(buildings, period, parameters):
         is_residential = buildings(
             'Appliance_located_in_residential_building', period)
-
-        is_small_biz = buildings(
-            'Appliance_located_in_small_biz_building', period)
-        return is_residential + is_small_biz
+        return is_residential
 
 
 class PDRS_ROOA_meets_equipment_requirements(Variable):

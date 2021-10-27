@@ -16,7 +16,7 @@ class Appliance_located_in_residential_building(Variable):
     }
 
 
-class Appliance_located_in_small_biz_building(Variable):
+class Appliance_located_in_small_business_building(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

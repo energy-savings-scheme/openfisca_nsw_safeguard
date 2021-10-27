@@ -14,10 +14,10 @@
   absolute_error_margin: 0
   input:
       Appliance_located_in_residential_building: [True, True, False, False]
-      Appliance_located_in_small_biz_building: [True, False, True, False]
+      Appliance_located_in_small_business_building: [True, False, True, False]
 
   output:
-      PDRS_ROOA_meets_eligibility_requirements: [True, True, True, False]
+      PDRS_ROOA_meets_eligibility_requirements: [True, True, False, False]
 
 - name: test PDRS ROOA fridge equipment requirements
   period: 2021

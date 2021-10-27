@@ -3,7 +3,7 @@
   absolute_error_margin: 0.1
   input:
       Appliance_located_in_residential_building: [true, false, false]
-      Appliance_located_in_small_biz_building: [false, true, false]
+      Appliance_located_in_small_business_building: [false, true, false]
       No_Existing_AC: [true, false, true]
   output:
       PDRS_HEER_AC_install_meets_eligibility_requirements: [true, false, false]

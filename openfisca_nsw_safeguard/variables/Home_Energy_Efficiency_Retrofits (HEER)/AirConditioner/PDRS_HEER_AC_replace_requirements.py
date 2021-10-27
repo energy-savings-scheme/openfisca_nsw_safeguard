@@ -21,10 +21,10 @@ class PDRS_HEER_AC_replace_meets_eligibility_requirements(Variable):
     def formula(buildings, period, parameters):
         is_residential = buildings(
             'Appliance_located_in_residential_building', period)
-        is_small_biz = buildings(
-            "Appliance_located_in_small_biz_building", period)
+        is_small_business = buildings(
+            "Appliance_located_in_small_business_building", period)
         no_existing_AC = buildings('No_Existing_AC', period)
-        return (is_residential + is_small_biz) * np.logical_not(no_existing_AC)
+        return (is_residential + is_small_business) * np.logical_not(no_existing_AC)
 
 
 class PDRS_HEER_AC_replace_meets_equipment_requirements(Variable):

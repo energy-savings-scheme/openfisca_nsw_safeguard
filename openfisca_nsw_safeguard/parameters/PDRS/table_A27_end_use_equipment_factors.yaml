@@ -1,0 +1,107 @@
+description: Factors for end use equipment as defined in table A27 of the PDRS
+    Technical Manual.
+reference: Peak Demand Reduction Scheme Technical Manual, beginning XXXX/XX/XX.
+pool_pumps:
+  peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  baseline_peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  firmness_factor:
+    values:
+      2021-01-01:
+        value: 0
+residential_air_conditioner:
+  peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  baseline_peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  firmness_factor:
+    values:
+      2021-01-01:
+        value: 0
+residential_heat_pump_water_heater:
+  peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  baseline_peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  firmness_factor:
+    values:
+      2021-01-01:
+        value: 0
+refrigerated_cabinets:
+  peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  baseline_peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  firmness_factor:
+    values:
+      2021-01-01:
+        value: 0
+commercial_air_conditioners:
+  peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  baseline_peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  firmness_factor:
+    values:
+      2021-01-01:
+        value: 0
+refrigeration_or_ventilation_motors:
+  peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  baseline_peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  firmness_factor:
+    values:
+      2021-01-01:
+        value: 0
+commercial_heat_pump_water_heaters:
+  peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  baseline_peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  firmness_factor:
+    values:
+      2021-01-01:
+        value: 0
+non_primary_refrigerator_or_freezer:
+  peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  baseline_peak_load_adjustment_factor:
+    values:
+      2021-01-01:
+        value: 0
+  firmness_factor:
+    values:
+      2021-01-01:
+        value: 0

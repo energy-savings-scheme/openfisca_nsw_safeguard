@@ -43,7 +43,7 @@ class PDRS_HEER_AC_replace_meets_equipment_requirements(Variable):
         is_in_GEM = buildings(
             'Appliance_is_registered_in_GEMS', period)
         has_warranty = buildings(
-            'AC_has_5_years_warranty', period)
+            'AC_TCSPF_or_AEER_exceeds_benchmark', period)
         demand_response = buildings(
             'Appliance_demand_response_capability', period)
 

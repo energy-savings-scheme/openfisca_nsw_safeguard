@@ -7,16 +7,10 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
 class AC_Type(Enum):
-    type_1 = 'Wall mounted, unitary, and double duct'
-    type_2 = 'Portable, unitary, and double duct'
-    type_3 = 'Wall mounted, unitary, and single duct'
-    type_4 = 'Portable, unitary, and single duct'
-    type_5 = 'Air to air unitary, ducted or non-ducted, excluding classes 1 to 4'
-    type_6 = 'Air to air single split system, non-ducted'
-    type_7 = 'Air to air single split system, ducted'
-    type_8 = 'Air to air single split outdoor units, supplied or offered for supply to create a non-ducted system'
-    type_9 = 'Air to air single split outdoor units, supplied or offered for supply to create a ducted system'
-    type_10 = 'Air to air multi-split outdoor units, whether or not supplied or offered for supply as part of a multi-split system​'
+    non_ducted_split_system = 'The AC is a non-ducted split system.'
+    ducted_split_system = 'The AC is a ducted split system.'
+    non_ducted_unitary_system = 'The AC is a non-ducted split system.'
+    ducted_unitary_system = 'The AC is a ducted split system.'
 
 
 class Air_Conditioner_type(Variable):
@@ -24,7 +18,7 @@ class Air_Conditioner_type(Variable):
     reference = "GEMS or MEPS"
     value_type = Enum
     possible_values = AC_Type
-    default_value = AC_Type.type_6
+    default_value = AC_Type.non_ducted_split_system
     entity = Building
     definition_period = ETERNITY
     metadata = {

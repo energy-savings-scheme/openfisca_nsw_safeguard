@@ -3,7 +3,13 @@
   absolute_error_margin: 0.1
   input:
       Air_Conditioner__cooling_capacity: [2, 5, 11, 43, 78]
-      Air_Conditioner_type: [type_1, type_2, type_3, type_4, type_5]
+      Air_Conditioner_type: [
+                                non_ducted_split_system,
+                                non_ducted_split_system,
+                                non_ducted_split_system,
+                                non_ducted_split_system,
+                                non_ducted_split_system,
+                            ]
       PDRS_AC_power_input: [0.67, 0.94, 2.63, 0.51, 0.765]
       Appliance__installation_purpose:
           [residential, commercial, residential, commercial, residential]
@@ -11,31 +17,45 @@
       #   Appliance__installation_type:
       #       [install, install, install, install, install]
   output:
-      PDRS_AC_baseline_power_input: [0.64, 2., 3.52, 17.2, 0.]
+      PDRS_AC_baseline_input_power: [0.54644805, 1.3661202, 3.0054643, 11.748633, 21.311476]
       PDRS_AC_duration_factor: [0., 0.20887755, 0., 0., 0.25778912]
       PDRS_AC_firmness_factor: [0., 0.16919082, 0., 0., 0.2036534]
-      PDRS_AC_peak_demand_savings: [0., 10.76053592, 0., 0., 0]
+      PDRS_AC_peak_demand_savings: [0., 4.3257375, 0., 0., 251.06157]
 - name: Steve's test on PDRS Air Conditioner peak demand savings-replacement
   period: 2021
   absolute_error_margin: 0.1
   input:
       Air_Conditioner__cooling_capacity:
-          [2.5, 3.5, 10, 2.5, 3.5, 10, 7.1, 2.5, 3.5, 2.5, 2.5, 2.5, 2.65]
+          [
+            2.5, 
+            3.5, 
+            10, 
+            2.5, 
+            3.5, 
+            10, 
+            7.1, 
+            2.5, 
+            3.5, 
+            2.5, 
+            2.5, 
+            2.5, 
+            2.65
+            ]
       Air_Conditioner_type:
           [
-              type_6,
-              type_6,
-              type_7,
-              type_6,
-              type_6,
-              type_6,
-              type_6,
-              type_6,
-              type_6,
-              type_6,
-              type_6,
-              type_6,
-              type_6,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
+            non_ducted_split_system,
           ]
       Appliance__installation_type:
           [
@@ -103,21 +123,21 @@
           ]
 
   output:
-      PDRS_AC_baseline_power_input:
+      PDRS_AC_baseline_input_power:
           [
-              0.675,
-              1.05,
-              3.6,
-              0.675,
-              1.05,
-              3.6,
-              2.414,
-              0.675,
-              1.05,
-              0.675,
-              0.675,
-              0.675,
-              0.7155,
+              0.6830601,
+              1.051051,
+              3.0030031,
+              0.6830601,
+              1.051051,
+              3.0030031,
+              2.132132,
+              0.6830601,
+              1.051051,
+              0.6830601,
+              0.6830601,
+              0.6830601,
+              0.7240437,
           ]
       PDRS_AC_duration_factor:
           [

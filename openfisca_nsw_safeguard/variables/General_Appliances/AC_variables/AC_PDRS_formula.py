@@ -6,29 +6,64 @@ from openfisca_core.variables import Variable
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
-class PDRS_AC_baseline_power_input(Variable):
+class PDRS_AC_baseline_input_power(Variable):
     value_type = float
     entity = Building
-    label = 'returns the baseline power input for an Air Conditioner'
+    label = 'returns the baseline input power for an Air Conditioner'
     definition_period = ETERNITY
     metadata = {
         "alias": "Baseline Power Input",
         "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
-    def formula(building, period, parameters):
-        cooling_capacity = building(
+    def formula(buildings, period, parameters):
+        cooling_capacity = buildings(
             'Air_Conditioner__cooling_capacity', period)
+        baseline_AEER = buildings(
+            'Air_Conditioner__baseline_AEER', period)
+        return cooling_capacity / baseline_AEER
 
-        cooling_capacity_enum = building('AC_cooling_capacity_enum', period)
-        AC_type = building('Air_Conditioner_type', period)
-        replace_or_install = building('Appliance__installation_type', period)
 
-        baseline_unit = parameters(
-            period).PDRS.AC.AC_baseline_power_per_capacity_reference_table[replace_or_install]
-        scale = baseline_unit[AC_type]
+class Air_Conditioner__baseline_AEER(Variable):
+    value_type = float
+    entity = Building
+    label = 'returns the baseline input power for an Air Conditioner'
+    definition_period = ETERNITY
+    metadata = {
+        "alias": "Baseline Power Input",
+        "regulation_reference": PDRS_2022["XX", "AC"]
+    }
 
-        return scale[cooling_capacity_enum]*cooling_capacity
+    def formula(buildings, period, parameters):
+        product_class = buildings('Air_Conditioner_type', period)
+        installation_type = buildings('Appliance__installation_type', period)
+        install_or_replacement = installation_type.possible_values
+        new_AC_cooling_capacity = buildings('new_AC_cooling_capacity', period)
+        cooling_capacity = np.select(
+                                    [ 
+                                        new_AC_cooling_capacity < 4,
+                                        ((new_AC_cooling_capacity >= 4) * (new_AC_cooling_capacity < 10)),
+                                        ((new_AC_cooling_capacity >= 10) * (new_AC_cooling_capacity < 39)),
+                                        ((new_AC_cooling_capacity >= 39) * (new_AC_cooling_capacity <= 65)),
+                                        (new_AC_cooling_capacity > 65)
+                                    ],
+                                    [
+                                        "less_than_4kW",
+                                        "4kW_to_10kW",
+                                        "10kW_to_39kW",
+                                        "39kW_to_65kW",
+                                        "more_than_65kW",
+                                    ]
+                                    )
+        baseline_AEER = np.select([
+                                    installation_type == install_or_replacement.install,
+                                    installation_type == install_or_replacement.replacement,
+                                    ],
+                                    [
+                                        parameters(period).PDRS.AC.table_D16_2['AEER'][product_class][cooling_capacity],
+                                        parameters(period).PDRS.AC.table_D16_3['AEER'][product_class][cooling_capacity]
+                                    ])
+        return baseline_AEER
 
 
 class PDRS_AC_duration_factor(Variable):
@@ -106,7 +141,7 @@ class PDRS_AC_peak_demand_savings(Variable):
 
         power_input = building('PDRS_AC_power_input', period)
         baseline_power_input = building(
-            'PDRS_AC_baseline_power_input', period)
+            'PDRS_AC_baseline_input_power', period)
         firmness_factor = building(
             'PDRS_AC_firmness_factor', period)
         daily_peak_hours = parameters(

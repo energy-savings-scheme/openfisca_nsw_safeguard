@@ -28,10 +28,10 @@ class motor_type_var(Variable):
 
 
 class motor_poles_number(Enum):
-    poles_2 = "poles_2"
-    poles_4 = "poles_4"
-    poles_6 = "poles_6"
-    poles_8 = "poles_8"
+    poles_2 = "The motor is a 2 poles motor."
+    poles_4 = "The motor is a 4 poles motor."
+    poles_6 = "The motor is a 6 poles motor."
+    poles_8 = "The motor is a 8 poles motor."
 
 
 class motor_poles_number_var(Variable):

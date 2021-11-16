@@ -25,18 +25,15 @@
                                             [
                                               10,  
                                             ]
-    PDRS__motors__firmness_factor: [
-                                    10,
-                                    ]
   output:
     PDRS_replace_motors_meets_all_requirements: [
                                                   True,
                                                 ]
     PDRS_motors_peak_demand_savings: [
-                                      4800,
+                                      0,
                                       ]
     PDRS_number_of_peak_demand_reduction_certificates: [
-                                                        4800,
+                                                        0,
                                                         ]
 - name: test PDRS is Peak Demand Reduction Activity - number of 
       PRCs created by installing motors
@@ -74,9 +71,6 @@
                                             [
                                               10,  
                                             ]
-    PDRS__motors__firmness_factor: [
-                                    10,
-                                    ]
   output:
     PDRS_motor_install_meets_implementation_requirements: [
                                                             True,
@@ -88,8 +82,8 @@
                                                 True,
                                                 ]
     PDRS_motors_peak_demand_savings: [
-                                      4800,
+                                      0,
                                       ]
     PDRS_number_of_peak_demand_reduction_certificates: [
-                                                        4800,
+                                                        0,
                                                         ]

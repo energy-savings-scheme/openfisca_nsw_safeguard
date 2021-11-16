@@ -19,7 +19,7 @@
       motors_rated_output: [0.7, 0.73, 150, 185]
   output:
       PDRS_motor_install_meets_implementation_requirements:
-          [true, true, true, false]
+          [false, true, true, false]
       PDRS_motor_install_meets_equipment_requirements:
-          [false, false, true, false]
-      PDRS_motor_install_meets_all_requirements: [false, false, true, false]
+          [false, true, true, false]
+      PDRS_motor_install_meets_all_requirements: [false, true, true, false]

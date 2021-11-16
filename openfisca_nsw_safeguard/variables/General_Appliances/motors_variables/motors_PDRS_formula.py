@@ -6,7 +6,6 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 import numpy as np
 
-
 class PDRS__motors__old_efficiency(Variable):
     entity = Building
     value_type = float
@@ -45,27 +44,6 @@ class PDRS__motors__existing_motor_efficiency(Variable):
         return np.where(install_or_replace == 0, baseline_efficiency, replace_baseline)
 
 
-class PDRS__motors__firmness_factor(Variable):
-    entity = Building
-    value_type = float
-    definition_period = ETERNITY
-    metadata = {
-        'alias': "Firmness Factor",
-        'variable-type': "intermediary",
-        "regulation_reference": PDRS_2022["XX", "motors"]
-    }
-
-    def formula(building, period, parameters):
-        contribution_factor = parameters(
-            period).PDRS.PDRS_wide_constants.CONTRIBUTION_FACTOR
-        motor_type = building('motor_type_var', period)
-        load_factor = parameters(
-            period).PDRS.motors.motors_load_factor_table[motor_type]
-        duration_factor = parameters(
-            period).PDRS.motors.motors_duration_factor_table[motor_type]
-        return duration_factor*load_factor*contribution_factor
-
-
 class PDRS__motors__new_efficiency(Variable):
     entity = Building
     value_type = float
@@ -92,16 +70,65 @@ class PDRS_motors_peak_demand_savings(Variable):
 
     def formula(building, period, parameters):
 
-        rated_output = building('motors_rated_output', period)
-        new_efficiency = building('PDRS__motors__new_efficiency', period)
-        existing_efficiency = building(
-            'PDRS__motors__existing_motor_efficiency', period)
-        firmness = building('PDRS__motors__firmness_factor', period)
-        daily_window = parameters(
-            period).PDRS.PDRS_wide_constants.DAILY_PEAK_WINDOW_HOURS
-        asset_life_table = parameters(
-            period).PDRS.motors.motors_asset_life_table
-        forward_creation_period = asset_life_table.calc(
-            rated_output, right=False)
+        baseline_input_power = building('PDRS_install_motors_baseline_input_power', period)
+        baseline_peak_load_adjustment_factor = (
+        parameters(period).PDRS.table_A27_end_use_equipment_factors
+        ['refrigeration_or_ventilation_motors']['baseline_peak_load_adjustment_factor']
+        )
+        input_power = building('PDRS_install_motors_power_input', period)
+        peak_load_adjustment_factor = (
+        parameters(period).PDRS.table_A27_end_use_equipment_factors
+        ['refrigeration_or_ventilation_motors']['peak_load_adjustment_factor']
+        )
+        firmness_factor = (
+        parameters(period).PDRS.table_A27_end_use_equipment_factors
+        ['refrigeration_or_ventilation_motors']['firmness_factor']
+        )
 
-        return rated_output * (new_efficiency - existing_efficiency)/100 * firmness*daily_window * forward_creation_period
+        return (
+                (
+                    baseline_input_power *
+                    baseline_peak_load_adjustment_factor
+                ) -
+                (
+                    input_power *
+                    peak_load_adjustment_factor
+                ) *
+                firmness_factor
+        )
+
+class PDRS_install_motors_baseline_input_power(Variable):
+    entity = Building
+    value_type = float
+    definition_period = ETERNITY
+    reference = "Clause **"
+    label = "Calculate the power input for the install motors PDRS method. "
+    metadata = {
+        "alias": "Motors Peak demand savings",
+        "regulation_reference": PDRS_2022["XX", "motors"]
+    }
+
+    def formula(buildings, period, parameters):
+        rated_output = buildings('motors_rated_output', period)
+        baseline_efficiency = buildings('PDRS__motors__existing_motor_efficiency', period)
+        return (rated_output / baseline_efficiency)
+
+
+class PDRS_install_motors_power_input(Variable):
+    entity = Building
+    value_type = float
+    definition_period = ETERNITY
+    reference = "Clause **"
+    label = "Calculate the power input for the install motors PDRS method. "
+    metadata = {
+        "alias": "Motors Peak demand savings",
+        "regulation_reference": PDRS_2022["XX", "motors"]
+    }
+
+    def formula(buildings, period, parameters):
+        rated_output = buildings('motors_rated_output', period)
+        new_efficiency = buildings('PDRS__motors__new_efficiency', period)
+        return (rated_output / new_efficiency)
+
+
+

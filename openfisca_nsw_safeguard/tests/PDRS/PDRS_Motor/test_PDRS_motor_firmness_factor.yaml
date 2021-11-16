@@ -1,7 +1,0 @@
-- name: test PDRS motors firmness factor
-  period: 2021
-  absolute_error_margin: 0.005
-  input:
-      motor_type_var: [refrigeration, ventilation]
-  output:
-      PDRS__motors__firmness_factor: [0.33, 0.1344]

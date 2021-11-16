@@ -23,9 +23,8 @@ class PDRS_motor_install_meets_equipment_requirements(Variable):
         is_high_efficiency = buildings(
             'motor_3_phase_high_efficiency', period)
 
-        rated_output = buildings('motors_rated_output', period)
 
-        return is_registered * is_high_efficiency * (rated_output > 0.73) * (rated_output < 185)
+        return is_registered * is_high_efficiency 
 
 
 class PDRS_motor_install_meets_implementation_requirements(Variable):
@@ -42,9 +41,11 @@ class PDRS_motor_install_meets_implementation_requirements(Variable):
     def formula(buildings, period, parameters):
         is_installed = buildings(
             'Appliance_is_installed', period)
+        rated_output = buildings('motors_rated_output', period)
 
-        return is_installed
-
+        return (is_installed * 
+                (rated_output >= 0.73) * (rated_output < 185)
+                )
 
 class PDRS_motor_install_meets_all_requirements(Variable):
     value_type = bool

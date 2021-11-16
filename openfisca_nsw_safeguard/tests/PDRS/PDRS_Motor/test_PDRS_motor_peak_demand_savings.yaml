@@ -3,15 +3,15 @@
   absolute_error_margin: 1
   input:
       Appliance__installation_type:
-          [
-              "replacement",
-              "replacement",
-              "replacement",
-              "replacement",
-              "replacement",
-              "replacement",
-              "replacement",
-          ]
+            [
+                "install",
+                "install",
+                "install",
+                "install",
+                "install",
+                "install",
+                "install",
+            ]
       motor_type_var:
           [
               ventilation,
@@ -26,10 +26,16 @@
       PDRS__motors__new_efficiency: [85.5, 88.9, 89.9, 93.4, 95.1, 95, 95.8]
       PDRS__motors__old_efficiency: [81.4, 86.6, 88.1, 91.2, 93.5, 94, 95]
   output:
-      PDRS__motors__firmness_factor:
-          [0.1344, 0.33, 0.33, 0.1344, 0.1344, 0.33, 0.1344]
       PDRS_motors_peak_demand_savings:
-          [0.43642368, 2.7324038, 4.0095, 6.564096, 15.611904, 32.67, 27.09504]
+                                    [
+                                    0, 
+                                    0, 
+                                    0, 
+                                    0, 
+                                    0, 
+                                    0, 
+                                    0, 
+                                    ]
 - name: test PDRS HEAB motors install peak demand savings
   period: 2021
   absolute_error_margin: 1

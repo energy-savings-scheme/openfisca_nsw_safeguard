@@ -7,7 +7,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
 class PDRS_HEAB_install_or_replace_refrigerated_cabinet_peak_demand_savings(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What are the peak demand savings for the Refrigerated Cabinets activity?'
@@ -51,7 +51,7 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_peak_demand_savings(Vari
 
 
 class PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_input_power(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the baseline input power for the Refrigerated Cabinets activity?'
@@ -64,20 +64,22 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_input_power(Var
         total_energy_consumption = buildings(
             'new_refrigerated_cabinet_total_energy_consumption', period)
         product_class = buildings('refrigerated_cabinet_product_class', period)
-        baseline_EEI = (parameters(period).
-        PDRS.refrigerated_cabinets.PDRS_refrigerated_cabinets_EEI_baselines[product_class])
+        duty_class = buildings('refrigerated_cabinet_duty_class', period)
+        baseline_EEI = (parameters(period).PDRS.refrigerated_cabinets.table_F1_1.baseline_EEI[product_class][duty_class])
         new_EEI = buildings(
-            'new_refrigerated_cabinet_EEI')
+            'new_refrigerated_cabinet_EEI', period)
         return (
-            total_energy_consumption /
-            24 * 
-            (baseline_EEI / 
-            new_EEI)
+                total_energy_consumption /
+                24 *
+                (
+                    baseline_EEI /
+                    new_EEI
+                )                
                 )
 
 
 class PDRS_HEAB_install_or_replace_refrigerated_cabinet_input_power(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the input power for the Refrigerated Cabinets activity?'
@@ -96,7 +98,7 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_input_power(Variable):
 
 
 class PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_all_eligibility_criteria(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'Does the Refrigerated Cabinets activity meet all of the eligibility criteria?'

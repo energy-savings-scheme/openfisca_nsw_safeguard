@@ -31,6 +31,21 @@ class refrigerated_cabinet_product_class(Variable):
     label = 'What is the product class for the refrigerated cabinet?'
 
 
+class RCDutyClass(Enum):
+    heavy_duty = 'RDC is a heavy duty RC.'
+    normal_duty = 'RDC is a normal duty RC.'
+    light_duty = 'RDC is a light duty RC.'
+
+
+class refrigerated_cabinet_duty_class(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = RCDutyClass
+    default_value = RCDutyClass.normal_duty
+    definition_period = ETERNITY
+    label = 'What is the duty class for the refrigerated cabinet?'
+
+
 class new_refrigerated_cabinet_EEI(Variable):
     value_type = float
     entity = Building

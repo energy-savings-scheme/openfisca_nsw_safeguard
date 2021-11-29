@@ -1,0 +1,33 @@
+description: Baseline input  for use in calculating baseline input power in Equation F1.1.
+reference: "PDRS Technical Manual."
+metadata:
+  unit: kW
+baseline_input_power:
+  under_20000_L:
+    values:
+      2021-01-01:
+        value: 0.202
+  20000_to_30000_L:
+    values:
+      2021-01-01:
+        value: 0.256
+  30001_to_40000_L:
+    values:
+      2021-01-01:
+        value: 0.370
+  40001_to_50000_L:
+    values:
+      2021-01-01:
+        value: 0.491
+  50001_to_60000_L:
+    values:
+      2021-01-01:
+        value: 0.620
+  60001_to_70000_L:
+    values:
+      2021-01-01:
+        value: 0.758
+  over_70000_L:
+    values:
+      2021-01-01:
+        value: 0.830

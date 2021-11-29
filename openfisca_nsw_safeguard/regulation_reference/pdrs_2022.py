@@ -14,6 +14,8 @@ generic_PDRS_motors = generic_PDRS.add_part(
 
 generic_PDRS_motors = generic_PDRS.add_part(
     "fridge", PT.EQUIPMENT, "Refrigerator or Freezer")
+generic_PDRS_pool_pumps = generic_PDRS.add_part(
+    "pool pump", PT.EQUIPMENT, "Refrigerator or Freezer")
 
 
 # Identify Methods and Activities---------------
@@ -33,8 +35,12 @@ HEAB_motors_install = HEAB.add_part("motors_install", PT.ACTIVITY,
 HEAB_motors_replace = HEAB.add_part("motors_replace", PT.ACTIVITY,
                                     "Replace High Efficiency Motors")
 
+HEAB_pool_pumps_replace = HEAB.add_part('pool_pump', PT.ACTIVITY, 
+                                        'Replace Pool Pumps')
+
 HEAB_activities = [HEAB_AC_install, HEAB_AC_replace,
-                   HEAB_motors_install, HEAB_motors_replace]
+                   HEAB_motors_install, HEAB_motors_replace, 
+                   HEAB_pool_pumps_replace]
 
 for item in HEAB_activities:
     item.add_parts([("equipment", PT.REQUIREMENT,

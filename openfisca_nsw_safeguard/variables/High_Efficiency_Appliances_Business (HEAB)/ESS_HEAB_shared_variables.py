@@ -37,3 +37,9 @@ class ESS_HEAB_existing_equipment_age(Variable):
         existing_equipment_age_in_years = existing_equipment_age_in_days.astype('datetime64[Y]')
         existing_equipment_age_as_int = (existing_equipment_age_in_years).astype('int')
         return (existing_equipment_age_as_int)
+
+class ESS_HEAB_new_product_warranty_length(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Asks for the warranty length of the new product, in years.'

@@ -8,6 +8,8 @@ This is an openfisca extension to openfisca_nsw_base package. It contains the co
 > We recommend that you use a virtualenv to install OpenFisca. If you don't,
 you may need to add `--user` at the end of all commands starting by `pip`.
 
+Make sure you CD into your extension's repository! 
+
 ```sh
 python3 -m venv $SHORT_NAME
 deactive

@@ -1,0 +1,1272 @@
+description: Pool pump input power for use in calculating input power in Equation F1.1.
+reference: "PDRS Technical Manual."
+metadata:
+  unit: kW
+input_power:
+  under_20000_L:
+    zero_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_star:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.145
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.086
+    five_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.129
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.077
+    five_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.116
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.069
+    six_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.103
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.061
+    six_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.093
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.055
+    seven_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.083
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.049
+    seven_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.074
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.044
+    eight_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.066
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.039
+    eight_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.059
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.035
+    nine_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.053
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.031
+    nine_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.047
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.028
+    ten_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.042
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.025
+  20000_to_30000_L:
+    zero_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_star:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.184
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.109
+    five_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.164
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.097
+    five_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.148
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.087
+    six_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.131
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.078
+    six_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.118
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.070
+    seven_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.106
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.062
+    seven_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.094
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.056
+    eight_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.084
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.050
+    eight_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.075
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.045
+    nine_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.067
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.040
+    nine_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.060
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.036
+    ten_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.054
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.032
+  30001_to_40000_L:
+    zero_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_star:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.265
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.157
+    five_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.237
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.141
+    five_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.212
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.126
+    six_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.189
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.113
+    six_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.169
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.101
+    seven_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.152
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.090
+    seven_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.136
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.081
+    eight_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.121
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.072
+    eight_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.108
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.064
+    nine_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.097
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.058
+    nine_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.087
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.052
+    ten_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.078
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.046
+  40001_to_50000_L:
+    zero_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_star:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.351
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.209
+    five_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.314
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.187
+    five_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.281
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.167
+    six_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.251
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.149
+    six_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.225
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.134
+    seven_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.201
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.119
+    seven_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.180
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.107
+    eight_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.161
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.096
+    eight_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.144
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.085
+    nine_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.129
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.076
+    nine_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.115
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.068
+    ten_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.103
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.061
+  50001_to_60000_L:
+    zero_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_star:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.444
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.263
+    five_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.397
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.236
+    five_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.355
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.211
+    six_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.317
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.189
+    six_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.284
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.169
+    seven_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.254
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.151
+    seven_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.227
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.135
+    eight_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.203
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.121
+    eight_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.182
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.108
+    nine_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.162
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.097
+    nine_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.145
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.086
+    ten_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.130
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.077
+  60001_to_70000_L:
+    zero_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_star:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.542
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.322
+    five_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.485
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.288
+    five_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.434
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.258
+    six_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.388
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.230
+    six_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.347
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.206
+    seven_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.310
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.184
+    seven_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.278
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.165
+    eight_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.248
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.147
+    eight_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.220
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.132
+    nine_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.199
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.118
+    nine_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.178
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.106
+    ten_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.159
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.094
+  over_70000_L:
+    zero_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_star:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    one_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    two_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    three_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.0
+    four_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.594
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.353
+    five_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.531
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.316
+    five_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.475
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.282
+    six_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.425
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.252
+    six_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.380
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.226
+    seven_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.340
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.202
+    seven_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.304
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.181
+    eight_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.272
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.162
+    eight_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.243
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.145
+    nine_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.218
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.129
+    nine_and_a_half_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.195
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.116
+    ten_stars:
+      fixed_speed:
+        values:
+          2021-01-01:
+            value: 0.174
+      multi_speed:
+        values:
+          2021-01-01:
+            value: 0.103

@@ -15,13 +15,13 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_existing_pool_pu
     }
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_equipment_requirements(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the activity meet all of the Equipment Requirements?'
+    label = 'Does the activity meet all of the Eligibility Requirements?'
     metadata = {
-        'alias':  'PDRS Pool Pump Activity Meets Equipment Requirements',
+        'alias':  'PDRS Pool Pump Activity Meets Eligibility Requirements',
         "regulation_reference": PDRS_2022["XX", "fridge"]
     }
 

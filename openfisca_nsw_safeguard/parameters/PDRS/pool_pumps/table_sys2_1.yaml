@@ -1,4 +1,4 @@
-description: Baseline input  for use in calculating baseline input power in Equation F1.1.
+description: Baseline input for use in calculating baseline input power in Equation F1.1.
 reference: "PDRS Technical Manual."
 metadata:
   unit: kW

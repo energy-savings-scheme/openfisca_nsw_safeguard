@@ -66,12 +66,26 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_new_pump_has_min
     
     def formula(buildings, period, parameters):
         new_pump_star_rating = buildings('PDRS_new_pump_star_rating', period)
-        return (
-                new_pump_star_rating >= 4.5
+        pump_star_rating = new_pump_star_rating.possible_values
+
+        has_minimum_star_rating = (
+                (new_pump_star_rating == pump_star_rating.four_and_a_half_stars) +
+                (new_pump_star_rating == pump_star_rating.five_stars) +
+                (new_pump_star_rating == pump_star_rating.five_and_a_half_stars) +
+                (new_pump_star_rating == pump_star_rating.six_stars) +
+                (new_pump_star_rating == pump_star_rating.six_and_a_half_stars) +
+                (new_pump_star_rating == pump_star_rating.seven_stars) +
+                (new_pump_star_rating == pump_star_rating.seven_and_a_half_stars) +
+                (new_pump_star_rating == pump_star_rating.eight_stars) +
+                (new_pump_star_rating == pump_star_rating.eight_and_a_half_stars) +
+                (new_pump_star_rating == pump_star_rating.nine_stars) +
+                (new_pump_star_rating == pump_star_rating.nine_and_a_half_stars) +
+                (new_pump_star_rating == pump_star_rating.ten_stars)
                 )
+        return has_minimum_star_rating
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_eligibility_requirements(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -92,7 +106,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_eligibilit
             'PDRS_replace_existing_pool_pump_with_high_efficiency_pump_new_pump_has_minimum_star_rating', period)
         return (
             has_minimum_warranty_length *
-            has_eligible_input_power * 
-            is_part_of_labelling_scheme * 
+            has_eligible_input_power *
+            is_part_of_labelling_scheme *
             has_minimum_star_rating
                 )

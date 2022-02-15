@@ -52,7 +52,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
+        2022-01-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -84,6 +84,10 @@
       ]
   output:
     ESS__NABERS_is_eligible_for_method_one:
+      [
+        True,
+      ]
+    ESS__NABERS_ESC_creation_within_12_months:
       [
         True,
       ]
@@ -137,7 +141,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
+        2022-01-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -210,11 +214,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
+        2022-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2020-01-01,
+        2021-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -277,6 +281,10 @@
       [
         True,
       ]
+    ESS__NABERS_ESC_creation_within_12_months:
+      [
+        True,
+      ]
     ESS__NABERS_is_eligible:
       [
         True,
@@ -315,11 +323,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
+        2022-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2020-01-01,
+        2021-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -382,6 +390,10 @@
       [
         True,
       ]
+    ESS__NABERS_ESC_creation_within_12_months:
+      [
+        True,
+      ]
     ESS__NABERS_is_eligible:
       [
         True,
@@ -420,11 +432,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
+        2022-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2020-01-01,
+        2021-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -487,6 +499,10 @@
       [
         True,
       ]
+    ESS__NABERS_ESC_creation_within_12_months:
+      [
+        True,
+      ]
     ESS__NABERS_is_eligible:
       [
         True,
@@ -525,11 +541,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
+        2022-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2020-01-01,
+        2021-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -592,6 +608,10 @@
       [
         True,
       ]
+    ESS__NABERS_ESC_creation_within_12_months:
+      [
+        True,
+      ]
     ESS__NABERS_is_eligible:
       [
         True,
@@ -630,11 +650,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
+        2022-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2020-01-01,
+        2021-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -694,6 +714,10 @@
         False,
       ]
     ESS__NABERS_is_eligible_for_forward_creation:
+      [
+        True,
+      ]
+    ESS__NABERS_ESC_creation_within_12_months:
       [
         True,
       ]

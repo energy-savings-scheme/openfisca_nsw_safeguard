@@ -106,6 +106,47 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(Vari
         "regulation_reference": PDRS_2022["XX", "pool pump"]
     }
 
+    def formula(buildings, period, parameters):
+        new_pump_pool_volume = buildings('PDRS_new_pump_pool_volume', period)
+        pool_volume = np.select([
+                                    (new_pump_pool_volume < 20000),
+                                    (
+                                        (new_pump_pool_volume >= 20000) * 
+                                        (new_pump_pool_volume <= 30000)
+                                    ),
+                                    (
+                                        (new_pump_pool_volume >= 30001) * 
+                                        (new_pump_pool_volume < 40000)
+                                    ),
+                                    (
+                                        (new_pump_pool_volume >= 40001) * 
+                                        (new_pump_pool_volume < 50000)
+                                    ),
+                                    (
+                                        (new_pump_pool_volume >= 50001) * 
+                                        (new_pump_pool_volume < 60000)
+                                    ),
+                                    (
+                                        (new_pump_pool_volume >= 60001) * 
+                                        (new_pump_pool_volume < 70000)
+                                    ),
+                                    (new_pump_pool_volume >= 70001),
+        ],
+        [
+            'under_20000_L',
+            '20000_to_30000_L',
+            '30001_to_40000_L',
+            '40001_to_50000_L',
+            '50001_to_60000_L',
+            '60001_to_70000_L',
+            'over_70000_L',
+        ])
+        star_rating = buildings('PDRS_new_pump_star_rating', period)
+        pump_type = buildings('PDRS_pool_pump_speed', period)
+        input_power = (parameters(period).
+            PDRS.pool_pumps.table_sys2_2.input_power
+            [pool_volume][star_rating][pump_type])
+        return input_power
 
 class PDRS_new_pump_pool_volume(Variable):
     value_type = float
@@ -117,10 +158,33 @@ class PDRS_new_pump_pool_volume(Variable):
         "regulation_reference": PDRS_2022["XX", "pool pump"]
     }
 
+class PDRS_NewPumpStarRating(Enum):
+    zero_stars = u'Pump has a star rating of 0 stars.'
+    one_star = u'Pump has a star rating of 1 star.'
+    one_and_a_half_star = u'Pump has a star rating of 1.5 star.'
+    two_stars = u'Pump has a star rating of 2 stars.'
+    two_and_a_half_stars = u'Pump has a star rating of 2.5 stars.'
+    three_stars = u'Pump has a star rating of 3 stars.'
+    three_and_a_half_stars = u'Pump has a star rating of 3.5 stars.'
+    four_stars = u'Pump has a star rating of 4 stars.'
+    four_and_a_half_stars = u'Pump has a star rating of 4.5 stars.'
+    five_stars = u'Pump has a star rating of 5 stars.'
+    five_and_a_half_stars = u'Pump has a star rating of 5.5 stars.'
+    six_stars = u'Pump has a star rating of 6 stars.'
+    six_and_a_half_stars = u'Pump has a star rating of 6.5 stars.'
+    seven_stars = u'Pump has a star rating of 7 stars.'
+    seven_and_a_half_stars = u'Pump has a star rating of 7.5 stars.'
+    eight_stars = u'Pump has a star rating of 8 stars.'
+    eight_and_a_half_stars = u'Pump has a star rating of 8.5 stars.'
+    nine_stars = u'Pump has a star rating of 9 stars.'
+    nine_and_a_half_stars = u'Pump has a star rating of 9.5 stars.'    
+    ten_stars = u'Pump has a star rating of 10 stars.'
 
 
 class PDRS_new_pump_star_rating(Variable):
-    value_type = float
+    value_type = Enum
+    possible_values = PDRS_NewPumpStarRating
+    default_value = PDRS_NewPumpStarRating.zero_stars
     entity = Building
     definition_period = ETERNITY
     label = 'What is the star rating of the new pool pump?'
@@ -136,5 +200,49 @@ class PDRS_new_pump_input_power(Variable):
     label = 'What is the input power of the new pool pump?'
     metadata = {
         'alias':  'New pump star input power.',
+        "regulation_reference": PDRS_2022["XX", "pool pump"]
+    }
+
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_all_requirements(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the activity meet all of the relevant Eligibility, Equipment and Implementation Requirements?'
+    metadata = {
+        'alias':  'PDRS Pool Pump Meets All Requirements.',
+        "regulation_reference": PDRS_2022["XX", "pool pump"]
+    }
+
+    def formula(buildings, period, parameters):
+        meets_eligibility_requirements = buildings(
+            'PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_eligibility_requirements', period)
+        meets_equipment_requirements = buildings(
+            'PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_equipment_requirements', period)        
+        meets_implementation_requirements = buildings(
+            'PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_implementation_requirements', period)
+        return(
+            meets_eligibility_requirements *
+            meets_equipment_requirements * 
+            meets_implementation_requirements
+        )
+
+class PDRS_PoolPumpSpeed(Enum):
+    fixed_speed = 'The new pool pump is a fixed speed pool pump.'
+    multi_speed = 'The new pool pump is a variable speed or multi-speed pool pump.'
+
+
+class PDRS_pool_pump_speed(Variable):
+    value_type = Enum
+    possible_values = PDRS_PoolPumpSpeed
+    default_value = PDRS_PoolPumpSpeed.fixed_speed
+    entity = Building
+    definition_period = ETERNITY
+    reference = "Clause 8.8"
+    label = 'Is the new pool pump a fixed speed or multi speed pool pump?'
+    metadata = {
+        "variable-type": "user-input",
+        "alias": "PDRS Pool Pump Speed",
+        # "major-cat":"Energy Savings Scheme",
+        # "monor-cat":'Metered Baseline Method - NABERS baseline'
         "regulation_reference": PDRS_2022["XX", "pool pump"]
     }

@@ -29,7 +29,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_implementa
         performed_by_qualified_person = buildings(
             'implementation_is_performed_by_qualified_person', period)
         removed_according_to_legislation = buildings(
-            'PDRS_replace_existing_pool_pump_with_high_efficiency_pump_existing_pump_decommissioned_according_to_relevant_legislation')
+            'PDRS_replace_existing_pool_pump_with_high_efficiency_pump_existing_pump_decommissioned_according_to_relevant_legislation', period)
         return(
             performed_by_qualified_person *
             removed_according_to_legislation

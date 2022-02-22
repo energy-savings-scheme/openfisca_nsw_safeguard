@@ -1,0 +1,353 @@
+description: Residential Minimum TCSPF/HSPF Requirements, as identified in Table D16.4
+reference: PDRS Technical Manual 2022
+TCSPF_mixed:
+  non_ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 5.5
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 5.0 
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 4.5 
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 4.0
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 4 
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  non_ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+HSPF_mixed:
+  non_ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 4.5
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 3.5 
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 3
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 4.0 
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 3.5
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  non_ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+HSPF_cold:
+  non_ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 4.0
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 3.5 
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 3.5 
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 3.5 
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.5 
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 3.5 
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 3.5 
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 3.5 
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 3.5 
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 3.0
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.5
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  non_ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 
+  ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    4kW_to_6kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    6kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    10kW_to_13kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    13kW_to_25kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    25kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.0
+    over_65kW:
+      values:
+        2021-01-01:
+          value: 0 

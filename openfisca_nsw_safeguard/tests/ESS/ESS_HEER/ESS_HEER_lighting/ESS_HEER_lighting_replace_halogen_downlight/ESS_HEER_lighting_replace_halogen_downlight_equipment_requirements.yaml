@@ -20,3 +20,25 @@
     ESS_HEER_lighting_replace_halogen_downlight_meets_equipment_requirements: [
                                                                                 True,
                                                                                   ]
+- name: Test eligibility requirements for E1 (replace tungsten halogen ELV) - activity is eligible
+  period: 2020
+  input:
+    ESS_HEER_lighting_existing_lamp_type: [
+                                           LED_lamp_only_ELV,
+                                           ]
+    ESS_HEER_downward_light_output: [
+                                     500,
+                                     ]
+    ESS_HEER_original_light_beam_angle: [
+                                         180,
+                                         ]
+    ESS_HEER_new_light_beam_angle: [
+                                     180,
+                                     ]
+    ESS_HEER_lighting_replace_halogen_downlight_is_compatible_with_circuit_dimmers: [
+                                                                                     True,
+                                                                                     ]
+  output:
+    ESS_HEER_lighting_replace_halogen_downlight_meets_equipment_requirements: [
+                                                                                True,
+                                                                                  ]

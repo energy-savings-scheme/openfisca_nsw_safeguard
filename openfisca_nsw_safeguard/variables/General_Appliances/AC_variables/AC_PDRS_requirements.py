@@ -19,7 +19,7 @@ class No_Existing_AC(Variable):
     }
 
 
-class AC_TCSPF_or_AEER_exceeds_benchmark(Variable):
+class AC_TCSPF_or_AEER_exceeds_PDRS_benchmark(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -64,27 +64,3 @@ class AC_TCSPF_or_AEER_exceeds_benchmark(Variable):
             (AC_TCSPF >= parameters(period).PDRS.AC.table_D16_4[product_class][cooling_capacity])
             )
         return AC_exceeds_benchmark
-
-
-
-
-class AC_TCSPF_mixed(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the TCSPF mixed for the AC, as listed in the GEMS Registry?'
-    metadata = {
-    'alias':  'Air Conditioner TCSPF',
-    "regulation_reference": PDRS_2022["XX", "AC"]
-}
-
-
-class AC_AEER(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the AEER for the AC, as listed in the GEMS Registry?'
-    metadata = {
-    'alias':  'Air Conditioner TCSPF',
-    "regulation_reference": PDRS_2022["XX", "AC"]
-}

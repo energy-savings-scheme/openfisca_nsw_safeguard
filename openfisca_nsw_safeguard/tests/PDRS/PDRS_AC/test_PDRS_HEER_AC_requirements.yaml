@@ -14,7 +14,7 @@
   absolute_error_margin: 0.1
   input:
       Appliance_is_registered_in_GEMS: [true, false, false]
-      AC_TCSPF_or_AEER_exceeds_benchmark: [true, false, true]
+      AC_TCSPF_or_AEER_exceeds_PDRS_benchmark: [true, false, true]
       Appliance_demand_response_capability: [true, false, true]
   output:
       PDRS_HEER_AC_install_meets_equipment_requirements: [true, false, false]
@@ -85,6 +85,6 @@
                             non_ducted_split_system,
     ]
   output: 
-    AC_TCSPF_or_AEER_exceeds_benchmark: [
+    AC_TCSPF_or_AEER_exceeds_PDRS_benchmark: [
                                                     True
                                                     ]

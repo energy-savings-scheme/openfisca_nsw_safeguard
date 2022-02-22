@@ -1,0 +1,2516 @@
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the hot zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the average zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the hot zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted split systems in the hot zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted split systems in the average zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the cold zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the hot zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the average zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the hot zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted unitary systems in the hot zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted unitary systems in the average zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding cooling benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the cold zone, all with TCSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    7,
+                    ]
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+
+
+
+
+
+
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the hot zone, all with no HSPF value.
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the average zone, all with no HSPF value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                  ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the hot zone, all with no HSPF value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted split systems in the hot zone, all with no HSPF value.
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted split systems in the average zone, all with no HSPF value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the cold zone, all with no HSPF value. 
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the hot zone, all with no HSPF value.
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                      ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the average zone, all with no HSPF value.
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the hot zone, all with no HSPF value.
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted unitary systems in the hot zone, all with no HSPF value.
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted unitary systems in the average zone, all with no HSPF value.
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the cold zone, all with no HSPF value.
+      ACs are eligible.
+  period: 2022
+  input:
+    AC_TCSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                      ]    
+    AC_AEER: [
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              5,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
+
+
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the hot zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the average zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the hot zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted split systems in the hot zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted split systems in the average zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the cold zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the hot zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the average zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the hot zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted unitary systems in the hot zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted unitary systems in the average zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the cold zone, all with HSPF mixed value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    2,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+
+
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the hot zone, all with no HSPF value.
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the average zone, all with no HSPF value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted split systems in the hot zone, all with no HSPF value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    non_ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted split systems in the hot zone, all with no HSPF value.
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted split systems in the average zone, all with no HSPF value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the cold zone, all with no HSPF value. 
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ducted_split_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the hot zone, all with no HSPF value.
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the average zone, all with no HSPF value.
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the hot zone, all with no HSPF value.
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    non_ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted unitary systems in the hot zone, all with no HSPF value.
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for ducted unitary systems in the average zone, all with no HSPF value.
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+- name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
+      for non ducted unitary systems in the cold zone, all with no HSPF value.
+      ACs are not eligible.
+  period: 2022
+  input:
+    AC_HSPF_mixed: [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    ]
+
+    AC_AEER: [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              ]
+    new_AC_cooling_capacity: [
+                              3.5,
+                              4.5,
+                              7.5,
+                              11.5,
+                              15.5,
+                              30.5,
+                              70
+                              ]
+    product_class: [
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ducted_unitary_system,
+                    ]
+
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: [
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            False,
+                                            True,
+                                            ]
+
+
+
+
+
+
+
+
+
+

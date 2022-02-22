@@ -4,31 +4,10 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
-from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 
-class PDRS_HEER_AC_install_meets_eligibility_requirements(Variable):
-    value_type = bool
-    entity = Building
-    default_value = False
-    definition_period = ETERNITY
-    label = 'Does the implementation meet all of the Eligibility' \
-            ' Requirements defined in installing a high efficiency air conditioner for Residential?'
-    metadata = {
-        'alias': "HEER AC install meets eligibility requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_install", "eligibility"]
-    }
-
-    def formula(buildings, period, parameters):
-        is_residential = buildings(
-            'Appliance_located_in_residential_building', period)
-        is_small_business = buildings(
-            "Appliance_located_in_small_business_building", period)
-        no_existing_AC = buildings('No_Existing_AC', period)
-        return (is_residential + is_small_business) * no_existing_AC
-
-
-class PDRS_HEER_AC_install_meets_equipment_requirements(Variable):
+class ESS_HEER_AC_install_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -37,21 +16,41 @@ class PDRS_HEER_AC_install_meets_equipment_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Residential?'
     metadata = {
         'alias': "HEER AC Install meets equipment requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_install", "equipment"]
     }
 
     def formula(buildings, period, parameters):
-        is_in_GEM = buildings(
+        is_in_GEMS = buildings(
             'Appliance_is_registered_in_GEMS', period)
-        has_warranty = buildings(
-            'AC_TCSPF_or_AEER_exceeds_PDRS_benchmark', period)
-        demand_response = buildings(
-            'Appliance_demand_response_capability', period)
+        cooling_capacity = buildings('Air_Conditioner__cooling_capacity', period)
+        has_cooling_capacity = (
+                                (cooling_capacity != 0) *
+                                (cooling_capacity != None)
+                                )
+        TCSPF_or_AEER_exceeds_benchmark = buildings(
+            'AC_TCSPF_or_AEER_exceeds_ESS_benchmark', period) 
+            # note that logic relating to whether to use TCSPF or AEER
+            # is contained in the above variable for clarity
+        heating_capacity = buildings('Air_Conditioner__cooling_capacity', period)
+        has_heating_capacity = (
+                                (heating_capacity != 0) *
+                                (heating_capacity != None)
+                                )
+        HSPF_or_ACOP_exceeds_benchmark = buildings(
+            'AC_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
+            # note that logic relating to whether to use HSPF or ACOP
+            # and whether it is installed in 
+            # is contained in the above variable for clarity
 
-        return is_in_GEM * has_warranty * demand_response
+        return (
+                is_in_GEMS * 
+                (
+                (has_cooling_capacity * TCSPF_or_AEER_exceeds_benchmark) +
+                (has_heating_capacity * HSPF_or_ACOP_exceeds_benchmark)
+                )
+                )
 
 
-class PDRS_HEER_AC_install_meets_implementation_requirements(Variable):
+class ESS_HEER_AC_install_meets_implementation_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -60,7 +59,6 @@ class PDRS_HEER_AC_install_meets_implementation_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Residential?'
     metadata = {
         'alias': "HEER AC Install meets implementation requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_install", "implementation"]
     }
 
     def formula(buildings, period, parameters):
@@ -72,7 +70,7 @@ class PDRS_HEER_AC_install_meets_implementation_requirements(Variable):
         return is_installed * performed_by_qualified_person
 
 
-class PDRS_HEER_AC_install_meets_all_requirements(Variable):
+class ESS_HEER_AC_install_meets_all_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -85,10 +83,10 @@ class PDRS_HEER_AC_install_meets_all_requirements(Variable):
 
     def formula(buildings, period, parameters):
         eligibility = buildings(
-            'PDRS_HEER_AC_install_meets_eligibility_requirements', period)
+            'ESS_HEER_AC_install_meets_eligibility_requirements', period)
         equipment = buildings(
-            'PDRS_HEER_AC_install_meets_equipment_requirements', period)
+            'ESS_HEER_AC_install_meets_equipment_requirements', period)
         implementation = buildings(
-            'PDRS_HEER_AC_install_meets_implementation_requirements', period)
+            'ESS_HEER_AC_install_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment

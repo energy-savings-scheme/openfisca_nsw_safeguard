@@ -1,0 +1,30 @@
+description: Firmness factor, for use in PDRS calculations.
+firmness_factor:
+  HVAC1:
+    values:
+      2021-01-01:
+        value: 1
+  HVAC2:
+    values:
+      2021-01-01:
+        value: 1
+  WH1:
+    values:
+      2021-01-01:
+        value: 1
+  RF1:
+    values:
+      2021-01-01:
+        value: 1
+  RF2:
+    values:
+      2021-01-01:
+        value: 1
+  SYS1:
+    values:
+      2021-01-01:
+        value: 1
+  SYS2:
+    values:
+      2021-01-01:
+        value: 1

@@ -10,19 +10,11 @@ class ESS_HEER_AC_replace_meets_eligibility_requirements(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Does the implementation meet all of the Eligibility' \
-            ' Requirements defined in replacing a high efficiency air conditioner for Residential?'
+    label = 'Does the equipment meet all of the Eligibility' \
+            ' Requirements defined in installing a high efficiency air conditioner for Residential?'
     metadata = {
-        'alias': "HEER AC replace meets eligibility requirements",
+        'alias': "HEER AC Install meets eligibility requirements",
     }
-
-    def formula(buildings, period, parameters):
-        is_residential = buildings(
-            'Appliance_located_in_residential_building', period)
-        is_small_business = buildings(
-            "Appliance_located_in_small_business_building", period)
-        no_existing_AC = buildings('No_Existing_AC', period)
-        return (is_residential + is_small_business) * np.logical_not(no_existing_AC)
 
 
 class ESS_HEER_AC_replace_meets_equipment_requirements(Variable):
@@ -37,14 +29,39 @@ class ESS_HEER_AC_replace_meets_equipment_requirements(Variable):
     }
 
     def formula(buildings, period, parameters):
-        is_in_GEM = buildings(
+        is_in_GEMS = buildings(
             'Appliance_is_registered_in_GEMS', period)
-        has_warranty = buildings(
-            'AC_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
-        demand_response = buildings(
-            'Appliance_demand_response_capability', period)
+        cooling_capacity = buildings('new_AC_cooling_capacity', period)
+        has_cooling_capacity = (
+                                (cooling_capacity != 0) *
+                                (cooling_capacity != None)
+                                )
+        TCSPF_or_AEER_exceeds_benchmark = buildings(
+            'AC_TCSPF_or_AEER_exceeds_ESS_benchmark', period) 
+            # note that logic relating to whether to use TCSPF or AEER
+            # is contained in the above variable for clarity
+        heating_capacity = buildings('new_AC_heating_capacity', period)
+        has_heating_capacity = (
+                                (heating_capacity != 0) *
+                                (heating_capacity != None)
+                                )
+        HSPF_or_ACOP_exceeds_benchmark = buildings(
+            'AC_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
+            # note that logic relating to whether to use HSPF or ACOP
+            # and whether it is installed in 
+            # is contained in the above variable for clarity
 
-        return is_in_GEM * has_warranty * demand_response
+        return (
+                is_in_GEMS * 
+                (
+                (
+                    (has_cooling_capacity * TCSPF_or_AEER_exceeds_benchmark) +
+                    np.logical_not(has_cooling_capacity) 
+                ) *
+                    (has_heating_capacity * HSPF_or_ACOP_exceeds_benchmark) +
+                    np.logical_not(has_heating_capacity) 
+                )
+                )
 
 
 class ESS_HEER_AC_replace_meets_implementation_requirements(Variable):

@@ -1,0 +1,28 @@
+description: Equivalent Cooling and Heating Hours, as identified in Table D16.1
+reference: PDRS Technical Manual 2022
+equivalent_cooling_hours:
+  hot_zone:
+    values:
+      2021-01-01:
+        value: 1274
+  average_zone:
+    values:
+      2021-01-01:
+        value: 429
+  cold_zone:
+    values:
+      2021-01-01:
+        value: 285
+equivalent_heating_hours:
+  hot_zone:
+    values:
+      2021-01-01:
+        value: 109
+  average_zone:
+    values:
+      2021-01-01:
+        value: 648
+  cold_zone:
+    values:
+      2021-01-01:
+        value: 1534

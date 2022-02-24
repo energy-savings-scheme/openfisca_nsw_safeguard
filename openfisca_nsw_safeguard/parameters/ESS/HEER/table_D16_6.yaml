@@ -1,0 +1,6 @@
+description: Lifetime for install of a new AC within the HEER AC method.
+reference: PDRS Technical Manual 2022
+lifetime:
+  values:
+    2021-01-01:
+      value: 10

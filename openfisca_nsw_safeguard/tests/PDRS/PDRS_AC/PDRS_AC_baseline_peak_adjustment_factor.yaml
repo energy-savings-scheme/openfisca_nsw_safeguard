@@ -1,0 +1,24 @@
+- name: Test AC baseline power input for PDRS implementations.
+  period: 2022
+  input:
+    BCA_climate_zone: [
+                        BCA_Climate_Zone_1,
+                        BCA_Climate_Zone_2,
+                        BCA_Climate_Zone_3,
+                        BCA_Climate_Zone_4,
+                        BCA_Climate_Zone_5,
+                        BCA_Climate_Zone_6,
+                        BCA_Climate_Zone_7,
+                        BCA_Climate_Zone_8,
+                        ]
+  output:
+    PDRS_HEER_AC_install_baseline_peak_adjustment_factor: [
+                                                0,
+                                                0.3456,
+                                                0,
+                                                0.7416,
+                                                0.396,
+                                                0.7488,
+                                                0.6624,
+                                                0.396,
+                                                ]

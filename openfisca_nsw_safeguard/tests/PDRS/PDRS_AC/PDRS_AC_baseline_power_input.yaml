@@ -1,64 +1,22 @@
-- name: test PDRS Air Conditioner Baseline_Power_input calculation-replace
-  period: 2021
+- name: Test AC baseline power input for PDRS implementations.
+  period: 2022
   input:
-        Air_Conditioner__cooling_capacity: [
-                                            3, 
-                                            4, 
-                                            10, 
-                                            39, 
-                                            89,
-                                            3, 
-                                            4, 
-                                            10, 
-                                            39, 
-                                            89
-                                            ]
-        Air_Conditioner_type: [
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                non_ducted_split_system,
-                                ]
-        Appliance__installation_type: [
-                                        install, 
-                                        install, 
-                                        install, 
-                                        install, 
-                                        install, 
-                                        replacement, 
-                                        replacement, 
-                                        replacement, 
-                                        replacement, 
-                                        replacement
-                                        ]
+    new_AC_cooling_capacity: [
+                                20,
+                                20,
+                                20,
+                                20,
+                            ]
+    Air_Conditioner_type: [
+                    non_ducted_split_system,
+                    ducted_split_system,
+                    non_ducted_unitary_system,
+                    ducted_unitary_system
+                    ]
   output:
-      Air_Conditioner__baseline_AEER: [
-                                        3.66, 
-                                        3.66, 
-                                        3.66, 
-                                        3.66, 
-                                        3.66, 
-                                        3.33, 
-                                        3.33, 
-                                        3.33, 
-                                        3.33, 
-                                        3.33, 
-                                    ]
-      PDRS_AC_baseline_input_power: [
-                                        0.8196721, 
-                                        1.0928961, 
-                                        2.7322404, 
-                                        10.655738, 
-                                        24.316938,
-                                        0.9009009, 
-                                        1.2012012, 
-                                        3.0030031, 
-                                        11.711712, 
-                                        26.726727,
-                                    ]
+    PDRS_HEER_AC_install_baseline_input_power: [
+                                                7.142857,
+                                                7.142857,
+                                                7.142857,
+                                                7.142857,
+                                                ]

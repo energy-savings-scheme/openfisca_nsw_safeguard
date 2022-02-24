@@ -14,7 +14,7 @@ class ESS_BCAClimateZone(Enum):
     BCA_Climate_Zone_8 = 'Activity takes place in BCA Climate Zone 8.'
 
 
-class ESS__BCA_climate_zone(Variable):
+class BCA_climate_zone(Variable):
     value_type = Enum
     entity = Building
     possible_values = ESS_BCAClimateZone

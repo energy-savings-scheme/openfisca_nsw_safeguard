@@ -1,0 +1,64 @@
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    new_AC_heating_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            non_ducted_split_system
+                          ]
+    AC_climate_zone: [
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone
+                      ]                        
+    Appliance__installation_type: [
+                        install,
+                        install,
+                        replacement,
+                        replacement,
+    ]
+    AC_AEER: [
+              6,
+              6,
+              6,
+              6,
+            ]
+    AC_ACOP: [
+              6,
+              6,
+              6,
+              6,
+              ]
+  output: 
+    ESS_HEER_AC_install_electricity_savings: [
+                                      4.9310565,
+                                      15.176765,
+                                      46.727695,
+                                      105.88312
+    ]
+    ESS_HEER_AC_replace_electricity_savings: [
+                                      6.0693903,
+                                      18.384142,
+                                      56.373688,
+                                      116.300575
+    ]
+    ESS_HEER_AC_electricity_savings: [
+                                      4.9310565,
+                                      15.176765,
+                                      56.373688,
+                                      116.300575
+                                      ]

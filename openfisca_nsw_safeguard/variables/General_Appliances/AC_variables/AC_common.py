@@ -163,6 +163,15 @@ class AC_HSPF_cold(Variable):
 }
 
 
+class AC_input_power(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the input power for the AC, as listed in the GEMS Registry?'
+    metadata = {
+    'alias':  'Air Conditioner input power',
+}
+
 
 class AC_AEER(Variable):
     value_type = float

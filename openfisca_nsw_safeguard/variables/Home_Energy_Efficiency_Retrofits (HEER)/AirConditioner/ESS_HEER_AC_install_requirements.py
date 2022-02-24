@@ -7,6 +7,18 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 
+class ESS_HEER_AC_install_meets_eligibility_requirements(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Does the equipment meet all of the Eligibility' \
+            ' Requirements defined in installing a high efficiency air conditioner for Residential?'
+    metadata = {
+        'alias': "HEER AC Install meets eligibility requirements",
+    }
+
+
 class ESS_HEER_AC_install_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
@@ -21,7 +33,7 @@ class ESS_HEER_AC_install_meets_equipment_requirements(Variable):
     def formula(buildings, period, parameters):
         is_in_GEMS = buildings(
             'Appliance_is_registered_in_GEMS', period)
-        cooling_capacity = buildings('Air_Conditioner__cooling_capacity', period)
+        cooling_capacity = buildings('new_AC_cooling_capacity', period)
         has_cooling_capacity = (
                                 (cooling_capacity != 0) *
                                 (cooling_capacity != None)
@@ -30,7 +42,7 @@ class ESS_HEER_AC_install_meets_equipment_requirements(Variable):
             'AC_TCSPF_or_AEER_exceeds_ESS_benchmark', period) 
             # note that logic relating to whether to use TCSPF or AEER
             # is contained in the above variable for clarity
-        heating_capacity = buildings('Air_Conditioner__cooling_capacity', period)
+        heating_capacity = buildings('new_AC_heating_capacity', period)
         has_heating_capacity = (
                                 (heating_capacity != 0) *
                                 (heating_capacity != None)
@@ -44,8 +56,12 @@ class ESS_HEER_AC_install_meets_equipment_requirements(Variable):
         return (
                 is_in_GEMS * 
                 (
-                (has_cooling_capacity * TCSPF_or_AEER_exceeds_benchmark) +
-                (has_heating_capacity * HSPF_or_ACOP_exceeds_benchmark)
+                (
+                    (has_cooling_capacity * TCSPF_or_AEER_exceeds_benchmark) +
+                    np.logical_not(has_cooling_capacity) 
+                ) *
+                    (has_heating_capacity * HSPF_or_ACOP_exceeds_benchmark) +
+                    np.logical_not(has_heating_capacity) 
                 )
                 )
 

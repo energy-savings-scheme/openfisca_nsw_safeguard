@@ -28,7 +28,7 @@ class ESS_HEER_windows_replace_residential_electricity_savings_factor(Variable):
                                     "system_U_value_under_1"
                                     ]
                                     )
-        climate_zone = buildings('ESS__BCA_climate_zone', period)
+        climate_zone = buildings('BCA_climate_zone', period)
         BCAClimateZone = climate_zone.possible_values  # imports functionality of climate zone enum from user_inputs
         activity_climate_zone = np.select([
                                         (climate_zone == BCAClimateZone.BCA_Climate_Zone_1),
@@ -74,7 +74,7 @@ class ESS_HEER_windows_replace_residential_gas_savings_factor(Variable):
                                     "system_U_value_under_1"
                                     ]
                                     )
-        climate_zone = buildings('ESS__BCA_climate_zone', period)
+        climate_zone = buildings('BCA_climate_zone', period)
         BCAClimateZone = climate_zone.possible_values  # imports functionality of climate zone enum from user_inputs
         activity_climate_zone = np.select([
                                         (climate_zone == BCAClimateZone.BCA_Climate_Zone_1),
@@ -120,7 +120,7 @@ class ESS_HEER_windows_replace_small_business_electricity_savings_factor(Variabl
                                     "system_U_value_under_1"
                                     ]
                                     )
-        climate_zone = buildings('ESS__BCA_climate_zone', period)
+        climate_zone = buildings('BCA_climate_zone', period)
         BCAClimateZone = climate_zone.possible_values  # imports functionality of climate zone enum from user_inputs
         activity_climate_zone = np.select([
                                         (climate_zone == BCAClimateZone.BCA_Climate_Zone_1),
@@ -166,7 +166,7 @@ class ESS_HEER_windows_replace_small_business_gas_savings_factor(Variable):
                                     "system_U_value_under_1"
                                     ]
                                     )
-        climate_zone = buildings('ESS__BCA_climate_zone', period)
+        climate_zone = buildings('BCA_climate_zone', period)
         BCAClimateZone = climate_zone.possible_values  # imports functionality of climate zone enum from user_inputs
         activity_climate_zone = np.select([
                                         (climate_zone == BCAClimateZone.BCA_Climate_Zone_1),

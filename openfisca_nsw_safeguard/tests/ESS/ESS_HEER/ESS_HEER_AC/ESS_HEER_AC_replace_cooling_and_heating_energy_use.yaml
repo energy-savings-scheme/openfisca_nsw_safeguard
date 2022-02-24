@@ -1,0 +1,336 @@
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            non_ducted_split_system
+                          ]
+    AC_climate_zone: [
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    1147.7478,
+                                                    3064.6047,
+                                                    9100,
+                                                    18530.908
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            non_ducted_split_system
+                          ]
+    AC_climate_zone: [
+                        average_zone,
+                        average_zone,
+                        average_zone,
+                        average_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    386.48648,
+                                                    1031.9587,
+                                                    3064.2856,
+                                                    6240
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            non_ducted_split_system
+                          ]
+    AC_climate_zone: [
+                        cold_zone,
+                        cold_zone,
+                        cold_zone,
+                        cold_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    256.75674,
+                                                    685.567,
+                                                    2035.7142,
+                                                    4145.4546
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system
+                          ]
+    AC_climate_zone: [
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    1147.7478,
+                                                    3064.6047,
+                                                    9100,
+                                                    18530.908
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system
+                          ]
+    AC_climate_zone: [
+                        average_zone,
+                        average_zone,
+                        average_zone,
+                        average_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    386.48648,
+                                                    1031.9587,
+                                                    3064.2856,
+                                                    6240
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system
+                          ]
+    AC_climate_zone: [
+                        cold_zone,
+                        cold_zone,
+                        cold_zone,
+                        cold_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    256.75674,
+                                                    685.567,
+                                                    2035.7142,
+                                                    4145.4546
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            ducted_split_system,
+                            ducted_split_system,
+                            ducted_split_system,
+                            ducted_split_system
+                          ]
+    AC_climate_zone: [
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    1365,
+                                                    3185,
+                                                    9100,
+                                                    18530.908
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            ducted_split_system,
+                            ducted_split_system,
+                            ducted_split_system,
+                            ducted_split_system
+                          ]
+    AC_climate_zone: [
+                        average_zone,
+                        average_zone,
+                        average_zone,
+                        average_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    459.64285,
+                                                    1072.5,
+                                                    3064.2856,
+                                                    6240
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            ducted_split_system,
+                            ducted_split_system,
+                            ducted_split_system,
+                            ducted_split_system
+                          ]
+    AC_climate_zone: [
+                        cold_zone,
+                        cold_zone,
+                        cold_zone,
+                        cold_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    305.35715,
+                                                    712.5,
+                                                    2035.7142,
+                                                    4145.4546
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            ducted_unitary_system,
+                            ducted_unitary_system,
+                            ducted_unitary_system,
+                            ducted_unitary_system
+                          ]
+    AC_climate_zone: [
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    1147.7478,
+                                                    3064.6047,
+                                                    9100,
+                                                    18530.908
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            ducted_unitary_system,
+                            ducted_unitary_system,
+                            ducted_unitary_system,
+                            ducted_unitary_system
+                          ]
+    AC_climate_zone: [
+                        average_zone,
+                        average_zone,
+                        average_zone,
+                        average_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    386.48648,
+                                                    1031.9587,
+                                                    3064.2856,
+                                                    6240
+                                                    ]
+- name: Test AC cooling annual energy use for non-ducted split systems.
+  period: 2022
+  input:
+    new_AC_cooling_capacity: [
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    Air_Conditioner_type: [
+                            ducted_unitary_system,
+                            ducted_unitary_system,
+                            ducted_unitary_system,
+                            ducted_unitary_system
+                          ]
+    AC_climate_zone: [
+                        cold_zone,
+                        cold_zone,
+                        cold_zone,
+                        cold_zone
+                      ]                        
+  output: 
+    ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
+                                                    256.75674,
+                                                    685.567,
+                                                    2035.7142,
+                                                    4145.4546
+                                                    ]

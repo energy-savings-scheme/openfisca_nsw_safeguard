@@ -1,0 +1,172 @@
+description: Baseline ACOP and AEERs for new air conditioner installations, as identified in Table D16.2
+reference: PDRS Technical Manual 2022
+AEER:
+  non_ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 3.66
+    4kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 3.22
+    10kW_to_39kW:
+      values:
+        2021-01-01:
+          value: 3.1
+    39kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.9
+    more_than_65kW:
+      values:
+        2021-01-01:
+          value: 0
+  non_ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 3.66
+    4kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 3.22
+    10kW_to_39kW:
+      values:
+        2021-01-01:
+          value: 3.1
+    39kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.9
+    more_than_65kW:
+      values:
+        2021-01-01:
+          value: 0
+  ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 3.1
+    4kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 3.1
+    10kW_to_39kW:
+      values:
+        2021-01-01:
+          value: 3.1
+    39kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.9
+    more_than_65kW:
+      values:
+        2021-01-01:
+          value: 0
+  ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 3.1
+    4kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 3.1
+    10kW_to_39kW:
+      values:
+        2021-01-01:
+          value: 3.1
+    39kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 2.9
+    more_than_65kW:
+      values:
+        2021-01-01:
+          value: 0
+ACOP:
+  non_ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 2.33
+    4kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 2.11
+    10kW_to_39kW:
+      values:
+        2021-01-01:
+          value: 2.05
+    39kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 1.95
+    more_than_65kW:
+      values:
+        2021-01-01:
+          value: 0
+  non_ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 2.33
+    4kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 2.11
+    10kW_to_39kW:
+      values:
+        2021-01-01:
+          value: 2.05
+    39kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 1.95
+    more_than_65kW:
+      values:
+        2021-01-01:
+          value: 0
+  ducted_split_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 2.05
+    4kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 2.05
+    10kW_to_39kW:
+      values:
+        2021-01-01:
+          value: 2.05
+    39kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 1.95
+    more_than_65kW:
+      values:
+        2021-01-01:
+          value: 0
+  ducted_unitary_system:
+    less_than_4kW:
+      values:
+        2021-01-01:
+          value: 2.05
+    4kW_to_10kW:
+      values:
+        2021-01-01:
+          value: 2.05
+    10kW_to_39kW:
+      values:
+        2021-01-01:
+          value: 2.05
+    39kW_to_65kW:
+      values:
+        2021-01-01:
+          value: 1.95
+    more_than_65kW:
+      values:
+        2021-01-01:
+          value: 0

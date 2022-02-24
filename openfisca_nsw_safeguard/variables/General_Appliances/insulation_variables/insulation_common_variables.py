@@ -101,4 +101,4 @@ class ESS__HEER_insulation_meets_minimum_R_value(Variable):
         type_of_insulation = buildings(
             'ESS__HEER_type_of_insulation', period)
         BCA_climate_zone = buildings(
-            'ESS__BCA_climate_zone', period)
+            'BCA_climate_zone', period)

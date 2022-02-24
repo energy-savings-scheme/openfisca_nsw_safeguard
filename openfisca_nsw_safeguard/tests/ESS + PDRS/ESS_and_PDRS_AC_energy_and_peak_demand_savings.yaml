@@ -11,6 +11,16 @@
                         BCA_Climate_Zone_7,
                         BCA_Climate_Zone_8,
                         ]
+    AC_climate_zone: [
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                        hot_zone,
+                      ]                        
     new_AC_cooling_capacity:    [
                                 20,
                                 20,
@@ -21,6 +31,36 @@
                                 20,
                                 20,
                                 ]
+    new_AC_heating_capacity: [
+                              3,
+                              7,
+                              20,
+                              40,
+                              3,
+                              7,
+                              20,
+                              40
+                              ]
+    AC_AEER: [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+            ]
+    AC_ACOP: [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              ]
     Air_Conditioner_type: [
                             non_ducted_split_system,
                             ducted_split_system,
@@ -32,6 +72,16 @@
                             ducted_unitary_system
                             ]
   output:
+    ESS_HEER_AC_electricity_savings: [
+                                      40.58531,
+                                      42.177162,
+                                      46.727695,
+                                      54.819187,
+                                      40.58531,
+                                      42.177162,
+                                      46.727695,
+                                      54.819187
+                                      ]
     PDRS_HEER_AC_install_peak_demand_savings_capacity: [
                                                         0,
                                                         2.4685714,

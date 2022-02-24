@@ -1,0 +1,48 @@
+- name: Test AC meeting equipment requirements - testing various capacities
+      for non ducted split systems in the hot zone, all with HSPF mixed value. 
+      ACs are eligible.
+  period: 2022
+  input: 
+    product_class: non_ducted_split_system
+    AC_HSPF_mixed: 5
+    AC_HSPF_cold: 5
+    AC_ACOP: 5
+    new_AC_heating_capacity: 3.5
+    AC_TCSPF_mixed: 6
+    AC_AEER: 5
+    new_AC_cooling_capacity: 3.5
+    Appliance_is_registered_in_GEMS: True
+  output:
+    AC_TCSPF_or_AEER_exceeds_ESS_benchmark: True
+    AC_HSPF_or_ACOP_exceeds_ESS_benchmark: True
+    ESS_HEER_AC_replace_meets_equipment_requirements: True
+- name: Test AC meeting implementation requirements.
+      ACs are eligible.
+  period: 2022
+  input: 
+    Appliance_is_removed: True
+    Appliance_is_installed: True
+    implementation_is_performed_by_qualified_person: True
+  output:
+    ESS_HEER_AC_replace_meets_implementation_requirements: True
+- name: Test AC meeting all requirements.
+      ACs are eligible.
+  period: 2022
+  input: 
+    product_class: non_ducted_split_system
+    AC_HSPF_mixed: 5
+    AC_HSPF_cold: 5
+    AC_ACOP: 5
+    new_AC_heating_capacity: 3.5
+    AC_TCSPF_mixed: 6
+    AC_AEER: 5
+    new_AC_cooling_capacity: 3.5
+    Appliance_is_registered_in_GEMS: True
+    Appliance_is_installed: True
+    Appliance_is_removed: True
+    implementation_is_performed_by_qualified_person: True
+    ESS_HEER_AC_replace_meets_eligibility_requirements: True
+  output:
+    ESS_HEER_AC_replace_meets_equipment_requirements: True
+    ESS_HEER_AC_replace_meets_implementation_requirements: True
+    ESS_HEER_AC_replace_meets_all_requirements: True

@@ -13,7 +13,7 @@
         1,
         1,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -51,7 +51,7 @@
         3,
         3,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -89,7 +89,7 @@
         7,
         7,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -127,7 +127,7 @@
         1,
         1,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -165,7 +165,7 @@
         3,
         3,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -203,7 +203,7 @@
         7,
         7,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -241,7 +241,7 @@
         1,
         1,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -279,7 +279,7 @@
         3,
         3,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -317,7 +317,7 @@
         7,
         7,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -355,7 +355,7 @@
         1,
         1,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -393,7 +393,7 @@
         3,
         3,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,
@@ -431,7 +431,7 @@
         7,
         7,
       ]
-    ESS__BCA_climate_zone:
+    BCA_climate_zone:
       [
         BCA_Climate_Zone_1,
         BCA_Climate_Zone_2,

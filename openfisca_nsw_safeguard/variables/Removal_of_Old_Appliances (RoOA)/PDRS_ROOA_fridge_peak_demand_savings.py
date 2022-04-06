@@ -35,43 +35,35 @@ class PDRS_ROOA_fridge_peak_demand_savings(Variable):
         "regulation_reference": PDRS_2022["ROOA", "fridge", "energy_savings"]
     }
 
-    def formula(building, period, parameters):
+    def formula(buildings, period, parameters):
 
-        meet_all_requirements = building(
+        meet_all_requirements = buildings(
             'PDRS_ROOA_meets_all_requirements', period)
         baseline_input_power = (
             parameters(period).PDRS.ROOA_fridge.ROOA_related_constants
             ['baseline_input_power']
             )
         baseline_peak_load_adjustment_factors = (
-            parameters(period).PDRS.table_A27_end_use_equipment_factors
-            ['non_primary_refrigerator_or_freezer']
-            ['baseline_peak_load_adjustment_factor']
-                                                )
-        input_power = (
-            parameters(period).PDRS.ROOA_fridge.ROOA_related_constants
-            ['input_power']
+            parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['RF2']
             )
-        peak_load_adjustment_factor = (
-            parameters(period).PDRS.table_A27_end_use_equipment_factors
-            ['non_primary_refrigerator_or_freezer']
-            ['peak_load_adjustment_factor']
-                            )
+        input_power = 0
+        peak_load_adjustment_factor = baseline_peak_load_adjustment_factors
         firmness_factor = (
-            parameters(period).PDRS.table_A27_end_use_equipment_factors
-            ['non_primary_refrigerator_or_freezer']
-            ['firmness_factor']
-                            )
-
+            parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['RF2']
+            )
         return (
                 meet_all_requirements * 
                 (
                     (
-                        baseline_input_power *
-                        baseline_peak_load_adjustment_factors -
-                        input_power *
-                        peak_load_adjustment_factor
+                        (
+                            baseline_input_power *
+                            baseline_peak_load_adjustment_factors
+                        ) -
+                        (
+                            input_power *
+                            peak_load_adjustment_factor
+                        )
                     ) *
-                firmness_factor
+                    firmness_factor
                 )
             )

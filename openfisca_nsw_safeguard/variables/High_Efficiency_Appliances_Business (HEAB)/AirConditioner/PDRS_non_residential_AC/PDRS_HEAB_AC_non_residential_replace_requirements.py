@@ -8,7 +8,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 # detailed in PDRS activity XX
 
-class PDRS_HEAB_AC_replace_meets_eligibility_requirements(Variable):
+class PDRS_HEAB_non_residential_AC_replace_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -27,7 +27,7 @@ class PDRS_HEAB_AC_replace_meets_eligibility_requirements(Variable):
         return np.logical_not(is_residential) * np.logical_not(no_existing_AC)
 
 
-class PDRS_HEAB_AC_replace_meets_equipment_requirements(Variable):
+class PDRS_HEAB_non_residential_AC_replace_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -42,15 +42,15 @@ class PDRS_HEAB_AC_replace_meets_equipment_requirements(Variable):
     def formula(buildings, period, parameters):
         is_in_GEM = buildings(
             'Appliance_is_registered_in_GEMS', period)
-        has_warranty = buildings(
+        exceeds_benchmark_TCSPF_or_AEER = buildings(
             'AC_TCSPF_or_AEER_exceeds_PDRS_benchmark', period)
         demand_response = buildings(
             'Appliance_demand_response_capability', period)
 
-        return is_in_GEM * has_warranty * demand_response
+        return is_in_GEM * exceeds_benchmark_TCSPF_or_AEER * demand_response
 
 
-class PDRS_HEAB_AC_replace_meets_implementation_requirements(Variable):
+class PDRS_HEAB_non_residential_AC_replace_meets_implementation_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -72,7 +72,7 @@ class PDRS_HEAB_AC_replace_meets_implementation_requirements(Variable):
         return is_installed * is_removed * performed_by_qualified_person
 
 
-class PDRS_HEAB_AC_replace_meets_all_requirements(Variable):
+class PDRS_HEAB_non_residential_AC_replace_meets_all_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -85,10 +85,10 @@ class PDRS_HEAB_AC_replace_meets_all_requirements(Variable):
 
     def formula(buildings, period, parameters):
         eligibility = buildings(
-            'PDRS_HEAB_AC_replace_meets_eligibility_requirements', period)
+            'PDRS_HEAB_non_residential_AC_replace_meets_eligibility_requirements', period)
         equipment = buildings(
-            'PDRS_HEAB_AC_replace_meets_equipment_requirements', period)
+            'PDRS_HEAB_non_residential_AC_replace_meets_equipment_requirements', period)
         implementation = buildings(
-            'PDRS_HEAB_AC_replace_meets_implementation_requirements', period)
+            'PDRS_HEAB_non_residential_AC_replace_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment

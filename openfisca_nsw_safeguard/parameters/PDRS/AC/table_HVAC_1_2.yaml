@@ -3,19 +3,19 @@ non_ducted_split_system:
   less_than_4kW:
     values:
       2021-01-01:
-        value: 3.73
+        value: 3.39
   4kW_to_10kW:
     values:
       2021-01-01:
-        value: 3.28
+        value: 2.98
   10kW_to_39kW:
     values:
       2021-01-01:
-        value: 3.15
+        value: 2.84
   39kW_to_65kW:
     values:
       2021-01-01:
-        value: 2.95 
+        value: 2.79
   more_than_65kW:
     values:
       2021-01-01:
@@ -45,19 +45,19 @@ non_ducted_unitary_system:
   less_than_4kW:
     values:
       2021-01-01:
-        value: 3.73
+        value: 3.39
   4kW_to_10kW:
     values:
       2021-01-01:
-        value: 3.28
+        value: 2.98
   10kW_to_39kW:
     values:
       2021-01-01:
-        value: 3.15
+        value: 2.84
   39kW_to_65kW:
     values:
       2021-01-01:
-        value: 2.95 
+        value: 2.79
   more_than_65kW:
     values:
       2021-01-01:

@@ -21,6 +21,8 @@ class ESS__electricity_savings(Variable):
         ESS_MethodType = (ESS_method_type.possible_values)
         NABERS_electricity_savings = buildings(
             'ESS__NABERS_electricity_savings', period)
+        HEER_electricity_savings = buildings(
+            'ESS__NABERS_electricity_savings', period)
         electricity_savings = np.select([ESS_method_type == (ESS_MethodType.clause_8_8_NABERS),
                                          ESS_method_type == (ESS_MethodType.clause_9_8_HEER)],
                                         [NABERS_electricity_savings,

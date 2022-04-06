@@ -58,3 +58,14 @@ class Fridge_total_number_one_less(Variable):
         'alias':  'One less fridge/freezer on the site',
         "regulation_reference": PDRS_2022["XX", "fridge"]
     }
+
+
+class another_fridge_provides_primary_refrigeration(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is there another fridge that provides primary refrigeration at the site?'
+    metadata = {
+        'alias':  'Another fridge provides primary refrigeration',
+        "regulation_reference": PDRS_2022["XX", "fridge"]
+    }

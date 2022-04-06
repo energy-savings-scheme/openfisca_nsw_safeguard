@@ -15,7 +15,6 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_activity_new_equipment_i
         "regulation_reference": PDRS_2022["XX", "fridge"]
     }
 
-
 class PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI(Variable):
     value_type = bool
     entity = Building

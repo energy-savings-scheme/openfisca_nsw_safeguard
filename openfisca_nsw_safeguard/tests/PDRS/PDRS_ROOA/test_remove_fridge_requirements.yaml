@@ -1,32 +1,13 @@
-- name: test PDRS ROOA fridge implementation requirements
-  period: 2021
-  absolute_error_margin: 0
-  input:
-      Appliance_is_removed: [true, true, false, false]
-      Appliance_follows_removal_requirements: [true, false, true, false]
-      Fridge_total_number_one_less: [true, false, true, false]
-      Fridge_not_primary: [true, true, true, false]
-  output:
-      PDRS_ROOA_meets_implementation_requirements: [true, false, false, false]
-
-- name: test PDRS ROOA fridge eligibility requirements
-  period: 2021
-  absolute_error_margin: 0
-  input:
-      Appliance_located_in_residential_building: [True, True, False, False]
-      Appliance_located_in_small_business_building: [True, False, True, False]
-
-  output:
-      PDRS_ROOA_meets_eligibility_requirements: [True, True, False, False]
-
 - name: test PDRS ROOA fridge equipment requirements
   period: 2021
   absolute_error_margin: 0
   input:
+      Appliance_located_in_residential_building: [True, True, False, False]
       Fridge_in_working_order: [True, True, False, False]
       Fridge_capacity_more_than_200L: [True, False, True, False]
       Fridge_is_classified_as_refrigerator: [True, False, True, False]
-
+      another_fridge_provides_primary_refrigeration: [True, False, True, False]
+      Fridge_total_number_one_less: [True, False, True, False]
   output:
       PDRS_ROOA_meets_equipment_requirements: [True, False, False, False]
 

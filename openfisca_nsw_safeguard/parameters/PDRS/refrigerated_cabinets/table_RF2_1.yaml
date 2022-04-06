@@ -1,0 +1,394 @@
+description: Baseline EEIs that refrigerated cabinets are not allowed to exceed, as part of PDRS activity XX.
+reference: "PDRS Technical Manual."
+adjustment_factor:
+  product_class_one:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_two:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_three:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.2
+  product_class_four:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.1
+  product_class_five:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_six:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_seven:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_eight:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_nine:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.2
+  product_class_ten:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.1
+  product_class_eleven:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_twelve:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_thirteen:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_fourteen:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+  product_class_fifteen:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+    light_duty:
+      values:
+          2021-01-01:
+              value: 1.0
+baseline_EEI:
+  product_class_one:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 130
+    light_duty:
+      values:
+          2021-01-01:
+              value: 130
+  product_class_two:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 92
+    light_duty:
+      values:
+          2021-01-01:
+              value: 92
+  product_class_three:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 73
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 71
+    light_duty:
+      values:
+          2021-01-01:
+              value: 71
+  product_class_four:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 89
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 80
+    light_duty:
+      values:
+          2021-01-01:
+              value: 80
+  product_class_five:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 130
+    light_duty:
+      values:
+          2021-01-01:
+              value: 130
+  product_class_six:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 76
+    light_duty:
+      values:
+          2021-01-01:
+              value: 76
+  product_class_seven:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 90
+    light_duty:
+      values:
+          2021-01-01:
+              value: 90
+  product_class_eight:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 97
+    light_duty:
+      values:
+          2021-01-01:
+              value: 97
+  product_class_nine:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 91
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 70
+    light_duty:
+      values:
+          2021-01-01:
+              value: 70
+  product_class_ten:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 96
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 80
+    light_duty:
+      values:
+          2021-01-01:
+              value: 80
+  product_class_eleven:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 130
+    light_duty:
+      values:
+          2021-01-01:
+              value: 130
+  product_class_twelve:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 130
+    light_duty:
+      values:
+          2021-01-01:
+              value: 130
+  product_class_thirteen:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 80
+    light_duty:
+      values:
+          2021-01-01:
+              value: 80
+  product_class_fourteen:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 91
+    light_duty:
+      values:
+          2021-01-01:
+              value: 91
+  product_class_fifteen:
+    heavy_duty:
+      values:
+          2021-01-01:
+              value: 0
+    normal_duty:
+      values:
+          2021-01-01:
+              value: 106
+    light_duty:
+      values:
+          2021-01-01:
+              value: 106

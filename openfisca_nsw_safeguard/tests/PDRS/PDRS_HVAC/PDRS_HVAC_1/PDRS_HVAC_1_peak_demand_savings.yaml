@@ -1,0 +1,46 @@
+- name: test HVAC non-residential replacement activity
+  period: 2022
+  input:
+    Air_Conditioner__cooling_capacity: 10
+    PDRS_AC_input_power: 10
+    AC_TCSPF_mixed: 7
+    AC_AEER: 3
+    BCA_climate_zone: BCA_Climate_Zone_2
+    Appliance_is_installed: True
+    Appliance_is_removed: True
+    implementation_is_performed_by_qualified_person: True
+    Appliance_is_registered_in_GEMS: True
+    Appliance_demand_response_capability: True
+    No_Existing_AC: False
+    Appliance_located_in_residential_building: False
+  output:
+    PDRS_AC_peak_demand_savings: -4.8451734
+    PDRS_HEAB_non_residential_AC_replace_meets_eligibility_requirements: True
+    AC_TCSPF_or_AEER_exceeds_PDRS_benchmark: True
+    PDRS_HEAB_non_residential_AC_replace_meets_equipment_requirements: True
+    PDRS_HEAB_non_residential_AC_replace_meets_implementation_requirements: True
+    PDRS_HEAB_non_residential_AC_replace_meets_all_requirements: True
+    PDRS_HEAB_non_residential_AC_replace_peak_demand_savings: -4.8451734
+- name: test HVAC non-residential replacement activity
+  period: 2022
+  input:
+    Air_Conditioner__cooling_capacity: 60
+    PDRS_AC_input_power: 10
+    AC_TCSPF_mixed: 7
+    AC_AEER: 3
+    BCA_climate_zone: BCA_Climate_Zone_2
+    Appliance_is_installed: True
+    Appliance_is_removed: True
+    implementation_is_performed_by_qualified_person: True
+    Appliance_is_registered_in_GEMS: True
+    Appliance_demand_response_capability: True
+    No_Existing_AC: False
+    Appliance_located_in_residential_building: False
+  output:
+    PDRS_AC_peak_demand_savings: 4.262295
+    PDRS_HEAB_non_residential_AC_replace_meets_eligibility_requirements: True
+    AC_TCSPF_or_AEER_exceeds_PDRS_benchmark: True
+    PDRS_HEAB_non_residential_AC_replace_meets_equipment_requirements: True
+    PDRS_HEAB_non_residential_AC_replace_meets_implementation_requirements: True
+    PDRS_HEAB_non_residential_AC_replace_meets_all_requirements: True
+    PDRS_HEAB_non_residential_AC_replace_peak_demand_savings: 4.262295

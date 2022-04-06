@@ -24,16 +24,10 @@ class PDRS_number_of_peak_demand_reduction_certificates(Variable):
                                                     [
                                                         (activity_type == PDRSActivity.replace_motors),
                                                         (activity_type == PDRSActivity.install_motors),
-                                                        (activity_type == PDRSActivity.replace_AC),
-                                                        (activity_type == PDRSActivity.install_AC),
-                                                        (activity_type == PDRSActivity.remove_fridge),
                                                     ],
                                                     [
                                                         buildings('PDRS_HEAB_motors_replace_peak_demand_savings', period),
                                                         buildings('PDRS_HEAB_motors_install_peak_demand_savings', period),
-                                                        buildings('PDRS_HEER_AC_replace_peak_demand_savings', period),
-                                                        buildings('PDRS_HEER_AC_replace_peak_demand_savings', period),
-                                                        buildings('PDRS_ROOA_fridge_peak_demand_savings', period)
                                                     ]
                                                     )
         regional_network_factor = buildings('PDRS__regional_network_factor', period)
@@ -54,10 +48,10 @@ class PDRS__postcode(Variable):
 
 
 class PDRSActivity(Enum):
-    replace_motors = 'The implementation uses the Replace Motors activity definition.'
-    install_motors = 'The implementation uses the Install Motors activity definition.'
     replace_AC = 'The implementation uses the replace AC activity definition.'
     install_AC = 'The implementation uses the install AC activity definition.'
+    replace_motors = 'The implementation uses the Replace Motors activity definition.'
+    install_motors = 'The implementation uses the Install Motors activity definition.'
     install_RC = 'The implementation uses the install RC activity definition.'
     remove_fridge = 'The implementation uses the remove fridge activity definition.'
     replace_water_heater = 'The implementation uses the replace water heater activity definition.'

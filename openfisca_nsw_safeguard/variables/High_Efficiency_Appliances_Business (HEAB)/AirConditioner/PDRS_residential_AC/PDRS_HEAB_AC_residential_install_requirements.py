@@ -8,7 +8,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 ## detailed in PDRS activity XX
 
-class PDRS_HEAB_AC_install_meets_eligibility_requirements(Variable):
+class PDRS_HEAB_residential_AC_install_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -20,14 +20,10 @@ class PDRS_HEAB_AC_install_meets_eligibility_requirements(Variable):
         "regulation_reference": PDRS_2022["HEAB", "AC_install", "eligibility"]
     }
 
-    def formula(buildings, period, parameters):
-        is_residential = buildings(
-            'Appliance_located_in_residential_building', period)
-        no_existing_AC = buildings('No_Existing_AC', period)
-        return np.logical_not(is_residential) * no_existing_AC
 
+    
 
-class PDRS_HEAB_AC_install_meets_equipment_requirements(Variable):
+class PDRS_HEAB_residential_AC_install_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -50,7 +46,7 @@ class PDRS_HEAB_AC_install_meets_equipment_requirements(Variable):
         return is_in_GEM * has_warranty * demand_response
 
 
-class PDRS_HEAB_AC_install_meets_implementation_requirements(Variable):
+class PDRS_HEAB_residential_AC_install_meets_implementation_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -68,10 +64,13 @@ class PDRS_HEAB_AC_install_meets_implementation_requirements(Variable):
         performed_by_qualified_person = buildings(
             'implementation_is_performed_by_qualified_person', period)
 
-        return is_installed * performed_by_qualified_person
+        return (
+                is_installed * 
+                performed_by_qualified_person
+                )
 
 
-class PDRS_HEAB_AC_install_meets_all_requirements(Variable):
+class PDRS_HEAB_residential_AC_install_meets_all_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -84,10 +83,10 @@ class PDRS_HEAB_AC_install_meets_all_requirements(Variable):
 
     def formula(buildings, period):
         eligibility = buildings(
-            'PDRS_HEAB_AC_install_meets_eligibility_requirements', period)
+            'PDRS_HEAB_residential_AC_install_meets_eligibility_requirements', period)
         equipment = buildings(
-            'PDRS_HEAB_AC_install_meets_equipment_requirements', period)
+            'PDRS_HEAB_residential_AC_install_meets_equipment_requirements', period)
         implementation = buildings(
-            'PDRS_HEAB_AC_install_meets_implementation_requirements', period)
+            'PDRS_HEAB_residential_AC_install_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment

@@ -9,7 +9,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 class PDRS_ROOA_meets_implementation_requirements(Variable):
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Implementation' \
             ' Requirements defined in Removal of Old Appliance (fridge)?'
@@ -18,16 +18,8 @@ class PDRS_ROOA_meets_implementation_requirements(Variable):
         "regulation_reference": PDRS_2022["ROOA", "fridge", "implementation"]
     }
 
-    def formula(buildings, period, parameters):
-        one_less = buildings('Fridge_total_number_one_less', period)
-        not_primary = buildings('Fridge_not_primary', period)
-        is_removed = buildings('Appliance_is_removed', period)
-        follows_removal_requirements = buildings(
-            'Appliance_follows_removal_requirements', period)
-        return not_primary * is_removed * follows_removal_requirements * one_less
 
-
-class PDRS_ROOA_meets_eligibility_requirements(Variable):
+class PDRS_ROOA_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -42,13 +34,29 @@ class PDRS_ROOA_meets_eligibility_requirements(Variable):
     def formula(buildings, period, parameters):
         is_residential = buildings(
             'Appliance_located_in_residential_building', period)
-        return is_residential
+        is_fridge = buildings('Fridge_is_classified_as_refrigerator', period)
+        is_more_than_200L = buildings('Fridge_capacity_more_than_200L', period)
+        is_working = buildings(
+            'Fridge_in_working_order', period)
+        another_primary_fridge = buildings(
+            'another_fridge_provides_primary_refrigeration', period)
+        one_fewer_fridge_after_activity = buildings(
+            'Fridge_total_number_one_less', period)
+
+        return (
+                is_residential *
+                is_fridge *
+                is_more_than_200L *
+                is_working *
+                another_primary_fridge *
+                one_fewer_fridge_after_activity
+                )
 
 
-class PDRS_ROOA_meets_equipment_requirements(Variable):
+class PDRS_ROOA_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Equipment' \
             ' Requirements defined in Removal of Old Appliance (fridge)?'
@@ -56,14 +64,6 @@ class PDRS_ROOA_meets_equipment_requirements(Variable):
         'alias': "ROOA meets equipment requirements",
         "regulation_reference": PDRS_2022["ROOA", "fridge", "equipment"]
     }
-
-    def formula(buildings, period, parameters):
-        is_working = buildings(
-            'Fridge_in_working_order', period)
-        is_more_than_200L = buildings('Fridge_capacity_more_than_200L', period)
-        is_fridge = buildings('Fridge_is_classified_as_refrigerator', period)
-        return is_working * is_more_than_200L * is_fridge
-
 
 class PDRS_ROOA_meets_all_requirements(Variable):
     value_type = bool

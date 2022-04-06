@@ -1,3 +1,4 @@
+from wsgiref.validate import InputWrapper
 import numpy as np
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
@@ -22,6 +23,24 @@ class PDRS_AC_baseline_input_power(Variable):
         baseline_AEER = buildings(
             'Air_Conditioner__baseline_AEER', period)
         return cooling_capacity / baseline_AEER
+
+
+class PDRS_AC_baseline_peak_adjustment_factor(Variable):
+    value_type = float
+    entity = Building
+    label = 'returns the baseline peak adjustment factor for an Air Conditioner'
+    definition_period = ETERNITY
+    metadata = {
+        "alias": "Baseline Power Input",
+        "regulation_reference": PDRS_2022["XX", "AC"]
+    }
+
+    def formula(buildings, period, parameters):
+        climate_zone = buildings('BCA_climate_zone', period)
+        temperature_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
+        usage_factor = 0.72
+        return temperature_factor / usage_factor
+
 
 
 class Air_Conditioner__baseline_AEER(Variable):
@@ -114,7 +133,7 @@ class PDRS_AC_firmness_factor(Variable):
         return contribution_factor*load_factor*duration_factor
 
 
-class PDRS_AC_power_input(Variable):
+class PDRS_AC_input_power(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -137,19 +156,25 @@ class PDRS_AC_peak_demand_savings(Variable):
         "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
-    def formula(building, period, parameters):
+    def formula(buildings, period, parameters):
 
-        power_input = building('PDRS_AC_power_input', period)
-        baseline_power_input = building(
+        baseline_power_input = buildings(
             'PDRS_AC_baseline_input_power', period)
-        firmness_factor = building(
-            'PDRS_AC_firmness_factor', period)
-        daily_peak_hours = parameters(
-            period).PDRS.PDRS_wide_constants.DAILY_PEAK_WINDOW_HOURS
-        forward_creation_period = parameters(
-            period).PDRS.AC.AC_related_constants.FORWARD_CREATION_PERIOD
+        baseline_peak_adjustment_factor = buildings(
+            'PDRS_AC_baseline_peak_adjustment_factor', period)
+        input_power = buildings('PDRS_AC_input_power', period)
+        peak_adjustment_factor = baseline_peak_adjustment_factor
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor.firmness_factor['HVAC1']
 
-        diff = np.where((baseline_power_input - power_input) >
-                        0, baseline_power_input - power_input, 0)
-
-        return diff*daily_peak_hours*firmness_factor*forward_creation_period
+        return (
+                    (
+                        baseline_power_input *
+                        baseline_peak_adjustment_factor
+                    ) -
+                    (
+                        input_power *
+                        peak_adjustment_factor
+                    )
+                    *
+                    firmness_factor
+            )

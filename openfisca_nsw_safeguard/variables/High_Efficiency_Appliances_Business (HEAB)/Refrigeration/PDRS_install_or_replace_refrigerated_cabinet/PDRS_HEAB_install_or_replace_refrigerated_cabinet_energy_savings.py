@@ -18,22 +18,11 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_peak_demand_savings(Vari
 
     def formula(buildings, period, parameters):
         baseline_input_power = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_input_power', period)
-        baseline_peak_adjustment_factor = (
-                                    parameters(period).
-                                    PDRS.table_A27_end_use_equipment_factors
-                                    ['refrigerated_cabinets']['baseline_peak_load_adjustment_factor']
-                                            )
+        baseline_peak_adjustment_factor = (buildings
+        ('PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_peak_adjustment_factor', period))
         input_power = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_input_power', period)
-        peak_load_adjustment_factor = (
-                                    parameters(period).
-                                    PDRS.table_A27_end_use_equipment_factors
-                                    ['refrigerated_cabinets']['baseline_peak_load_adjustment_factor']
-                                            )
-        firmness_factor = (
-                                    parameters(period).
-                                    PDRS.table_A27_end_use_equipment_factors
-                                    ['refrigerated_cabinets']['firmness_factor']
-        )
+        peak_load_adjustment_factor = baseline_peak_adjustment_factor
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor.firmness_factor['RF2']
         peak_demand_reduction_savings = (
                                 (
                                     baseline_input_power *
@@ -65,16 +54,18 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_input_power(Var
             'new_refrigerated_cabinet_total_energy_consumption', period)
         product_class = buildings('refrigerated_cabinet_product_class', period)
         duty_class = buildings('refrigerated_cabinet_duty_class', period)
-        baseline_EEI = (parameters(period).PDRS.refrigerated_cabinets.table_F1_1.baseline_EEI[product_class][duty_class])
+        adjustment_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_class]
+        baseline_EEI = parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_class]
         new_EEI = buildings(
             'new_refrigerated_cabinet_EEI', period)
         return (
-                total_energy_consumption /
-                24 *
+                total_energy_consumption *
+                adjustment_factor *
                 (
                     baseline_EEI /
                     new_EEI
-                )                
+                ) /
+                24
                 )
 
 
@@ -95,6 +86,27 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_input_power(Variable):
             total_energy_consumption /
             24 
                 )
+
+
+class PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_peak_adjustment_factor(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the baseline peak adjustment factor for the Refrigerated Cabinets activity?'
+    metadata = {
+        'alias':  'RC Input Power',
+        "regulation_reference": PDRS_2022["XX", "fridge"]
+    }
+
+    def formula(buildings, period, parameters):
+        BCA_climate_zone = buildings('BCA_climate_zone', period)
+        temperature_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[BCA_climate_zone]
+        usage_factor = 0.72
+        return (
+            temperature_factor * 
+            usage_factor
+        )
+
 
 
 class PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_all_eligibility_criteria(Variable):

@@ -6,38 +6,37 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
+## detailed in PDRS activity XX
 
-class PDRS_HEER_AC_install_meets_eligibility_requirements(Variable):
+class PDRS_HEAB_non_residential_AC_install_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Eligibility' \
-            ' Requirements defined in installing a high efficiency air conditioner for Residential?'
+            ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
-        'alias': "HEER AC install meets eligibility requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_install", "eligibility"]
+        'alias': "HEAB AC install meets eligibility requirements",
+        "regulation_reference": PDRS_2022["HEAB", "AC_install", "eligibility"]
     }
 
     def formula(buildings, period, parameters):
         is_residential = buildings(
             'Appliance_located_in_residential_building', period)
-        is_small_business = buildings(
-            "Appliance_located_in_small_business_building", period)
         no_existing_AC = buildings('No_Existing_AC', period)
-        return (is_residential + is_small_business) * no_existing_AC
+        return np.logical_not(is_residential) * no_existing_AC
 
 
-class PDRS_HEER_AC_install_meets_equipment_requirements(Variable):
+class PDRS_HEAB_non_residential_AC_install_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
     definition_period = ETERNITY
     label = 'Does the equipment meet all of the Equipment' \
-            ' Requirements defined in installing a high efficiency air conditioner for Residential?'
+            ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
-        'alias': "HEER AC Install meets equipment requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_install", "equipment"]
+        'alias': "HEAB AC Install meets equipment requirements",
+        "regulation_reference": PDRS_2022["HEAB", "AC_install", "equipment"]
     }
 
     def formula(buildings, period, parameters):
@@ -51,16 +50,16 @@ class PDRS_HEER_AC_install_meets_equipment_requirements(Variable):
         return is_in_GEM * has_warranty * demand_response
 
 
-class PDRS_HEER_AC_install_meets_implementation_requirements(Variable):
+class PDRS_HEAB_non_residential_AC_install_meets_implementation_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Implementation' \
-            ' Requirements defined in installing a high efficiency air conditioner for Residential?'
+            ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
-        'alias': "HEER AC Install meets implementation requirements",
-        "regulation_reference": PDRS_2022["HEER", "AC_install", "implementation"]
+        'alias': "HEAB AC Install meets implementation requirements",
+        "regulation_reference": PDRS_2022["HEAB", "AC_install", "implementation"]
     }
 
     def formula(buildings, period, parameters):
@@ -72,23 +71,23 @@ class PDRS_HEER_AC_install_meets_implementation_requirements(Variable):
         return is_installed * performed_by_qualified_person
 
 
-class PDRS_HEER_AC_install_meets_all_requirements(Variable):
+class PDRS_HEAB_non_residential_AC_install_meets_all_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the' \
-            ' Requirements defined in installing a high efficiency air conditioner for Residential?'
+            ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
-        'alias': "HEER AC install meets all requirements",
+        'alias': "HEAB AC install meets all requirements",
     }
 
-    def formula(buildings, period, parameters):
+    def formula(buildings, period):
         eligibility = buildings(
-            'PDRS_HEER_AC_install_meets_eligibility_requirements', period)
+            'PDRS_HEAB_non_residential_AC_install_meets_eligibility_requirements', period)
         equipment = buildings(
-            'PDRS_HEER_AC_install_meets_equipment_requirements', period)
+            'PDRS_HEAB_non_residential_AC_install_meets_equipment_requirements', period)
         implementation = buildings(
-            'PDRS_HEER_AC_install_meets_implementation_requirements', period)
+            'PDRS_HEAB_non_residential_AC_install_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment

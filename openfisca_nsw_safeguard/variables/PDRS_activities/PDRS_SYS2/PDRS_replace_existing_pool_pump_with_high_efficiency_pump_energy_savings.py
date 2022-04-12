@@ -23,7 +23,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_peak_demand_savi
                                     PDRS.table_A27_end_use_equipment_factors
                                     ['pool_pumps']['baseline_peak_load_adjustment_factor']
                                             )
-        input_power = buildings('PDRS_new_pump_input_power', period)
+        input_power = buildings('PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power', period)
         peak_load_adjustment_factor = (
                                     parameters(period).
                                     PDRS.table_A27_end_use_equipment_factors
@@ -92,7 +92,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_baseline_input_p
             'over_70000_L',
         ])
         baseline_input_power = (
-            parameters(period).PDRS.pool_pumps.table_sys2_1.baseline_input_power[pool_volume])
+            parameters(period).PDRS.pool_pumps.table_SYS2_1.baseline_input_power[pool_volume])
         return baseline_input_power
 
 
@@ -116,19 +116,19 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(Vari
                                     ),
                                     (
                                         (new_pump_pool_volume >= 30001) * 
-                                        (new_pump_pool_volume < 40000)
+                                        (new_pump_pool_volume <= 40000)
                                     ),
                                     (
                                         (new_pump_pool_volume >= 40001) * 
-                                        (new_pump_pool_volume < 50000)
+                                        (new_pump_pool_volume <= 50000)
                                     ),
                                     (
                                         (new_pump_pool_volume >= 50001) * 
-                                        (new_pump_pool_volume < 60000)
+                                        (new_pump_pool_volume <= 60000)
                                     ),
                                     (
                                         (new_pump_pool_volume >= 60001) * 
-                                        (new_pump_pool_volume < 70000)
+                                        (new_pump_pool_volume <= 70000)
                                     ),
                                     (new_pump_pool_volume >= 70001),
         ],
@@ -142,9 +142,9 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(Vari
             'over_70000_L',
         ])
         star_rating = buildings('PDRS_new_pump_star_rating', period)
-        pump_type = buildings('PDRS_pool_pump_speed', period)
+        pump_type = buildings('PDRS_new_pool_pump_type', period)
         input_power = (parameters(period).
-            PDRS.pool_pumps.table_sys2_2.input_power
+            PDRS.pool_pumps.table_SYS2_2.input_power
             [pool_volume][star_rating][pump_type])
         return input_power
 
@@ -193,15 +193,6 @@ class PDRS_new_pump_star_rating(Variable):
         "regulation_reference": PDRS_2022["XX", "pool pump"]
     }
 
-class PDRS_new_pump_input_power(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the input power of the new pool pump?'
-    metadata = {
-        'alias':  'New pump star input power.',
-        "regulation_reference": PDRS_2022["XX", "pool pump"]
-    }
 
 class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_all_requirements(Variable):
     value_type = bool
@@ -225,24 +216,3 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_all_requir
             meets_equipment_requirements * 
             meets_implementation_requirements
         )
-
-class PDRS_PoolPumpSpeed(Enum):
-    fixed_speed = 'The new pool pump is a fixed speed pool pump.'
-    multi_speed = 'The new pool pump is a variable speed or multi-speed pool pump.'
-
-
-class PDRS_pool_pump_speed(Variable):
-    value_type = Enum
-    possible_values = PDRS_PoolPumpSpeed
-    default_value = PDRS_PoolPumpSpeed.fixed_speed
-    entity = Building
-    definition_period = ETERNITY
-    reference = "Clause 8.8"
-    label = 'Is the new pool pump a fixed speed or multi speed pool pump?'
-    metadata = {
-        "variable-type": "user-input",
-        "alias": "PDRS Pool Pump Speed",
-        # "major-cat":"Energy Savings Scheme",
-        # "monor-cat":'Metered Baseline Method - NABERS baseline'
-        "regulation_reference": PDRS_2022["XX", "pool pump"]
-    }

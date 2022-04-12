@@ -4,10 +4,6 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 import numpy as np
 
-
-import numpy as np
-
-
 class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_bars_of_pressure(Variable):
     value_type = str
     entity = Building

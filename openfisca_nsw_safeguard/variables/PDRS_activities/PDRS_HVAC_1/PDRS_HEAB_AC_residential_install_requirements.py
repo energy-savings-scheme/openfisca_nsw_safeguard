@@ -11,7 +11,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 class PDRS_HEAB_residential_AC_install_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Eligibility' \
             ' Requirements defined in installing a high efficiency air conditioner for Business?'

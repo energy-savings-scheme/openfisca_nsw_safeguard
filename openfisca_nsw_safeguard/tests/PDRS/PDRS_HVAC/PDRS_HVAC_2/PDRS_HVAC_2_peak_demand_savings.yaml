@@ -113,15 +113,15 @@
                     False,
                       ]
     Appliance_located_in_residential_building: [
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                              ]
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                            ]
   output:
     PDRS_AC_peak_demand_savings: [
                                   0,
@@ -133,7 +133,7 @@
                                   8.169398,
                                   4.883879,
                                   ]
-    PDRS_HEAB_non_residential_AC_replace_meets_eligibility_requirements: [
+    PDRS_HEAB_residential_AC_replace_meets_eligibility_requirements: [
                                                                           True,
                                                                           True,
                                                                           True,
@@ -153,7 +153,7 @@
                                             True,
                                             True,
                                           ]
-    PDRS_HEAB_non_residential_AC_replace_meets_equipment_requirements: [
+    PDRS_HEAB_residential_AC_replace_meets_equipment_requirements: [
                                                                         True,
                                                                         True,
                                                                         True,
@@ -163,7 +163,7 @@
                                                                         True,
                                                                         True,
                                                                       ]
-    PDRS_HEAB_non_residential_AC_replace_meets_implementation_requirements: [
+    PDRS_HEAB_residential_AC_replace_meets_implementation_requirements: [
                                                                             True,
                                                                             True,
                                                                             True,
@@ -173,7 +173,7 @@
                                                                             True,
                                                                             True,
                                                                               ]
-    PDRS_HEAB_non_residential_AC_replace_meets_all_requirements: [
+    PDRS_HEAB_residential_AC_replace_meets_all_requirements: [
                                                                     True,
                                                                     True,
                                                                     True,
@@ -183,7 +183,7 @@
                                                                     True,
                                                                     True,
                                                                   ]
-    PDRS_HEAB_non_residential_AC_replace_peak_demand_savings: [
+    PDRS_HEAB_residential_AC_replace_peak_demand_savings: [
                                                                 0,
                                                                 4.262295,
                                                                 0,

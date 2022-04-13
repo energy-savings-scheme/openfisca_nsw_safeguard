@@ -11,7 +11,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 class PDRS_HEAB_residential_AC_replace_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the implementation meet all of the Eligibility' \
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
@@ -19,12 +19,6 @@ class PDRS_HEAB_residential_AC_replace_meets_eligibility_requirements(Variable):
         'alias': "HEAB AC replace meets eligibility requirements",
         "regulation_reference": PDRS_2022["HEAB", "AC_replace", "eligibility"]
     }
-
-    def formula(buildings, period, parameters):
-        is_residential = buildings(
-            'Appliance_located_in_residential_building', period)
-        no_existing_AC = buildings('No_Existing_AC', period)
-        return np.logical_not(is_residential) * np.logical_not(no_existing_AC)
 
 
 class PDRS_HEAB_residential_AC_replace_meets_equipment_requirements(Variable):

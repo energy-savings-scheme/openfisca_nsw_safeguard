@@ -2,6 +2,16 @@
         PRCs. Capacity 60, input power 7, TCSPF 7, AEER 3, across Climate Zones 1-8.
   period: 2022
   input:
+    Air_Conditioner_type: [
+                            non_ducted_split_system,
+                            non_ducted_split_system,
+                            ducted_split_system,
+                            ducted_split_system,
+                            non_ducted_unitary_system,
+                            non_ducted_unitary_system,
+                            ducted_unitary_system,
+                            ducted_unitary_system
+                          ]
     Air_Conditioner__cooling_capacity: [
                                         60,
                                         60,
@@ -103,14 +113,14 @@
                                             True,
                                           ]
     No_Existing_AC: [
-                    False,
-                    False,
-                    False,
-                    False,
-                    False,
-                    False,
-                    False,
-                    False,
+                      False,
+                      False,
+                      False,
+                      False,
+                      False,
+                      False,
+                      False,
+                      False,
                       ]
     Appliance_located_in_residential_building: [
                                                 False,
@@ -121,28 +131,8 @@
                                                 False,
                                                 False,
                                                 False,
-                                              ]
+                                                ]
   output:
-    PDRS_AC_peak_demand_savings: [
-                                  0,
-                                  4.262295,
-                                  0,
-                                  9.146175,
-                                  4.883879,
-                                  9.234972,
-                                  8.169398,
-                                  4.883879,
-                                  ]
-    PDRS_HEAB_non_residential_AC_replace_meets_eligibility_requirements: [
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                            ]
     AC_TCSPF_or_AEER_exceeds_PDRS_benchmark: [
                                             True,
                                             True,
@@ -153,6 +143,16 @@
                                             True,
                                             True,
                                           ]
+    PDRS_HEAB_non_residential_AC_replace_meets_eligibility_requirements: [
+                                                                        True,
+                                                                        True,
+                                                                        True,
+                                                                        True,
+                                                                        True,
+                                                                        True,
+                                                                        True,
+                                                                        True,
+                                                                      ]
     PDRS_HEAB_non_residential_AC_replace_meets_equipment_requirements: [
                                                                         True,
                                                                         True,
@@ -183,13 +183,3 @@
                                                                     True,
                                                                     True,
                                                                   ]
-    PDRS_HEAB_non_residential_AC_replace_peak_demand_savings: [
-                                                                0,
-                                                                4.262295,
-                                                                0,
-                                                                9.146175,
-                                                                4.883879,
-                                                                9.234972,
-                                                                8.169398,
-                                                                4.883879,
-                                                                ]

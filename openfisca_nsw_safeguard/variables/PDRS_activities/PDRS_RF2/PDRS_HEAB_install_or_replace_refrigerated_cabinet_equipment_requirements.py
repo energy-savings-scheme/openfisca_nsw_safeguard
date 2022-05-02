@@ -5,6 +5,8 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
+import numpy as np
+
 class PDRS_HEAB_install_or_replace_refrigerated_cabinet_activity_new_equipment_is_RC(Variable):
     value_type = bool
     entity = Building
@@ -27,9 +29,15 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI(Va
 
     def formula(buildings, period, parameters):
         product_class = buildings('refrigerated_cabinet_product_class', period)
-        new_RC_EEI = buildings('new_refrigerated_cabinet_EEI', period)
-        baseline_EEI = parameters(period).PDRS.refrigerated_cabinets.PDRS_refrigerated_cabinets_EEI_baselines[product_class]
-        return (new_RC_EEI < baseline_EEI)
+        RCProductClass = product_class.possible_values
+        new_product_EEI = buildings('new_refrigerated_cabinet_EEI', period)
+        is_class_5_product = (
+            product_class == RCProductClass.product_class_five
+        )
+        return np.where(is_class_5_product,
+                            new_product_EEI < 51,
+                            new_product_EEI < 81)
+
 
 class PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_registered_in_GEMS(Variable):
     value_type = bool

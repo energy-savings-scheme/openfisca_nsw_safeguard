@@ -17,7 +17,7 @@
       True,
       False
     ]
-  
+
 - name: Test WH1 Implementation Requirements
   period: 2021
   absolute_error_margin: 0

@@ -40,7 +40,7 @@ class PDRS_motor_install_meets_implementation_requirements(Variable):
 
     def formula(buildings, period, parameters):
         is_installed = buildings(
-            'Appliance_is_installed', period)
+            'Equipment_is_installed', period)
         rated_output = buildings('motors_rated_output', period)
 
         return (is_installed * 

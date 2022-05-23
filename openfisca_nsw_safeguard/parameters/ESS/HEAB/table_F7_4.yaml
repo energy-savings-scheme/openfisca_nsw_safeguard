@@ -1,0 +1,31 @@
+description: Values from Table F7.4
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+asset_life:
+  under_0.73_kW: 
+    values:
+      2020-01-01:
+        value: 0
+  0.73_to_2.6kW: 
+    values:
+      2020-01-01:
+        value: 12
+  2.6_to_9.2kW: 
+    values:
+      2020-01-01:
+        value: 15
+  9.2_to_41kW: 
+    values:
+      2020-01-01:
+        value: 20
+  41_to_100kW: 
+    values:
+      2020-01-01:
+        value: 22
+  100_to_185kW: 
+    values:
+      2020-01-01:
+        value: 25
+  over_185kW: 
+    values:
+      2020-01-01:
+        value: 0

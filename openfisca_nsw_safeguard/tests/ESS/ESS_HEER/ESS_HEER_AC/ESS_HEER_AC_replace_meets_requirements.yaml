@@ -20,7 +20,7 @@
       ACs are eligible.
   period: 2022
   input: 
-    Appliance_is_installed: True
+    Equipment_is_installed: True
     implementation_is_performed_by_qualified_person: True
   output:
     ESS_HEER_AC_install_meets_implementation_requirements: True
@@ -37,7 +37,7 @@
     AC_AEER: 5
     new_AC_cooling_capacity: 3.5
     Appliance_is_registered_in_GEMS: True
-    Appliance_is_installed: True
+    Equipment_is_installed: True
     implementation_is_performed_by_qualified_person: True
     ESS_HEER_AC_install_meets_eligibility_requirements: True
   output:

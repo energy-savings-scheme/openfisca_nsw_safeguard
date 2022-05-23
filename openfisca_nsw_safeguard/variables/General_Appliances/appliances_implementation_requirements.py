@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
-class Appliance_is_installed(Variable):
+class Equipment_is_installed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class Appliance_is_installed(Variable):
     }
 
 
-class Appliance_is_removed(Variable):
+class Equipment_is_removed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

@@ -62,7 +62,7 @@
                         BCA_Climate_Zone_7,
                         BCA_Climate_Zone_8,
                       ]
-    Appliance_is_installed: [
+    Equipment_is_installed: [
                               True,
                               True,
                               True,
@@ -72,7 +72,7 @@
                               True,
                               True,
                             ]
-    Appliance_is_removed: [
+    Equipment_is_removed: [
                           True,
                           True,
                           True,

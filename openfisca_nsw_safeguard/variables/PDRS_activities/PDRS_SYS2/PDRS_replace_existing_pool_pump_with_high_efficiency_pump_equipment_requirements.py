@@ -17,18 +17,18 @@ class PDRS_replace_existing_pool_pump_new_product_is_for_domestic_use(Variable):
     }
 
 
-class HeatPumpType(Enum):
+class PoolPumpType(Enum):
     single_speed_pool_pump = 'Heat pump is a single speed heat pump.'
     dual_speed_heat_pump = 'Heat pump is a dual speed heat pump.'
     multiple_speed_pool_pump = 'Heat pump is a multiple speed heat pump.'
-    variable_speed_heat_pump = 'Heat pump is a variable speed heat pump.'
-    not_eligible_heat_pump = 'Product is not a heat pump, or is not any of the above types of heat pump.'
+    variable_speed_pool_pump = 'Heat pump is a variable speed heat pump.'
+    not_eligible_pool_pump = 'Product is not a heat pump, or is not any of the above types of heat pump.'
 
 
-class PDRS_new_pool_pump_type(Variable):
+class ESS_and_PDRS_new_pool_pump_type(Variable):
     value_type = Enum
-    default_value = HeatPumpType.single_speed_pool_pump
-    possible_values = HeatPumpType
+    default_value = PoolPumpType.single_speed_pool_pump
+    possible_values = PoolPumpType
     entity = Building
     definition_period = ETERNITY
     label = 'What is the type of heat pump that is being replaced?'
@@ -45,9 +45,9 @@ class PDRS_replace_existing_pool_pump_new_pump_is_eligible_type(Variable):
     label = 'Is the new pool pump an eligible type to be used in this activity?'
 
     def formula(buildings, period, parameters):
-        new_pool_pump_type = buildings('PDRS_new_pool_pump_type', period)
-        HeatPumpType = new_pool_pump_type.possible_values
-        not_eligible_pool_pump_type = (new_pool_pump_type == HeatPumpType.not_eligible_heat_pump)
+        new_pool_pump_type = buildings('ESS_and_PDRS_new_pool_pump_type', period)
+        PoolPumpType = new_pool_pump_type.possible_values
+        not_eligible_pool_pump_type = (new_pool_pump_type == PoolPumpType.not_eligible_pool_pump)
         return np.logical_not(not_eligible_pool_pump_type)
 
 
@@ -79,7 +79,6 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_is_part_of_eligi
     }
 
 
-
 class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_new_pump_has_minimum_star_rating(Variable):
     value_type = bool
     entity = Building
@@ -91,7 +90,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_new_pump_has_min
     }
     
     def formula(buildings, period, parameters):
-        new_pump_star_rating = buildings('PDRS_new_pump_star_rating', period)
+        new_pump_star_rating = buildings('ESS_and_PDRS_new_pump_star_rating', period)
         pump_star_rating = new_pump_star_rating.possible_values
 
         has_minimum_star_rating = (

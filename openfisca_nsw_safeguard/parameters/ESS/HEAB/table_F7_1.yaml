@@ -1,0 +1,1695 @@
+description: Values from Table F7.1 - default Load Utilisation Factor for High Efficiency Motors, where 
+    Business Classification and End-Use Service are known.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+load_utilisation_factor:
+  division_A:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.27
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.28
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.32
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.2
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.2
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.32
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.14
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_B:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.32
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.41
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.36
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.28
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.32
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.32
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.09
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_C:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.27
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.28
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.32
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.28
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.24
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.27
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.09
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_D:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.24
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.28
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.32
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.17
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.12
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.28
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.11
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_E:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.15
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.15
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.24
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.2
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.14
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.17
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.09
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_F:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.07
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.13
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.14
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.11
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.13
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.2
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_G:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.07
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.13
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.09
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.07
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.13
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.17
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_H:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.14
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.11
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.11
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.09
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.13
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.24
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_I:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.08
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.11
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.16
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.32
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.17
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_J:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.1
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.09
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.11
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.11
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_K:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.06
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.05
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.06
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.09
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_L:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.06
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.05
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.08
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.09
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_M:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.05
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.08
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.07
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.04
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.08
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.17
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_N:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.06
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.05
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.04
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.11
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_O:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.06
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.05
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.04
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.09
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_P:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.06
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.05
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.04
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.11
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_Q:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.11
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.06
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.08
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.06
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.11
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_R:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.06
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.05
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.04
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.09
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
+  division_S:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0.04
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0.06
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0.05
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0.03
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0.03
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0.04
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0.07
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0

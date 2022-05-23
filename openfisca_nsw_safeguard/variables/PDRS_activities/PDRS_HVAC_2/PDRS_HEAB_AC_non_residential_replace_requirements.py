@@ -64,8 +64,8 @@ class PDRS_HEAB_non_residential_AC_replace_meets_implementation_requirements(Var
 
     def formula(buildings, period, parameters):
         is_installed = buildings(
-            'Appliance_is_installed', period)
-        is_removed = buildings("Appliance_is_removed", period)
+            'Equipment_is_installed', period)
+        is_removed = buildings("Equipment_is_removed", period)
         performed_by_qualified_person = buildings(
             'implementation_is_performed_by_qualified_person', period)
 

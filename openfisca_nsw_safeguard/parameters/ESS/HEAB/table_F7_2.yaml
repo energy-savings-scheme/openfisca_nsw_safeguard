@@ -1,0 +1,32 @@
+description: Values from Table F7.2 - default Load Utilisation Factor for High Efficiency Motors, where 
+    Business Classification or End-Use Service are not known.
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+load_utilisation_factor:
+  under_0.73_kW: 
+    values:
+      2020-01-01:
+        value: 0
+  0.73_to_2.6kW: 
+    values:
+      2020-01-01:
+        value: 0.09
+  2.6_to_9.2kW: 
+    values:
+      2020-01-01:
+        value: 0.10
+  9.2_to_41kW: 
+    values:
+      2020-01-01:
+        value: 0.11
+  41_to_100kW: 
+    values:
+      2020-01-01:
+        value: 0.13
+  100_to_185kW: 
+    values:
+      2020-01-01:
+        value: 0.15
+  over_185kW: 
+    values:
+      2020-01-01:
+        value: 0

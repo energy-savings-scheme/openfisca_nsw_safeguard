@@ -141,8 +141,8 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(Vari
             '60001_to_70000_L',
             'over_70000_L',
         ])
-        star_rating = buildings('PDRS_new_pump_star_rating', period)
-        pump_type = buildings('PDRS_new_pool_pump_type', period)
+        star_rating = buildings('ESS_and_PDRS_new_pump_star_rating', period)
+        pump_type = buildings('ESS_and_PDRS_new_pool_pump_type', period)
         input_power = (parameters(period).
             PDRS.pool_pumps.table_sys2_2.input_power
             [pool_volume][star_rating][pump_type])
@@ -158,7 +158,7 @@ class PDRS_new_pump_pool_volume(Variable):
         "regulation_reference": PDRS_2022["XX", "pool pump"]
     }
 
-class PDRS_NewPumpStarRating(Enum):
+class ESS_PDRS_NewPumpStarRating(Enum):
     zero_stars = u'Pump has a star rating of 0 stars.'
     one_star = u'Pump has a star rating of 1 star.'
     one_and_a_half_star = u'Pump has a star rating of 1.5 star.'
@@ -181,10 +181,10 @@ class PDRS_NewPumpStarRating(Enum):
     ten_stars = u'Pump has a star rating of 10 stars.'
 
 
-class PDRS_new_pump_star_rating(Variable):
+class ESS_and_PDRS_new_pump_star_rating(Variable):
     value_type = Enum
-    possible_values = PDRS_NewPumpStarRating
-    default_value = PDRS_NewPumpStarRating.zero_stars
+    possible_values = ESS_PDRS_NewPumpStarRating
+    default_value = ESS_PDRS_NewPumpStarRating.zero_stars
     entity = Building
     definition_period = ETERNITY
     label = 'What is the star rating of the new pool pump?'

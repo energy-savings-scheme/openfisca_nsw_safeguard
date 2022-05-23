@@ -9,7 +9,7 @@
     PDRS_activity_type: [
                           replace_motors,
                         ]
-    Appliance_is_removed: [
+    Equipment_is_removed: [
                             True,
                           ]
     implementation_is_performed_by_qualified_person: [
@@ -46,7 +46,7 @@
     PDRS_activity_type: [
                           install_motors,
                         ]
-    Appliance_is_installed: [
+    Equipment_is_installed: [
                               True,
                             ]
     motor_registered_under_GEM: [
@@ -55,7 +55,7 @@
     motor_3_phase_high_efficiency: [
                                     True,
                                     ]
-    Appliance_is_removed: [
+    Equipment_is_removed: [
                             True,
                           ]
     implementation_is_performed_by_qualified_person: [

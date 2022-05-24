@@ -30,7 +30,7 @@
         75000,
         100000,
       ]
-    PDRS_new_pump_star_rating:
+    ESS_and_PDRS_new_pump_star_rating:
       [
         zero_stars,
         zero_stars,
@@ -49,7 +49,7 @@
         zero_stars,
         zero_stars,
       ]
-    PDRS_new_pool_pump_type:
+    ESS_and_PDRS_new_pool_pump_type:
       [
         single_speed_pool_pump,
         single_speed_pool_pump,
@@ -94,7 +94,7 @@
         75000,
         100000,
       ]
-    PDRS_new_pump_star_rating:
+    ESS_and_PDRS_new_pump_star_rating:
       [
         one_star,
         one_star,
@@ -113,7 +113,7 @@
         one_star,
         one_star,
       ]
-    PDRS_new_pool_pump_type:
+    ESS_and_PDRS_new_pool_pump_type:
       [
         single_speed_pool_pump,
         single_speed_pool_pump,
@@ -158,7 +158,7 @@
         75000,
         100000,
       ]
-    PDRS_new_pump_star_rating:
+    ESS_and_PDRS_new_pump_star_rating:
       [
         one_and_a_half_stars,
         one_and_a_half_stars,
@@ -177,7 +177,7 @@
         one_and_a_half_stars,
         one_and_a_half_stars,
       ]
-    PDRS_new_pool_pump_type:
+    ESS_and_PDRS_new_pool_pump_type:
       [
         single_speed_pool_pump,
         single_speed_pool_pump,
@@ -222,7 +222,7 @@
         75000,
         100000,
       ]
-    PDRS_new_pump_star_rating:
+    ESS_and_PDRS_new_pump_star_rating:
       [
         two_stars,
         two_stars,
@@ -241,7 +241,7 @@
         two_stars,
         two_stars,
       ]
-    PDRS_new_pool_pump_type:
+    ESS_and_PDRS_new_pool_pump_type:
       [
         single_speed_pool_pump,
         single_speed_pool_pump,
@@ -286,7 +286,7 @@
         75000,
         100000,
       ]
-    PDRS_new_pump_star_rating:
+    ESS_and_PDRS_new_pump_star_rating:
       [
         two_and_a_half_stars,
         two_and_a_half_stars,
@@ -305,7 +305,7 @@
         two_and_a_half_stars,
         two_and_a_half_stars,
       ]
-    PDRS_new_pool_pump_type:
+    ESS_and_PDRS_new_pool_pump_type:
       [
         single_speed_pool_pump,
         single_speed_pool_pump,
@@ -350,7 +350,7 @@
         75000,
         100000,
       ]
-    PDRS_new_pump_star_rating:
+    ESS_and_PDRS_new_pump_star_rating:
       [
         three_stars,
         three_stars,
@@ -369,71 +369,7 @@
         three_stars,
         three_stars,
       ]
-    PDRS_new_pool_pump_type:
-      [
-        single_speed_pool_pump,
-        single_speed_pool_pump,
-        single_speed_pool_pump,
-        single_speed_pool_pump,
-        single_speed_pool_pump,
-        single_speed_pool_pump,
-        single_speed_pool_pump,
-        single_speed_pool_pump,
-        multiple_speed_pool_pump,
-        multiple_speed_pool_pump,
-        multiple_speed_pool_pump,
-        multiple_speed_pool_pump,
-        multiple_speed_pool_pump,
-        multiple_speed_pool_pump,
-        multiple_speed_pool_pump,
-        multiple_speed_pool_pump,
-      ]
-  output:
-    PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power:
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-- name: test PDRS pool pumps replace - input power (three and a half stars)
-  period: 2021
-  absolute_error_margin: 0.1
-  input:
-    PDRS_new_pump_pool_volume:
-      [
-        10000,
-        25000,
-        35000,
-        45000,
-        55000,
-        65000,
-        75000,
-        100000,
-        10000,
-        25000,
-        35000,
-        45000,
-        55000,
-        65000,
-        75000,
-        100000,
-      ]
-    PDRS_new_pump_star_rating:
-      [
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-        three_and_a_half_stars,
-      ]
-    PDRS_new_pool_pump_type:
+    ESS_and_PDRS_new_pool_pump_type:
       [
         single_speed_pool_pump,
         single_speed_pool_pump,
@@ -478,7 +414,71 @@
         75000,
         100000,
       ]
-    PDRS_new_pump_star_rating:
+    ESS_and_PDRS_new_pump_star_rating:
+      [
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+        three_and_a_half_stars,
+      ]
+    ESS_and_PDRS_new_pool_pump_type:
+      [
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        multiple_speed_pool_pump,
+        multiple_speed_pool_pump,
+        multiple_speed_pool_pump,
+        multiple_speed_pool_pump,
+        multiple_speed_pool_pump,
+        multiple_speed_pool_pump,
+        multiple_speed_pool_pump,
+        multiple_speed_pool_pump,
+      ]
+  output:
+    PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power:
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+- name: test PDRS pool pumps replace - input power (three and a half stars)
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    PDRS_new_pump_pool_volume:
+      [
+        10000,
+        25000,
+        35000,
+        45000,
+        55000,
+        65000,
+        75000,
+        100000,
+        10000,
+        25000,
+        35000,
+        45000,
+        55000,
+        65000,
+        75000,
+        100000,
+      ]
+    ESS_and_PDRS_new_pump_star_rating:
       [
         four_stars,
         four_stars,
@@ -497,7 +497,7 @@
         four_stars,
         four_stars,
       ]
-    PDRS_new_pool_pump_type:
+    ESS_and_PDRS_new_pool_pump_type:
       [
         single_speed_pool_pump,
         single_speed_pool_pump,

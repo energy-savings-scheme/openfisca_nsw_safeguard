@@ -1,0 +1,13 @@
+- name: test ESS HEAB RC install- meets eligibility requirements
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS_HEAB_install_or_replace_refrigerated_cabinet_activity_is_installation_or_removal_of_RC: [
+      True,
+      False
+    ]
+  output:
+    ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_eligibility_requirements: [
+      True,
+      False
+    ]

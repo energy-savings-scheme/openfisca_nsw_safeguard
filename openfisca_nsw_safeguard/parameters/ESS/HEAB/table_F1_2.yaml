@@ -1,0 +1,138 @@
+description: Lifetimes for use in calculating electricity savings in Activity Definition F1.
+reference: "PDRS Technical Manual."
+lifetime:
+  product_class_one:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 8
+  product_class_two:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 8
+  product_class_three:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 8
+  product_class_four:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 8
+  product_class_five:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 8
+  product_class_six:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 8
+  product_class_seven:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 12
+  product_class_eight:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 12
+  product_class_nine:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 8
+  product_class_ten:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 8
+  product_class_eleven:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 8
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 12
+  product_class_twelve:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 12
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 12
+  product_class_thirteen:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 12
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 12
+  product_class_fourteen:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 12
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 12
+  product_class_fifteen:
+    less_than_3_3m2:
+      values:
+        2022-01-01:
+          value: 12
+    3_3m2_or_greater:
+      values:
+        2022-01-01:
+          value: 12

@@ -19,7 +19,7 @@ class PDRS_replace_motors_meets_implementation_requirements(Variable):
 
     def formula(buildings, period, parameters):
 
-        is_removed = buildings('Appliance_is_removed', period)
+        is_removed = buildings('Equipment_is_removed', period)
         performed_by_qualified_person = buildings(
             'implementation_is_performed_by_qualified_person', period)
         return is_removed * performed_by_qualified_person

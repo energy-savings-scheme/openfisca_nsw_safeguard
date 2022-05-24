@@ -2,7 +2,7 @@
   period: 2021
   absolute_error_margin: 0
   input:
-      Appliance_is_removed: [true, true, false, false]
+      Equipment_is_removed: [true, true, false, false]
       implementation_is_performed_by_qualified_person:
           [true, false, true, false]
   output:
@@ -13,7 +13,7 @@
   period: 2021
   absolute_error_margin: 0
   input:
-      Appliance_is_installed: [true, true, true, false]
+      Equipment_is_installed: [true, true, true, false]
       motor_3_phase_high_efficiency: [true, true, true, false]
       motor_registered_under_GEM: [false, true, true, true]
       motors_rated_output: [0.7, 0.73, 150, 185]

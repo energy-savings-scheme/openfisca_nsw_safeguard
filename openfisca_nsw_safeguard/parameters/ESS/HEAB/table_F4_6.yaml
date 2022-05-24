@@ -1,0 +1,6 @@
+description: AC Lifetime, as identified in Table F4.6
+reference: ESS Rule 2022
+lifetime:
+  values:
+    2021-01-01:
+      value: 10

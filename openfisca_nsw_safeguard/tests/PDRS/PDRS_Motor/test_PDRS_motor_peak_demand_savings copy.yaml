@@ -2,7 +2,7 @@
   period: 2021
   absolute_error_margin: 1
   input:
-        Appliance_is_removed: [
+        Equipment_is_removed: [
                                 True,
                                 True,
                                 True,

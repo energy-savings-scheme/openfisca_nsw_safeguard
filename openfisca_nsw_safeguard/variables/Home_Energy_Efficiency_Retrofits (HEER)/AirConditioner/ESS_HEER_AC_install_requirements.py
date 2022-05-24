@@ -79,7 +79,7 @@ class ESS_HEER_AC_install_meets_implementation_requirements(Variable):
 
     def formula(buildings, period, parameters):
         is_installed = buildings(
-            'Appliance_is_installed', period)
+            'Equipment_is_installed', period)
         performed_by_qualified_person = buildings(
             'implementation_is_performed_by_qualified_person', period)
 

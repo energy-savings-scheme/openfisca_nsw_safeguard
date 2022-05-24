@@ -10,31 +10,55 @@ import numpy as np
 
 
 class ESS_HEAB_install_or_replace_AC_energy_savings(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What are the energy savings created by Activity Definition F4?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty',
-        "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
     def formula(buildings, period, parameters):
         electricity_savings = buildings(
             'ESS_HEAB_install_or_replace_AC_electricity_savings', period)
         meets_all_requirements = buildings(
-            'ESS_HEAB_residential_AC_install_meets_all_requirements', period)
+            'ESS_HEAB_install_or_replace_AC_meets_all_requirements', period)
         return electricity_savings * meets_all_requirements
 
 
-class ESS_HEAB_install_or_replace_AC_electricity_savings(Variable):
+class ESS_HEAB_install_or_replace_AC_meets_all_requirements(Variable):
     value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Does the implementation meet all of the' \
+            ' Requirements defined in installing a high efficiency air conditioner for Business?'
+    metadata = {
+        'alias': "HEAB AC install meets all requirements",
+    }
+
+    def formula(buildings, period):
+        meets_eligibility_requirements = buildings(
+            'ESS_HEAB_install_or_replace_AC_meets_eligibility_requirements', period)
+        meets_equipment_requirements = buildings(
+            'ESS_HEAB_install_or_replace_AC_meets_equipment_requirements', period)
+        meets_implementation_requirements = buildings(
+            'ESS_HEAB_install_or_replace_AC_meets_implementation_requirements', period)
+
+        return (
+            meets_eligibility_requirements * 
+            meets_equipment_requirements * 
+            meets_implementation_requirements
+                )
+
+
+class ESS_HEAB_install_or_replace_AC_electricity_savings(Variable):
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What are the energy savings created by Activity Definition F4?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty',
-        "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
     def formula(buildings, period, parameters):
@@ -66,22 +90,43 @@ class ESS_HEAB_install_or_replace_AC_electricity_savings(Variable):
 
 
 class ESS_HEAB_install_or_replace_AC_reference_cooling_annual_energy_use(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the Reference Annual Cooling Use?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty',
-        "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
     def formula(buildings, period, parameters):
         cooling_capacity = buildings('new_AC_cooling_capacity', period)
+        cooling_capacity_band = np.select(
+                                    [
+                                        (cooling_capacity < 4),
+                                        ((cooling_capacity >= 4) * (cooling_capacity < 10)),
+                                        ((cooling_capacity >= 10) * (cooling_capacity < 39)),
+                                        ((cooling_capacity >= 39) * (cooling_capacity <= 65)),
+                                        (cooling_capacity > 65)
+                                    ],
+                                    [
+                                        "less_than_4kW",
+                                        "4kW_to_10kW",
+                                        "10kW_to_39kW",
+                                        "39kW_to_65kW",
+                                        "over_65kW"
+                                    ]
+                                    )
+
         AC_climate_zone = buildings('AC_climate_zone', period)
         activity_type = buildings('PDRS_activity_type', period)
         ActivityType = activity_type.possible_values
+
+        product_class = buildings('Air_Conditioner_type', period)
+        AC_Class = (product_class.possible_values)
+
         equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.cooling_hours[AC_climate_zone]
-        baseline_rated_AEER = np.where([
+
+        baseline_rated_AEER = np.select([
             activity_type == ActivityType.install_AC,
             activity_type == ActivityType.replace_AC,
             (
@@ -90,36 +135,57 @@ class ESS_HEAB_install_or_replace_AC_reference_cooling_annual_energy_use(Variabl
             )
             ],
             [
-                parameters(period).ESS.HEAB.table_F4_2.AEER,
-                parameters(period).ESS.HEAB.table_F4_3.AEER,
+                parameters(period).ESS.HEAB.table_F4_2.AEER[product_class][cooling_capacity_band],
+                parameters(period).ESS.HEAB.table_F4_3.AEER[product_class][cooling_capacity_band],
                 0
             ]
             )
 
         return(
-            cooling_capacity *
-            equivalent_cooling_hours / 
+                (cooling_capacity *
+                equivalent_cooling_hours) / 
             baseline_rated_AEER
         )
 
 
 class ESS_HEAB_install_or_replace_AC_reference_heating_annual_energy_use(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the Reference Annual Cooling Use?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty',
-        "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
     def formula(buildings, period, parameters):
         heating_capacity = buildings('new_AC_heating_capacity', period)
+        heating_capacity_band = np.select(
+                                    [
+                                        (heating_capacity < 4),
+                                        ((heating_capacity >= 4) * (heating_capacity < 10)),
+                                        ((heating_capacity >= 10) * (heating_capacity < 39)),
+                                        ((heating_capacity >= 39) * (heating_capacity <= 65)),
+                                        (heating_capacity > 65)
+                                    ],
+                                    [
+                                        "less_than_4kW",
+                                        "4kW_to_10kW",
+                                        "10kW_to_39kW",
+                                        "39kW_to_65kW",
+                                        "over_65kW"
+                                    ]
+                                    )
+
+
         AC_climate_zone = buildings('AC_climate_zone', period)
         activity_type = buildings('PDRS_activity_type', period)
         ActivityType = activity_type.possible_values
+
+        product_class = buildings('Air_Conditioner_type', period)
+        AC_Class = (product_class.possible_values)
+
         equivalent_heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[AC_climate_zone]
-        baseline_rated_ACOP = np.where([
+        baseline_rated_ACOP = np.select([
             activity_type == ActivityType.install_AC,
             activity_type == ActivityType.replace_AC,
             (
@@ -128,8 +194,8 @@ class ESS_HEAB_install_or_replace_AC_reference_heating_annual_energy_use(Variabl
             )
             ],
             [
-                parameters(period).ESS.HEAB.table_F4_2.ACOP,
-                parameters(period).ESS.HEAB.table_F4_3.ACOP,
+                parameters(period).ESS.HEAB.table_F4_2.ACOP[product_class][heating_capacity_band],
+                parameters(period).ESS.HEAB.table_F4_3.ACOP[product_class][heating_capacity_band],
                 0
             ]
             )
@@ -142,13 +208,12 @@ class ESS_HEAB_install_or_replace_AC_reference_heating_annual_energy_use(Variabl
 
 
 class ESS_HEAB_install_or_replace_AC_cooling_annual_energy_use(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the Reference Annual Cooling Use?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty',
-        "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
     def formula(buildings, period, parameters):
@@ -163,13 +228,12 @@ class ESS_HEAB_install_or_replace_AC_cooling_annual_energy_use(Variable):
         )
 
 class ESS_HEAB_install_or_replace_AC_heating_annual_energy_use(Variable):
-    value_type = bool
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the Reference Annual Cooling Use?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty',
-        "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
     def formula(buildings, period, parameters):

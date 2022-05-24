@@ -90,8 +90,7 @@ class PDRS_WH1_meets_equipment_requirements_administrator_approval(Variable):
     metadata = {
         'alias' : 'Scheme Administrator approval'
     }
-
-
+    
 class PDRS_WH1_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building

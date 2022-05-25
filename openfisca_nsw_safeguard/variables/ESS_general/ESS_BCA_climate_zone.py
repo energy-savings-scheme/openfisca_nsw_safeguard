@@ -52,7 +52,7 @@ class BCABuildingClass(Enum):
                   ' trade, sale or gain.'
     BCA_Class_9a_clinic = 'A clinic, including those parts of the' \
                           ' building set aside as a laboratory.'
-    BCA_Class_9a_hospital = 'A clinic, including those parts of the' \
+    BCA_Class_9a_hospital = 'A hospital, including those parts of the' \
                             ' building set aside as a laboratory.'
     BCA_Class_9b_schools = 'A school.'
     BCA_Class_9b_theatres = 'An assembly building, including a trade workshop, laboratory' \
@@ -83,6 +83,7 @@ class ESS_is_not_residential_building(Variable):
     def formula(buildings, period, parameters):
         BCA_building_class = buildings('BCA_building_class', period)
         BCABuildingClass = BCA_building_class.possible_values
+
         in_BCA_Class_2 = (BCA_building_class == BCABuildingClass.BCA_Class_2)
         in_BCA_Class_3 = (BCA_building_class == BCABuildingClass.BCA_Class_3)
         in_BCA_Class_5 = (BCA_building_class == BCABuildingClass.BCA_Class_5)

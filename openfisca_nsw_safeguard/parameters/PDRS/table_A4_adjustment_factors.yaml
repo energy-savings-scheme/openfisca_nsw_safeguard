@@ -4,7 +4,7 @@ baseline_peak_adjustment:
   WH1:
     values:
       2021-01-01:
-        value: 0.77
+        value: 1
   RF1:
     values:
       2021-01-01:
@@ -25,7 +25,7 @@ peak_adjustment:
   WH1:
     values:
       2021-01-01:
-        value: 1
+        value: 0.77
   RF1:
     values:
       2021-01-01:

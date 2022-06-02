@@ -1,5 +1,5 @@
 - name: Test WH1 Eligibility Test
-  period: 2021
+  period: 2022
   absolute_error_margin: 0
   input:
     WH1_EquipmentType : [
@@ -19,7 +19,7 @@
     ]
 
 - name: Test WH1 Implementation Requirements
-  period: 2021
+  period: 2022
   absolute_error_margin: 0
   input:
       PDRS_WH1_implementation_requirements_existing_hot_water_pump_is_removed: [True, False]
@@ -33,7 +33,7 @@
       ]
 
 - name: Test WH1 Equipment Requirements
-  period: 2021
+  period: 2022
   absolute_error_margin: 0
   input:
       PDRS_WH1_meets_equipment_requirements_air_source_heat_pump: [True, False]

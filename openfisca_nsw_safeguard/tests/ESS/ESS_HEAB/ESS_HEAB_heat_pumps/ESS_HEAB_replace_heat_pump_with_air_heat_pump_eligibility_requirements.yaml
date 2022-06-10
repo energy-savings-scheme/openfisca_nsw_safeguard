@@ -1,0 +1,90 @@
+- name: OpenFisca Test foreligibility_requirementsfor activity F16
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_replace_boiler_with_heat_pump_existing_equipment_type: [
+              PDRS_WH1_Gas_Hot_Water_Heater,
+              PDRS_WH1_Gas_Hot_Water_Boiler,
+              PDRS_WH1_Electric_Hot_Water_Boiler,
+              PDRS_WH1_Electric_Hot_Water_Heater,
+              PDRS_WH1_Ineligible,
+              PDRS_WH1_Gas_Hot_Water_Heater,
+              PDRS_WH1_Gas_Hot_Water_Boiler,
+              PDRS_WH1_Electric_Hot_Water_Boiler,
+              PDRS_WH1_Electric_Hot_Water_Heater,
+              PDRS_WH1_Ineligible,
+          ]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_gas_boosted_air_sourced_heat_pump: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              False,
+              False,
+              False,
+              False,
+              False,
+          ]
+    BCA_building_class: [
+              BCA_Class_2,
+              BCA_Class_2,
+              BCA_Class_2,
+              BCA_Class_2,
+              BCA_Class_2,
+              BCA_Class_2,
+              BCA_Class_2,
+              BCA_Class_2,
+              BCA_Class_2,
+              BCA_Class_2,
+          ]
+  output:
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equipment_is_eligible_type: [
+              True,
+              True,
+              True,
+              True,
+              False,
+              True,
+              True,
+              True,
+              True,
+              False,
+          ]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_eligible_type_for_old_equipment: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              False,
+              True,
+              True,
+              True,
+              True,
+          ]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_not_residential: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+              True,
+              False,
+              False,
+              True,
+              True,
+              True,
+              False,
+          ]
+

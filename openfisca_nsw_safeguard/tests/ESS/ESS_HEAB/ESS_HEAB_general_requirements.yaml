@@ -1,0 +1,142 @@
+- name: OpenFisca Test for HEAB - test equipment requirements eligibility 
+  period: 2022
+  absolute_error_margin: 0
+  input: 
+    ESS_activity_definition: [
+      F1_1,
+      F1_2,
+      F2
+    ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+      True,
+      False,
+      False
+    ]
+    ESS_HEAB_replace_refrigerated_cabinet_meets_equipment_requirements: [
+      False,
+      True,
+      False
+    ]
+  output:
+    ESS_HEAB_activity_meets_equipment_requirements: [
+      True,
+      True,
+      True
+    ]
+- name: OpenFisca Test for HEAB - test installation requirements eligibility 
+  period: 2022
+  absolute_error_margin: 0
+  input: 
+    ESS_activity_definition: [
+      F1_1,
+      F1_2,
+      F2
+    ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_installation_requirements: [
+      True,
+      False,
+      False
+    ]
+    ESS_HEAB_replace_refrigerated_cabinet_meets_installation_requirements: [
+      False,
+      True,
+      False
+    ]
+  output:
+    ESS_HEAB_activity_meets_installation_requirements: [
+      True,
+      True,
+      True
+    ]
+- name: OpenFisca Test for HEAB copayment - test 
+  period: 2022
+  absolute_error_margin: 0
+  input: 
+    ESS_activity_definition: [
+      F1_1,
+      F1_2,
+      F2
+    ]
+    ESS_HEAB_number_of_RCs_installed: [
+      4,
+      4,
+      0
+    ]
+    ESS_HEAB_activity_paid_copayment_amount: [
+      1000,
+      500,
+      0
+    ]
+  output:
+    ESS_HEAB_activity_required_copayment_amount_is_paid: [
+      True,
+      False,
+      True
+    ]
+
+
+- name: OpenFisca test of all general requirements 
+  period: 2022
+  absolute_error_margin: 0
+  input: 
+    ESS_activity_definition: [
+      F1_1,
+      F1_2,
+      F2
+    ]
+    BCA_building_class: [
+      BCA_Class_7a,
+      BCA_Class_7a,
+      BCA_Class_7a
+    ]
+    ESS_HEAB_number_of_RCs_installed: [
+      4,
+      4,
+      0
+    ]
+    ESS_HEAB_activity_paid_copayment_amount: [
+      1000,
+      500,
+      0
+    ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+      True,
+      False,
+      False
+    ]
+    ESS_HEAB_replace_refrigerated_cabinet_meets_equipment_requirements: [
+      False,
+      True,
+      False
+    ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_installation_requirements: [
+      True,
+      False,
+      False
+    ]
+    ESS_HEAB_replace_refrigerated_cabinet_meets_installation_requirements: [
+      False,
+      True,
+      False
+    ]
+  output:
+    ESS_HEAB_activity_meets_equipment_requirements: [
+      True,
+      True,
+      True
+    ]
+    ESS_HEAB_activity_meets_installation_requirements: [
+      True,
+      True,
+      True
+    ]
+    ESS_HEAB_activity_required_copayment_amount_is_paid: [
+      True,
+      False,
+      True
+    ]
+    ESS_HEAB_meets_all_general_requirements: [
+      True,
+      False,
+      True
+    ]

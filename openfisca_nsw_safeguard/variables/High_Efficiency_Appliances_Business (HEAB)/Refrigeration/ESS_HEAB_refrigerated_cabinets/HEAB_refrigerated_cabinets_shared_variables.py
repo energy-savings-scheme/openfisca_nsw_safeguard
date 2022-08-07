@@ -3,6 +3,8 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+
 
 class RCProductClass(Enum):
     product_class_one = 'RDC is in product class 1.'
@@ -60,3 +62,47 @@ class new_refrigerated_cabinet_total_energy_consumption(Variable):
     default_value = 0
     definition_period = ETERNITY
     label = 'What is the total energy consumption of the new refrigerated cabinet?'
+
+
+class new_refrigerated_cabinet_total_display_area(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the total display area of the Refrigerated Cabinet, in m2?'
+    metadata = {
+        'alias':  'RC Input Power',
+        "regulation_reference": PDRS_2022["XX", "fridge"]
+    }
+
+
+class ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the new refrigerated cabinet registered in the GEMS Registry?'
+    metadata = {
+        'alias':  'The existing equipment is classified as a refrigerator',
+        "regulation_reference": PDRS_2022["XX", "fridge"]
+    }
+
+
+class ESS_HEAB_new_equipment_is_RC(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the new End User Equipment a Refrigerated Cabinet?'
+    metadata = {
+        'alias':  'The existing equipment is classified as a refrigerator',
+        "regulation_reference": PDRS_2022["XX", "fridge"]
+    }
+
+
+class ESS_HEAB_number_of_RCs_installed(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = 'How many ?'
+    metadata = {
+        'alias':  'How many RCs are being installed or replaced as part of the implementation?',
+        "regulation_reference": PDRS_2022["XX", "fridge"]
+    }

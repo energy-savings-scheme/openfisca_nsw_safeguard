@@ -7,17 +7,8 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 import numpy as np
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_activity_new_equipment_is_RC(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Is the new End User Equipment a Refrigerated Cabinet?'
-    metadata = {
-        'alias':  'The existing equipment is classified as a refrigerator',
-        "regulation_reference": PDRS_2022["XX", "fridge"]
-    }
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI(Variable):
+class ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -36,21 +27,11 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI(Var
         )
         return np.where(is_class_5_product,
                             new_product_EEI < 51,
-                            new_product_EEI < 81)
+                            new_product_EEI < 77)
 
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_is_registered_in_GEMS(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Is the new refrigerated cabinet registered in the GEMS Registry?'
-    metadata = {
-        'alias':  'The existing equipment is classified as a refrigerator',
-        "regulation_reference": PDRS_2022["XX", "fridge"]
-    }
 
-
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_equipment_requirements(Variable):
+class ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -61,9 +42,9 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_equipment_requireme
     }
 
     def formula(buildings, period, parameters):
-        is_refrigerated_cabinet = buildings('ESS_HEAB_install_or_replace_refrigerated_cabinet_activity_new_equipment_is_RC', period)
-        is_under_baseline_EEI = buildings('ESS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI', period)
-        is_registered_in_GEMS = buildings('ESS_HEAB_install_or_replace_refrigerated_cabinet_is_registered_in_GEMS', period)
+        is_refrigerated_cabinet = buildings('ESS_HEAB_new_equipment_is_RC', period)
+        is_under_baseline_EEI = buildings('ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI', period)
+        is_registered_in_GEMS = buildings('ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS', period)
         return(
                 is_refrigerated_cabinet *
                 is_under_baseline_EEI * 

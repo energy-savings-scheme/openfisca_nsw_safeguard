@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_activity_is_installation_or_removal_of_RC(Variable):
+class ESS_HEAB_replace_refrigerated_cabinet_activity_is_installation_of_RC(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_activity_is_installation_
     }
 
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_eligibility_requirements(Variable):
+class ESS_HEAB_replace_refrigerated_cabinet_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -28,5 +28,5 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_eligibility_require
 
     def formula(buildings, period, parameters):
         activity_is_installing_RC = buildings(
-            'ESS_HEAB_install_or_replace_refrigerated_cabinet_activity_is_installation_or_removal_of_RC', period)
+            'ESS_HEAB_replace_refrigerated_cabinet_activity_is_installation_of_RC', period)
         return activity_is_installing_RC

@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_existing_equipment_is_removed(Variable):
+class ESS_HEAB_replace_refrigerated_cabinet_existing_equipment_is_removed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_existing_equipment_is_rem
     }
 
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating(Variable):
+class ESS_HEAB_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -27,7 +27,7 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_new_equipment_is_installe
     }
 
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_implementation_requirements(Variable):
+class ESS_HEAB_replace_refrigerated_cabinet_meets_installation_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -38,8 +38,8 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_implementation_requ
     }
 
     def formula(buildings, period, parameters):
-        existing_equipment_removed = buildings('ESS_HEAB_install_or_replace_refrigerated_cabinet_existing_equipment_is_removed', period)
-        new_equipment_installed_and_operating = buildings('ESS_HEAB_install_or_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating', period)
+        existing_equipment_removed = buildings('ESS_HEAB_replace_refrigerated_cabinet_existing_equipment_is_removed', period)
+        new_equipment_installed_and_operating = buildings('ESS_HEAB_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating', period)
         performed_by_qualified_person = buildings('implementation_is_performed_by_qualified_person', period)
         return(
                 existing_equipment_removed *

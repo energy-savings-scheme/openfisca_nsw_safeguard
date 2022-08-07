@@ -9,11 +9,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 130
+          value: 100
     light_duty:
       values:
         2020-01-01:
-          value: 130
+          value: 100
   product_class_two:
     heavy_duty:
       values:
@@ -22,37 +22,37 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 92
+          value: 77
     light_duty:
       values:
         2020-01-01:
-          value: 92
+          value: 77
   product_class_three:
     heavy_duty:
       values:
         2020-01-01:
-          value: 73
+          value: 77
     normal_duty:
       values:
         2020-01-01:
-          value: 71
+          value: 77
     light_duty:
       values:
         2020-01-01:
-          value: 71
+          value: 77
   product_class_four:
     heavy_duty:
       values:
         2020-01-01:
-          value: 89
+          value: 77
     normal_duty:
       values:
         2020-01-01:
-          value: 80
+          value: 77
     light_duty:
       values:
         2020-01-01:
-          value: 80
+          value: 77
   product_class_five:
     heavy_duty:
       values:
@@ -61,11 +61,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 130
+          value: 100
     light_duty:
       values:
         2020-01-01:
-          value: 130
+          value: 100
   product_class_six:
     heavy_duty:
       values:
@@ -74,11 +74,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 76
+          value: 60
     light_duty:
       values:
         2020-01-01:
-          value: 76
+          value: 60
   product_class_seven:
     heavy_duty:
       values:
@@ -87,11 +87,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 90
+          value: 60
     light_duty:
       values:
         2020-01-01:
-          value: 90
+          value: 60
   product_class_eight:
     heavy_duty:
       values:
@@ -100,37 +100,37 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 97
+          value: 100
     light_duty:
       values:
         2020-01-01:
-          value: 97
+          value: 100
   product_class_nine:
     heavy_duty:
       values:
         2020-01-01:
-          value: 91
+          value: 100
     normal_duty:
       values:
         2020-01-01:
-          value: 70
+          value: 100
     light_duty:
       values:
         2020-01-01:
-          value: 70
+          value: 100
   product_class_ten:
     heavy_duty:
       values:
         2020-01-01:
-          value: 96
+          value: 100
     normal_duty:
       values:
         2020-01-01:
-          value: 80
+          value: 100
     light_duty:
       values:
         2020-01-01:
-          value: 80
+          value: 100
   product_class_eleven:
     heavy_duty:
       values:
@@ -139,11 +139,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 130
+          value: 100
     light_duty:
       values:
         2020-01-01:
-          value: 130
+          value: 100
   product_class_twelve:
     heavy_duty:
       values:
@@ -152,11 +152,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 130
+          value: 100
     light_duty:
       values:
         2020-01-01:
-          value: 130
+          value: 100
   product_class_thirteen:
     heavy_duty:
       values:
@@ -165,11 +165,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 80
+          value: 77
     light_duty:
       values:
         2020-01-01:
-          value: 80
+          value: 77
   product_class_fourteen:
     heavy_duty:
       values:
@@ -178,11 +178,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 91
+          value: 77
     light_duty:
       values:
         2020-01-01:
-          value: 91
+          value: 77
   product_class_fifteen:
     heavy_duty:
       values:
@@ -191,11 +191,11 @@ baseline_EEI:
     normal_duty:
       values:
         2020-01-01:
-          value: 106
+          value: 100
     light_duty:
       values:
         2020-01-01:
-          value: 106
+          value: 100
 adjustment_factor:
   product_class_one:
     heavy_duty:
@@ -227,7 +227,7 @@ adjustment_factor:
     heavy_duty:
       values:
         2020-01-01:
-          value: 1.2
+          value: 1.0
     normal_duty:
       values:
         2020-01-01:
@@ -235,12 +235,12 @@ adjustment_factor:
     light_duty:
       values:
         2020-01-01:
-          value: 1.0
+          value: 1.2
   product_class_four:
     heavy_duty:
       values:
         2020-01-01:
-          value: 1.1
+          value: 1.0
     normal_duty:
       values:
         2020-01-01:
@@ -248,7 +248,7 @@ adjustment_factor:
     light_duty:
       values:
         2020-01-01:
-          value: 1.0
+          value: 1.1
   product_class_five:
     heavy_duty:
       values:
@@ -305,7 +305,7 @@ adjustment_factor:
     heavy_duty:
       values:
         2020-01-01:
-          value: 1.2
+          value: 1.0
     normal_duty:
       values:
         2020-01-01:
@@ -313,12 +313,12 @@ adjustment_factor:
     light_duty:
       values:
         2020-01-01:
-          value: 1.0
+          value: 1.2
   product_class_ten:
     heavy_duty:
       values:
         2020-01-01:
-          value: 1.1
+          value: 1.0
     normal_duty:
       values:
         2020-01-01:
@@ -326,7 +326,7 @@ adjustment_factor:
     light_duty:
       values:
         2020-01-01:
-          value: 1.0
+          value: 1.1
   product_class_eleven:
     heavy_duty:
       values:

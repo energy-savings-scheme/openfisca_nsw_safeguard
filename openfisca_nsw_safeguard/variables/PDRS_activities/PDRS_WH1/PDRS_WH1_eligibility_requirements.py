@@ -16,16 +16,12 @@ class PDRS_WH1_meets_eligibility_requirements(Variable):
   def formula(buildings, period, parameters):
     equipment_type = buildings('WH1_EquipmentType', period)
     is_WH1_equipment_type = (
-                            (equipment_type == PDRS_WH1_EquipmentTypes.PDRS_WH1_Gas_Hot_Water_Heater) +
-                            (equipment_type == PDRS_WH1_EquipmentTypes.PDRS_WH1_Gas_Hot_Water_Boiler) +
                             (equipment_type == PDRS_WH1_EquipmentTypes.PDRS_WH1_Electric_Hot_Water_Heater) +
                             (equipment_type == PDRS_WH1_EquipmentTypes.PDRS_WH1_Electric_Hot_Water_Boiler)                                
     )
     return is_WH1_equipment_type
 
 class PDRS_WH1_EquipmentTypes(Enum):
-   PDRS_WH1_Gas_Hot_Water_Boiler      = 'Gas hot water boiler'
-   PDRS_WH1_Gas_Hot_Water_Heater      = 'Gas hot water heater'
    PDRS_WH1_Electric_Hot_Water_Boiler = 'Electric hot water boiler'
    PDRS_WH1_Electric_Hot_Water_Heater = 'Electric hot water heater'
    PDRS_WH1_Ineligible                = 'Ineligible hot water equipment' 

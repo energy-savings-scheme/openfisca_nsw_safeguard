@@ -92,7 +92,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_baseline_input_p
             'over_70000_L',
         ])
         baseline_input_power = (
-            parameters(period).PDRS.pool_pumps.table_SYS2_1.baseline_input_power[pool_volume])
+            parameters(period).PDRS.pool_pumps.table_sys2_1.baseline_input_power[pool_volume])
         return baseline_input_power
 
 
@@ -144,7 +144,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(Vari
         star_rating = buildings('ESS_and_PDRS_new_pump_star_rating', period)
         pump_type = buildings('ESS_and_PDRS_new_pool_pump_type', period)
         input_power = (parameters(period).
-            PDRS.pool_pumps.table_SYS2_2.input_power
+            PDRS.pool_pumps.table_sys2_2.input_power
             [pool_volume][star_rating][pump_type])
         return input_power
 

@@ -30,7 +30,7 @@ class WH1_EquipmentType(Variable):
     value_type = Enum
     entity = Building
     possible_values = PDRS_WH1_EquipmentTypes
-    default_value = PDRS_WH1_EquipmentTypes.PDRS_WH1_Gas_Hot_Water_Heater
+    default_value = PDRS_WH1_EquipmentTypes.PDRS_WH1_Electric_Hot_Water_Heater
     definition_period = ETERNITY
     label = 'What type of hot water equipment are you checking for eligibility?'
     metadata={

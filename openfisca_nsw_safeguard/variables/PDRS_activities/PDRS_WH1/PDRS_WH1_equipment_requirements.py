@@ -104,7 +104,6 @@ class PDRS_WH1_meets_equipment_requirements(Variable):
 
     def formula(buildings, period, parameters):
         Air_source_heat_pump_water_heater = buildings('PDRS_WH1_meets_equipment_requirements_air_source_heat_pump', period)
-        #Section 2 goes here
         Heat_pump_storage_certified = buildings('PDRS_WH1_meets_equipment_requirements_storage_certified', period)
         Administrator_approval = buildings('PDRS_WH1_meets_equipment_requirements_administrator_approval', period)
         climate_zone = buildings('BCA_climate_zone', period)
@@ -114,7 +113,6 @@ class PDRS_WH1_meets_equipment_requirements(Variable):
 
         return (
                 Air_source_heat_pump_water_heater *
-                #Section 2
                 Heat_pump_storage_certified * 
                 Administrator_approval *
                 in_eligible_BCA_climate_zone

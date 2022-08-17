@@ -52,5 +52,5 @@ class PDRS_WH1_meets_implementation_requirements(Variable):
         return (
                 Existing_hot_water_pump_removed *
                 Replacement_hot_water_pump_equipment_installed *
-                Installed_or_removed_by_certified 
+                Installed_or_removed_by_certified
                 )

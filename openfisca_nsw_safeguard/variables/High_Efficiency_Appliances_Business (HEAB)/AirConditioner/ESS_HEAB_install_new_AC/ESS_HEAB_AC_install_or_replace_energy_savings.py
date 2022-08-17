@@ -246,4 +246,3 @@ class ESS_HEAB_install_or_replace_AC_heating_annual_energy_use(Variable):
             equivalent_heating_hours / 
             new_rated_ACOP
         )
-

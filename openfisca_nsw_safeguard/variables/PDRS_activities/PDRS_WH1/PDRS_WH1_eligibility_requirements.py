@@ -14,23 +14,30 @@ class PDRS_WH1_meets_eligibility_requirements(Variable):
           ' Requirements defined in Removal of Old Appliance (Heat pump water heater)?'
 
   def formula(buildings, period, parameters):
-    equipment_type = buildings('WH1_EquipmentType', period)
+    equipment_type = buildings('gas_heater_equipment_type', period)
     is_WH1_equipment_type = (
-                            (equipment_type == PDRS_WH1_EquipmentTypes.PDRS_WH1_Electric_Hot_Water_Heater) +
-                            (equipment_type == PDRS_WH1_EquipmentTypes.PDRS_WH1_Electric_Hot_Water_Boiler)                                
+                            (equipment_type == GasHeaterEquipmentTypes.Electric_Hot_Water_Heater) +
+                            (equipment_type == GasHeaterEquipmentTypes.Electric_Hot_Water_Boiler)                                
     )
     return is_WH1_equipment_type
 
-class PDRS_WH1_EquipmentTypes(Enum):
-   PDRS_WH1_Electric_Hot_Water_Boiler = 'Electric hot water boiler'
-   PDRS_WH1_Electric_Hot_Water_Heater = 'Electric hot water heater'
-   PDRS_WH1_Ineligible                = 'Ineligible hot water equipment' 
+class GasHeaterEquipmentTypes(Enum):
+   Gas_Hot_Water_Heater = 'Gas hot water heater.'
+   Gas_Hot_Water_Boiler = 'Gas hot water boiler.'
+   Electric_Hot_Water_Boiler = 'Electric hot water boiler'
+   Electric_Hot_Water_Heater = 'Electric hot water heater'
+   Ineligible                = 'Ineligible hot water equipment' 
 
-class WH1_EquipmentType(Variable):
+#Kate let's keep this as one list to use in both ESS and PDRS methods, and then reduce
+#eligibility for PDRS activity within eligibility requirements variable above
+#we shouldn't have two lists of possible gas heaters
+
+
+class gas_heater_equipment_type(Variable):
     value_type = Enum
     entity = Building
-    possible_values = PDRS_WH1_EquipmentTypes
-    default_value = PDRS_WH1_EquipmentTypes.PDRS_WH1_Electric_Hot_Water_Heater
+    possible_values = GasHeaterEquipmentTypes
+    default_value = GasHeaterEquipmentTypes.Electric_Hot_Water_Heater
     definition_period = ETERNITY
     label = 'What type of hot water equipment are you checking for eligibility?'
     metadata={

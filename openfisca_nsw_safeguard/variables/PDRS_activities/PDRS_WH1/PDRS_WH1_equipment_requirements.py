@@ -6,6 +6,8 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 from openfisca_nsw_safeguard.variables.ESS_general.ESS_BCA_climate_zone import BCA_climate_zone
 
+import numpy as np
+
 class PDRS_WH1_meets_equipment_requirements_air_source_heat_pump(Variable):
     value_type = bool
     entity = Building
@@ -105,10 +107,15 @@ class PDRS_WH1_meets_equipment_requirements(Variable):
         #Section 2 goes here
         Heat_pump_storage_certified = buildings('PDRS_WH1_meets_equipment_requirements_storage_certified', period)
         Administrator_approval = buildings('PDRS_WH1_meets_equipment_requirements_administrator_approval', period)
+        climate_zone = buildings('BCA_climate_zone', period)
+        ESS_BCAClimateZone = (climate_zone.possible_values)
+        in_eligible_BCA_climate_zone = (np.logical_not(BCA_climate_zone == ESS_BCAClimateZone.BCA_Climate_Zone_1) + np.logical_not(BCA_climate_zone == ESS_BCAClimateZone.BCA_Climate_Zone_4))
+
 
         return (
                 Air_source_heat_pump_water_heater *
                 #Section 2
                 Heat_pump_storage_certified * 
-                Administrator_approval
+                Administrator_approval *
+                in_eligible_BCA_climate_zone
                 )

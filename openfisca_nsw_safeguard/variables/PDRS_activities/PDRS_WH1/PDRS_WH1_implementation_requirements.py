@@ -45,16 +45,12 @@ class PDRS_WH1_meets_implementation_requirements(Variable):
     }
 
     def formula(buildings, period, parameters):  
-        climate_zone = buildings('BCA_climate_zone', period)
-        ESS_BCAClimateZone = (climate_zone.possible_values)
         Existing_hot_water_pump_removed = buildings('PDRS_WH1_implementation_requirements_existing_hot_water_pump_is_removed', period)
         Replacement_hot_water_pump_equipment_installed = buildings('PDRS_WH1_implementation_requirements_replacement_hot_water_pump_is_installed', period)
         Installed_or_removed_by_certified = buildings('PDRS_WH1_implementation_requirements_install_or_removal_hot_water_pump_is_installed_by_certified', period)
-        in_eligible_BCA_climate_zone = (np.logical_not(BCA_climate_zone == ESS_BCAClimateZone.BCA_Climate_Zone_1) + np.logical_not(BCA_climate_zone == ESS_BCAClimateZone.BCA_Climate_Zone_4))
-
+     
         return (
                 Existing_hot_water_pump_removed *
                 Replacement_hot_water_pump_equipment_installed *
-                Installed_or_removed_by_certified *
-                in_eligible_BCA_climate_zone
+                Installed_or_removed_by_certified 
                 )

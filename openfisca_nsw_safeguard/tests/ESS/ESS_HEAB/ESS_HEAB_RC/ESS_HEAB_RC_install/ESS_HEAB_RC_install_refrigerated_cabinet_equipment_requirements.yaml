@@ -2,7 +2,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    ESS_HEAB_install_or_replace_refrigerated_cabinet_activity_new_equipment_is_RC: [
+    ESS_HEAB_new_equipment_is_RC: [
               True,
               True,
               True,
@@ -53,7 +53,7 @@
               30,
               30,
           ]
-    ESS_HEAB_install_or_replace_refrigerated_cabinet_is_registered_in_GEMS: [
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
               True,
               True,
               True,
@@ -71,7 +71,7 @@
               True,
           ]
   output:
-    ESS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI: [
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
               True,
               True,
               True,
@@ -88,7 +88,7 @@
               True,
               True,
           ]
-    ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_equipment_requirements: [
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
               True,
               True,
               True,

@@ -1,0 +1,33 @@
+- name: OpenFisca Test foreligibility_requirementsfor activity F16
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_rated_capacity:
+      [50, 500, 1000, 20, 20, 20]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equipment_rated_capacity:
+      [20, 20, 20, 50, 500, 1000]
+  output:
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_capacity_factor:
+      [0.4, 0.04, 0.02, 1, 1, 1]
+
+- name: OpenFisca Test foreligibility_requirementsfor activity F16
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_replace_boiler_with_heat_pump_existing_equipment_type:
+      [Gas_Hot_Water_Heater]
+    BCA_building_class: [BCA_Class_2]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_RefElec: [10]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_HPElec: [50]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_HPGas: [50]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_rated_capacity:
+      [50]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equipment_rated_capacity:
+      [20]
+  output:
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_capacity_factor:
+      [0.4]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_gas_savings:
+      [-49.746197]
+    ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_electricity_savings:
+      [-66.66667]

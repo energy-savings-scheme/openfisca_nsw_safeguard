@@ -1,0 +1,1216 @@
+- name: OpenFisca Test for energy savings for activity F1 - product_class_one
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_one,
+              product_class_one,
+              product_class_one,
+              product_class_one,
+              product_class_one,
+              product_class_one,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+              6.2,
+              6.2,
+              6.2,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -29.2,
+              45.746666,
+              45.746666,
+              -29.2,
+              45.746666,
+              45.746666,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1 for product class product_class_two
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_two,
+              product_class_two,
+              product_class_two,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -29.2,
+              29.2,
+              29.2,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_three
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_three,
+              product_class_three,
+              product_class_three,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              29.2,
+              29.2,
+              35.04,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_four
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_four,
+              product_class_four,
+              product_class_four,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              29.2,
+              29.2,
+              32.12,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_five
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_five,
+              product_class_five,
+              product_class_five,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -29.2,
+              45.746666,
+              45.746666,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_six
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_six,
+              product_class_six,
+              product_class_six,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -29.2,
+              14.6,
+              14.6,
+          ]
+- name: OpenFisca Test for energy savings for activity F1 - product_class_seven
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_seven,
+          ]
+    refrigerated_cabinet_duty_class: [
+              normal_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              40.6,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              6.46,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              0.75,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              2.0442884,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_eight
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_eight,
+              product_class_eight,
+              product_class_eight,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -29.2,
+              45.746666,
+              45.746666,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_nine
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_nine,
+              product_class_nine,
+              product_class_nine,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              45.746666,
+              45.746666,
+              54.896,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_ten
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_ten,
+              product_class_ten,
+              product_class_ten,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              45.746666,
+              45.746666,
+              50.321335,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_eleven
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_eleven,
+              product_class_eleven,
+              product_class_eleven,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -29.2,
+              45.746666,
+              45.746666,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_twelve
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_twelve,
+              product_class_twelve,
+              product_class_twelve,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -43.8,
+              68.62,
+              68.62,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_thirteen
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_thirteen,
+              product_class_thirteen,
+              product_class_thirteen,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -43.8,
+              43.8,
+              43.8,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_fourteen
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_fourteen,
+              product_class_fourteen,
+              product_class_fourteen,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -43.8,
+              43.8,
+              43.8,
+          ]
+- name: OpenFisca Test for energy_savings for activity F1_1for product class product_class_fifteen
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_new_equipment_is_RC: [
+              True,
+              True,
+              True,
+          ]
+    refrigerated_cabinet_product_class: [
+              product_class_fifteen,
+              product_class_fifteen,
+              product_class_fifteen,
+          ]
+    refrigerated_cabinet_duty_class: [
+              heavy_duty,
+              normal_duty,
+              light_duty,
+          ]
+    new_refrigerated_cabinet_EEI: [
+              30,
+              30,
+              30,
+          ]
+    new_refrigerated_cabinet_total_energy_consumption: [
+              10,
+              10,
+              10,
+          ]
+    new_refrigerated_cabinet_total_display_area: [
+              2.6,
+              2.6,
+              2.6,
+          ]
+    ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+              True,
+              True,
+              True,
+          ]
+    implementation_is_performed_by_qualified_person: [
+              True,
+              True,
+              True,
+          ]
+  output:
+    ESS_HEAB_install_refrigerated_cabinet_is_under_baseline_EEI: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_equipment_requirements: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria: [
+              True,
+              True,
+              True,
+          ]
+    ESS_HEAB_install_refrigerated_cabinet_electricity_savings: [
+              -43.8,
+              68.62,
+              68.62,
+          ]

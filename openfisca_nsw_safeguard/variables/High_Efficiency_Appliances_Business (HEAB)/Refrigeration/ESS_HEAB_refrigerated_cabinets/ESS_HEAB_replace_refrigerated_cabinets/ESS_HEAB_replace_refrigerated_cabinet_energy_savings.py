@@ -8,7 +8,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 import numpy as np
 
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_electricity_savings(Variable):
+class ESS_HEAB_replace_refrigerated_cabinet_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -25,18 +25,18 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_electricity_savings(Varia
             'refrigerated_cabinet_product_class', period)
         duty_class = buildings(
             'refrigerated_cabinet_duty_class', period) 
-        baseline_EEI = parameters(period).ESS.HEAB.table_F1_1.baseline_EEI[product_class][duty_class]
+        baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1.baseline_EEI[product_class][duty_class]
         product_EEI = buildings(
             'new_refrigerated_cabinet_EEI', period)
-        total_display_area = buildings('ESS_HEAB_install_or_replace_refrigerated_cabinet_total_display_area', period)
+        total_display_area = buildings('new_refrigerated_cabinet_total_display_area', period)
 
         total_display_area = np.where(total_display_area < 3.3, 
                                         'less_than_3_3m2', 
                                         '3_3m2_or_greater'
                                         )
 
-        adjustment_factor = parameters(period).ESS.HEAB.table_F1_1.adjustment_factor[product_class][duty_class]
-        product_lifetime = parameters(period).ESS.HEAB.table_F1_2.lifetime[product_class][total_display_area]
+        adjustment_factor = parameters(period).ESS.HEAB.table_F1_2_1.adjustment_factor[product_class][duty_class]
+        product_lifetime = parameters(period).ESS.HEAB.table_F1_2_2.lifetime[product_class][total_display_area]
         energy_savings =    (
                                 total_energy_consumption *
                                 (
@@ -49,25 +49,14 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_electricity_savings(Varia
                                 product_lifetime /
                                 1000
                             )
-        meets_all_eligibility_criteria =  buildings('ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_all_eligibility_criteria', period)
+        meets_all_eligibility_criteria =  buildings('ESS_HEAB_replace_refrigerated_cabinet_meets_all_eligibility_criteria', period)
         return(
                 energy_savings *
                 meets_all_eligibility_criteria
                 )
 
 
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_total_display_area(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the total display area of the Refrigerated Cabinet, in m2?'
-    metadata = {
-        'alias':  'RC Input Power',
-        "regulation_reference": PDRS_2022["XX", "fridge"]
-    }
-
-
-class ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_all_eligibility_criteria(Variable):
+class ESS_HEAB_replace_refrigerated_cabinet_meets_all_eligibility_criteria(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -79,13 +68,10 @@ class ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_all_eligibility_cri
 
     def formula(buildings, period, parameters):
         meets_eligibility_requirements = buildings(
-            'ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_eligibility_requirements', period)
+            'ESS_HEAB_replace_refrigerated_cabinet_meets_eligibility_requirements', period)
         meets_equipment_requirements = buildings(
-            'ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_equipment_requirements', period)
-        meets_implementation_requirements = buildings(
-            'ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_implementation_requirements', period)
+            'ESS_HEAB_replace_refrigerated_cabinet_meets_equipment_requirements', period)
         return (
                     meets_eligibility_requirements * 
-                    meets_equipment_requirements *
-                    meets_implementation_requirements
+                    meets_equipment_requirements
                 )

@@ -2,13 +2,13 @@
   period: 2021
   absolute_error_margin: 0.1
   input:
-    ESS_HEAB_install_or_replace_refrigerated_cabinet_existing_equipment_is_removed: [
+    ESS_HEAB_replace_refrigerated_cabinet_existing_equipment_is_removed: [
       True,
       False,
       True,
       True,
     ]
-    ESS_HEAB_install_or_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
+    ESS_HEAB_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating: [
       True,
       True,
       False,
@@ -21,7 +21,7 @@
       False,
     ]
   output:
-    ESS_HEAB_install_or_replace_refrigerated_cabinet_meets_implementation_requirements: [
+    ESS_HEAB_replace_refrigerated_cabinet_meets_installation_requirements: [
       True,
       False,
       False,

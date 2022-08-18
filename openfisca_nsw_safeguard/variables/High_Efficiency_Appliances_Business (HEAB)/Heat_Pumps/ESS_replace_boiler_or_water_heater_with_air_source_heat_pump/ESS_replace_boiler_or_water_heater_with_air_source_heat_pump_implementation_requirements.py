@@ -22,14 +22,6 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
         'alias':  'The replacement hot water pump is installed'
     }
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_is_installed_by_certified(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Has the installation and removal of the end-user equipment been performed or supervised by a suitably licensed person?'
-    metadata = {
-        'alias':  'The installation and removal has been supervised or performed by suitably licensed person' 
-    }
 
 class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_implementation_requirements(Variable):
     value_type = bool
@@ -43,7 +35,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_impleme
     def formula(buildings, period, parameters):  
         Existing_hot_water_pump_removed = buildings('ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_hot_water_pump_is_removed', period)
         Replacement_hot_water_pump_equipment_installed = buildings('ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_is_installed', period)
-        Installed_or_removed_by_certified = buildings('ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_is_installed_by_certified', period)
+        Installed_or_removed_by_certified = buildings('implementation_is_performed_by_qualified_person', period)
 
         return (
                 Existing_hot_water_pump_removed *

@@ -16,9 +16,10 @@ class PDRS_HVAC_1_install_meets_eligibility_requirements(Variable):
     label = 'Does the implementation meet all of the Eligibility' \
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
-        'alias': "HEAB AC install meets eligibility requirements",
-        "regulation_reference": PDRS_2022["HEAB", "AC_install", "eligibility"]
+        'alias': "HEAB AC install meets eligibility requirements"
     }
+
+
 
 
 class PDRS_HVAC_1_install_meets_equipment_requirements(Variable):
@@ -36,9 +37,9 @@ class PDRS_HVAC_1_install_meets_equipment_requirements(Variable):
     def formula(buildings, period, parameters):
         is_in_GEM = buildings(
             'Appliance_is_registered_in_GEMS', period)
-        has_warranty = buildings(
-            'AC_TCSPF_or_AEER_exceeds_PDRS_benchmark', period)
-        return is_in_GEM * has_warranty
+        exceeds_benchmark = buildings(
+            'PDRS_HVAC_1_TCSPF_or_AEER_exceeds_benchmark', period)
+        return is_in_GEM * exceeds_benchmark
 
 
 class PDRS_HVAC_1_install_meets_implementation_requirements(Variable):

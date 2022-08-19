@@ -8,7 +8,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 ## detailed in PDRS activity XX
 
-class PDRS_HEAB_non_residential_AC_install_meets_eligibility_requirements(Variable):
+class PDRS_HVAC_2_install_meets_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -27,7 +27,7 @@ class PDRS_HEAB_non_residential_AC_install_meets_eligibility_requirements(Variab
         return np.logical_not(is_residential) * no_existing_AC
 
 
-class PDRS_HEAB_non_residential_AC_install_meets_equipment_requirements(Variable):
+class PDRS_HVAC_2_install_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -43,14 +43,14 @@ class PDRS_HEAB_non_residential_AC_install_meets_equipment_requirements(Variable
         is_in_GEM = buildings(
             'Appliance_is_registered_in_GEMS', period)
         has_warranty = buildings(
-            'AC_TCSPF_or_AEER_exceeds_PDRS_benchmark', period)
+            'PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark', period)
         demand_response = buildings(
             'Appliance_demand_response_capability', period)
 
         return is_in_GEM * has_warranty * demand_response
 
 
-class PDRS_HEAB_non_residential_AC_install_meets_implementation_requirements(Variable):
+class PDRS_HVAC_2_install_meets_implementation_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -71,7 +71,7 @@ class PDRS_HEAB_non_residential_AC_install_meets_implementation_requirements(Var
         return is_installed * performed_by_qualified_person
 
 
-class PDRS_HEAB_non_residential_AC_install_meets_all_requirements(Variable):
+class PDRS_HVAC_2_install_meets_all_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -84,10 +84,10 @@ class PDRS_HEAB_non_residential_AC_install_meets_all_requirements(Variable):
 
     def formula(buildings, period):
         eligibility = buildings(
-            'PDRS_HEAB_non_residential_AC_install_meets_eligibility_requirements', period)
+            'PDRS_HVAC_2_install_meets_eligibility_requirements', period)
         equipment = buildings(
-            'PDRS_HEAB_non_residential_AC_install_meets_equipment_requirements', period)
+            'PDRS_HVAC_2_install_meets_equipment_requirements', period)
         implementation = buildings(
-            'PDRS_HEAB_non_residential_AC_install_meets_implementation_requirements', period)
+            'PDRS_HVAC_2_install_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment

@@ -2,120 +2,119 @@ description: Residential Minimum AEER Requirements, as identified in Table D16.5
 reference: PDRS Technical Manual 2022
 metadata:
   unit: AEER
-EER:
-  non_ducted_split_system:
-    less_than_4kW:
-      values:
-        2021-01-01:
-          value: 4.3
-    4kW_to_6kW:
-      values:
-        2021-01-01:
-          value: 3.6
-    6kW_to_10kW:
-      values:
-        2021-01-01:
-          value: 3.5
-    10kW_to_13kW:
-      values:
-        2021-01-01:
-          value: 3.5
-    13kW_to_25kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    25kW_to_65kW:
-      values:
-        2021-01-01:
-          value: 3.2
-    over_65kW:
-      values:
-        2021-01-01:
-          value: 0
-  ducted_split_system:
-    less_than_4kW:
-      values:
-        2021-01-01:
-          value: 3.5
-    4kW_to_6kW:
-      values:
-        2021-01-01:
-          value: 3.5
-    6kW_to_10kW:
-      values:
-        2021-01-01:
-          value: 3.5
-    10kW_to_13kW:
-      values:
-        2021-01-01:
-          value: 3.5
-    13kW_to_25kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    25kW_to_65kW:
-      values:
-        2021-01-01:
-          value: 3.2
-    over_65kW:
-      values:
-        2021-01-01:
-          value: 0
-  non_ducted_unitary_system:
-    less_than_4kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    4kW_to_6kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    6kW_to_10kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    10kW_to_13kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    13kW_to_25kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    25kW_to_65kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    over_65kW:
-      values:
-        2021-01-01:
-          value: 0
-  ducted_unitary_system:
-    less_than_4kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    4kW_to_6kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    6kW_to_10kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    10kW_to_13kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    13kW_to_25kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    25kW_to_65kW:
-      values:
-        2021-01-01:
-          value: 3.3
-    over_65kW:
-      values:
-        2021-01-01:
-          value: 0
+non_ducted_split_system:
+  less_than_4kW:
+    values:
+      2021-01-01:
+        value: 4.3
+  4kW_to_6kW:
+    values:
+      2021-01-01:
+        value: 3.6
+  6kW_to_10kW:
+    values:
+      2021-01-01:
+        value: 3.5
+  10kW_to_13kW:
+    values:
+      2021-01-01:
+        value: 3.5
+  13kW_to_25kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  25kW_to_65kW:
+    values:
+      2021-01-01:
+        value: 3.2
+  over_65kW:
+    values:
+      2021-01-01:
+        value: 0
+ducted_split_system:
+  less_than_4kW:
+    values:
+      2021-01-01:
+        value: 3.5
+  4kW_to_6kW:
+    values:
+      2021-01-01:
+        value: 3.5
+  6kW_to_10kW:
+    values:
+      2021-01-01:
+        value: 3.5
+  10kW_to_13kW:
+    values:
+      2021-01-01:
+        value: 3.5
+  13kW_to_25kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  25kW_to_65kW:
+    values:
+      2021-01-01:
+        value: 3.2
+  over_65kW:
+    values:
+      2021-01-01:
+        value: 0
+non_ducted_unitary_system:
+  less_than_4kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  4kW_to_6kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  6kW_to_10kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  10kW_to_13kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  13kW_to_25kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  25kW_to_65kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  over_65kW:
+    values:
+      2021-01-01:
+        value: 0
+ducted_unitary_system:
+  less_than_4kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  4kW_to_6kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  6kW_to_10kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  10kW_to_13kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  13kW_to_25kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  25kW_to_65kW:
+    values:
+      2021-01-01:
+        value: 3.3
+  over_65kW:
+    values:
+      2021-01-01:
+        value: 0

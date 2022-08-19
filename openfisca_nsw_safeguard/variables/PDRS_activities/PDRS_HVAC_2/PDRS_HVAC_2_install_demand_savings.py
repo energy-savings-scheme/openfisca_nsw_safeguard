@@ -7,7 +7,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 ## detailed in PDRS activity XX
 
-class PDRS_HEAB_non_residential_AC_install_peak_demand_savings(Variable):
+class PDRS_HVAC_2_install_peak_demand_savings(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -20,8 +20,8 @@ class PDRS_HEAB_non_residential_AC_install_peak_demand_savings(Variable):
 
     def formula(building, period):
         meets_all_requirements = building(
-            "PDRS_HEAB_AC_install_meets_all_requirements", period)
+            "PDRS_HVAC_2_install_meets_all_requirements", period)
 
-        savings = building("PDRS_AC_peak_demand_savings", period)
+        savings = building("PDRS_HVAC_2_peak_demand_saving_capacity", period)
 
         return meets_all_requirements*savings

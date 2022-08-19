@@ -36,10 +36,10 @@ class PDRS_HVAC_1_replace_meets_equipment_requirements(Variable):
     def formula(buildings, period, parameters):
         is_in_GEM = buildings(
             'Appliance_is_registered_in_GEMS', period)
-        has_warranty = buildings(
-            'AC_TCSPF_or_AEER_exceeds_PDRS_benchmark', period)
+        exceeds_benchmark = buildings(
+            'PDRS_HVAC_1_TCSPF_or_AEER_exceeds_benchmark', period)
 
-        return is_in_GEM * has_warranty
+        return is_in_GEM * exceeds_benchmark
 
 
 class PDRS_HVAC_1_replace_meets_implementation_requirements(Variable):

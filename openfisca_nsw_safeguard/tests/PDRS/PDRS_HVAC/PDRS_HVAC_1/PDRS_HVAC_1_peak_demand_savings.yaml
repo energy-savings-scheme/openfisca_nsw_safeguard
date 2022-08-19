@@ -28,11 +28,9 @@
     Appliance_located_in_residential_building:
       [False, False, False, False, False, False, False, False]
   output:
-    PDRS_AC_peak_demand_savings:
-      [0, 4.262295, 0, 9.146175, 4.883879, 9.234972, 8.169398, 4.883879]
     PDRS_HVAC_1_replace_meets_eligibility_requirements:
       [True, True, True, True, True, True, True, True]
-    AC_TCSPF_or_AEER_exceeds_PDRS_benchmark:
+    PDRS_HVAC_1_TCSPF_or_AEER_exceeds_benchmark:
       [True, True, True, True, True, True, True, True]
     PDRS_HVAC_1_replace_meets_equipment_requirements:
       [True, True, True, True, True, True, True, True]
@@ -40,5 +38,7 @@
       [True, True, True, True, True, True, True, True]
     PDRS_HVAC_1_replace_meets_all_requirements:
       [True, True, True, True, True, True, True, True]
-    PDRS_HVAC_1_peak_demand_savings:
+    PDRS_HVAC_1_peak_demand_saving_capacity:
+      [0, 4.262295, 0, 9.146175, 4.883879, 9.234972, 8.169398, 4.883879]
+    PDRS_HVAC_1_install_peak_demand_savings:
       [0, 4.262295, 0, 9.146175, 4.883879, 9.234972, 8.169398, 4.883879]

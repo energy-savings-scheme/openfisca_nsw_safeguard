@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_existing_equipment_is_removed(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_existing_equipment_is_removed(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -15,8 +15,18 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_existing_equipment_is_re
         "regulation_reference": PDRS_2022["XX", "fridge"]
     }
 
+class PDRS_RF2_replace_refrigerated_cabinet_existing_equipment_is_legally_disposed_of(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Has the existing End User Equipment been disposed of, in accordance with legislation?'
+    metadata = {
+        'alias':  'The existing equipment has been removed',
+        "regulation_reference": PDRS_2022["XX", "fridge"]
+    }
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating(Variable):
+
+class PDRS_RF2_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -27,7 +37,7 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_new_equipment_is_install
     }
 
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_implementation_requirements(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_meets_implementation_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -38,11 +48,13 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_implementation_req
     }
 
     def formula(buildings, period, parameters):
-        existing_equipment_removed = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_existing_equipment_is_removed', period)
-        new_equipment_installed_and_operating = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating', period)
+        existing_equipment_removed = buildings('PDRS_RF2_replace_refrigerated_cabinet_existing_equipment_is_removed', period)
+        existing_equipment_legally_disposed_of = buildings('PDRS_RF2_replace_refrigerated_cabinet_existing_equipment_is_legally_disposed_of', period)
+        new_equipment_installed_and_operating = buildings('PDRS_RF2_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating', period)
         performed_by_qualified_person = buildings('implementation_is_performed_by_qualified_person', period)
         return(
                 existing_equipment_removed *
+                existing_equipment_legally_disposed_of *
                 new_equipment_installed_and_operating * 
                 performed_by_qualified_person
                 )

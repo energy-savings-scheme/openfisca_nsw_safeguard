@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_peak_demand_savings(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_peak_demand_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -17,10 +17,10 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_peak_demand_savings(Vari
     }
 
     def formula(buildings, period, parameters):
-        baseline_input_power = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_input_power', period)
+        baseline_input_power = buildings('PDRS_RF2_replace_refrigerated_cabinet_baseline_input_power', period)
         baseline_peak_adjustment_factor = (buildings
-        ('PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_peak_adjustment_factor', period))
-        input_power = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_input_power', period)
+        ('PDRS_RF2_replace_refrigerated_cabinet_baseline_peak_adjustment_factor', period))
+        input_power = buildings('PDRS_RF2_replace_refrigerated_cabinet_input_power', period)
         peak_load_adjustment_factor = baseline_peak_adjustment_factor
         firmness_factor = parameters(period).PDRS.table_A6_firmness_factor.firmness_factor['RF2']
         peak_demand_reduction_savings = (
@@ -32,14 +32,14 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_peak_demand_savings(Vari
                                 ) *
                                 firmness_factor
                             )
-        meets_all_eligibility_criteria =  buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_all_eligibility_criteria', period)
+        meets_all_eligibility_criteria =  buildings('PDRS_RF2_replace_refrigerated_cabinet_meets_all_eligibility_criteria', period)
         return(
                 peak_demand_reduction_savings *
                 meets_all_eligibility_criteria
                 )
 
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_input_power(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_baseline_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -69,7 +69,7 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_input_power(Var
                 )
 
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_input_power(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -88,7 +88,7 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_input_power(Variable):
                 )
 
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_peak_adjustment_factor(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_baseline_peak_adjustment_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -99,17 +99,16 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_baseline_peak_adjustment
     }
 
     def formula(buildings, period, parameters):
-        BCA_climate_zone = buildings('BCA_climate_zone', period)
-        temperature_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[BCA_climate_zone]
+        temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2.baseline_peak_adjustment_factor
         usage_factor = 0.72
         return (
-            temperature_factor * 
-            usage_factor
+            (temperature_factor) * 
+            (usage_factor)
         )
 
 
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_all_eligibility_criteria(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_meets_all_eligibility_criteria(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -121,11 +120,11 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_all_eligibility_cr
 
     def formula(buildings, period, parameters):
         meets_eligibility_requirements = buildings(
-            'PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_eligibility_requirements', period)
+            'PDRS_RF2_replace_refrigerated_cabinet_meets_eligibility_requirements', period)
         meets_equipment_requirements = buildings(
-            'PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_equipment_requirements', period)
+            'PDRS_RF2_replace_refrigerated_cabinet_meets_equipment_requirements', period)
         meets_implementation_requirements = buildings(
-            'PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_implementation_requirements', period)
+            'PDRS_RF2_replace_refrigerated_cabinet_meets_implementation_requirements', period)
         return (
                     meets_eligibility_requirements * 
                     meets_equipment_requirements *

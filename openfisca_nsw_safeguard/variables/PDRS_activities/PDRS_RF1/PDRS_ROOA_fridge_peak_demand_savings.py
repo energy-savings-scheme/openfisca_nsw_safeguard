@@ -44,12 +44,12 @@ class PDRS_ROOA_fridge_peak_demand_savings(Variable):
             ['baseline_input_power']
             )
         baseline_peak_load_adjustment_factors = (
-            parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['RF2']
+            parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['RF1']
             )
         input_power = 0
         peak_load_adjustment_factor = baseline_peak_load_adjustment_factors
         firmness_factor = (
-            parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['RF2']
+            parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['RF1']
             )
         return (
                 meet_all_requirements * 

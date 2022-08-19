@@ -7,7 +7,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 import numpy as np
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_activity_new_equipment_is_RC(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_activity_new_equipment_is_RC(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -17,7 +17,7 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_activity_new_equipment_i
         "regulation_reference": PDRS_2022["XX", "fridge"]
     }
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_is_under_baseline_EEI(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -39,7 +39,7 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI(Va
                             new_product_EEI < 81)
 
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_registered_in_GEMS(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_is_registered_in_GEMS(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -50,7 +50,7 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_registered_in_GEMS(Va
     }
 
 
-class PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_equipment_requirements(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -61,9 +61,9 @@ class PDRS_HEAB_install_or_replace_refrigerated_cabinet_meets_equipment_requirem
     }
 
     def formula(buildings, period, parameters):
-        is_refrigerated_cabinet = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_activity_new_equipment_is_RC', period)
-        is_under_baseline_EEI = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_under_baseline_EEI', period)
-        is_registered_in_GEMS = buildings('PDRS_HEAB_install_or_replace_refrigerated_cabinet_is_registered_in_GEMS', period)
+        is_refrigerated_cabinet = buildings('PDRS_RF2_replace_refrigerated_cabinet_activity_new_equipment_is_RC', period)
+        is_under_baseline_EEI = buildings('PDRS_RF2_replace_refrigerated_cabinet_is_under_baseline_EEI', period)
+        is_registered_in_GEMS = buildings('PDRS_RF2_replace_refrigerated_cabinet_is_registered_in_GEMS', period)
         return(
                 is_refrigerated_cabinet *
                 is_under_baseline_EEI * 

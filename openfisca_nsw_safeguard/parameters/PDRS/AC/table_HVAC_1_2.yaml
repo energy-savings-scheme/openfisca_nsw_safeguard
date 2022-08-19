@@ -1,21 +1,21 @@
-description: Baseline EER used in calculating peak demand savings for installing a new AC.
+description: Baseline AEER used in calculating peak demand savings for installing a new AC.
 non_ducted_split_system:
   less_than_4kW:
     values:
       2021-01-01:
-        value: 3.39
+        value: 3.33
   4kW_to_10kW:
     values:
       2021-01-01:
-        value: 2.98
+        value: 2.93
   10kW_to_39kW:
     values:
       2021-01-01:
-        value: 2.84
+        value: 2.8
   39kW_to_65kW:
     values:
       2021-01-01:
-        value: 2.79
+        value: 2.75
   more_than_65kW:
     values:
       2021-01-01:
@@ -24,19 +24,19 @@ ducted_split_system:
   less_than_4kW:
     values:
       2021-01-01:
-        value: 2.84
+        value: 2.8
   4kW_to_10kW:
     values:
       2021-01-01:
-        value: 2.84
+        value: 2.8
   10kW_to_39kW:
     values:
       2021-01-01:
-        value: 2.84
+        value: 2.8
   39kW_to_65kW:
     values:
       2021-01-01:
-        value: 2.79
+        value: 2.75
   more_than_65kW:
     values:
       2021-01-01:
@@ -45,19 +45,19 @@ non_ducted_unitary_system:
   less_than_4kW:
     values:
       2021-01-01:
-        value: 3.39
+        value: 3.33
   4kW_to_10kW:
     values:
       2021-01-01:
-        value: 2.98
+        value: 2.93
   10kW_to_39kW:
     values:
       2021-01-01:
-        value: 2.84
+        value: 2.8
   39kW_to_65kW:
     values:
       2021-01-01:
-        value: 2.79
+        value: 2.75
   more_than_65kW:
     values:
       2021-01-01:
@@ -66,19 +66,19 @@ ducted_unitary_system:
   less_than_4kW:
     values:
       2021-01-01:
-        value: 2.84
+        value: 2.8
   4kW_to_10kW:
     values:
       2021-01-01:
-        value: 2.84
+        value: 2.8
   10kW_to_39kW:
     values:
       2021-01-01:
-        value: 2.84
+        value: 2.8
   39kW_to_65kW:
     values:
       2021-01-01:
-        value: 2.79
+        value: 2.75
   more_than_65kW:
     values:
       2021-01-01:

@@ -1,195 +1,46 @@
-- name: test HVAC non-residential replacement activity - is eligible, creates peak demand savings and
-        PRCs. Capacity 60, input power 7, TCSPF 7, AEER 3, across Climate Zones 1-8.
+- name:
+    test HVAC non-residential replacement activity - is eligible, creates peak demand savings and
+    PRCs. Capacity 60, input power 7, TCSPF 7, AEER 3, across Climate Zones 1-8.
   period: 2022
   input:
-    Air_Conditioner__cooling_capacity: [
-                                        60,
-                                        60,
-                                        60,
-                                        60,
-                                        60,
-                                        60,
-                                        60,
-                                        60,
-                                        ]
-    PDRS_AC_input_power: [
-                          10,
-                          10,
-                          10,
-                          10,
-                          10,
-                          10,
-                          10,
-                          10,
-                          ]
-    AC_TCSPF_mixed: [
-                      7,
-                      7,
-                      7,
-                      7,
-                      7,
-                      7,
-                      7,
-                      7,
-                      ]
-    AC_AEER: [
-              3,
-              3,
-              3,
-              3,
-              3,
-              3,
-              3,
-              3,
-              ]
-    BCA_climate_zone: [
-                        BCA_Climate_Zone_1,
-                        BCA_Climate_Zone_2,
-                        BCA_Climate_Zone_3,
-                        BCA_Climate_Zone_4,
-                        BCA_Climate_Zone_5,
-                        BCA_Climate_Zone_6,
-                        BCA_Climate_Zone_7,
-                        BCA_Climate_Zone_8,
-                      ]
-    Equipment_is_installed: [
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                            ]
-    Equipment_is_removed: [
-                          True,
-                          True,
-                          True,
-                          True,
-                          True,
-                          True,
-                          True,
-                          True,
-                            ]
-    implementation_is_performed_by_qualified_person: [
-                                                      True,
-                                                      True,
-                                                      True,
-                                                      True,
-                                                      True,
-                                                      True,
-                                                      True,
-                                                      True,
-                                                      ]
-    Appliance_is_registered_in_GEMS: [
-                                      True,
-                                      True,
-                                      True,
-                                      True,
-                                      True,
-                                      True,
-                                      True,
-                                      True,
-                                        ]
-    Appliance_demand_response_capability: [
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                          ]
-    No_Existing_AC: [
-                    False,
-                    False,
-                    False,
-                    False,
-                    False,
-                    False,
-                    False,
-                    False,
-                      ]
-    Appliance_located_in_residential_building: [
-                              False,
-                              False,
-                              False,
-                              False,
-                              False,
-                              False,
-                              False,
-                              False,
-                            ]
+    Air_Conditioner__cooling_capacity: [60, 60, 60, 60, 60, 60, 60, 60]
+    PDRS_AC_input_power: [10, 10, 10, 10, 10, 10, 10, 10]
+    AC_TCSPF_mixed: [7, 7, 7, 7, 7, 7, 7, 7]
+    AC_AEER: [3, 3, 3, 3, 3, 3, 3, 3]
+    BCA_climate_zone:
+      [
+        BCA_Climate_Zone_1,
+        BCA_Climate_Zone_2,
+        BCA_Climate_Zone_3,
+        BCA_Climate_Zone_4,
+        BCA_Climate_Zone_5,
+        BCA_Climate_Zone_6,
+        BCA_Climate_Zone_7,
+        BCA_Climate_Zone_8,
+      ]
+    Equipment_is_installed: [True, True, True, True, True, True, True, True]
+    Equipment_is_removed: [True, True, True, True, True, True, True, True]
+    implementation_is_performed_by_qualified_person:
+      [True, True, True, True, True, True, True, True]
+    Appliance_is_registered_in_GEMS:
+      [True, True, True, True, True, True, True, True]
+    Appliance_demand_response_capability:
+      [True, True, True, True, True, True, True, True]
+    No_Existing_AC: [False, False, False, False, False, False, False, False]
+    Appliance_located_in_residential_building:
+      [False, False, False, False, False, False, False, False]
   output:
-    PDRS_AC_peak_demand_savings: [
-                                  0,
-                                  4.262295,
-                                  0,
-                                  9.146175,
-                                  4.883879,
-                                  9.234972,
-                                  8.169398,
-                                  4.883879,
-                                  ]
-    PDRS_HEAB_residential_AC_replace_meets_eligibility_requirements: [
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                          True,
-                                                                            ]
-    AC_TCSPF_or_AEER_exceeds_PDRS_benchmark: [
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                            True,
-                                          ]
-    PDRS_HEAB_residential_AC_replace_meets_equipment_requirements: [
-                                                                        True,
-                                                                        True,
-                                                                        True,
-                                                                        True,
-                                                                        True,
-                                                                        True,
-                                                                        True,
-                                                                        True,
-                                                                      ]
-    PDRS_HEAB_residential_AC_replace_meets_implementation_requirements: [
-                                                                            True,
-                                                                            True,
-                                                                            True,
-                                                                            True,
-                                                                            True,
-                                                                            True,
-                                                                            True,
-                                                                            True,
-                                                                              ]
-    PDRS_HEAB_residential_AC_replace_meets_all_requirements: [
-                                                                    True,
-                                                                    True,
-                                                                    True,
-                                                                    True,
-                                                                    True,
-                                                                    True,
-                                                                    True,
-                                                                    True,
-                                                                  ]
-    PDRS_HEAB_residential_AC_replace_peak_demand_savings: [
-                                                                0,
-                                                                4.262295,
-                                                                0,
-                                                                9.146175,
-                                                                4.883879,
-                                                                9.234972,
-                                                                8.169398,
-                                                                4.883879,
-                                                                ]
+    PDRS_AC_peak_demand_savings:
+      [0, 4.262295, 0, 9.146175, 4.883879, 9.234972, 8.169398, 4.883879]
+    PDRS_HVAC_1_replace_meets_eligibility_requirements:
+      [True, True, True, True, True, True, True, True]
+    AC_TCSPF_or_AEER_exceeds_PDRS_benchmark:
+      [True, True, True, True, True, True, True, True]
+    PDRS_HVAC_1_replace_meets_equipment_requirements:
+      [True, True, True, True, True, True, True, True]
+    PDRS_HVAC_1_replace_meets_implementation_requirements:
+      [True, True, True, True, True, True, True, True]
+    PDRS_HVAC_1_replace_meets_all_requirements:
+      [True, True, True, True, True, True, True, True]
+    PDRS_HVAC_1_replace_peak_demand_savings:
+      [0, 4.262295, 0, 9.146175, 4.883879, 9.234972, 8.169398, 4.883879]

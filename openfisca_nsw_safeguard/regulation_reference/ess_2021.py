@@ -83,6 +83,25 @@ schedule_D.add_parts([
                      ("D21", PT.ACTIVITY, "Replace an Existing Gas Water Heater with a Solar (Gas Boosted) Water Heater"),
                      ])
 
+schedule_E = ESS_2021.add_part(
+    "E", PT.SCHEDULE, "Activity Definitions for Low Cost Activites for High Efficiency Appliances for Businesses (clause 9.8)")
+schedule_E.add_parts([
+                     ("E1", PT.ACTIVITY, "Replace Halogen Downlight with LED Luminaire and/or Lamp"),
+                     ("E2", PT.ACTIVITY, "Replace a Linear Halogen Floodlight with a High Efficiency Lamp"),
+                     ("E3", PT.ACTIVITY, "Replace a Parabolic Aluminised Reflector (PAR) Lamp with Efficient Luminaire and/or Lamp"),
+                     ("E4", PT.ACTIVITY, "Replace a T8 or T12 Luminaire with a T5 Luminaire"),
+                     ("E5", PT.ACTIVITY, "Replace a T8 or T12 Luminaire with an LED Luminaire"),
+                     ("E6", PT.ACTIVITY, "Replace an Existing Showerhead with an Ultra Low Flow Showerhead"),
+                     ("E7", PT.ACTIVITY, "Modify an External Door with Draught Proofing"),
+                     ("E8", PT.ACTIVITY, "Modify an External Window with Draught Proofing"),
+                     ("E9", PT.ACTIVITY, "Modify a Fireplace Chimney by Sealing with a Damper"),
+                     ("E10", PT.ACTIVITY, "Install an External Blind to a Window or Door"),
+                     ("E11", PT.ACTIVITY, "Replace an Edison Screw or Bayonet Lamp with an LED Lamp for General Lighting Purposes"),
+                     ("E12", PT.ACTIVITY, "Modify an Exhaust Fan with a Sealing Product"),
+                     ("E13", PT.ACTIVITY, "Replace a T5 Luminaire with a LED Luminaire"),
+                     ])
+
+
 
 schedule_F = ESS_2021.add_part(
     "F", PT.SCHEDULE, "Activity Definitions for Installation of High Efficiency Appliances for Businesses (clause 9.9)")

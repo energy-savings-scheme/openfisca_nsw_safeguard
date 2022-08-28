@@ -42,7 +42,12 @@ schedule_B = ESS_2021.add_part(
     "B", PT.SCHEDULE, "Activity Definitions for the Sale of New Appliances")
 schedule_B.add_parts([
                      ("B1", PT.ACTIVITY, "Sell a High Efficiency Clothes Washing Machine"),
-                     ("B2", PT.ACTIVITY, "Sell a High Efficiency Clothes Dryer")
+                     ("B2", PT.ACTIVITY, "Sell a High Efficiency Clothes Dryer"),
+                     ("B3", PT.ACTIVITY, "Sell a High Efficiency Dishwasher"),
+                     ("B4", PT.ACTIVITY, "Sell a High Efficiency 1-Door Refrigerator"),
+                     ("B5", PT.ACTIVITY, "Sell a High Efficiency Refrigerator with 2 or More Doors"),
+                     ("B6", PT.ACTIVITY, "Sell a High Efficiency Chest Freezer or Upright Freezer"),
+                     ("B7", PT.ACTIVITY, "Sell a High Efficiency Television")
                      ])
 
 schedule_D = ESS_2021.add_part(

@@ -61,9 +61,26 @@ schedule_D = ESS_2021.add_part(
     "D", PT.SCHEDULE, "Activity Definitions for General Activities for Home Energy Efficiency Retrofits")
 schedule_D.add_parts([
                      ("D1", PT.ACTIVITY, "Replace an External Single Glazed Window or Door with a Thermally Efficient Window or Door"),
-                     ("D3", PT.ACTIVITY, "Replace an Existing Air Conditioner With A High Efficiency Air Conditioner"),
-                     ("D4", PT.ACTIVITY, "Install A High Efficiency Air Conditioner"),
-                     ("D16", PT.ACTIVITY, "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner with a High Efficiency Air Conditioner")
+                     ("D2", PT.ACTIVITY, "Modify an External Window or Glazed Door by Installing Secondary Glazing"),
+                     ("D5", PT.ACTIVITY, "Replace an Existing Pool Pump with a High Efficiency Pool Pump"),
+                     ("D6", PT.ACTIVITY, "Install Ceiling Insulation in an Uninsulated Ceiling Place"),
+                     ("D7", PT.ACTIVITY, "Install Ceiling Insulation in an Under-insulated Ceiling Place"),
+                     ("D8", PT.ACTIVITY, "Install Under-floor Insulation"),
+                     ("D9", PT.ACTIVITY, "Install Wall Insulation"),
+                     ("D11", PT.ACTIVITY, "Replace an Existing Gas-fired Water Heater with a High Efficiency Gas Fired Water Heater"),
+                     ("D12", PT.ACTIVITY, "Install a High Efficiency Gas Space Heater or Replace an Existing Gas Space Heater with" \
+                     " a High Efficiency Gas Space Heater"),
+                     ("D13", PT.ACTIVITY, "Install a Natural Roof Space Ventilator"),
+                     ("D14", PT.ACTIVITY, "Install a Fan-forced Roof Space Ventilator, PV Powered Fan-forced Space Ventilator" \
+                     " or an Occupied Space Ventilator"),
+                     ("D15", PT.ACTIVITY, "Replace an Exhaust Fan with a Self Sealing Exhaust Fan"),
+                     ("D16", PT.ACTIVITY, "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner" \
+                     " with a High Efficiency Air Conditioner"),
+                     ("D17", PT.ACTIVITY, "Replace an Existing Electric Water Heater with an (Air Source) Heat Pump Water Heater"),
+                     ("D18", PT.ACTIVITY, "Replace an Existing Electric Water Heater with a Solar (Electric Boosted) Water Heater"),
+                     ("D19", PT.ACTIVITY, "Replace an Existing Gas Water Heater with an Air Source Heat Pump Water Heater"),
+                     ("D20", PT.ACTIVITY, "Replace an Existing Gas Water Heater with a Solar (Electric Boosted) Water Heater"),
+                     ("D21", PT.ACTIVITY, "Replace an Existing Gas Water Heater with a Solar (Gas Boosted) Water Heater"),
                      ])
 
 

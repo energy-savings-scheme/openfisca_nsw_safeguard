@@ -50,6 +50,13 @@ schedule_B.add_parts([
                      ("B7", PT.ACTIVITY, "Sell a High Efficiency Television")
                      ])
 
+schedule_C = ESS_2021.add_part(
+    "C", PT.SCHEDULE, "Activity Definitions for the Removal of Old Appliances")
+schedule_C.add_parts([
+                     ("C1", PT.ACTIVITY, "Remove a Spare Refrigerator or Freezer"),
+                     ("C2", PT.ACTIVITY, "Remove a Primary Refrigerator or Freezer")
+                     ])
+
 schedule_D = ESS_2021.add_part(
     "D", PT.SCHEDULE, "Activity Definitions for General Activities for Home Energy Efficiency Retrofits")
 schedule_D.add_parts([

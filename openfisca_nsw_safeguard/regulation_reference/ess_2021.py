@@ -106,6 +106,26 @@ schedule_E.add_parts([
 schedule_F = ESS_2021.add_part(
     "F", PT.SCHEDULE, "Activity Definitions for Installation of High Efficiency Appliances for Businesses (clause 9.9)")
 schedule_F.add_parts([
-                     ("F4", PT.ACTIVITY, "Install A New High Efficiency Air Conditioner"),
-                     ("F7", PT.ACTIVITY, "Install a New High Efficiency Motor")
+                     ("F1.1", PT.ACTIVITY, "Install A New High Efficiency Refrigerated Cabinet"),
+                     ("F1.2", PT.ACTIVITY, "Replace an Existing Refrigerated Display Cabinet"),
+                     ("F2", PT.ACTIVITY, "Install a New High Efficiency Liquid Chilling Package"),
+                     ("F3", PT.ACTIVITY, "Install a New High Efficiency Close Control Air Conditioner"),
+                     ("F4", PT.ACTIVITY, "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner" \
+                        " With a High Efficiency Air Conditioner"),
+                     ("F5", PT.ACTIVITY, "Install an Electronically Commutated Motor to Power a Fan" \
+                        " in an Installed Refrigerated Cabinet, Freezer or Cool Room"),
+                     ("F6", PT.ACTIVITY, "Install an Electronically Commutated Motor to Power a Ventilation Fan"),
+                     ("F7", PT.ACTIVITY, "Install a New High Efficiency Motor"),
+                     ("F8", PT.ACTIVITY, "Replace Existing Gas Fired Steam Boiler with a New High Efficiency Gas Fired Steam Boiler"),
+                     ("F9", PT.ACTIVITY, "Replace Existing Gas Fired Hot Water Boiler with a New High Efficiency Hot Water Boiler," \
+                        " or a New Gas Fired Steam Boiler"),
+                     ("F10", PT.ACTIVITY, "Install an Oxygen Trim System on a Gas Fired Steam Boiler, Hot Water Boiler or Water Heater"),
+                     ("F11", PT.ACTIVITY, "Replace Burner on a Gas Fired Steam Boiler, Hot Water Boiler or Water Heater"),
+                     ("F12", PT.ACTIVITY, "Install an Economiser on a Gas Fired Steam Boiler, Hot Water Boiler or Water Heater"),
+                     ("F13", PT.ACTIVITY, "Install a Sensor Based Blowdown Control on a Gas Fired Steam Boiler"),
+                     ("F14", PT.ACTIVITY, "Install a Blowdown Flash Steam Heat Recovery System on Gas Fired Steam Boiler"),
+                     ("F15", PT.ACTIVITY, "Install a Residual Blowdown Heat Exchanger on Gas Fired Steam Boiler"),
+                     ("F16", PT.ACTIVITY, "Replace One or More Existing Hot Water Boilers or Water Heaters" \
+                        " with One or More Air Source Heat Pump Water Heater Systems"),
+                     ("F17", PT.ACTIVITY, "Install One or More Air Source Heat Pump Water Heater Systems")
                      ])

@@ -15,7 +15,7 @@ class ESS_MethodType(Enum):
     clause_9_3_SONA = 'Certificates are created under clause 9.3, within the SONA method.'
     clause_9_4_CL = 'Certificates are created under clause 9.4, within the Commercial Lighting method.'
     clause_9_4A_PL = 'Certificates are created under clause 9.4A, within the Public Lighting method.'
-    clause_9_5_PL = 'Certificates are created under clause 9.5, within the High Efficiency Motors method.'
+    clause_9_5_HEM = 'Certificates are created under clause 9.5, within the High Efficiency Motors method.'
     clause_9_6_PFC = 'Certificates are created under clause 9.6, within the Power Factor Correction method.'
     clause_9_7_ROOA = 'Certificates are created under clause 9.7, within the Removal of Old Appliances method.'
     clause_9_8_HEER = 'Certificates are created under clause 9.8, within the HEER method.'

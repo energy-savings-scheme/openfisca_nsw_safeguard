@@ -5,7 +5,19 @@ from openfisca_nsw_base.entities import Building
 
 
 class ESS_MethodType(Enum):
+    clause_7_PIAM = 'Certificates are created under clause 7, within the PIAM method.'
+    clause_7A_PIAMV = 'Certificates are created under clause 7A, within the PIAM&V method.'
+    clause_8_5_MBM_baseline_per_output = 'Certificates are created under clause 8.5, within the MBM (Baseline per unit of output) method.'
+    clause_8_6_MBM_unaffected_output = 'Certificates are created under clause 8.6, within the MBM (Baseline unaffected by output) method.'
+    clause_8_7_MBM_normalised_baseline = 'Certificates are created under clause 8.7, within the MBM (Normalised baseline) method.'
     clause_8_8_NABERS = 'Certificates are created under clause 8.8, within the NABERS method.'
+    clause_8_9_AMB = 'Certificates are created under clause 8.9, within the AMB method.'
+    clause_9_3_SONA = 'Certificates are created under clause 9.3, within the SONA method.'
+    clause_9_4_CL = 'Certificates are created under clause 9.4, within the Commercial Lighting method.'
+    clause_9_4A_PL = 'Certificates are created under clause 9.4A, within the Public Lighting method.'
+    clause_9_5_PL = 'Certificates are created under clause 9.5, within the High Efficiency Motors method.'
+    clause_9_6_PFC = 'Certificates are created under clause 9.6, within the Power Factor Correction method.'
+    clause_9_7_ROOA = 'Certificates are created under clause 9.7, within the Removal of Old Appliances method.'
     clause_9_8_HEER = 'Certificates are created under clause 9.8, within the HEER method.'
     clause_9_9_HEAB = 'Certificates are created under clause 9.9, within the HEAB method.'
 

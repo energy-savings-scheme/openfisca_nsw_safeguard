@@ -37,6 +37,7 @@ clause_9.add_parts([("9.1", PT.CLAUSE, None),
                     ("9.9", PT.CLAUSE,
                      "Installation of High Efficiency Appliances for Business"),
                     ])
+# identify activity definitions 
 
 schedule_B = ESS_2021.add_part(
     "B", PT.SCHEDULE, "Activity Definitions for the Sale of New Appliances")
@@ -129,3 +130,24 @@ schedule_F.add_parts([
                         " with One or More Air Source Heat Pump Water Heater Systems"),
                      ("F17", PT.ACTIVITY, "Install One or More Air Source Heat Pump Water Heater Systems")
                      ])
+
+deemed_activities = [
+                        schedule_B, 
+                        schedule_C, 
+                        schedule_D, 
+                        schedule_E, 
+                        schedule_F
+                    ]
+
+for item in deemed_activities:
+    item.add_parts([("equipment", PT.REQUIREMENT,
+                     "Equipment Requirements"),
+                    ("implementation", PT.REQUIREMENT,
+                     "Implementation Requirements"),
+                    ("eligibility", PT.REQUIREMENT,
+                     "Eligibility Requirements"),
+                    ("energy_savings", PT.REQUIREMENT,
+                     "Energy Savings"),
+                    ])
+   
+# identify types of requirements

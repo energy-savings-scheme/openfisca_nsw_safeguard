@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 from datetime import date
 
-class ESS__HEER_activity_is_eligible(Variable):
+class ESS__HEER_meets_all_general_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

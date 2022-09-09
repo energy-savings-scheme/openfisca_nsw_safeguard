@@ -1,0 +1,10 @@
+- name: test pulling method specific requirements into overall ESS requirements variable
+  period: 2021
+  absolute_error_margin: 0.1
+  input:
+    ESS_activity_definition: [F1_1, D1]
+    ESS__HEER_meets_all_general_requirements: [False, True]
+    ESS_HEAB_meets_all_general_requirements: [True, False]
+  output:
+    ESS__method_type: [clause_9_9_HEAB, clause_9_8_HEER]
+    ESS_meets_overall_method_requirements: [True, True]

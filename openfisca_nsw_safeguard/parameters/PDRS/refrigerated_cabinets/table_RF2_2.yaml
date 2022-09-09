@@ -1,6 +1,68 @@
 description: Baseline EEIs that refrigerated cabinets are not allowed to exceed, as part of PDRS activity XX.
 reference: "PDRS Technical Manual."
-baseline_peak_adjustment_factor:
-  values:
-    2021-01-01:
-      value: 1.0
+temperature_factor:
+  integral_RDC:
+    heavy_duty:    
+      values:
+        2021-01-01:
+          value: 1.14
+    normal_duty:    
+      values:
+        2021-01-01:
+          value: 1.14
+    light_duty:    
+      values:
+        2021-01-01:
+          value: 1.14
+  integral_ice_cream_freezer_cabinet:
+    heavy_duty:    
+      values:
+        2021-01-01:
+          value: 0.84
+    normal_duty:    
+      values:
+        2021-01-01:
+          value: 0.84
+    light_duty:    
+      values:
+        2021-01-01:
+          value: 0.84
+  remote_RDC:
+    heavy_duty:    
+      values:
+        2021-01-01:
+          value: 1.81
+    normal_duty:    
+      values:
+        2021-01-01:
+          value: 1.81
+    light_duty:    
+      values:
+        2021-01-01:
+          value: 1.81
+  gelato_ice_cream_scooping_cabinet:
+    heavy_duty:    
+      values:
+        2021-01-01:
+          value: 0.84
+    normal_duty:    
+      values:
+        2021-01-01:
+          value: 0.84
+    light_duty:    
+      values:
+        2021-01-01:
+          value: 0.84
+  RSC:
+    heavy_duty:    
+      values:
+        2021-01-01:
+          value: 0.84
+    normal_duty:    
+      values:
+        2021-01-01:
+          value: 0.84
+    light_duty:    
+      values:
+        2021-01-01:
+          value: 1.14

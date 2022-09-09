@@ -99,8 +99,11 @@ class PDRS_RF2_replace_refrigerated_cabinet_baseline_peak_adjustment_factor(Vari
     }
 
     def formula(buildings, period, parameters):
-        temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2.baseline_peak_adjustment_factor
-        usage_factor = 0.72
+        product_type = buildings('refrigerated_cabinet_product_type', period)
+        duty_class = buildings('refrigerated_cabinet_duty_class', period)
+        temperature_factor = (parameters(period).
+        PDRS.refrigerated_cabinets.table_RF2_2.temperature_factor[product_type][duty_class])
+        usage_factor = 1
         return (
             (temperature_factor) * 
             (usage_factor)

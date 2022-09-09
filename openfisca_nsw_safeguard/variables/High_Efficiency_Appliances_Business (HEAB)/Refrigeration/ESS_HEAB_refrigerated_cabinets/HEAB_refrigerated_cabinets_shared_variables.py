@@ -5,6 +5,8 @@ from openfisca_nsw_base.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
+import numpy as np
+
 
 class RCProductClass(Enum):
     product_class_one = 'RDC is in product class 1.'
@@ -31,6 +33,75 @@ class refrigerated_cabinet_product_class(Variable):
     default_value = RCProductClass.product_class_one
     definition_period = ETERNITY
     label = 'What is the product class for the refrigerated cabinet?'
+
+
+class RCProductType(Enum):
+    integral_RDC = 'Product is an integral refrigerated display cabinet.'
+    integral_ice_cream_freezer_cabinet = 'Product is an integral ice cream freezer cabinet.'
+    remote_RDC = 'Product is a remote refrigerated display cabinet.'
+    gelato_ice_cream_scooping_cabinet = 'Product is a gelato or ice cream scooping cabinet.'
+    RSC = 'Product is a refrigerated storage cabinet.'
+
+
+class refrigerated_cabinet_product_type(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = RCProductType
+    default_value = RCProductType.integral_RDC
+    definition_period = ETERNITY
+    label = 'What is the product type for the refrigerated cabinet?'
+
+    def formula(buildings, period, parameters):
+        product_class = buildings('refrigerated_cabinet_product_class', period)
+
+        is_integral_RDC = (
+                            (product_class == RCProductClass.product_class_one) +
+                            (product_class == RCProductClass.product_class_two) +
+                            (product_class == RCProductClass.product_class_seven) +
+                            (product_class == RCProductClass.product_class_eight) +
+                            (product_class == RCProductClass.product_class_eleven)
+                            )
+
+        is_integral_ice_cream_freezer_cabinet = (
+                            (product_class == RCProductClass.product_class_five)
+        )
+
+        is_remote_RDC = (
+                            (product_class == RCProductClass.product_class_twelve) +
+                            (product_class == RCProductClass.product_class_thirteen) +
+                            (product_class == RCProductClass.product_class_fourteen) +
+                            (product_class == RCProductClass.product_class_fifteen)
+        )
+
+        is_gelato_or_icecream_scooping_cabinets = (
+                            (product_class == RCProductClass.product_class_six)
+        )
+
+        is_RSC = (
+                            (product_class == RCProductClass.product_class_three) +
+                            (product_class == RCProductClass.product_class_four) +
+                            (product_class == RCProductClass.product_class_nine) +
+                            (product_class == RCProductClass.product_class_ten)
+        )
+
+        product_type = np.select(
+                                    [
+                                    is_integral_RDC,
+                                    is_integral_ice_cream_freezer_cabinet,
+                                    is_remote_RDC,
+                                    is_gelato_or_icecream_scooping_cabinets,
+                                    is_RSC
+                                    ],
+                                    [
+                                        RCProductType.integral_RDC,
+                                        RCProductType.integral_ice_cream_freezer_cabinet,
+                                        RCProductType.remote_RDC,
+                                        RCProductType.gelato_ice_cream_scooping_cabinet,
+                                        RCProductType.RSC
+                                    ]
+                                )
+
+        return product_type
 
 
 class RCDutyClass(Enum):

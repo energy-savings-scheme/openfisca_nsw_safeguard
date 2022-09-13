@@ -17,6 +17,7 @@ class ESS_HEAB_install_or_replace_AC_meets_eligibility_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
         'alias': "HEAB AC install meets eligibility requirements",
+        'display_question': "Is the activity the installation of a new air conditioner?"
     }
 
     def formula(buildings, period, parameters):

@@ -2,499 +2,503 @@ description: Metro Levy Area
 brackets:
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 0 # zero and above postcodes have are not in the Metro Levy Area (and therefore return value of 0)
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2000 # 2000 postcodes and above are in the Metro Levy Area (and therefore return value of 1)
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2012 # 2000 postcodes and above are in the Metro Levy Area (and therefore return value of 1)
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2015 # 2000 postcodes and above are in the Metro Levy Area (and therefore return value of 1)
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2051 # zero and above postcodes have are not in the Metro Levy Area (and therefore return value of 0)
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2052 # 2000 postcodes and above are in the Metro Levy Area (and therefore return value of 1)
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2053
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2060
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2078
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2079
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2091
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2092
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2098
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2099
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2123
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2125
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2149
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2150
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2169
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2170
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2180
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2190
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2201
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2203
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2215
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2216
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2235
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2250
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2252
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2256
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2266
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2267
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2268
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2278
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2279
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2280
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2288
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2289
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2301
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2302
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2309
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2314
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2328
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2334
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2336
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2500
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2501
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2502
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2503
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2505
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2507
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2508
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2509
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2515
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2509
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2515
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2520
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2525
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2531
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2533
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2537
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2538
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2542
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2555
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2561
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2563
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2568
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2570
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2572
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2575
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2580
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2622
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2623
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2745
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2746
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2747
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2751
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2753
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2764
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2765
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2771
   - amount:
       2020-01-01:
-        value: 1
+        value: True
     threshold:
       2020-01-01:
         value: 2775
   - amount:
       2020-01-01:
-        value: 0
+        value: False
     threshold:
       2020-01-01:
         value: 2776
+metadata:
+  type: single_amount
+  threshold_unit: postcode
+  amount_unit: 0.01

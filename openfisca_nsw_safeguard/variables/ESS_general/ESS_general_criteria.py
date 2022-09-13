@@ -1,8 +1,10 @@
-from openfisca_core.variables import Variable
-from openfisca_core.periods import ETERNITY
+from openfisca_core.variables import *
+from openfisca_core.periods import YEAR, ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 import numpy as np
+import pandas as pd
+from datetime import datetime as py_datetime
 from datetime import date
 
 class ESS__meets_overall_eligibility_requirements(Variable):
@@ -15,9 +17,15 @@ class ESS__meets_overall_eligibility_requirements(Variable):
         is_not_unlawful_activity = np.logical_not(
             buildings('ESS__is_unlawful_activity', period)
             )
+        equipment_not_reused_resold_or_refurbished = buildings(
+            'ESS__equipment_is_not_resold_reused_or_refurbished', period)
+        appropriate_disposal_after_15_April_2016 = buildings(
+            'ESS__appropriate_disposal_of_equipment_after_15_April_2016', period)
 
         return(
-            is_not_unlawful_activity
+            is_not_unlawful_activity *
+            equipment_not_reused_resold_or_refurbished *
+            appropriate_disposal_after_15_April_2016
             )
 
 
@@ -84,36 +92,45 @@ class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
             ' requirements put in place from 15 April 2016?'
 
     def formula(buildings, period, parameters):
-        implementation_date = buildings('ESS__implementation_date', period)
+        implementation_date = (buildings('ESS__implementation_date', period).astype('datetime64[D]'))
+        enforcement_date = np.datetime64('2016-04-15')
         on_or_after_15_April_2016 = (
-            implementation_date >= 2016-4-15
-        ) # note datetime formatting here
+            implementation_date > enforcement_date)
+
+        activity_occurred_in_Metro = buildings(
+            'ESS__activity_occurred_in_Metro_Levy_Area', period)
+        lighting_disposed_of_appropriately = buildings(
+            'ESS__lighting_mercury_disposed_appropriately', period)
+        refrigerant_recycling_evidence_is_available = buildings(
+            'ESS__recycling_evidence_for_refrigerants_is_obtained', period)
 
 
+        return(
+            np.logical_not(on_or_after_15_April_2016) +
+            (
+                on_or_after_15_April_2016 *
+                (
+                    (   activity_occurred_in_Metro *
+                        lighting_disposed_of_appropriately
+                    ) +
+                    np.logical_not(activity_occurred_in_Metro)
+                ) *
+                refrigerant_recycling_evidence_is_available
+            )
+        )
 
 
 class ESS__activity_occurred_in_Metro_Levy_Area(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
     label = 'Did the activity take place in a Metro Levy Area?'
 
     def formula(buildings, period, parameters):
         postcode = buildings('ESS__postcode', period)
         metro_levy_areas = parameters(period).ESS.ESS_general.table_A25_metro_levy_area
-        in_metro_levy_area = metro_levy_areas.calc(postcode)
-        return in_metro_levy_area 
-
-
-class ESS__lighting_mercury_disposed_appropriately_in_Metro_Levy_Area(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Has any mercury present in removed lighting products been disposed of appropriately, in a Metro Levy Area?'
-
-
-
-
+        return metro_levy_areas.calc(postcode)
 
 
 class ESS__lighting_mercury_disposed_appropriately(Variable):
@@ -121,3 +138,11 @@ class ESS__lighting_mercury_disposed_appropriately(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Has any mercury present in removed lighting products been disposed of appropriately?'
+
+
+
+class ESS__recycling_evidence_for_refrigerants_is_obtained(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Has recycling evidence been obtained for any refrigerants disposed of as part of the activity?'

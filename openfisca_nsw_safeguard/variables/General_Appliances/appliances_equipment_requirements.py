@@ -12,7 +12,8 @@ class Appliance_is_registered_in_GEMS(Variable):
     label = 'Is the new product registered in GEMS?'
     metadata = {
         'alias':  'Appliance is registered in GEMS',
-        "regulation_reference": ESS_2021["XX", "GA"]
+        "regulation_reference": ESS_2021["XX", "GA"],
+        'display_question':""
     }
 
 

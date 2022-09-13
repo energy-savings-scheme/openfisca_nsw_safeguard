@@ -79,6 +79,10 @@ class ESS_is_not_residential_building(Variable):
     definition_period = ETERNITY
     label = 'Is the existing end user equipment installed at a BCA Class 2, 3,' \
             ' 5, 6, 7, 8, 9 or 10 building - i.e, not a residential building?'
+    metadata = {
+        'display_question':"Is the installation in a centralised system or common area in a Class 2 building?"
+    }
+
 
     def formula(buildings, period, parameters):
         BCA_building_class = buildings('BCA_building_class', period)

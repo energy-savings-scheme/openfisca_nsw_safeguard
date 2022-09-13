@@ -12,9 +12,10 @@ class Equipment_is_installed(Variable):
     label = 'Is the new product installed?'
     metadata = {
         'alias':  'Is The New Appliance Installed?',
-        "regulation_reference": ESS_2021["XX", "GA"]
+        "regulation_reference": ESS_2021["XX", "GA"],
+        'display_question':"Is the new End-User equipment installed and operational?"
     }
-
+    
 
 class Equipment_is_removed(Variable):
     value_type = bool
@@ -47,5 +48,6 @@ class implementation_is_performed_by_qualified_person(Variable):
     # vague guidelines
     metadata = {
         'alias':  'Is the implementation performed by a qualified person?',
-        "regulation_reference": ESS_2021["XX", "GA"]
+        "regulation_reference": ESS_2021["XX", "GA"],
+        'display_question':"Has the installation of the end-user equipment been performed or supervised by a suitably licensed person?"
     }

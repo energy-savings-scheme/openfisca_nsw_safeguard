@@ -3,7 +3,7 @@ from openfisca_core.periods import YEAR, ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 import numpy as np
-import pandas as pd
+
 from datetime import datetime as py_datetime
 from datetime import date
 

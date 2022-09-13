@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 import numpy as np
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_equipment_requirements_air_source_heat_pump(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_AS4234_requirements(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -161,7 +161,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_equipme
     }
 
     def formula(buildings, period, parameters):
-        Air_source_heat_pump_water_heater = buildings('ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_equipment_requirements_air_source_heat_pump', period)
+        Air_source_heat_pump_water_heater = buildings('ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_AS4234_requirements', period)
         #Section 2 goes here
         has_minimum_energy_savings = buildings(
             'ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_has_minimum_energy_savings', period)

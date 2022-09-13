@@ -34,24 +34,32 @@ clause_9.add_parts([("9.1", PT.CLAUSE, None),
                     ("9.3", PT.CLAUSE, "Sale of New Appliances"),
                     ("9.4", PT.CLAUSE, "Commercial Lighting"),
                     ("9.4A", PT.CLAUSE, "Public Lighting"),
-                    ("9.5", PT.CLAUSE, "High Efficiency Motor"),
+                    ("9.5", PT.CLAUSE, "High Efficiency Motors"),
                     ("9.6", PT.CLAUSE, "Power Factor Correction"),
                     ("9.7", PT.CLAUSE, "Removal of Old Appliances"),
                     ("9.8", PT.CLAUSE, "Home Energy Efficiency Retrofits"),
                     ("9.9", PT.CLAUSE,
                      "Installation of High Efficiency Appliances for Business"),
                     ])
+# identify activity definitions 
 
 schedule_B = ESS_2021.add_part(
     "B", PT.SCHEDULE, "Activity Definitions for the Sale of New Appliances")
 schedule_B.add_parts([
                      ("B1", PT.ACTIVITY, "Sell a High Efficiency Clothes Washing Machine"),
                      ("B2", PT.ACTIVITY, "Sell a High Efficiency Clothes Dryer"),
-                     ("B3", PT.ACTIVITY, "Sell a High Efficiency Clothes Dishwasher"),
-                     ("B4", PT.ACTIVITY, "Sell a High Efficiency 1 Door Refrigerator"),
-                     ("B5", PT.ACTIVITY, "Sell a High Efficiency 2 or More Door Refrigerator"),
+                     ("B3", PT.ACTIVITY, "Sell a High Efficiency Dishwasher"),
+                     ("B4", PT.ACTIVITY, "Sell a High Efficiency 1-Door Refrigerator"),
+                     ("B5", PT.ACTIVITY, "Sell a High Efficiency Refrigerator with 2 or More Doors"),
                      ("B6", PT.ACTIVITY, "Sell a High Efficiency Chest Freezer or Upright Freezer"),
                      ("B7", PT.ACTIVITY, "Sell a High Efficiency Television")
+                     ])
+
+schedule_C = ESS_2021.add_part(
+    "C", PT.SCHEDULE, "Activity Definitions for the Removal of Old Appliances")
+schedule_C.add_parts([
+                     ("C1", PT.ACTIVITY, "Remove a Spare Refrigerator or Freezer"),
+                     ("C2", PT.ACTIVITY, "Remove a Primary Refrigerator or Freezer")
                      ])
 
 schedule_C = ESS_2021.add_part(
@@ -67,6 +75,7 @@ schedule_D = ESS_2021.add_part(
 schedule_D.add_parts([
                      ("D1", PT.ACTIVITY, "Replace an External Single Glazed Window or Door with a Thermally Efficient Window or Door"),
                      ("D2", PT.ACTIVITY, "Modify an External Window or Glazed Door by Installing Secondary Glazing"),
+
                      ("D3", PT.ACTIVITY, None),
                      ("D4", PT.ACTIVITY, None),
                      ("D5", PT.ACTIVITY, "Replace an Existing Pool Pump with a High Efficiency Pool Pump"),
@@ -92,7 +101,25 @@ schedule_D.add_parts([
                      ("D19", PT.ACTIVITY, 
                      "Replace an Existing Gas Water Heater with an AIr Source Heat Pump Water Heater"),
                      ("D20", PT.ACTIVITY, "Replace an Existing Gas Water Heater with a Solar Electric Boosted Water Heater"),
-                     ("D21", PT.ACTIVITY, "Replace an Existing Gas Water Heater with a Solar Gas Boosted Water Heater"),
+                     ("D21", PT.ACTIVITY, "Replace an Existing Gas Water Heater with a Solar Gas Boosted Water Heater")
+                     ])
+
+schedule_E = ESS_2021.add_part(
+    "E", PT.SCHEDULE, "Activity Definitions for Low Cost Activites for High Efficiency Appliances for Businesses (clause 9.8)")
+schedule_E.add_parts([
+                     ("E1", PT.ACTIVITY, "Replace Halogen Downlight with LED Luminaire and/or Lamp"),
+                     ("E2", PT.ACTIVITY, "Replace a Linear Halogen Floodlight with a High Efficiency Lamp"),
+                     ("E3", PT.ACTIVITY, "Replace a Parabolic Aluminised Reflector (PAR) Lamp with Efficient Luminaire and/or Lamp"),
+                     ("E4", PT.ACTIVITY, "Replace a T8 or T12 Luminaire with a T5 Luminaire"),
+                     ("E5", PT.ACTIVITY, "Replace a T8 or T12 Luminaire with an LED Luminaire"),
+                     ("E6", PT.ACTIVITY, "Replace an Existing Showerhead with an Ultra Low Flow Showerhead"),
+                     ("E7", PT.ACTIVITY, "Modify an External Door with Draught Proofing"),
+                     ("E8", PT.ACTIVITY, "Modify an External Window with Draught Proofing"),
+                     ("E9", PT.ACTIVITY, "Modify a Fireplace Chimney by Sealing with a Damper"),
+                     ("E10", PT.ACTIVITY, "Install an External Blind to a Window or Door"),
+                     ("E11", PT.ACTIVITY, "Replace an Edison Screw or Bayonet Lamp with an LED Lamp for General Lighting Purposes"),
+                     ("E12", PT.ACTIVITY, "Modify an Exhaust Fan with a Sealing Product"),
+                     ("E13", PT.ACTIVITY, "Replace a T5 Luminaire with a LED Luminaire"),
                      ])
 
 schedule_E = ESS_2021.add_part(
@@ -117,36 +144,51 @@ schedule_E.add_parts([
 
 
 
+
 schedule_F = ESS_2021.add_part(
     "F", PT.SCHEDULE, "Activity Definitions for Installation of High Efficiency Appliances for Businesses (clause 9.9)")
 schedule_F.add_parts([
                      ("F1.1", PT.ACTIVITY, "Install A New High Efficiency Refrigerated Cabinet"),
                      ("F1.2", PT.ACTIVITY, "Replace an Existing Refrigerated Display Cabinet"),
-                     ("F2", PT.ACTIVITY, "Install A New High Efficiency Liquid Chilling Package"),
-                     ("F3", PT.ACTIVITY, "Install A New High Efficiency Close Control Air Conditioner"),
-                     ("F4", PT.ACTIVITY, "Install A New High Efficiency Air Conditioner"),
-                     ("F5", PT.ACTIVITY, "Install An Electronically Commutated Motor to Power a Fan in an Installed Refrigerated Cabinet, Freezer or Cool Room"),
+                     ("F2", PT.ACTIVITY, "Install a New High Efficiency Liquid Chilling Package"),
+                     ("F3", PT.ACTIVITY, "Install a New High Efficiency Close Control Air Conditioner"),
+                     ("F4", PT.ACTIVITY, "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner" \
+                        " With a High Efficiency Air Conditioner"),
+                     ("F5", PT.ACTIVITY, "Install an Electronically Commutated Motor to Power a Fan" \
+                        " in an Installed Refrigerated Cabinet, Freezer or Cool Room"),
                      ("F6", PT.ACTIVITY, "Install an Electronically Commutated Motor to Power a Ventilation Fan"),
                      ("F7", PT.ACTIVITY, "Install a New High Efficiency Motor"),
-                     ("F8", PT.ACTIVITY, 
-                     "Replace Existing Gas Fired Steam Boiler with a New High Efficiency Gas Fired Steam Boiler"),
-                     ("F9", PT.ACTIVITY, 
-                     "Replace Existing Gas Fired Hot Water Boiler or Gas Fired Water Heater" \
-                     "with a New High Efficiency Gas Fired Hot Water Boiler or a New Gas Fired Water Heater"),
-                     ("F10", PT.ACTIVITY, 
-                     "Install an Oxygen Trim System on a Gas Fired Steam Boiler, Hot Water Boiler or Water Heater"),
-                     ("F11", PT.ACTIVITY, 
-                     "Replace Burner on a Gas Fired Steam Boiler,. Hot Water Boiler or Water Heater"),
-                     ("F12", PT.ACTIVITY, 
-                     "Install an Economiser on a Gas Fired Steam Boiler, Hot Water Boiler or Water Heater"),
-                     ("F13", PT.ACTIVITY, 
-                     "Install a Sensor Based Blowdown Control on a Gas Fired Steam Boiler"),
-                     ("F14", PT.ACTIVITY, 
-                     "Install a Blowdown Flash Steam Heat Recovery System on Gas Fired Steam Boiler"),
-                     ("F15", PT.ACTIVITY, 
-                     "Install a Residual Blowdown Heat Exchanger on Gas Fired Steam Boiler"),
-                     ("F16", PT.ACTIVITY, 
-                     "Replace One or More Existing Hot Water Boilers or Water Heaters with One or More Air Source Heat Pump Water Heater Systems"),
-                     ("F17", PT.ACTIVITY, 
-                     "Install One or More Air Source Heat Pump Water Heater Systems")
+                     ("F8", PT.ACTIVITY, "Replace Existing Gas Fired Steam Boiler with a New High Efficiency Gas Fired Steam Boiler"),
+                     ("F9", PT.ACTIVITY, "Replace Existing Gas Fired Hot Water Boiler with a New High Efficiency Hot Water Boiler," \
+                        " or a New Gas Fired Steam Boiler"),
+                     ("F10", PT.ACTIVITY, "Install an Oxygen Trim System on a Gas Fired Steam Boiler, Hot Water Boiler or Water Heater"),
+                     ("F11", PT.ACTIVITY, "Replace Burner on a Gas Fired Steam Boiler, Hot Water Boiler or Water Heater"),
+                     ("F12", PT.ACTIVITY, "Install an Economiser on a Gas Fired Steam Boiler, Hot Water Boiler or Water Heater"),
+                     ("F13", PT.ACTIVITY, "Install a Sensor Based Blowdown Control on a Gas Fired Steam Boiler"),
+                     ("F14", PT.ACTIVITY, "Install a Blowdown Flash Steam Heat Recovery System on Gas Fired Steam Boiler"),
+                     ("F15", PT.ACTIVITY, "Install a Residual Blowdown Heat Exchanger on Gas Fired Steam Boiler"),
+                     ("F16", PT.ACTIVITY, "Replace One or More Existing Hot Water Boilers or Water Heaters" \
+                        " with One or More Air Source Heat Pump Water Heater Systems"),
+                     ("F17", PT.ACTIVITY, "Install One or More Air Source Heat Pump Water Heater Systems")
                      ])
+
+deemed_activities = [
+                        schedule_B, 
+                        schedule_C, 
+                        schedule_D, 
+                        schedule_E, 
+                        schedule_F
+                    ]
+
+for item in deemed_activities:
+    item.add_parts([("equipment", PT.REQUIREMENT,
+                     "Equipment Requirements"),
+                    ("implementation", PT.REQUIREMENT,
+                     "Implementation Requirements"),
+                    ("eligibility", PT.REQUIREMENT,
+                     "Eligibility Requirements"),
+                    ("energy_savings", PT.REQUIREMENT,
+                     "Energy Savings"),
+                    ])
+   
+# identify types of requirements

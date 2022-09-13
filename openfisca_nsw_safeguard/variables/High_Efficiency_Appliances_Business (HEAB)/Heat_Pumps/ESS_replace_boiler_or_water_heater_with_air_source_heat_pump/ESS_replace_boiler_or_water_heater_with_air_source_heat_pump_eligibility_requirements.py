@@ -3,15 +3,15 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
-from openfisca_nsw_safeguard.variables.PDRS_activities.PDRS_WH1.PDRS_WH1_eligibility_requirements import PDRS_WH1_EquipmentTypes
+from openfisca_nsw_safeguard.variables.PDRS_activities.PDRS_WH1.PDRS_WH1_eligibility_requirements import GasHeaterEquipmentTypes
 
 import numpy as np
 
 class ESS_replace_boiler_with_heat_pump_existing_equipment_type(Variable):
     value_type = Enum
     entity = Building
-    possible_values = PDRS_WH1_EquipmentTypes
-    default_value = PDRS_WH1_EquipmentTypes.PDRS_WH1_Ineligible
+    possible_values = GasHeaterEquipmentTypes
+    default_value = GasHeaterEquipmentTypes.Ineligible
     definition_period = ETERNITY
     label = 'What type of hot water equipment are you checking for eligibility?'
     metadata={
@@ -31,10 +31,10 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equi
     equipment_type = buildings('ESS_replace_boiler_with_heat_pump_existing_equipment_type', period)
     ExistingEquipmentType = equipment_type.possible_values
     is_eligible_equipment_type = (
-                            (equipment_type == ExistingEquipmentType.PDRS_WH1_Gas_Hot_Water_Heater) +
-                            (equipment_type == ExistingEquipmentType.PDRS_WH1_Gas_Hot_Water_Boiler) +
-                            (equipment_type == ExistingEquipmentType.PDRS_WH1_Electric_Hot_Water_Heater) +
-                            (equipment_type == ExistingEquipmentType.PDRS_WH1_Electric_Hot_Water_Boiler)                                
+                            (equipment_type == ExistingEquipmentType.Gas_Hot_Water_Heater) +
+                            (equipment_type == ExistingEquipmentType.Gas_Hot_Water_Boiler) +
+                            (equipment_type == ExistingEquipmentType.Electric_Hot_Water_Heater) +
+                            (equipment_type == ExistingEquipmentType.Electric_Hot_Water_Boiler)                                
     )
     return is_eligible_equipment_type
 
@@ -63,14 +63,14 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment
     return (
                 (
                     (
-                        (existing_equipment_type == ExistingEquipmentTypes.PDRS_WH1_Gas_Hot_Water_Heater) +
-                        (existing_equipment_type == ExistingEquipmentTypes.PDRS_WH1_Gas_Hot_Water_Boiler)
+                        (existing_equipment_type == ExistingEquipmentTypes.Gas_Hot_Water_Heater) +
+                        (existing_equipment_type == ExistingEquipmentTypes.Gas_Hot_Water_Boiler)
                     ) *
                     new_equipment_is_gas_boosted
                 ) +
                 (
-                    np.logical_not(existing_equipment_type == ExistingEquipmentTypes.PDRS_WH1_Gas_Hot_Water_Heater) +
-                    np.logical_not(existing_equipment_type == ExistingEquipmentTypes.PDRS_WH1_Gas_Hot_Water_Heater)                       
+                    np.logical_not(existing_equipment_type == ExistingEquipmentTypes.Gas_Hot_Water_Heater) +
+                    np.logical_not(existing_equipment_type == ExistingEquipmentTypes.Gas_Hot_Water_Heater)                       
                 )
         )
 
@@ -112,13 +112,13 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_eligibi
     def formula(buildings, period, parameters):
         existing_equipment_is_eligible_type = buildings(
             'ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equipment_is_eligible_type', period)
-        new_equipmnent_eligible_with_existing_equipment = buildings(
+        new_equipment_eligible_with_existing_equipment = buildings(
             'ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_eligible_type_for_old_equipment', period)
         not_residential_site = buildings(
             'ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_not_residential', period)
 
         return (
             existing_equipment_is_eligible_type *
-            new_equipmnent_eligible_with_existing_equipment *
+            new_equipment_eligible_with_existing_equipment *
             not_residential_site   
         )

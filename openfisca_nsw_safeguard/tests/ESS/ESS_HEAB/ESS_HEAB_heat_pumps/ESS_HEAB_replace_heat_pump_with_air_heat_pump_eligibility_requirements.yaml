@@ -3,16 +3,16 @@
   absolute_error_margin: 0
   input:
     ESS_replace_boiler_with_heat_pump_existing_equipment_type: [
-              PDRS_WH1_Gas_Hot_Water_Heater,
-              PDRS_WH1_Gas_Hot_Water_Boiler,
-              PDRS_WH1_Electric_Hot_Water_Boiler,
-              PDRS_WH1_Electric_Hot_Water_Heater,
-              PDRS_WH1_Ineligible,
-              PDRS_WH1_Gas_Hot_Water_Heater,
-              PDRS_WH1_Gas_Hot_Water_Boiler,
-              PDRS_WH1_Electric_Hot_Water_Boiler,
-              PDRS_WH1_Electric_Hot_Water_Heater,
-              PDRS_WH1_Ineligible,
+              Gas_Hot_Water_Heater,
+              Gas_Hot_Water_Boiler,
+              Electric_Hot_Water_Boiler,
+              Electric_Hot_Water_Heater,
+              Ineligible,
+              Gas_Hot_Water_Heater,
+              Gas_Hot_Water_Boiler,
+              Electric_Hot_Water_Boiler,
+              Electric_Hot_Water_Heater,
+              Ineligible,
           ]
     ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_gas_boosted_air_sourced_heat_pump: [
               True,
@@ -87,4 +87,3 @@
               True,
               False,
           ]
-

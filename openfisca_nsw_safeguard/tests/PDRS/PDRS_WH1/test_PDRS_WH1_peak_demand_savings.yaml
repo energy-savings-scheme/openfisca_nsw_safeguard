@@ -1,0 +1,30 @@
+- name: test WH1 hot water heat pump creates peak demand savings
+  period: 2022
+  absolute_error_margin: 0.001
+  input:
+    ComPkLoad: [
+             1,
+             50,
+             100              
+               ]
+    Annual_energy_savings: [
+              30,
+              70,
+              100
+    ]
+  output:
+    Baseline_Input_Power: [
+              0.01,
+              0.5,
+              1
+    ]
+    Input_Power: [
+              0.007,
+              0.15,
+              0
+    ]
+    PDRS_WH1_peak_demand_savings: [
+              0.00539,
+              0.3845,
+              1
+    ]

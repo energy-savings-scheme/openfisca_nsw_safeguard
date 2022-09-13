@@ -1,46 +1,38 @@
 - name: Test WH1 Eligibility Test
-  period: 2021
+  period: 2022
   absolute_error_margin: 0
   input:
-    WH1_EquipmentType : [
-      PDRS_WH1_Gas_Hot_Water_Heater,
-      PDRS_WH1_Gas_Hot_Water_Boiler,
-      PDRS_WH1_Electric_Hot_Water_Heater,
-      PDRS_WH1_Electric_Hot_Water_Boiler,
-      PDRS_WH1_Ineligible
-    ]
+    gas_heater_equipment_type:
+      [
+        Gas_Hot_Water_Heater,
+        Gas_Hot_Water_Boiler,
+        Electric_Hot_Water_Heater,
+        Electric_Hot_Water_Boiler,
+        Ineligible,
+      ]
   output:
-    PDRS_WH1_meets_eligibility_requirements : [
-      True,
-      True,
-      True,
-      True,
-      False
-    ]
+    PDRS_WH1_meets_eligibility_requirements: [False, False, True, True, False]
 
 - name: Test WH1 Implementation Requirements
-  period: 2021
+  period: 2022
   absolute_error_margin: 0
   input:
-      PDRS_WH1_implementation_requirements_existing_hot_water_pump_is_removed: [True, False]
-      PDRS_WH1_implementation_requirements_replacement_hot_water_pump_is_installed: [True, False]
-      PDRS_WH1_implementation_requirements_install_or_removal_hot_water_pump_is_installed_by_certified: [True, False]
-      BCA_climate_zone: [BCA_Climate_Zone_1, BCA_Climate_Zone_4]
+    PDRS_WH1_implementation_requirements_existing_hot_water_pump_is_removed:
+      [True, False]
+    PDRS_WH1_implementation_requirements_replacement_hot_water_pump_is_installed:
+      [True, False]
+    PDRS_WH1_implementation_requirements_install_or_removal_hot_water_pump_is_installed_by_certified:
+      [True, False]
+    BCA_climate_zone: [BCA_Climate_Zone_1, BCA_Climate_Zone_4]
   output:
-      PDRS_WH1_meets_implementation_requirements: [
-        True,
-        False
-      ]
+    PDRS_WH1_meets_implementation_requirements: [True, False]
 
 - name: Test WH1 Equipment Requirements
-  period: 2021
+  period: 2022
   absolute_error_margin: 0
   input:
-      PDRS_WH1_meets_equipment_requirements_air_source_heat_pump: [True, False]
-      PDRS_WH1_meets_equipment_requirements_storage_certified: [True, False]
-      PDRS_WH1_meets_equipment_requirements_administrator_approval: [True, False]
+    PDRS_WH1_meets_equipment_requirements_air_source_heat_pump: [True, False]
+    PDRS_WH1_meets_equipment_requirements_storage_certified: [True, False]
+    PDRS_WH1_meets_equipment_requirements_administrator_approval: [True, False]
   output:
-      PDRS_WH1_meets_equipment_requirements: [
-        True,
-        False
-      ]
+    PDRS_WH1_meets_equipment_requirements: [True, False]

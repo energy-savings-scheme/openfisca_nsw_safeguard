@@ -31,12 +31,12 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_gas_savings(V
         lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
 
         is_gas_equipment = (
-                                (equipment_type == ExistingEquipmentType.PDRS_WH1_Gas_Hot_Water_Heater) +
-                                (equipment_type == ExistingEquipmentType.PDRS_WH1_Gas_Hot_Water_Boiler)
+                                (equipment_type == ExistingEquipmentType.Gas_Hot_Water_Heater) +
+                                (equipment_type == ExistingEquipmentType.Gas_Hot_Water_Boiler)
                             )
         is_electric_equipment = (
-                                    (equipment_type == ExistingEquipmentType.PDRS_WH1_Electric_Hot_Water_Heater) +
-                                    (equipment_type == ExistingEquipmentType.PDRS_WH1_Electric_Hot_Water_Boiler)                                
+                                    (equipment_type == ExistingEquipmentType.Electric_Hot_Water_Heater) +
+                                    (equipment_type == ExistingEquipmentType.Electric_Hot_Water_Boiler)                                
 
         )
 
@@ -96,12 +96,12 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_electricity_s
         lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
 
         is_gas_equipment = (
-                                (equipment_type == ExistingEquipmentType.PDRS_WH1_Gas_Hot_Water_Heater) +
-                                (equipment_type == ExistingEquipmentType.PDRS_WH1_Gas_Hot_Water_Boiler)
+                                (equipment_type == ExistingEquipmentType.Gas_Hot_Water_Heater) +
+                                (equipment_type == ExistingEquipmentType.Gas_Hot_Water_Boiler)
                             )
         is_electric_equipment = (
-                                    (equipment_type == ExistingEquipmentType.PDRS_WH1_Electric_Hot_Water_Heater) +
-                                    (equipment_type == ExistingEquipmentType.PDRS_WH1_Electric_Hot_Water_Boiler)                                
+                                    (equipment_type == ExistingEquipmentType.Electric_Hot_Water_Heater) +
+                                    (equipment_type == ExistingEquipmentType.Electric_Hot_Water_Boiler)                                
 
         )
 

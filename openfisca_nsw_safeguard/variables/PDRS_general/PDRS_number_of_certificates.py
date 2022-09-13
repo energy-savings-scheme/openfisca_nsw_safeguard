@@ -56,6 +56,7 @@ class PDRSActivity(Enum):
     remove_fridge = 'The implementation uses the remove fridge activity definition.'
     replace_water_heater = 'The implementation uses the replace water heater activity definition.'
 
+
 class PDRS_activity_type(Variable):
     value_type = Enum
     entity = Building

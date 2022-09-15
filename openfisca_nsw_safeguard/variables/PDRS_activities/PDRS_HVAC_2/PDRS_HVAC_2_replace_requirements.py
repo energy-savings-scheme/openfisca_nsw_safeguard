@@ -17,14 +17,20 @@ class PDRS_HVAC_2_replace_meets_eligibility_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
         'alias': "HEAB AC replace meets eligibility requirements",
-        "regulation_reference": PDRS_2022["HEAB", "AC_replace", "eligibility"]
+        "regulation_reference": PDRS_2022["HEAB", "AC_replace", "eligibility"],
+        'display_question':"Is the activity the replacement of an existing air conditioner?"
     }
 
     def formula(buildings, period, parameters):
-        is_residential = buildings(
-            'Appliance_located_in_residential_building', period)
+        is_commercial = buildings(
+            'Appliance_located_in_commercial_building', period)
         no_existing_AC = buildings('No_Existing_AC', period)
-        return np.logical_not(is_residential) * np.logical_not(no_existing_AC)
+        # Need to add an if/else statement here: if Commercial is false, and class2 is true then eligibility is met
+        # Have added class2 into PDRS_HVAC2_replace_requirements yaml test
+        is_class2 = buildings(
+            'is_installed_centralised_system_common_area_BCA_Class2_building', period)
+       
+        return is_commercial * np.logical_not(no_existing_AC) * is_class2
 
 
 class PDRS_HVAC_2_replace_meets_equipment_requirements(Variable):
@@ -48,6 +54,8 @@ class PDRS_HVAC_2_replace_meets_equipment_requirements(Variable):
 
 
 class PDRS_HVAC_2_replace_meets_implementation_requirements(Variable):
+    """ Equipment_is_removed is found in appliances_implementation_requirements
+    """
     value_type = bool
     entity = Building
     default_value = False

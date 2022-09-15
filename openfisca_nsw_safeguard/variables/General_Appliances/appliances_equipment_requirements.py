@@ -5,6 +5,16 @@ from openfisca_nsw_base.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021, PDRS_2022
 
 
+class is_installed_centralised_system_common_area_BCA_Class2_building(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = "Is the installation in a centralised system or common area in a Class 2 building?"
+    metadata = {
+        'display_question':"Is the installation in a centralised system or common area in a Class 2 building?"
+    }
+
+
 class Appliance_is_registered_in_GEMS(Variable):
     value_type = bool
     entity = Building
@@ -13,7 +23,7 @@ class Appliance_is_registered_in_GEMS(Variable):
     metadata = {
         'alias':  'Appliance is registered in GEMS',
         "regulation_reference": ESS_2021["XX", "GA"],
-        'display_question':""
+        
     }
 
 

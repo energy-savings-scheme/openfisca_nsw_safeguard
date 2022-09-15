@@ -13,7 +13,7 @@ class Equipment_is_installed(Variable):
     metadata = {
         'alias':  'Is The New Appliance Installed?',
         "regulation_reference": ESS_2021["XX", "GA"],
-        'display_question':"Is the new End-User equipment installed and operational?"
+        'display_question': "Is the new End-User equipment installed and operational?"
     }
     
 
@@ -25,6 +25,7 @@ class Equipment_is_removed(Variable):
     metadata = {
         'alias':  'Is the existing appliance disconnected and removed?',
         "regulation_reference": ESS_2021["XX", "GA"],
+        'display_question':"Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?"
     }
 
 

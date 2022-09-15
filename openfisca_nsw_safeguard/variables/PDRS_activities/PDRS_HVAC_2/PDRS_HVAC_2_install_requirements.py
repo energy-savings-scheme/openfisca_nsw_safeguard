@@ -33,12 +33,14 @@ class PDRS_HVAC_2_install_meets_eligibility_requirements(Variable):
 
 
 class PDRS_HVAC_2_install_meets_equipment_requirements(Variable):
+    """ HVAC2_appliance_is_registered_in_GEMS is found in appliances_equipment_requirements
+    """
     value_type = bool
     entity = Building
     default_value = False
     definition_period = ETERNITY
     label = 'Does the equipment meet all of the Equipment' \
-            ' Requirements defined in installing a high efficiency air conditioner for Business?'
+            'Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
         'alias': "HEAB AC Install meets equipment requirements",
         "regulation_reference": PDRS_2022["HEAB", "AC_install", "equipment"]
@@ -46,11 +48,14 @@ class PDRS_HVAC_2_install_meets_equipment_requirements(Variable):
 
     def formula(buildings, period, parameters):
         is_in_GEM = buildings(
-            'Appliance_is_registered_in_GEMS', period)
+            'HVAC2_appliance_is_registered_in_GEMS', period)
         has_warranty = buildings(
             'PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark', period)
         demand_response = buildings(
             'Appliance_demand_response_capability', period)
+
+    #TODO We need to add a conditional question in here that uses new_AC_cooling_capacity to assess which table of numbers to use (TCPSF or EER) 
+    #TODO If the apppliance has a cooling capacity on GEMs it uses TCPSF and if it doesn't it uses EER (look in AC_common for these numbers)
 
         return is_in_GEM * has_warranty * demand_response
 

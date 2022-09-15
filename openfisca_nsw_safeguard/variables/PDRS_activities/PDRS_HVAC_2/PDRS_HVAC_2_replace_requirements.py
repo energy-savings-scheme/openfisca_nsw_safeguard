@@ -25,8 +25,8 @@ class PDRS_HVAC_2_replace_meets_eligibility_requirements(Variable):
         is_commercial = buildings(
             'Appliance_located_in_commercial_building', period)
         no_existing_AC = buildings('No_Existing_AC', period)
-        # Need to add an if/else statement here: if Commercial is false, and class2 is true then eligibility is met
-        # Have added class2 into PDRS_HVAC2_replace_requirements yaml test
+        # TODO Need to add an if/else statement here: if Commercial is false, and class2 is true then eligibility is met
+        # TODO Have added class2 into PDRS_HVAC2_replace_requirements yaml test
         is_class2 = buildings(
             'is_installed_centralised_system_common_area_BCA_Class2_building', period)
        
@@ -47,7 +47,7 @@ class PDRS_HVAC_2_replace_meets_equipment_requirements(Variable):
 
     def formula(buildings, period, parameters):
         is_in_GEM = buildings(
-            'Appliance_is_registered_in_GEMS', period)
+            'HVAC2_appliance_is_registered_in_GEMS', period)    
         exceeds_benchmark_TCSPF_or_AEER = buildings(
             'PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark', period)
         return is_in_GEM * exceeds_benchmark_TCSPF_or_AEER

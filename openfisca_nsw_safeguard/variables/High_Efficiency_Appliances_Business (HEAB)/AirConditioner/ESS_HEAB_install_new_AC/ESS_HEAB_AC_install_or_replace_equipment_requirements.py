@@ -20,6 +20,8 @@ class ESS_HEAB_install_or_replace_AC_meets_equipment_requirements(Variable):
         is_in_GEMS = buildings(
             'Appliance_is_registered_in_GEMS', period)
 
+        #TODO We need to check which zone the site is in (variable AC_climate_zone) and direct it to hot zone, average zone or cool zone heating capacity numbers
+
         TCSPF_or_AEER_exceeds_benchmark = buildings('AC_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
         HSPF_or_ACOP_exceeds_benchmark = buildings('AC_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
 

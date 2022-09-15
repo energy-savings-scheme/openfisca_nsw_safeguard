@@ -210,5 +210,6 @@ class AC_climate_zone(Variable):
     default_value = ACClimateZone.average_zone
     metadata = {
         "alias": "Air Conditioner Climate Zone",
-        "regulation_reference": ESS_2021["XX", "AC"]
+        "regulation_reference": ESS_2021["XX", "AC"],
+        'display_question':"Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
     }

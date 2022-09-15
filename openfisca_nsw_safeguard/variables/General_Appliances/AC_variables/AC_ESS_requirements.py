@@ -12,7 +12,7 @@ class AC_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the Air Conditioner have a Residential TCSPF mixed equal or greater than the minimum' \
+    label = 'Does the Air Conditioner have a TCSPF mixed equal or greater than the minimum' \
             ' TCSPF mixed listed in Table D16.3? If the TCPSF is not available, is the Rated' \
             ' AEER equal or greater than the Minimum Rated AEER listed in Table D16.5?'
     metadata = {
@@ -59,12 +59,14 @@ class AC_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the Air Conditioner have a Residential HSPF mixed equal or greater than the minimum' \
+    label = 'Does the Air Conditioner have a HSPF mixed equal or greater than the minimum' \
             ' HSPF mixed listed in Table D16.3? If the HSPF is not available, is the Rated' \
             ' ACOP equal or greater than the Minimum Rated ACOP listed in Table D16.5?'
     metadata = {
         'alias':  'ESS - HSPF or ACOP exceeds benchmark',
-        "regulation_reference": PDRS_2022["XX", "AC"]
+        "regulation_reference": PDRS_2022["XX", "AC"],
+        'display_question': "Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?"
+        #TODO Conditional question here where we ask the question above if there is a heating capacity recorded in GEMs, and this question 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?' if there isn't
     }
 
     def formula(buildings, period, parameters):

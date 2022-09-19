@@ -9,7 +9,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 ## detailed in PDRS activity XX
 
 class PDRS_HVAC_2_install_meets_eligibility_requirements(Variable):
-    """ Appliance_located_in_commercial_building is found in appliances_eligibility_requirements
+    """ Appliance_located_in_residential_building is found in appliances_eligibility_requirements
     """
     value_type = bool
     entity = Building
@@ -25,7 +25,7 @@ class PDRS_HVAC_2_install_meets_eligibility_requirements(Variable):
 
     def formula(buildings, period, parameters):
         is_commercial = buildings(
-            'Appliance_located_in_commercial_building', period)
+            'Appliance_located_in_residential_building', period)
         no_existing_AC = buildings('No_Existing_AC', period)
         """return np.logical_not(is_residential) * no_existing_AC
         """

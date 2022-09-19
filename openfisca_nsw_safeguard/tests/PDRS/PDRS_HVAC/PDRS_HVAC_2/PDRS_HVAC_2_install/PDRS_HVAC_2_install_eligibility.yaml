@@ -133,14 +133,14 @@
                         True,
                       ]
     Appliance_located_in_commercial_building: [
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
                             ]
   output:
     PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark: [
@@ -328,14 +328,14 @@
                         True,
                       ]
     Appliance_located_in_commercial_building: [
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
                             ]
   output:
     PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark: [
@@ -523,14 +523,14 @@
                         True,
                       ]
     Appliance_located_in_commercial_building: [
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
                             ]
   output:
     PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark: [
@@ -718,14 +718,14 @@
                         True,
                       ]
     Appliance_located_in_commercial_building: [
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
-                              True,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
+                              False,
                             ]
   output:
     PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark: [

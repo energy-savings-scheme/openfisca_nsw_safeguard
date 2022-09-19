@@ -26,15 +26,15 @@ class Appliance_located_in_small_business_building(Variable):
         "regulation_reference": ESS_2021["XX", "GA"]
     }
 
-class Appliance_located_in_commercial_building(Variable):
+class Appliance_located_in_residential_building(Variable):
     """ Kate added this variable for HVAC2 and switched over the YAML test
     """
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Site is located in a commercial building?'
+    label = 'Site is located in a residential building?'
     metadata = {
-        'alias':  'Site is located in a commercial building?',
+        'alias':  'Site is not located in a residential building?',
         "regulation_reference": ESS_2021["XX", "GA"],
-        'display_question': "Has the new End-User equipment been installed in a commercial building?"
+        'display_question': "Has the new End-User equipment been installed in a residential building?"
     }

@@ -133,14 +133,14 @@
                       False,
                       ]
     Appliance_located_in_commercial_building: [
-                                                True,
-                                                True,
-                                                True,
-                                                True,
-                                                True,
-                                                True,
-                                                True,
-                                                True,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
                                                 ]
     is_installed_centralised_system_common_area_BCA_Class2_building: [
                                                 True,

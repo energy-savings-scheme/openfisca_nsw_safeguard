@@ -5,6 +5,7 @@ from openfisca_nsw_base.entities import Building
 
 import numpy as np
 
+
 class ESS_HEER_new_product_warranty_length(Variable):
     value_type = int
     entity = Building

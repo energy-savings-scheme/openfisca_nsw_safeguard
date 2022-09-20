@@ -1,0 +1,7 @@
+- name: test
+  period: 2020  
+  input:
+    ESS_HEER_lighting_new_lamp_circuit_power: 3
+  output:
+    ESS_HEER_lighting_replace_halogen_downlight_with_LED_residential_savings_factor: 0
+    ESS_HEER_lighting_replace_halogen_downlight_with_LED_electricity_savings: 20

@@ -34,6 +34,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_with_LED_electricity_savings(V
 
         return electricity_savings
 
+
 class ESS_HEER_lighting_replace_halogen_downlight_with_LED_residential_savings_factor(Variable):
     value_type = float
     entity = Building
@@ -44,18 +45,44 @@ class ESS_HEER_lighting_replace_halogen_downlight_with_LED_residential_savings_f
     def formula(buildings, period, parameters):
         existing_lamp_type = buildings('ESS_HEER_lighting_existing_lamp_type', period)
         new_lamp_type = buildings('ESS_HEER_lighting_new_lamp_type', period)
+        ExistingLighting_EquipmentClass = existing_lamp_type.possible_values
+        NewLighting_EquipmentClass = new_lamp_type.possible_values
+
+        is_eligible_existing_lamp = (
+                (existing_lamp_type == ExistingLighting_EquipmentClass.tungsten_halogen_ELV) +
+                (existing_lamp_type == ExistingLighting_EquipmentClass.infrared_coated_ELV) +
+                (existing_lamp_type == ExistingLighting_EquipmentClass.tungsten_halogen_240V)
+                                )
+
+        is_eligible_new_lamp = (
+                (new_lamp_type == NewLighting_EquipmentClass.LED_lamp_only_ELV) +
+                (new_lamp_type == NewLighting_EquipmentClass.LED_lamp_and_driver) +
+                (new_lamp_type == NewLighting_EquipmentClass.LED_luminaire_recessed) +
+                (new_lamp_type == NewLighting_EquipmentClass.LED_lamp_only_240V_self_ballasted) 
+        )
+
+        is_eligible_existing_and_new_lamp = (is_eligible_existing_lamp * is_eligible_new_lamp)
+
         new_lamp_circuit_power = buildings('ESS_HEER_lighting_new_lamp_circuit_power', period)
-        lamp_rating_power = np.select([new_lamp_circuit_power <= 5,
-        ((new_lamp_circuit_power > 5) * (new_lamp_circuit_power <= 10)),
-        ((new_lamp_circuit_power > 10) * (new_lamp_circuit_power <= 15)),
-        new_lamp_circuit_power > 15],
-        ["under_or_equal_to_five_watts",
-        "under_or_equal_to_ten_watts",
-        "under_or_equal_to_fifteen_watts",
-        "over_fifteen_watts"])
-        residential_building_savings_factor = (parameters(period).
-        ESS.HEER.table_E1_1.residential_savings_factor
-        [existing_lamp_type][new_lamp_type][lamp_rating_power])
+        lamp_rating_power = np.select(
+                [
+                        new_lamp_circuit_power <= 5,
+                        ((new_lamp_circuit_power > 5) * (new_lamp_circuit_power <= 10)),
+                        ((new_lamp_circuit_power > 10) * (new_lamp_circuit_power <= 15)),
+                        new_lamp_circuit_power > 15],
+                [
+                "under_or_equal_to_five_watts",
+                "under_or_equal_to_ten_watts",
+                "under_or_equal_to_fifteen_watts",
+                "over_fifteen_watts"
+                ]
+                )
+
+        residential_building_savings_factor = np.where(
+                        is_eligible_existing_and_new_lamp,
+                        (parameters(period).ESS.HEER.table_E1_1.residential_savings_factor[existing_lamp_type][new_lamp_type][lamp_rating_power]),
+                        0
+                        )
         return residential_building_savings_factor
 
 

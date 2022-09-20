@@ -159,3 +159,47 @@ class ESS_HEAB_meets_all_general_requirements(Variable):
             is_not_eligible_residential_activity *
             copayment_is_made
         )
+
+
+
+class ESS__HEAB_electricity_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What are the electricity savings created from the HEAB activity?'
+
+    def formula(buildings, period, parameters):
+
+        method_type = buildings('ESS__method_type', period)
+        MethodType = method_type.possible_values
+        activity_definition = buildings('ESS_activity_definition', period)
+        ActivityDefinition = activity_definition.possible_values
+
+        is_HEAB_activity_definition = (method_type == MethodType.clause_9_9_HEAB)
+
+        meets_HEAB_general_requirements = buildings(
+            'ESS_HEAB_meets_all_general_requirements', period)
+
+        is_HEAB_activity_that_meets_general_requirements = (
+            is_HEAB_activity_definition *
+            meets_HEAB_general_requirements
+        )
+
+        electricity_savings = np.select([
+            (activity_definition == ActivityDefinition.F1_1),
+            (activity_definition == ActivityDefinition.F1_2),
+            (activity_definition == ActivityDefinition.F7) 
+
+        ],
+        [
+            buildings('ESS_HEAB_install_refrigerated_cabinet_electricity_savings', period),
+            buildings('ESS_HEAB_replace_refrigerated_cabinet_electricity_savings', period),
+            buildings('ESS_HEAB_install_high_efficiency_motor_electricity_savings', period)
+
+        ]
+        )
+
+        return(
+                is_HEAB_activity_that_meets_general_requirements *
+                electricity_savings
+        )

@@ -7,7 +7,7 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 import numpy as np
 
 
-class ESS_HEAB_install_high_efficiency_motor_energy_savings(Variable):
+class ESS_HEAB_install_high_efficiency_motor_electricity_savings(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -22,12 +22,12 @@ class ESS_HEAB_install_high_efficiency_motor_energy_savings(Variable):
 
         meets_all_requirements = building(
             'ESS__HEAB_install_new_high_efficiency_motor_meets_all_requirements', period)
-        savings = building("ESS_HEAB_install_high_efficiency_motor_equipment_electricity_savings", period)
+        savings = building("ESS_HEAB_install_high_efficiency_motor_equipment_deemed_electricity_savings", period)
 
         return meets_all_requirements * savings
 
 
-class ESS_HEAB_install_high_efficiency_motor_equipment_electricity_savings(Variable):
+class ESS_HEAB_install_high_efficiency_motor_equipment_deemed_electricity_savings(Variable):
     entity = Building
     value_type = float
     definition_period = ETERNITY

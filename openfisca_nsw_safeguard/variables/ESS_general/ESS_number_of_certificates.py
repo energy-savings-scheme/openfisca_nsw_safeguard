@@ -19,14 +19,18 @@ class ESS__electricity_savings(Variable):
     def formula(buildings, period, parameters):
         ESS_method_type = buildings('ESS__method_type', period)
         ESS_MethodType = (ESS_method_type.possible_values)
-        NABERS_electricity_savings = buildings(
-            'ESS__NABERS_electricity_savings', period)
-        HEER_electricity_savings = buildings(
-            'ESS__NABERS_electricity_savings', period)
-        electricity_savings = np.select([ESS_method_type == (ESS_MethodType.clause_8_8_NABERS),
-                                         ESS_method_type == (ESS_MethodType.clause_9_8_HEER)],
-                                        [NABERS_electricity_savings,
-                                         0])
+
+        electricity_savings = np.select([
+                                            ESS_method_type == (ESS_MethodType.clause_8_8_NABERS),
+                                            ESS_method_type == (ESS_MethodType.clause_9_8_HEER),
+                                            ESS_method_type == (ESS_MethodType.clause_9_9_HEAB)
+                                            ],
+                                        [   
+                                            buildings('ESS__NABERS_electricity_savings', period),
+                                            buildings('ESS__HEER_electricity_savings', period),
+                                            buildings('ESS__HEAB_electricity_savings', period)
+                                        ]
+                                            )
         return electricity_savings
 
 

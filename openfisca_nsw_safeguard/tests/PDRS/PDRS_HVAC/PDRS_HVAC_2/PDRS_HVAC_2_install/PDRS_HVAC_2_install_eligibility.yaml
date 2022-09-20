@@ -102,6 +102,16 @@
                                       True,
                                       True,
                                         ]
+    HVAC2_appliance_is_registered_in_GEMS: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                              ]
     Appliance_demand_response_capability: [
                                             True,
                                             True,
@@ -287,6 +297,16 @@
                                       True,
                                       True,
                                         ]
+    HVAC2_appliance_is_registered_in_GEMS: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                              ]
     Appliance_demand_response_capability: [
                                             True,
                                             True,
@@ -471,7 +491,17 @@
                                       True,
                                       True,
                                       True,
-                                        ]
+                                      ]
+    HVAC2_appliance_is_registered_in_GEMS: [
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            ]
     Appliance_demand_response_capability: [
                                             True,
                                             True,
@@ -656,7 +686,17 @@
                                       True,
                                       True,
                                       True,
-                                        ]
+                                      ]
+    HVAC2_appliance_is_registered_in_GEMS: [
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      ]
     Appliance_demand_response_capability: [
                                             True,
                                             True,

@@ -102,6 +102,16 @@
                                       True,
                                       True,
                                         ]
+    HVAC2_appliance_is_registered_in_GEMS: [
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      True,
+                                      ]
     Appliance_demand_response_capability: [
                                             True,
                                             True,
@@ -123,15 +133,26 @@
                       False,
                       ]
     Appliance_located_in_residential_building: [
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                                False,
-                                                False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
+                                              False,
                                                 ]
+    is_installed_centralised_system_common_area_BCA_Class2_building: [
+                                                True,
+                                                True,
+                                                True,
+                                                True,
+                                                True,
+                                                True,
+                                                True,
+                                                True
+    ]
+
   output:
     PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark: [
                                             True,

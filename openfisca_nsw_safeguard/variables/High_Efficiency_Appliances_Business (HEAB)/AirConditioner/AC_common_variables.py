@@ -24,6 +24,9 @@ class new_AC_cooling_capacity(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'What is the cooling capacity for the new Air Conditioner?'
+    metadata = {
+        'display_question': "Does the new air conditioner have a cooling capacity recorded in the GEMS registry?"
+    }
 
 
 class new_AC_heating_capacity(Variable):
@@ -31,6 +34,9 @@ class new_AC_heating_capacity(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'What is the heating capacity for the new Air Conditioner?'
+    metadata = {
+        'display_question': "Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?"
+    }
 
 
 class new_AC_EER(Variable):
@@ -38,6 +44,6 @@ class new_AC_EER(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'What is the EER for the new AC?' 
-    # to do - check to see how EER is calced \
+    #TODO - check to see how EER is calced \
     # across CC ACs and regular, <65kW ACs
  

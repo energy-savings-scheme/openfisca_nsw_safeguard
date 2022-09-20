@@ -2,22 +2,22 @@
   period: 2021
   absolute_error_margin: 0
   input:
-      Appliance_located_in_residential_building: [True, True, False, False]
-      Fridge_in_working_order: [True, True, False, False]
-      Fridge_capacity_more_than_200L: [True, False, True, False]
-      Fridge_is_classified_as_refrigerator: [True, False, True, False]
-      another_fridge_provides_primary_refrigeration: [True, False, True, False]
-      Fridge_total_number_one_less: [True, False, True, False]
+    ESS_PDRS_is_residential: [True, True, False, False]
+    Fridge_in_working_order: [True, True, False, False]
+    Fridge_capacity_more_than_200L: [True, False, True, False]
+    Fridge_is_classified_as_refrigerator: [True, False, True, False]
+    another_fridge_provides_primary_refrigeration: [True, False, True, False]
+    Fridge_total_number_one_less: [True, False, True, False]
   output:
-      PDRS_ROOA_meets_equipment_requirements: [True, False, False, False]
+    PDRS_ROOA_meets_equipment_requirements: [True, False, False, False]
 
 - name: test PDRS ROOA fridge meets ALL requirements
   period: 2021
   absolute_error_margin: 0
   input:
-      PDRS_ROOA_meets_implementation_requirements: [true, true, false, false]
-      PDRS_ROOA_meets_eligibility_requirements: [true, false, true, false]
-      PDRS_ROOA_meets_equipment_requirements: [True, True, True, False]
+    PDRS_ROOA_meets_implementation_requirements: [true, true, false, false]
+    PDRS_ROOA_meets_eligibility_requirements: [true, false, true, false]
+    PDRS_ROOA_meets_equipment_requirements: [True, True, True, False]
 
   output:
-      PDRS_ROOA_meets_all_requirements: [true, false, false, false]
+    PDRS_ROOA_meets_all_requirements: [true, false, false, false]

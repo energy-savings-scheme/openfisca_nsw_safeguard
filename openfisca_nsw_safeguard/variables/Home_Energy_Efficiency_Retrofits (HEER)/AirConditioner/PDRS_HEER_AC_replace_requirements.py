@@ -20,7 +20,7 @@ class PDRS_HEER_AC_replace_meets_eligibility_requirements(Variable):
 
     def formula(buildings, period, parameters):
         is_residential = buildings(
-            'Appliance_located_in_residential_building', period)
+            'ESS_PDRS_is_residential', period)
         is_small_business = buildings(
             "Appliance_located_in_small_business_building", period)
         no_existing_AC = buildings('No_Existing_AC', period)

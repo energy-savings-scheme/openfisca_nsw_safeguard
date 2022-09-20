@@ -16,7 +16,7 @@ class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_meets_eligibility_req
     def formula(buildings, period, parameters):
         installed_on_single_gas_fired_steam_boiler = buildings('ESS_HEAB_new_equipment_installed_on_single_boiler', period)
         installed_on_multiple_gas_fired_steam_boilers = buildings('ESS_HEAB_new_equipment_installed_on_multiple_boiler', period)
-        is_not_residential = buildings('ESS_is_not_residential_building', period)
+        is_not_residential = np.logical_not(buildings('ESS_PDRS_is_residential', period))
         replaces_existing_equipment = buildings('ESS_HEAB_steam_boiler_replaces_existing_equipment', period)
         return (
                 (
@@ -24,5 +24,5 @@ class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_meets_eligibility_req
                         installed_on_multiple_gas_fired_steam_boilers
                 ) * 
                 is_not_residential * 
-                (not(replaces_existing_equipment))
+                (np.logical_not(replaces_existing_equipment))
                 )

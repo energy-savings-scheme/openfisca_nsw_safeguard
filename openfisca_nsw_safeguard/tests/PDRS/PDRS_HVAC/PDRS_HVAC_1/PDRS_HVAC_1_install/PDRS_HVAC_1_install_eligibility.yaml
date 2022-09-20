@@ -38,8 +38,7 @@
     Appliance_demand_response_capability:
       [True, True, True, True, True, True, True, True]
     No_Existing_AC: [False, False, False, False, False, False, False, False]
-    Appliance_located_in_residential_building:
-      [True, True, True, True, True, True, True, True]
+    ESS_PDRS_is_residential: [True, True, True, True, True, True, True, True]
   output:
     AC_TCSPF_or_AEER_exceeds_PDRS_benchmark:
       [True, True, True, True, True, True, True, True]
@@ -89,8 +88,7 @@
     Appliance_demand_response_capability:
       [True, True, True, True, True, True, True, True]
     No_Existing_AC: [False, False, False, False, False, False, False, False]
-    Appliance_located_in_residential_building:
-      [True, True, True, True, True, True, True, True]
+    ESS_PDRS_is_residential: [True, True, True, True, True, True, True, True]
   output:
     AC_TCSPF_or_AEER_exceeds_PDRS_benchmark:
       [True, True, True, True, True, True, True, True]
@@ -140,8 +138,7 @@
     Appliance_demand_response_capability:
       [True, True, True, True, True, True, True, True]
     No_Existing_AC: [False, False, False, False, False, False, False, False]
-    Appliance_located_in_residential_building:
-      [True, True, True, True, True, True, True, True]
+    ESS_PDRS_is_residential: [True, True, True, True, True, True, True, True]
   output:
     AC_TCSPF_or_AEER_exceeds_PDRS_benchmark:
       [True, True, True, True, True, True, True, True]
@@ -191,8 +188,7 @@
     Appliance_demand_response_capability:
       [True, True, True, True, True, True, True, True]
     No_Existing_AC: [False, False, False, False, False, False, False, False]
-    Appliance_located_in_residential_building:
-      [True, True, True, True, True, True, True, True]
+    ESS_PDRS_is_residential: [True, True, True, True, True, True, True, True]
   output:
     AC_TCSPF_or_AEER_exceeds_PDRS_benchmark:
       [True, True, True, True, True, True, True, True]

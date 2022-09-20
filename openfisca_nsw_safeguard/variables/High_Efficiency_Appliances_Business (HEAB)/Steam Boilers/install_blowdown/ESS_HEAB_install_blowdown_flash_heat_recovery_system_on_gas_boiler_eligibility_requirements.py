@@ -15,7 +15,7 @@ class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_meets_e
     def formula(buildings, period, parameters):
         installed_on_single_gas_fired_steam_boiler = buildings('ESS_HEAB_new_equipment_installed_on_single_boiler', period)
         installed_on_multiple_gas_fired_steam_boilers = buildings('ESS_HEAB_new_equipment_installed_on_multiple_boiler', period)
-        is_not_residential = buildings('ESS_is_not_residential_building', period)
+        is_not_residential = np.logical_not(buildings('ESS_PDRS_is_residential', period))
         replaces_existing_equipment = buildings('ESS_HEAB_steam_boiler_replaces_existing_equipment', period)
         has_existing_blowdown_control = buildings('ESS_HEAB_steam_boiler_existing_equipment_has_sensor_based_blowdown_control', period)
         had_blowdown_at_commissioning = buildings('ESS_HEAB_sensor_based_blowdown_control_installed_at_commissioning', period)

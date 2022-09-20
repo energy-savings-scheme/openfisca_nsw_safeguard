@@ -76,7 +76,7 @@ class ESS_HEAB_install_economiser_on_gas_boiler_meets_eligibility_requirements(V
         installed_on_gas_fired_steam_boiler = buildings('ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_gas_fired_steam_boiler', period)
         installed_on_water_boiler = buildings('ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_hot_water_boiler', period)
         installed_on_water_heater = buildings('ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_water_heater', period)
-        is_not_residential = buildings('ESS_is_not_residential_building', period)
+        is_not_residential = np.logical_not(buildings('ESS_PDRS_is_residential', period))
         replaces_existing_equipment = buildings('ESS_HEAB_steam_boiler_replaces_existing_equipment', period)
         is_condensing_steam_boiler = buildings('ESS_HEAB_install_economiser_on_gas_boiler_existing_steam_boiler_is_condensing_boiler', period)
         is_condensing_hot_water_boiler = buildings('ESS_HEAB_install_economiser_on_gas_boiler_existing_hot_water_boiler_is_condensing_boiler', period)

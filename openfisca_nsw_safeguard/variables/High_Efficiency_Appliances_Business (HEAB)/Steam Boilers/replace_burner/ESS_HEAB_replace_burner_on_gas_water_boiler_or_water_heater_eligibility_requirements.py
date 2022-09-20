@@ -68,7 +68,7 @@ class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_meets_eligibil
         installed_on_gas_fired_steam_boiler = buildings('ESS_HEAB_existing_end_user_equipment_installed_on_gas_fired_steam_boiler', period)
         installed_on_water_boiler = buildings('ESS_HEAB_existing_end_user_equipment_installed_on_hot_water_boiler', period)
         installed_on_water_heater = buildings('ESS_HEAB_existing_end_user_equipment_is_gas_fired_burner', period)
-        is_not_residential = buildings('ESS_is_not_residential_building', period)
+        is_not_residential = np.logical_not(buildings('ESS_PDRS_is_residential', period))
         in_working_order = buildings('ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_in_working_order', period)
         more_than_10_years_old = buildings('ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_more_than_10_years_old', period)
         has_air_fuel_ratio = buildings('ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_has_air_fuel_ratio', period)

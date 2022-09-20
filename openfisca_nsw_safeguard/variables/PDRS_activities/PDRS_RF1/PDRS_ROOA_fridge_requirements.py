@@ -33,7 +33,7 @@ class PDRS_ROOA_meets_equipment_requirements(Variable):
 
     def formula(buildings, period, parameters):
         is_residential = buildings(
-            'Appliance_located_in_residential_building', period)
+            'ESS_PDRS_is_residential', period)
         is_fridge = buildings('Fridge_is_classified_as_refrigerator', period)
         is_more_than_200L = buildings('Fridge_capacity_more_than_200L', period)
         is_working = buildings(

@@ -83,7 +83,7 @@ True,
 True
 ]
     No_Existing_AC: [False, False, False, False, False, False, False, False]
-    Appliance_located_in_residential_building:
+    ESS_PDRS_is_residential:
       [False, False, False, False, False, False, False, False]
   output:
     PDRS_AC_peak_demand_savings:

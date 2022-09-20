@@ -23,7 +23,7 @@ class PDRS_HVAC_2_replace_meets_eligibility_requirements(Variable):
 
     def formula(buildings, period, parameters):
         is_residential = buildings(
-            'Appliance_located_in_residential_building', period)
+            'ESS_PDRS_is_residential', period)
         no_existing_AC = buildings('No_Existing_AC', period)
         # TODO Need to add an if/else statement here: if Residdential is false, and class2 is true then eligibility is met
         # TODO Have added class2 into PDRS_HVAC2_replace_requirements yaml test

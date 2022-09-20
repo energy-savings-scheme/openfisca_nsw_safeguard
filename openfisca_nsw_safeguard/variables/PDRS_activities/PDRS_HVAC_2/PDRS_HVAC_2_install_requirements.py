@@ -24,12 +24,12 @@ class PDRS_HVAC_2_install_meets_eligibility_requirements(Variable):
     }
 
     def formula(buildings, period, parameters):
-        is_commercial = buildings(
+        is_residential = buildings(
             'Appliance_located_in_residential_building', period)
         no_existing_AC = buildings('No_Existing_AC', period)
         """return np.logical_not(is_residential) * no_existing_AC
         """
-        return is_commercial * no_existing_AC
+        return np.logical_not(is_residential) * no_existing_AC
 
 
 class PDRS_HVAC_2_install_meets_equipment_requirements(Variable):

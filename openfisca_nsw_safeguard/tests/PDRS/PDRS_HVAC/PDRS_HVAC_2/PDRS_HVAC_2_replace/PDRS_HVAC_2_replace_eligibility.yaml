@@ -132,7 +132,7 @@
                       False,
                       False,
                       ]
-    Appliance_located_in_commercial_building: [
+    Appliance_located_in_residential_building: [
                                               False,
                                               False,
                                               False,

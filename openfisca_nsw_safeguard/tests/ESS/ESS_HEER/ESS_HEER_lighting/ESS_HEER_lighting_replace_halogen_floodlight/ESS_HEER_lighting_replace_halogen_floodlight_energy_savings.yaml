@@ -648,3 +648,14 @@
         0,
         0,
       ]
+- name: Test selecting residential or small business savings for E2.
+  period: 2020
+  input:
+    ESS_site_type: [residential, small_business]
+    ESS_HEER_replace_halogen_floodlight_residential_savings_factor:
+      [1, 1]
+    ESS_HEER_replace_halogen_floodlight_small_business_savings_factor:
+      [2, 2]
+  output:
+    ESS_HEER_replace_halogen_floodlight_electricity_savings:
+      [1, 2]

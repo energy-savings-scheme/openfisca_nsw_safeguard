@@ -1,0 +1,11 @@
+- name: Test selecting electricity savings by activity definition for HEER_electricity_savings
+  period: 2020
+  input:
+    ESS_activity_definition: [E1, E2, E1, E2]
+    ESS__HEER_meets_all_general_requirements: [True, True, False, False]
+    ESS_HEER_lighting_replace_halogen_downlight_with_LED_electricity_savings:
+      [100, 100, 100, 100]
+    ESS_HEER_replace_halogen_floodlight_electricity_savings:
+      [500, 500, 500, 500]
+  output:
+    ESS__HEER_electricity_savings: [100, 500, 0, 0]

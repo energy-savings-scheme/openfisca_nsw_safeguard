@@ -16,6 +16,35 @@ class ESS__HEER_electricity_savings(Variable):
         "alias": "ESS HEER Electricity Savings",
     }
 
+    def formula(buildings, period, parameters):
+
+        method_type = buildings('ESS__method_type', period)
+        MethodType = method_type.possible_values
+        activity_definition = buildings('ESS_activity_definition', period)
+        ActivityDefinition = activity_definition.possible_values
+
+        is_HEER_activity_definition = (method_type == MethodType.clause_9_8_HEER)
+
+        meets_HEER_general_requirements = buildings(
+            'ESS__HEER_meets_all_general_requirements', period)
+
+        is_HEER_activity_that_meets_general_requirements = (
+            is_HEER_activity_definition *
+            meets_HEER_general_requirements
+        )
+
+        electricity_savings = np.select([
+            (activity_definition == ActivityDefinition.E1),
+            (activity_definition == ActivityDefinition.E2),
+        ],
+        [
+            buildings('ESS_HEER_lighting_replace_halogen_downlight_with_LED_electricity_savings', period),
+            buildings('ESS_HEER_replace_halogen_floodlight_electricity_savings', period)
+        ])
+        return(
+            is_HEER_activity_that_meets_general_requirements *
+            electricity_savings
+        )
 
 class ESS__HEER_gas_savings(Variable):
     value_type = float

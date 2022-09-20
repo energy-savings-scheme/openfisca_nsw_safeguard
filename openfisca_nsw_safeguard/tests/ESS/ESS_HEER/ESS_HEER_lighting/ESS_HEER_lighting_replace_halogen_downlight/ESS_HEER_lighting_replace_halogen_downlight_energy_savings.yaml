@@ -40,24 +40,7 @@
         LED_lamp_only_240V_self_ballasted,
       ]
     ESS_HEER_lighting_new_lamp_circuit_power:
-      [
-      3,
-      3,
-      3,
-      3,
-      8,
-      8,
-      8,
-      8,
-      13,
-      13,
-      13,
-      13,
-      16,
-      16,
-      16,
-      16,
-      ]
+      [3, 3, 3, 3, 8, 8, 8, 8, 13, 13, 13, 13, 16, 16, 16, 16]
   output:
     ESS_HEER_lighting_replace_halogen_downlight_with_LED_residential_savings_factor:
       [
@@ -120,24 +103,7 @@
         LED_lamp_only_240V_self_ballasted,
       ]
     ESS_HEER_lighting_new_lamp_circuit_power:
-      [
-      3,
-      3,
-      3,
-      3,
-      8,
-      8,
-      8,
-      8,
-      13,
-      13,
-      13,
-      13,
-      16,
-      16,
-      16,
-      16,
-      ]
+      [3, 3, 3, 3, 8, 8, 8, 8, 13, 13, 13, 13, 16, 16, 16, 16]
   output:
     ESS_HEER_lighting_replace_halogen_downlight_with_LED_residential_savings_factor:
       [
@@ -200,44 +166,10 @@
         LED_lamp_only_240V_self_ballasted,
       ]
     ESS_HEER_lighting_new_lamp_circuit_power:
-      [
-      3,
-      3,
-      3,
-      3,
-      8,
-      8,
-      8,
-      8,
-      13,
-      13,
-      13,
-      13,
-      16,
-      16,
-      16,
-      16,
-      ]
+      [3, 3, 3, 3, 8, 8, 8, 8, 13, 13, 13, 13, 16, 16, 16, 16]
   output:
     ESS_HEER_lighting_replace_halogen_downlight_with_LED_residential_savings_factor:
-      [
-        0,
-        0.68,
-        0.68,
-        0.68,
-        0,
-        0.6,
-        0.6,
-        0.6,
-        0,
-        0.53,
-        0.53,
-        0.53,
-        0,
-        0,
-        0,
-        0,
-      ]
+      [0, 0.68, 0.68, 0.68, 0, 0.6, 0.6, 0.6, 0, 0.53, 0.53, 0.53, 0, 0, 0, 0]
 - name: Test small business electricity savings for E1 (replace tungsten halogen ELV)
   period: 2020
   input:
@@ -280,24 +212,7 @@
         LED_lamp_only_240V_self_ballasted,
       ]
     ESS_HEER_lighting_new_lamp_circuit_power:
-      [
-      3,
-      3,
-      3,
-      3,
-      8,
-      8,
-      8,
-      8,
-      13,
-      13,
-      13,
-      13,
-      16,
-      16,
-      16,
-      16,
-      ]
+      [3, 3, 3, 3, 8, 8, 8, 8, 13, 13, 13, 13, 16, 16, 16, 16]
   output:
     ESS_HEER_lighting_replace_halogen_downlight_with_LED_small_business_savings_factor:
       [
@@ -360,24 +275,7 @@
         LED_lamp_only_240V_self_ballasted,
       ]
     ESS_HEER_lighting_new_lamp_circuit_power:
-      [
-      3,
-      3,
-      3,
-      3,
-      8,
-      8,
-      8,
-      8,
-      13,
-      13,
-      13,
-      13,
-      16,
-      16,
-      16,
-      16,
-      ]
+      [3, 3, 3, 3, 8, 8, 8, 8, 13, 13, 13, 13, 16, 16, 16, 16]
   output:
     ESS_HEER_lighting_replace_halogen_downlight_with_LED_small_business_savings_factor:
       [
@@ -440,41 +338,18 @@
         LED_lamp_only_240V_self_ballasted,
       ]
     ESS_HEER_lighting_new_lamp_circuit_power:
-      [
-      3,
-      3,
-      3,
-      3,
-      8,
-      8,
-      8,
-      8,
-      13,
-      13,
-      13,
-      13,
-      16,
-      16,
-      16,
-      16,
-      ]
+      [3, 3, 3, 3, 8, 8, 8, 8, 13, 13, 13, 13, 16, 16, 16, 16]
   output:
     ESS_HEER_lighting_replace_halogen_downlight_with_LED_small_business_savings_factor:
-      [
-        0,
-        1.89,
-        1.89,
-        1.35,
-        0,
-        1.68,
-        1.68,
-        1.2,
-        0,
-        1.47,
-        1.47,
-        1.05,
-        0,
-        0,
-        0,
-        0,
-      ]
+      [0, 1.89, 1.89, 1.35, 0, 1.68, 1.68, 1.2, 0, 1.47, 1.47, 1.05, 0, 0, 0, 0]
+- name: Test selecting residential or small business savings for E1.
+  period: 2020
+  input:
+    ESS_site_type: [residential, small_business]
+    ESS_HEER_lighting_replace_halogen_downlight_with_LED_residential_savings_factor:
+      [1, 1]
+    ESS_HEER_lighting_replace_halogen_downlight_with_LED_small_business_savings_factor:
+      [2, 2]
+  output:
+    ESS_HEER_lighting_replace_halogen_downlight_with_LED_electricity_savings:
+      [1, 2]

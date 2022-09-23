@@ -61,6 +61,7 @@ class PDRS__provides_capacity_to_reduce_demand(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Reduces Demand",
+        'display_question': "Does your activity provide capacity to reduce demand during the Peak Demand Reduction period?"
     }
 
 
@@ -94,6 +95,7 @@ class PDRS__is_unlawful_activity(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Is Unlawful Activity",
+        'display_question': "Was your activity lawful in NSW on the implementation date?"
     }
 
 
@@ -105,6 +107,7 @@ class PDRS__greenhouse_emissions_increase(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Increases Emissions",
+        'display_question': "Will your activity lead to a net increase in greenhouse emissions?"
     }
 
 
@@ -138,6 +141,7 @@ class PDRS__is_prescribed_transmission_service(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity is Prescribed Transmission Service",
+        'display_question': "Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?"
     }
 
 
@@ -160,6 +164,7 @@ class PDRS__reduces_safety_levels(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Reduces Safety Levels",
+        'display_question': "Will your activity reduce safety levels or permanently reduce production or service levels?"
     }
 
 

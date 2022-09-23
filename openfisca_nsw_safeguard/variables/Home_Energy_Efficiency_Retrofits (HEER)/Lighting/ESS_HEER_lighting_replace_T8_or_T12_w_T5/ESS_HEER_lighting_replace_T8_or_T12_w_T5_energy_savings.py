@@ -46,16 +46,23 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5_residential_savings_factor(Variab
         lamp_size = buildings('ESS_HEER_existing_lamp_length', period)
         size_of_existing_lamp = np.select(
                                           [
-                                          lamp_size == 2,
-                                          lamp_size == 3,
-                                          lamp_size == 4,
-                                          lamp_size == 5
-                                           ],
+                                          lamp_size == 600,
+                                          lamp_size == 900,
+                                          lamp_size == 1200,
+                                          lamp_size == 1500,
+                                          np.logical_not(
+                                                (lamp_size == 600) +
+                                                (lamp_size == 900) +
+                                                (lamp_size == 1200) +
+                                                (lamp_size == 1500)
+                                          ) 
+                                          ],
                                           [
-                                           "2_foot",
-                                           "3_foot",
-                                           "4_foot",
-                                           "5_foot"
+                                           "two_foot",
+                                           "three_foot",
+                                           "four_foot",
+                                           "five_foot", 
+                                           'not_eligible'
                                            ]
                                            )
         residential_building_savings_factor = (parameters(period).
@@ -74,16 +81,23 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5_small_business_savings_factor(Var
         lamp_size = buildings('ESS_HEER_existing_lamp_length', period)
         size_of_existing_lamp = np.select(
                                           [
-                                          lamp_size == 2,
-                                          lamp_size == 3,
-                                          lamp_size == 4,
-                                          lamp_size == 5
-                                           ],
+                                          lamp_size == 600,
+                                          lamp_size == 900,
+                                          lamp_size == 1200,
+                                          lamp_size == 1500,
+                                          np.logical_not(
+                                                (lamp_size == 600) +
+                                                (lamp_size == 900) +
+                                                (lamp_size == 1200) +
+                                                (lamp_size == 1500)
+                                          ) 
+                                          ],
                                           [
-                                           "2_foot",
-                                           "3_foot",
-                                           "4_foot",
-                                           "5_foot"
+                                           "two_foot",
+                                           "three_foot",
+                                           "four_foot",
+                                           "five_foot", 
+                                           'not_eligible'
                                            ]
                                            )
         small_business_savings_factor = (parameters(period).

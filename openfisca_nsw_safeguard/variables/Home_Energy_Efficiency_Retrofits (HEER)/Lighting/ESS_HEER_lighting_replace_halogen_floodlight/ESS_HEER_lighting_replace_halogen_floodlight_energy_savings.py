@@ -60,7 +60,22 @@ class ESS_HEER_replace_halogen_floodlight_residential_savings_factor(Variable):
                                         "existing_lamp_LCP_more_than_500W"
                                         ]
                                         )
+
         new_lamp_type = buildings('ESS_HEER_lighting_new_lamp_type', period)
+        EquipmentClass = new_lamp_type.possible_values
+
+        is_eligible_new_lamp = (
+                (new_lamp_type == EquipmentClass.LED_luminaire_floodlight) +
+                (new_lamp_type == EquipmentClass.CFLi)
+        )
+
+        new_lamp_type = np.where(is_eligible_new_lamp, 
+                new_lamp_type,
+                (EquipmentClass.is_not_eligible)
+                )
+
+
+
         new_lamp_circuit_power = buildings('ESS_HEER_lighting_new_lamp_circuit_power', period)
         lamp_rating_power = np.select(
                                       [
@@ -80,7 +95,9 @@ class ESS_HEER_replace_halogen_floodlight_residential_savings_factor(Variable):
                                         "more_than_150W"
                                         ])
         residential_building_savings_factor = (parameters(period).ESS.HEER.table_E2_1.residential_savings_factor
-        [LCP_of_existing_lamp][new_lamp_type][lamp_rating_power])
+        [LCP_of_existing_lamp]
+        [new_lamp_type]
+        [lamp_rating_power])
         return residential_building_savings_factor
 
 
@@ -111,7 +128,28 @@ class ESS_HEER_replace_halogen_floodlight_small_business_savings_factor(Variable
                                         "existing_lamp_LCP_more_than_500W"
                                         ]
                                         )
+
         new_lamp_type = buildings('ESS_HEER_lighting_new_lamp_type', period)
+        EquipmentClass = new_lamp_type.possible_values
+
+        is_eligible_new_lamp = (
+                (new_lamp_type == EquipmentClass.LED_luminaire_floodlight) +
+                (new_lamp_type == EquipmentClass.CFLi)
+        )
+
+        new_lamp_type = np.where(is_eligible_new_lamp, 
+                new_lamp_type,
+                (EquipmentClass.is_not_eligible)
+                )
+
+        # above code a. checks if the new lamp type is one of the eligible lamp classes (as defined in the equipment requirements)
+        # and b. if it's not eligible, assigns the Enum to a not_eligible product class
+        # Table E2.1 now has an appended is_not_eligible index section, with all values set to 0
+        # this is kind of hacky but means a. you can use the single list of lighting types and
+        # b. you don't have to write out every table with every single class - you can just write what's explicitly written
+        # in the rules
+
+
         new_lamp_circuit_power = buildings('ESS_HEER_lighting_new_lamp_circuit_power', period)
         lamp_rating_power = np.select(
                                       [
@@ -131,5 +169,7 @@ class ESS_HEER_replace_halogen_floodlight_small_business_savings_factor(Variable
                                         "more_than_150W"
                                         ])
         small_business_building_savings_factor = (parameters(period).ESS.HEER.table_E2_2.small_business_savings_factor
-        [LCP_of_existing_lamp][new_lamp_type][lamp_rating_power])
+        [LCP_of_existing_lamp]
+        [new_lamp_type]
+        [lamp_rating_power])
         return small_business_building_savings_factor

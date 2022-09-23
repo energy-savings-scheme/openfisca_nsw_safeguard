@@ -71,6 +71,23 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0
+    is_not_eligible:
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+      over_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
   infrared_coated_ELV:
     LED_lamp_only_ELV:
       under_or_equal_to_five_watts:
@@ -140,6 +157,23 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0
+    is_not_eligible:
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+      over_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
   tungsten_halogen_240V:
     LED_lamp_only_ELV:
       under_or_equal_to_five_watts:
@@ -205,6 +239,109 @@ residential_savings_factor:
         values:
           2020-01-01:
             value: 0.53
+      over_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+    is_not_eligible:
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+      over_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+  is_not_eligible:
+    LED_lamp_only_ELV:
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+      over_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+    LED_lamp_and_driver:
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+      over_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+    LED_luminaire_recessed:
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+      over_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+    LED_lamp_only_240V_self_ballasted:
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+      over_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
+    is_not_eligible:
+      under_or_equal_to_five_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_ten_watts:
+        values:
+          2020-01-01:
+            value: 0
+      under_or_equal_to_fifteen_watts:
+        values:
+          2020-01-01:
+            value: 0
       over_fifteen_watts:
         values:
           2020-01-01:

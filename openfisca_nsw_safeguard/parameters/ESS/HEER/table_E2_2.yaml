@@ -52,6 +52,31 @@ small_business_savings_factor:
         values:
           2020-01-01:
             value: 0
+    is_not_eligible:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
   existing_lamp_LCP_between_100W_and_150W:
     LED_luminaire_floodlight:
       less_than_or_equal_to_30W:
@@ -83,6 +108,31 @@ small_business_savings_factor:
         values:
           2020-01-01:
             value: 0.75
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    is_not_eligible:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
       more_than_30W_and_less_than_or_equal_to_45W:
         values:
           2020-01-01:
@@ -154,6 +204,31 @@ small_business_savings_factor:
         values:
           2020-01-01:
             value: 0
+    is_not_eligible:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
   existing_lamp_LCP_between_200W_and_300W:
     LED_luminaire_floodlight:
       less_than_or_equal_to_30W:
@@ -193,6 +268,31 @@ small_business_savings_factor:
         values:
           2020-01-01:
             value: 1.40
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    is_not_eligible:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
       more_than_60W_and_less_than_or_equal_to_90W:
         values:
           2020-01-01:
@@ -256,6 +356,31 @@ small_business_savings_factor:
         values:
           2020-01-01:
             value: 0
+    is_not_eligible:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
   existing_lamp_LCP_more_than_500W:
     LED_luminaire_floodlight:
       less_than_or_equal_to_30W:
@@ -303,6 +428,31 @@ small_business_savings_factor:
         values:
           2020-01-01:
             value: 3.20
+      more_than_150W:
+        values:
+          2020-01-01:
+            value: 0
+    is_not_eligible:
+      less_than_or_equal_to_30W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_30W_and_less_than_or_equal_to_45W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_45W_and_less_than_or_equal_to_60W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_60W_and_less_than_or_equal_to_90W:
+        values:
+          2020-01-01:
+            value: 0
+      more_than_90W_and_less_than_or_equal_to_150W:
+        values:
+          2020-01-01:
+            value: 0
       more_than_150W:
         values:
           2020-01-01:

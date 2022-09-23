@@ -22,13 +22,11 @@ class ESS__electricity_savings(Variable):
 
         electricity_savings = np.select([
                                             ESS_method_type == (ESS_MethodType.clause_8_8_NABERS),
-                                            ESS_method_type == (ESS_MethodType.clause_9_8_HEER),
-                                            ESS_method_type == (ESS_MethodType.clause_9_9_HEAB)
+                                            ESS_method_type == (ESS_MethodType.clause_9_8_HEER)
                                             ],
                                         [   
                                             buildings('ESS__NABERS_electricity_savings', period),
-                                            buildings('ESS__HEER_electricity_savings', period),
-                                            buildings('ESS__HEAB_electricity_savings', period)
+                                            buildings('ESS__HEER_electricity_savings', period)
                                         ]
                                             )
         return electricity_savings

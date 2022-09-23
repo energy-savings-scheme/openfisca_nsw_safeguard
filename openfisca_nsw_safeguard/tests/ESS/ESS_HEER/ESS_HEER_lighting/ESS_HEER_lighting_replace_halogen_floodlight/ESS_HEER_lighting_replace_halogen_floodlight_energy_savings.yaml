@@ -659,3 +659,40 @@
   output:
     ESS_HEER_replace_halogen_floodlight_electricity_savings:
       [1, 2]
+- name: Test small business electricity savings for E2 (replace halogen floodlight)
+    - existing lamp is more than 500W
+  period: 2020
+  input:
+    ESS_HEER_lighting_new_lamp_type:
+      [
+        LED_luminaire_floodlight,
+        CFLi,
+        T8_linear,
+        T12_linear,
+        infrared_coated_ELV,
+      ]
+    ESS_HEER_lighting_existing_lamp_circuit_power:
+      [
+        550,
+        550,
+        550,
+        550,
+        550,
+      ]
+    ESS_HEER_lighting_new_lamp_circuit_power:
+      [
+        25,
+        25,
+        40,
+        40,
+        55,
+      ]
+  output:
+    ESS_HEER_replace_halogen_floodlight_small_business_savings_factor:
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+      ]

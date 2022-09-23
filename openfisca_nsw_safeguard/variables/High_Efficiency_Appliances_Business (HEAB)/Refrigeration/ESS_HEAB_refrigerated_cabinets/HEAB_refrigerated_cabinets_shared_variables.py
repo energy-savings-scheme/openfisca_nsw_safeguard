@@ -137,6 +137,7 @@ class new_refrigerated_cabinet_total_energy_consumption(Variable):
 
 class new_refrigerated_cabinet_total_display_area(Variable):
     value_type = float
+    default_value = 0
     entity = Building
     definition_period = ETERNITY
     label = 'What is the total display area of the Refrigerated Cabinet, in m2?'

@@ -25,18 +25,25 @@ class ESS_HEAB_install_refrigerated_cabinet_electricity_savings(Variable):
             'refrigerated_cabinet_product_class', period)
         duty_class = buildings(
             'refrigerated_cabinet_duty_class', period) 
-        baseline_EEI = parameters(period).ESS.HEAB.table_F1_1_1.baseline_EEI[product_class][duty_class]
         product_EEI = buildings(
             'new_refrigerated_cabinet_EEI', period)
+
+        baseline_EEI = parameters(period).ESS.HEAB.table_F1_1_1.baseline_EEI[product_class][duty_class]
+
         total_display_area = buildings('new_refrigerated_cabinet_total_display_area', period)
 
-        total_display_area = np.where(total_display_area < 3.3, 
+        band_total_display_area = np.where(total_display_area < 3.3, 
                                         'less_than_3_3m2', 
                                         '3_3m2_or_greater'
                                         )
 
         adjustment_factor = parameters(period).ESS.HEAB.table_F1_1_1.adjustment_factor[product_class][duty_class]
-        product_lifetime = parameters(period).ESS.HEAB.table_F1_1_2.lifetime[product_class][total_display_area]
+        product_lifetime = (parameters(period).
+        ESS.HEAB.table_F1_1_2['lifetime']
+        [product_class]
+        [band_total_display_area]
+        )
+
         energy_savings =    (
                                 total_energy_consumption *
                                 (
@@ -49,7 +56,9 @@ class ESS_HEAB_install_refrigerated_cabinet_electricity_savings(Variable):
                                 product_lifetime /
                                 1000
                             )
+
         meets_all_eligibility_criteria =  buildings('ESS_HEAB_install_refrigerated_cabinet_meets_all_eligibility_criteria', period)
+
         return(
                 energy_savings *
                 meets_all_eligibility_criteria

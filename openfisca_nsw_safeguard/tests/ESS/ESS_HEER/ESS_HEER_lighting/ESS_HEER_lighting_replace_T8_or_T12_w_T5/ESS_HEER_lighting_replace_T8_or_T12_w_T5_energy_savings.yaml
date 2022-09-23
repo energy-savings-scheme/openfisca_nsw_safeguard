@@ -3,10 +3,10 @@
   input:
     ESS_HEER_existing_lamp_length:
       [
-        2,
-        3,
-        4,
-        5,
+        600,
+        900,
+        1200,
+        1500,
       ]
   output:
     ESS_HEER_lighting_replace_T8_or_T12_w_T5_residential_savings_factor:
@@ -21,10 +21,10 @@
   input:
     ESS_HEER_existing_lamp_length:
       [
-        2,
-        3,
-        4,
-        5,
+        600,
+        900,
+        1200,
+        1500,
       ]
   output:
     ESS_HEER_lighting_replace_T8_or_T12_w_T5_small_business_savings_factor:

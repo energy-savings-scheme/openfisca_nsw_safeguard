@@ -83,6 +83,7 @@ class PDRS__implementation_after_1_July_2022(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "PDRS Have Implemented PDR Activity",
+        'display_question': "What date did the implementation occur?"
         # "major-cat":"Peak Demand Reduction Scheme",
         # "monor-cat":'General Requirements'
     }

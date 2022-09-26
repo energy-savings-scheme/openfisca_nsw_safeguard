@@ -21,11 +21,14 @@ class ESS__meets_overall_eligibility_requirements(Variable):
             'ESS__equipment_is_not_resold_reused_or_refurbished', period)
         appropriate_disposal_after_15_April_2016 = buildings(
             'ESS__appropriate_disposal_of_equipment_after_15_April_2016', period)
+        reduces_energy_consumption = buildings(
+            'ESS__reduces_energy_consumption', period)
 
         return(
             is_not_unlawful_activity *
             equipment_not_reused_resold_or_refurbished *
-            appropriate_disposal_after_15_April_2016
+            appropriate_disposal_after_15_April_2016 *
+            reduces_energy_consumption
             )
 
 
@@ -42,7 +45,7 @@ class ESS__equipment_is_not_resold_reused_or_refurbished(Variable):
     definition_period = ETERNITY
     label = 'Is the equipment removed or replaced as part of an ESS activity, not a. resold, b. reused or c. refurbished?'
     metadata = {
-        'display-question' : "Is the removed End-User equipment re-sold, refurbished or re-used?"
+        'display-question' : 'Is the removed End-User equipment re-sold, refurbished or re-used?'
     }
     
     def formula(buildings, period, parameters):
@@ -94,7 +97,7 @@ class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
     label = 'Has the removed or replaced equipment been disposed of appropriately, in accordance' \
             ' requirements put in place from 15 April 2016?'
     metadata = {
-        'display_question': "Will your End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?"
+        'display_question' : 'Will your End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?'
     }
 
     def formula(buildings, period, parameters):
@@ -152,3 +155,13 @@ class ESS__recycling_evidence_for_refrigerants_is_obtained(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Has recycling evidence been obtained for any refrigerants disposed of as part of the activity?'
+
+
+class ESS__reduces_energy_consumption(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the activity reduce energy consumption?'
+    metadata = {
+        'display_question' : 'Does your activity reduce energy consumption compared to what would have been consumed?'
+    }

@@ -41,6 +41,9 @@ class ESS__equipment_is_not_resold_reused_or_refurbished(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Is the equipment removed or replaced as part of an ESS activity, not a. resold, b. reused or c. refurbished?'
+    metadata = {
+        'display-question' : "Is the removed End-User equipment re-sold, refurbished or re-used?"
+    }
     
     def formula(buildings, period, parameters):
         equipment_is_resold = buildings('ESS__equipment_is_resold', period)
@@ -90,6 +93,9 @@ class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
     definition_period = ETERNITY
     label = 'Has the removed or replaced equipment been disposed of appropriately, in accordance' \
             ' requirements put in place from 15 April 2016?'
+    metadata = {
+        'display_question': "Will your End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?"
+    }
 
     def formula(buildings, period, parameters):
         implementation_date = (buildings('ESS__implementation_date', period).astype('datetime64[D]'))

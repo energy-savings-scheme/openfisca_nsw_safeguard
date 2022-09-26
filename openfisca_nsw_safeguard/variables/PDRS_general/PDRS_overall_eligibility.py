@@ -119,6 +119,7 @@ class PDRS__meets_mandatory_requirement(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Meets Mandatory Requirements",
+        'display_question': "Is your activity being undertaken to comply with any mandatory legal requirements?"
     }
 
 

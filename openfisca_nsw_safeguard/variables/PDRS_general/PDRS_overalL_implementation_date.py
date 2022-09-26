@@ -53,12 +53,13 @@ class PDRS__have_implemented_PDR_activity(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Can you create the PDRS certificate?'
+    label = 'Has implementation already occurred?'
     metadata = {
         "variable-type": "user-input",
         "alias": "PDRS Have Implemented PDR Activity",
         # "major-cat":"Peak Demand Reduction Scheme",
-        # "monor-cat":'General Requirements'
+        # "monor-cat":'General Requirements',
+        'display_question' : 'Has your implementation already occurred?'
     }
 
 

@@ -23,12 +23,16 @@ class ESS__meets_overall_eligibility_requirements(Variable):
             'ESS__appropriate_disposal_of_equipment_after_15_April_2016', period)
         reduces_energy_consumption = buildings(
             'ESS__reduces_energy_consumption', period)
+        registered_ACP = buildings(
+            'ESS_registered_ACP', period)
+        
 
         return(
             is_not_unlawful_activity *
             equipment_not_reused_resold_or_refurbished *
             appropriate_disposal_after_15_April_2016 *
-            reduces_energy_consumption
+            reduces_energy_consumption *
+            registered_ACP
             )
 
 
@@ -164,4 +168,14 @@ class ESS__reduces_energy_consumption(Variable):
     label = 'Does the activity reduce energy consumption?'
     metadata = {
         'display_question' : 'Does your activity reduce energy consumption compared to what would have been consumed?'
+    }
+
+
+class ESS_registered_ACP(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Are you an ACP?'
+    metadata = {
+        'display_question' : 'Are you an ACP?'
     }

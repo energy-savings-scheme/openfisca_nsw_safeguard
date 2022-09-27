@@ -204,7 +204,7 @@ class ACClimateZone(Enum):
 class AC_climate_zone(Variable):
     value_type = Enum
     entity = Building
-    label = "What is the product heating capacity Enum used to look up the table?"
+    label = "What is the climate zone the end-user equipment is installed in?"
     definition_period = ETERNITY
     possible_values = ACClimateZone
     default_value = ACClimateZone.average_zone
@@ -213,3 +213,20 @@ class AC_climate_zone(Variable):
         "regulation_reference": ESS_2021["XX", "AC"],
         'display_question':"Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
     }
+
+class HVAC_2_TCPSF_greater_than_minimum(Variable):
+    value_type = bool
+    entity = Building
+    label = 'Is your TCPSF equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
+    metadata = {
+        'display_question' : 'Is your TCPSF equal to or greater than the Minimum TCPSF for the same Product Type and Cooling Capacity in ESS Table F4.5?'
+    }
+
+class HVAC_2_AEER_greater_than_minimum(Variable):
+    value_type = bool
+    entity = Building
+    label = 'Is your AEER equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
+    metadata = {
+        'display_question' : 'Is your AEER equal to or greater than the Minimum AEER for the same Product Type and Cooling Capacity in ESS Table F4.4?'
+    }
+

@@ -97,3 +97,15 @@ class PDRS_HVAC_2_replace_meets_all_requirements(Variable):
             'PDRS_HVAC_2_replace_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment
+
+
+class PDRS_HVAC_2_installation(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Is the activity the replacement of an existing air conditioner?'
+    metadata = {
+        'display_question' : 'Is the activity the replacement of an existing air conditioner?'
+    }
+

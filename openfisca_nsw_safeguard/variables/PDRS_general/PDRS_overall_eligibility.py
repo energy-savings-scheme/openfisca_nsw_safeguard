@@ -190,3 +190,13 @@ class PDRS__tradeable_certificates(Variable):
     metadata = {
         'display_question' : 'Have you created tradeable certificates under the Renewable Energy Act?'
     }
+
+
+class PDRS__residential_building(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Have you created tradeable certificates'
+    metadata = {
+        'display_question' : 'Has the new End-User equipment been installed in a residential building?'
+    }

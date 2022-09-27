@@ -28,7 +28,11 @@ class PDRS__HVAC2_is_eligible_activity(Variable):
         AEER_greater = buildings('HVAC_2_AEER_greater_than_minimum', period)
         TCPSF_greater = buildings('HVAC_2_TCPSF_greater_than_minimum', period)
         climate_zone = buildings('AC_climate_zone', period)
-        
+        heating_capacity = buildings('new_AC_heating_capacity', period)
+        HSPF_mixed_value = buildings('AC_HSPF_mixed', period)
+        ACOP_value = buildings ('AC_ACOP', period)
+        HSPF_cooling_value = buildings('AC_HSPF_cold', period)
+
         
         if new_installation is False: 
             conditional_path_replacement = np.logical_not(new_installation) * replacement * qualified_removal_replacement
@@ -48,18 +52,35 @@ class PDRS__HVAC2_is_eligible_activity(Variable):
             conditional_path_cooling = cooling_capacity * TCPSF_greater
 
 
-        #TODO climate zone input goes here, but not sure how this works in the formula
-        #TODO if climate zone is average or hot then
-        #TODO if climate zone is cool then 
+        # if climate zone is hot or average and there is a GEMS heating capacity then HSPF
+        if climate_zone == in_average_zone or in_hot_zone * heating_capacity:
+           conditional_path_HSPF_heating = HSPF_mixed_value
+        else:
+           #Alisha - this is my attempt to say if climate zone is hot or average and there is no GEMS heating capcity then ACOP value
+           #but I may need and elseif climate_zone = in_average_zone or in_hot_zone * np.logical_not(heating-capacity): ?
+           conditional_path_HSPF_heating = ACOP_value
 
-        #climate_zone 
-        
+
+        if climate_zone == in_cold_zone:
+            conditional_path_HSPF_cooling = HSPF_cooling_value
+        else:
+            conditional_path_HSPF_cooling = ACOP_value
+            
+
+        climate_zone = buildings('AC_climate_zone', period)
+        ACClimateZone = climate_zone.possible_values
+        in_hot_zone = (climate_zone == ACClimateZone.hot_zone)
+        in_average_zone = (climate_zone == ACClimateZone.average_zone)
+        in_cold_zone = (climate_zone == ACClimateZone.cold_zone)
 
         return(
         qualified_install *
         equipment_installed *
         registered_GEMS *
+        climate_zone *
         conditional_path_replacement * 
         conditional_path_residential *
-        conditional_path_cooling
+        conditional_path_cooling *
+        conditional_path_HSPF_heating *
+        conditional_path_HSPF_cooling
         )

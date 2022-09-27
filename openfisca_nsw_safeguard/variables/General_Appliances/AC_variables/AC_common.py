@@ -150,6 +150,7 @@ class AC_HSPF_mixed(Variable):
     label = 'What is the HSPF mixed for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF mixed',
+    'display_question' : 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
 }
 
 
@@ -160,6 +161,7 @@ class AC_HSPF_cold(Variable):
     label = 'What is the HSPF cold for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF cold',
+    'display_question' : 'Is your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
 }
 
 
@@ -188,10 +190,11 @@ class AC_ACOP(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the AEER for the AC, as listed in the GEMS Registry?'
+    label = 'What is the ACOP for the AC?'
     metadata = {
     'alias':  'Air Conditioner TCSPF',
-    "regulation_reference": PDRS_2022["XX", "AC"]
+    "regulation_reference": PDRS_2022["XX", "AC"],
+    'display_question' : 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?'
 }
 
 

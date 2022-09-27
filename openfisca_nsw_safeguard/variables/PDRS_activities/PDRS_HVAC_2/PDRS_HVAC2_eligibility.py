@@ -29,28 +29,24 @@ class PDRS__HVAC2_is_eligible_activity(Variable):
         TCPSF_greater = buildings('HVAC_2_TCPSF_greater_than_minimum', period)
         climate_zone = buildings('AC_climate_zone', period)
         
+        
+        if new_installation is False: 
+            conditional_path_replacement = np.logical_not(new_installation) * replacement * qualified_removal_replacement
+        else: 
+            conditional_path_replacement = new_installation 
 
-        new_installation *
 
-        #TODO conditional Q: if not a new installation, then replacement and qualified removal
-        #replacement *
-        #qualified_removal_replacement *
+        if not_residential_building is False:
+            conditional_path_residential = np.logical_not(not_residential_building) * class_2_building
+        else:
+            conditional_path_residential = not_residential_building
 
-        qualified_install *
-        equipment_installed *
 
-        (np.logical_not(not_residential_building)) *
+        if cooling_capacity is False:
+            conditional_path_cooling = np.logical_not(cooling_capacity) * AEER_greater
+        else: 
+            conditional_path_cooling = cooling_capacity * TCPSF_greater
 
-        # TODO Conditional Q: if Residential is true, then Class 2
-        # class_2_building *
-
-        registered_GEMS *
-        cooling_capacity *
-
-        #TODO Conditional Q: if yes, then TCPSF greater
-        #TODO Conditional Q: if no, then AEER greater
-        #TCPSF_greater 
-        #AEER_greater
 
         #TODO climate zone input goes here, but not sure how this works in the formula
         #TODO if climate zone is average or hot then
@@ -59,6 +55,11 @@ class PDRS__HVAC2_is_eligible_activity(Variable):
         #climate_zone 
         
 
-
-
-    return is_eligible
+        return(
+        qualified_install *
+        equipment_installed *
+        registered_GEMS *
+        conditional_path_replacement * 
+        conditional_path_residential *
+        conditional_path_cooling
+        )

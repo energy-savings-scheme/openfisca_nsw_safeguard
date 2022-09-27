@@ -218,6 +218,7 @@ class HVAC_2_TCPSF_greater_than_minimum(Variable):
     value_type = bool
     entity = Building
     label = 'Is your TCPSF equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
+    definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is your TCPSF equal to or greater than the Minimum TCPSF for the same Product Type and Cooling Capacity in ESS Table F4.5?'
     }
@@ -226,6 +227,7 @@ class HVAC_2_AEER_greater_than_minimum(Variable):
     value_type = bool
     entity = Building
     label = 'Is your AEER equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
+    definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is your AEER equal to or greater than the Minimum AEER for the same Product Type and Cooling Capacity in ESS Table F4.4?'
     }

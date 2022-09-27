@@ -97,7 +97,7 @@ class PDRS_HVAC_2_replace_meets_all_requirements(Variable):
         return implementation * eligibility * equipment
 
 
-class PDRS_HVAC_2_installation(Variable):
+class PDRS_HVAC_2_replacement(Variable):
     value_type = bool
     entity = Building
     default_value = True

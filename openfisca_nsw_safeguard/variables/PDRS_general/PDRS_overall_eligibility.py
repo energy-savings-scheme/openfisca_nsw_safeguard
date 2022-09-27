@@ -26,6 +26,8 @@ class PDRS__is_eligible_activity(Variable):
         is_non_network_option = buildings('PDRS__is_non_network_option', period)
         reduces_safety_levels = buildings('PDRS__reduces_safety_levels', period)
         is_eligible_for_RET = buildings('PDRS__is_eligible_for_RET', period)
+        tradeable_certificates = buildings('PDRS__tradeable_certificates', period)
+
 
         is_eligible_peak_demand_reduction_activity = (
         provides_capacity_to_reduce_demand * 
@@ -44,6 +46,7 @@ class PDRS__is_eligible_activity(Variable):
         )
         + reduces_safety_levels
         + is_eligible_for_RET
+        + tradeable_certificates
         )
 
         is_eligible = (
@@ -165,7 +168,7 @@ class PDRS__reduces_safety_levels(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Reduces Safety Levels",
-        'display_question': "Will your activity reduce safety levels or permanently reduce production or service levels?"
+        'display_question' : "Will your activity reduce safety levels or permanently reduce production or service levels?"
     }
 
 
@@ -177,4 +180,13 @@ class PDRS__is_eligible_for_RET(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Eligible for RET",
+    }
+
+class PDRS__tradeable_certificates(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Have you created tradeable certificates'
+    metadata = {
+        'display_question' : 'Have you created tradeable certificates under the Renewable Energy Act?'
     }

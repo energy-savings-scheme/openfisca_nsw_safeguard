@@ -52,19 +52,19 @@ class PDRS__HVAC2_is_eligible_activity(Variable):
             conditional_path_cooling = cooling_capacity * TCPSF_greater
 
 
-        # if climate zone is average zone and there is a GEMS heating capacity then HSPF
-        if climate_zone == in_average_zone + in_hot_zone * heating_capacity:
+        if (in_average_zone is True or in_hot_zone is True) and heating_capacity:
            conditional_path_HSPF_heating = HSPF_mixed_value
         
-        else:
+        elif (in_average_zone is True or in_hot_zone is True) and heating_capacity is False:
            conditional_path_HSPF_heating = ACOP_value
 
 
-        if climate_zone == in_cold_zone:
-            conditional_path_HSPF_cooling = HSPF_cooling_value
-        else:
+        if in_cold_zone is True and heating_capacity:
+           conditional_path_HSPF_cooling = HSPF_cooling_value
+
+        elif in_cold_zone is True and heating_capacity is False:
             conditional_path_HSPF_cooling = ACOP_value
-            
+
 
         climate_zone = buildings('AC_climate_zone', period)
         ACClimateZone = climate_zone.possible_values

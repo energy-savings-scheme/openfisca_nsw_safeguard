@@ -150,6 +150,7 @@ class AC_HSPF_mixed(Variable):
     label = 'What is the HSPF mixed for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF mixed',
+    'display_question' : 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
 }
 
 
@@ -160,6 +161,7 @@ class AC_HSPF_cold(Variable):
     label = 'What is the HSPF cold for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF cold',
+    'display_question' : 'Is your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
 }
 
 
@@ -188,10 +190,11 @@ class AC_ACOP(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the AEER for the AC, as listed in the GEMS Registry?'
+    label = 'What is the ACOP for the AC?'
     metadata = {
     'alias':  'Air Conditioner TCSPF',
-    "regulation_reference": PDRS_2022["XX", "AC"]
+    "regulation_reference": PDRS_2022["XX", "AC"],
+    'display_question' : 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?'
 }
 
 
@@ -204,7 +207,7 @@ class ACClimateZone(Enum):
 class AC_climate_zone(Variable):
     value_type = Enum
     entity = Building
-    label = "What is the product heating capacity Enum used to look up the table?"
+    label = "What is the climate zone the end-user equipment is installed in?"
     definition_period = ETERNITY
     possible_values = ACClimateZone
     default_value = ACClimateZone.average_zone
@@ -213,3 +216,22 @@ class AC_climate_zone(Variable):
         "regulation_reference": ESS_2021["XX", "AC"],
         'display_question':"Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
     }
+
+class HVAC_2_TCPSF_greater_than_minimum(Variable):
+    value_type = bool
+    entity = Building
+    label = 'Is your TCPSF equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Is your TCPSF equal to or greater than the Minimum TCPSF for the same Product Type and Cooling Capacity in ESS Table F4.5?'
+    }
+
+class HVAC_2_AEER_greater_than_minimum(Variable):
+    value_type = bool
+    entity = Building
+    label = 'Is your AEER equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Is your AEER equal to or greater than the Minimum AEER for the same Product Type and Cooling Capacity in ESS Table F4.4?'
+    }
+

@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 class PDRS__HVAC2_is_eligible_activity(Variable):
-    """ This is the formula that pulls in the variables for the HVAC2 eligibility check page
+    """ This is the formula that pulls in the variables for the HVAC2 eligibility page
     """
     value_type = bool
     entity = Building
@@ -71,6 +71,7 @@ class PDRS__HVAC2_is_eligible_activity(Variable):
         in_hot_zone = (climate_zone == ACClimateZone.hot_zone)
         in_average_zone = (climate_zone == ACClimateZone.average_zone)
         in_cold_zone = (climate_zone == ACClimateZone.cold_zone)
+
 
         return(
         qualified_install *

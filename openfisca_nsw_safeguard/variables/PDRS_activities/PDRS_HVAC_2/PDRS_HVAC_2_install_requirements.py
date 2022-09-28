@@ -19,8 +19,7 @@ class PDRS_HVAC_2_install_meets_eligibility_requirements(Variable):
             ' Requirements defined in installing a high efficiency air conditioner for Business?'
     metadata = {
         'alias': "HEAB AC install meets eligibility requirements",
-        "regulation_reference": PDRS_2022["HEAB", "AC_install", "eligibility"],
-        'display_question':"Is the activity the installation of a new air conditioner?"
+        "regulation_reference": PDRS_2022["HEAB", "AC_install", "eligibility"]
     }
 
     def formula(buildings, period, parameters):
@@ -53,9 +52,6 @@ class PDRS_HVAC_2_install_meets_equipment_requirements(Variable):
             'PDRS_HVAC_2_TCSPF_or_AEER_exceeds_benchmark', period)
         demand_response = buildings(
             'Appliance_demand_response_capability', period)
-
-    #TODO We need to add a conditional question in here that uses new_AC_cooling_capacity to assess which table of numbers to use (TCPSF or EER) 
-    #TODO If the apppliance has a cooling capacity on GEMs it uses TCPSF and if it doesn't it uses EER (look in AC_common for these numbers)
 
         return is_in_GEM * has_warranty * demand_response
 
@@ -104,3 +100,16 @@ class PDRS_HVAC_2_install_meets_all_requirements(Variable):
             'PDRS_HVAC_2_install_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment
+
+
+class PDRS_HVAC_2_installation(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Is the activity the installation of a new air conditioner?'
+    metadata = {
+        'display_question' : 'Is the activity the installation of a new air conditioner?'
+    }
+
+

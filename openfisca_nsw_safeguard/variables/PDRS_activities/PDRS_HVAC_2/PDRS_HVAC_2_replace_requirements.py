@@ -25,8 +25,6 @@ class PDRS_HVAC_2_replace_meets_eligibility_requirements(Variable):
         is_residential = buildings(
             'ESS_PDRS_is_residential', period)
         no_existing_AC = buildings('No_Existing_AC', period)
-        # TODO Need to add an if/else statement here: if Residdential is false, and class2 is true then eligibility is met
-        # TODO Have added class2 into PDRS_HVAC2_replace_requirements yaml test
         is_class2 = buildings(
             'is_installed_centralised_system_common_area_BCA_Class2_building', period)
        
@@ -97,3 +95,15 @@ class PDRS_HVAC_2_replace_meets_all_requirements(Variable):
             'PDRS_HVAC_2_replace_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment
+
+
+class PDRS_HVAC_2_replacement(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Is the activity the replacement of an existing air conditioner?'
+    metadata = {
+        'display_question' : 'Is the activity the replacement of an existing air conditioner?'
+    }
+

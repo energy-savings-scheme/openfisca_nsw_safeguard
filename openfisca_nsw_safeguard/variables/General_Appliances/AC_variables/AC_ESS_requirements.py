@@ -56,6 +56,8 @@ class AC_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
 
 
 class AC_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
+    """ This variable is used if the AC climate zone is hot or average and there is a GEMS heating capacity
+    """
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -64,9 +66,7 @@ class AC_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
             ' ACOP equal or greater than the Minimum Rated ACOP listed in Table D16.5?'
     metadata = {
         'alias':  'ESS - HSPF or ACOP exceeds benchmark',
-        "regulation_reference": PDRS_2022["XX", "AC"],
-        'display_question': "Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?"
-        #TODO Conditional question here where we ask the question above if there is a heating capacity recorded in GEMs, and this question 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?' if there isn't
+        "regulation_reference": PDRS_2022["XX", "AC"]
     }
 
     def formula(buildings, period, parameters):
@@ -101,6 +101,8 @@ class AC_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
 
         climate_zone = buildings('AC_climate_zone', period)
         ACClimateZone = climate_zone.possible_values
+        in_hot_zone = (climate_zone == ACClimateZone.hot_zone)
+        in_average_zone = (climate_zone == ACClimateZone.average_zone)
         in_cold_zone = (climate_zone == ACClimateZone.cold_zone)
 
         AC_HSPF = np.where(

@@ -52,12 +52,11 @@ class PDRS__HVAC2_is_eligible_activity(Variable):
             conditional_path_cooling = cooling_capacity * TCPSF_greater
 
 
-        # if climate zone is hot or average and there is a GEMS heating capacity then HSPF
-        if climate_zone == in_average_zone or in_hot_zone * heating_capacity:
+        # if climate zone is average zone and there is a GEMS heating capacity then HSPF
+        if climate_zone == in_average_zone + in_hot_zone * heating_capacity:
            conditional_path_HSPF_heating = HSPF_mixed_value
+        
         else:
-           #Alisha - this is my attempt to say if climate zone is hot or average and there is no GEMS heating capcity then ACOP value
-           #but I may need and elseif climate_zone = in_average_zone or in_hot_zone * np.logical_not(heating-capacity): ?
            conditional_path_HSPF_heating = ACOP_value
 
 

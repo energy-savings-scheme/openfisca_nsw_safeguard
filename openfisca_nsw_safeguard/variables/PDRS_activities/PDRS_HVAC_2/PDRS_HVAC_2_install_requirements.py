@@ -58,7 +58,7 @@ class PDRS_HVAC_2_install_meets_equipment_requirements(Variable):
 
 class PDRS_HVAC_2_install_meets_implementation_requirements(Variable):
     """ Equipment_is_installed is found in appliances_implementation_requirements
-        implementation_is_performed_by_qualified_person is found in appliances_implementation_requirements
+        Implementation_is_performed_by_qualified_person is found in appliances_implementation_requirements
     """ 
     value_type = bool
     entity = Building
@@ -75,7 +75,7 @@ class PDRS_HVAC_2_install_meets_implementation_requirements(Variable):
         is_installed = buildings(
             'Equipment_is_installed', period)
         performed_by_qualified_person = buildings(
-            'implementation_is_performed_by_qualified_person', period)
+            'Implementation_is_performed_by_qualified_person', period)
         
         return is_installed * performed_by_qualified_person
 

@@ -60,7 +60,7 @@
   input:
     PDRS_replace_existing_pool_pump_with_high_efficiency_pump_existing_pump_decommissioned_according_to_relevant_legislation:
       [True, False, True]
-    implementation_is_performed_by_qualified_person: [True, True, False]
+    Implementation_is_performed_by_qualified_person: [True, True, False]
   output:
     PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_implementation_requirements:
       [True, False, False]

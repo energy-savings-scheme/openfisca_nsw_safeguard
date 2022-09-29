@@ -12,7 +12,7 @@
     Equipment_is_removed: [
                             True,
                           ]
-    implementation_is_performed_by_qualified_person: [
+    Implementation_is_performed_by_qualified_person: [
                                                       True,
                                                       ]
     motors_rated_output: [
@@ -58,7 +58,7 @@
     Equipment_is_removed: [
                             True,
                           ]
-    implementation_is_performed_by_qualified_person: [
+    Implementation_is_performed_by_qualified_person: [
                                                       True,
                                                       ]
     motors_rated_output: [

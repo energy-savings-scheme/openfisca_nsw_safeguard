@@ -16,7 +16,7 @@ class ESS_HEER_pool_pump_replace_meets_implementation_requirements(Variable):
     def formula(buildings, period, parameters):
         existing_equipment_removed = buildings('Equipment_is_removed', period)
         performed_by_qualified_person = buildings(
-            'implementation_is_performed_by_qualified_person', period)
+            'Implementation_is_performed_by_qualified_person', period)
         return(
             existing_equipment_removed *
             performed_by_qualified_person

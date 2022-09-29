@@ -67,7 +67,7 @@ class PDRS_HEER_AC_replace_meets_implementation_requirements(Variable):
             'Equipment_is_installed', period)
         is_removed = buildings("Equipment_is_removed", period)
         performed_by_qualified_person = buildings(
-            'implementation_is_performed_by_qualified_person', period)
+            'Implementation_is_performed_by_qualified_person', period)
 
         return is_installed * is_removed * performed_by_qualified_person
 

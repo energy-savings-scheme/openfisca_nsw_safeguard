@@ -18,7 +18,7 @@ class PDRS__is_eligible_activity(Variable):
         provides_capacity_to_reduce_demand = buildings('PDRS__provides_capacity_to_reduce_demand', period)
         is_eligible_for_PDRS_creation = buildings('PDRS__is_eligible_for_PDRS_creation', period)
         is_in_PDRS_jurisdiction = buildings('PDRS__is_in_PDRS_jurisdiction', period)
-        is_unlawful_activity = buildings('PDRS__is_unlawful_activity', period)
+        is_lawful_activity = buildings('PDRS__is_lawful_activity', period)
         greenhouse_emissions_increase = buildings('PDRS__greenhouse_emissions_increase', period)
         activity_meets_mandatory_requirement = buildings('PDRS__meets_mandatory_requirement', period)
         is_standard_control_service = buildings('PDRS__is_standard_control_service', period)
@@ -33,7 +33,7 @@ class PDRS__is_eligible_activity(Variable):
         provides_capacity_to_reduce_demand * 
         is_eligible_for_PDRS_creation *
         is_in_PDRS_jurisdiction *
-        (np.logical_not(is_unlawful_activity))        
+        is_lawful_activity    
         )
 
         is_not_eligible_peak_demand_reduction_activity = (
@@ -90,14 +90,14 @@ class PDRS__is_in_PDRS_jurisdiction(Variable):
     }
 
 
-class PDRS__is_unlawful_activity(Variable):
+class PDRS__is_lawful_activity(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity unlawful to conduct?'
+    label = 'Is the activity lawful to conduct?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Is Unlawful Activity",
+        "alias": "PDRS Is lawful Activity",
         'display_question': "Was your activity lawful in NSW on the implementation date?"
     }
 

@@ -14,9 +14,9 @@
           [
             True,
           ]
-      PDRS__is_unlawful_activity:
+      PDRS__is_lawful_activity:
           [
-            False,
+            True,
           ]
       PDRS__greenhouse_emissions_increase:
           [
@@ -67,9 +67,9 @@
           [
             True,
           ]
-      PDRS__is_unlawful_activity:
+      PDRS__is_lawful_activity:
           [
-            True,
+            False,
           ]
       PDRS__greenhouse_emissions_increase:
           [
@@ -116,9 +116,9 @@
           [
             False,
           ]
-      PDRS__is_unlawful_activity:
+      PDRS__is_lawful_activity:
           [
-            False,
+            True,
           ]
       PDRS__greenhouse_emissions_increase:
           [

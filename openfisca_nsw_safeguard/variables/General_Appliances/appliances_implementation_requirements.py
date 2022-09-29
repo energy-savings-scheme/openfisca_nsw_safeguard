@@ -40,7 +40,7 @@ class Appliance_follows_removal_requirements(Variable):
     }
 
 
-class implementation_is_performed_by_qualified_person(Variable):
+class Implementation_is_performed_by_qualified_person(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -50,5 +50,5 @@ class implementation_is_performed_by_qualified_person(Variable):
     metadata = {
         'alias':  'Is the implementation performed by a qualified person?',
         "regulation_reference": ESS_2021["XX", "GA"],
-        'display_question':"Has the installation of the end-user equipment been performed or supervised by a suitably licensed person?"
+        'display_question': 'Has the installation of the end-user equipment been performed or supervised by a suitably licensed person?'
     }

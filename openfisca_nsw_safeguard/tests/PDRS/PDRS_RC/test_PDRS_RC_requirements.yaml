@@ -191,7 +191,7 @@
       [True, True, True, True]
     PDRS_RF2_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating:
       [true, true, false, true]
-    implementation_is_performed_by_qualified_person: [true, true, true, false]
+    Implementation_is_performed_by_qualified_person: [true, true, true, false]
 
   output:
     PDRS_RF2_replace_refrigerated_cabinet_meets_implementation_requirements:
@@ -310,7 +310,7 @@
         True,
         True,
       ]
-    implementation_is_performed_by_qualified_person:
+    Implementation_is_performed_by_qualified_person:
       [
         True,
         True,

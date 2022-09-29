@@ -3,7 +3,7 @@
   absolute_error_margin: 0
   input:
       Equipment_is_removed: [true, true, false, false]
-      implementation_is_performed_by_qualified_person:
+      Implementation_is_performed_by_qualified_person:
           [true, false, true, false]
   output:
       PDRS_replace_motors_meets_implementation_requirements:

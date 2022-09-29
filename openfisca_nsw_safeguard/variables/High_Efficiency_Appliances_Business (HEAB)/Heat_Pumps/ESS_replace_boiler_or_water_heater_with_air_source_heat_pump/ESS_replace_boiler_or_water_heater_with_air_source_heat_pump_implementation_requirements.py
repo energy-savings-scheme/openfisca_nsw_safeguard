@@ -35,7 +35,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_impleme
     def formula(buildings, period, parameters):  
         Existing_hot_water_pump_removed = buildings('ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_hot_water_pump_is_removed', period)
         Replacement_hot_water_pump_equipment_installed = buildings('ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_is_installed', period)
-        Installed_or_removed_by_certified = buildings('implementation_is_performed_by_qualified_person', period)
+        Installed_or_removed_by_certified = buildings('Implementation_is_performed_by_qualified_person', period)
 
         return (
                 Existing_hot_water_pump_removed *

@@ -29,7 +29,7 @@ class ESS_HEAB_install_refrigerated_cabinet_meets_installation_requirements(Vari
 
     def formula(buildings, period, parameters):
         new_equipment_installed_and_operating = buildings('ESS_HEAB_install_refrigerated_cabinet_new_equipment_is_installed_and_operating', period)
-        performed_by_qualified_person = buildings('implementation_is_performed_by_qualified_person', period)
+        performed_by_qualified_person = buildings('Implementation_is_performed_by_qualified_person', period)
         return(
                 new_equipment_installed_and_operating * 
                 performed_by_qualified_person

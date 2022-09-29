@@ -51,7 +51,7 @@ class PDRS_RF2_replace_refrigerated_cabinet_meets_implementation_requirements(Va
         existing_equipment_removed = buildings('PDRS_RF2_replace_refrigerated_cabinet_existing_equipment_is_removed', period)
         existing_equipment_legally_disposed_of = buildings('PDRS_RF2_replace_refrigerated_cabinet_existing_equipment_is_legally_disposed_of', period)
         new_equipment_installed_and_operating = buildings('PDRS_RF2_replace_refrigerated_cabinet_new_equipment_is_installed_and_operating', period)
-        performed_by_qualified_person = buildings('implementation_is_performed_by_qualified_person', period)
+        performed_by_qualified_person = buildings('Implementation_is_performed_by_qualified_person', period)
         return(
                 existing_equipment_removed *
                 existing_equipment_legally_disposed_of *

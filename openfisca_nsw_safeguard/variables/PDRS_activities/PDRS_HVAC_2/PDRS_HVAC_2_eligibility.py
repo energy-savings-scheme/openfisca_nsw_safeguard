@@ -26,15 +26,12 @@ class PDRS__HVAC2_new_install(Variable):
         cooling_capacity = buildings('new_AC_cooling_capacity', period)
         TCPSF_greater = buildings('HVAC_2_TCPSF_greater_than_minimum', period)
 
-        ACClimateZone = climate_zone.possible_values
         climate_zone = buildings('AC_climate_zone', period)
+        ACClimateZone = climate_zone.possible_values
         in_average_zone = (climate_zone == ACClimateZone.average_zone)
-        in_cold_zone = (climate_zone == ACClimateZone.cold_zone)
         heating_capacity = buildings('new_AC_heating_capacity', period)
         HSPF_mixed_value = buildings('AC_HSPF_mixed', period)
-        ACOP_value = buildings ('AC_ACOP', period)
-        HSPF_cooling_value = buildings('AC_HSPF_cold', period)
-
+   
 
         meets_base_install_requirements = (
         new_installation *
@@ -144,10 +141,10 @@ class PDRS__HVAC2_heating_capacity_hot_zone(Variable):
         ACOP_value = buildings ('AC_ACOP', period)
 
         if in_hot_zone is True and heating_capacity:
-        meets_heating_capacity_requirements = HSPF_mixed_value   
+            meets_heating_capacity_requirements = HSPF_mixed_value   
 
         elif in_hot_zone is True and heating_capacity is False:
-        meets_heating_capacity_requirements = ACOP_value
+            meets_heating_capacity_requirements = ACOP_value
        
 
 class PDRS__HVAC2_heating_capacity_cold_zone(Variable):
@@ -170,10 +167,10 @@ class PDRS__HVAC2_heating_capacity_cold_zone(Variable):
         ACOP_value = buildings ('AC_ACOP', period)
 
         if in_hot_zone is True and heating_capacity:
-        meets_heating_capacity_requirements = HSPF_mixed_value   
+            meets_heating_capacity_requirements = HSPF_mixed_value   
 
         elif in_hot_zone is True and heating_capacity is False:
-        meets_heating_capacity_requirements = ACOP_value
+            meets_heating_capacity_requirements = ACOP_value
     
 
         is_eligible = (
@@ -184,21 +181,21 @@ class PDRS__HVAC2_heating_capacity_cold_zone(Variable):
         return is_eligible
 
 
-        has to meet 
-        new_installation or replacement
-        qualified_install
-        equipment_installed or qualified_removal_replacement
+        #has to meet 
+        #new_installation or replacement
+        #qualified_install
+        #equipment_installed or qualified_removal_replacement
 
-        not_residential_building or np.logical_not(not_residential_building)
-                                    class_2_building
+        #not_residential_building or np.logical_not(not_residential_building)
+                                    #class_2_building
 
-        registered_GEMS
+       # registered_GEMS
         
-        cooling_capacity or np.logical_not(cooling_capacity)
-        TCPSF_greater or AEER_greater
+        #cooling_capacity or np.logical_not(cooling_capacity)
+        #TCPSF_greater or AEER_greater
 
-        climate_zone 
+        #climate_zone 
 
-        in_average_zone or in_hot_zone or in_cold_zone
-        heating_capacity or np.logical_not(heating_capacity)
-        HSPF_mixed_value or ACOP_value
+        #in_average_zone or in_hot_zone or in_cold_zone
+        #heating_capacity or np.logical_not(heating_capacity)
+        #HSPF_mixed_value or ACOP_value

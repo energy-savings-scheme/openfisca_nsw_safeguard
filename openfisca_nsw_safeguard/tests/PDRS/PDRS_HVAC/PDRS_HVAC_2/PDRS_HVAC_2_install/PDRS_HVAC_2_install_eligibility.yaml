@@ -31,7 +31,7 @@
       ]
     Equipment_is_installed: [True, True, True, True, True, True, True, True]
     Equipment_is_removed: [True, True, True, True, True, True, True, True]
-    implementation_is_performed_by_qualified_person:
+    Implementation_is_performed_by_qualified_person:
       [True, True, True, True, True, True, True, True]
     Appliance_is_registered_in_GEMS:
       [True, True, True, True, True, True, True, True]
@@ -86,7 +86,7 @@
       ]
     Equipment_is_installed: [True, True, True, True, True, True, True, True]
     Equipment_is_removed: [True, True, True, True, True, True, True, True]
-    implementation_is_performed_by_qualified_person:
+    Implementation_is_performed_by_qualified_person:
       [True, True, True, True, True, True, True, True]
     Appliance_is_registered_in_GEMS:
       [True, True, True, True, True, True, True, True]
@@ -141,7 +141,7 @@
       ]
     Equipment_is_installed: [True, True, True, True, True, True, True, True]
     Equipment_is_removed: [True, True, True, True, True, True, True, True]
-    implementation_is_performed_by_qualified_person:
+    Implementation_is_performed_by_qualified_person:
       [True, True, True, True, True, True, True, True]
     Appliance_is_registered_in_GEMS:
       [True, True, True, True, True, True, True, True]
@@ -196,7 +196,7 @@
       ]
     Equipment_is_installed: [True, True, True, True, True, True, True, True]
     Equipment_is_removed: [True, True, True, True, True, True, True, True]
-    implementation_is_performed_by_qualified_person:
+    Implementation_is_performed_by_qualified_person:
       [True, True, True, True, True, True, True, True]
     Appliance_is_registered_in_GEMS:
       [True, True, True, True, True, True, True, True]

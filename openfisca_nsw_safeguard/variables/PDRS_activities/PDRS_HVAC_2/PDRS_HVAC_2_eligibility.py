@@ -26,8 +26,8 @@ class PDRS__HVAC2_new_install(Variable):
         cooling_capacity = buildings('new_AC_cooling_capacity', period)
         TCPSF_greater = buildings('HVAC_2_TCPSF_greater_than_minimum', period)
 
-        ACClimateZone = climate_zone.possible_values
         climate_zone = buildings('AC_climate_zone', period)
+        ACClimateZone = climate_zone.possible_values
         in_average_zone = (climate_zone == ACClimateZone.average_zone)
         heating_capacity = buildings('new_AC_heating_capacity', period)
         HSPF_mixed_value = buildings('AC_HSPF_mixed', period)

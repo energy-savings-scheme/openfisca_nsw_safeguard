@@ -58,7 +58,7 @@ class PDRS_HVAC_1_install_meets_implementation_requirements(Variable):
         is_installed = buildings(
             'Equipment_is_installed', period)
         performed_by_qualified_person = buildings(
-            'implementation_is_performed_by_qualified_person', period)
+            'Implementation_is_performed_by_qualified_person', period)
 
         return (
                 is_installed * 

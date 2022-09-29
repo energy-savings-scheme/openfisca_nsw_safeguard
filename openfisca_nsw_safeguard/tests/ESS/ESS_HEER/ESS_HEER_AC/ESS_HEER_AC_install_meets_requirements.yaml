@@ -22,7 +22,7 @@
   input: 
     Equipment_is_removed: True
     Equipment_is_installed: True
-    implementation_is_performed_by_qualified_person: True
+    Implementation_is_performed_by_qualified_person: True
   output:
     ESS_HEER_AC_replace_meets_implementation_requirements: True
 - name: Test AC meeting all requirements.
@@ -40,7 +40,7 @@
     Appliance_is_registered_in_GEMS: True
     Equipment_is_installed: True
     Equipment_is_removed: True
-    implementation_is_performed_by_qualified_person: True
+    Implementation_is_performed_by_qualified_person: True
     ESS_HEER_AC_replace_meets_eligibility_requirements: True
   output:
     ESS_HEER_AC_replace_meets_equipment_requirements: True

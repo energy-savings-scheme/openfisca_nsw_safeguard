@@ -201,6 +201,16 @@ class PDRS__replacement_water_heater_certificates(Variable):
     }
 
 
+class PDRS__replacement_solar_water_heater_certificates(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity the installation of a replacement solar water heater?'
+    metadata = {
+        'display_question' : 'Is the activity the installation of a replacement solar water heater?'
+    }
+
+
 class PDRS__residential_building(Variable):
     value_type = bool
     entity = Building

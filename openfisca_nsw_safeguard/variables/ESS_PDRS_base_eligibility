@@ -36,6 +36,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         not_prescribed_service = buildings('PDRS__is_prescribed_transmission_service', period)
         not_tradeable_certificates = buildings('PDRS__tradeable_certificates', period)
         replacement_hw = buildings('PDRS__replacement_water_heater_certificates', period)
+        replacement_solar_hw = buildings('PDRS__replacement_solar_water_heater_certificates', period)
         
         # removing or replacing is YES and equipment is not resold, reused or refurbished and is disposed of appropriately
         removing_replacing_intermediary = removing_or_replacing + (not_resold_reused_refurbished * appropriate_disposal)
@@ -43,9 +44,11 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
 
         # mandatory requirement is YES and basix affected is YES
         mandatory_allowance = np.logical_not(no_mandatory_requirement) * basix_affected
+        print(mandatory_allowance)
 
-        # tradeable certificates is YES and replacement heat pump water heater is YES
-        tradeable_certificates_allowed = np.logical_not(not_tradeable_certificates) * replacement_hw
+        # tradeable certificates is YES and replacement heat pump water heater is YES and solar water heater is no
+        tradeable_certificates_allowed = np.logical_not(not_tradeable_certificates) * replacement_hw * np.logical_not(replacement_solar_hw)
+        print(tradeable_certificates_allowed)
 
 
         end_formula =  ( energy_consumption * reduce_demand * activity_implemented * implementation_date * lawful * registered_ACP *

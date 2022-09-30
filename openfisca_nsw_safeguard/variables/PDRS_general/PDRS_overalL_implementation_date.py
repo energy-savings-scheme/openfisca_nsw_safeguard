@@ -77,7 +77,7 @@ class PDRS__have_accreditation(Variable):
 
 
 class PDRS__implementation_after_1_July_2022(Variable):
-    value_type = date
+    value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the implementation after 1 July 2022?'

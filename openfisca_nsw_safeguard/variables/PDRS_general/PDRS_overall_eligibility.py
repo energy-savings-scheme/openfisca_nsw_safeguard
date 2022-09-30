@@ -191,12 +191,31 @@ class PDRS__tradeable_certificates(Variable):
         'display_question' : 'Have you created tradeable certificates under the Renewable Energy Act?'
     }
 
+class PDRS__replacement_water_heater_certificates(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity the installation of a replacement heat pump water heater?'
+    metadata = {
+        'display_question' : 'Is the activity the installation of a replacement heat pump water heater?'
+    }
+
+
+class PDRS__replacement_solar_water_heater_certificates(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Is the activity the installation of a replacement solar water heater?'
+    metadata = {
+        'display_question' : 'Is the activity the installation of a replacement solar water heater?'
+    }
+
 
 class PDRS__residential_building(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Have you created tradeable certificates'
+    label = 'Has the new End-User equipment been installed in a residential building'
     metadata = {
         'display_question' : 'Has the new End-User equipment been installed in a residential building?'
     }

@@ -200,7 +200,7 @@ class AC_ACOP(Variable):
     "regulation_reference": PDRS_2022["XX", "AC"],
     'display_question' : 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?',
     'variable-type': 'conditional',
-    'dependency': 'new_AC_heating_capacity==False,'
+    'dependency': 'new_AC_heating_capacity==False'
 }
 
 

@@ -24,23 +24,26 @@
     PDRS_HVAC_2_installation:
       [
         False,
-        True
+        True,
+        False
       ]
-    PDRS_HVAC_2_PDRS_HVAC_2_replacement:
+    PDRS_HVAC_2_replacement:
       [
         True,
-        True
+        True,
+        False
       ]
     Equipment_is_removed:
       [
         True,
-        True
+        True,
+        False
       ]
   output:
-    PDRS__HVAC2_is_eligible_activity_new_install:
+    PDRS__HVAC2_new_install:
       [
         False, 
-        True,
+        False,
         False
       ]
 

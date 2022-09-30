@@ -39,7 +39,7 @@ class ESS__postcode(Variable):
     label = "What is the postcode for the building you are calculating ESCs for?"
     metadata={
         "variable-type": "user-input",
-        "alias":"ESS Postcode",
+        "alias": "ESS Postcode",
         # "major-cat":"Energy Savings Scheme",
         # "monor-cat":'Energy Savings Scheme - General'
         }

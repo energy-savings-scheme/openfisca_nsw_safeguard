@@ -113,6 +113,7 @@ class ESS_HEER__replace_pool_pump_meets_equipment_requirements(Variable):
             'ESS_HEER__replace_existing_pool_pump_with_high_efficiency_pump_is_part_of_eligible_labelling_scheme', period)
         has_minimum_star_rating = buildings(
             'ESS_HEER__replace_pool_pump_new_equipment_has_minimum_star_rating', period)
+        
         return (
             for_domestic_use *
             eligible_type_of_pool_pump *

@@ -196,7 +196,7 @@ class PDRS__residential_building(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Have you created tradeable certificates'
+    label = 'Has the new End-User equipment been installed in a residential building'
     metadata = {
         'display_question' : 'Has the new End-User equipment been installed in a residential building?'
     }

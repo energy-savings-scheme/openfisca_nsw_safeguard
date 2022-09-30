@@ -40,16 +40,12 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         
         # removing or replacing is YES and equipment is not resold, reused or refurbished and is disposed of appropriately
         removing_replacing_intermediary = removing_or_replacing + (not_resold_reused_refurbished * appropriate_disposal)
-        print(removing_replacing_intermediary)
 
         # mandatory requirement is YES and basix affected is YES
         mandatory_allowance = np.logical_not(no_mandatory_requirement) * basix_affected
-        print(mandatory_allowance)
 
         # tradeable certificates is YES and replacement heat pump water heater is YES and solar water heater is no
         tradeable_certificates_allowed = np.logical_not(not_tradeable_certificates) * replacement_hw * np.logical_not(replacement_solar_hw)
-        print(tradeable_certificates_allowed)
-
 
         end_formula =  ( energy_consumption * reduce_demand * activity_implemented * implementation_date * lawful * registered_ACP *
                          removing_replacing_intermediary * no_reduction_safety_levels * no_increase_emissions * mandatory_allowance *
@@ -59,7 +55,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         return end_formula
 
 
-class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
+class ESS__PDRS__not_ACP_base_scheme_eligibility(Variable):
     """
         Formula to calculate the ESS PDRS Base Scheme eligibility if not an ACP
     """
@@ -93,15 +89,12 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         
         # removing or replacing is YES and equipment is not resold, reused or refurbished and is disposed of appropriately
         removing_replacing_intermediary = removing_or_replacing + (not_resold_reused_refurbished * appropriate_disposal)
-        print(removing_replacing_intermediary)
 
         # mandatory requirement is YES and basix affected is YES
         mandatory_allowance = np.logical_not(no_mandatory_requirement) * basix_affected
-        print(mandatory_allowance)
 
         # tradeable certificates is YES and replacement heat pump water heater is YES and solar water heater is no
         tradeable_certificates_allowed = np.logical_not(not_tradeable_certificates) * replacement_hw * np.logical_not(replacement_solar_hw)
-        print(tradeable_certificates_allowed)
 
         end_formula =  ( energy_consumption * reduce_demand * activity_implemented * implementation_date * lawful * engaged_an_ACP *
                          removing_replacing_intermediary * no_reduction_safety_levels * no_increase_emissions * mandatory_allowance *

@@ -11,7 +11,9 @@ class is_installed_centralised_system_common_area_BCA_Class2_building(Variable):
     definition_period = ETERNITY
     label = "Is the installation in a centralised system or common area in a Class 2 building?"
     metadata = {
-        'display_question':"Is the installation in a centralised system or common area in a Class 2 building?"
+        'display_question':"Is the installation in a centralised system or common area in a Class 2 building?",
+        'variable-type': 'conditional',
+        'dependency': 'PDRS__residential_building==True'
     }
 
 class Appliance_is_registered_in_GEMS(Variable):

@@ -7,6 +7,7 @@ import numpy as np
 from datetime import datetime as py_datetime
 from datetime import date
 
+
 class ESS__meets_overall_eligibility_requirements(Variable):
     value_type = bool
     entity = Building
@@ -170,7 +171,6 @@ class ESS__reduces_energy_consumption(Variable):
         'display_question' : 'Does your activity reduce energy consumption compared to what would have been consumed?'
     }
 
-
 class ESS_registered_ACP(Variable):
     value_type = bool
     entity = Building
@@ -178,4 +178,15 @@ class ESS_registered_ACP(Variable):
     label = 'Are you an ACP?'
     metadata = {
         'display_question' : 'Are you an ACP?'
+    }
+    
+class ESS_engaged_ACP(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Did you engage an Accredited Certificate Provider prior to the implementation date?'
+    metadata = {
+        'display_question' : 'Did you engage an Accredited Certificate Provider prior to the implementation date?',
+        'variable-type': 'conditional',
+        'dependency': 'ESS_registered_ACP==True'
     }

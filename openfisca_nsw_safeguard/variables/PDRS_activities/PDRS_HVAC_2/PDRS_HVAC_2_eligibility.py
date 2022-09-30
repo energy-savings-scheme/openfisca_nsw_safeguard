@@ -49,7 +49,7 @@ class PDRS__HVAC2_installation_final_activity_eligibility(Variable):
         
         hot_zone_intermediary = in_hot_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))
         average_zone_intermediary = in_average_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))
-        cool_zone_intermediary = in_cold_zone * ( (heating_capacity * HSPF_cold_value) + (np.logical_not(heating_capacity) * ACOP_value))
+        cool_zone_intermediary = in_cold_zone * ((heating_capacity * HSPF_cold_value) + (np.logical_not(heating_capacity) * ACOP_value))
         
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
         

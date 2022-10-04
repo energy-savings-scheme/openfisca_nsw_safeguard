@@ -1,13 +1,15 @@
-from symbol import factor
-from tkinter.tix import ACROSSTOP
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
+
 import numpy as np
 
 
 class PDRS__HVAC2_heating_annual_energy_use(Variable):
+    """ Variables from GEMs Registry: HVAC2_heating_capacity_input and HVAC2_rated_ACOP_input
+        Variables from Rule tables: HVAC2_equivalent_heating_hours_input
+    """
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -18,17 +20,19 @@ class PDRS__HVAC2_heating_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameter):
-      heating capacity (from model number)
-      equivalent heating hours (from climate zone)
-      rated ACOP (from model number)
+      heating_capacity = ('HVAC2_heating_capacity_input', period)
+      equivalent_heating_hours = ('HVAC2_equivalent_heating_hours', period)
+      rated_ACOP = ('HVAC2_rated_ACOP_input', period)
 
-      annual_heating = np.floor(heating capacity * equivalent heating hours) / rated ACOP
+      annual_heating = np.floor(heating_capacity * equivalent_heating_hours) / rated_ACOP
 
       return annual_heating
 
 
-
 class PDRS__HVAC2_cooling_annual_energy_use(Variable):
+    """ Variables from GEMs Registry: HVAC2_cooling_capacity_input and HVAC2_rated_AEER_input
+        Variables from Rule tables: HVAC2_equivalent_cooling_hours_input
+    """
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -39,11 +43,11 @@ class PDRS__HVAC2_cooling_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameter):
-      cooling capacity (from model number)
-      equivalent cooling hours (from climate zone)
-      rated AEER (from model number)
+      cooling_capacity =('HVAC2_cooling_capacity_input', period)
+      equivalent_cooling_hours = ('HVAC2_equivalent_cooling_hours_input', period)
+      rated_AEER = ('HVAC2_rated_AEER_input', period)
 
-      annual_cooling = (cooling capacity * equivalent cooling hours) / rated AEER
+      annual_cooling = (cooling_capacity * equivalent_cooling_hours) / rated_AEER
 
       return annual_cooling
 
@@ -59,12 +63,12 @@ class PDRS__HVAC2_reference_heating_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameter):
-      heating capacity (from model number)
-      equivalent heating hours (from climate zone)
+      heating_capacity = ('HVAC2_heating_capacity_input', period)
+      equivalent_heating_hours = ('HVAC2_equivalent_heating_hours', period)
       baseline ACOP from model number
       
      
-      reference_annual_heating = np.floor(heating capacity * equivalent heating hours) / baseline ACOP
+      reference_annual_heating = np.floor(heating_capacity * equivalent_heating_hours) / baseline ACOP
 
       return reference_annual_heating
 
@@ -100,10 +104,10 @@ class PDRS__HVAC2_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      reference_annual_cooling
-      annual_cooling
-      reference_annual_heating
-      annual_heating
+      reference_annual_cooling = ('PDRS__HVAC2_reference_cooling_annual_energy_use', period)
+      annual_cooling = ('PDRS__HVAC2_cooling_annual_energy_use', period)
+      reference_annual_heating = ('PDRS__HVAC2_reference_heating_annual_energy_use', period)
+      annual_heating = ('PDRS__HVAC2_heating_annual_energy_use', period)
       lifetime
 
       deemed_electricity_savings = (reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating) * (lifetime / 1000)
@@ -122,10 +126,10 @@ class PDRS__HVAC2_electricity_savings(Variable):
     }
 
     def fornula(buildings, period, parameters):
-      deemed electricity savings    
-      regional network factor 
+      deemed_electricity_savings = ('PDRS__HVAC2_deemed_activity_electricity_savings', period)   
+      regional_network_factor = ('PDRS__regional_network_factor', period)
 
-      HVAC2_electricity_savings = deemed electricity savings * regional network factor
+      HVAC2_electricity_savings = deemed_electricity_savings * regional_network_factor
 
       return HVAC2_electricity_savings
 

@@ -39,6 +39,39 @@ class new_AC_heating_capacity(Variable):
     }
 
 
+class HVAC2_heating_capacity_input(Variable):
+    # This is the variable for the data input from the GEMS Registry
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The HVAC2 heating capacity that pulls in from the GEMS Registry'
+    metadata = {
+        'variable-type': 'user-input'
+    }
+
+
+class HVAC2_equivalent_heating_hours_input(Variable):
+    # This is the variable for the data input from the ESS Table F4.1
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The equivalent heating hours that pull in from Table F4.1'
+    metadata = {
+        'variable-type': 'user-input'
+    }
+
+
+class HVAC2_rated_ACOP_input(Variable):
+    # This is the variable for the data input from the GEMS Registry
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The ACOP rating that pulls in from the GEMS Registry'
+    metadata = {
+        'variable-type': 'user-input'
+    }
+
+
 class new_AC_EER(Variable):
     value_type = float
     entity = Building
@@ -46,4 +79,36 @@ class new_AC_EER(Variable):
     label = 'What is the EER for the new AC?' 
     #TODO - check to see how EER is calced \
     # across CC ACs and regular, <65kW ACs
- 
+
+
+class HVAC2_cooling_capacity_input(Variable):
+    # This is the variable for the data input from the GEMS Registry
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The HVAC2 cooling capacity that pulls in from the GEMS Registry'
+    metadata = {
+        'variable-type': 'user-input'
+    }
+
+
+class HVAC2_equivalent_cooling_hours_input(Variable):
+    # This is the variable for the data input from the ESS Table F4.1
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The equivalent cooling hours that pull in from Table F4.1'
+    metadata = {
+        'variable-type': 'user-input'
+}
+
+
+class HVAC2_rated_AEER_input(Variable):
+    # This is the variable for the data input from the GEMS Registry
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The AEER rating that pulls in from the GEMS Registry'
+    metadata = {
+        'variable-type': 'user-input'
+    }

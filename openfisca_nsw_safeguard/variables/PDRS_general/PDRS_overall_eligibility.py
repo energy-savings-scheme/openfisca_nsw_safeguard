@@ -120,7 +120,7 @@ class PDRS__greenhouse_emissions_increase(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Does the activity result in an increase in emissions?'
+    label = 'Will your activity lead to a net increase in greenhouse emissions?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Increases Emissions",
@@ -133,7 +133,7 @@ class PDRS__meets_mandatory_requirement(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Is the activity conducted to meet mandatory requirements of...?'
+    label = 'Is your activity being undertaken to comply with any mandatory legal requirements?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Meets Mandatory Requirements",
@@ -148,7 +148,7 @@ class PDRS__basix_affected_development(Variable):
     definition_period = ETERNITY
     label = 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
     metadata = {
-        'display_question': "Is your activity an alteration, enlargement or extension of a BASIX affected development?"
+        'display_question': 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
     }
 
 
@@ -168,11 +168,11 @@ class PDRS__is_prescribed_transmission_service(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Is the activity a Prescribed Transmission Service?'
+    label = 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity is Prescribed Transmission Service",
-        'display_question': "Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?"
+        'display_question': 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     }
 
 
@@ -192,11 +192,11 @@ class PDRS__reduces_safety_levels(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Does the activity result in a reduction in safety levels?'
+    label = 'Will your activity reduce safety levels or permanently reduce production or service levels?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Reduces Safety Levels",
-        'display_question' : "Will your activity reduce safety levels or permanently reduce production or service levels?"
+        'display_question' : 'Will your activity reduce safety levels or permanently reduce production or service levels?'
     }
 
 
@@ -215,7 +215,7 @@ class PDRS__tradeable_certificates(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Have you created tradeable certificates'
+    label = 'Have you created tradeable certificates under the Renewable Energy Act?'
     metadata = {
         'display_question' : 'Have you created tradeable certificates under the Renewable Energy Act?'
     }
@@ -246,7 +246,7 @@ class PDRS__residential_building(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Has the new End-User equipment been installed in a residential building'
+    label = 'Has the new End-User equipment been installed in a residential building?'
     metadata = {
         'display_question' : 'Has the new End-User equipment been installed in a residential building?'
     }

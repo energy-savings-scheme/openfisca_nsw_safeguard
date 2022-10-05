@@ -38,7 +38,7 @@
         False, #new install
         True
       ]
-    ESS__equipment_is_not_resold_reused_or_refurbished:
+    ESS__not_resold_reused_or_refurbished:
       [
         True,
         True

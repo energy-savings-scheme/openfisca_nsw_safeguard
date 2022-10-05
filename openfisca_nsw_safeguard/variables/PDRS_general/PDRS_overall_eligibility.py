@@ -118,7 +118,7 @@ class PDRS__meets_mandatory_requirement(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the activity conducted to meet mandatory requirements of...?'
+    label = 'Is the activity conducted to meet mandatory requirements?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Meets Mandatory Requirements",
@@ -186,7 +186,7 @@ class PDRS__tradeable_certificates(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Have you created tradeable certificates'
+    label = 'Have you created tradeable certificates?'
     metadata = {
         'display_question' : 'Have you created tradeable certificates under the Renewable Energy Act?'
     }

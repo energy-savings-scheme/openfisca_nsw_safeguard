@@ -1,5 +1,4 @@
-- name:
-    test ESS PDRS bsae scheme eligibility for an ACP
+- name: test ESS PDRS base scheme eligibility for an ACP
   period: 2022
   absolute_error_margin: 0
   input:

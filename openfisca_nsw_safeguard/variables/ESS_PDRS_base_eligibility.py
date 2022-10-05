@@ -23,7 +23,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         energy_consumption = buildings('ESS__reduces_energy_consumption', period)
         reduce_demand = buildings('PDRS__provides_capacity_to_reduce_demand', period)
         activity_implemented = buildings('PDRS__have_implemented_PDR_activity', period)
-        implementation_date = buildings('PDRS__implementation_after_1_July_2022', period)
+        implementation_date = buildings('PDRS__implementation_after_1_April_2022', period)
         lawful = buildings('PDRS__is_lawful_activity', period)
         registered_ACP = buildings('ESS_registered_ACP', period)
         engaged_an_ACP = buildings('ESS_engaged_ACP', period)

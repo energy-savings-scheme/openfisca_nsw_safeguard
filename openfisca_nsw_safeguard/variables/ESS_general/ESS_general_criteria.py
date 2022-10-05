@@ -165,6 +165,7 @@ class ESS__recycling_evidence_for_refrigerants_is_obtained(Variable):
 class ESS__reduces_energy_consumption(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the activity reduce energy consumption?'
     metadata = {

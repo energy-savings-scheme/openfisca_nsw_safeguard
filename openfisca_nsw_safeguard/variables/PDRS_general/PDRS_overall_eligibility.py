@@ -80,6 +80,17 @@ class PDRS__is_eligible_for_PDRS_creation(Variable):
     }
 
 
+class PDRS__removing_or_replacing(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Are you removing or replacing End-User equipment?'
+    metadata = {
+        'display_question' : 'Are you removing or replacing End-User equipment?'
+    }
+
+
 class PDRS__is_in_PDRS_jurisdiction(Variable):
     value_type = bool
     entity = Building

@@ -80,6 +80,17 @@ class PDRS__is_eligible_for_PDRS_creation(Variable):
     }
 
 
+class PDRS__removing_or_replacing(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Are you removing or replacing End-User equipment?'
+    metadata = {
+        'display_question' : 'Are you removing or replacing End-User equipment?'
+    }
+
+
 class PDRS__is_in_PDRS_jurisdiction(Variable):
     value_type = bool
     entity = Building
@@ -107,8 +118,9 @@ class PDRS__is_lawful_activity(Variable):
 class PDRS__greenhouse_emissions_increase(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
-    label = 'Does the activity result in an increase in emissions?'
+    label = 'Will your activity lead to a net increase in greenhouse emissions?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Increases Emissions",
@@ -119,12 +131,24 @@ class PDRS__greenhouse_emissions_increase(Variable):
 class PDRS__meets_mandatory_requirement(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
-    label = 'Is the activity conducted to meet mandatory requirements of...?'
+    label = 'Is your activity being undertaken to comply with any mandatory legal requirements?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Meets Mandatory Requirements",
         'display_question': "Is your activity being undertaken to comply with any mandatory legal requirements?"
+    }
+
+
+class PDRS__basix_affected_development(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
+    metadata = {
+        'display_question': 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
     }
 
 
@@ -142,12 +166,13 @@ class PDRS__is_standard_control_service(Variable):
 class PDRS__is_prescribed_transmission_service(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
-    label = 'Is the activity a Prescribed Transmission Service?'
+    label = 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity is Prescribed Transmission Service",
-        'display_question': "Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?"
+        'display_question': 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     }
 
 
@@ -165,12 +190,13 @@ class PDRS__is_non_network_option(Variable):
 class PDRS__reduces_safety_levels(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
-    label = 'Does the activity result in a reduction in safety levels?'
+    label = 'Will your activity reduce safety levels or permanently reduce production or service levels?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Reduces Safety Levels",
-        'display_question' : "Will your activity reduce safety levels or permanently reduce production or service levels?"
+        'display_question' : 'Will your activity reduce safety levels or permanently reduce production or service levels?'
     }
 
 
@@ -187,8 +213,9 @@ class PDRS__is_eligible_for_RET(Variable):
 class PDRS__tradeable_certificates(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
-    label = 'Have you created tradeable certificates'
+    label = 'Have you created tradeable certificates under the Renewable Energy Act?'
     metadata = {
         'display_question' : 'Have you created tradeable certificates under the Renewable Energy Act?'
     }
@@ -196,6 +223,7 @@ class PDRS__tradeable_certificates(Variable):
 class PDRS__replacement_water_heater_certificates(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is the activity the installation of a replacement heat pump water heater?'
     metadata = {
@@ -206,6 +234,7 @@ class PDRS__replacement_water_heater_certificates(Variable):
 class PDRS__replacement_solar_water_heater_certificates(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is the activity the installation of a replacement solar water heater?'
     metadata = {
@@ -217,7 +246,7 @@ class PDRS__residential_building(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Has the new End-User equipment been installed in a residential building'
+    label = 'Has the new End-User equipment been installed in a residential building?'
     metadata = {
         'display_question' : 'Has the new End-User equipment been installed in a residential building?'
     }

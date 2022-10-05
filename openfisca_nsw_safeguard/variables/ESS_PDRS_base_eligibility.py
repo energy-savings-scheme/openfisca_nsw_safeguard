@@ -29,7 +29,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         engaged_an_ACP = buildings('ESS_engaged_ACP', period)
         removing_or_replacing = buildings('PDRS__removing_or_replacing', period)
         not_resold_reused_refurbished = buildings('ESS__not_resold_reused_or_refurbished', period)
-        appropriate_disposal = buildings('ESS__appropriate_disposal_of_equipment_after_15_April_2016', period)
+        appropriate_disposal = buildings('ESS__disposal_of_equipment', period)
         no_reduction_safety_levels = buildings('PDRS__reduces_safety_levels', period)
         no_increase_emissions = buildings('PDRS__greenhouse_emissions_increase', period)
         no_mandatory_requirement = buildings('PDRS__meets_mandatory_requirement', period)

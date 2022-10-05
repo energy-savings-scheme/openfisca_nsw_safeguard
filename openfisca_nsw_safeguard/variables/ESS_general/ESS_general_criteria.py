@@ -48,7 +48,7 @@ class ESS__equipment_is_not_resold_reused_or_refurbished(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Is the equipment removed or replaced as part of an ESS activity, not a. resold, b. reused or c. refurbished?'
+    label = 'Is the removed End-User equipment re-sold, refurbished or re-used?'
     metadata = {
         'display-question' : 'Is the removed End-User equipment re-sold, refurbished or re-used?'
     }
@@ -84,6 +84,9 @@ class ESS__equipment_is_refurbished(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Will or has the ACP refurbished the equipment replaced or removed as part of the activity?'
+    metadata = {
+        'display_question' : ''
+    }
 
 
 class ESS__not_resold_reused_or_refurbished(Variable):
@@ -93,7 +96,7 @@ class ESS__not_resold_reused_or_refurbished(Variable):
     definition_period = ETERNITY
     label = 'Is the removed End-User equipment re-sold, refurbished or re-used?'
     metadata = {
-        'display_question': 'Is the removed End-User equipment re-sold, refurbished or re-used? '
+        'display_question': 'Is the removed End-User equipment re-sold, refurbished or re-used?'
     }
 
 
@@ -109,6 +112,7 @@ class ESS__implementation_date(Variable):
 class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Has the removed or replaced equipment been disposed of appropriately, in accordance' \
             ' requirements put in place from 15 April 2016?'
@@ -143,6 +147,16 @@ class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
                 refrigerant_recycling_evidence_is_available
             )
         )
+
+class ESS__disposal_of_equipment(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Will your End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?'
+    metadata = {
+        'display_question' : 'Will your End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?'
+    }
 
 
 class ESS__activity_occurred_in_Metro_Levy_Area(Variable):

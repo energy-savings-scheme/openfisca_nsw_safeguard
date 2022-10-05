@@ -166,6 +166,7 @@ class PDRS__is_standard_control_service(Variable):
 class PDRS__is_prescribed_transmission_service(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
     label = 'Is the activity a Prescribed Transmission Service?'
     metadata = {
@@ -212,6 +213,7 @@ class PDRS__is_eligible_for_RET(Variable):
 class PDRS__tradeable_certificates(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
     label = 'Have you created tradeable certificates'
     metadata = {
@@ -221,6 +223,7 @@ class PDRS__tradeable_certificates(Variable):
 class PDRS__replacement_water_heater_certificates(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is the activity the installation of a replacement heat pump water heater?'
     metadata = {
@@ -231,6 +234,7 @@ class PDRS__replacement_water_heater_certificates(Variable):
 class PDRS__replacement_solar_water_heater_certificates(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is the activity the installation of a replacement solar water heater?'
     metadata = {

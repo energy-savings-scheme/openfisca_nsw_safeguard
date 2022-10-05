@@ -109,6 +109,7 @@ class ESS__implementation_date(Variable):
 class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Has the removed or replaced equipment been disposed of appropriately, in accordance' \
             ' requirements put in place from 15 April 2016?'

@@ -118,6 +118,7 @@ class PDRS__is_lawful_activity(Variable):
 class PDRS__greenhouse_emissions_increase(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
     label = 'Does the activity result in an increase in emissions?'
     metadata = {
@@ -130,12 +131,24 @@ class PDRS__greenhouse_emissions_increase(Variable):
 class PDRS__meets_mandatory_requirement(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
     label = 'Is the activity conducted to meet mandatory requirements of...?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Meets Mandatory Requirements",
         'display_question': "Is your activity being undertaken to comply with any mandatory legal requirements?"
+    }
+
+
+class PDRS__basix_affected_development(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
+    metadata = {
+        'display_question': "Is your activity an alteration, enlargement or extension of a BASIX affected development?"
     }
 
 
@@ -176,6 +189,7 @@ class PDRS__is_non_network_option(Variable):
 class PDRS__reduces_safety_levels(Variable):
     value_type = bool
     entity = Building
+    default_value = False
     definition_period = ETERNITY
     label = 'Does the activity result in a reduction in safety levels?'
     metadata = {

@@ -2,7 +2,7 @@
   period: 2021
   absolute_error_margin: 0
   input:
-      PDRS__have_implemented_PDR_activity:
+      PDRS__have_implemented_PDRS_activity:
           [
             True,
           ]

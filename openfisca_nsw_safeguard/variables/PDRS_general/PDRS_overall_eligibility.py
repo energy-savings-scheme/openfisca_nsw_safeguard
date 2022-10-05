@@ -61,11 +61,11 @@ class PDRS__provides_capacity_to_reduce_demand(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = 'Does the activity provide the capacity to reduce demand?'
+    label = 'Does your activity provide capacity to reduce demand during the Peak Demand Reduction period?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Reduces Demand",
-        'display_question': "Does your activity provide capacity to reduce demand during the Peak Demand Reduction period?"
+        'display_question': 'Does your activity provide capacity to reduce demand during the Peak Demand Reduction period?'
     }
 
 
@@ -107,7 +107,7 @@ class PDRS__is_lawful_activity(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = 'Is the activity lawful to conduct?'
+    label = 'Was your activity lawful in NSW on the implementation date?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Is lawful Activity",
@@ -171,7 +171,6 @@ class PDRS__is_prescribed_transmission_service(Variable):
     label = 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "PDRS Activity is Prescribed Transmission Service",
         'display_question': 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     }
 

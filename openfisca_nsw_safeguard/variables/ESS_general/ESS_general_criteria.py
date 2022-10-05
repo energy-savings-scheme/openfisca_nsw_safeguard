@@ -192,7 +192,7 @@ class ESS__reduces_energy_consumption(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = 'Does the activity reduce energy consumption?'
+    label = 'Does your activity reduce energy consumption compared to what would have been consumed?'
     metadata = {
         'display_question' : 'Does your activity reduce energy consumption compared to what would have been consumed?'
     }

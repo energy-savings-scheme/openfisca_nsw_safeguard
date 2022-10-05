@@ -22,7 +22,7 @@ class PDRS__can_create_PDRS_certificate(Variable):
     }
 
     def formula(buildings, period, parameters):
-        have_implemented_PDR_activity = buildings('PDRS__have_implemented_PDR_activity', period)
+        have_implemented_PDR_activity = buildings('PDRS__have_implemented_PDRS_activity', period)
         have_accreditation = buildings('PDRS__have_accreditation', period)
         implementation_after_1_July_2022 = buildings('PDRS__implementation_after_1_April_2022', period)
         certificates_have_been_calculated = buildings('PDRS__certificates_have_been_calculated', period)
@@ -49,12 +49,12 @@ class PDRS__can_create_PDRS_certificate(Variable):
         return is_eligible
 
 
-class PDRS__have_implemented_PDR_activity(Variable):
+class PDRS__have_implemented_PDRS_activity(Variable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = 'Has implementation already occurred?'
+    label = 'Has your implementation already occurred?'
     metadata = {
         "variable-type": "user-input",
         "alias": "PDRS Have Implemented PDR Activity",
@@ -82,7 +82,7 @@ class PDRS__implementation_after_1_April_2022(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = 'Is the implementation after 1 April 2022?'
+    label = 'What date did the implementation occur?'
     metadata = {
         "variable-type": "user-input",
         "alias": "PDRS Have Implemented PDR Activity",

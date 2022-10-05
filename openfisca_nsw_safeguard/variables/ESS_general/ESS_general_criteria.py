@@ -86,6 +86,17 @@ class ESS__equipment_is_refurbished(Variable):
     label = 'Will or has the ACP refurbished the equipment replaced or removed as part of the activity?'
 
 
+class ESS__not_resold_reused_or_refurbished(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Is the removed End-User equipment re-sold, refurbished or re-used?'
+    metadata = {
+        'display_question': 'Is the removed End-User equipment re-sold, refurbished or re-used? '
+    }
+
+
 class ESS__implementation_date(Variable):
     value_type = date
     entity = Building
@@ -165,6 +176,7 @@ class ESS__recycling_evidence_for_refrigerants_is_obtained(Variable):
 class ESS__reduces_energy_consumption(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the activity reduce energy consumption?'
     metadata = {

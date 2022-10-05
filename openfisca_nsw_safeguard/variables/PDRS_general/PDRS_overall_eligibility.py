@@ -59,6 +59,7 @@ class PDRS__is_eligible_activity(Variable):
 class PDRS__provides_capacity_to_reduce_demand(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the activity provide the capacity to reduce demand?'
     metadata = {
@@ -93,6 +94,7 @@ class PDRS__is_in_PDRS_jurisdiction(Variable):
 class PDRS__is_lawful_activity(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is the activity lawful to conduct?'
     metadata = {

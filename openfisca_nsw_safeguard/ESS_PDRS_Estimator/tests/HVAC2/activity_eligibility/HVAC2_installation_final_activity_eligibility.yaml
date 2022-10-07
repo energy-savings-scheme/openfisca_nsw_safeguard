@@ -3,7 +3,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    PDRS_HVAC_2_installation:
+    HVAC_2_installation:
       [
         True,
         True,
@@ -12,7 +12,7 @@
         True,
         False
       ]
-    Implementation_is_performed_by_qualified_person:
+    HVAC2_Installed_by_qualified_person:
       [
         True, 
         True, 
@@ -21,7 +21,7 @@
         True,
         False
       ]
-    Equipment_is_installed:
+    HVAC2_Equipment_installed:
       [
         True, 
         True, 
@@ -30,7 +30,7 @@
         True,
         True
       ]
-    PDRS__residential_building:
+    HVAC2_residential_building:
       [
         False, 
         True, 
@@ -39,7 +39,7 @@
         False,
         True
       ]
-    is_installed_centralised_system_common_area_BCA_Class2_building:
+    HVAC2_installed_centralised_system_common_area_BCA_Class2_building:
       [
         False,
         True,
@@ -48,7 +48,7 @@
         True,
         False
       ]
-    HVAC2_appliance_is_registered_in_GEMS:
+    HVAC2_equipment_registered_in_GEMS:
       [
         True,
         True,
@@ -57,7 +57,7 @@
         True,
         False
       ]
-    new_AC_cooling_capacity:
+    HVAC2_new_equipment_cooling_capacity:
       [
         True,
         False,
@@ -66,7 +66,7 @@
         False,
         False
       ]
-    HVAC_2_TCPSF_greater_than_minimum:
+    HVAC2_TCPSF_greater_than_minimum:
       [
         True,
         True,
@@ -75,7 +75,7 @@
         False,
         False
       ]
-    AC_climate_zone:
+    HVAC2_climate_zone:
       [
         hot_zone,
         average_zone,
@@ -84,7 +84,7 @@
         cold_zone,
         hot_zone
       ]
-    new_AC_heating_capacity:
+    HVAC2_new_equipment_heating_capacity:
       [
         True,
         False,
@@ -93,7 +93,7 @@
         False,
         False
       ]
-    AC_HSPF_mixed:
+    HVAC2_HSPF_mixed:
       [
         True,
         False,
@@ -102,7 +102,7 @@
         False,
         False
       ]
-    AC_HSPF_cold:
+    HVAC2_HSPF_cold:
       [
         False,
         False,
@@ -120,7 +120,7 @@
         True,
         False
       ]
-    AC_ACOP:
+    HVAC2_ACOP:
       [
         True,
         True,
@@ -130,7 +130,7 @@
         True
       ]
   output:
-    PDRS__HVAC2_installation_final_activity_eligibility:
+    HVAC2_installation_final_activity_eligibility:
       [
         True, 
         True,
@@ -146,7 +146,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    PDRS_HVAC_2_replacement:
+    HVAC2_equipment_replaced:
       [
         True,
         True,
@@ -155,7 +155,7 @@
         True,
         False
       ]
-    Implementation_is_performed_by_qualified_person:
+    HVAC2_equipment_removed:
       [
         True, 
         True, 
@@ -164,7 +164,7 @@
         True,
         False
       ]
-    Equipment_is_removed:
+    HVAC2_Equipment_installed:
       [
         True, 
         True, 
@@ -173,7 +173,7 @@
         True,
         True
       ]
-    PDRS__residential_building:
+    HVAC2_residential_building:
       [
         False, 
         True, 
@@ -182,7 +182,7 @@
         False,
         True
       ]
-    is_installed_centralised_system_common_area_BCA_Class2_building:
+    HVAC2_installed_centralised_system_common_area_BCA_Class2_building:
       [
         False,
         True,
@@ -191,7 +191,7 @@
         True,
         False
       ]
-    HVAC2_appliance_is_registered_in_GEMS:
+    HVAC2_equipment_registered_in_GEMS:
       [
         True,
         True,
@@ -200,7 +200,7 @@
         True,
         False
       ]
-    new_AC_cooling_capacity:
+    HVAC2_new_equipment_cooling_capacity:
       [
         True,
         False,
@@ -209,7 +209,7 @@
         False,
         False
       ]
-    HVAC_2_TCPSF_greater_than_minimum:
+    HVAC2_TCPSF_greater_than_minimum:
       [
         True,
         True,
@@ -218,7 +218,7 @@
         False,
         False
       ]
-    AC_climate_zone:
+    HVAC2_climate_zone:
       [
         hot_zone,
         average_zone,
@@ -227,7 +227,7 @@
         cold_zone,
         hot_zone
       ]
-    new_AC_heating_capacity:
+    HVAC2_new_equipment_heating_capacity:
       [
         True,
         False,
@@ -236,7 +236,7 @@
         False,
         False
       ]
-    AC_HSPF_mixed:
+    HVAC2_HSPF_mixed:
       [
         True,
         False,
@@ -245,7 +245,7 @@
         False,
         False
       ]
-    AC_HSPF_cold:
+    HVAC2_HSPF_cold:
       [
         False,
         False,
@@ -254,7 +254,7 @@
         True,
         False
       ]
-    HVAC_2_AEER_greater_than_minimum:
+    HVAC2_AEER_greater_than_minimum:
       [
         False,
         True,
@@ -263,7 +263,7 @@
         True,
         False
       ]
-    AC_ACOP:
+    HVAC2_ACOP:
       [
         True,
         True,
@@ -273,7 +273,7 @@
         True
       ]
   output:
-    PDRS__HVAC2_replacement_final_activity_eligibility:
+    HVAC2_replacement_final_activity_eligibility:
       [
         True, 
         True,

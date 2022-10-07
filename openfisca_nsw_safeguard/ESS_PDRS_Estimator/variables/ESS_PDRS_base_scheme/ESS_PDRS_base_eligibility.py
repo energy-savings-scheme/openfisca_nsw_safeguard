@@ -15,29 +15,28 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
     definition_period = ETERNITY
     label = 'Is the activity eligible within the base scheme requirements of the ESS and PDRS Schemes?'
     metadata = {
-        "alias": "ESS PDRS Base Scheme Requirements",
         "variable-type": "output"
     }
     
     def formula(buildings, period, parameter):
-        energy_consumption = buildings('ESS__reduces_energy_consumption', period)
-        reduce_demand = buildings('PDRS__provides_capacity_to_reduce_demand', period)
-        activity_implemented = buildings('PDRS__have_implemented_PDR_activity', period)
-        implementation_date = buildings('PDRS__implementation_after_1_April_2022', period)
-        lawful = buildings('PDRS__is_lawful_activity', period)
-        registered_ACP = buildings('ESS_registered_ACP', period)
-        engaged_an_ACP = buildings('ESS_engaged_ACP', period)
-        removing_or_replacing = buildings('PDRS__removing_or_replacing', period)
-        not_resold_reused_refurbished = buildings('ESS__not_resold_reused_or_refurbished', period)
-        appropriate_disposal = buildings('ESS__disposal_of_equipment', period)
-        no_reduction_safety_levels = buildings('PDRS__reduces_safety_levels', period)
-        no_increase_emissions = buildings('PDRS__greenhouse_emissions_increase', period)
-        no_mandatory_requirement = buildings('PDRS__meets_mandatory_requirement', period)
-        basix_affected = buildings('PDRS__basix_affected_development', period)
-        not_prescribed_service = buildings('PDRS__is_prescribed_transmission_service', period)
-        not_tradeable_certificates = buildings('PDRS__tradeable_certificates', period)
-        replacement_hw = buildings('PDRS__replacement_water_heater_certificates', period)
-        replacement_solar_hw = buildings('PDRS__replacement_solar_water_heater_certificates', period)
+        energy_consumption = buildings('Base_reduces_energy_consumption', period)
+        reduce_demand = buildings('Base_provides_capacity_to_reduce_demand', period)
+        activity_implemented = buildings('Base_implemented_activity', period)
+        implementation_date = buildings('Base_implementation_after_1_April_2022', period)
+        lawful = buildings('Base_lawful_activity', period)
+        registered_ACP = buildings('Base_registered_ACP', period)
+        engaged_an_ACP = buildings('Base_engaged_ACP', period)
+        removing_or_replacing = buildings('Base_removing_or_replacing', period)
+        not_resold_reused_refurbished = buildings('Base_not_resold_reused_or_refurbished', period)
+        appropriate_disposal = buildings('Base_disposal_of_equipment', period)
+        no_reduction_safety_levels = buildings('Base_reduces_safety_levels', period)
+        no_increase_emissions = buildings('Base_greenhouse_emissions_increase', period)
+        no_mandatory_requirement = buildings('Base_meets_mandatory_requirement', period)
+        basix_affected = buildings('Base_basix_affected_development', period)
+        not_prescribed_service = buildings('Base_prescribed_transmission_service', period)
+        not_tradeable_certificates = buildings('Base_tradeable_certificates', period)
+        replacement_hw = buildings('Base_replacement_water_heater_certificates', period)
+        replacement_solar_hw = buildings('Base_replacement_solar_water_heater_certificates', period)
         
         # removing or replacing is YES and equipment is not resold, reused or refurbished and is disposed of appropriately
         removing_replacing_intermediary = removing_or_replacing + (not_resold_reused_refurbished * appropriate_disposal)

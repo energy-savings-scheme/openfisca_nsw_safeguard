@@ -3,87 +3,92 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    ESS__reduces_energy_consumption: 
+    Base_reduces_energy_consumption: 
       [
         True,
         True
       ]
-    PDRS__provides_capacity_to_reduce_demand:
+    Base_provides_capacity_to_reduce_demand:
       [
         True,
         True
       ]
-    PDRS__have_implemented_PDR_activity:
+    Base_implemented_activity:
       [
         True,
         True
       ]
-    PDRS__implementation_after_1_April_2022:
+    Base_implementation_after_1_April_2022:
       [
         True,
         True
       ]
-    PDRS__is_lawful_activity:
+    Base_lawful_activity:
       [
         True,
         True
       ]
-    ESS_registered_ACP:
+    Base_registered_ACP:
       [
         True,
         True
       ]
-    PDRS__removing_or_replacing:
-      [
-        False, #new install
-        True
-      ]
-    ESS__not_resold_reused_or_refurbished:
-      [
-        True,
-        True
-      ]
-    ESS__disposal_of_equipment:
-      [
-        True,
-        True
-      ]
-    PDRS__reduces_safety_levels:
-      [
-        True,
-        True
-      ]
-    PDRS__greenhouse_emissions_increase:
-      [
-        True,
-        True
-      ]
-    PDRS__meets_mandatory_requirement:
-      [
-        False, #activity not a mandatory requirement
-        True
-      ]
-    PDRS__basix_affected_development:
-      [ 
-        False, #not a basix affected development
-        True
-      ]
-    PDRS__is_prescribed_transmission_service:
+    Base_engaged_ACP:
       [
         False,
         False
       ]
-    PDRS__tradeable_certificates:
+    Base_removing_or_replacing:
+      [
+        False, #new install
+        True
+      ]
+    Base_not_resold_reused_or_refurbished:
+      [
+        True,
+        True
+      ]
+    Base_disposal_of_equipment:
+      [
+        True,
+        True
+      ]
+    Base_reduces_safety_levels:
+      [
+        True,
+        True
+      ]
+    Base_greenhouse_emissions_increase:
+      [
+        True,
+        True
+      ]
+    Base_meets_mandatory_requirement:
+      [
+        False, #activity not a mandatory requirement
+        True
+      ]
+    Base_basix_affected_development:
+      [ 
+        False, #not a basix affected development
+        True
+      ]
+    Base_prescribed_transmission_service:
+      [
+        False,
+        False
+      ]
+    Base_tradeable_certificates:
       [
         False,
         True #created tradeable certificates for a water heater
       ] 
-    PDRS__replacement_water_heater_certificates:
+    Base_replacement_water_heater_certificates:
       [
         False,
         True
       ] 
-     PDRS__replacement_solar_water_heater_certificates:
+     Base_replacement_solar_water_heater_certificates:
       [
         False,
         False

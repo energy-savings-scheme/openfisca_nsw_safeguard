@@ -139,14 +139,6 @@ class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
             )
         )
 
-class ESS__disposal_of_equipment(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    label = 'Will your End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?'
-
-
 class ESS__activity_occurred_in_Metro_Levy_Area(Variable):
     value_type = bool
     entity = Building

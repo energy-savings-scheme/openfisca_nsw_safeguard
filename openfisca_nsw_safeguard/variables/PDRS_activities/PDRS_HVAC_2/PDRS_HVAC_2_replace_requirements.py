@@ -101,3 +101,10 @@ class PDRS_HVAC_2_replacement(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
+
+
+class Equipment_is_installed(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Has the equipment been installed?'

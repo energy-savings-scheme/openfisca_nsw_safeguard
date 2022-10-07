@@ -29,17 +29,17 @@ class PDRS__HVAC2_installation_final_activity_eligibility(Variable):
         TCPSF_greater = buildings('HVAC2_TCPSF_greater_than_minimum', period)
         is_installed_in_class_2 = buildings('HVAC2_installed_centralised_system_common_area_BCA_Class2_building', period)
 
-        climate_zone = buildings('AC_climate_zone', period)
+        climate_zone = buildings('HVAC2_climate_zone', period)
         ACClimateZone = climate_zone.possible_values
         in_average_zone = (climate_zone == ACClimateZone.average_zone) # True
         in_hot_zone = (climate_zone == ACClimateZone.hot_zone) # False
         in_cold_zone = (climate_zone == ACClimateZone.cold_zone) # False
         
-        heating_capacity = buildings('new_AC_heating_capacity', period)
-        HSPF_mixed_value = buildings('AC_HSPF_mixed', period)
-        HSPF_cold_value = buildings('AC_HSPF_cold', period)
+        heating_capacity = buildings('HVAC2_new_equipment_heating_capacity', period)
+        HSPF_mixed_value = buildings('HVAC2_HSPF_mixed', period)
+        HSPF_cold_value = buildings('HVAC2_HSPF_cold', period)
         AEER_greater_than_minimum = buildings('HVAC_2_AEER_greater_than_minimum',period)
-        ACOP_value = buildings ('AC_ACOP', period)
+        ACOP_value = buildings ('HVAC2_ACOP', period)
         
         # residential building is NO or residential building is yes and is installed in BCA class 2
         residential_building_with_class_2 = np.logical_not(residential_building) + (residential_building * is_installed_in_class_2)

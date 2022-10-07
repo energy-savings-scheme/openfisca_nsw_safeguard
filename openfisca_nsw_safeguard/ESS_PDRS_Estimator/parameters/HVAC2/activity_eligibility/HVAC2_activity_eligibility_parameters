@@ -5,7 +5,8 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-# parameters for HVAC2 installation activity eligibility
+#parameters for HVAC2 installation activity eligibility
+
 class HVAC2_installation(Variable):
     value_type = bool
     entity = Building
@@ -125,7 +126,7 @@ class HVAC2_HSPF_mixed(Variable):
 
 
 class HVAC2_HSPF_cold(Variable):
-    value_type = float
+    value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table F4.4?'

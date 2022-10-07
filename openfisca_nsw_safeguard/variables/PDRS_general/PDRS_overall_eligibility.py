@@ -179,3 +179,13 @@ class PDRS__is_eligible_for_RET(Variable):
         "variable-type": "inter-interesting",
         "alias": "PDRS Eligible for RET",
     }
+
+
+class PDRS__tradeable_certificates(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Have you created tradeable certificates?'
+    metadata = {
+        "variable-type": "inter-interesting"
+    }

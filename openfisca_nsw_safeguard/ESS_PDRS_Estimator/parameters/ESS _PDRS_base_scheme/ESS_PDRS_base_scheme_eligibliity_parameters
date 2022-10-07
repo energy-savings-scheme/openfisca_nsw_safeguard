@@ -192,7 +192,7 @@ class Base_replacement_water_heater_certificates(Variable):
     }
 
 
-class PDRS__replacement_solar_water_heater_certificates(Variable):
+class Base_replacement_solar_water_heater_certificates(Variable):
     value_type = bool
     entity = Building
     default_value = True

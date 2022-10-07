@@ -1,0 +1,181 @@
+import numpy as np
+from openfisca_core.variables import Variable
+from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
+from openfisca_nsw_base.entities import Building
+
+
+
+class PDRS__removing_or_replacing(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Are you removing or replacing End-User equipment?'
+    metadata = {
+        'display_question' : 'Are you removing or replacing End-User equipment?'
+    }
+
+
+class Reduces_energy_consumption(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Does the activity reduce energy consumption?'
+    metadata = {
+        'display_question' : 'Does your activity reduce energy consumption compared to what would have been consumed?'
+    }
+
+
+class Provides_capacity_to_reduce_demand(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Does the activity provide the capacity to reduce demand?'
+    metadata = {
+        'display_question': "Does your activity provide capacity to reduce demand during the Peak Demand Reduction period?"
+    }
+
+
+class Lawful_activity(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Is the activity lawful to conduct?'
+    metadata = {
+        'display_question': "Was your activity lawful in NSW on the implementation date?"
+    }
+
+
+class Implemented_PDR_activity(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Has implementation already occurred?'
+    metadata = {
+        'display_question' : 'Has your implementation already occurred?'
+    }
+
+
+class Implementation_after_1_April_2022(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Is the implementation after 1 April 2022?'
+    metadata = {
+        'display_question': "What date did the implementation occur?"
+    }
+
+
+class ESS_registered_ACP(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Are you an ACP?'
+    metadata = {
+        'display_question' : 'Are you an ACP?'
+    }
+    
+
+class ESS_engaged_ACP(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Did you engage an Accredited Certificate Provider prior to the implementation date?'
+    metadata = {
+        'display_question' : 'Did you engage an Accredited Certificate Provider prior to the implementation date?',
+        'variable-type': 'conditional',
+        'dependency': 'ESS_registered_ACP==True'
+    }
+
+
+class PDRS__basix_affected_development(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
+    metadata = {
+        'display_question': 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
+    }
+
+
+class Greenhouse_emissions_increase(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Will your activity lead to a net increase in greenhouse emissions?'
+    metadata = {
+        'display_question': "Will your activity lead to a net increase in greenhouse emissions?"
+    }
+
+class Meets_mandatory_requirement(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Is your activity being undertaken to comply with any mandatory legal requirements?'
+    metadata = {
+        'display_question': "Is your activity being undertaken to comply with any mandatory legal requirements?"
+    }
+
+
+class Reduces_safety_levels(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Will your activity reduce safety levels or permanently reduce production or service levels?'
+    metadata = {
+        'display_question' : 'Will your activity reduce safety levels or permanently reduce production or service levels?'
+    }
+
+
+class Prescribed_transmission_service(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
+    metadata = {
+        'display_question': 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
+    }
+
+
+class PDRS__tradeable_certificates(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    label = 'Have you created tradeable certificates under the Renewable Energy Act?'
+    metadata = {
+        'display_question' : 'Have you created tradeable certificates under the Renewable Energy Act?'
+    }
+
+
+class PDRS__replacement_water_heater_certificates(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Is the activity the installation of a replacement heat pump water heater?'
+    metadata = {
+        'display_question' : 'Is the activity the installation of a replacement heat pump water heater?'
+    }
+
+
+class PDRS__replacement_solar_water_heater_certificates(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    label = 'Is the activity the installation of a replacement solar water heater?'
+    metadata = {
+        'display_question' : 'Is the activity the installation of a replacement solar water heater?'
+    }

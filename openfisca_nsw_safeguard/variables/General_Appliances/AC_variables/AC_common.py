@@ -150,8 +150,6 @@ class AC_HSPF_mixed(Variable):
     label = 'What is the HSPF mixed for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF mixed',
-    'display_question' : 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?',
-    'variable-type': 'conditional',
     'dependency': 'new_AC_heating_capacity==True'
 }
 
@@ -163,8 +161,6 @@ class AC_HSPF_cold(Variable):
     label = 'What is the HSPF cold for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF cold',
-    'display_question' : 'Is your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table F4.4?',
-    'variable-type': 'conditional',
     'dependency': 'new_AC_heating_capacity==True'
 }
 
@@ -198,8 +194,6 @@ class AC_ACOP(Variable):
     metadata = {
     'alias':  'Air Conditioner TCSPF',
     "regulation_reference": PDRS_2022["XX", "AC"],
-    'display_question' : 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?',
-    'variable-type': 'conditional',
     'dependency': 'new_AC_heating_capacity==False'
 }
 
@@ -220,8 +214,8 @@ class AC_climate_zone(Variable):
     metadata = {
         "alias": "Air Conditioner Climate Zone",
         "regulation_reference": ESS_2021["XX", "AC"],
-        'display_question':"Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
     }
+
 
 class HVAC_2_TCPSF_greater_than_minimum(Variable):
     value_type = bool
@@ -229,10 +223,9 @@ class HVAC_2_TCPSF_greater_than_minimum(Variable):
     label = 'Is your TCPSF equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is your TCPSF equal to or greater than the Minimum TCPSF for the same Product Type and Cooling Capacity in ESS Table F4.5?',
-        'variable-type': 'conditional',
         'dependency': 'new_AC_cooling_capacity==True'
     }
+
 
 class HVAC_2_AEER_greater_than_minimum(Variable):
     value_type = bool
@@ -240,8 +233,6 @@ class HVAC_2_AEER_greater_than_minimum(Variable):
     label = 'Is your AEER equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is your AEER equal to or greater than the Minimum AEER for the same Product Type and Cooling Capacity in ESS Table F4.4?',
-        'variable-type': 'conditional',
         'dependency': 'new_AC_cooling_capacity==False'
     }
 

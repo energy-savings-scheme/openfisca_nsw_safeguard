@@ -11,8 +11,6 @@ class is_installed_centralised_system_common_area_BCA_Class2_building(Variable):
     definition_period = ETERNITY
     label = "Is the installation in a centralised system or common area in a Class 2 building?"
     metadata = {
-        'display_question':"Is the installation in a centralised system or common area in a Class 2 building?",
-        'variable-type': 'conditional',
         'dependency': 'PDRS__residential_building==True'
     }
 
@@ -33,8 +31,7 @@ class HVAC2_appliance_is_registered_in_GEMS(Variable):
     label = 'Is the new air conditioner recorded in the GEMS registry (as defined within the GEMS Determination 2019)?'
     metadata = {
         'alias':  'HVAC2 Appliance is registered in GEMS',
-        "regulation_reference": ESS_2021["XX", "GA"],
-        'display_question': "Is the new air conditioner recorded in the GEMS registry (as defined within the GEMS Determination 2019)?"
+        "regulation_reference": ESS_2021["XX", "GA"]
     }
 
 

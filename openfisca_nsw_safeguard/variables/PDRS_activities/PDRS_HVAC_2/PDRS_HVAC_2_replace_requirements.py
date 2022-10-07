@@ -18,7 +18,6 @@ class PDRS_HVAC_2_replace_meets_eligibility_requirements(Variable):
     metadata = {
         'alias': "HEAB AC replace meets eligibility requirements",
         "regulation_reference": PDRS_2022["HEAB", "AC_replace", "eligibility"],
-        'display_question':"Is the activity the replacement of an existing air conditioner?"
     }
 
     def formula(buildings, period, parameters):
@@ -102,8 +101,3 @@ class PDRS_HVAC_2_replacement(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = 'Is the activity the replacement of an existing air conditioner?'
-    metadata = {
-        'display_question' : 'Is the activity the replacement of an existing air conditioner?'
-    }
-

@@ -39,7 +39,7 @@ class Base_implemented_activity(Variable):
 
 
 class Base_implementation_after_1_April_2022(Variable):
-    value_type = input
+    value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'What date did the implementation occur?'

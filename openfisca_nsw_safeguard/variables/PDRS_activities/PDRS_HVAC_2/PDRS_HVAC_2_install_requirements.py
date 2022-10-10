@@ -100,16 +100,3 @@ class PDRS_HVAC_2_install_meets_all_requirements(Variable):
             'PDRS_HVAC_2_install_meets_implementation_requirements', period)
 
         return implementation * eligibility * equipment
-
-
-class PDRS_HVAC_2_installation(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    label = 'Is the activity the installation of a new air conditioner?'
-    metadata = {
-        'display_question' : 'Is the activity the installation of a new air conditioner?'
-    }
-
-

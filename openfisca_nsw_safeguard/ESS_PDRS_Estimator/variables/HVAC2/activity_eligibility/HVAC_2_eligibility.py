@@ -20,26 +20,26 @@ class PDRS__HVAC2_installation_final_activity_eligibility(Variable):
     }
     
     def formula(buildings, period, parameter):
-        new_installation = buildings('PDRS_HVAC_2_installation', period)
-        qualified_install = buildings('Implementation_is_performed_by_qualified_person', period)
-        equipment_installed = buildings('Equipment_is_installed', period)
-        residential_building = buildings('PDRS__residential_building', period)
-        registered_GEMS = buildings('HVAC2_appliance_is_registered_in_GEMS', period)
-        cooling_capacity = buildings('new_AC_cooling_capacity', period)
-        TCPSF_greater = buildings('HVAC_2_TCPSF_greater_than_minimum', period)
-        is_installed_in_class_2 = buildings('is_installed_centralised_system_common_area_BCA_Class2_building', period)
+        new_installation = buildings('HVAC_2_installation', period)
+        qualified_install = buildings('HVAC2_Installed_by_qualified_person', period)
+        equipment_installed = buildings('HVAC2_Equipment_installed', period)
+        residential_building = buildings('HVAC2_residential_building', period)
+        registered_GEMS = buildings('HVAC2_equipment_registered_in_GEMS', period)
+        cooling_capacity = buildings('HVAC2_new_equipment_cooling_capacity', period)
+        TCPSF_greater = buildings('HVAC2_TCPSF_greater_than_minimum', period)
+        is_installed_in_class_2 = buildings('HVAC2_installed_centralised_system_common_area_BCA_Class2_building', period)
 
-        climate_zone = buildings('AC_climate_zone', period)
+        climate_zone = buildings('HVAC2_climate_zone', period)
         ACClimateZone = climate_zone.possible_values
         in_average_zone = (climate_zone == ACClimateZone.average_zone) # True
         in_hot_zone = (climate_zone == ACClimateZone.hot_zone) # False
         in_cold_zone = (climate_zone == ACClimateZone.cold_zone) # False
         
-        heating_capacity = buildings('new_AC_heating_capacity', period)
-        HSPF_mixed_value = buildings('AC_HSPF_mixed', period)
-        HSPF_cold_value = buildings('AC_HSPF_cold', period)
+        heating_capacity = buildings('HVAC2_new_equipment_heating_capacity', period)
+        HSPF_mixed_value = buildings('HVAC2_HSPF_mixed', period)
+        HSPF_cold_value = buildings('HVAC2_HSPF_cold', period)
         AEER_greater_than_minimum = buildings('HVAC_2_AEER_greater_than_minimum',period)
-        ACOP_value = buildings ('AC_ACOP', period)
+        ACOP_value = buildings ('HVAC2_ACOP', period)
         
         # residential building is NO or residential building is yes and is installed in BCA class 2
         residential_building_with_class_2 = np.logical_not(residential_building) + (residential_building * is_installed_in_class_2)
@@ -73,26 +73,26 @@ class PDRS__HVAC2_replacement_final_activity_eligibility(Variable):
     }
     
     def formula(buildings, period, parameter):
-        replacement = buildings('PDRS_HVAC_2_replacement', period)
-        qualified_install = buildings('Implementation_is_performed_by_qualified_person', period)
-        qualified_removal_replacement = buildings('Equipment_is_removed', period)
-        residential_building = buildings('PDRS__residential_building', period)
-        registered_GEMS = buildings('HVAC2_appliance_is_registered_in_GEMS', period)
-        cooling_capacity = buildings('new_AC_cooling_capacity', period)
-        TCPSF_greater = buildings('HVAC_2_TCPSF_greater_than_minimum', period)
-        is_installed_in_class_2 = buildings('is_installed_centralised_system_common_area_BCA_Class2_building', period)
+        replacement = buildings('HVAC2_equipment_replaced', period)
+        qualified_removal_replacement = buildings('HVAC2_equipment_removed', period)
+        equipment_installed = buildings('HVAC2_Equipment_installed', period)
+        residential_building = buildings('HVAC2_residential_building', period)
+        registered_GEMS = buildings('HVAC2_equipment_registered_in_GEMS', period)
+        cooling_capacity = buildings('HVAC2_new_equipment_cooling_capacity', period)
+        TCPSF_greater = buildings('HVAC2_TCPSF_greater_than_minimum', period)
+        is_installed_in_class_2 = buildings('HVAC2_installed_centralised_system_common_area_BCA_Class2_building', period)
 
-        climate_zone = buildings('AC_climate_zone', period)
+        climate_zone = buildings('HVAC2_climate_zone', period)
         ACClimateZone = climate_zone.possible_values
         in_average_zone = (climate_zone == ACClimateZone.average_zone) # True
         in_hot_zone = (climate_zone == ACClimateZone.hot_zone) # False
         in_cold_zone = (climate_zone == ACClimateZone.cold_zone) # False
         
-        heating_capacity = buildings('new_AC_heating_capacity', period)
-        HSPF_mixed_value = buildings('AC_HSPF_mixed', period)
-        HSPF_cold_value = buildings('AC_HSPF_cold', period)
-        AEER_greater_than_minimum = buildings('HVAC_2_AEER_greater_than_minimum',period)
-        ACOP_value = buildings ('AC_ACOP', period)
+        heating_capacity = buildings('HVAC2_new_equipment_heating_capacity', period)
+        HSPF_mixed_value = buildings('HVAC2_HSPF_mixed', period)
+        HSPF_cold_value = buildings('HVAC2_HSPF_cold', period)
+        AEER_greater_than_minimum = buildings('HVAC2_AEER_greater_than_minimum',period)
+        ACOP_value = buildings ('HVAC2_ACOP', period)
         
         
         # residential building is NO or residential building is yes and is installed in BCA class 2
@@ -106,7 +106,7 @@ class PDRS__HVAC2_replacement_final_activity_eligibility(Variable):
         average_zone_intermediary = in_average_zone * (heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value)
         cool_zone_intermediary = in_cold_zone * (heating_capacity * HSPF_cold_value) + (np.logical_not(heating_capacity) * ACOP_value)
         
-        end_formula =  ( replacement * qualified_install * qualified_removal_replacement * 
+        end_formula =  ( replacement * qualified_removal_replacement * equipment_installed *
                     residential_building_with_class_2 * registered_GEMS * gems_cooling_capacity_path * 
                         ( hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary ) )
         

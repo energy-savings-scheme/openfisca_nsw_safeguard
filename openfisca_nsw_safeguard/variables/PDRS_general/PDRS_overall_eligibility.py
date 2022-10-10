@@ -65,7 +65,6 @@ class PDRS__provides_capacity_to_reduce_demand(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Reduces Demand",
-        'display_question': "Does your activity provide capacity to reduce demand during the Peak Demand Reduction period?"
     }
 
 
@@ -77,17 +76,6 @@ class PDRS__is_eligible_for_PDRS_creation(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Is Eligible for PDRS Creation",
-    }
-
-
-class PDRS__removing_or_replacing(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    label = 'Are you removing or replacing End-User equipment?'
-    metadata = {
-        'display_question' : 'Are you removing or replacing End-User equipment?'
     }
 
 
@@ -111,7 +99,6 @@ class PDRS__is_lawful_activity(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Is lawful Activity",
-        'display_question': "Was your activity lawful in NSW on the implementation date?"
     }
 
 
@@ -124,7 +111,6 @@ class PDRS__greenhouse_emissions_increase(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Increases Emissions",
-        'display_question': "Will your activity lead to a net increase in greenhouse emissions?"
     }
 
 
@@ -137,18 +123,6 @@ class PDRS__meets_mandatory_requirement(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity Meets Mandatory Requirements",
-        'display_question': "Is your activity being undertaken to comply with any mandatory legal requirements?"
-    }
-
-
-class PDRS__basix_affected_development(Variable):
-    value_type = bool
-    entity = Building
-    default_value = False
-    definition_period = ETERNITY
-    label = 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
-    metadata = {
-        'display_question': 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
     }
 
 
@@ -166,13 +140,11 @@ class PDRS__is_standard_control_service(Variable):
 class PDRS__is_prescribed_transmission_service(Variable):
     value_type = bool
     entity = Building
-    default_value = False
     definition_period = ETERNITY
     label = 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Activity is Prescribed Transmission Service",
-        'display_question': 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     }
 
 
@@ -190,13 +162,11 @@ class PDRS__is_non_network_option(Variable):
 class PDRS__reduces_safety_levels(Variable):
     value_type = bool
     entity = Building
-    default_value = False
     definition_period = ETERNITY
     label = 'Will your activity reduce safety levels or permanently reduce production or service levels?'
     metadata = {
         "variable-type": "inter-interesting",
         "alias": "PDRS Reduces Safety Levels",
-        'display_question' : 'Will your activity reduce safety levels or permanently reduce production or service levels?'
     }
 
 
@@ -210,43 +180,12 @@ class PDRS__is_eligible_for_RET(Variable):
         "alias": "PDRS Eligible for RET",
     }
 
+
 class PDRS__tradeable_certificates(Variable):
     value_type = bool
     entity = Building
-    default_value = False
     definition_period = ETERNITY
-    label = 'Have you created tradeable certificates under the Renewable Energy Act?'
+    label = 'Have you created tradeable certificates?'
     metadata = {
-        'display_question' : 'Have you created tradeable certificates under the Renewable Energy Act?'
-    }
-
-class PDRS__replacement_water_heater_certificates(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    label = 'Is the activity the installation of a replacement heat pump water heater?'
-    metadata = {
-        'display_question' : 'Is the activity the installation of a replacement heat pump water heater?'
-    }
-
-
-class PDRS__replacement_solar_water_heater_certificates(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    label = 'Is the activity the installation of a replacement solar water heater?'
-    metadata = {
-        'display_question' : 'Is the activity the installation of a replacement solar water heater?'
-    }
-
-
-class PDRS__residential_building(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Has the new End-User equipment been installed in a residential building?'
-    metadata = {
-        'display_question' : 'Has the new End-User equipment been installed in a residential building?'
+        "variable-type": "inter-interesting"
     }

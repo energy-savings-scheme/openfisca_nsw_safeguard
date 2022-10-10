@@ -1,3 +1,4 @@
+from email.policy import default
 import numpy as np
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
@@ -92,10 +93,18 @@ class HVAC2_installed_centralised_system_common_area_BCA_Class2_building(Variabl
     }
 
 
+class DefaultValuesClimateZone(Enum):
+    hot_zone = "AC is installed in the hot zone."
+    average_zone = "AC is installed in the average zone."
+    cold_zone = "AC is installed in the cold zone."
+
+
 class HVAC2_climate_zone(Variable):
     value_type = Enum
     entity = Building
     label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
+    possible_values = DefaultValuesClimateZone
+    default_value = DefaultValuesClimateZone.average_zone
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?'

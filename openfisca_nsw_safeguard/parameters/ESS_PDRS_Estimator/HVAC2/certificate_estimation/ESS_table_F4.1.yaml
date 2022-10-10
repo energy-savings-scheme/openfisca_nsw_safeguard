@@ -1,0 +1,28 @@
+description: Table F4.1 - equivalent cooling and heating hours
+reference: Energy Savings Scheme Rule, beginning 30 March 2020.
+cooling_hours:
+  hot_zone:
+    values:
+      2020-01-01:
+        value: 1754
+  average_zone:
+    values:
+      2020-01-01:
+        value: 801
+  cold_zone:
+    values: 
+      2020-01-01:
+        value: 530
+heating_hours:
+  hot_zone:
+    values:
+      2020-01-01:
+        value: 71
+  average_zone:
+    values:
+      2020-01-01:
+        value: 303
+  cold_zone:
+    values: 
+      2020-01-01:
+        value: 530

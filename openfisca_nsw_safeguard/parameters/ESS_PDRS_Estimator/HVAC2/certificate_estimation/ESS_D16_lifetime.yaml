@@ -1,0 +1,7 @@
+Lifetime:
+  description: used in calculating how many years to deem elec savings for in D16
+  metadata:
+    unit: years
+  values:
+    2021-01-01:
+      value: 10

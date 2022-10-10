@@ -92,13 +92,11 @@ class HVAC2_installed_centralised_system_common_area_BCA_Class2_building(Variabl
     }
 
 
-#Need some Alisha attention on this one
 class HVAC2_climate_zone(Variable):
-    value_type = Enum #is this an input not an Enum?
+    value_type = Enum
     entity = Building
     label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
     definition_period = ETERNITY
-    #do I need a default-value here?
     metadata = {
         'display_question' : 'Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?'
     }

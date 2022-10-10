@@ -15,7 +15,7 @@
         30
       ]
   output:
-    PDRS__HVAC2_heating_annual_energy_use: 
+    HVAC2_heating_annual_energy_use: 
       [
         1
       ]
@@ -36,7 +36,7 @@
         10,
       ]
   output:
-    PDRS__HVAC2_cooling_annual_energy_use:
+    HVAC2_cooling_annual_energy_use:
       [
         7,
       ] 
@@ -57,7 +57,7 @@
         7,
       ]
   output:
-    PDRS__HVAC2_reference_heating_annual_energy_use:
+    HVAC2_reference_heating_annual_energy_use:
       [
         10,
       ]
@@ -78,7 +78,7 @@
         12,
       ]
   output:
-    PDRS__HVAC2_reference_cooling_annual_energy_use:
+    HVAC2_reference_cooling_annual_energy_use:
       [
         4,
       ]

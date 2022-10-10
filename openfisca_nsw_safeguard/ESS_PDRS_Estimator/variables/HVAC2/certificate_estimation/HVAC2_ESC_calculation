@@ -6,10 +6,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class PDRS__HVAC2_heating_annual_energy_use(Variable):
-    """ Variables from GEMS Registry: HVAC2_heating_capacity_input and HVAC2_rated_ACOP_input
-        Variables from Rule tables: HVAC2_equivalent_heating_hours_input
-    """
+class HVAC2_heating_annual_energy_use(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -21,17 +18,14 @@ class PDRS__HVAC2_heating_annual_energy_use(Variable):
 
     def formula(buildings, period, parameters):
       heating_capacity = ('HVAC2_heating_capacity_input', period)
-      equivalent_heating_hours = ('HVAC2_equivalent_heating_hours', period)
+      equivalent_heating_hours = ('HVAC2_equivalent_heating_hours_input', period)
       rated_ACOP = ('HVAC2_rated_ACOP_input', period)
 
       annual_heating = np.floor(heating_capacity * equivalent_heating_hours) / rated_ACOP
       return annual_heating
 
 
-class PDRS__HVAC2_cooling_annual_energy_use(Variable):
-    """ Variables from GEMS Registry: Air_Conditioner__cooling_capacity and HVAC2_rated_AEER_input
-        Variables from Rule tables: HVAC2_equivalent_cooling_hours_input
-    """
+class HVAC2_cooling_annual_energy_use(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -42,7 +36,7 @@ class PDRS__HVAC2_cooling_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      cooling_capacity =('Air_Conditioner__cooling_capacity', period)
+      cooling_capacity =('HVAC2_cooling_capacity_input', period)
       equivalent_cooling_hours = ('HVAC2_equivalent_cooling_hours_input', period)
       rated_AEER = ('HVAC2_rated_AEER_input', period)
 
@@ -50,10 +44,7 @@ class PDRS__HVAC2_cooling_annual_energy_use(Variable):
       return annual_cooling
 
 
-class PDRS__HVAC2_reference_heating_annual_energy_use(Variable):
-    """ Variables from GEMS Registry: HVAC2_heating_capacity_input and HVAC2_equivalent_heating_hours
-        Variables from Rule tables: HVAC2_baseline_ACOP_input
-    """
+class HVAC2_reference_heating_annual_energy_use(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -72,10 +63,7 @@ class PDRS__HVAC2_reference_heating_annual_energy_use(Variable):
       return reference_annual_heating
 
   
-class PDRS__HVAC2_reference_cooling_annual_energy_use(Variable):
-    """ Variables from GEMS Registry: Air_Conditioner__cooling_capacity and HVAC2_equivalent_cooling_hours
-        Variables from Rule tables: HVAC2_baseline_AEER_input
-    """
+class HVAC2_reference_cooling_annual_energy_use(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -94,9 +82,7 @@ class PDRS__HVAC2_reference_cooling_annual_energy_use(Variable):
       return reference_annual_cooling
 
 
-class PDRS__HVAC2_deemed_activity_electricity_savings(Variable):
-    """ Variables from Rule tables: HVAC2_lifetime_value
-    """
+class HVAC2_deemed_activity_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -117,7 +103,7 @@ class PDRS__HVAC2_deemed_activity_electricity_savings(Variable):
       return deemed_electricity_savings
 
 
-class PDRS__HVAC2_electricity_savings(Variable):
+class HVAC2_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -5,8 +5,8 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-#parameters for HVAC2 installation activity eligibility
-
+"""parameters for HVAC2 installation activity eligibility
+"""
 class HVAC2_installation(Variable):
     value_type = bool
     entity = Building
@@ -155,7 +155,8 @@ class HVAC2_ACOP(Variable):
     }
 
 
-# parameters for HVAC2 replacement activity eligibility
+"""parameters for HVAC2 replacement activity eligibility
+"""
 class HVAC2_equipment_replaced(Variable):
     value_type = bool
     entity = Building

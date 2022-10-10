@@ -1,0 +1,14 @@
+description: Network Loss factors, for use in PDRS calculations.
+network_loss_factor:
+  Ausgrid:
+    values:
+      2021-01-01:
+        value: 1.04
+  Endeavour:
+    values:
+      2021-01-01:
+        value: 1.05
+  Essential:
+    values:
+      2021-01-01:
+        value: 1.05

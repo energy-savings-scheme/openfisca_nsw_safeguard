@@ -121,13 +121,12 @@ class HVAC2_electricity_savings(Variable):
       return HVAC2_electricity_savings
 
 
-class PDRS__HVAC2_ESC_calculation(Variable):
+class HVAC2_ESC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'The number of ESCs for HVAC2'
     metadata = {
-        "alias": "ESC certificate estimation",
         "variable-type": "output"
     }
 

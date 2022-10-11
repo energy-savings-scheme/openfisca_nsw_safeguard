@@ -47,7 +47,7 @@
   output:
     HVAC2_peak_demand_savings_activity:
       [
-        600
+        195
       ]
 - name: test HVAC2 peak demand reduction capacity
   period: 2022
@@ -81,5 +81,5 @@
   output:
     HVAC2_PRC_calculation:
       [
-        1
+        374400
       ]

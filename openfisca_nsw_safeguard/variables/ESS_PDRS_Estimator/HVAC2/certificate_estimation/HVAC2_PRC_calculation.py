@@ -18,10 +18,10 @@ class HVAC2_baseline_input_power(Variable):
     }
 
     def formula(buildings, period, parameters):
-      rated_cooling_capacity = ('HVAC2_cooling_capacity_input', period)
-      baseline_AEER = ('HVAC2_baseline_AEER_input', period)
+      rated_cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
+      baseline_AEER = buildings('HVAC2_baseline_AEER_input', period)
 
-      baseline_input_power = np.floor(rated_cooling_capacity / baseline_AEER)
+      baseline_input_power = rated_cooling_capacity / baseline_AEER
       return baseline_input_power
 
 
@@ -37,9 +37,9 @@ class HVAC2_baseline_peak_adjustment_factor(Variable):
     def formula(buildings, period, parameters):
       usage_factor = 0.6
       climate_zone = buildings('BCA_climate_zone', period)
-      temperature_factor = parameters(period).PDRS_table_A5.temperature_factor[climate_zone]
+      temperature_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
 
-      baseline_adjustment_factor = np.floor(usage_factor * temperature_factor)
+      baseline_adjustment_factor = usage_factor * temperature_factor
       return baseline_adjustment_factor
 
 
@@ -53,11 +53,11 @@ class HVAC2_peak_demand_savings_activity(Variable):
     }
 
     def formula(buildings, period, parameters):
-        baseline_input_power = ('HVAC2_baseline_input_power', period)
-        baseline_peak_adjustment = ('HVAC2_baseline_peak_adjustment_factor', period)
-        input_power = ('HVAC2_input_power', period)
-        peak_adjustment_factor = ('HVAC2_baseline_peak_adjustment_factor', period)
-        firmness_factor = ('HVAC2_firmness_factor', period)
+        baseline_input_power = buildings('HVAC2_baseline_input_power', period)
+        baseline_peak_adjustment = buildings('HVAC2_baseline_peak_adjustment_factor', period)
+        input_power = buildings('HVAC2_input_power', period)
+        peak_adjustment_factor = buildings('HVAC2_baseline_peak_adjustment_factor', period)
+        firmness_factor = 1
 
         peak_demand_savings_activity = np.floor((baseline_input_power * baseline_peak_adjustment)-(input_power * peak_adjustment_factor)) * firmness_factor
         return peak_demand_savings_activity
@@ -73,11 +73,11 @@ class HVAC2_peak_demand_reduction_capacity(Variable):
     }
 
     def formula(buildings, period, parameters):
-        peak_demand_savings = ('HVAC2_peak_demand_savings_activity', period)
+        peak_demand_savings = buildings('HVAC2_peak_demand_savings_activity', period)
         summer_peak_demand_duration = 6
-        lifetime = ('HVAC2_lifetime_value', period)
+        lifetime = buildings('HVAC2_lifetime_value', period)
 
-        peak_demand_reduction_capacity = np.floor(peak_demand_savings * summer_peak_demand_duration * lifetime)
+        peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
         return peak_demand_reduction_capacity
 
 
@@ -91,8 +91,10 @@ class HVAC2_PRC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-        peak_demand_capacity = ('HVAC2_peak_demand_reduction_capacity',period)
-        network_loss_factor = ('HVAC2_network_loss_factor', period)
+        peak_demand_capacity = buildings('HVAC2_peak_demand_reduction_capacity', period)
+        network_loss_factor = buildings('HVAC2_network_loss_factor', period)
+        kw_to_0_1kw = 10
 
-        HVAC2_PRC_calculation = np.floor(peak_demand_capacity * network_loss_factor * 10)
+
+        HVAC2_PRC_calculation = np.floor(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw        
         return HVAC2_PRC_calculation

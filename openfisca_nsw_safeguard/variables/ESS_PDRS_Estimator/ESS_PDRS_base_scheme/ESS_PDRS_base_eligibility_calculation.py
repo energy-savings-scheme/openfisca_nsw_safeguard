@@ -50,9 +50,9 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         # tradeable certificates is YES and replacement heat pump water heater is YES and solar water heater is no
         tradeable_certificates_allowed = np.logical_not(not_tradeable_certificates) * replacement_hw * np.logical_not(replacement_solar_hw)
 
-        end_formula =  ( energy_consumption * reduce_demand * activity_implemented * implementation_date * lawful * acp_status *
+        end_formula =  ( energy_consumption * reduce_demand * activity_implemented * lawful * acp_status *
                          removing_replacing_intermediary * no_reduction_safety_levels * no_increase_emissions * mandatory_allowance *
                          not_prescribed_service * tradeable_certificates_allowed
-                       )
+                       ) + implementation_date 
         
         return end_formula

@@ -37,7 +37,7 @@ class HVAC2_baseline_peak_adjustment_factor(Variable):
     def formula(buildings, period, parameters):
       usage_factor = 0.6
       climate_zone = buildings('BCA_climate_zone', period)
-      temperature_factor = parameters(period).PDRS_table_A5.temperature_factor[climate_zone]
+      temperature_factor = parameters(period).PDRS_table_A28.temperature_factor[climate_zone]
 
       baseline_adjustment_factor = np.floor(usage_factor * temperature_factor)
       return baseline_adjustment_factor
@@ -57,7 +57,7 @@ class HVAC2_peak_demand_savings_activity(Variable):
         baseline_peak_adjustment = buildings('HVAC2_baseline_peak_adjustment_factor', period)
         input_power = buildings('HVAC2_input_power', period)
         peak_adjustment_factor = buildings('HVAC2_baseline_peak_adjustment_factor', period)
-        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor.firmness_factor['HVAC2']
+        firmness_factor = 1
 
         peak_demand_savings_activity = np.floor((baseline_input_power * baseline_peak_adjustment)-(input_power * peak_adjustment_factor)) * firmness_factor
         return peak_demand_savings_activity

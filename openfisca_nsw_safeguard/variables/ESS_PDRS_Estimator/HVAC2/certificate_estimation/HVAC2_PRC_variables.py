@@ -26,14 +26,14 @@ class HVAC2_input_power(Variable):
 """ These variables use Rule tables
 """
 class HVAC2_firmness_factor(Variable):
-    reference = 'PDRS_table_A6'
+    reference = 'table_A6_firmness_factor'
     value_type = float
     entity = Building
     definition_period = ETERNITY
 
 
 class HVAC2_network_loss_factor(Variable):
-    reference = 'PDRS_table_A3'
+    reference = 'table_A3_network_loss_factor'
     value_type = float
     entity = Building
     definition_period = ETERNITY

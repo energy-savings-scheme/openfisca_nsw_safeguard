@@ -39,28 +39,28 @@ class HVAC2_rated_AEER_input(Variable):
 """ These variables use Rule tables
 """
 class HVAC2_equivalent_heating_hours_input(Variable):
-    reference = 'ESS_Table_F4.1'
+    reference = 'table_F4.1'
     value_type = float
     entity = Building
     definition_period = ETERNITY 
 
 
 class HVAC2_equivalent_cooling_hours_input(Variable):
-    reference = 'ESS_Table_F4.1'
+    reference = 'table_F4.1'
     value_type = float
     entity = Building
     definition_period = ETERNITY 
 
 
 class HVAC2_baseline_ACOP_input(Variable):
-    reference = 'ESS_Table_F4.3'
+    reference = 'table_F4.3'
     value_type = float
     entity = Building
     definition_period = ETERNITY 
 
 
 class HVAC2_baseline_AEER_input(Variable):
-    reference = 'ESS_Table_F4.3'
+    reference = 'table_F4.3'
     value_type = float
     entity = Building
     definition_period = ETERNITY 

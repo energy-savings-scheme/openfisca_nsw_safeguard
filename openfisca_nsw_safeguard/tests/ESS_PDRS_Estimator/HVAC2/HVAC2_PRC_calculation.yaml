@@ -21,7 +21,7 @@
   input:
     BCA_climate_zone:
       [
-        2
+        BCA_Climate_Zone_2
       ]
   output:
     HVAC2_baseline_peak_adjustment_factor:

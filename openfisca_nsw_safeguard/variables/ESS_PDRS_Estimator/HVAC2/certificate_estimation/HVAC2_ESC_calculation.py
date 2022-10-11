@@ -17,9 +17,9 @@ class HVAC2_heating_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      heating_capacity = ('HVAC2_heating_capacity_input', period)
-      equivalent_heating_hours = ('HVAC2_equivalent_heating_hours_input', period)
-      rated_ACOP = ('HVAC2_rated_ACOP_input', period)
+      heating_capacity = buildings('HVAC2_heating_capacity_input', period)
+      equivalent_heating_hours = buildings('HVAC2_equivalent_heating_hours_input', period)
+      rated_ACOP = buildings('HVAC2_rated_ACOP_input', period)
 
       annual_heating = np.floor(heating_capacity * equivalent_heating_hours) / rated_ACOP
       return annual_heating
@@ -36,9 +36,9 @@ class HVAC2_cooling_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      cooling_capacity =('HVAC2_cooling_capacity_input', period)
-      equivalent_cooling_hours = ('HVAC2_equivalent_cooling_hours_input', period)
-      rated_AEER = ('HVAC2_rated_AEER_input', period)
+      cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
+      equivalent_cooling_hours = buildings('HVAC2_equivalent_cooling_hours_input', period)
+      rated_AEER = buildings('HVAC2_rated_AEER_input', period)
 
       annual_cooling = np.floor(cooling_capacity * equivalent_cooling_hours) / rated_AEER
       return annual_cooling
@@ -55,9 +55,9 @@ class HVAC2_reference_heating_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      heating_capacity = ('HVAC2_heating_capacity_input', period)
-      equivalent_heating_hours = ('HVAC2_equivalent_heating_hours_input', period)
-      baseline_ACOP  = ('HVAC2_baseline_ACOP_input', period)
+      heating_capacity = buildings('HVAC2_heating_capacity_input', period)
+      equivalent_heating_hours = buildings('HVAC2_equivalent_heating_hours_input', period)
+      baseline_ACOP = buildings('HVAC2_baseline_ACOP_input', period)
       
       reference_annual_heating = np.floor(heating_capacity * equivalent_heating_hours) / baseline_ACOP
       return reference_annual_heating
@@ -74,9 +74,9 @@ class HVAC2_reference_cooling_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      cooling_capacity = ('HVAC2_cooling_capacity_input', period)
-      equivalent_cooling_hours = ('HVAC2_equivalent_cooling_hours_input', period)
-      baseline_AEER = ('HVAC2_baseline_AEER_input', period)
+      cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
+      equivalent_cooling_hours = buildings('HVAC2_equivalent_cooling_hours_input', period)
+      baseline_AEER = buildings('HVAC2_baseline_AEER_input', period)
 
       reference_annual_cooling = np.floor(cooling_capacity * equivalent_cooling_hours) / baseline_AEER
       return reference_annual_cooling

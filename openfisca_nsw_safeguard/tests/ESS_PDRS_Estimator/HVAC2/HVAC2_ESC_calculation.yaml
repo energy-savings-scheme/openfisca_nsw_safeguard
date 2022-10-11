@@ -1,6 +1,6 @@
 - name: test HVAC2 heating annual energy use
   period: 2022
-  absolute_error_margin: 0
+  absolute_error_margin: 0.1
   input:
     HVAC2_heating_capacity_input:
       [
@@ -17,7 +17,7 @@
   output:
     HVAC2_heating_annual_energy_use: 
       [
-        1
+        6.6
       ]
 - name: test HVAC2 cooling annual energy use
   period: 2022

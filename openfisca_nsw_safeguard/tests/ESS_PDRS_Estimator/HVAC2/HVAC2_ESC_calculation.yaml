@@ -6,7 +6,7 @@
       [
         10,
       ]
-    HVAC2_equivalent_heating_hours:
+    HVAC2_equivalent_heating_hours_input:
       [
         20,
       ]
@@ -19,7 +19,7 @@
       [
         1
       ]
-- name: test HVAC2 heating annual energy use
+- name: test HVAC2 cooling annual energy use
   period: 2022
   absolute_error_margin: 0
   input:
@@ -38,7 +38,7 @@
   output:
     HVAC2_cooling_annual_energy_use:
       [
-        7,
+        7
       ] 
 - name: test HVAC2 reference heating annual energy use
   period: 2022
@@ -48,7 +48,7 @@
       [
         20,
       ]
-    HVAC2_equivalent_heating_hours:
+    HVAC2_equivalent_heating_hours_input:
       [
         50,
       ]
@@ -59,7 +59,7 @@
   output:
     HVAC2_reference_heating_annual_energy_use:
       [
-        10,
+        10
       ]
 - name: test HVAC2 reference cooling annual energy use
   period: 2022
@@ -80,5 +80,5 @@
   output:
     HVAC2_reference_cooling_annual_energy_use:
       [
-        4,
+        4
       ]

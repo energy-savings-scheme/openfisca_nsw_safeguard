@@ -49,8 +49,6 @@
       [
         600
       ]
-
-
 - name: test HVAC2 peak demand reduction capacity
   period: 2022
   absolute_error_margin: 0.1
@@ -68,7 +66,6 @@
       [
         36000
       ]
-
 - name: test HVAC2 PRC calculation
   period: 2022
   absolute_error_margin: 0.1

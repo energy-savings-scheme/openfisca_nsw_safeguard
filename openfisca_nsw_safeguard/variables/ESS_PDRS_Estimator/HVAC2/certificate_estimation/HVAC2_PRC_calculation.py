@@ -21,7 +21,7 @@ class HVAC2_baseline_input_power(Variable):
       rated_cooling_capacity = ('HVAC2_cooling_capacity_input', period)
       baseline_AEER = ('HVAC2_baseline_AEER_input', period)
 
-      baseline_input_power = np.floor(rated_cooling_capacity / baseline_AEER)
+      baseline_input_power = rated_cooling_capacity / baseline_AEER
       return baseline_input_power
 
 
@@ -77,7 +77,7 @@ class HVAC2_peak_demand_reduction_capacity(Variable):
         summer_peak_demand_duration = 6
         lifetime = ('HVAC2_lifetime_value', period)
 
-        peak_demand_reduction_capacity = np.floor(peak_demand_savings * summer_peak_demand_duration * lifetime)
+        peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
         return peak_demand_reduction_capacity
 
 
@@ -93,6 +93,8 @@ class HVAC2_PRC_calculation(Variable):
     def formula(buildings, period, parameters):
         peak_demand_capacity = ('HVAC2_peak_demand_reduction_capacity',period)
         network_loss_factor = ('HVAC2_network_loss_factor', period)
+        kw_to_0_1kw = 10
 
-        HVAC2_PRC_calculation = np.floor(peak_demand_capacity * network_loss_factor * 10)
+
+        HVAC2_PRC_calculation = np.floor(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw        
         return HVAC2_PRC_calculation

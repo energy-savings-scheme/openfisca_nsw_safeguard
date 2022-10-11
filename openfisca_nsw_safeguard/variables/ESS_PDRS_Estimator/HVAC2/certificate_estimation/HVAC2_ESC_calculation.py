@@ -56,7 +56,7 @@ class HVAC2_reference_heating_annual_energy_use(Variable):
 
     def formula(buildings, period, parameters):
       heating_capacity = ('HVAC2_heating_capacity_input', period)
-      equivalent_heating_hours = ('HVAC2_equivalent_heating_hours', period)
+      equivalent_heating_hours = ('HVAC2_equivalent_heating_hours_input', period)
       baseline_ACOP  = ('HVAC2_baseline_ACOP_input', period)
       
       reference_annual_heating = np.floor(heating_capacity * equivalent_heating_hours) / baseline_ACOP
@@ -74,7 +74,7 @@ class HVAC2_reference_cooling_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      cooling_capacity = ('Air_Conditioner__cooling_capacity', period)
+      cooling_capacity = ('HVAC2_cooling_capacity_input', period)
       equivalent_cooling_hours = ('HVAC2_equivalent_cooling_hours_input', period)
       baseline_AEER = ('HVAC2_baseline_AEER_input', period)
 
@@ -93,10 +93,10 @@ class HVAC2_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      reference_annual_cooling = ('PDRS__HVAC2_reference_cooling_annual_energy_use', period)
-      annual_cooling = ('PDRS__HVAC2_cooling_annual_energy_use', period)
-      reference_annual_heating = ('PDRS__HVAC2_reference_heating_annual_energy_use', period)
-      annual_heating = ('PDRS__HVAC2_heating_annual_energy_use', period)
+      reference_annual_cooling = ('HVAC2_reference_cooling_annual_energy_use', period)
+      annual_cooling = ('HVAC2_cooling_annual_energy_use', period)
+      reference_annual_heating = ('HVAC2_reference_heating_annual_energy_use', period)
+      annual_heating = ('HVAC2_heating_annual_energy_use', period)
       lifetime = ('HVAC2_lifetime_value', period)
 
       deemed_electricity_savings = np.floor(reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating) * (lifetime / 1000)
@@ -131,7 +131,7 @@ class HVAC2_ESC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-      HVAC2_electricity_savings = ('PDRS__HVAC2_electricity_savings', period)
+      HVAC2_electricity_savings = ('HVAC2_electricity_savings', period)
       electricity_certificate_conversion_factor = ('HVAC2_electricity_conversion_factor', period)
 
       HVAC2_ESC_calculation = np.floor(HVAC2_electricity_savings * electricity_certificate_conversion_factor)

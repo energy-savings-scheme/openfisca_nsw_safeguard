@@ -233,6 +233,6 @@ class HVAC_2_AEER_greater_than_minimum(Variable):
     label = 'Is your AEER equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
     definition_period = ETERNITY
     metadata = {
-        'dependency': 'new_AC_cooling_capacity==False'
+        'conditional': 'True'
     }
 

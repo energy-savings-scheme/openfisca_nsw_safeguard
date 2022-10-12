@@ -91,7 +91,7 @@
         True,
         False
       ]
-    HVAC_2_AEER_greater_than_minimum:
+    HVAC2_AEER_greater_than_minimum:
       [
         False,
         True,

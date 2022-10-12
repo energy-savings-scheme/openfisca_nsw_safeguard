@@ -53,6 +53,7 @@ class HVAC2_residential_building(Variable):
 class HVAC2_equipment_registered_in_GEMS(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is the new air conditioner recorded in the GEMS registry (as defined within the GEMS Determination 2019)?'
     metadata = {
@@ -63,6 +64,7 @@ class HVAC2_equipment_registered_in_GEMS(Variable):
 class HVAC2_new_equipment_cooling_capacity(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the new air conditioner have a cooling capacity recorded in the GEMS registry?'
     metadata = {
@@ -73,6 +75,7 @@ class HVAC2_new_equipment_cooling_capacity(Variable):
 class HVAC2_TCPSF_greater_than_minimum(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     label = 'Is your TCPSF equal to or greater than the Minimum TCPSF for the same Product Type and Cooling Capacity in ESS Table F4.5?'
     definition_period = ETERNITY
     metadata = {
@@ -84,6 +87,7 @@ class HVAC2_TCPSF_greater_than_minimum(Variable):
 class HVAC2_installed_centralised_system_common_area_BCA_Class2_building(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is the installation in a centralised system or common area in a Class 2 building?'
     metadata = {
@@ -114,6 +118,7 @@ class HVAC2_climate_zone(Variable):
 class HVAC2_new_equipment_heating_capacity(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?'
     metadata = {
@@ -124,6 +129,7 @@ class HVAC2_new_equipment_heating_capacity(Variable):
 class HVAC2_HSPF_mixed(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
     metadata = {
@@ -135,6 +141,7 @@ class HVAC2_HSPF_mixed(Variable):
 class HVAC2_HSPF_cold(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Is your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
     metadata = {
@@ -146,6 +153,7 @@ class HVAC2_HSPF_cold(Variable):
 class HVAC2_AEER_greater_than_minimum(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     label = 'Is your AEER equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
     definition_period = ETERNITY
     metadata = {
@@ -157,6 +165,7 @@ class HVAC2_ACOP(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
+    default_value = True
     label = 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?'
     metadata = {
         'conditional': 'True',
@@ -179,6 +188,7 @@ class HVAC2_equipment_replaced(Variable):
 class HVAC2_equipment_removed(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?'
     metadata = {

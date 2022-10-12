@@ -78,7 +78,7 @@ class Base_engaged_ACP(Variable):
     label = 'Did you engage an Accredited Certificate Provider prior to the implementation date?'
     metadata = {
         'display_question' : 'Did you engage an Accredited Certificate Provider prior to the implementation date?',
-        'variable-type': 'conditional'
+        'conditional': 'True'
     }
 
 

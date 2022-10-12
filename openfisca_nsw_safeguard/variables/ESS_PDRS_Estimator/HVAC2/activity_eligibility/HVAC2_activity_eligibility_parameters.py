@@ -23,6 +23,7 @@ class HVAC2_Installed_by_qualified_person(Variable):
     definition_period = ETERNITY
     label = 'Has the installation of the end-user equipment been performed or supervised by a suitably licensed person?'
     metadata = {
+        'conditional': 'True',
         'display_question': 'Has the installation of the end-user equipment been performed or supervised by a suitably licensed person?'
     }
 
@@ -75,7 +76,8 @@ class HVAC2_TCPSF_greater_than_minimum(Variable):
     label = 'Is your TCPSF equal to or greater than the Minimum TCPSF for the same Product Type and Cooling Capacity in ESS Table F4.5?'
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is your TCPSF equal to or greater than the Minimum TCPSF for the same Product Type and Cooling Capacity in ESS Table F4.5?'
+        'display_question' : 'Is your TCPSF equal to or greater than the Minimum TCPSF for the same Product Type and Cooling Capacity in ESS Table F4.5?',
+        'conditional': 'True'
     }
 
 
@@ -85,8 +87,9 @@ class HVAC2_installed_centralised_system_common_area_BCA_Class2_building(Variabl
     definition_period = ETERNITY
     label = 'Is the installation in a centralised system or common area in a Class 2 building?'
     metadata = {
-        'variable-type' : 'conditional',
-        'display_question' : 'Is the installation in a centralised system or common area in a Class 2 building?'
+        'variable-type' : 'input',
+        'display_question' : 'Is the installation in a centralised system or common area in a Class 2 building?',
+        'conditional': 'True'
     }
 
 
@@ -124,7 +127,7 @@ class HVAC2_HSPF_mixed(Variable):
     definition_period = ETERNITY
     label = 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
     metadata = {
-        'variable-type': 'conditional',
+        'conditional': 'True',
         'display_question' : 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
     }
 
@@ -135,7 +138,7 @@ class HVAC2_HSPF_cold(Variable):
     definition_period = ETERNITY
     label = 'Is your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
     metadata = {
-        'variable-type' : 'conditional',
+        'conditional': 'True',
         'display_question' : 'Is your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
     }
 
@@ -156,7 +159,7 @@ class HVAC2_ACOP(Variable):
     definition_period = ETERNITY
     label = 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?'
     metadata = {
-        'variable-type': 'conditional',
+        'conditional': 'True',
         'display_question' : 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table F4.5?'
     }
 
@@ -168,7 +171,8 @@ class HVAC2_equipment_replaced(Variable):
     definition_period = ETERNITY
     label = 'Is the activity the replacement of an existing air conditioner?'
     metadata = {
-        'display_question' : 'Is the activity the replacement of an existing air conditioner?'
+        'display_question' : 'Is the activity the replacement of an existing air conditioner?',
+        'conditional': 'True'
     }
 
 
@@ -178,5 +182,6 @@ class HVAC2_equipment_removed(Variable):
     definition_period = ETERNITY
     label = 'Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?'
     metadata = {
+        'conditional': 'True',
         'display_question' : 'Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?'
     }

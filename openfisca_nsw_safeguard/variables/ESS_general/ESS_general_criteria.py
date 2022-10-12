@@ -50,7 +50,7 @@ class ESS__equipment_is_not_resold_reused_or_refurbished(Variable):
     definition_period = ETERNITY
     label = 'Is the removed End-User equipment re-sold, refurbished or re-used?'
     metadata = {
-        'display-question' : 'Is the removed End-User equipment re-sold, refurbished or re-used?'
+        'display_question' : 'Is the removed End-User equipment re-sold, refurbished or re-used?'
     }
     
     def formula(buildings, period, parameters):

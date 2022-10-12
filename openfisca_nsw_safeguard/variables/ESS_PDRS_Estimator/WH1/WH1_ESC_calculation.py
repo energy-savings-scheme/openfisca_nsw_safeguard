@@ -1,5 +1,3 @@
-from random import gauss
-from socket import CAN_BCM_TX_CP_CAN_ID
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum

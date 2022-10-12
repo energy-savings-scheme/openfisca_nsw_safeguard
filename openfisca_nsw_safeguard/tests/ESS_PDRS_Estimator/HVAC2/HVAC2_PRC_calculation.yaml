@@ -57,10 +57,6 @@
       [
         600
       ]
-    HVAC2_lifetime_value:
-      [
-        10
-      ]
   output:
     HVAC2_peak_demand_reduction_capacity:
       [

@@ -41,6 +41,7 @@ class Base_implemented_activity(Variable):
 class Base_implementation_after_1_April_2022(Variable):
     value_type = date
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     label = 'What date did the implementation occur?'
     metadata = {
@@ -151,7 +152,7 @@ class Base_meets_mandatory_requirement(Variable):
 class Base_basix_affected_development(Variable):
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     label = 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
     metadata = {

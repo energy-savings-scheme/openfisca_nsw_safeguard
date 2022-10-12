@@ -41,7 +41,6 @@ class Base_implemented_activity(Variable):
 class Base_implementation_after_1_April_2022(Variable):
     value_type = date
     entity = Building
-    default_value = True
     definition_period = ETERNITY
     label = 'What date did the implementation occur?'
     metadata = {

@@ -34,7 +34,7 @@
       ]
 - name: test WH1 deemed activity gas savings
   period: 2022
-  absolute_error_margin: 0
+  absolute_error_margin: 0.1
   input:
     WH1_HP_gas:
       [
@@ -47,5 +47,73 @@
   output:
     WH1_deemed_activity_gas_savings:
       [
-        -33.3
+        -33.33
+      ]
+- name: test WH1 reference electricity
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_com_peak_load:
+      [
+        300
+      ]
+  output:
+    WH1_Ref_Elec:
+      [
+        104052.375
+      ]
+- name: test WH1 deemed activity electricity savings
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_Ref_Elec:
+      [
+        500
+      ]
+    WH1_HP_elec:
+      [
+        400
+      ]
+    WH1_capacity_factor:
+      [
+        0.5
+      ]
+  output:
+    WH1_deemed_activity_electricity_savings:
+      [
+        166.66667
+      ]
+- name: test WH1 electricity savings
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_postcode:
+      [
+        2795
+      ]
+    WH1_deemed_activity_electricity_savings:
+      [
+        166
+      ]
+  output:
+    WH1_electricity_savings:
+      [
+        170.98
+      ]
+- name: test WH1 ESC calculation
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_electricity_savings:
+      [
+        170.98
+      ]
+    WH1_deemed_activity_gas_savings:
+      [
+        -33.33
+      ]
+  output:
+    WH1_ESC_calculation:
+      [
+        168
       ]

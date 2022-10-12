@@ -64,7 +64,7 @@
       ]
 - name: test HVAC2 PRC calculation
   period: 2022
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0
   input:
     HVAC2_peak_demand_reduction_capacity:
       [

@@ -117,7 +117,7 @@ class HVAC2_new_equipment_heating_capacity(Variable):
     definition_period = ETERNITY
     label = 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?'
     metadata = {
-        'display-question' : 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?'
+        'display_question' : 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?'
     }
 
 

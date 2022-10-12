@@ -22,8 +22,8 @@
         True,
         True,
         True,
-        False,
-        False
+        True,
+        True
       ]
     HVAC2_equipment_replaced:
       [

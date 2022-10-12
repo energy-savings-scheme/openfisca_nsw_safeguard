@@ -60,7 +60,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
         
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
         
-        end_formula =  ( installation_or_replacement * residential_building_with_class_2 * 
+        end_formula =  ( installation_or_replacement * equipment_installed * residential_building_with_class_2 * 
                         registered_GEMS * gems_cooling_capacity_path * climate_zone_condition )
         
         return end_formula

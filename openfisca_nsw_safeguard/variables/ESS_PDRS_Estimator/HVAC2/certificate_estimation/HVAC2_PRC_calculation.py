@@ -75,7 +75,7 @@ class HVAC2_peak_demand_reduction_capacity(Variable):
     def formula(buildings, period, parameters):
         peak_demand_savings = buildings('HVAC2_peak_demand_savings_activity', period)
         summer_peak_demand_duration = 6
-        lifetime = buildings('HVAC2_lifetime_value', period)
+        lifetime = parameters(period).ESS.HEAB.table_F4_6.lifetime
 
         peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
         return peak_demand_reduction_capacity

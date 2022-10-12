@@ -64,11 +64,3 @@ class HVAC2_baseline_AEER_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
-
-
-class HVAC2_lifetime_value(Variable):
-    # description = 'ESS_D16_lifetime'
-    reference = 'unit in years'
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY

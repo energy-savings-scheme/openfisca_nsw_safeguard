@@ -38,7 +38,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
         heating_capacity = buildings('HVAC2_new_equipment_heating_capacity', period)
         HSPF_mixed_value = buildings('HVAC2_HSPF_mixed', period)
         HSPF_cold_value = buildings('HVAC2_HSPF_cold', period)
-        AEER_greater_than_minimum = buildings('HVAC_2_AEER_greater_than_minimum',period)
+        AEER_greater_than_minimum = buildings('HVAC2_AEER_greater_than_minimum',period)
         ACOP_value = buildings ('HVAC2_ACOP', period)
         
         # variables for equipment replacement

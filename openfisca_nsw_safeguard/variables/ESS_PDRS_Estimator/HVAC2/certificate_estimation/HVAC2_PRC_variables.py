@@ -20,19 +20,3 @@ class HVAC2_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-
-
-""" These variables use Rule tables
-"""
-class HVAC2_firmness_factor(Variable):
-    reference = 'table_A6_firmness_factor'
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-
-
-class HVAC2_network_loss_factor(Variable):
-    reference = 'table_A3_network_loss_factors'
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY

@@ -70,10 +70,6 @@
       [
         1
       ]
-    HVAC2_network_loss_factor:
-      [
-        1
-      ]
   output:
     HVAC2_PRC_calculation:
       [

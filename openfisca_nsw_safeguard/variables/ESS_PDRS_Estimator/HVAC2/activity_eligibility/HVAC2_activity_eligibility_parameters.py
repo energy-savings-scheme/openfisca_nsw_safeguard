@@ -127,7 +127,7 @@ class HVAC2_AEER_greater_than_minimum(Variable):
     metadata = {
         'display_question' : 'Is your AEER equal to or greater than the Minimum AEER for the same Product Type and Cooling Capacity in ESS Table F4.4?',
         'sorting' : 10,
-        'conditonal' : 'True'
+        'conditional' : 'True'
     }
 
 

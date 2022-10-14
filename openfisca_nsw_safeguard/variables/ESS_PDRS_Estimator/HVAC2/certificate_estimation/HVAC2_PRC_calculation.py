@@ -105,5 +105,5 @@ class HVAC2_PRC_calculation(Variable):
         kw_to_0_1kw = 10
 
 
-        HVAC2_PRC_calculation = (peak_demand_capacity * network_loss_factor) * kw_to_0_1kw        
+        HVAC2_PRC_calculation = np.floor(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw        
         return HVAC2_PRC_calculation

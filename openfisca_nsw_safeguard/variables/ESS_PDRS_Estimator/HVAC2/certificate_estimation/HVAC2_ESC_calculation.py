@@ -97,7 +97,7 @@ class HVAC2_deemed_activity_electricity_savings(Variable):
       annual_cooling = ('HVAC2_cooling_annual_energy_use', period)
       reference_annual_heating = ('HVAC2_reference_heating_annual_energy_use', period)
       annual_heating = ('HVAC2_heating_annual_energy_use', period)
-      lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
+      lifetime = parameters(period).ESS.HEAB.table_F4_6.lifetime
 
       deemed_electricity_savings = np.floor(reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating) * (lifetime / 1000)
       return deemed_electricity_savings

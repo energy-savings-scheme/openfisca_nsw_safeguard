@@ -89,9 +89,9 @@ class WH1_PRC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         peak_demand_capacity = buildings('WH1_peak_demand_reduction_capacity', period)
-        network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors.network_loss_factor
+        network_loss_factor = buildings('PDRS_network_loss_factor', period)
         kw_to_0_1kw = 10
 
 
-        WH1_PRC_calculation = np.floor(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw        
+        WH1_PRC_calculation = peak_demand_capacity * network_loss_factor * kw_to_0_1kw        
         return WH1_PRC_calculation

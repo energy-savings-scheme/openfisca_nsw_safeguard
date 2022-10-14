@@ -92,9 +92,9 @@ class HVAC2_PRC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         peak_demand_capacity = buildings('HVAC2_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('HVAC2_network_loss_factor', period)
+        network_loss_factor = buildings('PDRS_network_loss_factor', period)
         kw_to_0_1kw = 10
 
 
-        HVAC2_PRC_calculation = np.floor(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw        
+        HVAC2_PRC_calculation = peak_demand_capacity * network_loss_factor * kw_to_0_1kw        
         return HVAC2_PRC_calculation

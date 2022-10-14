@@ -56,11 +56,20 @@ class HVAC2_peak_demand_savings_activity(Variable):
         baseline_input_power = buildings('HVAC2_baseline_input_power', period)
         baseline_peak_adjustment = buildings('HVAC2_baseline_peak_adjustment_factor', period)
         input_power = buildings('HVAC2_input_power', period)
-        peak_adjustment_factor = buildings('HVAC2_baseline_peak_adjustment_factor', period)
         firmness_factor = 1
 
-        peak_demand_savings_activity = np.floor((baseline_input_power * baseline_peak_adjustment)-(input_power * peak_adjustment_factor)) * firmness_factor
-        return peak_demand_savings_activity
+        return (
+                    (
+                        baseline_input_power *
+                        baseline_peak_adjustment
+                    ) -
+                    (
+                        input_power *
+                        baseline_peak_adjustment
+                    )
+                    *
+                    firmness_factor
+            )
 
   
 class HVAC2_peak_demand_reduction_capacity(Variable):

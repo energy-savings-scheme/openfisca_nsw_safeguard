@@ -111,7 +111,7 @@ class HVAC2_PDRS__regional_network_factor(Variable):
             ' A corresponding to the postcode of the Address of the Site or' \
             ' Sites where the Implementation(s) took place.'
     metadata={
-        "variable-type": "input",
+        "variable-type": "inter-interesting",
         "alias":"PDRS Regional Network Factor",
         "display-question": "PDRS regional network factor",
         "variable-type": "output"

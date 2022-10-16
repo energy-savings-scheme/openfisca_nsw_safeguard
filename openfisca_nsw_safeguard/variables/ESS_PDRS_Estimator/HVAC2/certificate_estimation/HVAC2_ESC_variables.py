@@ -1,4 +1,3 @@
-from importlib.metadata import metadata
 import numpy as np
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY

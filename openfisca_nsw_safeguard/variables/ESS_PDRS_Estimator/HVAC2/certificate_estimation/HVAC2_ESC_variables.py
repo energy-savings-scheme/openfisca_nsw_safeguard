@@ -43,6 +43,10 @@ class HVAC2_equivalent_heating_hours_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
+    
+    metadata = {
+        "variable-type": "inter-interesting"
+    }
 
 
 class HVAC2_equivalent_cooling_hours_input(Variable):
@@ -50,6 +54,10 @@ class HVAC2_equivalent_cooling_hours_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
+    metadata = {
+        "variable-type": "inter-interesting"
+    }
+
 
 
 class HVAC2_baseline_ACOP_input(Variable):
@@ -57,6 +65,10 @@ class HVAC2_baseline_ACOP_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
+    metadata = {
+        "variable-type": "inter-interesting"
+    }
+
 
 
 class HVAC2_baseline_AEER_input(Variable):
@@ -64,6 +76,9 @@ class HVAC2_baseline_AEER_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
+    metadata = {
+        "variable-type": "inter-interesting"
+    }
 
 
 class HVAC2_lifetime_value(Variable):
@@ -72,3 +87,6 @@ class HVAC2_lifetime_value(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        "variable-type": "inter-interesting"
+    }

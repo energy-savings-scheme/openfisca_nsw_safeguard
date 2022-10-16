@@ -39,7 +39,7 @@ class HVAC2_Energy_Provider(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"Energy provider",
-        "display-question": "Please select your energy provider."
+        "display_question": "Please select your energy provider."
         }
 
 

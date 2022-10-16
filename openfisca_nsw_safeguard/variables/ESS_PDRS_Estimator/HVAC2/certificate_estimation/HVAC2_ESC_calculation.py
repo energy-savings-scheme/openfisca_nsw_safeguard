@@ -113,7 +113,7 @@ class HVAC2_PDRS__regional_network_factor(Variable):
     metadata={
         "variable-type": "inter-interesting",
         "alias":"PDRS Regional Network Factor",
-        "display-question": "PDRS regional network factor",
+        "display_question": "PDRS regional network factor",
         "variable-type": "output"
     }
 

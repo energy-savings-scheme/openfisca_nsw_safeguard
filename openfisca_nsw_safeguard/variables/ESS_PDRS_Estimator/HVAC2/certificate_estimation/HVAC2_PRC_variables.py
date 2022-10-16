@@ -22,14 +22,25 @@ class HVAC2_input_power(Variable):
     entity = Building
     definition_period = ETERNITY
 
+    
+class HVAC2_Energy_Provider_Options(Enum):
+    Ausgrid = 'Ausgrid'
+    Endeavour = 'Endeavour'
+    Essential = 'Essential'
 
-""" These variables use Rule tables
-"""
-class HVAC2_firmness_factor(Variable):
-    reference = 'table_A6_firmness_factor'
-    value_type = float
+
+class HVAC2_Energy_Provider(Variable):
+    value_type = Enum
     entity = Building
+    possible_values = HVAC2_Energy_Provider_Options
+    default_value = HVAC2_Energy_Provider_Options.Ausgrid
     definition_period = ETERNITY
+    label = 'Energy provider'
+    metadata={
+        "variable-type": "user-input",
+        "alias":"Energy provider",
+        "display-question": "Please select your energy provider."
+        }
 
 
 class HVAC2_network_loss_factor(Variable):
@@ -37,3 +48,8 @@ class HVAC2_network_loss_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    
+    def formula(buildings, period, parameters):
+        network_provider = buildings('HVAC2_Energy_Provider', period)
+        network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors[network_provider]
+        return network_loss_factor

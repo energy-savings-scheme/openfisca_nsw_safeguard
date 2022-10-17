@@ -13,6 +13,10 @@ class HVAC2_heating_capacity_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        "alias": "Air Conditioner Heating Capacity",
+        "display_question": "Heating capacity"
+    }
 
 
 class HVAC2_rated_ACOP_input(Variable):
@@ -20,13 +24,71 @@ class HVAC2_rated_ACOP_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-
+    metadata = {
+        "alias": "Air Conditioner Heating Capacity",
+        "display_question": "Rated ACOP"
+    }
 
 class HVAC2_cooling_capacity_input(Variable):
     reference = 'unit in kw'
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        "alias": "Air Conditioner Cooling Capacity",
+        "display_question": "Cooling capacity"
+    }
+
+
+class HVAC2_baseline_AEER_input(Variable):
+    value_type = float
+    entity = Building
+    label = "Baseline AEER"
+    definition_period = ETERNITY
+    metadata = {
+        "alias": "AEER",
+        "variable-type": "output"
+    }
+
+    def formula(building, period, parameters):
+        cooling_capacity = building(
+            'HVAC2_cooling_capacity_input', period)
+        
+        cooling_capacity_to_check = np.select(
+            [
+                cooling_capacity < 4,
+                (cooling_capacity < 10) * (cooling_capacity >= 4),
+                (cooling_capacity < 39) * (cooling_capacity >= 10),
+                (cooling_capacity < 65) * (cooling_capacity >= 39),
+                cooling_capacity > 65
+            ],
+            [
+                "less_than_4kW",
+                "4kW_to_10kW",
+                "10kW_to_39kW",
+                "39kW_to_65kW",
+                "more_than_65kW"
+            ])
+        
+        air_conditioner_type = building('HVAC2_Air_Conditioner_type', period)
+        aircon = np.select(
+            [air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system],
+            
+                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
+            )
+       
+        new_or_used_equipment = building('HVAC2_New_Equipment', period)
+        
+        
+        baseline_aeer = np.select(
+            [new_or_used_equipment, np.logical_not(new_or_used_equipment)],
+            
+                [parameters(period).ESS.HEAB.table_F4_2.AEER[aircon][cooling_capacity_to_check], 
+                    parameters(period).ESS.HEAB.table_F4_3.AEER[aircon][cooling_capacity_to_check] 
+                    ]
+            )
+
+        return baseline_aeer
 
 
 class HVAC2_rated_AEER_input(Variable):
@@ -34,6 +96,10 @@ class HVAC2_rated_AEER_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        "alias": "Rated AEER",
+        "display_question": "Rated AEER"
+    }
 
 
 """ These variables use Rule tables
@@ -45,8 +111,13 @@ class HVAC2_equivalent_heating_hours_input(Variable):
     definition_period = ETERNITY 
     
     metadata = {
-        "variable-type": "inter-interesting"
+        "variable-type": "output"
     }
+    
+    def formula(building, period, parameters):
+        climate_zone = building('HVAC2_climate_zone', period)
+        heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[climate_zone]
+        return heating_hours
 
 
 class HVAC2_equivalent_cooling_hours_input(Variable):
@@ -55,38 +126,79 @@ class HVAC2_equivalent_cooling_hours_input(Variable):
     entity = Building
     definition_period = ETERNITY 
     metadata = {
-        "variable-type": "inter-interesting"
+        "variable-type": "output"
     }
-
+    
+    def formula(building, period, parameters):
+        climate_zone = building('HVAC2_climate_zone', period)
+        cooling_hours = parameters(period).ESS.HEAB.table_F4_1.cooling_hours[climate_zone]
+        return cooling_hours
 
 
 class HVAC2_baseline_ACOP_input(Variable):
-    reference = 'table_F4.3'
     value_type = float
     entity = Building
-    definition_period = ETERNITY 
+    label = "Baseline ACOP"
+    definition_period = ETERNITY
     metadata = {
-        "variable-type": "inter-interesting"
+        "variable-type": "output"
     }
 
+    def formula(building, period, parameters):
+        cooling_capacity = building(
+            'HVAC2_cooling_capacity_input', period)
+        
+        cooling_capacity_to_check = np.select(
+            [
+                cooling_capacity < 4,
+                (cooling_capacity < 10) * (cooling_capacity >= 4),
+                (cooling_capacity < 39) * (cooling_capacity >= 10),
+                (cooling_capacity < 65) * (cooling_capacity >= 39),
+                cooling_capacity > 65
+            ],
+            [
+                "less_than_4kW",
+                "4kW_to_10kW",
+                "10kW_to_39kW",
+                "39kW_to_65kW",
+                "more_than_65kW"
+            ])
+        
+        air_conditioner_type = building('HVAC2_Air_Conditioner_type', period)
+        aircon = np.select(
+            [air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system],
+            
+                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
+            )
+        new_or_used_equipment = building('HVAC2_New_Equipment', period)
+        
+        
+        baseline_acop = np.select(
+            [new_or_used_equipment, np.logical_not(new_or_used_equipment)],
+            
+                [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check], 
+                    parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check] 
+                    ]
+            )
+
+        return baseline_acop
 
 
-class HVAC2_baseline_AEER_input(Variable):
-    reference = 'table_F4.3'
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY 
-    metadata = {
-        "variable-type": "inter-interesting"
-    }
+class HVAC2_AC_Type(Enum):
+    non_ducted_split_system = 'The AC is a non-ducted split system.'
+    ducted_split_system = 'The AC is a ducted split system.'
+    non_ducted_unitary_system = 'The AC is a non-ducted split system.'
+    ducted_unitary_system = 'The AC is a ducted split system.'
 
 
-class HVAC2_lifetime_value(Variable):
-    # description = 'ESS_D16_lifetime'
-    reference = 'unit in years'
-    value_type = float
+class HVAC2_Air_Conditioner_type(Variable):
+    reference = "GEMS or MEPS"
+    value_type = Enum
+    possible_values = HVAC2_AC_Type
+    default_value = HVAC2_AC_Type.non_ducted_split_system
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        "variable-type": "inter-interesting"
+        "variable-type": "user-input",
+        "alias": "Air Conditioner Type",
     }

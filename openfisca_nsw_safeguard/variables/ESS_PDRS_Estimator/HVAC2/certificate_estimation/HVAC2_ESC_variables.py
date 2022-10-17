@@ -9,14 +9,16 @@ from openfisca_nsw_base.entities import Building
     These variables use GEMS Registry data
 """
 class HVAC2_heating_capacity_input(Variable):
-    reference = 'unit in '
+    reference = 'unit in kW'
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {
         "alias": "Air Conditioner Heating Capacity",
-        "display_question": "What is the heating capacity of your commercial air conditioner?"
+        'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
+        'sorting' : '5'
     }
+
 
 class HVAC2_cooling_capacity_input(Variable):
     reference = 'unit in kw'
@@ -25,18 +27,19 @@ class HVAC2_cooling_capacity_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Air Conditioner Cooling Capacity",
-        'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry'
+        'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
+        'sorting' : 7
     }
 
 
 class HVAC2_rated_ACOP_input(Variable):
-    reference = 'unit in '
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {
         "alias": "Rated ACOP",
-        "display_question": "What is the Rated ACOP of your commercial air conditioner?"
+        'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
+        'sorting' : 6
     }
 
 
@@ -98,7 +101,8 @@ class HVAC2_rated_AEER_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Rated AEER",
-        "display_question": "What is the Rated AEER of your commercial air conditioner?"
+        "display_question": 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
+        'sorting': '8'
     }
     
 class DefaultValuesCertificateClimateZone(Enum):

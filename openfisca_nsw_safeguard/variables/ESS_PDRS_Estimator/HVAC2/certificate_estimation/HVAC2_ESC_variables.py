@@ -15,18 +15,7 @@ class HVAC2_heating_capacity_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Air Conditioner Heating Capacity",
-        "display_question": "Heating capacity"
-    }
-
-
-class HVAC2_rated_ACOP_input(Variable):
-    reference = 'unit in '
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    metadata = {
-        "alias": "Air Conditioner Heating Capacity",
-        "display_question": "Rated ACOP"
+        "display_question": "What is the heating capacity of your commercial air conditioner?"
     }
 
 class HVAC2_cooling_capacity_input(Variable):
@@ -36,7 +25,18 @@ class HVAC2_cooling_capacity_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Air Conditioner Cooling Capacity",
-        "display_question": "Cooling capacity"
+        "display_question": "What is the cooling capacity of your commercial air conditioner?"
+    }
+
+
+class HVAC2_rated_ACOP_input(Variable):
+    reference = 'unit in '
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        "alias": "Rated ACOP",
+        "display_question": "What is the Rated ACOP of your commercial air conditioner?"
     }
 
 
@@ -98,7 +98,7 @@ class HVAC2_rated_AEER_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Rated AEER",
-        "display_question": "Rated AEER"
+        "display_question": "What is the Rated AEER of your commercial air conditioner?"
     }
 
 
@@ -187,18 +187,19 @@ class HVAC2_baseline_ACOP_input(Variable):
 class HVAC2_AC_Type(Enum):
     non_ducted_split_system = 'The AC is a non-ducted split system.'
     ducted_split_system = 'The AC is a ducted split system.'
-    non_ducted_unitary_system = 'The AC is a non-ducted split system.'
-    ducted_unitary_system = 'The AC is a ducted split system.'
+    non_ducted_unitary_system = 'The AC is a non-ducted unitary system.'
+    ducted_unitary_system = 'The AC is a ducted unitary system.'
 
 
 class HVAC2_Air_Conditioner_type(Variable):
-    reference = "GEMS or MEPS"
     value_type = Enum
+    entity = Building
+    label = "Air conditioner type"
     possible_values = HVAC2_AC_Type
     default_value = HVAC2_AC_Type.non_ducted_split_system
-    entity = Building
     definition_period = ETERNITY
     metadata = {
         "variable-type": "user-input",
         "alias": "Air Conditioner Type",
+        "display_question": "What is your air conditioner type?"
     }

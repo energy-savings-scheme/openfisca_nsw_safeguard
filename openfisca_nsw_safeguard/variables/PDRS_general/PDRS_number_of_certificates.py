@@ -42,6 +42,7 @@ class PDRS__postcode(Variable):
     metadata={
         "variable-type": "user-input",
         "alias":"PDRS Postcode",
+        "display_question": "What is your postcode?"
         # "major-cat":"Peak Demand Reduction Scheme",
         # "monor-cat":'Peak Demand Reduction Scheme - General'
         }

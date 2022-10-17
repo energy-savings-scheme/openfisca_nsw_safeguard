@@ -23,23 +23,23 @@ class HVAC2_input_power(Variable):
     definition_period = ETERNITY
 
     
-class HVAC2_Energy_Provider_Options(Enum):
+class HVAC2_DNSP_Options(Enum):
     Ausgrid = 'Ausgrid'
     Endeavour = 'Endeavour'
     Essential = 'Essential'
 
 
-class HVAC2_Energy_Provider(Variable):
+class HVAC2_DNSP(Variable):
     value_type = Enum
     entity = Building
-    possible_values = HVAC2_Energy_Provider_Options
-    default_value = HVAC2_Energy_Provider_Options.Ausgrid
+    possible_values = HVAC2_DNSP_Options
+    default_value = HVAC2_DNSP_Options.Ausgrid
     definition_period = ETERNITY
     label = 'Energy provider'
     metadata={
         "variable-type": "user-input",
-        "alias":"Energy provider",
-        "display_question": "Please select your energy provider."
+        "alias":"Energy Provider",
+        "display_question": "Who is your energy service provider?"
         }
 
 
@@ -50,6 +50,18 @@ class HVAC2_network_loss_factor(Variable):
     definition_period = ETERNITY
     
     def formula(buildings, period, parameters):
-        network_provider = buildings('HVAC2_Energy_Provider', period)
+        network_provider = buildings('HVAC2_DNSP', period)
         network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors[network_provider]
         return network_loss_factor
+    
+
+class HVAC2_New_Equipment(Variable):
+    value_type = bool
+    default_value = True
+    entity = Building
+    definition_period = ETERNITY
+    label = 'New or Used equipment'
+    metadata = {
+        "variable-type": "user-input",
+        "display_question": "Is the end-user equipment a new air-conditioner?"
+        }

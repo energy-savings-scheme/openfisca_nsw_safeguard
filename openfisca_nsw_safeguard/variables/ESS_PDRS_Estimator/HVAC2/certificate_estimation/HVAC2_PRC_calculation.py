@@ -23,6 +23,22 @@ class HVAC2_baseline_input_power(Variable):
 
       baseline_input_power = rated_cooling_capacity / baseline_AEER
       return baseline_input_power
+  
+
+class HVAC2_BCA_climate_zone_by_postcode(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What BCA climate zone is the activity taking place in?'
+    metadata={
+        "variable-type": "inter-interesting",
+        "alias": "HVAC2 BCA Climate Zone",
+    }
+    
+    def formula(buildings, period, parameters):
+        postcode = buildings('PDRS__postcode', period)
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode        
+        return climate_zone.calc(postcode)
 
 
 class HVAC2_baseline_peak_adjustment_factor(Variable):
@@ -36,7 +52,7 @@ class HVAC2_baseline_peak_adjustment_factor(Variable):
 
     def formula(buildings, period, parameters):
       usage_factor = 0.6
-      climate_zone = buildings('BCA_climate_zone', period)
+      climate_zone = buildings('HVAC2_BCA_climate_zone_by_postcode', period)
       temperature_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
 
       baseline_adjustment_factor = usage_factor * temperature_factor
@@ -84,7 +100,7 @@ class HVAC2_peak_demand_reduction_capacity(Variable):
     def formula(buildings, period, parameters):
         peak_demand_savings = buildings('HVAC2_peak_demand_savings_activity', period)
         summer_peak_demand_duration = 6
-        lifetime = buildings('HVAC2_lifetime_value', period)
+        lifetime = 10
 
         peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
         return peak_demand_reduction_capacity

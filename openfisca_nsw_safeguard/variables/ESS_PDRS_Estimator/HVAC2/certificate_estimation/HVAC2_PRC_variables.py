@@ -16,12 +16,13 @@ import numpy as np
 """ These variables use GEMS Registry data
 """
 class HVAC2_input_power(Variable):
-    reference = 'unit in '
+    reference = 'unit in kW'
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = "Rated cooling input power at 35C as recorded in the GEMS registry"
     metadata = {
-        "display_question": "What is the input power of your commercial air conditioner?"
+        'display_question': 'Rated cooling input power at 35C as recorded in the GEMS registry'
     }
 
 
@@ -37,11 +38,11 @@ class HVAC2_DNSP(Variable):
     possible_values = HVAC2_DNSP_Options
     default_value = HVAC2_DNSP_Options.Ausgrid
     definition_period = ETERNITY
-    label = "What Distribution District does the Implementation take place in?"
+    label = "Distribution Network Service Provider"
     metadata = {
-        "variable-type": "user-input",
-        "alias": "PFC Distribution District",
-        "display_question": "Who is your network service provider?"
+        'variable-type': 'user-input',
+        'display_question': 'Who is your Distribution Network Service Provider?',
+        'sorting' : '2'
     }
 
 
@@ -55,7 +56,7 @@ class HVAC2_network_loss_factor(Variable):
         distribution_district = buildings('HVAC2_DNSP', period)
         network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors['network_loss_factor'][distribution_district]
         return network_loss_factor
-    
+
 
 class HVAC2_New_Equipment(Variable):
     value_type = bool
@@ -64,6 +65,7 @@ class HVAC2_New_Equipment(Variable):
     definition_period = ETERNITY
     label = 'New or Used equipment'
     metadata = {
-        "variable-type": "user-input",
-        "display_question": "Is the end-user equipment a new air-conditioner?"
+        'variable-type': 'user-input',
+        'display_question': 'Is the end-user equipment a new air-conditioner?',
+        'sorting' : '3'
         }

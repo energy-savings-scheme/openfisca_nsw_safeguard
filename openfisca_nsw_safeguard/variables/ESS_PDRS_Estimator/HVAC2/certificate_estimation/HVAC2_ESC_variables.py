@@ -25,7 +25,7 @@ class HVAC2_cooling_capacity_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Air Conditioner Cooling Capacity",
-        "display_question": "What is the cooling capacity of your commercial air conditioner?"
+        'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry'
     }
 
 
@@ -202,10 +202,10 @@ class HVAC2_baseline_ACOP_input(Variable):
 
 
 class HVAC2_AC_Type(Enum):
-    non_ducted_split_system = 'The AC is a non-ducted split system.'
-    ducted_split_system = 'The AC is a ducted split system.'
-    non_ducted_unitary_system = 'The AC is a non-ducted unitary system.'
-    ducted_unitary_system = 'The AC is a ducted unitary system.'
+    non_ducted_split_system = 'Non-ducted split system.'
+    ducted_split_system = 'Ducted split system.'
+    non_ducted_unitary_system = 'Non-ducted unitary system.'
+    ducted_unitary_system = 'Ducted unitary system.'
 
 
 class HVAC2_Air_Conditioner_type(Variable):
@@ -216,7 +216,7 @@ class HVAC2_Air_Conditioner_type(Variable):
     default_value = HVAC2_AC_Type.non_ducted_split_system
     definition_period = ETERNITY
     metadata = {
-        "variable-type": "user-input",
-        "alias": "Air Conditioner Type",
-        "display_question": "What is your air conditioner type?"
+        'variable-type' : 'user-input',
+        'display_question' : 'What is your air conditioner type?',
+        'sorting' : '4'
     }

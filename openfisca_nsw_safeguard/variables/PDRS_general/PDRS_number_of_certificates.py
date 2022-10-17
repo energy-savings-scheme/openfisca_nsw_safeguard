@@ -34,17 +34,17 @@ class PDRS_number_of_peak_demand_reduction_certificates(Variable):
         return np.floor(peak_demand_reduction_capacity * regional_network_factor)
         # check w. Steve/Rod if we round down
 
+
 class PDRS__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = "What is the postcode for the building you are calculating PRCs for?"
     metadata={
-        "variable-type": "user-input",
-        "alias":"PDRS Postcode",
-        "display_question": "What is your postcode?"
-        # "major-cat":"Peak Demand Reduction Scheme",
-        # "monor-cat":'Peak Demand Reduction Scheme - General'
+        'variable-type' : 'user-input',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'What is your postcode?',
+        'sorting' : '1'
         }
 
 

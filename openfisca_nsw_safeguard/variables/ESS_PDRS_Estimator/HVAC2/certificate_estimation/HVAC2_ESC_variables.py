@@ -100,6 +100,23 @@ class HVAC2_rated_AEER_input(Variable):
         "alias": "Rated AEER",
         "display_question": "What is the Rated AEER of your commercial air conditioner?"
     }
+    
+class DefaultValuesCertificateClimateZone(Enum):
+    hot_zone = "AC is installed in the hot zone."
+    average_zone = "AC is installed in the average zone."
+    cold_zone = "AC is installed in the cold zone."
+
+
+class HVAC2_certificate_climate_zone(Variable):
+    value_type = Enum
+    entity = Building
+    label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
+    possible_values = DefaultValuesCertificateClimateZone
+    default_value = DefaultValuesCertificateClimateZone.average_zone
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?',
+    }
 
 
 """ These variables use Rule tables
@@ -115,7 +132,7 @@ class HVAC2_equivalent_heating_hours_input(Variable):
     }
     
     def formula(building, period, parameters):
-        climate_zone = building('HVAC2_climate_zone', period)
+        climate_zone = building('HVAC2_certificate_climate_zone', period)
         heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[climate_zone]
         return heating_hours
 
@@ -130,7 +147,7 @@ class HVAC2_equivalent_cooling_hours_input(Variable):
     }
     
     def formula(building, period, parameters):
-        climate_zone = building('HVAC2_climate_zone', period)
+        climate_zone = building('HVAC2_certificate_climate_zone', period)
         cooling_hours = parameters(period).ESS.HEAB.table_F4_1.cooling_hours[climate_zone]
         return cooling_hours
 

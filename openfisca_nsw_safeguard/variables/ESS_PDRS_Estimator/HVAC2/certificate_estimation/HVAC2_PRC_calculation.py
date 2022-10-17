@@ -37,8 +37,32 @@ class HVAC2_BCA_climate_zone_by_postcode(Variable):
     
     def formula(buildings, period, parameters):
         postcode = buildings('PDRS__postcode', period)
-        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode        
-        return climate_zone.calc(postcode)
+        # Returns an integer
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        climate_zone_int = climate_zone.calc(postcode)
+        cooling_capacity_to_check = np.select(
+            [
+                climate_zone_int == 1,
+                climate_zone_int == 2,
+                climate_zone_int == 3,
+                climate_zone_int == 4,
+                climate_zone_int == 5,
+                climate_zone_int == 6,
+                climate_zone_int == 7,
+                climate_zone_int == 8
+            ],
+            [
+                "BCA_Climate_Zone_1",
+                "BCA_Climate_Zone_2",
+                "BCA_Climate_Zone_3",
+                "BCA_Climate_Zone_4",
+                "BCA_Climate_Zone_5",
+                "BCA_Climate_Zone_6",
+                "BCA_Climate_Zone_7",
+                "BCA_Climate_Zone_8"
+            ])
+        return cooling_capacity_to_check
+        
 
 
 class HVAC2_baseline_peak_adjustment_factor(Variable):
@@ -53,9 +77,9 @@ class HVAC2_baseline_peak_adjustment_factor(Variable):
     def formula(buildings, period, parameters):
       usage_factor = 0.6
       climate_zone = buildings('HVAC2_BCA_climate_zone_by_postcode', period)
-      temperature_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
+      temp_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
 
-      baseline_adjustment_factor = usage_factor * temperature_factor
+      baseline_adjustment_factor = usage_factor * temp_factor
       return baseline_adjustment_factor
 
 

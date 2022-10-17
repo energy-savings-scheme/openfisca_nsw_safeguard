@@ -11,7 +11,6 @@ import numpy as np
 """ Values shared with ESC variables HVAC2_ESC_variables 
     HVAC2_cooling_capacity_input
     HVAC2_baseline_AEER_input
-    HVAC2_lifetime_value
 """
 
 """ These variables use GEMS Registry data
@@ -25,11 +24,11 @@ class HVAC2_input_power(Variable):
         "display_question": "What is the input power of your commercial air conditioner?"
     }
 
-    
+
 class HVAC2_DNSP_Options(Enum):
-    Ausgrid = 'Ausgrid'
     Endeavour = 'Endeavour'
     Essential = 'Essential'
+    Ausgrid = 'Ausgrid'
 
 
 class HVAC2_DNSP(Variable):
@@ -38,12 +37,12 @@ class HVAC2_DNSP(Variable):
     possible_values = HVAC2_DNSP_Options
     default_value = HVAC2_DNSP_Options.Ausgrid
     definition_period = ETERNITY
-    label = 'Who is your energy service provider?'
-    metadata={
+    label = "What Distribution District does the Implementation take place in?"
+    metadata = {
         "variable-type": "user-input",
-        "alias":"Energy Provider",
-        "display_question": "Who is your energy service provider?"
-        }
+        "alias": "PFC Distribution District",
+        "display_question": "Who is your network service provider?"
+    }
 
 
 class HVAC2_network_loss_factor(Variable):
@@ -53,8 +52,8 @@ class HVAC2_network_loss_factor(Variable):
     definition_period = ETERNITY
     
     def formula(buildings, period, parameters):
-        network_provider = buildings('HVAC2_DNSP', period)
-        network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors[network_provider]
+        distribution_district = buildings('HVAC2_DNSP', period)
+        network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors['network_loss_factor'][distribution_district]
         return network_loss_factor
     
 

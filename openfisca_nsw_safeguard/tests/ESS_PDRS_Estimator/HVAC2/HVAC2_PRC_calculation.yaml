@@ -66,16 +66,32 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_peak_demand_reduction_capacity:
+    HVAC2_DNSP:
+      [
+        Ausgrid
+      ]
+    HVAC2_input_power:
       [
         1
       ]
-    HVAC2_network_loss_factor:
+    HVAC2_Air_Conditioner_type:
       [
-        1
+        non_ducted_split_system
+      ]
+    HVAC2_cooling_capacity_input:
+      [
+        2
+      ]
+    HVAC2_New_Equipment:
+      [
+        true
+      ]
+    PDRS__postcode:
+      [
+        2016
       ]
   output:
     HVAC2_PRC_calculation:
       [
-        10
+        -100
       ]

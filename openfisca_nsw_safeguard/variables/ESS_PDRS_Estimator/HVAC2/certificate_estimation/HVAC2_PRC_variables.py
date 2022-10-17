@@ -21,6 +21,9 @@ class HVAC2_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        "display_question": "What is the input power of your commercial air conditioner?"
+    }
 
     
 class HVAC2_DNSP_Options(Enum):
@@ -35,7 +38,7 @@ class HVAC2_DNSP(Variable):
     possible_values = HVAC2_DNSP_Options
     default_value = HVAC2_DNSP_Options.Ausgrid
     definition_period = ETERNITY
-    label = 'Energy provider'
+    label = 'Who is your energy service provider?'
     metadata={
         "variable-type": "user-input",
         "alias":"Energy Provider",

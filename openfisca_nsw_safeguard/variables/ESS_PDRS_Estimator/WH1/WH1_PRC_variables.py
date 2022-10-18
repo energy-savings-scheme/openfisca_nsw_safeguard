@@ -15,17 +15,22 @@ from openfisca_nsw_base.entities import Building
 
 """ These variables use VEU Registry data
 """
-class WH1_annual_energy_savings(Variable):
-    #Annual Gas Energy used by the End-User equipment
+
+class WH1_gas_annual_energy_savings(Variable):
+    # Annual Gas Energy used by the End-User equipment
     reference = 'Gj per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        # HPgas from VEU registry
+        'display_question': 'Annual gas energy savings (Gj/year)'
+    }
 
 
 """ These variables use Rule tables
 """
-class network_loss_factor(Enum):
+class network_loss_factor_options(Enum):
     Ausgrid = 1.04
     Endeavour = 1.05
     Essential = 1.05
@@ -36,25 +41,31 @@ class PDRS_network_loss_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    
+    def formula(building, period):
+        network_loss = building('WH1_Provider_to_network_loss_factor_enum', period)
+        return np.select(
+            [
+                network_loss == network_loss_factor_options.Ausgrid,
+                network_loss == network_loss_factor_options.Endeavour,
+                network_loss == network_loss_factor_options.Essential     
+            ],
+            [  
+                1.04,
+                1.05,
+                1.05
+            ])
 
 
-class network_loss_factor_enum(Variable):
+class WH1_Provider_to_network_loss_factor_enum(Variable):
     value_type = Enum
     entity = Building
-    possible_values = network_loss_factor
-    default_value = network_loss_factor.Ausgrid
+    possible_values = network_loss_factor_options
+    default_value = network_loss_factor_options.Ausgrid
     definition_period = ETERNITY
+    metadata = {
+        "variable-type": "user-input",
+        "alias": "PFC Distribution District",
+        "display_question": "Who is your network service provider?"
+    }
  
-    def formula(building, period):
-        network_loss = building('PDRS_network_loss_factor', period)
-        return np.select(
-                [
-                    network_loss.Ausgrid,
-                    network_loss.Endeavour,
-                    network_loss.Essential     
-                ],
-                [  
-                    network_loss_factor == 1.04,
-                    network_loss_factor == 1.05,
-                    network_loss_factor == 1.05
-                ])

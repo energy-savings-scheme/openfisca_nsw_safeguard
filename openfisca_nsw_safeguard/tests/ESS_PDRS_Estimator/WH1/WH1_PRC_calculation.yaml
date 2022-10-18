@@ -15,7 +15,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_annual_energy_savings:
+    WH1_gas_annual_energy_savings:
       [
         70,
       ]
@@ -62,12 +62,20 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
-    WH1_peak_demand_reduction_capacity:
+    WH1_com_peak_load:
       [
         1
+      ]
+    WH1_gas_annual_energy_savings:
+      [
+        3
+      ]
+    WH1_Provider_to_network_loss_factor_enum:
+      [
+        Ausgrid
       ]
   output:
     WH1_PRC_calculation:
       [
-        10.4
+        1.89
       ]

@@ -87,7 +87,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_postcode:
+    PDRS__postcode:
       [
         2795
       ]
@@ -104,16 +104,32 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_electricity_savings:
+    WH1_Ref_Elec:
       [
         170.98
       ]
-    WH1_deemed_activity_gas_savings:
+    WH1_HP_elec:
+     [
+       10.7
+     ]
+    WH1_HP_capacity_factor:
       [
         -33.33
+      ]
+    WH1_WH_capacity_factor:
+      [
+        -12.56
+      ]
+    PDRS__postcode:
+      [
+        2017
+      ]
+    WH1_HP_gas:
+      [
+        34
       ]
   output:
     WH1_ESC_calculation:
       [
-        168
+        522
       ]

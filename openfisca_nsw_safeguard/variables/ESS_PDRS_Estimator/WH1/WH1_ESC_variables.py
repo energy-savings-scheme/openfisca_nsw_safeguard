@@ -12,12 +12,18 @@ class WH1_HP_capacity_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        'display_question': 'Heat Pump capacity factor'
+    }
 
 
 class WH1_WH_capacity_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        'display_question': 'Water Heater capacity factor'
+    }
 
 
 class WH1_HP_gas(Variable):
@@ -26,6 +32,10 @@ class WH1_HP_gas(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    metadata = {
+        'display_question': 'HP Annual gas energy'
+    }
+
 
 
 class WH1_com_peak_load(Variable):
@@ -34,6 +44,10 @@ class WH1_com_peak_load(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    
+    metadata = {
+        'display-question': 'Peak Load'
+    }
 
 
 class WH1_HP_elec(Variable):
@@ -42,15 +56,20 @@ class WH1_HP_elec(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    
+    metadata = {
+        'display-question': 'HP Annual electrical energy'
+    }
+
 
 
 """ These variables use Rule tables
 """
-class WH1_postcode(Variable):
-    #Postcode
-    value_type = int
-    entity = Building
-    definition_period = ETERNITY
+# class WH1_postcode(Variable):
+#     #Postcode
+#     value_type = int
+#     entity = Building
+#     definition_period = ETERNITY
 
 
 class WH1_regional_network_factor(Variable):
@@ -60,9 +79,6 @@ class WH1_regional_network_factor(Variable):
     label = 'Regional Network Factor from ESS Table A24'
     
     def formula(buildings, period, parameters):
-        postcode = buildings('WH1_postcode', period)
+        postcode = buildings('PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
-        return rnf.calc(postcode)  # This is a built in OpenFisca function that \
-        # is used to calculate a single value for regional network factor based on a zipcode provided
-
-
+        return rnf.calc(postcode)

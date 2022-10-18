@@ -12,7 +12,7 @@ class WH1_capacity_factor(Variable):
     definition_period = ETERNITY
     label = 'Capacity Factor'
     metadata = {
-        "variable-type": "output"
+        "variable-type": "inter-interesting"
     }
 
     def formula(buildings, period, parameters):
@@ -83,7 +83,7 @@ class WH1_deemed_activity_electricity_savings(Variable):
         ref_elec = buildings('WH1_Ref_Elec', period)
         hp_elec = buildings('WH1_HP_elec', period)
         capacity_factor = buildings('WH1_capacity_factor', period)
-        lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
+        lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
         electricity_savings = [ref_elec - hp_elec] * capacity_factor * [lifetime / 3.6]
         return electricity_savings
@@ -123,6 +123,3 @@ class WH1_ESC_calculation(Variable):
 
         WH1_ESC_calculation = np.floor((electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor))
         return WH1_ESC_calculation
-
-
-

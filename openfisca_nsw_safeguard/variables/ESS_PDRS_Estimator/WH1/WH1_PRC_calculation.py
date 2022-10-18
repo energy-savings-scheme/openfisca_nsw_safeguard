@@ -13,10 +13,11 @@ class WH1_baseline_input_power(Variable):
     definition_period = ETERNITY
     label = 'Baseline input power'
     metadata = {
-        "variable-type": "output"
+        "variable-type": "inter-interesting"
     }
 
     def formula(buildings, period, parameters):
+        # user input
         com_peak_load = buildings('WH1_com_peak_load', period)
 
         baseline_input_power = com_peak_load * 0.01
@@ -29,11 +30,11 @@ class WH1_input_power(Variable):
     definition_period = ETERNITY
     label = 'Input power'
     metadata = {
-        "variable-type": "output"
+        "variable-type": "inter-interesting"
     }
 
     def formula(buildings, period, parameters):
-        annual_energy_savings = buildings('WH1_annual_energy_savings', period)
+        annual_energy_savings = buildings('WH1_gas_annual_energy_savings', period)
         baseline_input_power = buildings('WH1_baseline_input_power', period)
 
         input_power = [100 - annual_energy_savings] * baseline_input_power / 100
@@ -46,17 +47,17 @@ class WH1_peak_demand_savings_capacity(Variable):
     definition_period = ETERNITY
     label = 'Peak demand savings capacity'
     metadata = {
-        "variable-type": "output"
+        "variable-type": "inter-interesting"
     }
 
     def formula(buildings, period, parameters):
         baseline_input_power = buildings('WH1_baseline_input_power', period)
-        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors.baseline_peak_adjustment['WH1']
-        input_power = buildings ('WH1_input_power', period)
-        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors.peak_adjustment['WH1']
-        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor.firmness_factor['WH1']
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH1']
+        input_power = buildings('WH1_input_power', period)
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH1']
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH1']
 
-        peak_demand_savings_capacity = baseline_input_power * baseline_peak_adjustment_factor - input_power * peak_adjustment_factor * firmness_factor
+        peak_demand_savings_capacity = (baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor * firmness_factor)
         return peak_demand_savings_capacity
 
 
@@ -71,8 +72,8 @@ class WH1_peak_demand_reduction_capacity(Variable):
 
     def formula(buildings, period, parameters):
         peak_demand_savings_capacity = buildings('WH1_peak_demand_savings_capacity', period)
-        summer_peak_reduction = parameters(period).PDRS.PDRS_wide_constants.daily_peak_window_hours
-        lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
+        summer_peak_reduction = parameters(period).PDRS.PDRS_wide_constants['daily_peak_window_hours']
+        lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
         peak_demand_reduction_capacity = peak_demand_savings_capacity * summer_peak_reduction * lifetime
         return peak_demand_reduction_capacity

@@ -1,0 +1,81 @@
+- name: test WH1 baseline input power
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_com_peak_load:
+      [
+        200
+      ]
+  output:
+    WH1_baseline_input_power:
+      [
+        2
+      ]
+- name: test WH1 input power
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_gas_annual_energy_savings:
+      [
+        70,
+      ]
+    WH1_baseline_input_power:
+      [
+        2
+      ]
+  output:
+    WH1_input_power:
+      [
+        0.6
+      ]
+- name: test WH1 peak demand savings capacity
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_baseline_input_power:
+      [
+        2,
+      ]
+    WH1_input_power:
+      [
+        0.6
+      ]
+  output:
+    WH1_peak_demand_savings_capacity:
+      [
+        1.538
+      ]
+- name: test WH1 peak demand reduction capacity
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_peak_demand_savings_capacity:
+      [
+        2.78
+      ]
+  output:
+    WH1_peak_demand_reduction_capacity:
+      [
+        200.16
+      ]
+- name: test WH1 PRC calculation
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    WH1_com_peak_load:
+      [
+        1
+      ]
+    WH1_gas_annual_energy_savings:
+      [
+        3
+      ]
+    WH1_Provider_to_network_loss_factor_enum:
+      [
+        Ausgrid
+      ]
+  output:
+    WH1_PRC_calculation:
+      [
+        1.89
+      ]

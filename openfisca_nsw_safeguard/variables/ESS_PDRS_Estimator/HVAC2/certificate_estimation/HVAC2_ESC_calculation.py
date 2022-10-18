@@ -98,7 +98,7 @@ class HVAC2_deemed_activity_electricity_savings(Variable):
       reference_annual_heating = buildings('HVAC2_reference_heating_annual_energy_use', period)
       annual_heating = buildings('HVAC2_heating_annual_energy_use', period)
       lifetime = 10
-
+      
       deemed_electricity_savings = (reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating) * (lifetime / 1000)
       return deemed_electricity_savings
 

@@ -1,10 +1,10 @@
-CONTRIBUTION_FACTOR:
+contribution_factor:
     description: used in computing the firmness value in PDRS Air Con Peak Demand Savings, ROOA_fridge,
     values:
         2021-01-01:
             value: 1
 
-DAILY_PEAK_WINDOW_HOURS:
+daily_peak_window_hours:
     description: "6 hours per day"
     metadata:
         unit: hours/Day
@@ -12,7 +12,7 @@ DAILY_PEAK_WINDOW_HOURS:
         2021-01-01:
             value: 6
 
-ANNUAL_PEAK_WINDOW_HOURS:
+annual_peak_window_hours:
     description: "6 hours per day * 105 days /year"
     metadata:
         unit: hours/year

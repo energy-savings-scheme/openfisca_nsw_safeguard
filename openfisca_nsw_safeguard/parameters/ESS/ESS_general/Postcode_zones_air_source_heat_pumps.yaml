@@ -1,0 +1,248 @@
+description: Postcode zones for air source heat pumps
+brackets:
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 0 # undefined postcodes
+  - amount:
+    2020-01-01:
+      value: 3
+    threshold:
+      2020-01-01:
+        value: 2000
+  - amount:
+    2020-01-01:
+      value: 0
+    threshold:
+      2020-01-01:
+        value: 2348
+  - amount:
+    2020-01-01:
+      value: 5
+    threshold:
+      2020-01-01:
+        value: 2350
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2351
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+        value: 2352
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+        value: 2362
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+        value: 2365
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+        value: 2370
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2580
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2582
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2583
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2584
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+         value: 2595
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2600
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2618
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2619
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+         value: 2634
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2640
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2649
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2650
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2653
+  - amount:
+      2020-01-01:
+        value: 4
+    threshold:
+      2020-01-01:
+         value: 2654
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2655
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+         value: 2718
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2720
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2721
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+         value: 2728
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2729
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2731
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2787
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2793
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2795
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+         value: 2801
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2803
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2845
+  - amount:
+      2020-01-01:
+        value: 3
+    threshold:
+      2020-01-01:
+         value: 2848
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+         value: 2899
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2900
+  - amount:
+      2020-01-01:
+        value: 5
+    threshold:
+      2020-01-01:
+         value: 2915
+  - amount:
+      2020-01-01:
+        value: 0
+    threshold:
+      2020-01-01:
+         value: 2999

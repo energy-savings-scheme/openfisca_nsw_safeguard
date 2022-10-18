@@ -64,7 +64,6 @@ class HVAC2_BCA_climate_zone_by_postcode(Variable):
         return cooling_capacity_to_check
         
 
-
 class HVAC2_baseline_peak_adjustment_factor(Variable):
     value_type = float
     entity = Building

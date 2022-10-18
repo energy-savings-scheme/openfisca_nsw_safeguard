@@ -51,7 +51,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
         # residential building is NO or residential building is yes and is installed in BCA class 2
         residential_building_with_class_2 = np.logical_not(residential_building) + (residential_building * is_installed_in_class_2)
         
-        # GEMS cooling capacity is NO but AEER greater than minimum YES OR  GEMS cooling capacity is YES and TCPSF_greater greater than minimum YES
+        # GEMS cooling capacity is NO but AEER greater than minimum YES OR GEMS cooling capacity is YES and TCPSF_greater greater than minimum YES
         gems_cooling_capacity_path = (np.logical_not(cooling_capacity) * AEER_greater_than_minimum) + (cooling_capacity * TCPSF_greater)
         
         hot_zone_intermediary = in_hot_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))

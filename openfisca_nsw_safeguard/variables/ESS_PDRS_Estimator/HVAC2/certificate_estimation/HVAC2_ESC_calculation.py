@@ -110,7 +110,7 @@ class HVAC2_PDRS__regional_network_factor(Variable):
     label = 'Regional Network Factor is the value from Table A24 of Schedule' \
             ' A corresponding to the postcode of the Address of the Site or' \
             ' Sites where the Implementation(s) took place.'
-    metadata={
+    metadata = {
         "variable-type": "inter-interesting",
         "alias":"PDRS Regional Network Factor",
         "display_question": "PDRS regional network factor",

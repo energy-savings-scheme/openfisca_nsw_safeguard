@@ -7,23 +7,23 @@ brackets:
       2020-01-01:
         value: 0 # undefined postcodes
   - amount:
-    2020-01-01:
-      value: 3
-    threshold:
       2020-01-01:
-        value: 2000
+        value: 3
+      threshold:
+        2020-01-01:
+          value: 2000
   - amount:
-    2020-01-01:
-      value: 0
-    threshold:
       2020-01-01:
-        value: 2348
+        value: 0
+      threshold:
+        2020-01-01:
+          value: 2348
   - amount:
-    2020-01-01:
-      value: 5
-    threshold:
       2020-01-01:
-        value: 2350
+        value: 5
+      threshold:
+        2020-01-01:
+          value: 2350
   - amount:
       2020-01-01:
         value: 0

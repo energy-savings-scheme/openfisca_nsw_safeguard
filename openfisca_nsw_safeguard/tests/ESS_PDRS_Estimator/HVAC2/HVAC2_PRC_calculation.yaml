@@ -19,7 +19,7 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
-    BCA_climate_zone:
+    HVAC2_BCA_climate_zone_by_postcode:
       [
         BCA_Climate_Zone_2
       ]
@@ -66,12 +66,32 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    HVAC2_peak_demand_reduction_capacity:
+    HVAC2_DNSP:
+      [
+        Ausgrid
+      ]
+    HVAC2_input_power:
       [
         1
+      ]
+    HVAC2_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC2_cooling_capacity_input:
+      [
+        2
+      ]
+    HVAC2_New_Equipment:
+      [
+        true
+      ]
+    PDRS__postcode:
+      [
+        2016
       ]
   output:
     HVAC2_PRC_calculation:
       [
-        10.4
+        -100
       ]

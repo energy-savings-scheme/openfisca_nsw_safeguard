@@ -10,6 +10,8 @@
         False,
         True,
         True,
+        False,
+        False,
         False
       ]
     HVAC2_Equipment_installed:
@@ -19,148 +21,29 @@
         True,
         True,
         True,
-        True
-      ]
-    HVAC2_residential_building:
-      [
-        False, 
-        True, 
-        False,
-        True,
-        False,
-        True
-      ]
-    HVAC2_installed_centralised_system_common_area_BCA_Class2_building:
-      [
-        False,
-        True,
-        True,
-        False,
-        True,
-        False
-      ]
-    HVAC2_equipment_registered_in_GEMS:
-      [
-        True,
-        True,
-        True,
-        True,
-        True,
-        False
-      ]
-    HVAC2_new_equipment_cooling_capacity:
-      [
-        True,
-        False,
-        True,
-        True,
-        False,
-        False
-      ]
-    HVAC2_TCPSF_greater_than_minimum:
-      [
-        True,
-        True,
-        True,
-        True,
-        False,
-        False
-      ]
-    HVAC2_climate_zone:
-      [
-        hot_zone,
-        average_zone,
-        cold_zone,
-        cold_zone,
-        cold_zone,
-        hot_zone
-      ]
-    HVAC2_new_equipment_heating_capacity:
-      [
-        True,
-        False,
-        True,
-        True,
-        False,
-        False
-      ]
-    HVAC2_HSPF_mixed:
-      [
-        True,
-        False,
-        False,
-        True,
-        False,
-        False
-      ]
-    HVAC2_HSPF_cold:
-      [
-        False,
-        False,
-        False,
-        True,
-        True,
-        False
-      ]
-    HVAC_2_AEER_greater_than_minimum:
-      [
-        False,
-        True,
-        False,
-        True,
-        True,
-        False
-      ]
-    HVAC2_ACOP:
-      [
-        True,
-        True,
-        False,
         True,
         True,
         True
       ]
-  output:
-    HVAC2_installation_final_activity_eligibility:
-      [
-        True, 
-        True,
-        False,
-        False,
-        True,
-        False
-      ]
-
-
-- name:
-    Test PDRS final formula replacement eligibility
-  period: 2022
-  absolute_error_margin: 0
-  input:
     HVAC2_equipment_replaced:
       [
+        False, 
+        False, 
+        False,
+        False,
+        False,
+        False,
         True,
-        True,
-        True,
-        True,
-        True,
-        False
+        True
       ]
     HVAC2_equipment_removed:
       [
-        True, 
-        True, 
+        False, 
+        False, 
         False,
-        True,
-        True,
-        False
-      ]
-    HVAC2_Equipment_installed:
-      [
-        True, 
-        True, 
-        True,
-        True,
+        False,
+        False,
+        False,
         True,
         True
       ]
@@ -171,7 +54,9 @@
         False,
         True,
         False,
-        True
+        True,
+        False, 
+        True, 
       ]
     HVAC2_installed_centralised_system_common_area_BCA_Class2_building:
       [
@@ -180,7 +65,9 @@
         True,
         False,
         True,
-        False
+        False,
+        False,
+        True,
       ]
     HVAC2_equipment_registered_in_GEMS:
       [
@@ -189,7 +76,9 @@
         True,
         True,
         True,
-        False
+        False,
+        True,
+        True
       ]
     HVAC2_new_equipment_cooling_capacity:
       [
@@ -198,50 +87,7 @@
         True,
         True,
         False,
-        False
-      ]
-    HVAC2_TCPSF_greater_than_minimum:
-      [
-        True,
-        True,
-        True,
-        True,
         False,
-        False
-      ]
-    HVAC2_climate_zone:
-      [
-        hot_zone,
-        average_zone,
-        cold_zone,
-        cold_zone,
-        cold_zone,
-        hot_zone
-      ]
-    HVAC2_new_equipment_heating_capacity:
-      [
-        True,
-        False,
-        True,
-        True,
-        False,
-        False
-      ]
-    HVAC2_HSPF_mixed:
-      [
-        True,
-        False,
-        False,
-        True,
-        False,
-        False
-      ]
-    HVAC2_HSPF_cold:
-      [
-        False,
-        False,
-        False,
-        True,
         True,
         False
       ]
@@ -252,8 +98,66 @@
         False,
         True,
         True,
+        False,
+        False,
+        True,
+      ]
+    HVAC2_TCPSF_greater_than_minimum:
+      [
+        True,
+        True,
+        True,
+        True,
+        False,
+        False,
+        True,
+        True
+      ]
+    HVAC2_climate_zone:
+      [
+        hot_zone,
+        average_zone,
+        cold_zone,
+        cold_zone,
+        cold_zone,
+        hot_zone,
+        hot_zone,
+        average_zone,
+      ]
+    HVAC2_new_equipment_heating_capacity:
+      [
+        True,
+        False,
+        True,
+        True,
+        False,
+        False,
+        True,
         False
       ]
+    HVAC2_HSPF_mixed:
+      [
+        True,
+        False,
+        False,
+        True,
+        False,
+        False,
+        True,
+        False
+      ]
+    HVAC2_HSPF_cold:
+      [
+        False,
+        False,
+        False,
+        True,
+        True,
+        False,
+        False,
+        False
+      ]
+
     HVAC2_ACOP:
       [
         True,
@@ -261,15 +165,19 @@
         False,
         True,
         True,
+        True,
+        True,
         True
       ]
   output:
-    HVAC2_replacement_final_activity_eligibility:
+    HVAC2_installation_replacement_final_activity_eligibility:
       [
         True, 
         True,
         False,
         False,
         True,
-        False
+        False,
+        True,
+        True
       ]

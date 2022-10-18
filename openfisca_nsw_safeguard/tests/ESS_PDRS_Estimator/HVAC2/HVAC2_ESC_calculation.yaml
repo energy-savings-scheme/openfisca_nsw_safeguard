@@ -82,3 +82,89 @@
       [
         61.3
       ]
+
+- name: test baseline AEER input
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_cooling_capacity_input:
+      [
+        32,
+      ]
+    HVAC2_Air_Conditioner_type:
+      [
+        'The AC is a non-ducted split system.',
+      ]
+    HVAC2_New_Equipment:
+      [
+        true,
+      ]
+  output:
+    HVAC2_baseline_AEER_input:
+      [
+        3.1
+      ]
+
+- name: test baseline ACOP input
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_cooling_capacity_input:
+      [
+        32,
+      ]
+    HVAC2_Air_Conditioner_type:
+      [
+        'The AC is a non-ducted split system.',
+      ]
+    HVAC2_New_Equipment:
+      [
+        true,
+      ]
+  output:
+    HVAC2_baseline_ACOP_input:
+      [
+        2.05
+      ]
+
+- name: test ESC calculation
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_cooling_capacity_input:
+      [
+        32,
+      ]
+    HVAC2_heating_capacity_input: 
+      [
+        6,
+      ]
+    HVAC2_certificate_climate_zone:
+      [
+        average_zone
+      ]
+    HVAC2_rated_AEER_input:
+      [
+        2.0,
+      ]
+    HVAC2_rated_ACOP_input:
+      [
+        6.0
+      ]
+    HVAC2_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC2_New_Equipment:
+      [
+        true
+      ]
+    PDRS__postcode:
+      [
+        2017
+      ]
+  output:
+    HVAC2_ESC_calculation:
+      [
+        -4814.28
+      ]

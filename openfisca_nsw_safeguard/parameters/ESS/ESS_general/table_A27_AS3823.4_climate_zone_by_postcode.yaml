@@ -2,673 +2,673 @@ description: AS/NZS 3823.4 Climate Zone Definition postcode
 brackets:
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
-        value: 0 # undefined postcodes, incl. postcodes below 2000 have a return of average
+        value: 0 # undefined postcodes, incl. postcodes below 2000 have a return of 2
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
-        value: 2328 #all postcodes below 2328 are average
+        value: 2328 #all postcodes below 2328 are 2
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2330
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2333
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2334
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2336
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2348
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2350
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2362
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2365
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2366
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2369
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2373
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2379
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2383
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2395
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2397
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2403
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2405
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2453
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2454
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2467
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2469
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2475
   - amount:
       2020-01-01:
-        value: hot
+        value: 1
     threshold:
       2020-01-01:
         value: 2477
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2480
   - amount:
       2020-01-01:
-        value: hot
+        value: 1
     threshold:
       2020-01-01:
         value: 2481
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2491
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2527
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2528
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2529
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2530
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2533
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2542
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2545
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2547
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2548
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2552
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2545
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2547
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2548
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2552
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2575
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2589
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2590
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2591
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2594
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2595
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2600
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2608
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2609
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2610
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2611
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2613
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2614
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2616
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2617
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2634
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2640
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2648
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2649
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2654
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2655
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2657
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2658
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2662
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2663
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2664
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2665
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2667
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2668
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2669
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2671
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2672
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2701
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2703
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2712
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2713
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2720
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2723
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2725
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2728
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2729
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2730
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2776
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2777
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2778
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2781  
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2782
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2788
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2790
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2796
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2797
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2801
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2803
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2811
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2820
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2822
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2823
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2826
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2827
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2831
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2842
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2851
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2852
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2853
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2864
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2872
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 2873
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 2877
   - amount:
       2020-01-01:
-        value: cold
+        value: 3
     threshold:
       2020-01-01:
         value: 3707
   - amount:
       2020-01-01:
-        value: average
+        value: 2
     threshold:
       2020-01-01:
         value: 3708

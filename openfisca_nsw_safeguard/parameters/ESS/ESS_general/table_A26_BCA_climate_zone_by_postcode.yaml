@@ -17,7 +17,7 @@ brackets:
         value: 5
     threshold:
       2020-01-01:
-        value: 2145 # postcode 2149 has a BCA Climate Zone of 5, etc
+        value: 2149 # postcode 2149 has a BCA Climate Zone of 5, etc
   - amount:
       2020-01-01:
         value: 6

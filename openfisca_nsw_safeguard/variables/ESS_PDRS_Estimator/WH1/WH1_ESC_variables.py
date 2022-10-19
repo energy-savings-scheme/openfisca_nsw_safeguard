@@ -46,7 +46,7 @@ class WH1_com_peak_load(Variable):
     definition_period = ETERNITY
     
     metadata = {
-        'display-question': 'Peak Load'
+        'display_question': 'Peak Load'
     }
 
 
@@ -58,7 +58,7 @@ class WH1_HP_elec(Variable):
     definition_period = ETERNITY
     
     metadata = {
-        'display-question': 'HP Annual electrical energy'
+        'display_question': 'HP Annual electrical energy'
     }
 
 
@@ -79,6 +79,6 @@ class WH1_regional_network_factor(Variable):
     label = 'Regional Network Factor from ESS Table A24'
     
     def formula(buildings, period, parameters):
-        postcode = buildings('PDRS__postcode', period)
+        postcode = buildings('WH1_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         return rnf.calc(postcode)

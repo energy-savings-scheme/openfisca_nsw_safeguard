@@ -16,7 +16,7 @@ class HVAC1_heating_capacity_input(Variable):
     metadata = {
         "alias": "Air Conditioner Heating Capacity",
         'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
-        'sorting' : '5'
+        'sorting' : 5
     }
 
 
@@ -102,7 +102,7 @@ class HVAC1_rated_AEER_input(Variable):
     metadata = {
         "alias": "Rated AEER",
         "display_question": 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
-        'sorting': '8'
+        'sorting': 8
     }
     
 class DefaultValuesCertificateClimateZone(Enum):
@@ -222,7 +222,7 @@ class HVAC1_Air_Conditioner_type(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'display_question' : 'What is your air conditioner type?',
-        'sorting' : '4'
+        'sorting' : 4
     }
     
 class HVAC1_New_Equipment(Variable):
@@ -234,5 +234,5 @@ class HVAC1_New_Equipment(Variable):
     metadata = {
         'variable-type': 'user-input',
         'display_question': 'Is the end-user equipment a new air-conditioner?',
-        'sorting' : '3'
+        'sorting' : 3
         }

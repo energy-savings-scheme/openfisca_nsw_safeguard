@@ -11,7 +11,7 @@ brackets:
         value: 3
     threshold:
       2020-01-01:
-        value: 2328 #all postcodes below 2328 are 2
+        value: 2328 #all postcodes below 2328 are 3
   - amount:
       2020-01-01:
         value: 2
@@ -672,3 +672,7 @@ brackets:
     threshold:
       2020-01-01:
         value: 3708
+metadata:
+  type: single_amount
+  threshold_unit: postcode
+  amount_unit: 1

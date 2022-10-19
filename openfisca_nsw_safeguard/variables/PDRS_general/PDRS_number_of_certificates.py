@@ -36,6 +36,7 @@ class PDRS_number_of_peak_demand_reduction_certificates(Variable):
 
 
 class PDRS__postcode(Variable):
+    # this variable is used as the first input on all estimator certificate calculation pages
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -44,7 +45,7 @@ class PDRS__postcode(Variable):
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
         'display_question' : 'What is your postcode?',
-        'sorting' : '1'
+        'sorting' : 1
         }
 
 

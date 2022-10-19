@@ -15,7 +15,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_gas_annual_energy_savings:
+    WH1_annual_energy_savings:
       [
         70,
       ]
@@ -81,7 +81,7 @@
       [
         1
       ]
-    WH1_gas_annual_energy_savings:
+    WH1_annual_energy_savings:
       [
         3
       ]

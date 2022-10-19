@@ -33,6 +33,7 @@ class HVAC2_DNSP_Options(Enum):
 
 
 class HVAC2_DNSP(Variable):
+     # this variable is used as the second input on all estimator certificate calculation pages
     value_type = Enum
     entity = Building
     possible_values = HVAC2_DNSP_Options
@@ -42,7 +43,7 @@ class HVAC2_DNSP(Variable):
     metadata = {
         'variable-type': 'user-input',
         'display_question': 'Who is your Distribution Network Service Provider?',
-        'sorting' : '2'
+        'sorting' : 2
     }
 
 
@@ -67,5 +68,5 @@ class HVAC2_New_Equipment(Variable):
     metadata = {
         'variable-type': 'user-input',
         'display_question': 'Is the end-user equipment a new air-conditioner?',
-        'sorting' : '3'
+        'sorting' : 3
         }

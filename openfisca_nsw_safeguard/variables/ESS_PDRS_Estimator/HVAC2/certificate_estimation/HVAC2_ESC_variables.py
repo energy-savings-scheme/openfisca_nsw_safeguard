@@ -16,7 +16,7 @@ class HVAC2_heating_capacity_input(Variable):
     metadata = {
         "alias": "Air Conditioner Heating Capacity",
         'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
-        'sorting' : '5'
+        'sorting' : 5
     }
 
 
@@ -28,7 +28,7 @@ class HVAC2_cooling_capacity_input(Variable):
     metadata = {
         "alias": "Air Conditioner Cooling Capacity",
         'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
-        'sorting' : '7'
+        'sorting' : 7
     }
 
 
@@ -39,7 +39,7 @@ class HVAC2_rated_ACOP_input(Variable):
     metadata = {
         "alias": "Rated ACOP",
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
-        'sorting' : '6'
+        'sorting' : 6
     }
 
 
@@ -102,7 +102,7 @@ class HVAC2_rated_AEER_input(Variable):
     metadata = {
         "alias": "Rated AEER",
         "display_question": 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
-        'sorting': '8'
+        'sorting': 8
     }
     
 
@@ -225,5 +225,5 @@ class HVAC2_Air_Conditioner_type(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'display_question' : 'What is your air conditioner type?',
-        'sorting' : '4'
+        'sorting' : 4
     }

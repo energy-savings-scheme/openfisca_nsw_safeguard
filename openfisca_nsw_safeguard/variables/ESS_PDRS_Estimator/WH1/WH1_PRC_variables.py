@@ -31,9 +31,9 @@ class WH1_gas_annual_energy_savings(Variable):
 """ These variables use Rule tables
 """
 class network_loss_factor_options(Enum):
-    Ausgrid = 1.04
-    Endeavour = 1.05
-    Essential = 1.05
+    Ausgrid = 'Ausgrid'
+    Endeavour = 'Endeavour'
+    Essential = 'Essential'
 
 
 class PDRS_network_loss_factor(Variable):
@@ -64,7 +64,7 @@ class WH1_Provider_to_network_loss_factor_enum(Variable):
     default_value = network_loss_factor_options.Ausgrid
     definition_period = ETERNITY
     metadata = {
-        "variable-type": "inter-interesting",
+        "variable-type": "user-input",
         "alias": "PFC Distribution District",
         "display_question": "Who is your network service provider?"
     }

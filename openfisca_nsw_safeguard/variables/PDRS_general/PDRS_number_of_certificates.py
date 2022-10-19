@@ -36,6 +36,7 @@ class PDRS_number_of_peak_demand_reduction_certificates(Variable):
 
 
 class PDRS__postcode(Variable):
+    # this variable is used as the first input on all certificate calculation pages
     value_type = int
     entity = Building
     definition_period = ETERNITY

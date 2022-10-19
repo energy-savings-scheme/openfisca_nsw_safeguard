@@ -33,6 +33,7 @@ class HVAC2_DNSP_Options(Enum):
 
 
 class HVAC2_DNSP(Variable):
+     # this variable is used as the second input on all estimator certificate calculation pages
     value_type = Enum
     entity = Building
     possible_values = HVAC2_DNSP_Options

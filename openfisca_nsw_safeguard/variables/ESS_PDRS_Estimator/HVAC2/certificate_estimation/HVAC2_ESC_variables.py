@@ -105,22 +105,21 @@ class HVAC2_rated_AEER_input(Variable):
         'sorting': '8'
     }
     
-class DefaultValuesCertificateClimateZone(Enum):
-    hot_zone = "AC is installed in the hot zone."
-    average_zone = "AC is installed in the average zone."
-    cold_zone = "AC is installed in the cold zone."
-
 
 class HVAC2_certificate_climate_zone(Variable):
-    value_type = Enum
+    value_type = int
     entity = Building
     label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
-    possible_values = DefaultValuesCertificateClimateZone
-    default_value = DefaultValuesCertificateClimateZone.average_zone
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?',
+        'variable-type': 'inter-interesting'
     }
+    
+    def formula(building, period, parameters):
+        postcode = building('PDRS__postcode', period)
+        rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
+        zone_int = rnf.calc(postcode)
+        return zone_int
 
 
 """ These variables use Rule tables
@@ -137,7 +136,9 @@ class HVAC2_equivalent_heating_hours_input(Variable):
     
     def formula(building, period, parameters):
         climate_zone = building('HVAC2_certificate_climate_zone', period)
-        heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[climate_zone]
+        climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
+                                     ['hot_zone', 'average_zone', 'cold_zone'])
+        heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[climate_zone_str]
         return heating_hours
 
 
@@ -152,7 +153,9 @@ class HVAC2_equivalent_cooling_hours_input(Variable):
     
     def formula(building, period, parameters):
         climate_zone = building('HVAC2_certificate_climate_zone', period)
-        cooling_hours = parameters(period).ESS.HEAB.table_F4_1.cooling_hours[climate_zone]
+        climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
+                                     ['hot_zone', 'average_zone', 'cold_zone'])
+        cooling_hours = parameters(period).ESS.HEAB.table_F4_1.cooling_hours[climate_zone_str]
         return cooling_hours
 
 

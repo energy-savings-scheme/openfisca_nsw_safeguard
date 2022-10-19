@@ -83,6 +83,19 @@
       [
         166.66667
       ]
+- name: test network provider regional factor
+  period: 2022
+  absolute_error_margin: 0
+  input: 
+    WH1_Provider_to_network_loss_factor_enum: 
+      [
+        Ausgrid
+      ]
+  output:
+    PDRS_network_loss_factor: 
+      [
+        1.04
+      ]
 - name: test WH1 ESC calculation
   period: 2022
   absolute_error_margin: 0
@@ -103,7 +116,7 @@
       [
         -12.56
       ]
-    PDRS__postcode:
+    WH1_PDRS__postcode:
       [
         2017
       ]

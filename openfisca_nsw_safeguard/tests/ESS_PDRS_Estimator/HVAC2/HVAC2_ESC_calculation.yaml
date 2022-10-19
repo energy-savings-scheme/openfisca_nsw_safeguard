@@ -139,10 +139,6 @@
       [
         6,
       ]
-    HVAC2_certificate_climate_zone:
-      [
-        average_zone
-      ]
     HVAC2_rated_AEER_input:
       [
         2.0,

@@ -9,58 +9,60 @@ from openfisca_nsw_base.entities import Building
     These variables use VEU Registry data
 """
 class WH1_HP_capacity_factor(Variable):
+    reference = 'unit in kW'
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        'display_question': 'Heat Pump capacity factor'
+        'display_question': 'Total rated capacity of the heat pump water heater(s) being installed',
+        'sorting' : '3'
     }
 
 
 class WH1_WH_capacity_factor(Variable):
+    reference = 'unit in kW'
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        'display_question': 'Water Heater capacity factor'
+        'display_question': 'Total rated capacity (kW) of the End-User Equipment being replaced',
+        'sorting' : '4'
     }
 
 
 class WH1_HP_gas(Variable):
-    #Annual Gas Energy used by the End-User equipment
     reference = 'Gj per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        'display_question': 'HP Annual gas energy'
+        'display_question': 'Annual gas energy used by the End-User Equipment',
+        'sorting' : '5'
     }
 
 
-
 class WH1_com_peak_load(Variable):
-    #Peak daily winter load
     reference = 'Mj per day'
     value_type = float
     entity = Building
     definition_period = ETERNITY
     
     metadata = {
-        'display-question': 'Peak Load'
+        'display-question': 'Peak daily (winter) load based on the address of the site where the End-User Equipment is installed',
+        'sorting' : '6'
     }
 
 
 class WH1_HP_elec(Variable):
-    #Annual Electrical Energy used by the End-User equipment
     reference = 'Gj per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY
     
     metadata = {
-        'display-question': 'HP Annual electrical energy'
+        'display-question': 'Annual electrical energy used by the End-User Equipment',
+        'sorting' : '7'
     }
-
 
 
 """ These variables use Rule tables

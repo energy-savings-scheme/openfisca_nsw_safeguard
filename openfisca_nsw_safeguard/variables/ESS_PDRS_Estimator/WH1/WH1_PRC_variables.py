@@ -16,15 +16,15 @@ from openfisca_nsw_base.entities import Building
 """ These variables use VEU Registry data
 """
 
-class WH1_gas_annual_energy_savings(Variable):
-    # Annual Gas Energy used by the End-User equipment
+class WH1_annual_energy_savings(Variable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {
         # HPgas from VEU registry
-        'display_question': 'Annual gas energy savings (Gj/year)'
+        'display_question': 'Annual gas energy savings as a percentage per year',
+        'sorting' : '8'
     }
 
 

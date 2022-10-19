@@ -9,21 +9,21 @@ brackets:
   - amount:
       2020-01-01:
         value: 3
-      threshold:
-        2020-01-01:
-          value: 2000
+    threshold:
+      2020-01-01:
+        value: 2000
   - amount:
       2020-01-01:
         value: 0
-      threshold:
-        2020-01-01:
-          value: 2348
+    threshold:
+      2020-01-01:
+        value: 2348
   - amount:
       2020-01-01:
         value: 5
-      threshold:
-        2020-01-01:
-          value: 2350
+    threshold:
+      2020-01-01:
+        value: 2350
   - amount:
       2020-01-01:
         value: 0

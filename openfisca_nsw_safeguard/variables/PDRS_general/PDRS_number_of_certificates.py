@@ -45,7 +45,7 @@ class PDRS__postcode(Variable):
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
         'display_question' : 'What is your postcode?',
-        'sorting' : '1'
+        'sorting' : 1
         }
 
 

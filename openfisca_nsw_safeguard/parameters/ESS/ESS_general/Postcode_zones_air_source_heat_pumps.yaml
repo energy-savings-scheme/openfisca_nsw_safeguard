@@ -246,3 +246,7 @@ brackets:
     threshold:
       2020-01-01:
          value: 2999
+metadata:
+  type: single_amount
+  threshold_unit: postcode
+  amount_unit: 1

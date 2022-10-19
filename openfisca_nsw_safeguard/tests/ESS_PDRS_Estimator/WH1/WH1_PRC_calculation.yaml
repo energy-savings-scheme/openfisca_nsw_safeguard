@@ -45,6 +45,21 @@
       [
         1.538
       ]
+- name: test zones by postcode
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    PDRS__postcode:
+      [
+        2354,
+        2365
+      ]
+  output:
+    WH1_get_zone_by_postcode:
+      [
+        3,
+        5
+      ]
 - name: test WH1 peak demand reduction capacity
   period: 2022
   absolute_error_margin: 0

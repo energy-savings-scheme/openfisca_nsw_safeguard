@@ -137,7 +137,7 @@ class HVAC1_equivalent_heating_hours_input(Variable):
     
     def formula(building, period, parameters):
         climate_zone = building('HVAC1_certificate_climate_zone', period)
-        heating_hours = parameters(period).ESS.HEER.table_D16_1.heating_hours[climate_zone]
+        heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone]
         return heating_hours
 
 
@@ -152,7 +152,7 @@ class HVAC1_equivalent_cooling_hours_input(Variable):
     
     def formula(building, period, parameters):
         climate_zone = building('HVAC1_certificate_climate_zone', period)
-        cooling_hours = parameters(period).ESS.HEER.table_D16_1.cooling_hours[climate_zone]
+        cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone]
         return cooling_hours
 
 
@@ -224,3 +224,15 @@ class HVAC1_Air_Conditioner_type(Variable):
         'display_question' : 'What is your air conditioner type?',
         'sorting' : '4'
     }
+    
+class HVAC1_New_Equipment(Variable):
+    value_type = bool
+    default_value = True
+    entity = Building
+    definition_period = ETERNITY
+    label = 'New or Used equipment'
+    metadata = {
+        'variable-type': 'user-input',
+        'display_question': 'Is the end-user equipment a new air-conditioner?',
+        'sorting' : '3'
+        }

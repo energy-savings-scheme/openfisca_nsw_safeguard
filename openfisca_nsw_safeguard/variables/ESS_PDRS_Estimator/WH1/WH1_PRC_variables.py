@@ -31,9 +31,9 @@ class WH1_annual_energy_savings(Variable):
 """ These variables use Rule tables
 """
 class network_loss_factor_options(Enum):
-    Ausgrid = 1.04
-    Endeavour = 1.05
-    Essential = 1.05
+    Ausgrid = 'Ausgrid'
+    Endeavour = 'Endeavour'
+    Essential = 'Essential'
 
 
 class PDRS_network_loss_factor(Variable):
@@ -79,6 +79,20 @@ class WH1_get_zone_by_postcode(Variable):
         "alias": "Zone",
     }
     def formula(building, period, parameters):
-        postcode = building('PDRS__postcode', period)
+        postcode = building('WH1_PDRS__postcode', period)
         zones = parameters(period).ESS.ESS_general.Postcode_zones_air_source_heat_pumps
         return zones.calc(postcode)
+    
+
+class WH1_PDRS__postcode(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = "What is the postcode for the building you are calculating PRCs for?"
+    metadata={
+        'variable-type' : 'user-input',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'What is your postcode?',
+        'sorting' : '1'
+        }
+

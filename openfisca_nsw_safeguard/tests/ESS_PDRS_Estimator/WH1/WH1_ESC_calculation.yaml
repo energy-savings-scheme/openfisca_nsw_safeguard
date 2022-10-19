@@ -83,22 +83,18 @@
       [
         166.66667
       ]
-- name: test WH1 electricity savings
+- name: test network provider regional factor
   period: 2022
   absolute_error_margin: 0
-  input:
-    PDRS__postcode:
+  input: 
+    WH1_Provider_to_network_loss_factor_enum: 
       [
-        2795
-      ]
-    WH1_deemed_activity_electricity_savings:
-      [
-        166
+        Ausgrid
       ]
   output:
-    WH1_electricity_savings:
+    PDRS_network_loss_factor: 
       [
-        170.98
+        1.04
       ]
 - name: test WH1 ESC calculation
   period: 2022
@@ -120,7 +116,7 @@
       [
         -12.56
       ]
-    PDRS__postcode:
+    WH1_PDRS__postcode:
       [
         2017
       ]

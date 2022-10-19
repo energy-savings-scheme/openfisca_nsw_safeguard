@@ -81,6 +81,6 @@ class WH1_regional_network_factor(Variable):
     label = 'Regional Network Factor from ESS Table A24'
     
     def formula(buildings, period, parameters):
-        postcode = buildings('PDRS__postcode', period)
+        postcode = buildings('WH1_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         return rnf.calc(postcode)

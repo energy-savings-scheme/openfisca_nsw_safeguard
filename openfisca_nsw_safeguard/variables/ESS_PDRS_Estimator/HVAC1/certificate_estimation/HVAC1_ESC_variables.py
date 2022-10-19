@@ -86,8 +86,8 @@ class HVAC1_baseline_AEER_input(Variable):
         baseline_aeer = np.select(
             [new_or_used_equipment, np.logical_not(new_or_used_equipment)],
             
-                [parameters(period).ESS.HEAB.table_F4_2.AEER[aircon][cooling_capacity_to_check], 
-                    parameters(period).ESS.HEAB.table_F4_3.AEER[aircon][cooling_capacity_to_check] 
+                [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check], 
+                    parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check] 
                     ]
             )
 

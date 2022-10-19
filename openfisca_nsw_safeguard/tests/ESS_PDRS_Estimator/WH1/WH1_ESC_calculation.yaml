@@ -83,23 +83,6 @@
       [
         166.66667
       ]
-- name: test WH1 electricity savings
-  period: 2022
-  absolute_error_margin: 0
-  input:
-    PDRS__postcode:
-      [
-        2795
-      ]
-    WH1_deemed_activity_electricity_savings:
-      [
-        166
-      ]
-  output:
-    WH1_electricity_savings:
-      [
-        170.98
-      ]
 - name: test WH1 ESC calculation
   period: 2022
   absolute_error_margin: 0

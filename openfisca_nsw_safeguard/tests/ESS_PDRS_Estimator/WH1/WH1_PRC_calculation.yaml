@@ -49,7 +49,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    PDRS__postcode:
+    WH1_PDRS__postcode:
       [
         2354,
         2365

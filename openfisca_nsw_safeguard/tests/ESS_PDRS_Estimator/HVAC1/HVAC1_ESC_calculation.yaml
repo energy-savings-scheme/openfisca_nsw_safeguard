@@ -162,5 +162,5 @@
   output:
     HVAC1_ESC_calculation:
       [
-        -2568.5
+        0
       ]

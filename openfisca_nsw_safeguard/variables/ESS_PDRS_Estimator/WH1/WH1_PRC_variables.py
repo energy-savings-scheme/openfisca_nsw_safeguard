@@ -66,7 +66,8 @@ class WH1_Provider_to_network_loss_factor_enum(Variable):
     metadata = {
         "variable-type": "user-input",
         "alias": "PFC Distribution District",
-        "display_question": "Who is your network service provider?"
+        "display_question": "Who is your network service provider?",
+        'sorting' : 2
     }
 
 

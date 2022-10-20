@@ -67,12 +67,6 @@ class WH1_HP_elec(Variable):
 
 """ These variables use Rule tables
 """
-# class WH1_postcode(Variable):
-#     #Postcode
-#     value_type = int
-#     entity = Building
-#     definition_period = ETERNITY
-
 
 class WH1_regional_network_factor(Variable):
     value_type = float

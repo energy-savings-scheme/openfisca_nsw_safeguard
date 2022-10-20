@@ -64,7 +64,7 @@
       ]
 - name: test WH1 deemed activity electricity savings
   period: 2022
-  absolute_error_margin: 0
+  absolute_error_margin: 0.5
   input:
     WH1_Ref_Elec:
       [

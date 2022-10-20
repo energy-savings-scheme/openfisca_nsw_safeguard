@@ -85,7 +85,7 @@ class WH1_deemed_activity_electricity_savings(Variable):
         capacity_factor = buildings('WH1_capacity_factor', period)
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
-        electricity_savings = [ref_elec - hp_elec] * capacity_factor * [lifetime / 3.6]
+        electricity_savings = (ref_elec - hp_elec) * capacity_factor * (lifetime / 3.6)
         return electricity_savings
 
 

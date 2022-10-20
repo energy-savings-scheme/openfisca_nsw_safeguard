@@ -156,6 +156,11 @@ class HVAC1_ESC_calculation(Variable):
       HVAC1_electricity_savings = buildings('HVAC1_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
 
-      HVAC1_ESC_calculation = (HVAC1_electricity_savings * electricity_certificate_conversion_factor)
+      result = np.rint(HVAC1_electricity_savings * electricity_certificate_conversion_factor)
+      result_to_return = np.select([
+                result < 0, result > 0
+            ], [
+                0, result
+            ])
 
-      return HVAC1_ESC_calculation
+      return result_to_return

@@ -147,5 +147,5 @@
   output:
     HVAC2_PRC_calculation:
       [
-        -100
+        0
       ]

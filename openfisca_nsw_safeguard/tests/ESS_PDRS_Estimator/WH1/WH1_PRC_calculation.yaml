@@ -79,7 +79,7 @@
   input:
     WH1_com_peak_load:
       [
-        1
+        5
       ]
     WH1_gas_annual_energy_savings:
       [
@@ -92,5 +92,5 @@
   output:
     WH1_PRC_calculation:
       [
-        1.89
+        10
       ]

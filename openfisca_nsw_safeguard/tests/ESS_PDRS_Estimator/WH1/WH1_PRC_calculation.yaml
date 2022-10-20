@@ -77,20 +77,40 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
-    WH1_com_peak_load:
+    WH1_HP_capacity_factor:
       [
         5
       ]
-    WH1_annual_energy_savings:
+    WH1_HP_elec:
       [
         3
       ]
+    WH1_HP_gas:
+      [
+        2
+      ]
+    WH1_PDRS__postcode:
+      [
+        2017
+      ]
     WH1_Provider_to_network_loss_factor_enum:
       [
-        Ausgrid
+        Endeavour
+      ]
+    WH1_WH_capacity_factor: 
+      [
+        8
+      ]
+    WH1_annual_energy_savings:
+      [
+        4
+      ]
+    WH1_com_peak_load:
+      [
+        3
       ]
   output:
     WH1_PRC_calculation:
       [
-        10
+        5.91
       ]

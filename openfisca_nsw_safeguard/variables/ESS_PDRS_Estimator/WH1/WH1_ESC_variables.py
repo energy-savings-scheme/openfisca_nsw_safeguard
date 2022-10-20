@@ -48,7 +48,7 @@ class WH1_com_peak_load(Variable):
     definition_period = ETERNITY
     
     metadata = {
-        'display-question': 'Peak daily (winter) load based on the address of the site where the End-User Equipment is installed',
+        'display_question': 'Peak daily (winter) load based on the address of the site where the End-User Equipment is installed',
         'sorting' : 6
     }
 
@@ -60,7 +60,7 @@ class WH1_HP_elec(Variable):
     definition_period = ETERNITY
     
     metadata = {
-        'display-question': 'Annual electrical energy used by the End-User Equipment',
+        'display_question': 'Annual electrical energy used by the End-User Equipment',
         'sorting' : 7
     }
 

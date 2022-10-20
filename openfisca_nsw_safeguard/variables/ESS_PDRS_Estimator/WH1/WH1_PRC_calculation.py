@@ -37,7 +37,7 @@ class WH1_input_power(Variable):
         annual_energy_savings = buildings('WH1_annual_energy_savings', period)
         baseline_input_power = buildings('WH1_baseline_input_power', period)
 
-        input_power = [100 - annual_energy_savings] * baseline_input_power / 100
+        input_power = (100 - annual_energy_savings) * (baseline_input_power / 100)
         return input_power
 
 

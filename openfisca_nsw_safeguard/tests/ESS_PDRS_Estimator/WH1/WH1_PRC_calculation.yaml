@@ -13,7 +13,7 @@
       ]
 - name: test WH1 input power
   period: 2022
-  absolute_error_margin: 0
+  absolute_error_margin: 0.5
   input:
     WH1_annual_energy_savings:
       [
@@ -72,6 +72,23 @@
     WH1_peak_demand_reduction_capacity:
       [
         200.16
+      ]
+- name: test WH1 input power
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_annual_energy_savings:
+      [
+        20
+      ]
+    WH1_baseline_input_power:
+      [
+        50
+      ]
+  output:
+    WH1_input_power:
+      [
+        40
       ]
 - name: test WH1 PRC calculation
   period: 2022

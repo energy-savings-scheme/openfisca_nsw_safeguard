@@ -101,7 +101,7 @@ class Base_removing_or_replacing(Variable):
     }
 
 
-class Base_not_resold_reused_or_refurbished(Variable):
+class Base_resold_reused_or_refurbished(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -159,8 +159,7 @@ class Base_meets_mandatory_requirement(Variable):
     label = 'Is your activity being undertaken to comply with any mandatory legal requirements?'
     metadata = {
         'display_question': 'Is your activity being undertaken to comply with any mandatory legal requirements?',
-        'sorting' : 13,
-        'conditional': 'True'
+        'sorting' : 13
     }
 
 
@@ -172,7 +171,8 @@ class Base_basix_affected_development(Variable):
     label = 'Is your activity an alteration, enlargement or extension of a BASIX affected development?'
     metadata = {
         'display_question': 'Is your activity an alteration, enlargement or extension of a BASIX affected development?',
-        'sorting' : 14
+        'sorting' : 14,
+        'conditional': 'True'
     }
 
 

@@ -1,5 +1,8 @@
 description: AS/NZS 3823.4 Climate Zone Definition postcode
 brackets:
+# 1 = hot zone
+# 2 = average zone
+# 3 = cold zone
   - amount:
       2020-01-01:
         value: 2

@@ -9,6 +9,7 @@ import numpy as np
 class HVAC2_baseline_input_power(Variable):
     """ Note that baseline input power is the same value as input power
     """
+    reference = 'unit in kW'
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -83,6 +84,7 @@ class HVAC2_baseline_peak_adjustment_factor(Variable):
 
 
 class HVAC2_peak_demand_savings_activity(Variable):
+    reference = 'unit in kW'
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -112,6 +114,7 @@ class HVAC2_peak_demand_savings_activity(Variable):
 
   
 class HVAC2_peak_demand_reduction_capacity(Variable):
+    reference = 'unit in kW'
     value_type = float
     entity = Building
     definition_period = ETERNITY

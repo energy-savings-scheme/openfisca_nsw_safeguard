@@ -17,7 +17,7 @@ from openfisca_nsw_base.entities import Building
 """
 
 class WH1_annual_energy_savings(Variable):
-    reference = 'Gj per year'
+    reference = 'GJ per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY

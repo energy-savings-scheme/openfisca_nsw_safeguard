@@ -95,7 +95,6 @@ class HVAC2_baseline_AEER_input(Variable):
 
 
 class HVAC2_rated_AEER_input(Variable):
-    reference = 'unit in '
     value_type = float
     entity = Building
     definition_period = ETERNITY

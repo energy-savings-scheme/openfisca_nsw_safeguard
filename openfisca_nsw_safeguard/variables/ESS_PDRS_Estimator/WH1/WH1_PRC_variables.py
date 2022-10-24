@@ -23,7 +23,7 @@ class WH1_annual_energy_savings(Variable):
     definition_period = ETERNITY
     metadata = {
         # HPgas from VEU registry
-        'display_question': 'Annual gas energy savings as a percentage per year',
+        'display_question': 'Annual energy savings as a percentage per year',
         'sorting' : 8
     }
 

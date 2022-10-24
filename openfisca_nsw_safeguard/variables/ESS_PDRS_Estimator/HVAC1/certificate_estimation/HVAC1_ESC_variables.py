@@ -95,7 +95,6 @@ class HVAC1_baseline_AEER_input(Variable):
 
 
 class HVAC1_rated_AEER_input(Variable):
-    reference = 'unit in '
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -106,9 +105,9 @@ class HVAC1_rated_AEER_input(Variable):
     }
     
 class DefaultValuesCertificateClimateZone(Enum):
-    hot_zone = "AC is installed in the hot zone."
-    average_zone = "AC is installed in the average zone."
-    cold_zone = "AC is installed in the cold zone."
+    hot_zone = "Hot zone"
+    average_zone = "Average zone"
+    cold_zone = "Cold zone"
 
 
 class HVAC1_certificate_climate_zone(Variable):
@@ -126,7 +125,7 @@ class HVAC1_certificate_climate_zone(Variable):
 """ These variables use Rule tables
 """
 class HVAC1_equivalent_heating_hours_input(Variable):
-    reference = 'table_D16.1'
+    reference = 'unit in hours per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -142,7 +141,7 @@ class HVAC1_equivalent_heating_hours_input(Variable):
 
 
 class HVAC1_equivalent_cooling_hours_input(Variable):
-    reference = 'table_D16.1'
+    reference = 'unit in hours per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY 

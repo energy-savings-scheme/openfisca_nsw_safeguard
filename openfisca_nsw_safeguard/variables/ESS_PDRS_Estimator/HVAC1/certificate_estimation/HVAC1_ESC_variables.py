@@ -111,15 +111,19 @@ class DefaultValuesCertificateClimateZone(Enum):
 
 
 class HVAC1_certificate_climate_zone(Variable):
-    value_type = Enum
+    value_type = int
     entity = Building
     label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
-    possible_values = DefaultValuesCertificateClimateZone
-    default_value = DefaultValuesCertificateClimateZone.average_zone
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?',
+        'variable-type': 'inter-interesting'
     }
+    
+    def formula(building, period, parameters):
+        postcode = building('PDRS__postcode', period)
+        rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
+        zone_int = rnf.calc(postcode)
+        return zone_int
 
 
 """ These variables use Rule tables
@@ -136,7 +140,9 @@ class HVAC1_equivalent_heating_hours_input(Variable):
     
     def formula(building, period, parameters):
         climate_zone = building('HVAC1_certificate_climate_zone', period)
-        heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone]
+        climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
+                                     ['hot_zone', 'average_zone', 'cold_zone'])
+        heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
         return heating_hours
 
 
@@ -148,10 +154,12 @@ class HVAC1_equivalent_cooling_hours_input(Variable):
     metadata = {
         "variable-type": "output"
     }
-    
+
     def formula(building, period, parameters):
         climate_zone = building('HVAC1_certificate_climate_zone', period)
-        cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone]
+        climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
+                                     ['hot_zone', 'average_zone', 'cold_zone'])
+        cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone_str]
         return cooling_hours
 
 

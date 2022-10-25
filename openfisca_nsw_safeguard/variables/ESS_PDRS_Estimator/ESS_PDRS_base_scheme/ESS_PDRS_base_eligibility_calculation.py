@@ -26,28 +26,28 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         registered_ACP = buildings('Base_registered_ACP', period)
         engaged_an_ACP = buildings('Base_engaged_ACP', period)
         removing_or_replacing = buildings('Base_removing_or_replacing', period)
-        not_resold_reused_refurbished = buildings('Base_not_resold_reused_or_refurbished', period)
+        resold_reused_refurbished = buildings('Base_resold_reused_or_refurbished', period)
         appropriate_disposal = buildings('Base_disposal_of_equipment', period)
-        no_reduction_safety_levels = buildings('Base_reduces_safety_levels', period)
-        no_increase_emissions = buildings('Base_greenhouse_emissions_increase', period)
-        no_mandatory_requirement = buildings('Base_meets_mandatory_requirement', period)
+        reduce_safety_levels = buildings('Base_reduces_safety_levels', period)
+        increase_emissions = buildings('Base_greenhouse_emissions_increase', period)
+        mandatory_requirement = buildings('Base_meets_mandatory_requirement', period)
         basix_affected = buildings('Base_basix_affected_development', period)
-        not_prescribed_service = buildings('Base_prescribed_transmission_service', period)
-        not_tradeable_certificates = buildings('Base_tradeable_certificates', period)
+        prescribed_service = buildings('Base_prescribed_transmission_service', period)
+        tradeable_certificates = buildings('Base_tradeable_certificates', period)
         replacement_hw = buildings('Base_replacement_water_heater_certificates', period)
         replacement_solar_hw = buildings('Base_replacement_solar_water_heater_certificates', period)
         
         # removing or replacing is YES and equipment is not resold, reused or refurbished and is disposed of appropriately
-        removing_replacing_intermediary = removing_or_replacing + (not_resold_reused_refurbished * appropriate_disposal)
+        removing_replacing_intermediary = np.logical_not(removing_or_replacing) + (removing_or_replacing * np.logical_not(resold_reused_refurbished) * appropriate_disposal)
 
         # mandatory requirement is YES and basix affected is YES
-        mandatory_allowance = np.logical_not(no_mandatory_requirement) * basix_affected
+        mandatory_allowance = np.logical_not(mandatory_requirement) + (mandatory_requirement * basix_affected)
         
         # are you a registered ACP or engaged an ACP
         acp_status = registered_ACP + (np.logical_not(registered_ACP) * engaged_an_ACP)
 
         # tradeable certificates is YES and replacement heat pump water heater is YES and solar water heater is no
-        tradeable_certificates_allowed = np.logical_not(not_tradeable_certificates) * replacement_hw * np.logical_not(replacement_solar_hw)
+        tradeable_certificates_allowed = np.logical_not(tradeable_certificates) + (tradeable_certificates * replacement_hw) + (tradeable_certificates * replacement_solar_hw)
 
         implementation_date = (buildings('Base_implementation_after_1_April_2022', period).astype('datetime64[D]'))
         enforcement_date = np.datetime64('2022-04-01')
@@ -55,7 +55,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
             implementation_date > enforcement_date)
         
         end_formula =  ( energy_consumption * reduce_demand * activity_implemented * lawful * acp_status *
-                         removing_replacing_intermediary * no_reduction_safety_levels * np.logical_not(no_increase_emissions) * mandatory_allowance *
-                         not_prescribed_service * tradeable_certificates_allowed * on_or_after_1_April_2022 )
+                         removing_replacing_intermediary * np.logical_not(reduce_safety_levels) * np.logical_not(increase_emissions) * mandatory_allowance *
+                         np.logical_not(prescribed_service) * tradeable_certificates_allowed * on_or_after_1_April_2022)
         
         return end_formula

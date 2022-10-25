@@ -21,7 +21,7 @@ class HVAC2_heating_capacity_input(Variable):
 
 
 class HVAC2_cooling_capacity_input(Variable):
-    reference = 'unit in kw'
+    reference = 'unit in kW'
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -95,7 +95,6 @@ class HVAC2_baseline_AEER_input(Variable):
 
 
 class HVAC2_rated_AEER_input(Variable):
-    reference = 'unit in '
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -125,7 +124,7 @@ class HVAC2_certificate_climate_zone(Variable):
 """ These variables use Rule tables
 """
 class HVAC2_equivalent_heating_hours_input(Variable):
-    reference = 'table_F4.1'
+    reference = 'unit in hours per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -143,7 +142,7 @@ class HVAC2_equivalent_heating_hours_input(Variable):
 
 
 class HVAC2_equivalent_cooling_hours_input(Variable):
-    reference = 'table_F4.1'
+    reference = 'unit in hours per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY 

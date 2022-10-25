@@ -31,7 +31,7 @@ class WH1_WH_capacity_factor(Variable):
 
 
 class WH1_HP_gas(Variable):
-    reference = 'Gj per year'
+    reference = 'GJ per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -42,7 +42,7 @@ class WH1_HP_gas(Variable):
 
 
 class WH1_com_peak_load(Variable):
-    reference = 'Mj per day'
+    reference = 'MJ per day'
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -54,7 +54,7 @@ class WH1_com_peak_load(Variable):
 
 
 class WH1_HP_elec(Variable):
-    reference = 'Gj per year'
+    reference = 'GJ per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY

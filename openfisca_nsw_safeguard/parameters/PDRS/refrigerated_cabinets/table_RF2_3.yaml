@@ -1,0 +1,77 @@
+description: Refrigerated cabinet lifetime by refrigerated cabinet class 
+reference: PDRS Technical Manual 2022
+metadata:
+  unit: years
+refrigerated_cabinet_class:
+  class_1: 
+    values:
+      2022-01-01
+        value: 8 
+  class_2:
+    values:
+      2022-01-01
+        value: 8 
+  class_3:
+    values:
+      2022-01-01
+        value: 8 
+  class_4:
+    values:
+      2022-01-01
+        value: 8 
+  class_5:
+    values:
+      2022-01-01
+        value: 8 
+  class_6:
+    values:
+      2022-01-01
+        value: 8 
+  class_7: #display area < 3.3m2
+    values:
+      2022-01-01
+        value: 8 
+  class_7_big: #display area >= 3.3m2
+    values:
+      2022-01-01
+        value: 12 
+  class_8: #display area < 3.3m2
+    values:
+      2022-01-01
+        value: 8 
+  class_8_big: #display area >= 3.3m2
+    values:
+      2022-01-01
+        value: 12 
+  class_9:
+    values:
+      2022-01-01
+        value: 8 
+  class_10:
+    values:
+      2022-01-01
+        value: 8 
+  class_11: #display area < 3.3m2
+    values:
+      2022-01-01
+        value: 8 
+  class_11_big: #display area >= 3.3m2
+    values:
+      2022-01-01
+        value: 8 
+  class_12:
+    values:
+      2022-01-01
+        value: 12
+  class_13:
+    values:
+      2022-01-01
+        value: 12
+  class_14:
+    values:
+      2022-01-01
+        value: 12
+  class_15:
+    values:
+      2022-01-01
+        value: 12 

@@ -13,10 +13,11 @@ class HVAC1_heating_capacity_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Rated heated capacity (kW)'
     metadata = {
         "alias": "Air Conditioner Heating Capacity",
         'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
-        'sorting' : 5
+        'sorting' : 6
     }
 
 
@@ -25,10 +26,11 @@ class HVAC1_cooling_capacity_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Rated cooling capacity (kW)'
     metadata = {
         "alias": "Air Conditioner Cooling Capacity",
         'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
-        'sorting' : 7
+        'sorting' : 5
     }
 
 
@@ -36,10 +38,11 @@ class HVAC1_rated_ACOP_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Rated ACOP'
     metadata = {
         "alias": "Rated ACOP",
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
-        'sorting' : 6
+        'sorting' : 7
     }
 
 
@@ -48,6 +51,7 @@ class HVAC1_baseline_AEER_input(Variable):
     entity = Building
     label = "Baseline AEER"
     definition_period = ETERNITY
+    label = 'Baseline AEER'
     metadata = {
         "alias": "AEER",
         "variable-type": "output"
@@ -98,6 +102,7 @@ class HVAC1_rated_AEER_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Rated AEER'
     metadata = {
         "alias": "Rated AEER",
         "display_question": 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',

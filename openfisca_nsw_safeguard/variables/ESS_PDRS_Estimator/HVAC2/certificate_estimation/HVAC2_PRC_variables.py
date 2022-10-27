@@ -20,9 +20,10 @@ class HVAC2_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = "Input power"
+    label = "Rated cooling input power"
     metadata = {
-        'display_question': 'Rated cooling input power at 35C as recorded in the GEMS registry'
+        'display_question': 'Rated cooling input power at 35C as recorded in the GEMS registry',
+        'sorting' : 9
     }
 
 

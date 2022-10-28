@@ -121,6 +121,39 @@ class HVAC2_certificate_climate_zone(Variable):
         return zone_int
 
 
+class HVAC2_get_climate_zone_by_postcode(Variable):
+    value_type = str
+    entity = Building
+    label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'inter-interesting',
+        'alias': 'climate zone'
+    }
+    
+    def formula(building, period, parameters):
+        postcode = building('HVAC2_PDRS__postcode_for_climate_zone', period)
+        rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
+        zone_int = rnf.calc(postcode)
+        climate_zone_str = np.select([zone_int == 1, zone_int == 2, zone_int == 3],
+                                     ['hot', 'average', 'cold'])
+        
+        return climate_zone_str
+
+
+class HVAC2_PDRS__postcode_for_climate_zone(Variable):
+    # using to get the climate zone
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = "What is the postcode for the building you are calculating PRCs for?"
+    metadata = {
+        'variable-type': 'inter-interesting',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'What is your postcode?',
+        }
+
+
 """ These variables use Rule tables
 """
 class HVAC2_equivalent_heating_hours_input(Variable):

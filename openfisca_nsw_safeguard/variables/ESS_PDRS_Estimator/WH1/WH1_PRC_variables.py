@@ -17,12 +17,12 @@ from openfisca_nsw_base.entities import Building
 """
 
 class WH1_annual_energy_savings(Variable):
-    reference = 'GJ per year'
+    reference = 'Percentage'
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Annual energy savings (%/year)'
     metadata = {
-        # HPgas from VEU registry
         'display_question': 'Annual energy savings as a percentage per year',
         'sorting' : 8
     }

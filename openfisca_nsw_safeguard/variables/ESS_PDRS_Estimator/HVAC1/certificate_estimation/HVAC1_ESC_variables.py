@@ -243,3 +243,36 @@ class HVAC1_New_Equipment(Variable):
         'display_question': 'Is the end-user equipment a new air-conditioner?',
         'sorting' : 3
         }
+    
+
+class HVAC1_get_climate_zone_by_postcode(Variable):
+    value_type = str
+    entity = Building
+    label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'inter-interesting',
+        'alias': 'climate zone'
+    }
+    
+    def formula(building, period, parameters):
+        postcode = building('HVAC1_PDRS__postcode_for_climate_zone', period)
+        rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
+        zone_int = rnf.calc(postcode)
+        climate_zone_str = np.select([zone_int == 1, zone_int == 2, zone_int == 3],
+                                     ['hot', 'average', 'cold'])
+        
+        return climate_zone_str
+
+
+class HVAC1_PDRS__postcode_for_climate_zone(Variable):
+    # using to get the climate zone
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = "What is the postcode for the building you are calculating PRCs for?"
+    metadata = {
+        'variable-type': 'inter-interesting',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'What is your postcode?',
+        }

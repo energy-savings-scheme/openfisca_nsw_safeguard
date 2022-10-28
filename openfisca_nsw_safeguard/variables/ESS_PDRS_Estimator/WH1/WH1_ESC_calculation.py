@@ -47,7 +47,7 @@ class WH1_deemed_activity_gas_savings(Variable):
       capacity_factor = buildings('WH1_capacity_factor', period)
       lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
 
-      gas_savings = -(HP_gas) * capacity_factor * [lifetime / 3.6]
+      gas_savings = -(HP_gas) * capacity_factor * (lifetime / 3.6)
 
       return gas_savings
 
@@ -67,7 +67,7 @@ class WH1_Ref_Elec(Variable):
         com_peak_load = buildings('WH1_com_peak_load', period)
 
         # we divide this by 1000 to convert MJ to GJ
-        ref_elec = 365 * 0.905 * 1.05 * com_peak_load / 1000
+        ref_elec = 365 * 0.905 * 1.05 * (com_peak_load / 1000)
         return ref_elec
 
 

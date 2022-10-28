@@ -260,7 +260,7 @@ class HVAC1_get_climate_zone_by_postcode(Variable):
         rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
         zone_int = rnf.calc(postcode)
         climate_zone_str = np.select([zone_int == 1, zone_int == 2, zone_int == 3],
-                                     ['hot', 'average', 'cold'])
+                                     ['hot', 'mixed', 'cold'])
         
         return climate_zone_str
 

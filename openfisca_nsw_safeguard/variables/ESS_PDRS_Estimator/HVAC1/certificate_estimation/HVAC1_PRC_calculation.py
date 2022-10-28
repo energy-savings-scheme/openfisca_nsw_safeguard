@@ -36,7 +36,7 @@ class HVAC1_BCA_climate_zone_by_postcode(Variable):
     }
 
     def formula(buildings, period, parameters):
-        postcode = buildings('PDRS__postcode', period)
+        postcode = buildings('HVAC1_PDRS__postcode', period)
         # Returns an integer
         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
         climate_zone_int = climate_zone.calc(postcode)

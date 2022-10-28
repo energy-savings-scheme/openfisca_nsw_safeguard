@@ -125,7 +125,7 @@ class HVAC1_certificate_climate_zone(Variable):
     }
     
     def formula(building, period, parameters):
-        postcode = building('PDRS__postcode', period)
+        postcode = building('HVAC1_PDRS__postcode', period)
         rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
         zone_int = rnf.calc(postcode)
         return zone_int
@@ -261,7 +261,7 @@ class HVAC1_get_climate_zone_by_postcode(Variable):
     }
     
     def formula(building, period, parameters):
-        postcode = building('HVAC1_PDRS__postcode_for_climate_zone', period)
+        postcode = building('HVAC1_PDRS__postcode', period)
         rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
         zone_int = rnf.calc(postcode)
         climate_zone_str = np.select([zone_int == 1, zone_int == 2, zone_int == 3],
@@ -270,14 +270,14 @@ class HVAC1_get_climate_zone_by_postcode(Variable):
         return climate_zone_str
 
 
-class HVAC1_PDRS__postcode_for_climate_zone(Variable):
+class HVAC1_PDRS__postcode(Variable):
     # using to get the climate zone
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = "What is the postcode for the building you are calculating PRCs for?"
     metadata = {
-        'variable-type': 'inter-interesting',
         'alias' : 'PDRS Postcode',
         'display_question' : 'What is your postcode?',
+        'sorting': 1
         }

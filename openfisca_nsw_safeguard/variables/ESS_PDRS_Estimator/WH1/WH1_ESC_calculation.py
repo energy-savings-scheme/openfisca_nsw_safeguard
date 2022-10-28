@@ -66,7 +66,8 @@ class WH1_Ref_Elec(Variable):
     def formula(buildings, period, parameters):
         com_peak_load = buildings('WH1_com_peak_load', period)
 
-        ref_elec = 365 * 0.905 * 1.05 * com_peak_load
+        # we divide this by 1000 to convert MJ to GJ
+        ref_elec = 365 * 0.905 * 1.05 * com_peak_load / 1000
         return ref_elec
 
 

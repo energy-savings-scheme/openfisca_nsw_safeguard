@@ -31,7 +31,7 @@
 - name: test climate zone by postcode
   period: 2022
   input:
-    PDRS__postcode:
+    HVAC2_PDRS__postcode:
       [
         2017,
         2335,
@@ -49,7 +49,7 @@
 - name: test heating hours by postcode
   period: 2022
   input:
-    PDRS__postcode:
+    HVAC2_PDRS__postcode:
       [
         2017,
         2335,
@@ -67,7 +67,7 @@
 - name: test cooling hours by postcode
   period: 2022
   input:
-    PDRS__postcode:
+    HVAC2_PDRS__postcode:
       [
         2017,
         2335,
@@ -140,7 +140,7 @@
       [
         true
       ]
-    PDRS__postcode:
+    HVAC2_PDRS__postcode:
       [
         2789
       ]

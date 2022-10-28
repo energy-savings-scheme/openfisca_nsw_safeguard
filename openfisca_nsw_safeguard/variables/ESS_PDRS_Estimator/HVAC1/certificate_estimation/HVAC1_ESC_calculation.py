@@ -118,7 +118,7 @@ class HVAC1_PDRS__regional_network_factor(Variable):
     }
 
     def formula(buildings, period, parameters):
-        postcode = buildings('PDRS__postcode', period)
+        postcode = buildings('HVAC1_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         return rnf.calc(postcode)  # This is a built in OpenFisca function that \
         # is used to calculate a single value for regional network factor based on a zipcode provided

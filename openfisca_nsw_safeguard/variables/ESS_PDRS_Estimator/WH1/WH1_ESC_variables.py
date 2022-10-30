@@ -13,6 +13,7 @@ class WH1_HP_capacity_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'HPCap (kW)'
     metadata = {
         'display_question': 'Total rated capacity of the heat pump water heater(s) being installed',
         'sorting' : 3
@@ -24,6 +25,7 @@ class WH1_WH_capacity_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'WHCap (kW)'
     metadata = {
         'display_question': 'Total rated capacity (kW) of the End-User Equipment being replaced',
         'sorting' : 4
@@ -31,10 +33,11 @@ class WH1_WH_capacity_factor(Variable):
 
 
 class WH1_HP_gas(Variable):
-    reference = 'GJ per year'
+    reference = 'Gj per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'HPGas (GJ/year)'
     metadata = {
         'display_question': 'Annual gas energy used by the End-User Equipment',
         'sorting' : 5
@@ -46,22 +49,22 @@ class WH1_com_peak_load(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    
+    label = 'ComPkLoad (MJ/day)'
     metadata = {
         'display_question': 'Peak daily (winter) load based on the address of the site where the End-User Equipment is installed',
-        'sorting' : 6
+        'sorting' : 7
     }
 
 
 class WH1_HP_elec(Variable):
-    reference = 'GJ per year'
+    reference = 'Gj per year'
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    
+    label = 'HPElec (GJ/year)'
     metadata = {
         'display_question': 'Annual electrical energy used by the End-User Equipment',
-        'sorting' : 7
+        'sorting' : 6
     }
 
 

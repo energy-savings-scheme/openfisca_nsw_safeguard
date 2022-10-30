@@ -13,10 +13,11 @@ class HVAC2_heating_capacity_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Rated heated capacity (kW)'
     metadata = {
-        "alias": "Air Conditioner Heating Capacity",
-        'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
-        'sorting' : 5
+        'alias' : 'Air Conditioner Heating Capacity',
+        'display_question' : 'Rated heating capacity at 7c as recorded in the GEMS Registry',
+        'sorting' : 6
     }
 
 
@@ -25,10 +26,11 @@ class HVAC2_cooling_capacity_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Rated cooling capacity (kW)'
     metadata = {
-        "alias": "Air Conditioner Cooling Capacity",
-        'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
-        'sorting' : 7
+        'alias' : 'Air Conditioner Cooling Capacity',
+        'display_question' : 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
+        'sorting' : 5
     }
 
 
@@ -36,18 +38,18 @@ class HVAC2_rated_ACOP_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Rated ACOP'
     metadata = {
-        "alias": "Rated ACOP",
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
-        'sorting' : 6
+        'sorting' : 7
     }
 
 
 class HVAC2_baseline_AEER_input(Variable):
     value_type = float
     entity = Building
-    label = "Baseline AEER"
     definition_period = ETERNITY
+    label = 'Baseline AEER'
     metadata = {
         "alias": "AEER",
         "variable-type": "output"
@@ -98,9 +100,10 @@ class HVAC2_rated_AEER_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
+    label = 'Rated AEER'
     metadata = {
-        "alias": "Rated AEER",
-        "display_question": 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
+        'alias': 'Rated AEER',
+        'display_question' : 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
         'sorting': 8
     }
     
@@ -115,10 +118,43 @@ class HVAC2_certificate_climate_zone(Variable):
     }
     
     def formula(building, period, parameters):
-        postcode = building('PDRS__postcode', period)
+        postcode = building('HVAC2_PDRS__postcode', period)
         rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
         zone_int = rnf.calc(postcode)
         return zone_int
+
+
+class HVAC2_get_climate_zone_by_postcode(Variable):
+    value_type = str
+    entity = Building
+    label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'inter-interesting',
+        'alias': 'climate zone'
+    }
+    
+    def formula(building, period, parameters):
+        postcode = building('HVAC2_PDRS__postcode', period)
+        rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
+        zone_int = rnf.calc(postcode)
+        climate_zone_str = np.select([zone_int == 1, zone_int == 2, zone_int == 3],
+                                     ['hot', 'mixed', 'cold'])
+        
+        return climate_zone_str
+
+
+class HVAC2_PDRS__postcode(Variable):
+    # using to get the climate zone
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    label = "What is the postcode for the building you are calculating PRCs for?"
+    metadata = {
+        'variable-type': 'inter-interesting',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'What is your postcode?',
+        }
 
 
 """ These variables use Rule tables
@@ -208,10 +244,10 @@ class HVAC2_baseline_ACOP_input(Variable):
 
 
 class HVAC2_AC_Type(Enum):
-    non_ducted_split_system = 'Non-ducted split system.'
-    ducted_split_system = 'Ducted split system.'
-    non_ducted_unitary_system = 'Non-ducted unitary system.'
-    ducted_unitary_system = 'Ducted unitary system.'
+    non_ducted_split_system = 'Non-ducted split system'
+    ducted_split_system = 'Ducted split system'
+    non_ducted_unitary_system = 'Non-ducted unitary system'
+    ducted_unitary_system = 'Ducted unitary system'
 
 
 class HVAC2_Air_Conditioner_type(Variable):

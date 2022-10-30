@@ -11,7 +11,7 @@ class WH1_baseline_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Baseline input power'
+    label = 'Baseline input power (kW)'
     metadata = {
         "variable-type": "inter-interesting"
     }
@@ -28,7 +28,7 @@ class WH1_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Input power'
+    label = 'Input power (kW)'
     metadata = {
         "variable-type": "inter-interesting"
     }
@@ -65,7 +65,7 @@ class WH1_peak_demand_reduction_capacity(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Peak demand reduction capacity'
+    label = 'Peak demand reduction capacity (kW)'
     metadata = {
         "variable-type": "output"
     }

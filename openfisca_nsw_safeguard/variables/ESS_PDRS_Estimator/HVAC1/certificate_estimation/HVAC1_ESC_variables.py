@@ -104,16 +104,11 @@ class HVAC1_rated_AEER_input(Variable):
         'sorting': 8
     }
     
-class DefaultValuesCertificateClimateZone(Enum):
-    hot_zone = "Hot zone"
-    average_zone = "Average zone"
-    cold_zone = "Cold zone"
-
 
 class HVAC1_certificate_climate_zone(Variable):
     value_type = int
     entity = Building
-    label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
+    label = "Which climate zone is the End-User equipment installed in, as defined in ESS  A27?"
     definition_period = ETERNITY
     metadata = {
         'variable-type': 'inter-interesting'
@@ -126,7 +121,7 @@ class HVAC1_certificate_climate_zone(Variable):
         return zone_int
 
 
-""" These variables use Rule tables
+""" These variables use Rule s
 """
 class HVAC1_equivalent_heating_hours_input(Variable):
     reference = 'unit in hours per year'
@@ -142,12 +137,12 @@ class HVAC1_equivalent_heating_hours_input(Variable):
         climate_zone = building('HVAC1_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
+        heating_hours = parameters(period).ESS.HEER.table_D16_1.heating_hours[climate_zone_str]
         return heating_hours
 
 
 class HVAC1_equivalent_cooling_hours_input(Variable):
-    reference = 'unit in hours per year'
+    reference = '_D16.1'
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -159,7 +154,7 @@ class HVAC1_equivalent_cooling_hours_input(Variable):
         climate_zone = building('HVAC1_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone_str]
+        cooling_hours = parameters(period).ESS.HEER.table_D16_1.cooling_hours[climate_zone_str]
         return cooling_hours
 
 
@@ -231,15 +226,3 @@ class HVAC1_Air_Conditioner_type(Variable):
         'display_question' : 'What is your air conditioner type?',
         'sorting' : 4
     }
-    
-class HVAC1_New_Equipment(Variable):
-    value_type = bool
-    default_value = True
-    entity = Building
-    definition_period = ETERNITY
-    label = 'New or Used equipment'
-    metadata = {
-        'variable-type': 'user-input',
-        'display_question': 'Is the end-user equipment a new air-conditioner?',
-        'sorting' : 3
-        }

@@ -113,7 +113,7 @@ class HVAC1_rated_AEER_input(Variable):
 class HVAC1_certificate_climate_zone(Variable):
     value_type = int
     entity = Building
-    label = "Which climate zone is the End-User equipment installed in, as defined in ESS  A27?"
+    label = "Which climate zone is the End-User equipment installed in, as defined in ESS A27?"
     definition_period = ETERNITY
     metadata = {
         'variable-type': 'inter-interesting'

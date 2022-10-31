@@ -9,7 +9,9 @@ import numpy as np
 """ Parameters for RF2 PRC Calculation
 """
 
-""" Values shared with ESC variables RF2_ESC_variables 
+""" Values shared with ESC variables RF2_ESC_variables
+    RF2_total_energy_consumption
+    RF2_af
     RF2_baseline_EEI
     RF2_product_EEI
 """

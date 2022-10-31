@@ -15,9 +15,26 @@ class RF2_total_energy_consumption(Variable):
   value_type = float
   entity = Building
   definition_period = ETERNITY
+  label = 'TEC (kWh/day)'
+  metadata = {
+    'display_question' : 'Total Energy Consumption'
+    'sorting' : 
+  }
 
 
 class RF2_af(Variable):
+  value_type = float
+  entity = Building
+  definition_period = ETERNITY
+
+
+class RF2_baseline_EEI(Variable):
+  value_type = float
+  entity = Building
+  definition_period = ETERNITY
+
+
+class RF2_product_EEI(Variable):
   value_type = float
   entity = Building
   definition_period = ETERNITY

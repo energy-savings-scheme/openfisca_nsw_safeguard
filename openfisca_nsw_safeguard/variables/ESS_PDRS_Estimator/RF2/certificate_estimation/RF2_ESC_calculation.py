@@ -67,10 +67,10 @@ class RF2_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      total_energy_consumption = buildings('', period)
-      baseline_EEI = buildings('', period)
-      product_EEI = buildings('', period)
-      af = buildings('', period)
+      total_energy_consumption = buildings('RF2_total_energy_consumption', period)
+      baseline_EEI = buildings('RF2_baseline_EEI', period)
+      product_EEI = buildings('RF2_product_EEI', period)
+      af = buildings('RF2_af', period)
       lifetime = 
 
       electricity_savings = total_energy_consumption * [baseline_EEI / product_EEI - 1] * 365 * [lifetime / 1000]

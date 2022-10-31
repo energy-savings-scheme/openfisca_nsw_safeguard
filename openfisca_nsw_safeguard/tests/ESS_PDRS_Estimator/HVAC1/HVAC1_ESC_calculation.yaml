@@ -201,7 +201,7 @@
     HVAC1_Air_Conditioner_type:
       [
         non_ducted_split_system,
-        ducted_split_system
+        ducted_split_system # baseline AEER input 3.1
       ]
     HVAC1_New_Equipment:
       [
@@ -217,5 +217,5 @@
     HVAC1_ESC_calculation:
       [
         0,
-        1
+        0
       ]

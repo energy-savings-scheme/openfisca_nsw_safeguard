@@ -21,8 +21,16 @@ class HVAC1_heating_annual_energy_use(Variable):
       equivalent_heating_hours = buildings('HVAC1_equivalent_heating_hours_input', period)
       rated_ACOP = buildings('HVAC1_rated_ACOP_input', period)
 
-      annual_heating = (heating_capacity * equivalent_heating_hours) / rated_ACOP
-      return annual_heating
+      return np.select([    
+                            (heating_capacity * equivalent_heating_hours) > 0, 
+                            (heating_capacity * equivalent_heating_hours) == 0,
+                            (heating_capacity * equivalent_heating_hours) < 0
+                        ],
+                        [
+                            (heating_capacity * equivalent_heating_hours) / rated_ACOP, 
+                            0,
+                            (heating_capacity * equivalent_heating_hours) / rated_ACOP
+                        ])
 
 
 class HVAC1_cooling_annual_energy_use(Variable):
@@ -77,7 +85,6 @@ class HVAC1_reference_cooling_annual_energy_use(Variable):
       cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
       equivalent_cooling_hours = buildings('HVAC1_equivalent_cooling_hours_input', period)
       baseline_AEER = buildings('HVAC1_baseline_AEER_input', period)
-
       reference_annual_cooling = (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
       return reference_annual_cooling
 
@@ -99,7 +106,7 @@ class HVAC1_deemed_activity_electricity_savings(Variable):
       annual_heating = buildings('HVAC1_heating_annual_energy_use', period)
       lifetime = 10
       
-      deemed_electricity_savings = (reference_annual_cooling - annual_cooling) * (reference_annual_heating - annual_heating) * (lifetime / 1000)
+      deemed_electricity_savings = np.sum([(reference_annual_cooling - annual_cooling), (reference_annual_heating - annual_heating)]) * (lifetime / 1000)
       return deemed_electricity_savings
 
 
@@ -155,7 +162,7 @@ class HVAC1_ESC_calculation(Variable):
     def formula(buildings, period, parameters):
       HVAC1_electricity_savings = buildings('HVAC1_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
-
+      
       result = HVAC1_electricity_savings * electricity_certificate_conversion_factor
       result_to_return = np.select([
                 result < 0, result > 0

@@ -43,18 +43,25 @@ class RF2_lifetime_by_rc_class(Variable):
       [
         rc_class_by_lifetime -- 1,
         rc_class_by_lifetime -- 2,
-
-
-
+        rc_class_by_lifetime == 3,
+        rc_class_by_lifetime == 4,
+        rc_class_by_lifetime == 5,
+        rc_class_by_lifetime == 6,
+        rc_class_by_lifetime == 7,
+        rc_class_by_lifetime == 8,
+        rc_class_by_lifetime == 9,
+        rc_class_by_lifetime == 10,
+        rc_class_by_lifetime == 11,
+        rc_class_by_lifetime == 12,
+        rc_class_by_lifetime == 13,
+        rc_class_by_lifetime == 14,
+        rc_class_by_lifetime == 15,
       ],
       [
-
+        display area here
 
       ])
       return lifetime_by_rc_class
-
-
-
 
 
 class RF2_deemed_activity_electricity_savings(Variable):

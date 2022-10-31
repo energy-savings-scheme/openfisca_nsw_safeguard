@@ -5,19 +5,23 @@
     HVAC1_heating_capacity_input:
       [
         10,
+        0 #Coolmaster TCCF10C1S/AOCF10C-S
       ]
     HVAC1_equivalent_heating_hours_input:
       [
         20,
+        1534
       ]
     HVAC1_rated_ACOP_input:
       [
-        30
+        30,
+        0
       ]
   output:
     HVAC1_heating_annual_energy_use: 
       [
-        6.6
+        6.6666,
+        0
       ]
 - name: test HVAC1 cooling annual energy use
   period: 2022
@@ -26,19 +30,23 @@
     HVAC1_cooling_capacity_input:
       [
         20,
+        10.1 #Coolmaster TCCF10C1S/AOCF10C-S
       ]
     HVAC1_equivalent_cooling_hours_input:
       [
         50,
+        285
       ]
     HVAC1_rated_AEER_input:
       [
         10,
+        3.4907
       ]
   output:
     HVAC1_cooling_annual_energy_use:
       [
-        100
+        100,
+        824.619
       ] 
 - name: test HVAC1 reference heating annual energy use
   period: 2022
@@ -68,19 +76,23 @@
     HVAC1_cooling_capacity_input:
       [
         32,
+        10.1 #Coolmaster TCCF10C1S/AOCF10C-S
       ]
     HVAC1_equivalent_cooling_hours_input:
       [
         23,
+        285
       ]
     HVAC1_baseline_AEER_input:
       [
         12,
+        3.1
       ]
   output:
     HVAC1_reference_cooling_annual_energy_use:
       [
-        61.3
+        61.3,
+        928.548
       ]
 
 - name: test baseline AEER input
@@ -90,18 +102,22 @@
     HVAC1_cooling_capacity_input:
       [
         32,
+        10.1 #Coolmaster TCCF10C1S/AOCF10C-S
       ]
     HVAC1_Air_Conditioner_type:
       [
-        'The AC is a non-ducted split system.',
+        non_ducted_split_system,
+        ducted_split_system
       ]
     HVAC1_New_Equipment:
       [
         true,
+        true
       ]
   output:
     HVAC1_baseline_AEER_input:
       [
+        3.1,
         3.1
       ]
 
@@ -112,20 +128,51 @@
     HVAC1_cooling_capacity_input:
       [
         32,
+        10.1 #Coolmaster TCCF10C1S/AOCF10C-S
       ]
     HVAC1_Air_Conditioner_type:
       [
-        'The AC is a non-ducted split system.',
+        non_ducted_split_system,
+        ducted_split_system
       ]
     HVAC1_New_Equipment:
       [
         true,
+        true
       ]
   output:
     HVAC1_baseline_ACOP_input:
       [
+        2.05,
         2.05
       ]
+
+- name: test Deemed Electricity Savings
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    HVAC1_reference_cooling_annual_energy_use: 
+      [
+        928.548
+      ]
+    HVAC1_cooling_annual_energy_use:
+      [
+        824.619
+      ]
+    HVAC1_reference_heating_annual_energy_use:
+      [
+        0
+      ]
+    HVAC1_heating_annual_energy_use:
+      [
+        0
+      ]
+  output:
+    HVAC1_deemed_activity_electricity_savings:
+      [
+        1.03929
+      ]
+
 
 - name: test ESC calculation
   period: 2022
@@ -134,33 +181,41 @@
     HVAC1_cooling_capacity_input:
       [
         32,
+        10.1 #Coolmaster TCCF10C1S/AOCF10C-S
       ]
     HVAC1_heating_capacity_input: 
       [
         6,
+        0
       ]
     HVAC1_rated_AEER_input:
       [
         2.0,
+        3.4907
       ]
     HVAC1_rated_ACOP_input:
       [
-        6.0
+        6.0,
+        0
       ]
     HVAC1_Air_Conditioner_type:
       [
-        non_ducted_split_system
+        non_ducted_split_system,
+        ducted_split_system
       ]
     HVAC1_New_Equipment:
       [
+        true,
         true
       ]
     HVAC1_PDRS__postcode:
       [
-        2017
+        2017,
+        2350
       ]
   output:
     HVAC1_ESC_calculation:
       [
-        0
+        0,
+        1
       ]

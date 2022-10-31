@@ -99,7 +99,7 @@ class HVAC1_deemed_activity_electricity_savings(Variable):
       annual_heating = buildings('HVAC1_heating_annual_energy_use', period)
       lifetime = 10
       
-      deemed_electricity_savings = (reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating) * (lifetime / 1000)
+      deemed_electricity_savings = (reference_annual_cooling - annual_cooling) * (reference_annual_heating - annual_heating) * (lifetime / 1000)
       return deemed_electricity_savings
 
 
@@ -156,7 +156,7 @@ class HVAC1_ESC_calculation(Variable):
       HVAC1_electricity_savings = buildings('HVAC1_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
 
-      result = np.rint(HVAC1_electricity_savings * electricity_certificate_conversion_factor)
+      result = HVAC1_electricity_savings * electricity_certificate_conversion_factor
       result_to_return = np.select([
                 result < 0, result > 0
             ], [

@@ -24,7 +24,9 @@ class WH1_annual_energy_savings(Variable):
     label = 'Annual energy savings (%/year)'
     metadata = {
         'display_question': 'Annual energy savings as a percentage per year',
-        'sorting' : 8
+        'sorting' : 8,
+        'variable-type': 'input',
+        'label': 'Annual energy savings (%/year)'
     }
 
 
@@ -93,5 +95,6 @@ class WH1_PDRS__postcode(Variable):
     metadata={
         'alias' : 'PDRS Postcode',
         'display_question' : 'Based on your postcode',
-        'sorting' : 1
+        'sorting' : 1,
+        'label': "The postcode for the building you are calculating PRCs for"
         }

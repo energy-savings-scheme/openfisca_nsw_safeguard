@@ -23,7 +23,8 @@ class HVAC1_input_power(Variable):
     label = 'Rated cooling input power (kW)'
     metadata = {
         'display_question' : 'Rated cooling input power at 35C as recorded in the GEMS registry',
-        'sorting' : 9
+        'sorting' : 9,
+        'label': 'Rated cooling input power (kW)'
     }
 
 
@@ -44,7 +45,8 @@ class HVAC1_DNSP(Variable):
     metadata = {
         'variable-type': 'user-input',
         'display_question': 'Who is your Distribution Network Service Provider?',
-        'sorting' : 2
+        'sorting' : 2,
+        'label': "Distribution Network Service Provider"
     }
 
 

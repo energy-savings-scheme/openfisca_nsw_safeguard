@@ -28,9 +28,9 @@ class HVAC2_input_power(Variable):
 
 
 class HVAC2_DNSP_Options(Enum):
+    Ausgrid = 'Ausgrid'
     Endeavour = 'Endeavour'
     Essential = 'Essential'
-    Ausgrid = 'Ausgrid'
 
 
 class HVAC2_DNSP(Variable):

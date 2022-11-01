@@ -54,6 +54,11 @@ class RF2_lifetime_by_rc_class(Variable):
       return lifetime_by_rc_class
 
 
+class RF2_baseline_EEI(Variable):
+  value_type = float
+  entity = Building
+  definition_period = ETERNITY
+  baseline_EEI = parameters(period).ESS.table_F1_1_1(product_class)
 
 
 
@@ -67,11 +72,69 @@ class RF2_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      total_energy_consumption = buildings('', period)
-      baseline_EEI = buildings('', period)
-      product_EEI = buildings('', period)
-      af = buildings('', period)
-      lifetime = 
+      total_energy_consumption = buildings('RF2_total_energy_consumption', period)
+      baseline_EEI = buildings('RF2_baseline_EEI', period)
+      product_EEI = buildings('RF2_product_EEI', period)
+      af = buildings('RF2_af', period)
+      lifetime_by_rc_class = buildings('RF2_lifetime_by_rc_clas', period)
 
-      electricity_savings = total_energy_consumption * [baseline_EEI / product_EEI - 1] * 365 * [lifetime / 1000]
-      return electricity_savings
+      deemed_electricity_savings = total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365 * (lifetime_by_rc_class / 1000)
+      return deemed_electricity_savings
+
+
+class RF2_PDRS__regional_network_factor(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Regional Network Factor is the value from Table A24 of Schedule' \
+            ' A corresponding to the postcode of the Address of the Site or' \
+            ' Sites where the Implementation(s) took place.'
+    metadata = {
+        'variable-type': 'inter-interesting',
+        'alias':'PDRS Regional Network Factor',
+        'display_question': 'PDRS regional network factor'
+    }
+
+    def formula(buildings, period, parameters):
+        postcode = buildings('PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        return rnf.calc(postcode)  # This is a built in OpenFisca function that \
+        # is used to calculate a single value for regional network factor based on a zipcode provided
+
+
+class RF2_electricity_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'HVAC1 Electricity savings'
+    metadata = {
+        'alias': 'HVAC1 electricity savings',
+        'variable-type': 'inter-interesting'
+    }
+
+    def formula(buildings, period, parameters):
+        deemed_electricity_savings = buildings('RF2_deemed_activity_electricity_savings', period)   
+        regional_network_factor = buildings('HVAC1_PDRS__regional_network_factor', period)
+
+        HVAC1_electricity_savings = (deemed_electricity_savings * regional_network_factor)
+        return HVAC1_electricity_savings
+  
+
+class RF2_ESC_calculation(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'The number of ESCs for HVAC1'
+
+    def formula(buildings, period, parameters):
+      RF2_electricity_savings = buildings('RF2_electricity_savings', period)
+      electricity_certificate_conversion_factor = 1.06
+
+      result = RF2_electricity_savings * electricity_certificate_conversion_factor
+      result_to_return = np.select([
+                result < 0, result > 0
+            ], [
+                0, result
+            ])
+
+      return result_to_return

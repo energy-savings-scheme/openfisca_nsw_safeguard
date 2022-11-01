@@ -21,3 +21,15 @@ class RF2_af(Variable):
   value_type = float
   entity = Building
   definition_period = ETERNITY
+
+
+class RF2_baseline_EEI(Variable):
+  value_type = float
+  entity = Building
+  definition_period = ETERNITY
+
+
+class RF2_product_EEI(Variable):
+  value_type = float
+  entity = Building
+  definition_period = ETERNITY

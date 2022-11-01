@@ -144,7 +144,7 @@ class HVAC1_PRC_calculation(Variable):
         kw_to_0_1kw = 10
 
 
-        result = (peak_demand_capacity * network_loss_factor) * kw_to_0_1kw    
+        result = np.rint(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw    
         result_to_return = np.select([
                 result < 0, result > 0
             ], [

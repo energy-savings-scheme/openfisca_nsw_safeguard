@@ -76,10 +76,15 @@ class RF2_deemed_activity_electricity_savings(Variable):
       baseline_EEI = buildings('RF2_baseline_EEI', period)
       product_EEI = buildings('RF2_product_EEI', period)
       af = buildings('RF2_af', period)
-      lifetime_by_rc_class = buildings('RF2_lifetime_by_rc_clas', period)
+      lifetime_by_rc_class = buildings('RF2_lifetime_by_rc_class', period)
 
       deemed_electricity_savings = total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365 * (lifetime_by_rc_class / 1000)
       return deemed_electricity_savings
+
+
+#baseline EEI table F1.1.1 / 1.2.1 (determined by normal/light or heavy)
+#af table F1.1.1 / 1.2.1 (determined by normal/light or heavy)
+#lifetime by rc class (already done)
 
 
 class RF2_PDRS__regional_network_factor(Variable):

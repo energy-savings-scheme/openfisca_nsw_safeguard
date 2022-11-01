@@ -92,6 +92,6 @@ class WH1_PDRS__postcode(Variable):
     label = "What is the postcode for the building you are calculating PRCs for?"
     metadata={
         'alias' : 'PDRS Postcode',
-        'display_question' : 'What is your postcode?',
+        'display_question' : 'Based on your postcode',
         'sorting' : 1
         }

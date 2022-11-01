@@ -151,9 +151,9 @@ class HVAC2_PDRS__postcode(Variable):
     definition_period = ETERNITY
     label = "What is the postcode for the building you are calculating PRCs for?"
     metadata = {
-        'variable-type': 'inter-interesting',
         'alias' : 'PDRS Postcode',
-        'display_question' : 'What is your postcode?',
+        'display_question' : 'Based on your postcode?',
+        'sorting': 1
         }
 
 

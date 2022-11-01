@@ -18,7 +18,6 @@ class RF2_total_energy_consumption(Variable):
   label = 'TEC (kWh/day)'
   metadata = {
     'display_question' : 'Total Energy Consumption'
-    'sorting' : 
   }
 
 

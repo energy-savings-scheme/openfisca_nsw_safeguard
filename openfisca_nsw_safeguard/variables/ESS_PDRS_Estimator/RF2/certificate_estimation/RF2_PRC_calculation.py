@@ -20,5 +20,5 @@ class RF2_baseline_input_power(Variable):
       baseline_EEI = buildings('', period)
       product_EEI = buildings('', period)
 
-      baseline_input_power = total_energy_consumption * af * [baseline_EEI / product_EEI] / 24
+      baseline_input_power = (total_energy_consumption * af) * (baseline_EEI / product_EEI) / 24
       return baseline_input_power

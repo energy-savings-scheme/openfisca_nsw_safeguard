@@ -65,9 +65,9 @@ class AC_cooling_capacity_enum(Variable):
         return np.select(
             [
                 cooling_capacity < 4,
-                (cooling_capacity < 10) & (cooling_capacity >= 4),
-                (cooling_capacity < 39) & (cooling_capacity >= 10),
-                (cooling_capacity < 65) & (cooling_capacity >= 39),
+                (cooling_capacity < 10) * (cooling_capacity >= 4),
+                (cooling_capacity < 39) * (cooling_capacity >= 10),
+                (cooling_capacity < 65) * (cooling_capacity >= 39),
                 cooling_capacity > 65
             ],
             [

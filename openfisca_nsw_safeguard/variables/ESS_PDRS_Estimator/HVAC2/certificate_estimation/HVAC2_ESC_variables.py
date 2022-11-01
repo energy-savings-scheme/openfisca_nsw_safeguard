@@ -17,7 +17,8 @@ class HVAC2_heating_capacity_input(Variable):
     metadata = {
         'alias' : 'Air Conditioner Heating Capacity',
         'display_question' : 'Rated heating capacity at 7c as recorded in the GEMS Registry',
-        'sorting' : 6
+        'sorting' : 6,
+        'label': 'Rated heated capacity (kW)'
     }
 
 
@@ -30,7 +31,8 @@ class HVAC2_cooling_capacity_input(Variable):
     metadata = {
         'alias' : 'Air Conditioner Cooling Capacity',
         'display_question' : 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
-        'sorting' : 5
+        'sorting' : 5,
+        'label': 'Rated cooling capacity (kW)'
     }
 
 
@@ -41,7 +43,8 @@ class HVAC2_rated_ACOP_input(Variable):
     label = 'Rated ACOP'
     metadata = {
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
-        'sorting' : 7
+        'sorting' : 7,
+        'label': 'Rated ACOP'
     }
 
 
@@ -52,7 +55,7 @@ class HVAC2_baseline_AEER_input(Variable):
     label = 'Baseline AEER'
     metadata = {
         "alias": "AEER",
-        "variable-type": "output"
+        "variable-type": "inter-interesting"
     }
 
     def formula(building, period, parameters):
@@ -104,7 +107,8 @@ class HVAC2_rated_AEER_input(Variable):
     metadata = {
         'alias': 'Rated AEER',
         'display_question' : 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
-        'sorting': 8
+        'sorting': 8,
+        'label': 'Rated AEER'
     }
     
 
@@ -153,7 +157,8 @@ class HVAC2_PDRS__postcode(Variable):
     metadata = {
         'alias' : 'PDRS Postcode',
         'display_question' : 'Based on your postcode',
-        'sorting': 1
+        'sorting': 1,
+        'label': "The postcode for the building you are calculating PRCs for"
         }
 
 
@@ -199,9 +204,6 @@ class HVAC2_baseline_ACOP_input(Variable):
     entity = Building
     label = "Baseline ACOP"
     definition_period = ETERNITY
-    metadata = {
-        "variable-type": "output"
-    }
 
     def formula(building, period, parameters):
         cooling_capacity = building(

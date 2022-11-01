@@ -17,7 +17,8 @@ class HVAC1_heating_capacity_input(Variable):
     metadata = {
         "alias": "Air Conditioner Heating Capacity",
         'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
-        'sorting' : 6
+        'sorting' : 6,
+        'label': 'Rated heated capacity (kW)'
     }
 
 
@@ -30,7 +31,8 @@ class HVAC1_cooling_capacity_input(Variable):
     metadata = {
         "alias": "Air Conditioner Cooling Capacity",
         'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
-        'sorting' : 5
+        'sorting' : 5,
+        'label': 'Rated cooling capacity (kW)'
     }
 
 
@@ -42,7 +44,8 @@ class HVAC1_rated_ACOP_input(Variable):
     metadata = {
         "alias": "Rated ACOP",
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
-        'sorting' : 7
+        'sorting' : 7,
+        'label': 'Rated ACOP'
     }
 
 
@@ -51,10 +54,10 @@ class HVAC1_baseline_AEER_input(Variable):
     entity = Building
     label = "Baseline AEER"
     definition_period = ETERNITY
-    label = 'Baseline AEER'
     metadata = {
         "alias": "AEER",
-        "variable-type": "output"
+        "variable-type": "output",
+        "label": "Baseline AEER"
     }
 
     def formula(building, period, parameters):
@@ -106,7 +109,8 @@ class HVAC1_rated_AEER_input(Variable):
     metadata = {
         "alias": "Rated AEER",
         "display_question": 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
-        'sorting': 8
+        'sorting': 8,
+        'label': 'Rated AEER'
     }
     
 class DefaultValuesCertificateClimateZone(Enum):
@@ -173,9 +177,6 @@ class HVAC1_baseline_ACOP_input(Variable):
     entity = Building
     label = "Baseline ACOP"
     definition_period = ETERNITY
-    metadata = {
-        "variable-type": "output"
-    }
 
     def formula(building, period, parameters):
         cooling_capacity = building(
@@ -227,14 +228,14 @@ class HVAC1_AC_Type(Enum):
 class HVAC1_Air_Conditioner_type(Variable):
     value_type = Enum
     entity = Building
-    label = "Air conditioner type"
     possible_values = HVAC1_AC_Type
     default_value = HVAC1_AC_Type.non_ducted_split_system
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
         'display_question' : 'What is your air conditioner type?',
-        'sorting' : 4
+        'sorting' : 4,
+        'label': "Air conditioner type"
     }
     
 class HVAC1_New_Equipment(Variable):
@@ -246,7 +247,8 @@ class HVAC1_New_Equipment(Variable):
     metadata = {
         'variable-type': 'user-input',
         'display_question': 'Is the end-user equipment a new air-conditioner?',
-        'sorting' : 3
+        'sorting' : 3,
+        'label': 'New or Used equipment'
         }
     
 
@@ -279,5 +281,6 @@ class HVAC1_PDRS__postcode(Variable):
     metadata = {
         'alias' : 'PDRS Postcode',
         'display_question' : 'Based on your postcode',
-        'sorting': 1
+        'sorting': 1,
+        'label':  "The postcode for the building you are calculating PRCs for"
         }

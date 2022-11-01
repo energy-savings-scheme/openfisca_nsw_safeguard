@@ -13,7 +13,8 @@ class HVAC1_heating_annual_energy_use(Variable):
     label = 'Annual heating energy use'
     metadata = {
         "alias": "Annual heating energy use",
-        "variable-type": "inter-interesting"
+        "variable-type": "inter-interesting",
+        "label" :'Annual heating energy use'
     }
 
     def formula(buildings, period, parameters):
@@ -40,7 +41,8 @@ class HVAC1_cooling_annual_energy_use(Variable):
     label = 'Annual cooling energy use'
     metadata = {
         "alias": "Annual cooling energy use",
-        "variable-type": "inter-interesting"
+        "variable-type": "inter-interesting",
+        "label": 'Annual cooling energy use'
     }
 
     def formula(buildings, period, parameters):
@@ -67,7 +69,8 @@ class HVAC1_reference_heating_annual_energy_use(Variable):
     label = 'Reference annual heating energy use'
     metadata = {
         "alias": "Reference annual heating energy use",
-        "variable-type": "inter-interesting"
+        "variable-type": "inter-interesting",
+        "label": 'Reference annual heating energy use'
     }
 
     def formula(buildings, period, parameters):
@@ -94,7 +97,8 @@ class HVAC1_reference_cooling_annual_energy_use(Variable):
     label = 'Reference annual cooling energy use'
     metadata = {
         "alias": "Reference annual cooling energy use",
-        "variable-type": "inter-interesting"
+        "variable-type": "inter-interesting",
+        "label": 'Reference annual cooling energy use'
     }
 
     def formula(buildings, period, parameters):
@@ -121,7 +125,8 @@ class HVAC1_deemed_activity_electricity_savings(Variable):
     label = 'Deemed activity electricity savings'
     metadata = {
         "alias": "Deemed activity electricity savings",
-        "variable-type": "inter-interesting"
+        "variable-type": "inter-interesting",
+        "label": 'Deemed activity electricity savings'
     }
 
     def formula(buildings, period, parameters):
@@ -145,8 +150,7 @@ class HVAC1_PDRS__regional_network_factor(Variable):
     metadata = {
         "variable-type": "inter-interesting",
         "alias":"PDRS Regional Network Factor",
-        "display_question": "PDRS regional network factor",
-        "variable-type": "inter-interesting"
+        "display_question": "PDRS regional network factor"
     }
 
     def formula(buildings, period, parameters):
@@ -187,7 +191,7 @@ class HVAC1_ESC_calculation(Variable):
       HVAC1_electricity_savings = buildings('HVAC1_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
       
-      result = np.rint(HVAC1_electricity_savings * electricity_certificate_conversion_factor)
+      result = HVAC1_electricity_savings * electricity_certificate_conversion_factor
       result_to_return = np.select([
                 result <= 0, result > 0
             ], 

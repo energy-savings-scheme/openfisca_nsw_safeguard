@@ -155,7 +155,7 @@ class HVAC1_equivalent_cooling_hours_input(Variable):
     reference = 'unit in hours per year'
     value_type = float
     entity = Building
-    definition_period = ETERNITY 
+    definition_period = ETERNITY
     metadata = {
         "variable-type": "output"
     }
@@ -218,10 +218,10 @@ class HVAC1_baseline_ACOP_input(Variable):
 
 
 class HVAC1_AC_Type(Enum):
-    non_ducted_split_system = 'Non-ducted split system.'
-    ducted_split_system = 'Ducted split system.'
-    non_ducted_unitary_system = 'Non-ducted unitary system.'
-    ducted_unitary_system = 'Ducted unitary system.'
+    non_ducted_split_system = 'Non-ducted split system'
+    ducted_split_system = 'Ducted split system'
+    non_ducted_unitary_system = 'Non-ducted unitary system'
+    ducted_unitary_system = 'Ducted unitary system'
 
 
 class HVAC1_Air_Conditioner_type(Variable):

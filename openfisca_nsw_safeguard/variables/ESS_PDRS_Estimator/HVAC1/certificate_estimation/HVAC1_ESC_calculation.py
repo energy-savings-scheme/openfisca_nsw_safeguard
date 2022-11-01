@@ -48,8 +48,16 @@ class HVAC1_cooling_annual_energy_use(Variable):
       equivalent_cooling_hours = buildings('HVAC1_equivalent_cooling_hours_input', period)
       rated_AEER = buildings('HVAC1_rated_AEER_input', period)
 
-      annual_cooling = (cooling_capacity * equivalent_cooling_hours) / rated_AEER
-      return annual_cooling
+      return np.select([    
+                    (cooling_capacity * equivalent_cooling_hours) > 0, 
+                    (cooling_capacity * equivalent_cooling_hours) == 0,
+                    (cooling_capacity * equivalent_cooling_hours) < 0
+                ],
+                [
+                    (cooling_capacity * equivalent_cooling_hours) / rated_AEER, 
+                    0,
+                    (cooling_capacity * equivalent_cooling_hours) / rated_AEER
+                ])
 
 
 class HVAC1_reference_heating_annual_energy_use(Variable):
@@ -67,8 +75,16 @@ class HVAC1_reference_heating_annual_energy_use(Variable):
       equivalent_heating_hours = buildings('HVAC1_equivalent_heating_hours_input', period)
       baseline_ACOP = buildings('HVAC1_baseline_ACOP_input', period)
       
-      reference_annual_heating = (heating_capacity * equivalent_heating_hours) / baseline_ACOP
-      return reference_annual_heating
+      return np.select([    
+                        (heating_capacity * equivalent_heating_hours) > 0, 
+                        (heating_capacity * equivalent_heating_hours) == 0,
+                        (heating_capacity * equivalent_heating_hours) < 0
+                    ],
+                    [
+                        (heating_capacity * equivalent_heating_hours) / baseline_ACOP, 
+                        0,
+                        (heating_capacity * equivalent_heating_hours) / baseline_ACOP
+                    ])
 
   
 class HVAC1_reference_cooling_annual_energy_use(Variable):
@@ -85,8 +101,17 @@ class HVAC1_reference_cooling_annual_energy_use(Variable):
       cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
       equivalent_cooling_hours = buildings('HVAC1_equivalent_cooling_hours_input', period)
       baseline_AEER = buildings('HVAC1_baseline_AEER_input', period)
-      reference_annual_cooling = (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
-      return reference_annual_cooling
+      
+      return np.select([    
+                    (cooling_capacity * equivalent_cooling_hours) > 0, 
+                    (cooling_capacity * equivalent_cooling_hours) == 0,
+                    (cooling_capacity * equivalent_cooling_hours) < 0
+                ],
+                [
+                    (cooling_capacity * equivalent_cooling_hours) / baseline_AEER, 
+                    0,
+                    (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
+                ])
 
 
 class HVAC1_deemed_activity_electricity_savings(Variable):
@@ -142,7 +167,6 @@ class HVAC1_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        print("i am in here")
         deemed_electricity_savings = buildings('HVAC1_deemed_activity_electricity_savings', period)   
         regional_network_factor = buildings('HVAC1_PDRS__regional_network_factor', period)
 
@@ -163,10 +187,11 @@ class HVAC1_ESC_calculation(Variable):
       HVAC1_electricity_savings = buildings('HVAC1_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
       
-      result = HVAC1_electricity_savings * electricity_certificate_conversion_factor
+      result = np.rint(HVAC1_electricity_savings * electricity_certificate_conversion_factor)
       result_to_return = np.select([
-                result < 0, result > 0
-            ], [
+                result <= 0, result > 0
+            ], 
+            [
                 0, result
             ])
 

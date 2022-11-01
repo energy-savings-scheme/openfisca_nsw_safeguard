@@ -173,6 +173,37 @@
         1.03929
       ]
 
+- name: test electricity savings
+  absolute_error_margin: 0.1
+  period: 2022
+  input:
+    HVAC1_deemed_activity_electricity_savings:
+      [
+        1.03929
+      ]
+    HVAC1_PDRS__regional_network_factor:
+      [
+        1.03
+      ]
+  output:
+    HVAC1_electricity_savings:
+      [
+        1.070
+      ]
+
+- name: test ESC calculation with electricity savings
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_electricity_savings:
+      [
+        1.070
+      ]
+  output:
+    HVAC1_ESC_calculation:
+      [
+        1
+      ]
 
 - name: test ESC calculation
   period: 2022
@@ -180,42 +211,72 @@
   input:
     HVAC1_cooling_capacity_input:
       [
-        32,
         10.1 #Coolmaster TCCF10C1S/AOCF10C-S
       ]
     HVAC1_heating_capacity_input: 
       [
-        6,
         0
       ]
     HVAC1_rated_AEER_input:
       [
-        2.0,
         3.4907
       ]
     HVAC1_rated_ACOP_input:
       [
-        6.0,
         0
       ]
     HVAC1_Air_Conditioner_type:
       [
-        non_ducted_split_system,
         ducted_split_system # baseline AEER input 3.1
       ]
     HVAC1_New_Equipment:
       [
-        true,
         true
       ]
     HVAC1_PDRS__postcode:
       [
-        2017,
         2350
       ]
   output:
     HVAC1_ESC_calculation:
       [
-        0,
+        1
+      ]
+
+- name: test ESC calculation case 2
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_cooling_capacity_input:
+      [
+        32
+      ]
+    HVAC1_heating_capacity_input: 
+      [
+        6
+      ]
+    HVAC1_rated_AEER_input:
+      [
+        2.0
+      ]
+    HVAC1_rated_ACOP_input:
+      [
+        6.0
+      ]
+    HVAC1_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC1_New_Equipment:
+      [
+        true
+      ]
+    HVAC1_PDRS__postcode:
+      [
+        2017
+      ]
+  output:
+    HVAC1_ESC_calculation:
+      [
         0
       ]

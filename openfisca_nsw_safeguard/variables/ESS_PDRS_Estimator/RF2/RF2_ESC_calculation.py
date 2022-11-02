@@ -1,3 +1,4 @@
+from math import prod
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
@@ -5,61 +6,50 @@ from openfisca_nsw_base.entities import Building
 
 import numpy as np
 
+
 class RF2_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'Input Factor'
     metadata = {
-        'variable-type': 'output'
+        'variable-type': 'inter-interesting'
     }
 
     def formula(buildings, period, parameters):
       total_energy_consumption = buildings('RF2_total_energy_consumption', period)
       af = buildings('RF2_af', period)
 
-      input_power = total_energy_consumption * af / 24
+      input_power = (total_energy_consumption * af) / 24
       return input_power
-
 
 
 class RF2_lifetime_by_rc_class(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
-    
-    # if rc class is 1 - 6, 9, 10 then lifetime is 8,
-    # if rc class is 7, 8, 11 and display area < 3.3 m2 then lifetime is 8
-    # if rc class is 7, 8, 11 and display area > or = 3.3 m2 then lifetime is 12
-    # if rc class is 12 - 15 then lifetime is 12
-
-    
+ 
     def formula(buildings, period, parameters):
+        product_class = buildings("RF2_product_class_int", period) # 3
+        display_area =  buildings('RF2_total_display_area', period)
+        
+        lifetime_by_rc_class = np.select(
+            [
+                (product_class >= 1) * (product_class <= 6),
+                (product_class == 9) + (product_class == 10),
+                (product_class == 7 + product_class == 8 + product_class == 11) * display_area < 3.3,
+                (product_class == 7 + product_class == 8 + product_class == 11) * display_area >= 3.3,
+                (product_class >= 12) * (product_class <= 15),
+            ],
+            [
+                8,
+                8,
+                8,
+                12,
+                12
+            ])
 
-      rc_class_by_lifetime = parameters(period).PDRS.refrigerated_cabinets.table_RF2.3.yaml
-      rc_class_by_lifetime_int = 
-
-      lifetime_by_rc_class = np.select(
-      [
-        rc_class_by_lifetime -- 1,
-        rc_class_by_lifetime -- 2,
-
-
-
-      ],
-      [
-
-
-      ])
-      return lifetime_by_rc_class
-
-
-class RF2_baseline_EEI(Variable):
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  baseline_EEI = parameters(period).ESS.table_F1_1_1(product_class)
-
+        return lifetime_by_rc_class
 
 
 class RF2_deemed_activity_electricity_savings(Variable):
@@ -82,11 +72,6 @@ class RF2_deemed_activity_electricity_savings(Variable):
       return deemed_electricity_savings
 
 
-#baseline EEI table F1.1.1 / 1.2.1 (determined by normal/light or heavy)
-#af table F1.1.1 / 1.2.1 (determined by normal/light or heavy)
-#lifetime by rc class (already done)
-
-
 class RF2_PDRS__regional_network_factor(Variable):
     value_type = float
     entity = Building
@@ -101,28 +86,27 @@ class RF2_PDRS__regional_network_factor(Variable):
     }
 
     def formula(buildings, period, parameters):
-        postcode = buildings('PDRS__postcode', period)
+        postcode = buildings('RF2_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
-        return rnf.calc(postcode)  # This is a built in OpenFisca function that \
-        # is used to calculate a single value for regional network factor based on a zipcode provided
+        return rnf.calc(postcode) 
 
 
 class RF2_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'HVAC1 Electricity savings'
+    label = 'RF2 Electricity savings'
     metadata = {
-        'alias': 'HVAC1 electricity savings',
+        'alias': 'RF2 electricity savings',
         'variable-type': 'inter-interesting'
     }
 
     def formula(buildings, period, parameters):
         deemed_electricity_savings = buildings('RF2_deemed_activity_electricity_savings', period)   
-        regional_network_factor = buildings('HVAC1_PDRS__regional_network_factor', period)
+        regional_network_factor = buildings('RF2_PDRS__regional_network_factor', period)
 
-        HVAC1_electricity_savings = (deemed_electricity_savings * regional_network_factor)
-        return HVAC1_electricity_savings
+        RF2_electricity_savings = deemed_electricity_savings * regional_network_factor
+        return RF2_electricity_savings
   
 
 class RF2_ESC_calculation(Variable):

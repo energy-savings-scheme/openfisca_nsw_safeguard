@@ -15,3 +15,77 @@
       [
         100
       ]
+
+- name: test lifetime by class
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    RF2_product_class_int:
+      [
+        13
+      ]
+    RF2_total_display_area:
+      [
+        2.2
+      ]
+  output:
+    RF2_lifetime_by_rc_class:
+      [
+        8
+      ]
+
+- name: test baseline_peak_adjustment_factor
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    RF2_product_type:
+      [
+        integral_RDC
+      ]
+    RF2_duty_class:
+      [
+        heavy_duty
+      ]
+  output:
+    RF2_baseline_peak_adjustment_factor:
+      [
+        1.14
+      ]
+
+- name: test RF2 ESC calculation
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    RF2_total_energy_consumption:
+      [
+        34.9
+      ]
+    RF2_product_type:
+      [
+        integral_RDC
+      ]
+    RF2_product_EEI:
+     [
+        5.9
+     ]
+    RF2_product_class: 
+      [
+        product_class_three # product_class_int is 3
+      ]
+    RF2_duty_class:
+     [
+        heavy_duty
+     ]
+    RF2_total_display_area:
+      [
+        3.0
+      ]
+    RF2_PDRS__postcode:
+      [
+        2017 # for regional n/w factor
+      ]
+  output:
+    RF2_ESC_calculation:
+      [
+        1301.7623
+      ]

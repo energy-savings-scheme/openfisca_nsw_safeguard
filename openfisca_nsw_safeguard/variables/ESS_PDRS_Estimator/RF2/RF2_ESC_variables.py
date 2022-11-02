@@ -189,6 +189,7 @@ class RF2_PDRS__postcode(Variable):
     metadata={
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
-        'display_question' : 'What is your postcode?',
-        'sorting' : 1
+        'display_question' : 'Postcode where the installation has taken place',
+        'sorting' : 1,
+        'label': 'Postcode'
         }

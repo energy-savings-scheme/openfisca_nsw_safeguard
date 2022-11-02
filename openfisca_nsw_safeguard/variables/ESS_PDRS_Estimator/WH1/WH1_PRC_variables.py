@@ -93,8 +93,9 @@ class WH1_PDRS__postcode(Variable):
     definition_period = ETERNITY
     label = "What is the postcode for the building you are calculating PRCs for?"
     metadata={
+        'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
-        'display_question' : 'Based on your postcode',
+        'display_question' : 'Postcode where the installation has taken place',
         'sorting' : 1,
-        'label': "The postcode for the building you are calculating PRCs for"
+        'label': 'Postcode'
         }

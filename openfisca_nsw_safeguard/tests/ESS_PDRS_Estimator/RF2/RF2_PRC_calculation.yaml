@@ -1,0 +1,37 @@
+- name: test RF2 PRC calculation
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_total_energy_consumption:
+      [
+        34.9
+      ]
+    RF2_product_type:
+      [
+        integral_RDC
+      ]
+    RF2_product_EEI:
+     [
+        5.9
+     ]
+    RF2_product_class:
+      [
+        product_class_three # product_class_int is 3
+      ]
+    RF2_duty_class:
+     [
+        heavy_duty
+     ]
+    RF2_total_display_area:
+      [
+        3.0
+      ]
+    RF2_DNSP:
+      [
+        Ausgrid
+      ]
+  output:
+    RF2_PRC_calculation:
+      [
+        9972.664
+      ]

@@ -16,9 +16,10 @@ class RF2_total_energy_consumption(Variable):
   entity = Building
   definition_period = ETERNITY
   metadata = {
-    "variable-type": "user-input",
-    "label": "Total Energy Consumption",
-    "display_question": "Total Energy Consumption"
+    'variable-type': 'user-input',
+    'label': 'TEC (kWh/day)',
+    'display_question': 'Total Energy Consumption of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
+    'sorting' : 5
   }
   
 
@@ -27,9 +28,7 @@ class RF2_total_display_area(Variable):
   entity = Building
   definition_period = ETERNITY
   metadata = {
-    "variable-type": "user-input",
-    "label": "Total display area",
-    "display_question": "Total display area",
+    'variable-type': 'user-input'
   }
 
 
@@ -67,9 +66,10 @@ class RF2_product_EEI(Variable):
   entity = Building
   definition_period = ETERNITY
   metadata = {
-    "variable-type": "user-input",
-    "label": "Product EEI",
-    "display_question": "Product EEI"
+    'variable-type' : 'user-input',
+    'label' : 'Product EEI',
+    'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
+    'sorting' : 7
   }
   
   
@@ -99,9 +99,10 @@ class RF2_product_class(Variable):
     definition_period = ETERNITY
     label = 'What is the product class for the refrigerated cabinet?'
     metadata = {
-      "variable-type": "user-input",
-      "label": "Product Class",
-      "display_question": "What is the product class for the refrigerated cabinet?"
+      'variable-type': 'user-input',
+      'label': 'Product Class',
+      'display_question': 'Refrigerated Cabinet Product Class (Product Characteristics Code)',
+      'sorting' : 6
     }
 
 
@@ -152,11 +153,8 @@ class RF2_product_type(Variable):
     default_value = RCProductType.integral_RDC
     definition_period = ETERNITY
     label = 'What is the product type for the refrigerated cabinet?'
-    
-    metadata = {
-      "label": 'Product Type',
-      "display_question":  "What is the product type for the refrigerated cabinet?",
-      "variable-type": "user-input"
+    metadata = {   
+      'variable-type': 'user-input'
     }
 
 
@@ -172,11 +170,11 @@ class RF2_duty_class(Variable):
     possible_values = RCDutyClass
     default_value = RCDutyClass.normal_duty
     definition_period = ETERNITY
-    label = 'What is the duty class for the refrigerated cabinet?'
     metadata = {
-      "label": 'Duty Class',
-      "display_question": "What is the duty class for the refrigerated cabinet?",
-      "variable-type": "user-input"
+      'variable-type' : 'user-input',
+      'label' : 'Duty Classification',
+      'display_question' : 'Duty Classification for refrigerated cabinet',
+      'sorting' : 4
     }
 
 
@@ -189,7 +187,21 @@ class RF2_PDRS__postcode(Variable):
     metadata={
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
+        'label' : 'Postcode',
         'display_question' : 'Postcode where the installation has taken place',
-        'sorting' : 1,
-        'label': 'Postcode'
+        'sorting' : 1
+        }
+
+
+class RF2_New_Equipment(Variable):
+    value_type = bool
+    default_value = True
+    entity = Building
+    definition_period = ETERNITY
+    label = 'New or Used equipment'
+    metadata = {
+        'variable-type': 'user-input',
+        'label' : 'New or Used equipment',
+        'display_question' : 'Is the end-user equipment a new commercial refrigerated cabinet?',
+        'sorting' : 3
         }

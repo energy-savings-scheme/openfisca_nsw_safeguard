@@ -28,7 +28,10 @@ class RF2_total_display_area(Variable):
   entity = Building
   definition_period = ETERNITY
   metadata = {
-    'variable-type': 'user-input'
+    'variable-type': 'user-input',
+    'label': 'Display Area',
+    'display_question': 'Total Display Area of the refrigerated cabinet(m2)',
+    'sorting' : 7
   }
 
 
@@ -69,7 +72,7 @@ class RF2_product_EEI(Variable):
     'variable-type' : 'user-input',
     'label' : 'Product EEI',
     'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
-    'sorting' : 7
+    'sorting' : 8
   }
   
   

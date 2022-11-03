@@ -77,21 +77,21 @@ class RF2_product_EEI(Variable):
   
   
 class RF2ProductClass(Enum):
-    product_class_one = 'RDC is in product class 1.'
-    product_class_two = 'RDC is in product class 2.'
-    product_class_three = 'RDC is in product class 3.'
-    product_class_four = 'RDC is in product class 4.'
-    product_class_five = 'RDC is in product class 5.'
-    product_class_six = 'RDC is in product class 6.'
-    product_class_seven = 'RDC is in product class 7.'
-    product_class_eight = 'RDC is in product class 8.'
-    product_class_nine = 'RDC is in product class 9.'
-    product_class_ten = 'RDC is in product class 10.'
-    product_class_eleven = 'RDC is in product class 11.'
-    product_class_twelve = 'RDC is in product class 12.'
-    product_class_thirteen = 'RDC is in product class 13.'
-    product_class_fourteen = 'RDC is in product class 14.'
-    product_class_fifteen = 'RDC is in product class 15.'
+    product_class_one = 'class 1'
+    product_class_two = 'class 2'
+    product_class_three = 'class 3'
+    product_class_four = 'class 4'
+    product_class_five = 'class 5'
+    product_class_six = 'class 6'
+    product_class_seven = 'class 7'
+    product_class_eight = 'class 8'
+    product_class_nine = 'class 9'
+    product_class_ten = 'class 10'
+    product_class_eleven = 'class 11'
+    product_class_twelve = 'class 12'
+    product_class_thirteen = 'class 13'
+    product_class_fourteen = 'class 14'
+    product_class_fifteen = 'class 15'
 
 
 class RF2_product_class(Variable):
@@ -142,11 +142,11 @@ class RF2_product_class_int(Variable):
 
       
 class RCProductType(Enum):
-    integral_RDC = 'Product is an integral refrigerated display cabinet.'
-    integral_ice_cream_freezer_cabinet = 'Product is an integral ice cream freezer cabinet.'
-    remote_RDC = 'Product is a remote refrigerated display cabinet.'
-    gelato_ice_cream_scooping_cabinet = 'Product is a gelato or ice cream scooping cabinet.'
-    RSC = 'Product is a refrigerated storage cabinet.'
+    integral_RDC = 'Integral refrigerated display cabinet'
+    integral_ice_cream_freezer_cabinet = 'Integral ice cream freezer cabinet'
+    remote_RDC = 'Remote refrigerated display cabinet'
+    gelato_ice_cream_scooping_cabinet = 'Gelato or ice cream scooping cabinet'
+    RSC = 'Refrigerated storage cabinet'
 
 
 class RF2_product_type(Variable):
@@ -157,14 +157,14 @@ class RF2_product_type(Variable):
     definition_period = ETERNITY
     label = 'What is the product type for the refrigerated cabinet?'
     metadata = {   
-      'variable-type': 'user-input'
+      'variable-type': 'inter-interesting'
     }
 
 
 class RCDutyClass(Enum):
-    heavy_duty = 'Product is a heavy duty refrigerated cabinet.'
-    normal_duty = 'Product is a normal duty refrigerated cabinet.'
-    light_duty = 'Product is a light duty refrigerated cabinet.'
+    heavy_duty = 'Heavy duty'
+    normal_duty = 'Normal duty'
+    light_duty = 'Light duty'
 
 
 class RF2_duty_class(Variable):

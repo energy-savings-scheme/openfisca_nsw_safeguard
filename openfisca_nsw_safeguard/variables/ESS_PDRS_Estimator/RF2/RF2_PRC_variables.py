@@ -21,7 +21,8 @@ class RF2_DNSP(Variable):
     metadata = {
         'variable-type': 'user-input',
         'display_question': 'Who is your Distribution Network Service Provider?',
-        'sorting' : 2
+        'sorting' : 2,
+        'label': "Distribution Network Service Provider"
     }
 
 

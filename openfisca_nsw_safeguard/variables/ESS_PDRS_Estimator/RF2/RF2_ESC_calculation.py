@@ -29,21 +29,47 @@ class RF2_lifetime_by_rc_class(Variable):
     definition_period = ETERNITY
  
     def formula(buildings, period, parameters):
-        product_class = buildings("RF2_product_class_int", period) # 3
+        product_class = buildings("RF2_product_class_int", period)
         display_area =  buildings('RF2_total_display_area', period)
         
         lifetime_by_rc_class = np.select(
             [
-                (product_class >= 1) * (product_class <= 6),
-                (product_class == 9) + (product_class == 10),
-                (product_class == 7 + product_class == 8 + product_class == 11) * display_area < 3.3,
-                (product_class == 7 + product_class == 8 + product_class == 11) * display_area >= 3.3,
-                (product_class >= 12) * (product_class <= 15),
+                (product_class == 1),
+                (product_class == 2),
+                (product_class == 3),
+                (product_class == 4),
+                (product_class == 5),
+                (product_class == 6),
+                (product_class == 9),
+                (product_class == 10),
+                (product_class == 7 * display_area < 3.3),
+                (product_class == 8 * display_area < 3.3),
+                (product_class == 11 * display_area < 3.3),
+                (product_class == 7 * display_area >= 3.3),
+                (product_class == 8 * display_area >= 3.3),
+                (product_class == 11 * display_area >= 3.3),
+                (product_class == 12),
+                (product_class == 13),
+                (product_class == 14),
+                (product_class == 15)
             ],
             [
                 8,
                 8,
                 8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                12,
+                12,
+                12,
+                12,
+                12,
                 12,
                 12
             ])

@@ -263,5 +263,6 @@ class HVAC2_Air_Conditioner_type(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'display_question' : 'What is your air conditioner type?',
-        'sorting' : 4
+        'sorting' : 4,
+        'label': "Air conditioner type"
     }

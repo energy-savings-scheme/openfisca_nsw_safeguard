@@ -30,6 +30,10 @@
       [
         Ausgrid
       ]
+    RF2_new_equipment:
+      [
+        false
+      ]
   output:
     RF2_PRC_calculation:
       [

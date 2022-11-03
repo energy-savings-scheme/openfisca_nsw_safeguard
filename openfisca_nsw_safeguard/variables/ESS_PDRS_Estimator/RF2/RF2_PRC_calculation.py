@@ -96,4 +96,12 @@ class RF2_PRC_calculation(Variable):
         peak_demand_reduction_capacity = buildings('RF2_peak_demand_reduction_capacity', period)
         network_loss_factor = buildings('RF2_network_loss_factor', period) 
         
-        return (peak_demand_reduction_capacity * network_loss_factor * 10)
+        result = (peak_demand_reduction_capacity * network_loss_factor * 10)
+        
+        result_to_return = np.select([
+                result < 0, result > 0
+            ], [
+                0, result
+            ])
+        
+        return result_to_return

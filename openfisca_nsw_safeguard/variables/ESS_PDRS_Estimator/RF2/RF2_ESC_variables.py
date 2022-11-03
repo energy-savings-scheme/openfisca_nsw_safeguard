@@ -16,10 +16,10 @@ class RF2_total_energy_consumption(Variable):
   entity = Building
   definition_period = ETERNITY
   metadata = {
-    'variable-type': 'user-input',
-    'label': 'TEC (kWh/day)',
-    'display_question': 'Total Energy Consumption of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
-    'sorting' : 5
+    "variable-type": "user-input",
+    "label": "Total Energy Consumption",
+    "display_question": "Total Energy Consumption",
+    "sorting": 6
   }
   
 
@@ -28,10 +28,10 @@ class RF2_total_display_area(Variable):
   entity = Building
   definition_period = ETERNITY
   metadata = {
-    'variable-type': 'user-input',
-    'label': 'Display Area',
-    'display_question': 'Total Display Area of the refrigerated cabinet(m2)',
-    'sorting' : 7
+    "variable-type": "user-input",
+    "label": "Total display area",
+    "display_question": "Total display area",
+    "sorting": 7
   }
 
 
@@ -44,8 +44,19 @@ class RF2_af(Variable):
   def formula(buildings, period, parameters):
     product_class = buildings('RF2_product_class', period)
     duty_type = buildings('RF2_duty_class', period)
+    new_equipment = buildings('RF2_new_equipment', period)
     
-    af = parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
+    af = np.select(
+      [ 
+        new_equipment, 
+        np.logical_not(new_equipment)
+      ],
+      [ 
+        parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
+        parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
+       ]
+    )
+    
     return af
 
 
@@ -58,9 +69,18 @@ class RF2_baseline_EEI(Variable):
   def formula(buildings, period, parameters):
     product_class = buildings('RF2_product_class', period)
     duty_type = buildings('RF2_duty_class', period)
-    
-    baseline_EEI = parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type]
-    
+    new_equipment = buildings('RF2_new_equipment', period)
+
+    baseline_EEI = np.select(
+      [ 
+        new_equipment, 
+        np.logical_not(new_equipment)
+      ],
+      [ 
+        parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type],
+        parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type]
+       ]
+    )    
     return baseline_EEI
 
 
@@ -156,9 +176,64 @@ class RF2_product_type(Variable):
     default_value = RCProductType.integral_RDC
     definition_period = ETERNITY
     label = 'What is the product type for the refrigerated cabinet?'
-    metadata = {   
-      'variable-type': 'inter-interesting'
+    
+    metadata = {
+      "label": 'Product Type',
+      # "display_question":  "What is the product type for the refrigerated cabinet?",
+      "variable-type": "inter-interesting",
     }
+    
+    def formula(buildings, period, parameters):
+      product_class = buildings('RF2_product_class', period)
+
+      is_integral_RDC = (
+                          (product_class == RF2ProductClass.product_class_one) +
+                          (product_class == RF2ProductClass.product_class_two) +
+                          (product_class == RF2ProductClass.product_class_seven) +
+                          (product_class == RF2ProductClass.product_class_eight) +
+                          (product_class == RF2ProductClass.product_class_eleven)
+                          )
+
+      is_integral_ice_cream_freezer_cabinet = (
+                          (product_class == RF2ProductClass.product_class_five)
+      )
+
+      is_remote_RDC = (
+                          (product_class == RF2ProductClass.product_class_twelve) +
+                          (product_class == RF2ProductClass.product_class_thirteen) +
+                          (product_class == RF2ProductClass.product_class_fourteen) +
+                          (product_class == RF2ProductClass.product_class_fifteen)
+      )
+
+      is_gelato_or_icecream_scooping_cabinets = (
+                          (product_class == RF2ProductClass.product_class_six)
+      )
+
+      is_RSC = (
+                          (product_class == RF2ProductClass.product_class_three) +
+                          (product_class == RF2ProductClass.product_class_four) +
+                          (product_class == RF2ProductClass.product_class_nine) +
+                          (product_class == RF2ProductClass.product_class_ten)
+      )
+
+      product_type = np.select(
+                                  [
+                                  is_integral_RDC,
+                                  is_integral_ice_cream_freezer_cabinet,
+                                  is_remote_RDC,
+                                  is_gelato_or_icecream_scooping_cabinets,
+                                  is_RSC
+                                  ],
+                                  [
+                                      RCProductType.integral_RDC,
+                                      RCProductType.integral_ice_cream_freezer_cabinet,
+                                      RCProductType.remote_RDC,
+                                      RCProductType.gelato_ice_cream_scooping_cabinet,
+                                      RCProductType.RSC
+                                  ]
+                              )
+
+      return product_type
 
 
 class RCDutyClass(Enum):
@@ -173,6 +248,7 @@ class RF2_duty_class(Variable):
     possible_values = RCDutyClass
     default_value = RCDutyClass.normal_duty
     definition_period = ETERNITY
+    label = 'What is the duty class for the refrigerated cabinet?'
     metadata = {
       'variable-type' : 'user-input',
       'label' : 'Duty Classification',
@@ -190,13 +266,13 @@ class RF2_PDRS__postcode(Variable):
     metadata={
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
-        'label' : 'Postcode',
         'display_question' : 'Postcode where the installation has taken place',
-        'sorting' : 1
+        'sorting' : 1,
+        'label': 'Postcode'
         }
 
 
-class RF2_New_Equipment(Variable):
+class RF2_new_equipment(Variable):  
     value_type = bool
     default_value = True
     entity = Building

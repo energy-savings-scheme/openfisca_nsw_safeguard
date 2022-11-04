@@ -141,7 +141,7 @@ class RF2_ESC_calculation(Variable):
 
       result = RF2_electricity_savings * electricity_certificate_conversion_factor
       result_to_return = np.select([
-                result < 0, result > 0, result 
+                result < 0, result > 0 
             ], [
                 0, result
             ])

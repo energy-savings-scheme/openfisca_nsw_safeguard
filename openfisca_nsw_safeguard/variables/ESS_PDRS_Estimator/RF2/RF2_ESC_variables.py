@@ -97,21 +97,21 @@ class RF2_product_EEI(Variable):
   
   
 class RF2ProductClass(Enum):
-    product_class_one = 'class 1'
-    product_class_two = 'class 2'
-    product_class_three = 'class 3'
-    product_class_four = 'class 4'
-    product_class_five = 'class 5'
-    product_class_six = 'class 6'
-    product_class_seven = 'class 7'
-    product_class_eight = 'class 8'
-    product_class_nine = 'class 9'
-    product_class_ten = 'class 10'
-    product_class_eleven = 'class 11'
-    product_class_twelve = 'class 12'
-    product_class_thirteen = 'class 13'
-    product_class_fourteen = 'class 14'
-    product_class_fifteen = 'class 15'
+    product_class_one = 'Class 1'
+    product_class_two = 'Class 2'
+    product_class_three = 'Class 3'
+    product_class_four = 'Class 4'
+    product_class_five = 'Class 5'
+    product_class_six = 'Class 6'
+    product_class_seven = 'Class 7'
+    product_class_eight = 'Class 8'
+    product_class_nine = 'Class 9'
+    product_class_ten = 'Class 10'
+    product_class_eleven = 'Class 11'
+    product_class_twelve = 'Class 12'
+    product_class_thirteen = 'Class 13'
+    product_class_fourteen = 'Class 14'
+    product_class_fifteen = 'Class 15'
 
 
 class RF2_product_class(Variable):

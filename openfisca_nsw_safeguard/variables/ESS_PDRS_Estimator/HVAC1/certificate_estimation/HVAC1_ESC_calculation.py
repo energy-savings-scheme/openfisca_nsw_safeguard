@@ -106,6 +106,11 @@ class HVAC1_reference_cooling_annual_energy_use(Variable):
       equivalent_cooling_hours = buildings('HVAC1_equivalent_cooling_hours_input', period)
       baseline_AEER = buildings('HVAC1_baseline_AEER_input', period)
       
+      cooling_capacity_temp = cooling_capacity * equivalent_cooling_hours
+      print ('***', cooling_capacity_temp)
+
+      print ((cooling_capacity * equivalent_cooling_hours) / baseline_AEER)
+      
       return np.select([    
                     (cooling_capacity * equivalent_cooling_hours) > 0, 
                     (cooling_capacity * equivalent_cooling_hours) == 0,

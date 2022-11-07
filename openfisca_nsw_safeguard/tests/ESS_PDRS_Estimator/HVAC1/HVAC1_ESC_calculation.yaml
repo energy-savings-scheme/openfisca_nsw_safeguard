@@ -233,8 +233,8 @@
   output:
     HVAC1_ESC_calculation:
       [
-        1.1342,
-        3055.12935
+        1.13,
+        3055.12
       ]
 
 - name: test ESC calculation
@@ -279,8 +279,8 @@
   output:
     HVAC1_ESC_calculation:
       [
-        1.1346936,
-        3055.12935
+        1.13,
+        3055.12
       ]
 
 - name: test ESC calculation case 2

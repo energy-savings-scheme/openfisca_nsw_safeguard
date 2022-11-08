@@ -142,7 +142,7 @@ class HVAC1_deemed_activity_electricity_savings(Variable):
       annual_heating = buildings('HVAC1_heating_annual_energy_use', period)
       lifetime = 10
       
-      deemed_electricity_savings = np.sum([(reference_annual_cooling - annual_cooling), (reference_annual_heating - annual_heating)]) * (lifetime / 1000)
+      deemed_electricity_savings = np.multiply(((reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating)), (lifetime / 1000))
       return deemed_electricity_savings
 
 
@@ -178,7 +178,7 @@ class HVAC1_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        deemed_electricity_savings = buildings('HVAC1_deemed_activity_electricity_savings', period)   
+        deemed_electricity_savings = buildings('HVAC1_deemed_activity_electricity_savings', period)  # 2798.25 
         regional_network_factor = buildings('HVAC1_PDRS__regional_network_factor', period)
 
         HVAC1_electricity_savings = (deemed_electricity_savings * regional_network_factor)

@@ -87,7 +87,7 @@
       ]
 - name: test WH1 PRC calculation
   period: 2022
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0.5
   input:
     WH1_HP_capacity_factor:
       [
@@ -132,6 +132,6 @@
   output:
     WH1_PRC_calculation:
       [
-        10,
-        550 #RNF1, Zone 3, Ecogenica EG215F
+        5.91,
+        552.7 #RNF1, Zone 3, Ecogenica EG215F
       ]

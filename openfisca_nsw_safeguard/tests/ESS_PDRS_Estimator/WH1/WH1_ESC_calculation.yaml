@@ -142,6 +142,6 @@
   output:
     WH1_ESC_calculation:
       [
-        522,
-        83
+        522.1226,
+        82.71179
       ]

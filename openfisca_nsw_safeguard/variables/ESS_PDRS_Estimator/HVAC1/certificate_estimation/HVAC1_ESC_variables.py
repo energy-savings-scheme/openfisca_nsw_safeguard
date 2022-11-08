@@ -274,10 +274,10 @@ class HVAC1_get_climate_zone_by_postcode(Variable):
 
 class HVAC1_PDRS__postcode(Variable):
     # using to get the climate zone
+    # this variable is used as the first input on all estimator certificate calculation pages
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "What is the postcode for the building you are calculating PRCs for?"
     metadata={
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',

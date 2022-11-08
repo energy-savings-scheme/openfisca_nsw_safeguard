@@ -122,7 +122,7 @@ class WH1_ESC_calculation(Variable):
         gas_savings = buildings('WH1_deemed_activity_gas_savings', period) #gas savings and deemed activity gas savings are the same value
         gas_certificate_conversion_factor = 0.39
 
-        result = np.rint((electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor))
+        result = (electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor)
         result_to_return = np.select([
                 result < 0, result > 0
             ], [

@@ -17,9 +17,19 @@ class HVAC1_baseline_input_power(Variable):
     def formula(buildings, period, parameters):
       rated_cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
       baseline_AEER = buildings('HVAC1_baseline_AEER_input', period)
-
-      baseline_input_power = rated_cooling_capacity / baseline_AEER
-      return baseline_input_power
+      
+      return np.select([    
+                    baseline_AEER == 0,
+                    (rated_cooling_capacity / baseline_AEER) > 0, 
+                    (rated_cooling_capacity / baseline_AEER) == 0,
+                    (rated_cooling_capacity / baseline_AEER) < 0
+                ],
+                [
+                    0,
+                    rated_cooling_capacity / baseline_AEER,
+                    0,
+                    rated_cooling_capacity / baseline_AEER
+                ])
 
 
 class HVAC1_BCA_climate_zone_by_postcode(Variable):
@@ -58,6 +68,7 @@ class HVAC1_BCA_climate_zone_by_postcode(Variable):
                 "BCA_Climate_Zone_7",
                 "BCA_Climate_Zone_8"
             ])
+
         return cooling_capacity_to_check
 
 

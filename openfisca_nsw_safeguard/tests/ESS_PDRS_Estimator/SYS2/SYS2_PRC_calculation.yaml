@@ -1,0 +1,13 @@
+- name: test SYS2 baseline input power
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS2_pool_size:
+      [
+        30001_to_40000_L
+      ]
+  output:
+    SYS2_baseline_input_power:
+      [
+        0.370
+      ]

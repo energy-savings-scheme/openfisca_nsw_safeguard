@@ -20,8 +20,8 @@ class RF2_baseline_input_power(Variable):
       af = buildings('RF2_af', period)
       baseline_EEI = buildings('RF2_baseline_EEI', period)
       product_EEI = buildings('RF2_product_EEI', period)
-
-      baseline_input_power = (total_energy_consumption * af) * (baseline_EEI / product_EEI) / 24
+      
+      baseline_input_power = np.multiply((total_energy_consumption * af), (baseline_EEI / product_EEI) / 24)
       return baseline_input_power
   
   
@@ -77,7 +77,7 @@ class RF2_baseline_peak_adjustment_factor(Variable):
       usage_factor = 1
       
       temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2['temperature_factor'][product_type][duty_type]
-
+        # 1.14
       baseline_peak_adjustment_factor = temperature_factor * usage_factor
       return baseline_peak_adjustment_factor
   
@@ -99,7 +99,7 @@ class RF2_PRC_calculation(Variable):
         result = (peak_demand_reduction_capacity * network_loss_factor * 10)
         
         result_to_return = np.select([
-                result < 0, result > 0
+                result <= 0, result > 0
             ], [
                 0, result
             ])

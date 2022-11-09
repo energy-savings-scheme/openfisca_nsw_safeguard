@@ -4,38 +4,56 @@
   input:
     RF2_total_energy_consumption:
       [
-        34.9
-      ]
-    RF2_product_type:
-      [
-        integral_RDC
+        34.9,
+        0,
+        0
       ]
     RF2_product_EEI:
      [
-        5.9
+        5.9,
+        0,
+        0
      ]
     RF2_product_class:
       [
-        product_class_three # product_class_int is 3
+        product_class_three,
+        product_class_eight,
+        product_class_two # product_class_int is 3
       ]
     RF2_duty_class:
      [
+        heavy_duty,
+        normal_duty,
         heavy_duty
      ]
     RF2_total_display_area:
       [
-        3.0
+        3.0,
+        1.863,
+        1.2
       ]
     RF2_DNSP:
       [
+        Ausgrid,
+        Endeavour,
         Ausgrid
       ]
     RF2_new_equipment:
       [
+        false,
+        true,
         false
+      ]
+    RF2_PDRS__postcode:
+      [
+        2017,
+        2017,
+        2017
       ]
   output:
     RF2_PRC_calculation:
       [
-        9972.664
+        7348.2783,
+        0,
+        0
       ]

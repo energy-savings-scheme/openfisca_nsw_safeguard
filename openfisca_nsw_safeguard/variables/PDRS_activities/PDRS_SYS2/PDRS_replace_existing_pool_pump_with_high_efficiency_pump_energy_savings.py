@@ -83,13 +83,13 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_baseline_input_p
                                     (new_pump_pool_volume >= 70001),
         ],
         [
-            'under_20000_L',
-            '20000_to_30000_L',
-            '30001_to_40000_L',
-            '40001_to_50000_L',
-            '50001_to_60000_L',
-            '60001_to_70000_L',
-            'over_70000_L',
+            'pool_under_20000_L',
+            'pool_20000_to_30000_L',
+            'pool_30001_to_40000_L',
+            'pool_40001_to_50000_L',
+            'pool_50001_to_60000_L',
+            'pool_60001_to_70000_L',
+            'pool_over_70000_L',
         ])
         baseline_input_power = (
             parameters(period).PDRS.pool_pumps.table_sys2_1.baseline_input_power[pool_volume])
@@ -133,13 +133,13 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(Vari
                                     (new_pump_pool_volume >= 70001),
         ],
         [
-            'under_20000_L',
-            '20000_to_30000_L',
-            '30001_to_40000_L',
-            '40001_to_50000_L',
-            '50001_to_60000_L',
-            '60001_to_70000_L',
-            'over_70000_L',
+            'pool_under_20000_L',
+            'pool_20000_to_30000_L',
+            'pool_30001_to_40000_L',
+            'pool_40001_to_50000_L',
+            'pool_50001_to_60000_L',
+            'pool_60001_to_70000_L',
+            'pool_over_70000_L',
         ])
         star_rating = buildings('ESS_and_PDRS_new_pump_star_rating', period)
         pump_type = buildings('ESS_and_PDRS_new_pool_pump_type', period)

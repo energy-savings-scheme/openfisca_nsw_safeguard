@@ -24,3 +24,52 @@ class SYS2_PDRS__regional_network_factor(Variable):
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         return rnf.calc(postcode)  # This is a built in OpenFisca function that \
         # is used to calculate a single value for regional network factor based on a zipcode provided
+
+
+class SYS2StarRating(Enum):
+   zero_star = 'Zero stars'
+   one_star = 'One star'
+   one_and_a_half_stars = 'One and half stars'
+   two_stars = 'Two stars'
+   two_and_a_half_stars = 'Two and half stars'
+   three_stars = 'Three stars'
+   three_and_a_half_stars = 'Three and a half stars'
+   four_stars = 'Four stars'
+   four_and_a_half_stars = 'Four and a half stars'
+   five_stars = 'Five stars'
+   five_and_a_half_stars = 'Five and a half stars'
+   six_stars = 'Six stars'
+   six_and_a_half_stars = 'Six and a half stars'
+   seven_stars = 'Seven stars'
+   seven_and_a_half_stars = 'Seven and a half stars'
+   eight_stars = 'Eight stars'
+   eight_and_a_half_stars = 'Eight and a half stars'
+   nine_stars = 'Nine stars'
+   nine_and_a_half_stars = 'Nine and a half stars'
+   ten_stars = "Ten stars"
+
+
+class SYS2_star_rating(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = SYS2StarRating
+    default_value = SYS2StarRating.four_stars
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Star rating',
+        'display_question' : 'What is the star rating of your pool pump?',
+        'sorting' : 4
+    }
+
+
+class SYS2_savings_factor(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+        star_rating = buildings('SYS2_star_rating', period)
+        savings_factor = parameters(period).ESS.HEER.table_D5_1['electricity_savings_factor'][star_rating]
+
+        return savings_factor

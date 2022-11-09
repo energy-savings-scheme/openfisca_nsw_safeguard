@@ -1,0 +1,13 @@
+- name: test SYS2 savings factor
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    SYS2_star_rating:
+      [
+        six_and_a_half_stars
+      ]
+  output:
+    SYS2_savings_factor:
+      [
+        4.5
+      ]

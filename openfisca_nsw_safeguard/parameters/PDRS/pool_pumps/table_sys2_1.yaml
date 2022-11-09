@@ -3,31 +3,31 @@ reference: "PDRS Technical Manual."
 metadata:
   unit: kW
 baseline_input_power:
-  under_20000_L:
+  pool_under_20000:
     values:
       2021-01-01:
         value: 0.202
-  20000_to_30000_L:
+  pool_20000_to_30000:
     values:
       2021-01-01:
         value: 0.256
-  30001_to_40000_L:
+  pool_30001_to_40000:
     values:
       2021-01-01:
         value: 0.370
-  40001_to_50000_L:
+  pool_40001_to_50000:
     values:
       2021-01-01:
         value: 0.491
-  50001_to_60000_L:
+  pool_50001_to_60000:
     values:
       2021-01-01:
         value: 0.620
-  60001_to_70000_L:
+  pool_60001_to_70000:
     values:
       2021-01-01:
         value: 0.758
-  over_70000_L:
+  pool_over_70001_L:
     values:
       2021-01-01:
         value: 0.830

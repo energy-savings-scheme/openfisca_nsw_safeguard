@@ -3,7 +3,7 @@ reference: "PDRS Technical Manual."
 metadata:
   unit: kW
 input_power:
-  under_20000_L:
+  pool_under_20000_L:
     zero_stars:
       single_speed_pool_pump:
         values:
@@ -344,7 +344,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.025
-  20000_to_30000_L:
+  pool_20000_to_30000_L:
     zero_stars:
       single_speed_pool_pump:
         values:
@@ -685,7 +685,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.032
-  30001_to_40000_L:
+  pool_30001_to_40000_L:
     zero_stars:
       single_speed_pool_pump:
         values:
@@ -1026,7 +1026,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.046
-  40001_to_50000_L:
+  pool_ 40001_to_50000_L:
     zero_stars:
       single_speed_pool_pump:
         values:
@@ -1367,7 +1367,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.061
-  50001_to_60000_L:
+  pool_50001_to_60000_L:
     zero_stars:
       single_speed_pool_pump:
         values:
@@ -1708,7 +1708,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.077
-  60001_to_70000_L:
+  pool_60001_to_70000_L:
     zero_stars:
       single_speed_pool_pump:
         values:
@@ -2049,7 +2049,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.094
-  over_70000_L:
+  pool_over_70000_L:
     zero_stars:
       single_speed_pool_pump:
         values:

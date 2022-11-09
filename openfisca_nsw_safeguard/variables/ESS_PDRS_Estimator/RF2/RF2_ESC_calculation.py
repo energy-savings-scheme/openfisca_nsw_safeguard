@@ -88,7 +88,7 @@ class RF2_deemed_activity_electricity_savings(Variable):
       af = buildings('RF2_af', period)
       lifetime_by_rc_class = buildings('RF2_lifetime_by_rc_class', period)
 
-      deemed_electricity_savings = total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365 * (lifetime_by_rc_class / 1000)
+      deemed_electricity_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
       return deemed_electricity_savings
 
 
@@ -141,7 +141,7 @@ class RF2_ESC_calculation(Variable):
 
       result = RF2_electricity_savings * electricity_certificate_conversion_factor
       result_to_return = np.select([
-                result < 0, result > 0 
+                result <= 0, result > 0 
             ], [
                 0, result
             ])

@@ -21,6 +21,6 @@ class SYS2_peak_demand_savings_capacity(Variable):
         peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['SYS2']
         firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['SYS2']
 
-        peak_demand_savings_capacity = (baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor) * firmness_factor
+        peak_demand_savings_capacity = ((baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor)) * firmness_factor
 
         return peak_demand_savings_capacity

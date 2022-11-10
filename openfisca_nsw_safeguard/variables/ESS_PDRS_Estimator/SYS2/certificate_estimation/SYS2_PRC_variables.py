@@ -1,3 +1,4 @@
+from multiprocessing import pool
 import numpy as np
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
@@ -16,11 +17,11 @@ class SYS2PoolSize(Enum):
 
 
 class SYS2_pool_size(Variable):
-    value_type = float
+    value_type = Enum
     entity = Building
     definition_period = ETERNITY
     possible_values = SYS2PoolSize
-    default_values = SYS2PoolSize.to_40000_L
+    default_value = SYS2PoolSize.pool_30001_to_40000_L
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Pool size (litres)',
@@ -30,20 +31,20 @@ class SYS2_pool_size(Variable):
 
 
 class SYS2_pool_size_int(Variable):
-    value_type = float
+    value_type = str
     entity = Building
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      pool_size = buildings('SYS2_pool_size')
+      pool_size = buildings('SYS2_pool_size', period)
       pool_size_int = np.select([
-        ( pool_size < 20000),
-        ((pool_size >= 20000) * (pool_size <= 30000)),
-        ((pool_size >= 30001) * (pool_size < 40000) ),
-        ((pool_size >= 40001) * (pool_size < 50000) ),
-        ((pool_size >= 50001) * (pool_size < 60000) ),
-        ((pool_size >= 60001) * (pool_size < 70000) ),
-        ( pool_size >= 70001)
+          (pool_size == SYS2PoolSize.pool_under_20000_L),
+          (pool_size == SYS2PoolSize.pool_20000_to_30000_L),
+          (pool_size == SYS2PoolSize.pool_30001_to_40000_L ),
+          (pool_size == SYS2PoolSize.pool_40001_to_50000_L ),
+          (pool_size == SYS2PoolSize.pool_50001_to_60000_L ),
+          (pool_size == SYS2PoolSize.pool_60001_to_70000_L ),
+          (pool_size == SYS2PoolSize.over_70001_L)
         ],
         [
         'under_20000_L',
@@ -54,7 +55,6 @@ class SYS2_pool_size_int(Variable):
         '60001_to_70000_L',
         'over_70000_L'
         ])
-        
       return pool_size_int
 
 
@@ -63,8 +63,8 @@ class SYS2_baseline_input_power(Variable):
       entity = Building
       definition_period = ETERNITY
 
-      def fornula(buildings, period, parameters):
-        pool_size = ('SYS2_pool_size_int', period)
+      def formula(buildings, period, parameters):
+        pool_size = buildings('SYS2_pool_size_int', period)
 
         baseline_input_power = parameters(period).PDRS.pool_pumps.table_sys2_1['baseline_input_power'][pool_size]
         return baseline_input_power

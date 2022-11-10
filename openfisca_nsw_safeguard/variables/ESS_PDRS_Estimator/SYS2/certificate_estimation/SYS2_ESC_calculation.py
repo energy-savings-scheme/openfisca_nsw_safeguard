@@ -27,38 +27,31 @@ class SYS2_PDRS__regional_network_factor(Variable):
 
 
 class SYS2StarRating(Enum):
-    zero_star = 'Zero stars'
-    one_star = 'One star'
-    one_and_a_half_stars = 'One and half stars'
-    two_stars = 'Two stars'
-    two_and_a_half_stars = 'Two and half stars'
-    three_stars = 'Three stars'
-    three_and_a_half_stars = 'Three and a half stars'
-    four_stars = 'Four stars'
-    four_and_a_half_stars = 'Four and a half stars'
-    five_stars = 'Five stars'
-    five_and_a_half_stars = 'Five and a half stars'
-    six_stars = 'Six stars'
-    six_and_a_half_stars = 'Six and a half stars'
-    seven_stars = 'Seven stars'
-    seven_and_a_half_stars = 'Seven and a half stars'
-    eight_stars = 'Eight stars'
-    eight_and_a_half_stars = 'Eight and a half stars'
-    nine_stars = 'Nine stars'
-    nine_and_a_half_stars = 'Nine and a half stars'
-    ten_stars = "Ten stars"
+    #New End-User Equipment must achieve a minimum 4.5 star rating to be eligible
+    four_and_a_half_stars = '4.5 stars'
+    five_stars = '5 stars'
+    five_and_a_half_stars = '5.5 stars'
+    six_stars = '6 stars'
+    six_and_a_half_stars = '6.5 stars'
+    seven_stars = '7 stars'
+    seven_and_a_half_stars = '7.5 stars'
+    eight_stars = '8 stars'
+    eight_and_a_half_stars = '8.5 stars'
+    nine_stars = '9 stars'
+    nine_and_a_half_stars = '9.5 stars'
+    ten_stars = '10 stars'
 
 
 class SYS2_star_rating(Variable):
     value_type = Enum
     entity = Building
     possible_values = SYS2StarRating
-    default_value = SYS2StarRating.four_stars
+    default_value = SYS2StarRating.five_and_a_half_stars
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
-        'label' : 'Star rating',
-        'display_question' : 'What is the star rating of your pool pump?',
+        'label' : 'New equipment star rating',
+        'display_question' : 'What is the star rating of your new equipment? (Equipment must achieve a 4.5 star rating or higher)',
         'sorting' : 4
     }
 

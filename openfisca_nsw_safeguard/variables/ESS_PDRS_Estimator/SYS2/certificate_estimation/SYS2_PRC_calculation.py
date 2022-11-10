@@ -24,3 +24,44 @@ class SYS2_peak_demand_savings_capacity(Variable):
         peak_demand_savings_capacity = ((baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor)) * firmness_factor
 
         return peak_demand_savings_capacity
+
+
+class SYS2_peak_demand_reduction_capacity(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Peak demand reduction capacity'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        peak_demand_savings = buildings('SYS2_peak_demand_savings_capacity', period)
+        summer_peak_demand_duration = 6
+        lifetime = 12
+
+        peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
+        return peak_demand_reduction_capacity
+
+
+class SYS2_PRC_calculation(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'label' : 'The number of PRCs for SYS2',
+        'variable-type' : 'output'
+    }
+
+    def formula(buildings, period, parameters):
+        peak_demand_capacity = buildings('SYS2_peak_demand_reduction_capacity', period)
+        network_loss_factor = buildings('SYS2_network_loss_factor', period)
+        kw_to_0_1kw = 10
+
+        result = np.rint(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw    
+        result_to_return = np.select([
+                result < 0, result > 0
+            ], [
+                0, result
+            ])
+        return result_to_return

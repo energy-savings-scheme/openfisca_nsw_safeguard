@@ -57,7 +57,7 @@ class SYS2_pool_size_int(Variable):
         ])
       return pool_size_int
 
-
+""""""
 class SYS2_baseline_input_power(Variable):
       value_type = float
       entity = Building
@@ -91,27 +91,27 @@ class SYS2_pool_pump_type(Variable):
     }
 
 
-class SYS2_pool_pump_int(Variable):
-    value_type = int
-    entity = Building
-    definition_period = ETERNITY
+# class SYS2_pool_pump_type_int(Variable):
+#     value_type = str
+#     entity = Building
+#     definition_period = ETERNITY
 
-    def formula(buildings, period, parameters):
-      pool_pump_type = buildings('SYS2_pool_size', period)
-      pool_pump_type_int = np.select([
-        pool_pump_type == SYS2PoolPumpType.single_speed_pool_pump,
-        pool_pump_type == SYS2PoolPumpType.fixed_speed_pool_pump,
-        pool_pump_type == SYS2PoolPumpType.variable_speed_pool_pump,
-        pool_pump_type == SYS2PoolPumpType.multiple_speed_pool_pump
-      ],
-      [
-        'single_speed_pool_pump',
-        'fixed_speed_pool_pump',
-        'variable_speed_pool_pump',
-        'multiple_speed_pool_pump'
-      ])
+#     def formula(buildings, period, parameters):
+#       pool_pump_type = buildings('SYS2_pool_size_int', period)
+#       pool_pump_type_int = np.select([
+#         pool_pump_type == SYS2PoolPumpType.single_speed_pool_pump,
+#         pool_pump_type == SYS2PoolPumpType.fixed_speed_pool_pump,
+#         pool_pump_type == SYS2PoolPumpType.variable_speed_pool_pump,
+#         pool_pump_type == SYS2PoolPumpType.multiple_speed_pool_pump
+#       ],
+#       [
+#         'single_speed_pool_pump',
+#         'fixed_speed_pool_pump',
+#         'variable_speed_pool_pump',
+#         'multiple_speed_pool_pump'
+#       ])
       
-      return pool_pump_type_int
+#       return pool_pump_type_int
 
 
 class SYS2_input_power(Variable):
@@ -120,9 +120,44 @@ class SYS2_input_power(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      pool_size = buildings('SYS2_pool_size', period)
+     
+      pool_size = buildings('SYS2_pool_size_int', period)
       pool_pump_type = buildings('SYS2_pool_pump_type', period)
       star_rating = buildings('SYS2_star_rating', period)
 
-      input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size][pool_pump_type][star_rating]
+      input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size][star_rating][pool_pump_type]
       return input_power
+
+
+class SYS2_DNSP_Options(Enum):
+    Ausgrid = 'Ausgrid'
+    Endeavour = 'Endeavour'
+    Essential = 'Essential'
+
+
+class SYS2_DNSP(Variable):
+     # this variable is used as the second input on all estimator certificate calculation pages
+    value_type = Enum
+    entity = Building
+    possible_values = SYS2_DNSP_Options
+    default_value = SYS2_DNSP_Options.Ausgrid
+    definition_period = ETERNITY
+    label = "Distribution Network Service Provider"
+    metadata = {
+        'variable-type': 'user-input',
+        'display_question': 'Who is your Distribution Network Service Provider?',
+        'sorting' : 2,
+        'label': "Distribution Network Service Provider"
+    }
+
+
+class SYS2_network_loss_factor(Variable):
+    reference = 'table_A3_network_loss_factors'
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    
+    def formula(buildings, period, parameters):
+        distribution_district = buildings('SYS2_DNSP', period)
+        network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors['network_loss_factor'][distribution_district]
+        return network_loss_factor

@@ -93,7 +93,7 @@ class HVAC2_reference_heating_annual_energy_use(Variable):
                         (heating_capacity * equivalent_heating_hours) / baseline_ACOP
                     ])
 
-class HVAC2_THEC(Variable):
+class HVAC2_THEC_or_annual_reference_heating(Variable):
     #Check if there is a THEC and if not, use the reference heating annual energy use formula
     value_type = float
     entity = Building
@@ -143,7 +143,7 @@ class HVAC2_reference_cooling_annual_energy_use(Variable):
                 ])
 
 
-class HVAC2_TCEC(Variable):
+class HVAC2_TCEC_or_annual_reference_cooling(Variable):
     #Check if there is a TCEC and if not, use the reference cooling annual energy use formula
     value_type = float
     entity = Building

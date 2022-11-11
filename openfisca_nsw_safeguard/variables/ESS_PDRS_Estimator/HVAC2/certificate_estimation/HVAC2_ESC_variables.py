@@ -196,7 +196,7 @@ class HVAC2_equivalent_heating_hours_input(Variable):
         return heating_hours
 
 
-class HVAC2_residential_THEC(Variable):
+class HVAC2_commercial_TCEC(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 

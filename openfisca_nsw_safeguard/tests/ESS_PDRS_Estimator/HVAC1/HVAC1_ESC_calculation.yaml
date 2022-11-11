@@ -35,26 +35,30 @@
       [
         20,
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050 #AIRO ACP33HP
+        1050, #AIRO ACP33HP
+        3.5 #Mitsubushi SCM71ZS-W/SRK20ZSXA-W
       ]
     HVAC1_equivalent_cooling_hours_input:
       [
         50,
         285,
-        429
+        429,
+        285
       ]
     HVAC1_rated_AEER_input:
       [
         10,
         3.4907,
-        2.64
+        2.64,
+        3.847
       ]
   output:
     HVAC1_cooling_annual_energy_use:
       [
         100,
         824.619,
-        170625
+        170625,
+        259.293
       ] 
 
 - name: test HVAC1 reference heating annual energy use

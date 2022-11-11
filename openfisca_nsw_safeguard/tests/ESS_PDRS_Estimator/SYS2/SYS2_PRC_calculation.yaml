@@ -1,0 +1,89 @@
+# - name: test SYS2 baseline input power
+#   period: 2022
+#   absolute_error_margin: 0.5
+#   input:
+#     SYS2_pool_size_int:
+#       [
+#         30001_to_40000_L,
+#         under_20000_L
+#       ]
+#   output:
+#     SYS2_baseline_input_power:
+#       [
+#         0.370,
+#         0.202
+#       ]
+
+# - name: test SYS2 input power
+#   period: 2022
+#   absolute_error_margin: 0.5
+#   input: 
+#     SYS2_pool_size_int:
+#       [
+#         30001_to_40000_L
+#       ]
+#     SYS2_pool_pump_type:
+#       [
+#         fixed_speed_pool_pump
+#       ]
+#     SYS2_star_rating:
+#       [ 
+#         eight_stars
+#       ]
+#   output:
+#     SYS2_input_power:
+#       [
+#         0.121
+#       ]
+
+# - name: test SYS2 peak demand savings capacity simple version
+#   period: 2022
+#   absolute_error_margin: 0.5
+#   input: 
+#     SYS2_baseline_input_power:
+#       [
+#         0.370
+#       ]
+#     SYS2_input_power:
+#       [
+#         0.121
+#       ]
+#   output:
+#     SYS2_peak_demand_savings_capacity:
+#       [
+#         0.0697
+#       ]
+
+# - name: test SYS2 peak demand reduction capacity
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     SYS2_peak_demand_savings_capacity:
+#       [
+#         600,
+#         200
+#       ]
+#   output:
+#     SYS2_peak_demand_reduction_capacity:
+#       [
+#         43200,
+#         14400
+#       ]
+
+- name: test SYS2 PRC calculation
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS2_peak_demand_reduction_capacity:
+      [
+        120
+      ]
+    SYS2_network_loss_factor:
+      [
+        1.05
+      ]
+  output:
+    SYS2_PRC_calculation:
+      [
+        1260
+      ]

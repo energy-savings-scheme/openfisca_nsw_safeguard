@@ -27,6 +27,7 @@
         0,
         0
       ]
+
 - name: test HVAC1 cooling annual energy use
   period: 2022
   absolute_error_margin: 0.1
@@ -60,6 +61,48 @@
         170625,
         259.293
       ] 
+
+- name: test HVAC1 TCEC versus reference cooling equation
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_residential_TCEC:
+      [
+        0,
+        25
+      ]
+    HVAC1_reference_cooling_annual_energy_use:
+      [
+        50,
+        100
+      ]
+  output:
+    HVAC1_TCEC_or_annual_reference_cooling:
+      [
+        50,
+        25
+      ]
+
+- name: test HVAC1 THEC versus reference heating equation
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_residential_THEC:
+      [
+        0,
+        25
+      ]
+    HVAC1_reference_heating_annual_energy_use:
+      [
+        50,
+        100
+      ]
+  output:
+    HVAC1_THEC_or_annual_reference_heating:
+      [
+        50,
+        25
+      ]
 
 - name: test HVAC1 reference heating annual energy use
   period: 2022

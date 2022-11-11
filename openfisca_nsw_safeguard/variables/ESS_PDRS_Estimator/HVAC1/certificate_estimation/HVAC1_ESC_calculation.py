@@ -95,7 +95,28 @@ class HVAC1_reference_heating_annual_energy_use(Variable):
                         (heating_capacity * equivalent_heating_hours) / baseline_ACOP
                     ])
 
+
+class HVAC1_THEC_or_annual_reference_heating(Variable):
+    #Check if there is a THEC and if not, use the reference heating annual energy use formula
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+   
+    def formula(buildings, period, parameters):
+        thec = buildings('HVAC1_residential_THEC',period)
+        refheat = buildings('HVAC1_reference_heating_annual_energy_use',period)
+
+        result_to_return = np.select([
+                thec > 0, 
+                thec <= 0 #if there is no THEC
+            ],
+            [
+                thec,
+                refheat
+            ])
+        return result_to_return
   
+
 class HVAC1_reference_cooling_annual_energy_use(Variable):
     value_type = float
     entity = Building
@@ -123,6 +144,27 @@ class HVAC1_reference_cooling_annual_energy_use(Variable):
                     0,
                     (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
                 ])
+
+
+class HVAC1_TCEC_or_annual_reference_cooling(Variable):
+    #Check if there is a TCEC and if not, use the reference cooling annual energy use formula
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+   
+    def formula(buildings, period, parameters):
+        tcec = buildings('HVAC1_residential_TCEC',period)
+        refcool = buildings('HVAC1_reference_cooling_annual_energy_use',period)
+
+        result_to_return = np.select([
+                tcec > 0, 
+                tcec <= 0 #if there is no TCEC
+            ],
+            [
+                tcec,
+                refcool
+            ])
+        return result_to_return
 
 
 class HVAC1_deemed_activity_electricity_savings(Variable):

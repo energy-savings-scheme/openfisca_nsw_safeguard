@@ -1,0 +1,40 @@
+- name: test SYS1 ESC calculation
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS1_new_equipment_rated_output:
+      [
+        22,
+        32
+      ]
+    SYS1_baseline_efficiency:
+     [
+       10.7,
+       9.54
+     ]
+    SYS1_new_efficiency:
+      [
+        33.33,
+        3.6
+      ]
+    SYS1_load_utilisation_factor:
+      [
+        12.56,
+        3.6
+      ]
+    SYS1_asset_life:
+      [
+        20,
+        10
+      ]
+    SYS1_PDRS__postcode:
+      [
+        2321, # 1.03
+        2313   # 1
+      ]
+  output:
+    SYS1_ESC_calculation:
+      [
+        335393.7,
+        0
+      ]

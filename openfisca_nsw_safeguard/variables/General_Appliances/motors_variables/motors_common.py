@@ -65,7 +65,7 @@ class PDRS__motors__baseline_motor_efficiency(Variable):
         rated_output = building('motors_rated_output', period)
         poles = building('motor_poles_number_var', period)
 
-        node = parameters(period).PDRS.motors.motors_baseline_efficiency_table
+        node = parameters(period).PDRS.motors.motors_baseline_efficiency_50hz
 
         # Here we fetch value for each "pole_#" node
         # NOTE - this is a hacky workaround required because 'fancy indexing' doesn't work on SingleAmountTaxScales

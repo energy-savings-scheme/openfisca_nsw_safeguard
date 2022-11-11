@@ -1,4 +1,4 @@
-description: The Baseline motor efficiency (%) table for the PDRS-motors method  Left=<kW<Right, 2 poles
+description: The Baseline motor efficiency (%) table for the PDRS-motors method  Left=<kW<Right, 2 poles for 50 hz frequency
 reference: "ESS F7.3, year 2000 is dummy date, but need to make sure corresponding values with the same date, the output is arranged by descending date"
 poles_2:
   rated_output:

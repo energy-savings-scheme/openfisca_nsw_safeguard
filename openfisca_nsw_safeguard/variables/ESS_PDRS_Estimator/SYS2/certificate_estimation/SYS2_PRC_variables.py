@@ -57,7 +57,7 @@ class SYS2_pool_size_int(Variable):
         ])
       return pool_size_int
 
-""""""
+
 class SYS2_baseline_input_power(Variable):
       value_type = float
       entity = Building
@@ -89,29 +89,6 @@ class SYS2_pool_pump_type(Variable):
         'display_question' : 'What type of pool pump have you installed',
         'sorting' : 5
     }
-
-
-# class SYS2_pool_pump_type_int(Variable):
-#     value_type = str
-#     entity = Building
-#     definition_period = ETERNITY
-
-#     def formula(buildings, period, parameters):
-#       pool_pump_type = buildings('SYS2_pool_size_int', period)
-#       pool_pump_type_int = np.select([
-#         pool_pump_type == SYS2PoolPumpType.single_speed_pool_pump,
-#         pool_pump_type == SYS2PoolPumpType.fixed_speed_pool_pump,
-#         pool_pump_type == SYS2PoolPumpType.variable_speed_pool_pump,
-#         pool_pump_type == SYS2PoolPumpType.multiple_speed_pool_pump
-#       ],
-#       [
-#         'single_speed_pool_pump',
-#         'fixed_speed_pool_pump',
-#         'variable_speed_pool_pump',
-#         'multiple_speed_pool_pump'
-#       ])
-      
-#       return pool_pump_type_int
 
 
 class SYS2_input_power(Variable):

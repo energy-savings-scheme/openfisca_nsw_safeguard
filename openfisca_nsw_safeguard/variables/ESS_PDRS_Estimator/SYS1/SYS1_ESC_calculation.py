@@ -7,23 +7,6 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class SYS1_input_power(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Input power (kW)'
-    metadata = {
-        "variable-type": "inter-interesting"
-    }
-
-    def formula(buildings, period, parameters):
-        SYS1_new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
-        SYS1_new_efficiency = buildings('SYS1_new_efficiency', period)
-
-        input_power = np.multiply(SYS1_new_equipment_rated_output, (SYS1_new_efficiency / 100))
-        return input_power
-    
-
 class SYS1_asset_life(Variable):
     value_type = int
     entity = Building
@@ -92,12 +75,12 @@ class SYS1_load_utilisation_factor(Variable):
             'over_185kW'
         ]
         )
-
-        load_utilisation_factor = (parameters(period).ESS.HEAB.table_F7_1.load_utilisation_factor
-        [SYS1_business_classification][SYS1_end_user_service])
+        print("SYS1_business_classification", SYS1_business_classification)
+        print("SYS1_end_user_service",  SYS1_end_user_service)
+        load_utilisation_factor = (parameters(period).ESS.HEAB.table_F7_1['load_utilisation_factor'][SYS1_business_classification][SYS1_end_user_service])
 
         load_utilisation_factor = np.where(load_utilisation_factor == 0,
-        (parameters(period).ESS.HEAB.table_F7_2.load_utilisation_factor[rated_output]), load_utilisation_factor)
+        (parameters(period).ESS.HEAB.table_F7_2['load_utilisation_factor'][rated_output]), load_utilisation_factor)
 
         return load_utilisation_factor
 
@@ -118,10 +101,12 @@ class SYS1_deemed_activity_electricity_savings(Variable):
         SYS1_asset_life = buildings('SYS1_asset_life', period)
 
         temp_calc_1 = ( SYS1_new_equipment_rated_output / (SYS1_baseline_efficiency / 100))
+        print(temp_calc_1)
         temp_calc_2 = ( SYS1_new_equipment_rated_output / (SYS1_new_efficiency / 100))
-        temp_calc_3 = np.multiply(SYS1_load_utilisation_factor, SYS1_asset_life, ( 8760 / 1000 ))
-        
-        return np.multiply((temp_calc_1 - temp_calc_2), temp_calc_3)
+        print(temp_calc_2)
+        temp_calc_3 = (SYS1_load_utilisation_factor * SYS1_asset_life * ( 8760 / 1000 ))
+        print(temp_calc_3)
+        return ((temp_calc_1 - temp_calc_2) * temp_calc_3)
 
 
 class SYS1_electricity_savings(Variable):
@@ -134,22 +119,9 @@ class SYS1_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         deemed_electricity_savings = buildings('SYS1_deemed_activity_electricity_savings', period)
+        print(deemed_electricity_savings)
         regional_nw_factor = buildings('SYS1_regional_network_factor', period)
         return deemed_electricity_savings * regional_nw_factor
-    
-
-class SYS1_gas_savings(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    metadata = {
-        "variable-type": "inter-interesting"
-    }
-
-    def formula(buildings, period, parameters):
-        deemed_electricity_savings = buildings('SYS1_deemed_activity_electricity_savings', period)
-        
-        return deemed_electricity_savings
 
 
 class SYS1_ESC_calculation(Variable):
@@ -163,11 +135,10 @@ class SYS1_ESC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         electricity_savings = buildings('SYS1_electricity_savings', period)
+        print(electricity_savings)
         electricity_certificate_conversion_factor = 1.06
-        gas_savings = buildings('SYS1_gas_savings', period) #gas savings and deemed activity gas savings are the same value
-        gas_certificate_conversion_factor = 0.39
 
-        result = (electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor)
+        result = (electricity_savings * electricity_certificate_conversion_factor)
         result_to_return = np.select([
                 result < 0, result > 0
             ], [

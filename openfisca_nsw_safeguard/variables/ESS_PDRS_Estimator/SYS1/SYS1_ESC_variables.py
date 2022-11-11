@@ -26,7 +26,7 @@ class SYS1_regional_network_factor(Variable):
         return rnf.calc(postcode)  # This is a built in OpenFisca function that \
         # is used to calculate a single value for regional network factor based on a zipcode provided
     
-    
+
 
 class SYS1_new_equipment_rated_output(Variable):
     reference = 'unit in kW'
@@ -86,20 +86,6 @@ class SYS1_DNSP(Variable):
         'display_question': 'Who is your Distribution Network Service Provider?',
         'sorting' : 2,
         'label': "Distribution Network Service Provider"
-    }
-
-
-class SYS1_PDRS__postcode(Variable):
-    value_type = int
-    entity = Building
-    definition_period = ETERNITY
-    label = "What is the postcode for the building you are calculating PRCs for?"
-    metadata={
-        'variable-type' : 'user-input',
-        'alias' : 'PDRS Postcode',
-        'display_question' : 'Postcode where the installation has taken place',
-        'sorting' : 1,
-        'label': 'Postcode'
     }
 
 
@@ -246,4 +232,3 @@ class SYS1_end_user_service(Variable):
         'sorting' : 7,
         'label': "End User Service"
     }
-    

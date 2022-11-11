@@ -2,6 +2,95 @@ description: Values from Table F7.1 - default Load Utilisation Factor for High E
     Business Classification and End-Use Service are known.
 reference: Energy Savings Scheme Rule, beginning 30 March 2020.
 load_utilisation_factor:
+  unknown:
+    air_compression:
+      values:
+        2020-01-01:              
+          value: 0
+    air_handling:
+      values:
+        2020-01-01:              
+          value: 0
+    air_heating_and_cooling:
+      values:
+        2020-01-01:              
+          value: 0
+    cleaning_or_washing:
+      values:
+        2020-01-01:              
+          value: 0
+    communications:
+      values:
+        2020-01-01:              
+          value: 0
+    cooking:
+      values:
+        2020-01-01:              
+          value: 0
+    electricity_supply:
+      values:
+        2020-01-01:              
+          value: 0
+    home_entertainment:
+      values:
+        2020-01-01:              
+          value: 0
+    lighting:
+      values:
+        2020-01-01:              
+          value: 0
+    liquid_pumping:
+      values:
+        2020-01-01:              
+          value: 0
+    materials_handling:
+      values:
+        2020-01-01:              
+          value: 0
+    milling_mixing_or_grinding:
+      values:
+        2020-01-01:              
+          value: 0
+    office_equipment:
+      values:
+        2020-01-01:              
+          value: 0
+    other_end_use_services:
+      values:
+        2020-01-01:              
+          value: 0
+    other_machines:
+      values:
+        2020-01-01:              
+          value: 0
+    people_movement:
+      values:
+        2020-01-01:              
+          value: 0
+    process_drives:    
+      values:
+        2020-01-01:              
+          value: 0
+    process_heat:
+      values:
+        2020-01-01:              
+          value: 0
+    refrigeration:
+      values:
+        2020-01-01:              
+          value: 0
+    transport:
+      values:
+        2020-01-01:              
+          value: 0
+    unknown:    
+      values:
+        2020-01-01:              
+          value: 0
+    water_heating:
+      values:
+        2020-01-01:              
+          value: 0
   division_A:
     air_compression:
       values:

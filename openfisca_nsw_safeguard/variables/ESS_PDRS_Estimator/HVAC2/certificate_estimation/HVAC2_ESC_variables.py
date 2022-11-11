@@ -17,7 +17,7 @@ class HVAC2_heating_capacity_input(Variable):
     metadata = {
         'alias' : 'Air Conditioner Heating Capacity',
         'display_question' : 'Rated heating capacity at 7c as recorded in the GEMS Registry',
-        'sorting' : 6,
+        'sorting' : 9,
         'label': 'Rated heated capacity (kW)'
     }
 
@@ -31,8 +31,8 @@ class HVAC2_cooling_capacity_input(Variable):
     metadata = {
         'alias' : 'Air Conditioner Cooling Capacity',
         'display_question' : 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
-        'sorting' : 5,
-        'label': 'Rated cooling capacity (kW)'
+        'label': 'Rated cooling capacity (kW)',
+        'sorting' : 6
     }
 
 
@@ -43,7 +43,7 @@ class HVAC2_rated_ACOP_input(Variable):
     label = 'Rated ACOP'
     metadata = {
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
-        'sorting' : 7,
+        'sorting' : 10,
         'label': 'Rated ACOP'
     }
 
@@ -55,7 +55,8 @@ class HVAC2_baseline_AEER_input(Variable):
     label = 'Baseline AEER'
     metadata = {
         "alias": "AEER",
-        "variable-type": "inter-interesting"
+        "variable-type": "output",
+        "label": "Baseline AEER"
     }
 
     def formula(building, period, parameters):
@@ -107,7 +108,7 @@ class HVAC2_rated_AEER_input(Variable):
     metadata = {
         'alias': 'Rated AEER',
         'display_question' : 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
-        'sorting': 8,
+        'sorting': 7,
         'label': 'Rated AEER'
     }
     
@@ -165,6 +166,18 @@ class HVAC2_PDRS__postcode(Variable):
 
 """ These variables use Rule tables
 """
+class HVAC2_commercial_THEC(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY 
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'THEC (kWh/year)',
+        'display-question' : 'The total annual heating energy consumption of the new air conditioner',
+        'sorting' : 8
+    }
+
+
 class HVAC2_equivalent_heating_hours_input(Variable):
     reference = 'unit in hours per year'
     value_type = float
@@ -181,6 +194,18 @@ class HVAC2_equivalent_heating_hours_input(Variable):
                                      ['hot_zone', 'average_zone', 'cold_zone'])
         heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[climate_zone_str]
         return heating_hours
+
+
+class HVAC2_residential_THEC(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY 
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'TCEC (kWh/year)',
+        'display-question' : 'The total annual cooling energy consumption of the new air conditioner',
+        'sorting' : 5
+    }
 
 
 class HVAC2_equivalent_cooling_hours_input(Variable):

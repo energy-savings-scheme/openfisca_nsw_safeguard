@@ -58,10 +58,11 @@ class SYS2_PRC_calculation(Variable):
         network_loss_factor = buildings('SYS2_network_loss_factor', period)
         kw_to_0_1kw = 10
 
-        result = np.rint(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw    
+        result = peak_demand_capacity * network_loss_factor * kw_to_0_1kw    
         result_to_return = np.select([
-                result < 0, result > 0
-            ], [
+                result <= 0, result > 0
+            ], 
+            [
                 0, result
             ])
         return result_to_return

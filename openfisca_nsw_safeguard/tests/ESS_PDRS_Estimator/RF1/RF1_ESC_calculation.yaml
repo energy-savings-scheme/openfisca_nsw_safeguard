@@ -1,0 +1,72 @@
+- name: test RF1 deemed activity electricity savings
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF1_number_of_refrigerator_freezers_removal:
+      [
+        0,
+        5,
+        127
+      ]
+  output:
+    RF1_deemed_activity_electricity_savings:
+      [
+        0,
+        28.5,
+        723.9
+      ]
+
+- name: test RF1 electricity savings
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF1_deemed_activity_electricity_savings:
+      [
+        28.5
+      ]
+    RF1_PDRS__postcode:
+      [
+        2536 #rnf of 1.03
+      ]
+  output:
+    RF1_electricity_savings:
+      [
+        29.355
+      ]
+
+- name: test RF1 ESC calculation simple version
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF1_electricity_savings:
+      [
+        28.5,
+        14.789
+      ]
+  output:
+    RF1_ESC_calculation:
+      [
+        30.21,
+        15.67634
+      ]
+
+- name: test RF1 ESC calculation more complicated version
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF1_number_of_refrigerator_freezers_removal:
+      [
+        5, #deemed activity electricity savings 28.5
+        74 #deemed activity electricity savings 421.8
+      ]
+    RF1_PDRS__postcode:
+      [
+        2536, #rnf of 1.03
+        2787 #rnf of 1.03
+      ]
+  output:
+    RF1_ESC_calculation:
+      [
+        31.1163,
+        460.5212
+      ]

@@ -175,9 +175,9 @@ class HVAC2_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      reference_annual_cooling = buildings('HVAC2_reference_cooling_annual_energy_use', period)
+      reference_annual_cooling = buildings('HVAC2_TCEC_or_annual_reference_cooling', period)
       annual_cooling = buildings('HVAC2_cooling_annual_energy_use', period)
-      reference_annual_heating = buildings('HVAC2_reference_heating_annual_energy_use', period)
+      reference_annual_heating = buildings('HVAC2_THEC_or_annual_reference_heating', period)
       annual_heating = buildings('HVAC2_heating_annual_energy_use', period)
       lifetime = 10
       

@@ -6,7 +6,7 @@
       [
         10,
         0, #Coolmaster TCCF10C1S/AOCF10C-S
-        0 #AIRO ACP33HP
+        0  #AIRO ACP33HP
       ]
     HVAC1_equivalent_heating_hours_input:
       [
@@ -37,21 +37,24 @@
         20,
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
         1050, #AIRO ACP33HP
-        3.5 #Mitsubushi SCM71ZS-W/SRK20ZSXA-W
+        3.5,  #Mitsubushi SCM71ZS-W/SRK20ZSXA-W
+        5     #Panasonic CU-Z50VKR/CS-Z50VKR: average zone, residential
       ]
     HVAC1_equivalent_cooling_hours_input:
       [
         50,
         285,
         429,
-        285
+        285,
+        429 #average zone
       ]
     HVAC1_rated_AEER_input:
       [
         10,
         3.4907,
         2.64,
-        3.847
+        3.847,
+        4.3786 #rated AEER input is 4.3786
       ]
   output:
     HVAC1_cooling_annual_energy_use:
@@ -59,10 +62,11 @@
         100,
         824.619,
         170625,
-        259.293
+        259.293,
+        489.88 #Panasonic CU-Z50VKR/CS-Z50VKR: average zone, residential
       ] 
 
-- name: test HVAC1 TCEC versus reference cooling equation
+- name: test HVAC1 TCEC versus annual cooling equation
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -71,19 +75,19 @@
         0,
         25
       ]
-    HVAC1_reference_cooling_annual_energy_use:
+    HVAC1_cooling_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC1_TCEC_or_annual_reference_cooling:
+    HVAC1_TCEC_or_annual_cooling:
       [
         50,
         25
       ]
 
-- name: test HVAC1 THEC versus reference heating equation
+- name: test HVAC1 THEC versus annual heating equation
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -92,13 +96,13 @@
         0,
         25
       ]
-    HVAC1_reference_heating_annual_energy_use:
+    HVAC1_heating_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC1_THEC_or_annual_reference_heating:
+    HVAC1_THEC_or_annual_heating:
       [
         50,
         25
@@ -134,7 +138,7 @@
       [
         32,
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050 #AIRO ACP33HP
+        1050  #AIRO ACP33HP
      ]
     HVAC1_equivalent_cooling_hours_input:
       [
@@ -164,7 +168,7 @@
       [
         32,
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050 #AIRO ACP33HP
+        1050  #AIRO ACP33HP
       ]
     HVAC1_Air_Conditioner_type:
       [
@@ -194,7 +198,7 @@
       [
         32,
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050 #AIRO ACP33HP
+        1050  #AIRO ACP33HP
       ]
     HVAC1_Air_Conditioner_type:
       [

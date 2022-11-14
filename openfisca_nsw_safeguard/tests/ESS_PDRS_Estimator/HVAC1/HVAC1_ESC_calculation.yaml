@@ -54,7 +54,7 @@
         3.4907,
         2.64,
         3.847,
-        4.3786 #rated AEER input is 4.3786
+        4.3786
       ]
   output:
     HVAC1_cooling_annual_energy_use:
@@ -63,7 +63,7 @@
         824.619,
         170625,
         259.293,
-        489.88 #Panasonic CU-Z50VKR/CS-Z50VKR: average zone, residential
+        489.88 #Panasonic CU-Z50VKR/CS-Z50VKR TCEC is 374
       ] 
 
 - name: test HVAC1 TCEC versus annual cooling equation

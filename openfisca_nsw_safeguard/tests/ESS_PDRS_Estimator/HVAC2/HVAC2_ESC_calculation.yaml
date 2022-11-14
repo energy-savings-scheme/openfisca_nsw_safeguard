@@ -27,22 +27,30 @@
     HVAC2_cooling_capacity_input:
       [
         20,
+        8,     #Panasonic CU-RZ80VKR/CS-RZ80VKR*, commercial hot zone
+        8.5    #GREE GWH28QE-K3DNB2H/O/GWH28QE-K3DN**H/I
       ]
     HVAC2_equivalent_cooling_hours_input:
       [
         50,
+        1754, #hot zone
+        801   #average zone
       ]
     HVAC2_rated_AEER_input:
       [
         10,
+        3.2107,
+        3.1801
       ]
   output:
     HVAC2_cooling_annual_energy_use:
       [
-        100
+        100,
+        4370.386,   #Panasonic CU-RZ80VKR/CS-RZ80VKR*, commercial hot zone TCEC is 3014
+        2140.9705   #GREE GWH28QE-K3DNB2H/O/GWH28QE-K3DN**H/I, commercial average zone TCEC is 1014
       ] 
 
-- name: test HVAC2 THEC versus reference heating equation
+- name: test HVAC2 THEC versus heating equation
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -51,19 +59,19 @@
         0,
         25
       ]
-    HVAC2_reference_heating_annual_energy_use:
+    HVAC2_heating_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC2_THEC_or_annual_reference_heating:
+    HVAC2_THEC_or_annual_heating:
       [
         50,
         25
       ]
 
-- name: test HVAC2 TCEC versus reference cooling equation
+- name: test HVAC2 TCEC versus cooling equation
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -72,13 +80,13 @@
         0,
         25
       ]
-    HVAC2_reference_cooling_annual_energy_use:
+    HVAC2_cooling_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC2_TCEC_or_annual_reference_cooling:
+    HVAC2_TCEC_or_annual_cooling:
       [
         50,
         25

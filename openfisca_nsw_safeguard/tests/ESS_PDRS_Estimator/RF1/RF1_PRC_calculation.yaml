@@ -1,0 +1,34 @@
+- name: test RF1 peak demand reduction capacity
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF1_peak_demand_savings_capacity:
+      [
+        0.11625
+      ]
+  output:
+    RF1_peak_demand_reduction_capacity:
+      [
+        4.8825
+      ]
+
+- name: test RF1 PRC calculation
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF1_peak_demand_reduction_capacity:
+      [
+        4.8825,
+        4.9
+      ]
+    RF1_DNSP:
+      [
+        Ausgrid, #network loss factor 1.04
+        Endeavour #network loss factor 1.05
+      ]
+  output:
+    RF1_PRC_calculation:
+      [
+        50.778,
+        51.45
+      ]

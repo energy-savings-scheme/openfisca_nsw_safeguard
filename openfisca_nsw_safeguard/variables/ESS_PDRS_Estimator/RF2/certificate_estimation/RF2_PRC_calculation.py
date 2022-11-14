@@ -35,13 +35,13 @@ class RF2_peak_demand_savings_capacity(Variable):
     }
 
     def formula(buildings, period, parameters):
-      baseline_peak_asjustment_factor = buildings('RF2_baseline_peak_adjustment_factor', period)
+      baseline_peak_adjustment_factor = buildings('RF2_baseline_peak_adjustment_factor', period)
       baseline_input_power = buildings('RF2_baseline_input_power', period)
       input_power = buildings('RF2_input_power', period)
       firmness_factor = 1
 
-      peak_demand_savings_capacity= ((baseline_peak_asjustment_factor * baseline_input_power)
-                                        - (input_power * baseline_peak_asjustment_factor )) * firmness_factor
+      peak_demand_savings_capacity= ((baseline_peak_adjustment_factor * baseline_input_power)
+                                        - (input_power * baseline_peak_adjustment_factor )) * firmness_factor
       return peak_demand_savings_capacity
   
   

@@ -173,7 +173,7 @@ class HVAC2_commercial_THEC(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'THEC (kWh/year)',
-        'display-question' : 'The total annual heating energy consumption of the new air conditioner',
+        'display_question' : 'The total annual heating energy consumption of the new air conditioner',
         'sorting' : 8
     }
 
@@ -203,7 +203,7 @@ class HVAC2_commercial_TCEC(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'TCEC (kWh/year)',
-        'display-question' : 'The total annual cooling energy consumption of the new air conditioner',
+        'display_question' : 'The total annual cooling energy consumption of the new air conditioner',
         'sorting' : 5
     }
 

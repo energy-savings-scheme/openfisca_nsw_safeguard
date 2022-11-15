@@ -100,7 +100,7 @@ class SYS1_baseline_efficiency(Variable):
     }
 
     def formula(buildings, period, parameters):
-        SYS1_new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
+        SYS1_new_equipment_rated_output = buildings('SYS1_existing_equipment_rated_output', period)
         # SYS1_new_efficiency = buildings('SYS1_new_efficiency', period)
         SYS1_motor_frequency = buildings('SYS1_motor_frequency', period)
         SYS1_no_of_poles = buildings('SYS1_no_of_poles', period)

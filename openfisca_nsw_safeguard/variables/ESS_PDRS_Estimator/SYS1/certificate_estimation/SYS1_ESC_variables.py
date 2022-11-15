@@ -37,7 +37,8 @@ class SYS1_new_equipment_rated_output(Variable):
     metadata = {
         'display_question' : 'What is the Rated Output of your new electric motor?',
         'sorting' : 3,
-        'label': 'Rated output (kW)'
+        'label': 'Rated output of new equipment (kW)',
+        'variable-type': 'user-input'
     }
 
 
@@ -50,7 +51,8 @@ class SYS1_existing_equipment_rated_output(Variable):
     metadata = {
         'display_question' : 'What is the Rated Output of your existing electric motor?',
         'sorting' : 5,
-        'label': 'Rated output (kW)'
+        'label': 'Rated output of existing equipment (kW)',
+        'variable-type': 'user-input'
     }
     
     
@@ -63,7 +65,7 @@ class SYS1_new_efficiency(Variable):
     metadata = {
         'display_question' : 'What is the full load efficiency of your new electric motor?',
         'sorting' : 4,
-        'label': 'Rated output (kW)'
+        'label': 'Efficiency of new equipment (%)'
     }
 
 

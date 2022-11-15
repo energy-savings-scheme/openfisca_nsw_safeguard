@@ -1,59 +1,101 @@
+- name: test RF2 baseline input power
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    RF2_total_energy_consumption:
+      [
+        29.86 #De Rigo Clio 3P
+      ]
+    RF2_af:
+      [
+        1
+      ]
+    RF2_baseline_EEI:
+      [
+        77
+      ]
+    RF2_product_EEI:
+      [
+        50
+      ]
+  output:
+    RF2_baseline_input_power:
+      [
+        1.911
+      ]
+
+- name: test RF2 baseline peak adjustment factor
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    RF2_product_type:
+      [
+        is_integral_RDC #De Rigo Clio 3P
+      ]
+    RF2_duty_class:
+      [
+        normal_duty
+      ]
+  output:
+    RF2_baseline_peak_adjustment_factor:
+      [
+        1.14
+      ]
+
+- name: test RF2 peak demand savings capacity
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_baseline_peak_adjustment_factor:
+      [
+        1.14 #De Rigo Clio 3P
+      ]
+    RF2_baseline_input_power:
+      [
+        1.911
+      ]
+    RF2_input_power:
+      [
+        1.24
+      ]
+  output:
+    RF2_peak_demand_savings_capacity:
+      [
+        0.77
+      ]
+
+- name: test RF2 peak demand reduction capacity
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_peak_demand_savings_capacity:
+      [
+        0.77 #De Rigo Clio 3P
+      ]
+    RF2_lifetime_by_rc_class:
+      [
+        8
+      ]
+  output: 
+    RF2_peak_demand_reduction_capacity:
+      [
+        36.96
+      ]
+
 - name: test RF2 PRC calculation
   period: 2022
   absolute_error_margin: 0.1
   input:
-    RF2_total_energy_consumption:
+    RF2_peak_demand_reduction_capacity:
       [
-        34.9,
-        0,
-        0
+        36.96 #De Rigo Clio 3P
       ]
-    RF2_product_EEI:
-     [
-        5.9,
-        0,
-        0
-     ]
-    RF2_product_class:
+    RF2_network_loss_factor:
       [
-        product_class_three,
-        product_class_eight,
-        product_class_two # product_class_int is 3
-      ]
-    RF2_duty_class:
-     [
-        heavy_duty,
-        normal_duty,
-        heavy_duty
-     ]
-    RF2_total_display_area:
-      [
-        3.0,
-        1.863,
-        1.2
-      ]
-    RF2_DNSP:
-      [
-        Ausgrid,
-        Endeavour,
-        Ausgrid
-      ]
-    RF2_new_equipment:
-      [
-        false,
-        true,
-        false
-      ]
-    RF2_PDRS__postcode:
-      [
-        2017,
-        2017,
-        2017
+        1.05
       ]
   output:
     RF2_PRC_calculation:
       [
-        7348.2783,
-        0,
-        0
+        388
       ]

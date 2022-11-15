@@ -75,53 +75,64 @@
         1.14
       ]
 
-- name: test RF2 ESC calculation
+- name: test RF2 deemed activity electricity savings
   period: 2022
-  absolute_error_margin: 0
+  absolute_error_margin: 0.1
   input:
     RF2_total_energy_consumption:
       [
-        34.9,
-        34.9
+         29.86 #De Rigo Clio 3P
       ]
-    RF2_product_type:
+    RF2_baseline_EEI:
       [
-        integral_RDC,
-        integral_RDC
+        77
       ]
     RF2_product_EEI:
-     [
-        5.9,
-        5.9
-     ]
-    RF2_product_class: 
       [
-        product_class_three,
-        product_class_three # product_class_int is 3
+        50
       ]
-    RF2_duty_class:
-     [
-        heavy_duty,
-        heavy_duty
-     ]
-    RF2_total_display_area:
+    RF2_af:
       [
-        3.0,
-        3.0
+        1
       ]
-    RF2_PDRS__postcode:
+    RF2_lifetime_by_rc_class:
       [
-        2017,
-        2018 # for regional n/w factor
+        8
       ]
-    RF2_new_equipment:
+  output: 
+    RF2_deemed_activity_electricity_savings:
       [
-        false,
-        true
+        47.08
       ]
-  output:
+
+- name: test RF2 electricity savings
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_deemed_activity_electricity_savings:
+      [
+        47.08
+      ]
+    RF2_PDRS__regional_network_factor:
+      [
+        1
+      ]
+  output: 
+    RF2_electricity_savings:
+      [
+        47.08
+      ]
+
+- name: test RF2 ESC calculation
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_electricity_savings:
+      [
+        47.08
+      ]
+  output:    
     RF2_ESC_calculation:
       [
-        1301.7623,
-        990.5113
+        50
       ]

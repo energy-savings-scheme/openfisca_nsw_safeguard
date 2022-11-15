@@ -18,6 +18,7 @@
         2,
         3.25806452
       ]
+
 - name: test HVAC1 baseline peak adjustment factor
   period: 2022
   absolute_error_margin: 0.1

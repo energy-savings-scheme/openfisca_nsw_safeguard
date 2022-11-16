@@ -38,3 +38,49 @@
         335393.7,
         0
       ]
+
+- name: test SYS1 ESC calculation with DNSP
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS1_no_of_poles: 
+      [
+        two_poles
+      ]
+    SYS1_DNSP: 
+      [
+        Ausgrid
+      ]
+    SYS1_new_equipment_rated_output:
+      [
+        20
+      ]
+    SYS1_new_efficiency:
+      [
+        13
+      ]
+    SYS1_PDRS__postcode:
+      [
+        2017
+      ]
+    SYS1_business_classification:
+      [
+        unknown
+      ]
+    SYS1_end_user_service:
+      [
+        unknown
+      ]
+    SYS1_existing_equipment_rated_output:
+      [
+        23
+      ]
+    SYS1_motor_frequency:
+      [
+        motor_50_hz
+      ]
+  output:
+    SYS1_ESC_calculation:
+      [
+        0
+      ]

@@ -101,20 +101,61 @@ class SYS1_baseline_efficiency(Variable):
 
     def formula(buildings, period, parameters):
         SYS1_new_equipment_rated_output = buildings('SYS1_existing_equipment_rated_output', period)
-        # SYS1_new_efficiency = buildings('SYS1_new_efficiency', period)
-        SYS1_motor_frequency = buildings('SYS1_motor_frequency', period)
-        SYS1_no_of_poles = buildings('SYS1_no_of_poles', period)
+        motor_frequency = buildings('SYS1_motor_frequency', period)
+        print(motor_frequency)
+        no_of_poles = buildings('SYS1_no_of_poles', period)
+        print("no of poles", no_of_poles)
         
-        be = np.select( [ 
-                         SYS1_motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
-                         SYS1_motor_frequency == SYS1_motor_frequency_Options.motor_60_hz
-                         ],
-                       [
-                           parameters(period).PDRS.motors.motors_baseline_efficiency_50hz[SYS1_no_of_poles]['rated_output'].calc(
-            SYS1_new_equipment_rated_output, interpolate=True),
-                           parameters(period).PDRS.motors.motors_baseline_efficiency_60hz[SYS1_no_of_poles]['rated_output'].calc(
+        frequency = np.select( [ 
+                         motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
+                         motor_frequency == SYS1_motor_frequency_Options.motor_60_hz
+                        ],
+            [ 
+                '50hz',
+                '60hz'
+            ]
+        )
+        
+        node = parameters(period).PDRS.motors.motors_baseline_efficiency
+        
+        poles_2_value_50hz = node["poles_2"].rated_output.calc(
             SYS1_new_equipment_rated_output, interpolate=True)
-                       ])
+        poles_4_value_50hz = node["poles_4"].rated_output.calc(
+            SYS1_new_equipment_rated_output, interpolate=True)
+        poles_6_value_50hz = node["poles_6"].rated_output.calc(
+            SYS1_new_equipment_rated_output, interpolate=True)
+        poles_8_value_50hz = node["poles_8"].rated_output.calc(
+            SYS1_new_equipment_rated_output, interpolate=True)
+
+        poles_2_value_60hz = node["poles_2_60hz"].rated_output.calc(
+            SYS1_new_equipment_rated_output, interpolate=True)
+        poles_4_value_60hz = node["poles_4_60hz"].rated_output.calc(
+            SYS1_new_equipment_rated_output, interpolate=True)
+        poles_6_value_60hz = node["poles_6_60hz"].rated_output.calc(
+            SYS1_new_equipment_rated_output, interpolate=True)
+        poles_8_value_60hz = node["poles_8_60hz"].rated_output.calc(
+            SYS1_new_equipment_rated_output, interpolate=True)
+        
+        be = np.select([
+                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_2, frequency == '50hz'),
+                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_4, frequency == '50hz'),
+                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_6, frequency == '50hz'),
+                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_8, frequency == '50hz'),
+                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_2, frequency == '60hz'),
+                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_4, frequency == '60hz'),
+                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_6, frequency == '60hz'),
+                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_8, frequency == '60hz')
+                    ],
+                    [
+                        poles_2_value_50hz, 
+                        poles_4_value_50hz,
+                        poles_6_value_50hz, 
+                        poles_8_value_50hz, 
+                        poles_2_value_60hz,
+                        poles_4_value_60hz,
+                        poles_6_value_60hz,
+                        poles_8_value_60hz
+                    ], 0)
 
         return be
     
@@ -140,17 +181,17 @@ class SYS1_motor_frequency(Variable):
 
 
 class SYS1_no_of_poles_Options(Enum):
-    two_poles = '2 poles'
-    four_poles = '4 poles'
-    six_poles = '6 poles'
-    eight_poles = '8 poles'
+    poles_2 = '2 poles'
+    poles_4 = '4 poles'
+    poles_6 = '6 poles'
+    poles_8 = '8 poles'
 
 
 class SYS1_no_of_poles(Variable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_no_of_poles_Options
-    default_value = SYS1_no_of_poles_Options.two_poles
+    default_value = SYS1_no_of_poles_Options.poles_2
     definition_period = ETERNITY
     label = "Number of poles"
     metadata = {

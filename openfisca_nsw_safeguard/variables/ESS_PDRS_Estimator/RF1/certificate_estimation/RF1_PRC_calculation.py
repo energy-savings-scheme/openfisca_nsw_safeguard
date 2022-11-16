@@ -12,7 +12,9 @@ class RF1_peak_demand_savings_capacity(Variable):
     definition_period = ETERNITY
     label = 'Input Factor'
     metadata = {
-        'variable-type': 'inter-interesting'
+        'variable-type': 'inter-interesting',
+        'alias': 'Peak demand savings capacity',
+        'label': 'Peak demand savings capacity'
     }
 
     def formula(buildings, period, parameters):

@@ -52,7 +52,7 @@ class SYS2_star_rating(Variable):
         'variable-type' : 'user-input',
         'label' : 'New equipment star rating',
         'display_question' : 'What is the star rating of your new equipment? (Equipment must achieve a 4.5 star rating or higher)',
-        'sorting' : 4
+        'sorting' : 5
     }
 
 
@@ -94,11 +94,22 @@ class SYS2_ESC_calculation(Variable):
         electricity_savings = buildings('SYS2_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
         #there is no gas option for this activity
+        replacement_activity = ('SYS2_Replacement_Activity', period)
+        
+        SYS2_eligible_ESCs = np.select(
+            [
+                replacement_activity,
+                np.logical_not(replacement_activity)
+            ],
+            [
+                (electricity_savings * electricity_certificate_conversion_factor),
+                0
+            ])
 
-        result = np.rint(electricity_savings * electricity_certificate_conversion_factor)
         result_to_return = np.select([
-                result < 0, result > 0
-            ], [
-                0, result
+                SYS2_eligible_ESCs <= 0, SYS2_eligible_ESCs > 0
+            ],
+            [
+                0, SYS2_eligible_ESCs
             ])
         return result_to_return

@@ -1,4 +1,4 @@
-description: Baseline EEIs that refrigerated cabinets are not allowed to exceed, as part of PDRS activity XX.
+description: RF2 replacement activity adjustment factors and baseline EEI by Product Class and Duty Type
 reference: "PDRS Technical Manual."
 adjustment_factor:
   product_class_one:

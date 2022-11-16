@@ -1,4 +1,4 @@
-description: Baseline EEIs for use in calculating baseline input power in Equation F1.1.
+description: Replacement activity baseline EEIs for use in calculating baseline input power in Equation F1.1.
 reference: "PDRS Technical Manual."
 baseline_EEI:
   product_class_one:

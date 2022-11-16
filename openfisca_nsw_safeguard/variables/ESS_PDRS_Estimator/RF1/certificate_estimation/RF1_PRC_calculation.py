@@ -11,22 +11,21 @@ class RF1_peak_demand_savings_capacity(Variable):
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        'alias': 'Peak demand savings capacity',
-        'label': 'Peak demand savings capacity',
-        'variable-type': 'intermediary'
+        "variable-type": "inter-interesting"
     }
 
     def formula(buildings, period, parameters):
-      baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['RF1']
-      baseline_input_power = 0.093
-      peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['RF1']
-      in_power = 0
-      firmness_factor = 1
+        # user input
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['RF1']
+        baseline_input_power = 0.093
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['RF1']
+        input_power = 0
+        firmness_factor = 1
+        temp1 = (baseline_peak_adjustment_factor * baseline_input_power)
+        temp2 = (input_power * peak_adjustment_factor )
+        
+        return ((temp1 - temp2) * firmness_factor)
 
-      peak_demand_savings_capacity= ((baseline_peak_adjustment_factor * baseline_input_power)
-                                        - (in_power * peak_adjustment_factor )) * firmness_factor
-      return peak_demand_savings_capacity
-  
   
 class RF1_peak_demand_reduction_capacity(Variable):
     value_type = float

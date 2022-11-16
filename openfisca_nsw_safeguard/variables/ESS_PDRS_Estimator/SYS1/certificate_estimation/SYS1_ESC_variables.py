@@ -102,9 +102,7 @@ class SYS1_baseline_efficiency(Variable):
     def formula(buildings, period, parameters):
         SYS1_new_equipment_rated_output = buildings('SYS1_existing_equipment_rated_output', period)
         motor_frequency = buildings('SYS1_motor_frequency', period)
-        print(motor_frequency)
         no_of_poles = buildings('SYS1_no_of_poles', period)
-        print("no of poles", no_of_poles)
         
         frequency = np.select( [ 
                          motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,

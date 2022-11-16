@@ -7,8 +7,6 @@ import numpy as np
 
 
 class HVAC2_baseline_input_power(Variable):
-    """ Note that baseline input power is the same value as input power
-    """
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -157,7 +155,7 @@ class HVAC2_PRC_calculation(Variable):
         kw_to_0_1kw = 10
 
 
-        result = np.rint(peak_demand_capacity * network_loss_factor) * kw_to_0_1kw    
+        result = peak_demand_capacity * network_loss_factor * kw_to_0_1kw    
         result_to_return = np.select([
                 result < 0, result > 0
             ], [

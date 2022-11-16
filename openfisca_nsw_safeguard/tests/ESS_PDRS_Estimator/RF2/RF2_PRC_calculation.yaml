@@ -4,24 +4,29 @@
   input: 
     RF2_total_energy_consumption:
       [
-        29.86 #De Rigo Clio 3P
+        29.86, #De Rigo Clio 3P
+        9.7    #EPTA Captur 100 BT
       ]
     RF2_af:
       [
+        1,
         1
       ]
     RF2_baseline_EEI:
       [
+        77,
         77
       ]
     RF2_product_EEI:
       [
-        50
+        50,
+        55
       ]
   output:
     RF2_baseline_input_power:
       [
-        1.911
+        1.911,
+        0.56
       ]
 
 - name: test RF2 baseline peak adjustment factor
@@ -30,15 +35,18 @@
   input: 
     RF2_product_type:
       [
-        is_integral_RDC #De Rigo Clio 3P
+        is_integral_RDC, #De Rigo Clio 3P
+        is_integral_RDC  #EPTA Captur 100 BT
       ]
     RF2_duty_class:
       [
+        normal_duty,
         normal_duty
       ]
   output:
     RF2_baseline_peak_adjustment_factor:
       [
+        1.14,
         1.14
       ]
 
@@ -48,20 +56,24 @@
   input:
     RF2_baseline_peak_adjustment_factor:
       [
-        1.14 #De Rigo Clio 3P
+        1.14, #De Rigo Clio 3P
+        1.14  #EPTA Captur 100 BT
       ]
     RF2_baseline_input_power:
       [
-        1.911
+        1.911,
+        0.56
       ]
     RF2_input_power:
       [
-        1.24
+        1.24,
+        0.4
       ]
   output:
     RF2_peak_demand_savings_capacity:
       [
-        0.77
+        0.77,
+        0.1824
       ]
 
 - name: test RF2 peak demand reduction capacity
@@ -70,16 +82,19 @@
   input:
     RF2_peak_demand_savings_capacity:
       [
-        0.77 #De Rigo Clio 3P
+        0.77,  #De Rigo Clio 3P
+        0.1824 #EPTA Captur 100 BT
       ]
     RF2_lifetime_by_rc_class:
       [
+        8,
         8
       ]
   output: 
     RF2_peak_demand_reduction_capacity:
       [
-        36.96
+        36.96,
+        8.7552
       ]
 
 - name: test RF2 PRC calculation
@@ -88,14 +103,17 @@
   input:
     RF2_peak_demand_reduction_capacity:
       [
-        36.96 #De Rigo Clio 3P
+        36.96, #De Rigo Clio 3P
+        8.7552 #EPTA Captur 100 BT
       ]
     RF2_network_loss_factor:
       [
-        1.05
+        1.05,
+        1.04
       ]
   output:
     RF2_PRC_calculation:
       [
-        388
+        388,
+        91
       ]

@@ -35,10 +35,10 @@ class SYS1_new_equipment_rated_output(Variable):
     definition_period = ETERNITY
     label = 'Rated output of new equipment (kW)'
     metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Rated output of new equipment (kW)',
         'display_question' : 'What is the Rated Output of your new electric motor?',
-        'sorting' : 3,
-        'label': 'Rated output of new equipment (kW)',
-        'variable-type': 'user-input'
+        'sorting' : 3
     }
 
 
@@ -49,12 +49,12 @@ class SYS1_existing_equipment_rated_output(Variable):
     definition_period = ETERNITY
     label = 'Rated output of existing equipment (kW)'
     metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Rated output of existing equipment (kW)',
         'display_question' : 'What is the Rated Output of your existing electric motor?',
-        'sorting' : 5,
-        'label': 'Rated output of existing equipment (kW)',
-        'variable-type': 'user-input'
+        'sorting' : 7    
     }
-    
+
     
 class SYS1_new_efficiency(Variable):
     reference = 'percent'
@@ -63,9 +63,9 @@ class SYS1_new_efficiency(Variable):
     definition_period = ETERNITY
     label = 'Efficiency of new equipment (%)'
     metadata = {
+        'label': 'Efficiency of new equipment (%)',
         'display_question' : 'What is the full load efficiency of your new electric motor?',
-        'sorting' : 4,
-        'label': 'Efficiency of new equipment (%)'
+        'sorting' : 4        
     }
 
 
@@ -85,9 +85,9 @@ class SYS1_DNSP(Variable):
     label = "Distribution Network Service Provider"
     metadata = {
         'variable-type': 'user-input',
-        'display_question': 'Who is your Distribution Network Service Provider?',
-        'sorting' : 2,
-        'label': "Distribution Network Service Provider"
+        'label': "Distribution Network Service Provider",
+        'display_question' : 'Who is your Distribution Network Service Provider?',
+        'sorting' : 2
     }
 
 
@@ -133,9 +133,9 @@ class SYS1_motor_frequency(Variable):
     label = "Motor Frequency (hz)"
     metadata = {
         'variable-type': 'user-input',
-        'display_question': 'What is the frequency of your existing motor power supply?',
-        'sorting' : 6,
-        'label': "Motor Frequency (hz)"
+        'label': 'Motor Frequency (hz)',
+        'display_question' : 'What is the frequency of your existing motor power supply?',
+        'sorting' : 8        
     }
 
 
@@ -154,13 +154,12 @@ class SYS1_no_of_poles(Variable):
     definition_period = ETERNITY
     label = "Number of poles"
     metadata = {
-        'variable-type': 'user-input',
-        'display_question': 'How many poles is your existing motor?',
-        'sorting' : 7,
-        'label': "Number of poles"
+        'variable-type' : 'user-input',
+        'label' : 'Number of poles',
+        'display_question' : 'How many poles is your existing motor?',
+        'sorting' : 9
     }
     
-
     
 class SYS1_BusinessClassification_Options(Enum):
     unknown = 'Unknown'
@@ -193,13 +192,13 @@ class SYS1_business_classification(Variable):
     definition_period = ETERNITY
     metadata = {
         'variable-type': 'user-input',
-        'display_question': 'What is the business classification?',
-        'sorting' : 7,
-        'label': "End User Service"
+        'label' : 'Business Classification',
+        'display_question' : 'What is the business classification of your new clectric motor?',
+        'sorting' : 7
     }
     
     
-class SYS1_end_user_service_Options(Enum):
+class SYS1_end_use_service_Options(Enum):
     unknown = 'Unknown'
     air_compression = 'Air compression'
     air_handling = 'Air handling, fans or ventilation'
@@ -222,15 +221,15 @@ class SYS1_end_user_service_Options(Enum):
     water_heating = 'Water heating'
 
 
-class SYS1_end_user_service(Variable):
+class SYS1_end_use_service(Variable):
     value_type = Enum
     entity = Building
-    possible_values = SYS1_end_user_service_Options
-    default_value = SYS1_end_user_service_Options.unknown
+    possible_values = SYS1_end_use_service_Options
+    default_value = SYS1_end_use_service_Options.unknown
     definition_period = ETERNITY
     metadata = {
-        'variable-type': 'user-input',
-        'display_question': 'What is the End Use Service for the Implementation?',
-        'sorting' : 7,
-        'label': "End User Service"
+        'variable-type' : 'user-input',
+        'label' : 'End Use Service',
+        'display_question' : 'What is the End Use Service for the implementation?',
+        'sorting' : 6
     }

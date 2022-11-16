@@ -56,7 +56,6 @@ class RF1_PRC_calculation(Variable):
     def formula(buildings, period, parameters):
         peak_demand_reduction_capacity = buildings('RF1_peak_demand_reduction_capacity', period)
         network_loss_factor = buildings('RF1_network_loss_factor', period) 
-        print("i am in here", network_loss_factor)
         
         result = (peak_demand_reduction_capacity * network_loss_factor * 10)
         

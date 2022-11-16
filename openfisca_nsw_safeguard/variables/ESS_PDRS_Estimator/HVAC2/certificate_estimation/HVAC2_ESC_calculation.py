@@ -217,7 +217,6 @@ class HVAC2_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        print("i am in here")
         deemed_electricity_savings = buildings('HVAC2_deemed_activity_electricity_savings', period)   
         regional_network_factor = buildings('HVAC2_PDRS__regional_network_factor', period)
 

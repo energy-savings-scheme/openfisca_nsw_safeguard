@@ -10,7 +10,6 @@ class RF1_peak_demand_savings_capacity(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Input Factor'
     metadata = {
         'alias': 'Peak demand savings capacity',
         'label': 'Peak demand savings capacity',

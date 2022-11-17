@@ -35,7 +35,7 @@
     
 - name: test SYS2 ESC calculation simple version
   period: 2022
-  absolute_error_margin: 0.5
+  absolute_error_margin: 1
   input: 
     SYS2_electricity_savings:
       [

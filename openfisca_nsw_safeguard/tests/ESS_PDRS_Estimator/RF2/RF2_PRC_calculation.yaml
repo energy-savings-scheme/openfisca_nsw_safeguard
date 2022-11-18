@@ -117,3 +117,29 @@
         388,
         91
       ]
+
+- name: test RF2 PRC not eligible on new installation
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    RF2_peak_demand_reduction_capacity:
+      [
+        100,
+        100
+      ]
+    RF2_network_loss_factor:
+      [
+        1.05,
+        1.05
+      ]
+    RF2_replacement_activity:
+      [
+        True,  #activity is a replacement
+        False  #activity is a new installation
+      ]
+  output:
+    RF2_PRC_calculation:
+      [
+        1050,
+        0
+      ]

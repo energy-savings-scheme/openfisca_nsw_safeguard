@@ -58,7 +58,7 @@
         15,
         15
       ]
-    SYS2_Replacement_Activity:
+    SYS2_replacement_activity:
       [
         False, #activity is a new installation
         True   #activity is a replacement

@@ -82,14 +82,13 @@ class RF2_baseline_peak_adjustment_factor(Variable):
       return baseline_peak_adjustment_factor
   
   
-  
 class RF2_PRC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'RF2 PRC calculation'
     metadata = {
-        'variable-type': 'output'
+        'label' : 'RF2 PRC calculation',
+        'variable-type' : 'output'
     }
     
     def formula(buildings, period, parameters):

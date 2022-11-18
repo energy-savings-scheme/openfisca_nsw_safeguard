@@ -135,3 +135,29 @@
         5.91,
         552.7 #RNF1, Zone 3, Ecogenica EG215F
       ]
+
+- name: test WH1 PRC not eligible on new installation
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    WH1_peak_demand_reduction_capacity:
+      [
+        120,
+        120
+      ]
+    PDRS_network_loss_factor:
+      [
+        1.05,
+        1.05
+      ]
+    WH1_replacement_activity:
+      [
+        False, #activity is a new installation
+        True   #activity is a replacement
+      ]
+  output:
+    WH1_PRC_calculation:
+      [
+        0,
+        1260
+      ]

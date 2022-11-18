@@ -122,7 +122,7 @@ class SYS1_ESC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'The number of ESCs for WH1'
+    label = 'The number of ESCs for SYS1'
     metadata = {
         "variable-type": "output"
     }

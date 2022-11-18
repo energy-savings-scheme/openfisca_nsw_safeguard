@@ -33,4 +33,4 @@ class SYS2_Replacement_Activity(Variable):
         'label': 'Replacement or new installation activity',
         'display_question': 'Is the activity a replacement of existing equipment?',
         'sorting' : 3
-        }
+    }

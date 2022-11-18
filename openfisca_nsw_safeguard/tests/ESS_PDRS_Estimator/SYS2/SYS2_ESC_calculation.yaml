@@ -35,7 +35,7 @@
     
 - name: test SYS2 ESC calculation simple version
   period: 2022
-  absolute_error_margin: 0.5
+  absolute_error_margin: 1
   input: 
     SYS2_electricity_savings:
       [
@@ -47,4 +47,25 @@
       [
         6.466,
         10.0488
+      ]
+
+- name: test SYS2 ESC not eligible on new installation
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_electricity_savings:
+      [
+        15,
+        15
+      ]
+    SYS2_Replacement_Activity:
+      [
+        False, #activity is a new installation
+        True   #activity is a replacement
+      ]
+  output:
+    SYS2_ESC_calculation:
+      [
+        0,
+        15.9
       ]

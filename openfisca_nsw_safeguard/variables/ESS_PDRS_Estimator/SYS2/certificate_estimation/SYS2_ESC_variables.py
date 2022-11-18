@@ -14,10 +14,23 @@ class SYS2_PDRS__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    metadata={
+    metadata = {
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
+        'label': 'Postcode',
         'display_question' : 'Postcode where the installation has taken place',
-        'sorting' : 1,
-        'label': 'Postcode'
+        'sorting' : 1
+        }
+
+
+class SYS2_Replacement_Activity(Variable):
+    value_type = bool
+    default_value = True
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'user-input',
+        'label': 'Replacement or new installation activity',
+        'display_question': 'Is the activity a replacement of existing equipment?',
+        'sorting' : 3
         }

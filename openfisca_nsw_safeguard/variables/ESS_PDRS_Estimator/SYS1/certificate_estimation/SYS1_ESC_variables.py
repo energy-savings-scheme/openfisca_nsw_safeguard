@@ -27,6 +27,18 @@ class SYS1_regional_network_factor(Variable):
         # is used to calculate a single value for regional network factor based on a zipcode provided
     
 
+class SYS1_replacement_activity(Variable):  
+    value_type = bool
+    default_value = False
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Replacement or new installation activity',
+        'display_question' : 'Is the activity a replacement of existing equipment?',
+        'sorting' : 3
+        }
+
 
 class SYS1_new_equipment_rated_output(Variable):
     reference = 'unit in kW'
@@ -38,7 +50,7 @@ class SYS1_new_equipment_rated_output(Variable):
         'variable-type' : 'user-input',
         'label' : 'Rated output of new equipment (kW)',
         'display_question' : 'What is the Rated Output of your new electric motor?',
-        'sorting' : 3
+        'sorting' : 7
     }
 
 
@@ -52,7 +64,7 @@ class SYS1_existing_equipment_rated_output(Variable):
         'variable-type' : 'user-input',
         'label' : 'Rated output of existing equipment (kW)',
         'display_question' : 'What is the Rated Output of your existing electric motor?',
-        'sorting' : 7    
+        'sorting' : 10
     }
 
     
@@ -65,7 +77,7 @@ class SYS1_new_efficiency(Variable):
     metadata = {
         'label': 'Efficiency of new equipment (%)',
         'display_question' : 'What is the full load efficiency of your new electric motor?',
-        'sorting' : 4        
+        'sorting' : 6 
     }
 
 
@@ -91,7 +103,7 @@ class SYS1_DNSP(Variable):
     }
 
 
-class SYS1_baseline_efficiency(Variable):
+class SYS1_new_equipment_baseline_efficiency(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -100,9 +112,9 @@ class SYS1_baseline_efficiency(Variable):
     }
 
     def formula(buildings, period, parameters):
-        SYS1_new_equipment_rated_output = buildings('SYS1_existing_equipment_rated_output', period)
-        motor_frequency = buildings('SYS1_motor_frequency', period)
-        no_of_poles = buildings('SYS1_no_of_poles', period)
+        new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
+        motor_frequency = buildings('SYS1_new_equipment_motor_frequency', period)
+        no_of_poles = buildings('SYS1_new_equipment_no_of_poles', period)
         
         frequency = np.select( [ 
                          motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
@@ -117,53 +129,120 @@ class SYS1_baseline_efficiency(Variable):
         node = parameters(period).PDRS.motors.motors_baseline_efficiency
         
         poles_2_value_50hz = node["poles_2"].rated_output.calc(
-            SYS1_new_equipment_rated_output, interpolate=True)
+            new_equipment_rated_output, interpolate=True)
         poles_4_value_50hz = node["poles_4"].rated_output.calc(
-            SYS1_new_equipment_rated_output, interpolate=True)
+            new_equipment_rated_output, interpolate=True)
         poles_6_value_50hz = node["poles_6"].rated_output.calc(
-            SYS1_new_equipment_rated_output, interpolate=True)
+            new_equipment_rated_output, interpolate=True)
         poles_8_value_50hz = node["poles_8"].rated_output.calc(
-            SYS1_new_equipment_rated_output, interpolate=True)
+            new_equipment_rated_output, interpolate=True)
 
         poles_2_value_60hz = node["poles_2_60hz"].rated_output.calc(
-            SYS1_new_equipment_rated_output, interpolate=True)
+            new_equipment_rated_output, interpolate=True)
         poles_4_value_60hz = node["poles_4_60hz"].rated_output.calc(
-            SYS1_new_equipment_rated_output, interpolate=True)
+            new_equipment_rated_output, interpolate=True)
         poles_6_value_60hz = node["poles_6_60hz"].rated_output.calc(
-            SYS1_new_equipment_rated_output, interpolate=True)
+            new_equipment_rated_output, interpolate=True)
         poles_8_value_60hz = node["poles_8_60hz"].rated_output.calc(
-            SYS1_new_equipment_rated_output, interpolate=True)
+            new_equipment_rated_output, interpolate=True)
         
-        be = np.select([
-                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_2, frequency == '50hz'),
-                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_4, frequency == '50hz'),
-                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_6, frequency == '50hz'),
-                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_8, frequency == '50hz'),
-                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_2, frequency == '60hz'),
-                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_4, frequency == '60hz'),
-                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_6, frequency == '60hz'),
-                        np.logical_and(no_of_poles == SYS1_no_of_poles.possible_values.poles_8, frequency == '60hz')
-                    ],
-                    [
-                        poles_2_value_50hz, 
-                        poles_4_value_50hz,
-                        poles_6_value_50hz, 
-                        poles_8_value_50hz, 
-                        poles_2_value_60hz,
-                        poles_4_value_60hz,
-                        poles_6_value_60hz,
-                        poles_8_value_60hz
-                    ], 0)
+        new_equipment_baseline_efficiency = np.select([
+                                                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles.possible_values.poles_2, frequency == '50hz'),
+                                                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles.possible_values.poles_4, frequency == '50hz'),
+                                                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles.possible_values.poles_6, frequency == '50hz'),
+                                                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles.possible_values.poles_8, frequency == '50hz'),
+                                                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles.possible_values.poles_2, frequency == '60hz'),
+                                                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles.possible_values.poles_4, frequency == '60hz'),
+                                                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles.possible_values.poles_6, frequency == '60hz'),
+                                                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles.possible_values.poles_8, frequency == '60hz')
+                                            ],
+                                            [
+                                                poles_2_value_50hz, 
+                                                poles_4_value_50hz,
+                                                poles_6_value_50hz, 
+                                                poles_8_value_50hz, 
+                                                poles_2_value_60hz,
+                                                poles_4_value_60hz,
+                                                poles_6_value_60hz,
+                                                poles_8_value_60hz
+                                            ], 0)
 
-        return be
-    
+        return new_equipment_baseline_efficiency
+
+
+class SYS1_existing_equipment_baseline_efficiency(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        "variable-type": "inter-interesting"
+    }
+
+    def formula(buildings, period, parameters):
+        existing_equipment_rated_output = buildings('SYS1_existing_equipment_rated_output', period)
+        motor_frequency = buildings('SYS1_existing_equipment_motor_frequency', period)
+        no_of_poles = buildings('SYS1_existing_equipment_no_of_poles', period)
+        
+        frequency = np.select( [ 
+                         motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
+                         motor_frequency == SYS1_motor_frequency_Options.motor_60_hz
+                        ],
+            [ 
+                '50hz',
+                '60hz'
+            ]
+        )
+        
+        node = parameters(period).PDRS.motors.motors_baseline_efficiency
+        
+        poles_2_value_50hz = node["poles_2"].rated_output.calc(
+            existing_equipment_rated_output, interpolate=True)
+        poles_4_value_50hz = node["poles_4"].rated_output.calc(
+            existing_equipment_rated_output, interpolate=True)
+        poles_6_value_50hz = node["poles_6"].rated_output.calc(
+            existing_equipment_rated_output, interpolate=True)
+        poles_8_value_50hz = node["poles_8"].rated_output.calc(
+            existing_equipment_rated_output, interpolate=True)
+
+        poles_2_value_60hz = node["poles_2_60hz"].rated_output.calc(
+            existing_equipment_rated_output, interpolate=True)
+        poles_4_value_60hz = node["poles_4_60hz"].rated_output.calc(
+            existing_equipment_rated_output, interpolate=True)
+        poles_6_value_60hz = node["poles_6_60hz"].rated_output.calc(
+            existing_equipment_rated_output, interpolate=True)
+        poles_8_value_60hz = node["poles_8_60hz"].rated_output.calc(
+            existing_equipment_rated_output, interpolate=True)
+        
+        existing_equipment_baseline_efficiency = np.select([
+                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles.possible_values.poles_2, frequency == '50hz'),
+                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles.possible_values.poles_4, frequency == '50hz'),
+                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles.possible_values.poles_6, frequency == '50hz'),
+                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles.possible_values.poles_8, frequency == '50hz'),
+                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles.possible_values.poles_2, frequency == '60hz'),
+                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles.possible_values.poles_4, frequency == '60hz'),
+                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles.possible_values.poles_6, frequency == '60hz'),
+                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles.possible_values.poles_8, frequency == '60hz')
+                                                ],
+                                                [
+                                                    poles_2_value_50hz, 
+                                                    poles_4_value_50hz,
+                                                    poles_6_value_50hz, 
+                                                    poles_8_value_50hz, 
+                                                    poles_2_value_60hz,
+                                                    poles_4_value_60hz,
+                                                    poles_6_value_60hz,
+                                                    poles_8_value_60hz
+                                                ], 0)
+
+        return existing_equipment_baseline_efficiency
+
 
 class SYS1_motor_frequency_Options(Enum):
     motor_50_hz = '50 hz'
     motor_60_hz = '60 hz'
 
 
-class SYS1_motor_frequency(Variable):
+class SYS1_new_equipment_motor_frequency(Variable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_motor_frequency_Options
@@ -174,7 +253,22 @@ class SYS1_motor_frequency(Variable):
         'variable-type': 'user-input',
         'label': 'Motor Frequency (hz)',
         'display_question' : 'What is the frequency of your existing motor power supply?',
-        'sorting' : 8        
+        'sorting' : 8
+    }
+
+
+class SYS1_existing_equipment_motor_frequency(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = SYS1_motor_frequency_Options
+    default_value = SYS1_motor_frequency_Options.motor_50_hz
+    definition_period = ETERNITY
+    label = "Motor Frequency (hz)"
+    metadata = {
+        'variable-type': 'user-input',
+        'label': 'Motor Frequency (hz)',
+        'display_question' : 'What is the frequency of your existing motor power supply?',
+        'sorting' : 11
     }
 
 
@@ -185,7 +279,7 @@ class SYS1_no_of_poles_Options(Enum):
     poles_8 = '8 poles'
 
 
-class SYS1_no_of_poles(Variable):
+class SYS1_new_equipment_no_of_poles(Variable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_no_of_poles_Options
@@ -198,8 +292,23 @@ class SYS1_no_of_poles(Variable):
         'display_question' : 'How many poles is your existing motor?',
         'sorting' : 9
     }
-    
-    
+
+
+class SYS1_existing_equipment_no_of_poles(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = SYS1_no_of_poles_Options
+    default_value = SYS1_no_of_poles_Options.poles_2
+    definition_period = ETERNITY
+    label = "Number of poles"
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Number of poles',
+        'display_question' : 'How many poles is your existing motor?',
+        'sorting' : 12
+    }
+
+
 class SYS1_BusinessClassification_Options(Enum):
     unknown = 'Unknown'
     division_A = 'Division A (Agricultural, Forestry and Fishing) business'
@@ -233,7 +342,7 @@ class SYS1_business_classification(Variable):
         'variable-type': 'user-input',
         'label' : 'Business Classification',
         'display_question' : 'What is the business classification of your new clectric motor?',
-        'sorting' : 7
+        'sorting' : 4
     }
     
     
@@ -270,5 +379,5 @@ class SYS1_end_use_service(Variable):
         'variable-type' : 'user-input',
         'label' : 'End Use Service',
         'display_question' : 'What is the End Use Service for the implementation?',
-        'sorting' : 6
+        'sorting' : 5
     }

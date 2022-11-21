@@ -1,3 +1,173 @@
+- name: test SYS1 new equipment baseline efficiency
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS1_new_equipment_rated_output:
+      [
+        3,
+        11
+      ]
+    SYS1_new_equipment_motor_frequency:
+      [
+        motor_50_hz,
+        motor_60_hz
+      ]
+    SYS1_new_equipment_no_of_poles:
+      [
+        poles_6,
+        poles_2
+      ]
+  output:
+    SYS1_new_equipment_baseline_efficiency:
+      [
+        83.3,
+        90.2
+      ]
+
+- name: test SYS1 existing equipment baseline efficiency
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS1_existing_equipment_rated_output:
+      [
+        0.73,
+        26 #interpolation of 22 and 30 on table F7.3
+      ]
+    SYS1_existing_equipment_motor_frequency:
+      [
+        motor_60_hz,
+        motor_60_hz
+      ]
+    SYS1_existing_equipment_no_of_poles:
+      [
+        poles_4,
+        poles_8
+      ]
+  output:
+    SYS1_existing_equipment_baseline_efficiency:
+      [
+        78,
+        90.25
+      ]
+
+- name: test SYS1 load utilisation factor
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    SYS1_business_classification:
+      [
+        division_B,
+        division_N
+      ]
+    SYS1_end_use_service:
+      [
+        air_compression,
+        refrigeration
+      ]
+  output:
+    SYS1_load_utilisation_factor:
+      [ 
+        0.32,
+        0.11
+      ]
+
+- name: test SYS1 deemed activity electricity savings 
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS1_replacement_activity:
+      [
+        false, #new install
+        true   #replacement
+      ]
+    SYS1_new_equipment_rated_output:
+      [
+        110,
+        110
+      ]
+    SYS1_new_equipment_baseline_efficiency:
+      [
+        300,
+        0
+      ]
+    SYS1_existing_equipment_baseline_efficiency:
+      [
+        100,
+        300
+      ]
+    SYS1_new_efficiency:
+      [
+        90,
+        90
+      ]
+    SYS1_load_utilisation_factor:
+      [
+        20,
+        20
+      ]
+    SYS1_asset_life:
+      [
+        25,
+        25
+      ]
+  output:
+    SYS1_deemed_activity_electricity_savings:
+      [
+        -374733.328,
+        -374733.328
+      ]
+
+- name: test SYS1 electricity savings
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    SYS1_replacement_activity:
+      [
+        false, #new install
+        true   #replacement
+      ]
+    SYS1_new_equipment_rated_output:
+      [
+        110,
+        600
+      ]
+    SYS1_new_equipment_baseline_efficiency:
+      [
+        300,
+        5
+      ]
+    SYS1_existing_equipment_baseline_efficiency:
+      [
+        100,
+        300
+      ]
+    SYS1_new_efficiency:
+      [
+        90,
+        2000
+      ]
+    SYS1_load_utilisation_factor:
+      [
+        20,
+        20
+      ]
+    SYS1_asset_life:
+      [
+        25,
+        25
+      ]
+    SYS1_PDRS__postcode:
+      [
+        2321, #1.03
+        2313  #1
+      ]
+  output:
+    SYS1_electricity_savings:
+      [
+        -385975.328,
+        744600
+      ]
+
 - name: test SYS1 ESC calculation
   period: 2022
   absolute_error_margin: 0.5
@@ -7,7 +177,7 @@
         22,
         32
       ]
-    SYS1_baseline_efficiency:
+    SYS1_new_equipment_baseline_efficiency:
      [
        10.7,
        9.54
@@ -29,58 +199,12 @@
       ]
     SYS1_PDRS__postcode:
       [
-        2321, # 1.03
-        2313   # 1
+        2321, #1.03
+        2313  #1
       ]
   output:
     SYS1_ESC_calculation:
       [
         335393.7,
-        0
-      ]
-
-- name: test SYS1 ESC calculation with DNSP
-  period: 2022
-  absolute_error_margin: 0.5
-  input:
-    SYS1_no_of_poles: 
-      [
-        two_poles
-      ]
-    SYS1_DNSP: 
-      [
-        Ausgrid
-      ]
-    SYS1_new_equipment_rated_output:
-      [
-        20
-      ]
-    SYS1_new_efficiency:
-      [
-        13
-      ]
-    SYS1_PDRS__postcode:
-      [
-        2017
-      ]
-    SYS1_business_classification:
-      [
-        unknown
-      ]
-    SYS1_end_use_service:
-      [
-        unknown
-      ]
-    SYS1_existing_equipment_rated_output:
-      [
-        23
-      ]
-    SYS1_motor_frequency:
-      [
-        motor_50_hz
-      ]
-  output:
-    SYS1_ESC_calculation:
-      [
         0
       ]

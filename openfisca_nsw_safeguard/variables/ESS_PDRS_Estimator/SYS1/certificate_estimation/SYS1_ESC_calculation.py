@@ -52,9 +52,9 @@ class SYS1_load_utilisation_factor(Variable):
     }
 
     def formula(buildings, period, parameters):
-        rated_output = buildings('SYS1_new_equipment_rated_output', period)        
-        SYS1_business_classification = buildings('SYS1_business_classification', period)
-        SYS1_end_use_service = buildings('SYS1_end_use_service', period)
+        rated_output = buildings('SYS1_new_equipment_rated_output', period)
+        business_classification = buildings('SYS1_business_classification', period)
+        end_use_service = buildings('SYS1_end_use_service', period)
         
         rated_output = np.select([
             (rated_output < 0.73), 
@@ -63,7 +63,7 @@ class SYS1_load_utilisation_factor(Variable):
             ((rated_output >= 9.2) * (rated_output < 41)),    
             ((rated_output >= 41) * (rated_output < 100)),    
             ((rated_output >= 100) * (rated_output < 185)),    
-            (rated_output > 185), 
+            (rated_output > 185),
         ],
         [
             'under_0.73_kW',
@@ -73,12 +73,17 @@ class SYS1_load_utilisation_factor(Variable):
             '41_to_100kW',
             '100_to_185kW',
             'over_185kW'
-        ]
-        )
-        load_utilisation_factor = (parameters(period).ESS.HEAB.table_F7_1['load_utilisation_factor'][SYS1_business_classification][SYS1_end_use_service])
+        ])
 
-        load_utilisation_factor = np.where(load_utilisation_factor == 0,
-        (parameters(period).ESS.HEAB.table_F7_2['load_utilisation_factor'][rated_output]), load_utilisation_factor)
+        load_utilisation_factor = np.select(
+            [
+                business_classification, #business classification known
+                business_classification == 0 * end_use_service == 0 #business classification or end use service not known
+            ],
+            [
+                parameters(period).ESS.HEAB.table_F7_2['load_utilisation_factor'][rated_output],
+                parameters(period).ESS.HEAB.table_F7_1['load_utilisation_factor'][business_classification][end_use_service]
+            ])
 
         return load_utilisation_factor
 
@@ -92,15 +97,28 @@ class SYS1_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        SYS1_new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
-        SYS1_baseline_efficiency = buildings('SYS1_baseline_efficiency', period)
-        SYS1_new_efficiency = buildings('SYS1_new_efficiency', period)
-        SYS1_load_utilisation_factor = buildings('SYS1_load_utilisation_factor', period)
-        SYS1_asset_life = buildings('SYS1_asset_life', period)
+        replacement_activity = buildings('SYS1_replacement_activity', period)
+        new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
+        new_equipment_baseline_efficiency = buildings('SYS1_new_equipment_baseline_efficiency', period)
+        existing_equipment_baseline_efficiency = buildings('SYS1_existing_equipment_baseline_efficiency', period)
+        new_efficiency = buildings('SYS1_new_efficiency', period)
+        load_utilisation_factor = buildings('SYS1_load_utilisation_factor', period)
+        asset_life = buildings('SYS1_asset_life', period)
 
-        temp_calc_1 = ( SYS1_new_equipment_rated_output / (SYS1_baseline_efficiency / 100))
-        temp_calc_2 = ( SYS1_new_equipment_rated_output / (SYS1_new_efficiency / 100))
-        temp_calc_3 = (SYS1_load_utilisation_factor * SYS1_asset_life * ( 8760 / 1000 ))
+        new_vs_existing_equipment_baseline = np.select(
+            [
+                np.logical_not(replacement_activity), #new install
+                replacement_activity,
+            ],
+            [
+                new_equipment_baseline_efficiency,
+                existing_equipment_baseline_efficiency
+            ])
+            
+        temp_calc_1 = ( new_equipment_rated_output / (new_vs_existing_equipment_baseline / 100))
+        temp_calc_2 = ( new_equipment_rated_output / (new_efficiency / 100))
+        temp_calc_3 = (load_utilisation_factor * asset_life * ( 8760 / 1000 ))
+
         return ((temp_calc_1 - temp_calc_2) * temp_calc_3)
 
 
@@ -114,8 +132,8 @@ class SYS1_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         deemed_electricity_savings = buildings('SYS1_deemed_activity_electricity_savings', period)
-        regional_nw_factor = buildings('SYS1_regional_network_factor', period)
-        return deemed_electricity_savings * regional_nw_factor
+        regional_network_factor = buildings('SYS1_regional_network_factor', period)
+        return deemed_electricity_savings * regional_network_factor
 
 
 class SYS1_ESC_calculation(Variable):

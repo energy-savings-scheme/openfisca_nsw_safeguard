@@ -57,18 +57,31 @@
     SYS1_business_classification:
       [
         division_B,
-        division_N
+        division_N,
+        unknown,
+        division_E
       ]
     SYS1_end_use_service:
       [
         air_compression,
-        refrigeration
+        refrigeration,
+        communications,
+        unknown
+      ]
+    SYS1_new_equipment_rated_output:
+      [
+        7,
+        5,
+        9.2,
+        120
       ]
   output:
     SYS1_load_utilisation_factor:
       [ 
         0.32,
-        0.11
+        0.11,
+        0.10,
+        0.15
       ]
 
 - name: test SYS1 deemed activity electricity savings 

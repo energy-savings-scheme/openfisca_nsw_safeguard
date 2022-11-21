@@ -42,52 +42,6 @@ class SYS1_asset_life(Variable):
         return asset_life
 
 
-class SYS1_load_utilisation_factor(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Input power (kW)'
-    metadata = {
-        "variable-type": "inter-interesting"
-    }
-
-    def formula(buildings, period, parameters):
-        rated_output = buildings('SYS1_new_equipment_rated_output', period)
-        business_classification = buildings('SYS1_business_classification', period)
-        end_use_service = buildings('SYS1_end_use_service', period)
-        
-        rated_output = np.select([
-            (rated_output < 0.73), 
-            ((rated_output >= 0.73) * (rated_output < 2.6)),    
-            ((rated_output >= 2.6) * (rated_output < 9.2)),    
-            ((rated_output >= 9.2) * (rated_output < 41)),    
-            ((rated_output >= 41) * (rated_output < 100)),    
-            ((rated_output >= 100) * (rated_output < 185)),    
-            (rated_output > 185),
-        ],
-        [
-            'under_0.73_kW',
-            '0.73_to_2.6kW',
-            '2.6_to_9.2kW',
-            '9.2_to_41kW',
-            '41_to_100kW',
-            '100_to_185kW',
-            'over_185kW'
-        ])
-
-        load_utilisation_factor = np.select(
-            [
-                business_classification, #business classification known
-                business_classification == 0 * end_use_service == 0 #business classification or end use service not known
-            ],
-            [
-                parameters(period).ESS.HEAB.table_F7_2['load_utilisation_factor'][rated_output],
-                parameters(period).ESS.HEAB.table_F7_1['load_utilisation_factor'][business_classification][end_use_service]
-            ])
-
-        return load_utilisation_factor
-
-
 class SYS1_deemed_activity_electricity_savings(Variable):
     value_type = float
     entity = Building

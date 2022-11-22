@@ -70,7 +70,7 @@ class HVAC2_New_Equipment(Variable):
     label = 'New or Used equipment'
     metadata = {
         'variable-type': 'user-input',
-        'display_question': 'Is the end-user equipment a new air-conditioner?',
+        'display_question': 'Is the End-User equipment a new air-conditioner?',
         'sorting' : 3,
         'label': 'New or Used equipment'
         }

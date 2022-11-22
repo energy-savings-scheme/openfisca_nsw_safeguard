@@ -94,7 +94,7 @@ class SYS2_ESC_calculation(Variable):
         electricity_savings = buildings('SYS2_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
         #there is no gas option for this activity
-        replacement_activity = buildings('SYS2_Replacement_Activity', period)
+        replacement_activity = buildings('SYS2_replacement_activity', period)
         
         SYS2_eligible_ESCs = np.select(
             [

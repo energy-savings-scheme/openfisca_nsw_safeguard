@@ -80,28 +80,38 @@ class RF2_baseline_peak_adjustment_factor(Variable):
         # 1.14
       baseline_peak_adjustment_factor = temperature_factor * usage_factor
       return baseline_peak_adjustment_factor
-  
-  
-  
+
+
 class RF2_PRC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'RF2 PRC calculation'
     metadata = {
-        'variable-type': 'output'
+        'label' : 'The number of PRCs for RF2',
+        'variable-type' : 'output'
     }
-    
+
     def formula(buildings, period, parameters):
-        peak_demand_reduction_capacity = buildings('RF2_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('RF2_network_loss_factor', period) 
-        
-        result = (peak_demand_reduction_capacity * network_loss_factor * 10)
-        
-        result_to_return = np.select([
-                result <= 0, result > 0
-            ], [
-                0, result
+        peak_demand_capacity = buildings('RF2_peak_demand_reduction_capacity', period)
+        network_loss_factor = buildings('RF2_network_loss_factor', period)
+        kw_to_0_1kw = 10
+        replacement_activity = buildings('RF2_replacement_activity', period)
+
+        RF2_eligible_PRCs = np.select(
+            [
+                replacement_activity,
+                np.logical_not(replacement_activity)
+            ],
+            [
+                (peak_demand_capacity * network_loss_factor * kw_to_0_1kw),
+                0
             ])
-        
+
+        result_to_return = np.select(
+            [
+                RF2_eligible_PRCs <= 0, RF2_eligible_PRCs > 0
+            ],
+            [
+                0, RF2_eligible_PRCs
+            ])
         return result_to_return

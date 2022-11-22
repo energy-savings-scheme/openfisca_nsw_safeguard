@@ -23,7 +23,7 @@ class SYS2_PDRS__postcode(Variable):
         }
 
 
-class SYS2_Replacement_Activity(Variable):
+class SYS2_replacement_activity(Variable):
     value_type = bool
     default_value = True
     entity = Building

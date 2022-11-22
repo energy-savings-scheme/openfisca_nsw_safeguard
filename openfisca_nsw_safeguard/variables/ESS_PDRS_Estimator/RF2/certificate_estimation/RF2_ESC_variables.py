@@ -44,7 +44,7 @@ class RF2_af(Variable):
   def formula(buildings, period, parameters):
     product_class = buildings('RF2_product_class', period)
     duty_type = buildings('RF2_duty_class', period)
-    new_equipment = buildings('RF2_new_equipment', period)
+    new_equipment = buildings('RF2_replacement_activity', period)
     
     af = np.select(
       [ 
@@ -67,17 +67,17 @@ class RF2_baseline_EEI(Variable):
   def formula(buildings, period, parameters):
     product_class = buildings('RF2_product_class', period)
     duty_type = buildings('RF2_duty_class', period)
-    new_equipment = buildings('RF2_new_equipment', period)
+    replacement_activity = buildings('RF2_replacement_activity', period)
 
     baseline_EEI = np.select(
       [ 
-        new_equipment, 
-        np.logical_not(new_equipment)
+        replacement_activity,
+        np.logical_not(replacement_activity)
       ],
       [ 
-        parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type],
-        parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type]
-       ]
+        parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type],
+        parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
+      ]
     )    
     return baseline_EEI
 
@@ -270,15 +270,14 @@ class RF2_PDRS__postcode(Variable):
         }
 
 
-class RF2_new_equipment(Variable):  
+class RF2_replacement_activity(Variable):  
     value_type = bool
     default_value = True
     entity = Building
     definition_period = ETERNITY
-    label = 'New or Used equipment'
     metadata = {
-        'variable-type': 'user-input',
-        'label' : 'New or Used equipment',
-        'display_question' : 'Is the end-user equipment a new commercial refrigerated cabinet?',
+        'variable-type' : 'user-input',
+        'label' : 'Replacement or new installation activity',
+        'display_question' : 'Is the activity a replacement of existing equipment?',
         'sorting' : 3
         }

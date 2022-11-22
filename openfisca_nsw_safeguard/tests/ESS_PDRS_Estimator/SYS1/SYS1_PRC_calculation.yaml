@@ -1,3 +1,111 @@
+- name: test SYS1 baseline input power
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    SYS1_new_equipment_rated_output:
+      [
+        160  #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    SYS1_new_equipment_baseline_efficiency:
+      [
+        94.9
+      ]
+  output:
+    SYS1_baseline_input_power:
+      [
+        168.60
+      ]
+
+- name: test SYS1 baseline peak adjustment power
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    SYS1_BCA_climate_zone_by_postcode:
+      [
+        BCA_Climate_Zone_6 #temp factor 1.04
+      ]
+  output:
+    SYS1_baseline_peak_adjustment_factor:
+      [
+        0.624
+      ]
+
+- name: test SYS1 input power
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    SYS1_new_equipment_rated_output:
+      [
+        160 #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    SYS1_new_efficiency:
+      [
+        95.7
+      ]
+  output:
+    SYS1_input_power:
+      [
+        167.189
+      ]
+
+- name: test SYS1 peak demand savings capacity
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    SYS1_baseline_input_power:
+      [
+        168.60 #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    SYS1_baseline_peak_adjustment_factor:
+      [
+        0.624
+      ]
+    SYS1_input_power:
+      [
+        167.189
+      ]
+  output:
+    SYS1_peak_demand_savings_capacity:
+      [
+        0.88
+      ]
+
+- name: test SYS1 peak demand reduction capacity
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    SYS1_peak_demand_savings_capacity:
+      [
+        0.88 #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    SYS1_new_equipment_rated_output:
+      [
+        160
+      ]
+  output:
+    SYS1_peak_demand_reduction_capacity:
+      [
+        132
+      ]
+
+- name: test SYS1 PRC calculation simple
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS1_peak_demand_reduction_capacity:
+      [
+        132 #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    SYS1_network_loss_factor:
+      [
+        1.05
+      ]
+  output:
+    SYS1_PRC_calculation:
+      [
+        1386
+      ]
+
 - name: test SYS1 PRC calculation
   period: 2022
   absolute_error_margin: 0.5
@@ -19,8 +127,8 @@
      ]
     SYS1_DNSP:
       [
-        Ausgrid,  #1.03
-        Endeavour #1
+        Ausgrid,   #1.03
+        Endeavour  #1
       ]
     SYS1_BCA_climate_zone_by_postcode:
       [
@@ -30,6 +138,6 @@
   output:
     SYS1_PRC_calculation:
       [
-        34.63,
+        0,
         0
       ]

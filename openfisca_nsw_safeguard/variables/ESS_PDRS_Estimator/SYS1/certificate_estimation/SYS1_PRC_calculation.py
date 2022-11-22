@@ -21,7 +21,7 @@ class SYS1_baseline_input_power(Variable):
         SYS1_new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
         SYS1_baseline_efficiency = buildings('SYS1_new_equipment_baseline_efficiency', period)
 
-        baseline_input_power = SYS1_new_equipment_rated_output * (SYS1_baseline_efficiency/100)
+        baseline_input_power = SYS1_new_equipment_rated_output / (SYS1_baseline_efficiency/100)
         return baseline_input_power
     
     
@@ -57,7 +57,7 @@ class SYS1_input_power(Variable):
         SYS1_new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
         SYS1_new_efficiency = buildings('SYS1_new_efficiency', period)
 
-        input_power = (SYS1_new_equipment_rated_output * (SYS1_new_efficiency / 100))
+        input_power = (SYS1_new_equipment_rated_output / (SYS1_new_efficiency / 100))
         return input_power
 
 

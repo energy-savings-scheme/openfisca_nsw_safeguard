@@ -19,7 +19,7 @@ class SYS1_baseline_input_power(Variable):
     def formula(buildings, period, parameters):
         # user input
         SYS1_new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
-        SYS1_baseline_efficiency = buildings('SYS1_baseline_efficiency', period)
+        SYS1_baseline_efficiency = buildings('SYS1_new_equipment_baseline_efficiency', period)
 
         baseline_input_power = SYS1_new_equipment_rated_output * (SYS1_baseline_efficiency/100)
         return baseline_input_power

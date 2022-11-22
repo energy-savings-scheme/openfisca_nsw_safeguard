@@ -12,15 +12,15 @@
         2.2,
         3.2
       ]
-    SYS1_baseline_efficiency:
+    SYS1_new_equipment_baseline_efficiency:
      [
        10.7,
        9.54
      ]
     SYS1_DNSP:
       [
-        Ausgrid, # 1.03
-        Endeavour   # 1
+        Ausgrid,  #1.03
+        Endeavour #1
       ]
     SYS1_BCA_climate_zone_by_postcode:
       [

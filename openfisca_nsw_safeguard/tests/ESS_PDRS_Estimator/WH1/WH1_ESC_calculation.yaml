@@ -145,3 +145,29 @@
         522.1226,
         82.71179
       ]
+
+- name: test WH1 ESC not eligible on new installation
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    WH1_electricity_savings:
+      [
+        15,
+        15
+      ]
+    WH1_deemed_activity_gas_savings:
+      [
+        35,
+        35
+      ]
+    WH1_replacement_activity:
+      [
+        False, #activity is a new installation
+        True   #activity is a replacement
+      ]
+  output:
+    WH1_ESC_calculation:
+      [
+        0,
+        29.55
+      ]

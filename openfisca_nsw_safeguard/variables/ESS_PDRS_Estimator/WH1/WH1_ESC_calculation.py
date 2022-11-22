@@ -111,9 +111,9 @@ class WH1_ESC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'The number of ESCs for WH1'
     metadata = {
-        "variable-type": "output"
+        'variable-type' : 'output',
+        'label' : 'The number of ESCs for WH1'
     }
 
     def formula(buildings, period, parameters):
@@ -121,11 +121,23 @@ class WH1_ESC_calculation(Variable):
         electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('WH1_deemed_activity_gas_savings', period) #gas savings and deemed activity gas savings are the same value
         gas_certificate_conversion_factor = 0.39
+        replacement_activity = buildings('WH1_replacement_activity', period)
 
-        result = (electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor)
-        result_to_return = np.select([
-                result < 0, result > 0
-            ], [
-                0, result
+        WH1_eligible_ESCs = np.select(
+            [
+                replacement_activity,
+                np.logical_not(replacement_activity)
+            ],
+            [
+                (electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor),
+                0
+            ])
+
+        result_to_return = np.select(
+            [
+                WH1_eligible_ESCs <= 0, WH1_eligible_ESCs > 0
+            ],
+            [
+                0, WH1_eligible_ESCs
             ])
         return result_to_return

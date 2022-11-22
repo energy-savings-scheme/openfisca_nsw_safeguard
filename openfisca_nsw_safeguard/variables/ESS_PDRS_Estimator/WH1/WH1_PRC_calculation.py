@@ -83,22 +83,33 @@ class WH1_PRC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'The number of PRCs for WH1'
     metadata = {
-        "variable-type": "output"
+        'label' : 'The number of PRCs for WH1',
+        'variable-type' : 'output'
     }
 
     def formula(buildings, period, parameters):
         peak_demand_capacity = buildings('WH1_peak_demand_reduction_capacity', period)
         network_loss_factor = buildings('PDRS_network_loss_factor', period)
         kw_to_0_1kw = 10
-        
-        result = peak_demand_capacity * network_loss_factor * kw_to_0_1kw 
-        
-        result_to_return = np.select([
-                result < 0, result > 0
-            ], [
-                0, result
+        replacement_activity = buildings('WH1_replacement_activity', period)
+
+        WH1_eligible_PRCs = np.select(
+            [
+                replacement_activity,
+                np.logical_not(replacement_activity)
+            ],
+            [
+                (peak_demand_capacity * network_loss_factor * kw_to_0_1kw),
+                0
             ])
 
+        result_to_return = np.select(
+            [
+                WH1_eligible_PRCs <= 0, WH1_eligible_PRCs > 0
+            ],
+            [
+                0, WH1_eligible_PRCs
+            ])
         return result_to_return
+

@@ -80,8 +80,8 @@ class RF2_baseline_peak_adjustment_factor(Variable):
         # 1.14
       baseline_peak_adjustment_factor = temperature_factor * usage_factor
       return baseline_peak_adjustment_factor
-
-
+  
+  
 class RF2_PRC_calculation(Variable):
     value_type = float
     entity = Building

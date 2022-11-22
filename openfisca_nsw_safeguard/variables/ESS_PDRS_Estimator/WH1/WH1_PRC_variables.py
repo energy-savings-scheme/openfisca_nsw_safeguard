@@ -24,7 +24,7 @@ class WH1_annual_energy_savings(Variable):
     label = 'Annual energy savings (%/year)'
     metadata = {
         'display_question': 'Annual energy savings as a percentage per year',
-        'sorting' : 8,
+        'sorting' : 9,
         'variable-type': 'input',
         'label': 'Annual energy savings (%/year)'
     }
@@ -98,4 +98,4 @@ class WH1_PDRS__postcode(Variable):
         'display_question' : 'Postcode where the installation has taken place',
         'sorting' : 1,
         'label': 'Postcode'
-        }
+    }

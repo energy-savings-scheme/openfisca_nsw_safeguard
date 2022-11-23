@@ -252,7 +252,7 @@ class SYS1_new_equipment_motor_frequency(Variable):
     metadata = {
         'variable-type': 'user-input',
         'label': 'Motor Frequency (hz)',
-        'display_question' : 'What is the frequency of your existing motor power supply?',
+        'display_question' : 'What is the frequency of your new motor power supply?',
         'sorting' : 8
     }
 
@@ -289,7 +289,7 @@ class SYS1_new_equipment_no_of_poles(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Number of poles',
-        'display_question' : 'How many poles is your existing motor?',
+        'display_question' : 'How many poles is your new motor?',
         'sorting' : 9
     }
 

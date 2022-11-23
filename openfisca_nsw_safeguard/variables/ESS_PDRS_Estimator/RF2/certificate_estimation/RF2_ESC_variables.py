@@ -56,6 +56,7 @@ class RF2_af(Variable):
         parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
        ]
     )
+    return af
     
     
 class RF2_baseline_EEI(Variable):

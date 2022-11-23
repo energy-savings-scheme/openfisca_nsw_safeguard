@@ -58,6 +58,8 @@ class RF2_af(Variable):
     )
     return af
     
+    return af
+    
     
 class RF2_baseline_EEI(Variable):
   value_type = float

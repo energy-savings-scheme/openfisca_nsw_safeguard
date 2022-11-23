@@ -6,15 +6,15 @@ on:
   workflow_dispatch: # Manual github trigger (by pressing "Run workflow" on Github "Actions" tab)
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run test suite (includes pip install)
-        run: make test
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Run test suite (includes pip install)
+#         run: openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
 
   deploy:
-    needs: test
+#     needs: test
     name: Build
     runs-on: ubuntu-latest
     steps:

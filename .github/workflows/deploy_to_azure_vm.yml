@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run test suite (includes pip install)
-        run: make test
+        run: openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
 
   deploy:
     needs: test

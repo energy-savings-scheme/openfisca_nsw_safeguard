@@ -2019,8 +2019,8 @@ input_power:
     nine_and_a_half_stars:
       single_speed_pool_pump:
         values:
-          2021-01-01:.106
-            value: 0
+          2021-01-01:
+            value: 0.106
       variable_speed_pool_pump:
         values:
           2021-01-01:

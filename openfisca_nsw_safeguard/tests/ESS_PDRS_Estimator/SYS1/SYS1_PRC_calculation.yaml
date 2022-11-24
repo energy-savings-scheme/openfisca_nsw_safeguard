@@ -113,31 +113,37 @@
     SYS1_new_efficiency: 
       [
         3.4,
-        5.6
+        5.6,
+        95.5 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_new_equipment_rated_output:
       [
         2.2,
-        3.2
+        3.2,
+        160
       ]
     SYS1_new_equipment_baseline_efficiency:
      [
-       10.7,
-       9.54
+        10.7,
+        9.54,
+        94.9
      ]
     SYS1_DNSP:
       [
         Ausgrid,   #1.03
+        Endeavour, #1
         Endeavour  #1
       ]
     SYS1_BCA_climate_zone_by_postcode:
       [
         BCA_Climate_Zone_2,
-        BCA_Climate_Zone_3
+        BCA_Climate_Zone_3,
+        BCA_Climate_Zone_6
       ]
   output:
     SYS1_PRC_calculation:
       [
         0,
-        0
+        0,
+        1041
       ]

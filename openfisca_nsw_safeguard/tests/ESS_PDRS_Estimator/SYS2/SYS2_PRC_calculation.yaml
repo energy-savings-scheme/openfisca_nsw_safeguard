@@ -1,18 +1,20 @@
-- name: test SYS2 baseline input power
-  period: 2022
-  absolute_error_margin: 0.5
-  input:
-    SYS2_pool_size_int:
-      [
-        30001_to_40000_L,
-        under_20000_L
-      ]
-  output:
-    SYS2_baseline_input_power:
-      [
-        0.370,
-        0.202
-      ]
+# - name: test SYS2 baseline input power
+#   period: 2022
+#   absolute_error_margin: 0.5
+#   input:
+#     SYS2_pool_size_int:
+#       [
+#         30001_to_40000_L,
+#         under_20000_L,
+#         20000_to_30000_L
+#       ]
+#   output:
+#     SYS2_baseline_input_power:
+#       [
+#         0.370,
+#         0.202,
+#         0.256
+#       ]
 
 - name: test SYS2 input power
   period: 2022
@@ -20,20 +22,24 @@
   input: 
     SYS2_pool_size_int:
       [
-        30001_to_40000_L
+        30001_to_40000_L,
+        20000_to_30000_L
       ]
     SYS2_pool_pump_type:
       [
-        fixed_speed_pool_pump
+        fixed_speed_pool_pump,
+        single_speed_pool_pump
       ]
     SYS2_star_rating:
       [ 
+        eight_stars,
         eight_stars
       ]
   output:
     SYS2_input_power:
       [
-        0.121
+        0.121,
+        0.084
       ]
 
 - name: test SYS2 peak demand savings capacity simple version
@@ -42,16 +48,19 @@
   input: 
     SYS2_baseline_input_power:
       [
-        0.370
+        0.370,
+        0.256
       ]
     SYS2_input_power:
       [
-        0.121
+        0.121,
+        0.084
       ]
   output:
     SYS2_peak_demand_savings_capacity:
       [
-        0.0697
+        0.0697,
+        0.048
       ]
 
 - name: test SYS2 peak demand reduction capacity
@@ -61,13 +70,15 @@
     SYS2_peak_demand_savings_capacity:
       [
         600,
-        200
+        200,
+        0.048
       ]
   output:
     SYS2_peak_demand_reduction_capacity:
       [
         43200,
-        14400
+        14400,
+        3.47
       ]
 
 - name: test SYS2 PRC calculation
@@ -76,16 +87,19 @@
   input:
     SYS2_peak_demand_reduction_capacity:
       [
-        120
+        120,
+        3.47 
       ]
     SYS2_network_loss_factor:
       [
-        1.05
+        1.05,
+        1.05  #Essential
       ]
   output:
     SYS2_PRC_calculation:
       [
-        1260
+        1260,
+        36
       ]
 
 - name: test SYS2 PRC not eligible on new installation

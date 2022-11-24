@@ -537,7 +537,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.078
+            value: 0.131
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -554,7 +554,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.070
+            value: 0.118
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -571,7 +571,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.062
+            value: 0.106
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -588,7 +588,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.056
+            value: 0.094
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -605,7 +605,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.050
+            value: 0.084
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -622,7 +622,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.045
+            value: 0.075
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -639,7 +639,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.040
+            value: 0.067
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -656,7 +656,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.036
+            value: 0.060
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -673,7 +673,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.032
+            value: 0.054
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -827,7 +827,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.157
+            value: 0.265
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -844,7 +844,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.141
+            value: 0.237
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -861,7 +861,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.126
+            value: 0.212
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -878,7 +878,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.113
+            value: 0.189
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -895,7 +895,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.101
+            value: 0.169
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -912,7 +912,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.090
+            value: 0.152
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -929,7 +929,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.081
+            value: 0.136
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -946,7 +946,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.072
+            value: 0.121
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -963,7 +963,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.064
+            value: 0.108
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -980,7 +980,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.058
+            value: 0.097
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -997,7 +997,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.052
+            value: 0.087
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1014,7 +1014,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.046
+            value: 0.078
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1168,7 +1168,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.209
+            value: 0.351
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1185,7 +1185,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.187
+            value: 0.314
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1202,7 +1202,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.167
+            value: 0.281
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1219,7 +1219,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.149
+            value: 0.251
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1236,7 +1236,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.134
+            value: 0.225
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1253,7 +1253,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.119
+            value: 0.201
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1270,7 +1270,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.107
+            value: 0.180
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1287,7 +1287,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.096
+            value: 0.161
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1304,7 +1304,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.085
+            value: 0.144
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1321,7 +1321,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.076
+            value: 0.129
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1338,7 +1338,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.068
+            value: 0.115
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1355,7 +1355,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.061
+            value: 0.103
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1509,7 +1509,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.263
+            value: 0.444
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1526,7 +1526,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.236
+            value: 0.397
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1543,7 +1543,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.211
+            value: 0.355
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1560,7 +1560,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.189
+            value: 0.317
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1577,7 +1577,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.169
+            value: 0.284
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1594,7 +1594,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.151
+            value: 0.254
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1611,7 +1611,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.135
+            value: 0.227
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1628,7 +1628,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.121
+            value: 0.203
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1645,7 +1645,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.108
+            value: 0.182
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1662,7 +1662,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.097
+            value: 0.162
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1679,7 +1679,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.086
+            value: 0.145
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1696,7 +1696,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.077
+            value: 0.130
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1850,7 +1850,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.322
+            value: 0.542
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1867,7 +1867,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.288
+            value: 0.485
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1884,7 +1884,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.258
+            value: 0.434
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1901,7 +1901,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.230
+            value: 0.388
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1918,7 +1918,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.206
+            value: 0.347
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1935,7 +1935,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.184
+            value: 0.310
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1952,7 +1952,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.165
+            value: 0.278
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1969,7 +1969,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.147
+            value: 0.248
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -1986,7 +1986,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.132
+            value: 0.220
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2003,7 +2003,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.118
+            value: 0.199
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2020,7 +2020,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.106
+            value: 0.178
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2037,7 +2037,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.094
+            value: 0.159
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2191,7 +2191,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.353
+            value: 0.594
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2208,7 +2208,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.316
+            value: 0.531
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2225,7 +2225,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.282
+            value: 0.475
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2242,7 +2242,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.252
+            value: 0.425
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2259,7 +2259,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.226
+            value: 0.380
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2276,7 +2276,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.202
+            value: 0.340
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2293,7 +2293,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.181
+            value: 0.304
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2310,7 +2310,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.162
+            value: 0.272
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2327,7 +2327,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.145
+            value: 0.243
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2344,7 +2344,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.129
+            value: 0.218
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2361,7 +2361,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.116
+            value: 0.195
       variable_speed_pool_pump:
         values:
           2021-01-01:
@@ -2378,7 +2378,7 @@ input_power:
       single_speed_pool_pump:
         values:
           2021-01-01:
-            value: 0.103
+            value: 0.174
       variable_speed_pool_pump:
         values:
           2021-01-01:

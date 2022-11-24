@@ -4,7 +4,7 @@
   input:
     SYS1_new_equipment_rated_output:
       [
-        160  #ABB M3BP/ GP/JP/KP 315SMC 4
+        132  #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_new_equipment_baseline_efficiency:
       [
@@ -13,7 +13,7 @@
   output:
     SYS1_baseline_input_power:
       [
-        168.60
+        139.094
       ]
 
 - name: test SYS1 baseline peak adjustment power
@@ -36,16 +36,16 @@
   input:
     SYS1_new_equipment_rated_output:
       [
-        160 #ABB M3BP/ GP/JP/KP 315SMC 4
+        132 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_new_efficiency:
       [
-        95.7
+        95.5
       ]
   output:
     SYS1_input_power:
       [
-        167.189
+        138.219
       ]
 
 - name: test SYS1 peak demand savings capacity
@@ -54,7 +54,7 @@
   input:
     SYS1_baseline_input_power:
       [
-        168.60 #ABB M3BP/ GP/JP/KP 315SMC 4
+        139.094 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_baseline_peak_adjustment_factor:
       [
@@ -62,12 +62,12 @@
       ]
     SYS1_input_power:
       [
-        167.189
+        138.2199
       ]
   output:
     SYS1_peak_demand_savings_capacity:
       [
-        0.88
+        0.545
       ]
 
 - name: test SYS1 peak demand reduction capacity
@@ -76,16 +76,16 @@
   input:
     SYS1_peak_demand_savings_capacity:
       [
-        0.88 #ABB M3BP/ GP/JP/KP 315SMC 4
+        0.545 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_new_equipment_rated_output:
       [
-        160
+        132
       ]
   output:
     SYS1_peak_demand_reduction_capacity:
       [
-        132
+        81.795
       ]
 
 - name: test SYS1 PRC calculation simple
@@ -94,16 +94,16 @@
   input:
     SYS1_peak_demand_reduction_capacity:
       [
-        132 #ABB M3BP/ GP/JP/KP 315SMC 4
+        81.795 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_network_loss_factor:
       [
-        1.05
+        1.05 #Essential
       ]
   output:
     SYS1_PRC_calculation:
       [
-        1386
+        858.848
       ]
 
 - name: test SYS1 PRC calculation
@@ -120,7 +120,7 @@
       [
         2.2,
         3.2,
-        160
+        132
       ]
     SYS1_new_equipment_baseline_efficiency:
      [
@@ -145,5 +145,5 @@
       [
         0,
         0,
-        1041
+        858.848
       ]

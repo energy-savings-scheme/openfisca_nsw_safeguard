@@ -8,12 +8,12 @@
       ]
     SYS1_new_equipment_baseline_efficiency:
       [
-        94.9
+        94.7
       ]
   output:
     SYS1_baseline_input_power:
       [
-        139.094
+        139.388
       ]
 
 - name: test SYS1 baseline peak adjustment power
@@ -54,7 +54,7 @@
   input:
     SYS1_baseline_input_power:
       [
-        139.094 #ABB M3BP/ GP/JP/KP 315SMC 4
+        139.388 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_baseline_peak_adjustment_factor:
       [
@@ -67,7 +67,7 @@
   output:
     SYS1_peak_demand_savings_capacity:
       [
-        0.545
+        0.729
       ]
 
 - name: test SYS1 peak demand reduction capacity
@@ -76,7 +76,7 @@
   input:
     SYS1_peak_demand_savings_capacity:
       [
-        0.545 #ABB M3BP/ GP/JP/KP 315SMC 4
+        0.729 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_new_equipment_rated_output:
       [
@@ -85,7 +85,7 @@
   output:
     SYS1_peak_demand_reduction_capacity:
       [
-        81.795
+        109.35
       ]
 
 - name: test SYS1 PRC calculation simple
@@ -94,7 +94,7 @@
   input:
     SYS1_peak_demand_reduction_capacity:
       [
-        81.795 #ABB M3BP/ GP/JP/KP 315SMC 4
+        109.35 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_network_loss_factor:
       [
@@ -103,7 +103,7 @@
   output:
     SYS1_PRC_calculation:
       [
-        858.848
+        1148
       ]
 
 - name: test SYS1 PRC calculation
@@ -126,13 +126,13 @@
      [
         10.7,
         9.54,
-        94.9
+        94.7
      ]
     SYS1_DNSP:
       [
-        Ausgrid,   #1.03
-        Endeavour, #1
-        Endeavour  #1
+        Ausgrid,   
+        Endeavour, 
+        Endeavour  
       ]
     SYS1_BCA_climate_zone_by_postcode:
       [
@@ -145,5 +145,51 @@
       [
         0,
         0,
-        858.848
+        1148
+      ]
+
+- name: test SYS1 PRC calculation case three
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS1_DNSP:
+      [
+        Endeavour
+      ]
+    SYS1_PDRS__postcode:
+      [
+        2753
+      ]
+    SYS1_business_classification: 
+      [
+        unknown
+      ]
+    SYS1_end_use_service: 
+      [
+        unknown
+      ]
+    SYS1_new_efficiency:
+      [
+        95.5
+      ]
+    SYS1_new_equipment_motor_frequency: 
+      [
+        motor_50_hz
+      ]
+    SYS1_new_equipment_no_of_poles: 
+      [
+        poles_4
+      ]
+    SYS1_new_equipment_rated_output: 
+      [
+        132
+      ]
+    SYS1_replacement_activity:
+      [
+        false
+      ]
+  output:
+    SYS1_PRC_calculation:
+      [
+        1148
       ]

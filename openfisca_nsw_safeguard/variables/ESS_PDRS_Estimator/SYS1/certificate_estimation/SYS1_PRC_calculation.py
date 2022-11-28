@@ -79,7 +79,7 @@ class SYS1_peak_demand_savings_capacity(Variable):
 
         temp1 = baseline_input_power * baseline_peak_adjustment_factor
         temp2 = input_power * baseline_peak_adjustment_factor
-        
+
         return ((temp1 - temp2) * firmness_factor)
     
     
@@ -134,7 +134,7 @@ class SYS1_PRC_calculation(Variable):
     def formula(buildings, period, parameters):
         peak_demand_reduction_capacity = buildings('SYS1_peak_demand_reduction_capacity', period)
         network_loss_factor = buildings('SYS1_network_loss_factor', period) 
-        
+
         result = (peak_demand_reduction_capacity * network_loss_factor * 10)
         
         result_to_return = np.select([

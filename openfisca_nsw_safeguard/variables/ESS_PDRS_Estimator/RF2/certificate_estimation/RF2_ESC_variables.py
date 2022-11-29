@@ -57,10 +57,7 @@ class RF2_af(Variable):
        ]
     )
     return af
-    
-    return af
-    
-    
+
 class RF2_baseline_EEI(Variable):
   value_type = float
   entity = Building
@@ -95,8 +92,53 @@ class RF2_product_EEI(Variable):
     'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
     'sorting' : 8
   }
-  
-  
+
+
+class RF2_product_EEI_ESC_eligibility(Variable):
+  value_type = bool
+  entity = Building
+  definition_period = ETERNITY
+
+  def formula(building, period, parameters):
+        product_EEI = building('RF2_product_EEI', period)
+        product_class_5 = building('RF2_product_class', period)
+        
+        product_EEI_to_check_ESC = np.select(
+            [
+                (product_EEI >= 51) * product_class_5 == RF2ProductClass.product_class_five,
+                product_EEI >= 77
+            ],
+            [
+                False,
+                False
+            ])
+        print('product EEI', product_EEI)
+        print('product class', product_class_5)
+        print('check eligibility',product_EEI_to_check_ESC)
+        return product_EEI_to_check_ESC
+
+
+class RF2_product_EEI_PRC_eligibility(Variable):
+  value_type = bool
+  entity = Building
+  definition_period = ETERNITY
+
+  def formula(building, period, parameters):
+        product_EEI = building('RF2_product_EEI', period)
+        product_class_5 = building('RF2_product_class', period)
+        
+        product_EEI_to_check_PRC = np.select(
+            [
+                (product_EEI >= 51) * product_class_5 == RF2ProductClass.product_class_five,
+                product_EEI >= 81
+            ],
+            [
+                False,
+                False
+            ])
+        return product_EEI_to_check_PRC
+
+
 class RF2ProductClass(Enum):
     product_class_one = 'Class 1'
     product_class_two = 'Class 2'
@@ -284,3 +326,25 @@ class RF2_replacement_activity(Variable):
         'display_question' : 'Is the activity a replacement of existing equipment?',
         'sorting' : 3
         }
+
+
+
+# class SYS2_input_power_ESCS_eligibility(Variable):
+#     value_type = bool
+#     entity = Building
+#     definition_period = ETERNITY
+
+
+# class SYS2_input_power_PRCS_eligibility(Variable):
+#     value_type = bool
+#     entity = Building
+#     definition_period = ETERNITY
+
+
+# class SYS2InputPowerEligibility(Enum):
+#     pump_under_100w = 'Less than 100 watts'
+#     pump_100w_to_599w = '101 watts to 599 watts'
+#     pump_600w_to_1700w = '600 watts to 1700 watts'
+#     pump_1701w_to_2500w = '1701 watts to 2500 watts'
+#     pump_2501w_to_3450w = '2501 watts to 3450 watts'
+#     pump_more_than_3451w = 'More than 3450 watts'

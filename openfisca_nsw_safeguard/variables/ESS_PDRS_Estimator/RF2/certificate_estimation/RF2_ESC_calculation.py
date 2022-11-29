@@ -138,12 +138,24 @@ class RF2_ESC_calculation(Variable):
     def formula(buildings, period, parameters):
       RF2_electricity_savings = buildings('RF2_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
+      EEI_eligible = buildings('RF2_product_EEI_ESC_eligibility', period)
 
-      result = RF2_electricity_savings * electricity_certificate_conversion_factor
-      result_to_return = np.select([
-                result <= 0, result > 0 
-            ], [
-                0, result
+      RF2_eligible_ESCs = np.select(
+            [
+                EEI_eligible,
+                np.logical_not(EEI_eligible)
+            ],
+            [
+                (RF2_electricity_savings * electricity_certificate_conversion_factor),
+                0
             ])
 
+      result_to_return = np.select([
+                RF2_eligible_ESCs <= 0, RF2_eligible_ESCs > 0 
+            ],
+            [
+                0, RF2_eligible_ESCs
+            ])
+
+      print('RF2 eligible ESCs', RF2_eligible_ESCs)
       return result_to_return

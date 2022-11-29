@@ -148,8 +148,6 @@ class SYS2_input_power_ESCS_eligibility_int(Variable):
             False,
             False
         ])
-      print('ESC Input power eligibility', input_power_eligibility)
-      print('ESC input power', input_power_ESC_eligibility_int)
       return input_power_ESC_eligibility_int
 
 
@@ -181,9 +179,6 @@ class SYS2_input_power_PRCS_eligibility_int(Variable):
              True,
              False
         ])
-      print('PRC Input power eligibility', input_power_eligibility)
-      print('PRC Pool pump type', pool_pump_type_single)
-      print('PRC input power', input_power_PRC_eligibility_int)
       return input_power_PRC_eligibility_int
 
 

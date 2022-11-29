@@ -108,7 +108,6 @@ class SYS2_ESC_calculation(Variable):
                 0,
                 0
             ])
-        print('SYS2 eligible ESCs', SYS2_eligible_ESCs)
 
         result_to_return = np.select(
             [

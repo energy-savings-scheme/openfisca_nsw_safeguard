@@ -27,7 +27,7 @@ class SYS1_regional_network_factor(Variable):
         # is used to calculate a single value for regional network factor based on a zipcode provided
     
 
-class SYS1_replacement_activity(Variable):  
+class SYS1_replacement_activity(Variable):
     value_type = bool
     default_value = False
     entity = Building
@@ -50,6 +50,7 @@ class SYS1_new_equipment_rated_output(Variable):
         'variable-type' : 'user-input',
         'label' : 'Rated output of new equipment (kW)',
         'display_question' : 'What is the Rated Output of your new electric motor?',
+        'note' : 'The electric motor must have a rated output from 0.73kW to <185kW',
         'sorting' : 7
     }
 

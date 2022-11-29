@@ -86,9 +86,112 @@ class SYS2_pool_pump_type(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Pool pump type',
-        'display_question' : 'What type of pool pump have you installed',
+        'display_question' : 'What type of pool pump is installed?',
         'sorting' : 5
     }
+
+
+class SYS2_input_power_ESCS_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+
+class SYS2_input_power_PRCS_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+
+class SYS2InputPowerEligibility(Enum):
+    pump_under_100w = 'Less than 100 watts'
+    pump_100w_to_599w = '101 watts to 599 watts'
+    pump_600w_to_1700w = '600 watts to 1700 watts'
+    pump_1701w_to_2500w = '1701 watts to 2500 watts'
+    pump_2501w_to_3450w = '2501 watts to 3450 watts'
+    pump_more_than_3451w = 'More than 3450 watts'
+
+
+class SYS2_input_power_eligibility(Variable):
+    value_type = Enum
+    entity = Building
+    definition_period = ETERNITY
+    possible_values = SYS2InputPowerEligibility
+    default_value = SYS2InputPowerEligibility.pump_600w_to_1700w
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Pool pump input power (watts)',
+        'display_question' : 'What is the input power of the replacement pool pump?',
+        'sorting' : 7
+    }
+
+class SYS2_input_power_ESCS_eligibility_int(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      input_power_eligibility = buildings('SYS2_input_power_eligibility', period)
+      #input_power_ESCS_eligibility = buildings('SYS2_input_power_ESCS_eligibility', period)
+      pool_pump_type_single = buildings('SYS2_pool_pump_type', period)
+      input_power_ESC_eligibility_int = np.select([
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_under_100w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_100w_to_599w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_600w_to_1700w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w) * (pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w) * (pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_more_than_3451w),
+        ],
+        [
+            False,
+            True,
+            True,
+            True,
+            False,
+            False,
+            False,
+            False
+        ])
+      print('ESC Input power eligibility', input_power_eligibility)
+      print('ESC Pool pump type', pool_pump_type_single)
+      print('ESC input power', input_power_ESC_eligibility_int)
+      return input_power_ESC_eligibility_int
+
+
+class SYS2_input_power_PRCS_eligibility_int(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      input_power_eligibility = buildings('SYS2_input_power_eligibility', period)
+      pool_pump_type_single = buildings('SYS2_pool_pump_type', period)
+      input_power_PRC_eligibility_int = np.select([
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_under_100w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_100w_to_599w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_600w_to_1700w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w) * (pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w) * (pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_more_than_3451w),
+        ],
+        [
+             False,
+             False,
+             True,
+             False,
+             True,
+             False,
+             True,
+             False
+        ])
+      print('PRC Input power eligibility', input_power_eligibility)
+      print('PRC Pool pump type', pool_pump_type_single)
+      print('PRC input power', input_power_PRC_eligibility_int)
+      return input_power_PRC_eligibility_int
 
 
 class SYS2_input_power(Variable):

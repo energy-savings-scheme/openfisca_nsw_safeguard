@@ -74,6 +74,15 @@
   period: 2022
   absolute_error_margin: 0.1
   input: 
+    SYS2_replacement_activity:
+      [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
     SYS2_electricity_savings:
       [
         15,

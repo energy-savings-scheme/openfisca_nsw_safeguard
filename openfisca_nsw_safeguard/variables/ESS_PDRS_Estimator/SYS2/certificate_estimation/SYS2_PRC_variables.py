@@ -132,16 +132,15 @@ class SYS2_input_power_ESCS_eligibility_int(Variable):
 
     def formula(buildings, period, parameters):
       input_power_eligibility = buildings('SYS2_input_power_eligibility', period)
-      #input_power_ESCS_eligibility = buildings('SYS2_input_power_ESCS_eligibility', period)
       pool_pump_type_single = buildings('SYS2_pool_pump_type', period)
       input_power_ESC_eligibility_int = np.select([
             (input_power_eligibility == SYS2InputPowerEligibility.pump_under_100w),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_100w_to_599w),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_600w_to_1700w),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w) * (pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
-            (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w) * np.logical_not(pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w) * (pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
-            (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w) * np.logical_not(pool_pump_type_single != SYS2PoolPumpType.single_speed_pool_pump),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_more_than_3451w),
         ],
         [
@@ -173,9 +172,9 @@ class SYS2_input_power_PRCS_eligibility_int(Variable):
             (input_power_eligibility == SYS2InputPowerEligibility.pump_100w_to_599w),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_600w_to_1700w),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w) * (pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
-            (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_1701w_to_2500w) * (pool_pump_type_single != SYS2PoolPumpType.single_speed_pool_pump),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w) * (pool_pump_type_single == SYS2PoolPumpType.single_speed_pool_pump),
-            (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w),
+            (input_power_eligibility == SYS2InputPowerEligibility.pump_2501w_to_3450w) * (pool_pump_type_single != SYS2PoolPumpType.single_speed_pool_pump),
             (input_power_eligibility == SYS2InputPowerEligibility.pump_more_than_3451w),
         ],
         [

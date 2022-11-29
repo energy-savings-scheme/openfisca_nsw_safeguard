@@ -114,8 +114,16 @@
         10,
         51,
         68,
-        74,
+        78,
         79
+      ]
+    RF2_replacement_activity:
+      [
+        True,
+        True,
+        True,
+        False,
+        True #new install
       ]
     RF2_product_class:
       [
@@ -123,7 +131,7 @@
         product_class_five,  #not eligible
         product_class_three, #eligible
         product_class_three, #eligible
-        product_class_three  #not eligible
+        product_class_three  #eligible
       ]
     RF2_electricity_savings:
       [
@@ -140,7 +148,7 @@
         0,
         50,
         50,
-        0
+        50
       ]
 
 # - name: test baseline_peak_adjustment_factor

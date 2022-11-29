@@ -102,18 +102,22 @@ class RF2_product_EEI_ESC_eligibility(Variable):
   def formula(building, period, parameters):
         product_EEI = building('RF2_product_EEI', period)
         product_class_5 = building('RF2_product_class', period)
+        replacement_activity = building('RF2_replacement_activity', period)
         
         product_EEI_to_check_ESC = np.select(
             [
-                (product_EEI >= 51) * product_class_5 == RF2ProductClass.product_class_five,
-                product_EEI >= 77
+                ((product_EEI >= 51) * (product_class_5)) == RF2ProductClass.product_class_five,
+                ((product_EEI >= 77) * (np.logical_not(replacement_activity))), #new install
+                ((product_EEI >= 81) * (replacement_activity))
             ],
             [
+                False,
                 False,
                 False
             ])
         print('product EEI', product_EEI)
         print('product class', product_class_5)
+        print('replacement activity', replacement_activity)
         print('check eligibility',product_EEI_to_check_ESC)
         return product_EEI_to_check_ESC
 
@@ -129,8 +133,8 @@ class RF2_product_EEI_PRC_eligibility(Variable):
         
         product_EEI_to_check_PRC = np.select(
             [
-                (product_EEI >= 51) * product_class_5 == RF2ProductClass.product_class_five,
-                product_EEI >= 81
+                ((product_EEI >= 51) * (product_class_5)) == RF2ProductClass.product_class_five,
+                ((product_EEI >= 81))
             ],
             [
                 False,
@@ -306,7 +310,7 @@ class RF2_PDRS__postcode(Variable):
     entity = Building
     definition_period = ETERNITY
     label = "What is the postcode for the building you are calculating PRCs for?"
-    metadata={
+    metadata = {
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
         'display_question' : 'Postcode where the installation has taken place',
@@ -326,25 +330,3 @@ class RF2_replacement_activity(Variable):
         'display_question' : 'Is the activity a replacement of existing equipment?',
         'sorting' : 3
         }
-
-
-
-# class SYS2_input_power_ESCS_eligibility(Variable):
-#     value_type = bool
-#     entity = Building
-#     definition_period = ETERNITY
-
-
-# class SYS2_input_power_PRCS_eligibility(Variable):
-#     value_type = bool
-#     entity = Building
-#     definition_period = ETERNITY
-
-
-# class SYS2InputPowerEligibility(Enum):
-#     pump_under_100w = 'Less than 100 watts'
-#     pump_100w_to_599w = '101 watts to 599 watts'
-#     pump_600w_to_1700w = '600 watts to 1700 watts'
-#     pump_1701w_to_2500w = '1701 watts to 2500 watts'
-#     pump_2501w_to_3450w = '2501 watts to 3450 watts'
-#     pump_more_than_3451w = 'More than 3450 watts'

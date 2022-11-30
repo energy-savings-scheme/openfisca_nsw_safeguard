@@ -101,10 +101,12 @@ class SYS2_ESC_calculation(Variable):
             [
                 replacement_activity * input_power_eligibility,
                 np.logical_not(replacement_activity) * input_power_eligibility,
-                replacement_activity * np.logical_not(input_power_eligibility)
+                replacement_activity * np.logical_not(input_power_eligibility),
+                np.logical_not(replacement_activity) * np.logical_not(input_power_eligibility)
             ],
             [
                 (electricity_savings * electricity_certificate_conversion_factor),
+                0,
                 0,
                 0
             ])

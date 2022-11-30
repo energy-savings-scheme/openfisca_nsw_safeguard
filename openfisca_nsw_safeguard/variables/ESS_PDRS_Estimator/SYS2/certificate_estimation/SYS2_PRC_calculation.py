@@ -64,10 +64,13 @@ class SYS2_PRC_calculation(Variable):
             [
                 replacement_activity * input_power_eligibility,
                 np.logical_not(replacement_activity) * input_power_eligibility,
-                replacement_activity * np.logical_not(input_power_eligibility)
+                replacement_activity * np.logical_not(input_power_eligibility),
+                np.logical_not(replacement_activity) * np.logical_not(input_power_eligibility)
+
             ],
             [
                 (peak_demand_capacity * network_loss_factor * kw_to_0_1kw),
+                0,
                 0,
                 0
             ])

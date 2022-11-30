@@ -96,14 +96,21 @@ class RF2_PRC_calculation(Variable):
         network_loss_factor = buildings('RF2_network_loss_factor', period)
         kw_to_0_1kw = 10
         replacement_activity = buildings('RF2_replacement_activity', period)
+        EEI_eligible_replacement = buildings('RF2_product_EEI_PRC_replacement_eligibility', period)
+        EEI_eligible_install = buildings('RF2_product_EEI_ESC_install_eligibility', period)
+
 
         RF2_eligible_PRCs = np.select(
             [
-                replacement_activity,
-                np.logical_not(replacement_activity)
+                replacement_activity * EEI_eligible_replacement ,
+                np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_replacement),
+                replacement_activity * EEI_eligible_install,
+                np.logical_not(replacement_activity) * EEI_eligible_install
             ],
             [
                 (peak_demand_capacity * network_loss_factor * kw_to_0_1kw),
+                0,
+                0,
                 0
             ])
 

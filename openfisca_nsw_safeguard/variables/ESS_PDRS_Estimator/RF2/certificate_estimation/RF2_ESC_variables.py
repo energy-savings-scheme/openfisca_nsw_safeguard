@@ -126,20 +126,21 @@ class RF2_product_EEI_ESC_install_eligibility(Variable):
     definition_period = ETERNITY
 
     def formula(building, period, parameters):
-      product_EEI = building('RF2_product_EEI', period)
-        
-      product_EEI_to_check_ESC = np.select(
-          [    
-              product_EEI < 77,
-              product_EEI >= 77
-          ],
-          [
-              True,
-              False
-          ])
-      return product_EEI_to_check_ESC
+        product_EEI = building('RF2_product_EEI', period)
+          
+        product_EEI_to_check_ESC = np.select(
+            [    
+                product_EEI < 77,
+                product_EEI >= 77
+            ],
+            [
+                True,
+                False
+            ])
+        return product_EEI_to_check_ESC
 
-class RF2_product_EEI_PRC_eligibility(Variable):
+
+class RF2_product_EEI_PRC_replacement_eligibility(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -150,10 +151,14 @@ class RF2_product_EEI_PRC_eligibility(Variable):
         
         product_EEI_to_check_PRC = np.select(
             [
-                (product_EEI >= 51) * (product_class_5 == RF2ProductClass.product_class_five),
-                (product_EEI >= 81)
+              (product_EEI < 51),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != RF2ProductClass.product_class_five),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == RF2ProductClass.product_class_five),
+              (product_EEI >= 81)
             ],
             [
+                True,
+                True,
                 False,
                 False
             ])

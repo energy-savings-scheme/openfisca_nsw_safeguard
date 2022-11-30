@@ -128,7 +128,7 @@
         product_class_five,  #eligible
         product_class_five,  #not eligible
         product_class_three, #eligible
-        product_class_three  #ineligible
+        product_class_three  #not eligible
       ]
     RF2_electricity_savings:
       [

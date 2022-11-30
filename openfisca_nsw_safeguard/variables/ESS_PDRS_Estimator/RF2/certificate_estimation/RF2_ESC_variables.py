@@ -1,4 +1,3 @@
-from math import prod
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
@@ -189,8 +188,7 @@ class RF2ProductClass(Enum):
 class RF2_product_class(Variable):
     value_type = str
     entity = Building
-    # possible_values = RF2ProductClass
-    default_value = 'Class 8'
+    default_value = 'Class 1'
     definition_period = ETERNITY
     label = 'What is the product class for the refrigerated cabinet?'
     metadata = {
@@ -208,7 +206,6 @@ class RF2_product_class_int(Variable):
 
     def formula(buildings, period, parameters):
       product_class = buildings('RF2_product_class', period)
-      print("product class", product_class)
       
       product_class = np.select([
         product_class == 'Class 1',

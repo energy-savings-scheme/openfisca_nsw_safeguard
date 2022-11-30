@@ -90,19 +90,6 @@ class SYS2_pool_pump_type(Variable):
         'sorting' : 5
     }
 
-
-class SYS2_input_power_ESCS_eligibility(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-
-class SYS2_input_power_PRCS_eligibility(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-
 class SYS2InputPowerEligibility(Enum):
     pump_under_100w = 'Less than 100 watts'
     pump_100w_to_599w = '101 watts to 599 watts'

@@ -1,74 +1,74 @@
-# - name: test SYS2 savings factor
-#   period: 2022
-#   absolute_error_margin: 0.5
-#   input:
-#     SYS2_star_rating:
-#       [
-#         six_stars
-#       ]
-#   output:
-#     SYS2_savings_factor:
-#       [
-#         4.5
-#       ]
+- name: test SYS2 savings factor
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS2_star_rating:
+      [
+        six_stars
+      ]
+  output:
+    SYS2_savings_factor:
+      [
+        4.5
+      ]
 
-# - name: test SYS2 electricity savings
-#   period: 2022
-#   absolute_error_margin: 0.5
-#   input:
-#     SYS2_PDRS__postcode:
-#       [
-#         2043,
-#         2321
-#       ]
-#     SYS2_star_rating:
-#       [
-#         seven_stars,
-#         ten_stars
-#       ]
-#   output:
-#     SYS2_electricity_savings:
-#       [
-#         6.1,
-#         9.48
-#       ]
+- name: test SYS2 electricity savings
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS2_PDRS__postcode:
+      [
+        2043,
+        2321
+      ]
+    SYS2_star_rating:
+      [
+        seven_stars,
+        ten_stars
+      ]
+  output:
+    SYS2_electricity_savings:
+      [
+        6.1,
+        9.48
+      ]
     
-# - name: test SYS2 ESC calculation simple version
-#   period: 2022
-#   absolute_error_margin: 1
-#   input: 
-#     SYS2_electricity_savings:
-#       [
-#         6.1,
-#         9.48
-#       ]
-#   output:
-#     SYS2_ESC_calculation:
-#       [
-#         6.466,
-#         10.0488
-#       ]
+- name: test SYS2 ESC calculation simple version
+  period: 2022
+  absolute_error_margin: 1
+  input: 
+    SYS2_electricity_savings:
+      [
+        6.1,
+        9.48
+      ]
+  output:
+    SYS2_ESC_calculation:
+      [
+        6.466,
+        10.0488
+      ]
 
-# - name: test SYS2 ESC not eligible on new installation
-#   period: 2022
-#   absolute_error_margin: 0.1
-#   input: 
-#     SYS2_electricity_savings:
-#       [
-#         15,
-#         15
-#       ]
-#     SYS2_replacement_activity:
-#       [
-#         False, #activity is a new installation
-#         True   #activity is a replacement
-#       ]
-#   output:
-#     SYS2_ESC_calculation:
-#       [
-#         0,
-#         15.9
-#       ]
+- name: test SYS2 ESC not eligible on new installation
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_electricity_savings:
+      [
+        15,
+        15
+      ]
+    SYS2_replacement_activity:
+      [
+        False, #activity is a new installation
+        True   #activity is a replacement
+      ]
+  output:
+    SYS2_ESC_calculation:
+      [
+        0,
+        15.9
+      ]
 
 - name: test SYS2 ESC not eligible with input power below 100w and above 2500w
   period: 2022
@@ -100,15 +100,6 @@
         pump_1701w_to_2500w,
         pump_2501w_to_3450w,
         pump_more_than_3451w
-      ]
-    SYS2_pool_pump_type:
-      [
-        fixed_speed_pool_pump,
-        fixed_speed_pool_pump,
-        fixed_speed_pool_pump,
-        fixed_speed_pool_pump,
-        fixed_speed_pool_pump,
-        fixed_speed_pool_pump
       ]
   output:
     SYS2_ESC_calculation:

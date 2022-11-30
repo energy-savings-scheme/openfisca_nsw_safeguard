@@ -19,16 +19,29 @@
     RF1_peak_demand_reduction_capacity:
       [
         4.8825,
-        4.9
+        4.9,
+        4.9,
+        4.8825
       ]
     RF1_DNSP:
       [
         Ausgrid, #network loss factor 1.04
-        Endeavour #network loss factor 1.05
+        Endeavour, #network loss factor 1.05
+        Ausgrid,
+        Ausgrid
+      ]
+    RF1_storage_volume:
+      [
+        True,
+        True,
+        False,
+        True
       ]
   output:
     RF1_PRC_calculation:
       [
         50.778,
-        51.45
+        51.45,
+        0,
+        50.778
       ]

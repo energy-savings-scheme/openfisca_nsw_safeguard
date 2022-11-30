@@ -24,12 +24,12 @@ class RF1_PDRS__postcode(Variable):
 
 
 class RF1_storage_volume(Variable):
-    value_type = int
+    value_type = bool
     entity = Building
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
         'label': 'Refrigerator or Freezer storage capacity',
-        'display_question' : 'What is the capacity of the non-primary refrigerator or freezer that is being removed?',
+        'display_question' : 'Is the capacity of the non-primary refrigerator or freezer that is being removed 200 litres or greater?',
         'sorting' : 4
         }

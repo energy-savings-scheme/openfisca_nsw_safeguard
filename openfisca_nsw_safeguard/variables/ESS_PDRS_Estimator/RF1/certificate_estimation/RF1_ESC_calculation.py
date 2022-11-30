@@ -76,14 +76,25 @@ class RF1_ESC_calculation(Variable):
     label = 'The number of ESCs for HVAC1'
 
     def formula(buildings, period, parameters):
-      RF1_electricity_savings = buildings('RF1_electricity_savings', period)
-      electricity_certificate_conversion_factor = 1.06
+        RF1_electricity_savings = buildings('RF1_electricity_savings', period)
+        electricity_certificate_conversion_factor = 1.06
+        storage_volume_eligibility = buildings('RF1_storage_volume', period)
 
-      result = RF1_electricity_savings * electricity_certificate_conversion_factor
-      result_to_return = np.select([
-                result <= 0, result > 0 
-            ], [
-                0, result
+        RF1_eligible_ESCs = np.select(
+        [
+            storage_volume_eligibility,
+            np.logical_not(storage_volume_eligibility)
+        ],
+        [
+            (RF1_electricity_savings * electricity_certificate_conversion_factor),
+            0
+        ])
+
+        result_to_return = np.select(
+            [
+                RF1_eligible_ESCs <= 0, RF1_eligible_ESCs > 0
+            ],
+            [
+                0, RF1_eligible_ESCs
             ])
-
-      return result_to_return
+        return result_to_return

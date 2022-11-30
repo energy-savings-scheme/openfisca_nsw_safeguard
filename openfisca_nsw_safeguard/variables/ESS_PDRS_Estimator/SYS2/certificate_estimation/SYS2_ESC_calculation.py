@@ -91,18 +91,23 @@ class SYS2_ESC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-        electricity_savings = buildings('SYS2_electricity_savings', period)
+        electricity_savings = buildings('SYS2_electricity_savings', period) #15
         electricity_certificate_conversion_factor = 1.06
         #there is no gas option for this activity
         replacement_activity = buildings('SYS2_replacement_activity', period)
+        input_power_eligibility = buildings('SYS2_input_power_ESCS_eligibility_int', period)
 
         SYS2_eligible_ESCs = np.select(
             [
-                replacement_activity,
-                np.logical_not(replacement_activity)
+                replacement_activity * input_power_eligibility,
+                np.logical_not(replacement_activity) * input_power_eligibility,
+                replacement_activity * np.logical_not(input_power_eligibility),
+                np.logical_not(replacement_activity) * np.logical_not(input_power_eligibility)
             ],
             [
                 (electricity_savings * electricity_certificate_conversion_factor),
+                0,
+                0,
                 0
             ])
 

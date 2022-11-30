@@ -1,20 +1,20 @@
-# - name: test SYS2 baseline input power
-#   period: 2022
-#   absolute_error_margin: 0.5
-#   input:
-#     SYS2_pool_size_int:
-#       [
-#         30001_to_40000_L,
-#         under_20000_L,
-#         20000_to_30000_L
-#       ]
-#   output:
-#     SYS2_baseline_input_power:
-#       [
-#         0.370,
-#         0.202,
-#         0.256
-#       ]
+- name: test SYS2 baseline input power
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS2_pool_size_int:
+      [
+        30001_to_40000_L,
+        under_20000_L,
+        20000_to_30000_L
+      ]
+  output:
+    SYS2_baseline_input_power:
+      [
+        0.370,
+        0.202,
+        0.256
+      ]
 
 - name: test SYS2 input power
   period: 2022
@@ -126,4 +126,76 @@
       [
         0,
         1260
+      ]
+
+- name: test SYS2 PRC not eligible with input power below 600w and above 3451w
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_replacement_activity:
+      [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    SYS2_peak_demand_reduction_capacity:
+      [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ]
+    SYS2_network_loss_factor:
+      [
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05
+      ]
+    SYS2_input_power_eligibility:
+      [
+        pump_under_100w,
+        pump_100w_to_599w,
+        pump_600w_to_1700w,
+        pump_1701w_to_2500w,
+        pump_1701w_to_2500w,
+        pump_2501w_to_3450w,
+        pump_2501w_to_3450w,
+        pump_more_than_3451w
+      ]
+    SYS2_pool_pump_type:
+      [
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        single_speed_pool_pump,
+        variable_speed_pool_pump,
+        single_speed_pool_pump,
+        variable_speed_pool_pump,
+        single_speed_pool_pump
+      ]
+  output:
+    SYS2_PRC_calculation:
+      [
+        0,
+        0,
+        1260,
+        0,
+        1260,
+        0,
+        1260,
+        0
       ]

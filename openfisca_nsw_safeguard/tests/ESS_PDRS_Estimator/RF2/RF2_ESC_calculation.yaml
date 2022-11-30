@@ -105,37 +105,33 @@
       ]
 
 
-- name: test Product EEI eligibility
+- name: test Product EEI eligibility for replacement activity
   period: 2022
   absolute_error_margin: 0.5
   input:
+    RF2_replacement_activity:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
     RF2_product_EEI:
       [
         10,
         51,
-        68,
         78,
-        79
-      ]
-    RF2_replacement_activity:
-      [
-        True,
-        True,
-        True,
-        False,
-        True #new install
+        81
       ]
     RF2_product_class:
       [
-        product_class_five,  #not eligible
+        product_class_five,  #eligible
         product_class_five,  #not eligible
         product_class_three, #eligible
-        product_class_three, #eligible
-        product_class_three  #eligible
+        product_class_three  #ineligible
       ]
     RF2_electricity_savings:
       [
-        47.08,
         47.08,
         47.08,
         47.08,
@@ -144,11 +140,44 @@
   output:
     RF2_ESC_calculation:
       [
+        49.90,
         0,
+        49.90,
+        0
+      ]
+
+- name: test Product EEI eligibility for new install activity
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    RF2_replacement_activity:
+      [
+        false,
+        false,
+        false,
+        false
+      ]
+    RF2_product_EEI:
+      [
+        51, #eligible
+        61, #eligible
+        77, #not eligible
+        88  #not eligible
+      ]
+    RF2_electricity_savings:
+      [
+        47.08,
+        47.08,
+        47.08,
+        47.08
+      ]
+  output:
+    RF2_ESC_calculation:
+      [
+        49.90,
+        49.90,
         0,
-        50,
-        50,
-        50
+        0
       ]
 
 - name: test baseline_peak_adjustment_factor
@@ -303,5 +332,5 @@
   output:
     RF2_ESC_calculation:
       [
-        50
+        49.775
       ]

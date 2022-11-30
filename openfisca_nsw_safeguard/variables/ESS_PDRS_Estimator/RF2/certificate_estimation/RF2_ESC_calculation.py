@@ -87,7 +87,7 @@ class RF2_deemed_activity_electricity_savings(Variable):
       product_EEI = buildings('RF2_product_EEI', period)
       af = buildings('RF2_af', period)
       lifetime_by_rc_class = buildings('RF2_lifetime_by_rc_class', period)
-
+      
       deemed_electricity_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
       return deemed_electricity_savings
 
@@ -136,18 +136,24 @@ class RF2_ESC_calculation(Variable):
     label = 'The number of ESCs for HVAC1'
 
     def formula(buildings, period, parameters):
-      RF2_electricity_savings = buildings('RF2_electricity_savings', period)
+      electricity_savings = buildings('RF2_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
-      EEI_eligible = buildings('RF2_product_EEI_ESC_eligibility', period)
+      replacement_activity = buildings('RF2_replacement_activity', period)
+      EEI_eligible_replacement = buildings('RF2_product_EEI_ESC_replacement_eligibility', period)
+      EEI_eligible_install = buildings('RF2_product_EEI_ESC_install_eligibility', period)
 
       RF2_eligible_ESCs = np.select(
             [
-                EEI_eligible,
-                np.logical_not(EEI_eligible)
+                replacement_activity * EEI_eligible_replacement,
+                np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_replacement),
+                replacement_activity * EEI_eligible_install,
+                np.logical_not(replacement_activity) * EEI_eligible_install
             ],
             [
-                (RF2_electricity_savings * electricity_certificate_conversion_factor),
-                0
+                (electricity_savings * electricity_certificate_conversion_factor),
+                0,
+                0,
+                (electricity_savings * electricity_certificate_conversion_factor)
             ])
 
       result_to_return = np.select([
@@ -157,5 +163,4 @@ class RF2_ESC_calculation(Variable):
                 0, RF2_eligible_ESCs
             ])
 
-      print('RF2 eligible ESCs', RF2_eligible_ESCs)
       return result_to_return

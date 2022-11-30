@@ -36,105 +36,122 @@ class RF2_total_display_area(Variable):
 
 
 class RF2_af(Variable):
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  label = "Adjustment factor"
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "Adjustment factor"
 
-  def formula(buildings, period, parameters):
-    product_class = buildings('RF2_product_class', period)
-    duty_type = buildings('RF2_duty_class', period)
-    new_equipment = buildings('RF2_replacement_activity', period)
+    def formula(buildings, period, parameters):
+      product_class = buildings('RF2_product_class', period)
+      duty_type = buildings('RF2_duty_class', period)
+      new_equipment = buildings('RF2_replacement_activity', period)
     
-    af = np.select(
-      [ 
-        new_equipment, 
-        np.logical_not(new_equipment)
-      ],
-      [ 
-        parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
-        parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
-       ]
-    )
-    return af
-
+      af = np.select(
+        [ 
+          new_equipment, 
+          np.logical_not(new_equipment)
+        ],
+        [ 
+          parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
+          parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
+        ]
+      )
+      return af
+    
+    
 class RF2_baseline_EEI(Variable):
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  label = "Baseline EEI"
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "Baseline EEI"
   
-  def formula(buildings, period, parameters):
-    product_class = buildings('RF2_product_class', period)
-    duty_type = buildings('RF2_duty_class', period)
-    replacement_activity = buildings('RF2_replacement_activity', period)
+    def formula(buildings, period, parameters):
+      product_class = buildings('RF2_product_class', period)
+      duty_type = buildings('RF2_duty_class', period)
+      replacement_activity = buildings('RF2_replacement_activity', period)
 
-    baseline_EEI = np.select(
-      [ 
-        replacement_activity,
-        np.logical_not(replacement_activity)
-      ],
-      [ 
-        parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type],
-        parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
-      ]
-    )    
-    return baseline_EEI
+      baseline_EEI = np.select(
+        [ 
+          replacement_activity,
+          np.logical_not(replacement_activity)
+        ],
+        [
+          parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type],
+          parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
+        ]
+      )
+      return baseline_EEI
 
 
 class RF2_product_EEI(Variable):
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  metadata = {
-    'variable-type' : 'user-input',
-    'label' : 'Product EEI',
-    'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
-    'sorting' : 8
-  }
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+      'variable-type' : 'user-input',
+      'label' : 'Product EEI',
+      'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
+      'sorting' : 8
+    }
 
 
-class RF2_product_EEI_ESC_eligibility(Variable):
-  value_type = bool
-  entity = Building
-  definition_period = ETERNITY
+class RF2_product_EEI_ESC_replacement_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
 
-  def formula(building, period, parameters):
-        product_EEI = building('RF2_product_EEI', period)
-        product_class_5 = building('RF2_product_class', period)
-        replacement_activity = building('RF2_replacement_activity', period)
+    def formula(building, period, parameters):
+      product_EEI = building('RF2_product_EEI', period)
+      product_class_5 = building('RF2_product_class', period)
         
-        product_EEI_to_check_ESC = np.select(
-            [
-                ((product_EEI >= 51) * (product_class_5)) == RF2ProductClass.product_class_five,
-                ((product_EEI >= 77) * (np.logical_not(replacement_activity))), #new install
-                ((product_EEI >= 81) * (replacement_activity))
-            ],
-            [
-                False,
-                False,
-                False
-            ])
-        print('product EEI', product_EEI)
-        print('product class', product_class_5)
-        print('replacement activity', replacement_activity)
-        print('check eligibility',product_EEI_to_check_ESC)
-        return product_EEI_to_check_ESC
+      product_EEI_to_check_ESC = np.select(
+          [
+              (product_EEI < 51),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != RF2ProductClass.product_class_five),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == RF2ProductClass.product_class_five),
+              (product_EEI >= 81)    
+          ],
+          [
+              True,
+              True,
+              False,
+              False
+          ])
+      return product_EEI_to_check_ESC
 
+
+class RF2_product_EEI_ESC_install_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+      product_EEI = building('RF2_product_EEI', period)
+        
+      product_EEI_to_check_ESC = np.select(
+          [    
+              product_EEI < 77,
+              product_EEI >= 77
+          ],
+          [
+              True,
+              False
+          ])
+      return product_EEI_to_check_ESC
 
 class RF2_product_EEI_PRC_eligibility(Variable):
-  value_type = bool
-  entity = Building
-  definition_period = ETERNITY
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
 
-  def formula(building, period, parameters):
+    def formula(building, period, parameters):
         product_EEI = building('RF2_product_EEI', period)
         product_class_5 = building('RF2_product_class', period)
         
         product_EEI_to_check_PRC = np.select(
             [
-                ((product_EEI >= 51) * (product_class_5)) == RF2ProductClass.product_class_five,
-                ((product_EEI >= 81))
+                (product_EEI >= 51) * (product_class_5 == RF2ProductClass.product_class_five),
+                (product_EEI >= 81)
             ],
             [
                 False,

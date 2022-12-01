@@ -99,23 +99,27 @@
     HVAC2_heating_capacity_input:
       [
         10,
-        28 #Fujitsu AOTA90LALT/ARTC90LATU
+        28, #Fujitsu AOTA90LALT/ARTC90LATU
+        8   #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
     HVAC2_equivalent_heating_hours_input:
       [
         20,
+        648,
         648
       ]
     HVAC2_baseline_ACOP_input:
       [
         100,
-        2.8
+        2.11,
+        2.11
       ]
   output:
     HVAC2_reference_heating_annual_energy_use:
       [
         2,
-        6480 #this is from the equation not the THEC
+        8599.053, #this is from the equation not the THEC
+        2456.87
       ]
 
 - name: test HVAC2 reference cooling annual energy use
@@ -125,23 +129,27 @@
     HVAC2_cooling_capacity_input:
       [
         32,
-        25 #Fujitsu AOTA90LALT/ARTC90LATU
+        25, #Fujitsu AOTA90LALT/ARTC90LATU
+        7.1 #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
     HVAC2_equivalent_cooling_hours_input:
       [
         23,
+        429,
         429
       ]
     HVAC2_baseline_AEER_input:
       [
         12,
-        2.8
+        2.8,
+        3.22
       ]
   output:
     HVAC2_reference_cooling_annual_energy_use:
       [
         61.3,
-        3830.36 #this is from the equation not the TCEC
+        3830.36, #this is from the equation not the TCEC
+        945.932
       ]
 
 - name: test baseline AEER input
@@ -195,24 +203,29 @@
   input:
     HVAC2_TCEC_or_annual_reference_cooling:
       [
-        5232 #Fujitsu AOTA90LALT/ARTC90LATU
+        5232, #Fujitsu AOTA90LALT/ARTC90LATU
+        643   #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
     HVAC2_cooling_annual_energy_use:
       [
-        3420
+        3420,
+        945.932
       ]
     HVAC2_THEC_or_annual_reference_heating:
       [
-        2214
+        2214,
+        1071 #Average THEC
       ]
     HVAC2_heating_annual_energy_use:
       [
-        5438
+        5438,
+        2456.87
       ]
   output:
     HVAC2_deemed_activity_electricity_savings:
       [
-        -14.12
+        -60.82,
+        -16.88802
       ]
 
 - name: test HVAC2 electricity savings
@@ -221,16 +234,19 @@
   input:
     HVAC2_deemed_activity_electricity_savings:
       [
-        -14.12 #Fujitsu AOTA90LALT/ARTC90LATU
+        -14.12, #Fujitsu AOTA90LALT/ARTC90LATU
+        -16.888 #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
     HVAC2_PDRS__regional_network_factor:
       [
-        1
+        1,
+        1.05
       ]
   output:
     HVAC2_electricity_savings:
       [
-        -14.12
+        -14.12,
+        -17.732
       ]
 
 - name: test ESC calculation

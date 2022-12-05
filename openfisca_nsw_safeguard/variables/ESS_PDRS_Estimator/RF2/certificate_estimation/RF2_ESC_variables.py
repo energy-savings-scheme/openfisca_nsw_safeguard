@@ -36,15 +36,15 @@ class RF2_total_display_area(Variable):
 
 
 class RF2_af(Variable):
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  label = "Adjustment factor"
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "Adjustment factor"
 
-  def formula(buildings, period, parameters):
-    product_class = buildings('RF2_product_class', period)
-    duty_type = buildings('RF2_duty_class', period)
-    new_equipment = buildings('RF2_replacement_activity', period)
+    def formula(buildings, period, parameters):
+      product_class = buildings('RF2_product_class', period)
+      duty_type = buildings('RF2_duty_class', period)
+      new_equipment = buildings('RF2_replacement_activity', period)
     
     product_class = np.select([
         product_class == 'Class 1',
@@ -93,14 +93,12 @@ class RF2_af(Variable):
     )
     return af
     
-    return af
-    
     
 class RF2_baseline_EEI(Variable):
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  label = "Baseline EEI"
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = "Baseline EEI"
   
   def formula(buildings, period, parameters):
     product_class = buildings('RF2_product_class', period)
@@ -156,17 +154,89 @@ class RF2_baseline_EEI(Variable):
 
 
 class RF2_product_EEI(Variable):
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  metadata = {
-    'variable-type' : 'user-input',
-    'label' : 'Product EEI',
-    'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
-    'sorting' : 8
-  }
-  
-  
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+      'variable-type' : 'user-input',
+      'label' : 'Product EEI',
+      'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
+      'sorting' : 8
+    }
+
+
+class RF2_product_EEI_ESC_replacement_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+      product_EEI = building('RF2_product_EEI', period)
+      product_class_5 = building('RF2_product_class', period)
+        
+      product_EEI_to_check_ESC = np.select(
+          [
+              (product_EEI < 51),
+              (product_EEI >= 51) * (product_EEI < 81) * (np.logical_not(product_class_5) == np.logical_not(RF2ProductClass.product_class_five)),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == RF2ProductClass.product_class_five),
+              (product_EEI >= 81)
+          ],
+          [
+              True,
+              True,
+              False,
+              False
+          ])
+      print('product EEI', product_EEI)
+      print('product EEI replacement', product_EEI_to_check_ESC)
+      return product_EEI_to_check_ESC
+
+
+class RF2_product_EEI_ESC_install_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+        product_EEI = building('RF2_product_EEI', period)
+          
+        product_EEI_to_check_ESC = np.select(
+            [    
+                product_EEI < 77,
+                product_EEI >= 77
+            ],
+            [
+                True,
+                False
+            ])
+        return product_EEI_to_check_ESC
+
+
+class RF2_product_EEI_PRC_replacement_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+        product_EEI = building('RF2_product_EEI', period)
+        product_class_5 = building('RF2_product_class', period)
+        
+        product_EEI_to_check_PRC = np.select(
+            [
+              (product_EEI < 51),
+              (product_EEI >= 51) * (product_EEI < 81) * (np.logical_not(product_class_5) == RF2ProductClass.product_class_five),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == RF2ProductClass.product_class_five),
+              (product_EEI >= 81)
+            ],
+            [
+                True,
+                True,
+                False,
+                False
+            ])
+        return product_EEI_to_check_PRC
+
+
 class RF2ProductClass(Enum):
     product_class_one = 'Class 1'
     product_class_two = 'Class 2'
@@ -403,7 +473,7 @@ class RF2_PDRS__postcode(Variable):
     entity = Building
     definition_period = ETERNITY
     label = "What is the postcode for the building you are calculating PRCs for?"
-    metadata={
+    metadata = {
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
         'display_question' : 'Postcode where the installation has taken place',

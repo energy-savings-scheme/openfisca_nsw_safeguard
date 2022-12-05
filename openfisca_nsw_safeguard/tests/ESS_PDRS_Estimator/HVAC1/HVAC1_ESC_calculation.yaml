@@ -1,154 +1,174 @@
-- name: test HVAC2 heating annual energy use
+- name: test HVAC1 heating annual energy use
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_heating_capacity_input:
+    HVAC1_heating_capacity_input:
       [
         10,
-        28 #Fujitsu AOTA90LALT/ARTC90LATU
+        0, #Coolmaster TCCF10C1S/AOCF10C-S
+        0, #AIRO ACP33HP
+        8  #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
-    HVAC2_equivalent_heating_hours_input:
+    HVAC1_equivalent_heating_hours_input:
       [
         20,
+        1534,
+        648,
         648 #average zone
       ]
-    HVAC2_rated_ACOP_input:
+    HVAC1_rated_ACOP_input:
       [
         30,
-        3.3365
+        0,
+        0,
+        3.7702
       ]
   output:
-    HVAC2_heating_annual_energy_use: 
+    HVAC1_heating_annual_energy_use: 
       [
-        6.6,
-        5438
+        6.6666,
+        0,
+        0,
+        1374.993
       ]
 
-- name: test HVAC2 cooling annual energy use
+- name: test HVAC1 cooling annual energy use
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_cooling_capacity_input:
+    HVAC1_cooling_capacity_input:
       [
         20,
-        25 #Fujitsu AOTA90LALT/ARTC90LATU
+        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+        1050, #AIRO ACP33HP
+        3.5,  #Mitsubushi SCM71ZS-W/SRK20ZSXA-W
+        7.1   #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
-    HVAC2_equivalent_cooling_hours_input:
+    HVAC1_equivalent_cooling_hours_input:
       [
         50,
+        285,
+        429,
+        285,
         429
       ]
-    HVAC2_rated_AEER_input:
+    HVAC1_rated_AEER_input:
       [
         10,
-        3.1359
+        3.4907,
+        2.64,
+        3.847,
+        3.58
       ]
   output:
-    HVAC2_cooling_annual_energy_use:
+    HVAC1_cooling_annual_energy_use:
       [
         100,
-        3420
+        824.619,
+        170625,
+        259.293,
+        850.81
       ] 
 
-- name: test HVAC2 THEC versus reference heating equation
+- name: test HVAC1 TCEC versus reference cooling equation
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_commercial_THEC:
+    HVAC1_residential_TCEC:
       [
         0,
         25
       ]
-    HVAC2_reference_heating_annual_energy_use:
+    HVAC1_reference_cooling_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC2_THEC_or_annual_reference_heating:
+    HVAC1_TCEC_or_annual_reference_cooling:
       [
         50,
         25
       ]
 
-- name: test HVAC2 TCEC versus reference cooling equation
+- name: test HVAC1 THEC versus reference heating equation
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_commercial_TCEC:
+    HVAC1_residential_THEC:
       [
         0,
         25
       ]
-    HVAC2_reference_cooling_annual_energy_use:
+    HVAC1_reference_heating_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC2_TCEC_or_annual_reference_cooling:
+    HVAC1_THEC_or_annual_reference_heating:
       [
         50,
         25
       ]
-      
-- name: test HVAC2 reference heating annual energy use
+
+- name: test HVAC1 reference heating annual energy use
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_heating_capacity_input:
+    HVAC1_heating_capacity_input:
       [
         10,
-        28, #Fujitsu AOTA90LALT/ARTC90LATU
-        8   #Panasonic CU-Z71VKR/CS-Z71VKR
+        8  #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
-    HVAC2_equivalent_heating_hours_input:
+    HVAC1_equivalent_heating_hours_input:
       [
         20,
-        648,
         648
       ]
-    HVAC2_baseline_ACOP_input:
+    HVAC1_baseline_ACOP_input:
       [
         100,
-        2.11,
         2.11
       ]
   output:
-    HVAC2_reference_heating_annual_energy_use:
+    HVAC1_reference_heating_annual_energy_use:
       [
         2,
-        8599.053, #this is from the equation not the THEC
         2456.87
       ]
 
-- name: test HVAC2 reference cooling annual energy use
+- name: test HVAC1 reference cooling annual energy use
   period: 2022
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0.5
   input:
-    HVAC2_cooling_capacity_input:
+    HVAC1_cooling_capacity_input:
       [
         32,
-        25, #Fujitsu AOTA90LALT/ARTC90LATU
-        7.1 #Panasonic CU-Z71VKR/CS-Z71VKR
-      ]
-    HVAC2_equivalent_cooling_hours_input:
+        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+        1050, #AIRO ACP33HP
+        7.1   #Panasonic CU-Z71VKR/CS-Z71VKR
+     ]
+    HVAC1_equivalent_cooling_hours_input:
       [
         23,
+        285,
         429,
         429
       ]
-    HVAC2_baseline_AEER_input:
+    HVAC1_baseline_AEER_input:
       [
         12,
-        2.8,
+        3.1,
+        0,
         3.22
       ]
   output:
-    HVAC2_reference_cooling_annual_energy_use:
+    HVAC1_reference_cooling_annual_energy_use:
       [
         61.3,
-        3830.36, #this is from the equation not the TCEC
+        928.548,
+        0,
         945.932
       ]
 
@@ -156,147 +176,258 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_cooling_capacity_input:
+    HVAC1_cooling_capacity_input:
       [
         32,
+        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+        1050  #AIRO ACP33HP
       ]
-    HVAC2_Air_Conditioner_type:
+    HVAC1_Air_Conditioner_type:
       [
-        'The AC is a non-ducted split system.',
+        non_ducted_split_system,
+        ducted_split_system,
+        ducted_unitary_system
       ]
-    HVAC2_New_Equipment:
+    HVAC1_New_Equipment:
       [
         true,
+        true,
+        true
       ]
   output:
-    HVAC2_baseline_AEER_input:
+    HVAC1_baseline_AEER_input:
       [
-        3.1
+        3.1,
+        3.1,
+        0
       ]
 
 - name: test baseline ACOP input
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_cooling_capacity_input:
+    HVAC1_cooling_capacity_input:
       [
         32,
+        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+        1050  #AIRO ACP33HP
       ]
-    HVAC2_Air_Conditioner_type:
+    HVAC1_Air_Conditioner_type:
       [
-        'The AC is a non-ducted split system.',
+        non_ducted_split_system,
+        ducted_split_system,
+        ducted_unitary_system
       ]
-    HVAC2_New_Equipment:
+    HVAC1_New_Equipment:
       [
         true,
+        true,
+        true
       ]
   output:
-    HVAC2_baseline_ACOP_input:
+    HVAC1_baseline_ACOP_input:
       [
-        2.05
+        2.05,
+        2.05,
+        0
       ]
 
-
-- name: test HVAC2 deemed activity electricity savings
+- name: test Deemed Electricity Savings
   period: 2022
   absolute_error_margin: 0.1
-  input:
-    HVAC2_TCEC_or_annual_reference_cooling:
+  input: 
+    HVAC1_reference_cooling_annual_energy_use: 
       [
-        5232, #Fujitsu AOTA90LALT/ARTC90LATU
-        643   #Panasonic CU-Z71VKR/CS-Z71VKR
+        928.548,
+        450450, #AIRO ACP33HP
+        945.932 #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
-    HVAC2_cooling_annual_energy_use:
+    HVAC1_cooling_annual_energy_use:
       [
-        3420,
-        945.932
+        824.619,
+        170625,
+        643 #TCEC residential mixed
       ]
-    HVAC2_THEC_or_annual_reference_heating:
+    HVAC1_reference_heating_annual_energy_use:
       [
-        2214,
-        1071 #Average THEC
-      ]
-    HVAC2_heating_annual_energy_use:
-      [
-        5438,
+        0,
+        0,
         2456.87
       ]
-  output:
-    HVAC2_deemed_activity_electricity_savings:
+    HVAC1_heating_annual_energy_use:
       [
-        -60.82,
-        -16.88802
+        0,
+        0,
+        1071 #THEC residential mixed
+      ]
+  output:
+    HVAC1_deemed_activity_electricity_savings:
+      [
+        1.03929,
+        2798.25,
+        16.89
       ]
 
-- name: test HVAC2 electricity savings
+- name: test electricity savings
+  absolute_error_margin: 0.1
+  period: 2022
+  input:
+    HVAC1_deemed_activity_electricity_savings:
+      [
+        1.03929,
+        2798.25, #AIRO ACP33HP
+        16.89    #Panasonic CU-Z71VKR/CS-Z71VKR
+      ]
+    HVAC1_PDRS__regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03
+      ]
+  output:
+    HVAC1_electricity_savings:
+      [
+        1.070,
+        2882.1975,
+        17.397
+      ]
+
+- name: test ESC calculation with electricity savings
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_deemed_activity_electricity_savings:
+    HVAC1_electricity_savings:
       [
-        -14.12, #Fujitsu AOTA90LALT/ARTC90LATU
-        -16.888 #Panasonic CU-Z71VKR/CS-Z71VKR
-      ]
-    HVAC2_PDRS__regional_network_factor:
-      [
-        1,
-        1.05
+        1.070,
+        2882.1975, #AIRO ACP33HP
+        17.397     #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
   output:
-    HVAC2_electricity_savings:
+    HVAC1_ESC_calculation:
       [
-        -14.12,
-        -17.732
+        1.13,
+        3055.12,
+        18.44
       ]
 
 - name: test ESC calculation
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_cooling_capacity_input:
+    HVAC1_cooling_capacity_input:
+      [
+        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+        1050  #AIRO ACP33HP
+      ]
+    HVAC1_heating_capacity_input: 
+      [
+        0,
+        0
+      ]
+    HVAC1_rated_AEER_input:
+      [
+        3.4907,
+        2.64
+      ]
+    HVAC1_rated_ACOP_input:
+      [
+        0,
+        0
+      ]
+    HVAC1_Air_Conditioner_type:
+      [
+        ducted_split_system, # baseline AEER input 3.1
+        ducted_unitary_system
+      ]
+    HVAC1_New_Equipment:
+      [
+        true,
+        true
+      ]
+    HVAC1_PDRS__postcode:
+      [
+        2350,
+        2017
+      ]
+  output:
+    HVAC1_ESC_calculation:
+      [
+        1.13,
+        0
+      ]
+
+- name: test ESC calculation case 2
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_cooling_capacity_input:
       [
         32
       ]
-    HVAC2_heating_capacity_input: 
+    HVAC1_heating_capacity_input: 
       [
         6
       ]
-    HVAC2_rated_AEER_input:
+    HVAC1_rated_AEER_input:
       [
         2.0
       ]
-    HVAC2_rated_ACOP_input:
+    HVAC1_rated_ACOP_input:
       [
         6.0
       ]
-    HVAC2_Air_Conditioner_type:
+    HVAC1_Air_Conditioner_type:
       [
         non_ducted_split_system
       ]
-    HVAC2_New_Equipment:
+    HVAC1_New_Equipment:
       [
         true
       ]
-    HVAC2_PDRS__postcode:
+    HVAC1_PDRS__postcode:
       [
         2017
       ]
   output:
-    HVAC2_ESC_calculation:
+    HVAC1_ESC_calculation:
       [
         0
       ]
 
-- name: test ESC calculation simple
+- name: test ESC calculation case 3
   period: 2022
-  absolute_error_margin: 0.5
+  absolute_error_margin: 0.1
   input:
-    HVAC2_electricity_savings:
+    HVAC1_cooling_capacity_input:
       [
-        -14.12 #Fujitsu AOTA90LALT/ARTC90LATU
+        1050 #AIRO ACP33HP
+      ]
+    HVAC1_heating_capacity_input: 
+      [
+        0
+      ]
+    HVAC1_rated_AEER_input:
+      [
+        2.64
+      ]
+    HVAC1_rated_ACOP_input:
+      [
+        0
+      ]
+    HVAC1_Air_Conditioner_type:
+      [
+        ducted_unitary_system
+      ]
+    HVAC1_New_Equipment:
+      [
+        true
+      ]
+    HVAC1_PDRS__postcode:
+      [
+        2017
       ]
   output:
-    HVAC2_ESC_calculation:
+    HVAC1_ESC_calculation:
       [
-        0 # ESCs result was -14.97
+        0
       ]

@@ -144,23 +144,35 @@ class RF2_ESC_calculation(Variable):
 
       RF2_eligible_ESCs = np.select(
             [
-                replacement_activity * EEI_eligible_replacement,
-                np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_replacement),
-                replacement_activity * EEI_eligible_install,
+                # replacement_activity * EEI_eligible_replacement,
+                # np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_replacement),
+                # replacement_activity * np.logical_not(EEI_eligible_replacement),
+                # np.logical_not(replacement_activity) * EEI_eligible_replacement,
+                # replacement_activity * EEI_eligible_install,
+                # np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_install),
+                # replacement_activity * np.logical_not(EEI_eligible_install),
                 np.logical_not(replacement_activity) * EEI_eligible_install
             ],
             [
-                (electricity_savings * electricity_certificate_conversion_factor),
-                0,
-                0,
+                # (electricity_savings * electricity_certificate_conversion_factor),
+                # 0,
+                # 0,
+                # 0,
+                # 0,
+                # 0,
+                # 0,
                 (electricity_savings * electricity_certificate_conversion_factor)
             ])
 
       result_to_return = np.select([
-                RF2_eligible_ESCs <= 0, RF2_eligible_ESCs > 0 
+                RF2_eligible_ESCs <= 0, RF2_eligible_ESCs > 0
             ],
             [
                 0, RF2_eligible_ESCs
             ])
+
+      print('product EEI', EEI_eligible_install)
+      print('replacement activity', replacement_activity)
+      print('escs', RF2_eligible_ESCs)
 
       return result_to_return

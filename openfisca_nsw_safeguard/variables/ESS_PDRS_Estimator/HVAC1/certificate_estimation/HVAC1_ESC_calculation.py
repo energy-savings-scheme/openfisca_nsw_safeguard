@@ -32,7 +32,7 @@ class HVAC1_heating_annual_energy_use(Variable):
                         ],
                         [
                             0,
-                            (heating_capacity * equivalent_heating_hours) / rated_ACOP, 
+                            (heating_capacity * equivalent_heating_hours) / rated_ACOP,
                             0,
                             (heating_capacity * equivalent_heating_hours) / rated_ACOP
                         ])

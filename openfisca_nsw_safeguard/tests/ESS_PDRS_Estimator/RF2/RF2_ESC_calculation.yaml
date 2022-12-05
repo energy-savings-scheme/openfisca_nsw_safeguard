@@ -31,11 +31,11 @@
   input:
     RF2_product_class: 
       [
-        product_class_one,
-        product_class_two,
-        product_class_five,
-        product_class_twelve,
-        product_class_eight
+        Class 1,
+        Class 2,
+        Class 5,
+        Class 12,
+        Class 8
       ]
   output:
     RF2_product_type:
@@ -80,9 +80,9 @@
   input: 
     RF2_product_class:
       [
-        product_class_five,
-        product_class_five,
-        product_class_eight #De Rigo Clio 3P
+        Class 5,
+        Class 5,
+        Class 8 #De Rigo Clio 3P
       ]
     RF2_duty_class:
       [
@@ -327,7 +327,7 @@
       ]
     RF2_product_class:
       [
-        product_class_eight
+        Class 8
       ]
     RF2_replacement_activity:
       [
@@ -335,7 +335,7 @@
       ]
     RF2_total_display_area: 
       [ 
-        3.04 
+        3.04
       ]
     RF2_total_energy_consumption:
       [

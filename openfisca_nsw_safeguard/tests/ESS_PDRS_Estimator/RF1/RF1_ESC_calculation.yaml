@@ -41,13 +41,24 @@
     RF1_electricity_savings:
       [
         28.5,
-        14.789
+        14.789,
+        28.5,
+        28.5
+      ]
+    RF1_storage_volume:
+      [
+        True,
+        True,
+        False,
+        True
       ]
   output:
     RF1_ESC_calculation:
       [
         30.21,
-        15.67634
+        15.67634,
+        0,
+        30.21
       ]
 
 - name: test RF1 ESC calculation more complicated version
@@ -62,7 +73,12 @@
     RF1_PDRS__postcode:
       [
         2536, #rnf of 1.03
-        2787 #rnf of 1.03
+        2787  #rnf of 1.03
+      ]
+    RF1_storage_volume:
+      [
+        True,
+        True
       ]
   output:
     RF1_ESC_calculation:

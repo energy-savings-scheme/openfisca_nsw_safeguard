@@ -46,17 +46,52 @@ class RF2_af(Variable):
       duty_type = buildings('RF2_duty_class', period)
       new_equipment = buildings('RF2_replacement_activity', period)
     
-      af = np.select(
-        [ 
-          new_equipment, 
-          np.logical_not(new_equipment)
-        ],
-        [ 
-          parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
-          parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
-        ]
-      )
-      return af
+    product_class = np.select([
+        product_class == 'Class 1',
+        product_class == 'Class 2',
+        product_class == 'Class 3',
+        product_class == 'Class 4',
+        product_class == 'Class 5',
+        product_class == 'Class 6',
+        product_class == 'Class 7',
+        product_class == 'Class 8',
+        product_class == 'Class 9',
+        product_class == 'Class 10',
+        product_class == 'Class 11',
+        product_class == 'Class 12',
+        product_class == 'Class 13',
+        product_class == 'Class 14',
+        product_class == 'Class 15',
+      ], 
+      [
+        RF2ProductClass.product_class_one,
+        RF2ProductClass.product_class_two,
+        RF2ProductClass.product_class_three,
+        RF2ProductClass.product_class_four,
+        RF2ProductClass.product_class_five,
+        RF2ProductClass.product_class_six,
+        RF2ProductClass.product_class_seven,
+        RF2ProductClass.product_class_eight,
+        RF2ProductClass.product_class_nine,
+        RF2ProductClass.product_class_ten,
+        RF2ProductClass.product_class_eleven,
+        RF2ProductClass.product_class_twelve,
+        RF2ProductClass.product_class_thirteen,
+        RF2ProductClass.product_class_fourteen,
+        RF2ProductClass.product_class_fifteen         
+      ])
+    
+    af = np.select(
+      [ 
+        new_equipment, 
+        np.logical_not(new_equipment)
+      ],
+      [ 
+        parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
+        parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
+       ]
+    )
+    return af
     
     
 class RF2_baseline_EEI(Variable):
@@ -65,22 +100,57 @@ class RF2_baseline_EEI(Variable):
     definition_period = ETERNITY
     label = "Baseline EEI"
   
-    def formula(buildings, period, parameters):
-      product_class = buildings('RF2_product_class', period)
-      duty_type = buildings('RF2_duty_class', period)
-      replacement_activity = buildings('RF2_replacement_activity', period)
+  def formula(buildings, period, parameters):
+    product_class = buildings('RF2_product_class', period)
+    duty_type = buildings('RF2_duty_class', period)
+    replacement_activity = buildings('RF2_replacement_activity', period)
+    
+    product_class = np.select([
+        product_class == 'Class 1',
+        product_class == 'Class 2',
+        product_class == 'Class 3',
+        product_class == 'Class 4',
+        product_class == 'Class 5',
+        product_class == 'Class 6',
+        product_class == 'Class 7',
+        product_class == 'Class 8',
+        product_class == 'Class 9',
+        product_class == 'Class 10',
+        product_class == 'Class 11',
+        product_class == 'Class 12',
+        product_class == 'Class 13',
+        product_class == 'Class 14',
+        product_class == 'Class 15',
+      ], 
+      [
+        RF2ProductClass.product_class_one,
+        RF2ProductClass.product_class_two,
+        RF2ProductClass.product_class_three,
+        RF2ProductClass.product_class_four,
+        RF2ProductClass.product_class_five,
+        RF2ProductClass.product_class_six,
+        RF2ProductClass.product_class_seven,
+        RF2ProductClass.product_class_eight,
+        RF2ProductClass.product_class_nine,
+        RF2ProductClass.product_class_ten,
+        RF2ProductClass.product_class_eleven,
+        RF2ProductClass.product_class_twelve,
+        RF2ProductClass.product_class_thirteen,
+        RF2ProductClass.product_class_fourteen,
+        RF2ProductClass.product_class_fifteen         
+      ])
 
-      baseline_EEI = np.select(
-        [ 
-          replacement_activity,
-          np.logical_not(replacement_activity)
-        ],
-        [
-          parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type],
-          parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
-        ]
-      )
-      return baseline_EEI
+    baseline_EEI = np.select(
+      [ 
+        replacement_activity,
+        np.logical_not(replacement_activity)
+      ],
+      [ 
+        parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type],
+        parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
+      ]
+    )    
+    return baseline_EEI
 
 
 class RF2_product_EEI(Variable):
@@ -186,10 +256,9 @@ class RF2ProductClass(Enum):
 
 
 class RF2_product_class(Variable):
-    value_type = Enum
+    value_type = str
     entity = Building
-    possible_values = RF2ProductClass
-    default_value = RF2ProductClass.product_class_one
+    default_value = 'Class 1'
     definition_period = ETERNITY
     label = 'What is the product class for the refrigerated cabinet?'
     metadata = {
@@ -207,6 +276,41 @@ class RF2_product_class_int(Variable):
 
     def formula(buildings, period, parameters):
       product_class = buildings('RF2_product_class', period)
+      
+      product_class = np.select([
+        product_class == 'Class 1',
+        product_class == 'Class 2',
+        product_class == 'Class 3',
+        product_class == 'Class 4',
+        product_class == 'Class 5',
+        product_class == 'Class 6',
+        product_class == 'Class 7',
+        product_class == 'Class 8',
+        product_class == 'Class 9',
+        product_class == 'Class 10',
+        product_class == 'Class 11',
+        product_class == 'Class 12',
+        product_class == 'Class 13',
+        product_class == 'Class 14',
+        product_class == 'Class 15',
+      ], 
+      [
+        RF2ProductClass.product_class_one,
+        RF2ProductClass.product_class_two,
+        RF2ProductClass.product_class_three,
+        RF2ProductClass.product_class_four,
+        RF2ProductClass.product_class_five,
+        RF2ProductClass.product_class_six,
+        RF2ProductClass.product_class_seven,
+        RF2ProductClass.product_class_eight,
+        RF2ProductClass.product_class_nine,
+        RF2ProductClass.product_class_ten,
+        RF2ProductClass.product_class_eleven,
+        RF2ProductClass.product_class_twelve,
+        RF2ProductClass.product_class_thirteen,
+        RF2ProductClass.product_class_fourteen,
+        RF2ProductClass.product_class_fifteen         
+      ])
       product_class_int = np.select([
         product_class == RF2ProductClass.product_class_one,
         product_class == RF2ProductClass.product_class_two,
@@ -256,6 +360,41 @@ class RF2_product_type(Variable):
     
     def formula(buildings, period, parameters):
       product_class = buildings('RF2_product_class', period)
+
+      product_class = np.select([
+        product_class == 'Class 1',
+        product_class == 'Class 2',
+        product_class == 'Class 3',
+        product_class == 'Class 4',
+        product_class == 'Class 5',
+        product_class == 'Class 6',
+        product_class == 'Class 7',
+        product_class == 'Class 8',
+        product_class == 'Class 9',
+        product_class == 'Class 10',
+        product_class == 'Class 11',
+        product_class == 'Class 12',
+        product_class == 'Class 13',
+        product_class == 'Class 14',
+        product_class == 'Class 15',
+      ], 
+      [
+        RF2ProductClass.product_class_one,
+        RF2ProductClass.product_class_two,
+        RF2ProductClass.product_class_three,
+        RF2ProductClass.product_class_four,
+        RF2ProductClass.product_class_five,
+        RF2ProductClass.product_class_six,
+        RF2ProductClass.product_class_seven,
+        RF2ProductClass.product_class_eight,
+        RF2ProductClass.product_class_nine,
+        RF2ProductClass.product_class_ten,
+        RF2ProductClass.product_class_eleven,
+        RF2ProductClass.product_class_twelve,
+        RF2ProductClass.product_class_thirteen,
+        RF2ProductClass.product_class_fourteen,
+        RF2ProductClass.product_class_fifteen         
+      ])
 
       is_integral_RDC = (
                           (product_class == RF2ProductClass.product_class_one) +

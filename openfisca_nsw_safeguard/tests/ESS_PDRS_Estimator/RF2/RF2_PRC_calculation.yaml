@@ -45,6 +45,13 @@
         true,
         true
       ]
+    RF2_product_EEI_PRC_replacement_eligibility:
+      [
+        true,
+        false,
+        true,
+        false
+      ]
     RF2_product_EEI:
       [
         10,

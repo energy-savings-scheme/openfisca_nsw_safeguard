@@ -29,7 +29,6 @@ class WH1_annual_energy_savings(Variable):
         'label': 'Annual energy savings (%/year)'
     }
 
-
 """ These variables use Rule tables
 """
 class network_loss_factor_options(Enum):
@@ -44,7 +43,7 @@ class PDRS_network_loss_factor(Variable):
     entity = Building
     definition_period = ETERNITY
     
-    def formula(building, period):
+    def formula(building, period, parameters):
         network_loss = building('WH1_Provider_to_network_loss_factor_enum', period)
         return np.select(
             [
@@ -99,3 +98,25 @@ class WH1_PDRS__postcode(Variable):
         'sorting' : 1,
         'label': 'Postcode'
     }
+
+
+
+class WH1_annual_energy_savings_eligible(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+        minimum_savings = buildings('WH1_annual_energy_savings', period)
+        heat_pump_zone = buildings('WH1_get_zone_by_postcode', period)
+
+        minimum_savings_by_HP_zone_to_check = np.select(
+            [
+                (minimum_savings <= 60) * (heat_pump_zone == WH1_get_zone_by_postcode.zone_5) * BCA climate zone 2,3,4,5,6
+                min savings <= 60 * heat pump zone 3 * BCA climate zone 7 or 8
+            ],
+            [
+
+            ])   
+
+        return minimum_savings_by_HP_zone_to_check

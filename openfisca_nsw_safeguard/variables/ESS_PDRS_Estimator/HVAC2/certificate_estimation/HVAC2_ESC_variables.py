@@ -291,3 +291,61 @@ class HVAC2_Air_Conditioner_type(Variable):
         'sorting' : 4,
         'label': "Air conditioner type"
     }
+
+
+class HVAC2_TCSPF_mixed(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the TCSPF mixed for the AC, as listed in the GEMS Registry?'
+    metadata = {
+    'variable-type': 'user-input',
+    'alias':  'Air Conditioner TCSPF',
+    'label': 'Mixed TCSPF',
+    'display_question': 'Mixed TCSPF'
+}
+    
+
+class HVAC2_TCSPF_or_AEER_exceeds_benchmark(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the Air Conditioner have a Residential TCSPF mixed equal or greater than the minimum' \
+            ' TCSPF mixed listed in Table HVAC 1.3? If the TCPSF is not available, is the Rated' \
+            ' AEER equal or greater than the Minimum Rated AEER listed in Table HVAC1.4?'
+    metadata = {
+        'alias':  'Air Conditioner has at least 5 years of Warranty',
+    }
+
+    def formula(buildings, period, parameters):
+        AC_TCSPF = buildings('HVAC2_TCSPF_mixed', period)
+        AC_AEER = buildings('HVAC2_rated_AEER_input', period)
+        product_class = buildings('HVAC2_Air_Conditioner_type', period)
+        new_AC_cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
+        cooling_capacity = np.select(
+                                    [
+                                        (new_AC_cooling_capacity < 4),
+                                        ((new_AC_cooling_capacity >= 4) * (new_AC_cooling_capacity < 6)),
+                                        ((new_AC_cooling_capacity >= 6) * (new_AC_cooling_capacity < 10)),
+                                        ((new_AC_cooling_capacity >= 10) * (new_AC_cooling_capacity < 13)),
+                                        ((new_AC_cooling_capacity >= 13) * (new_AC_cooling_capacity < 25)),
+                                        ((new_AC_cooling_capacity >= 25) * (new_AC_cooling_capacity <= 65)),
+                                        (new_AC_cooling_capacity > 65)
+                                    ],
+                                    [
+                                        "less_than_4kW",
+                                        "4kW_to_6kW",
+                                        "6kW_to_10kW",
+                                        "10kW_to_13kW",
+                                        "13kW_to_25kW",
+                                        "25kW_to_65kW",
+                                        "over_65kW"
+                                    ]
+                                    )
+        TCSPF_is_zero = ((AC_TCSPF == 0) + (AC_TCSPF == None))
+        AC_exceeds_benchmark = np.where(
+            TCSPF_is_zero,
+            (AC_AEER >= parameters(period).PDRS.AC.table_HVAC_2_4[product_class][cooling_capacity]),
+            (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_2_3[product_class][cooling_capacity])
+            )
+        return AC_exceeds_benchmark

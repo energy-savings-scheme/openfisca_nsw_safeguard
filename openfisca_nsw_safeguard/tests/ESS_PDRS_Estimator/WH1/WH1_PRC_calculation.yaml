@@ -70,6 +70,53 @@
         5,
         3
       ]
+
+- name: test WH1 eligibility by min savings, HP zone, BCA climate zone
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_annual_energy_savings:
+      [
+        80,
+        80,
+        80,
+        80,
+        80,
+        50,
+        60
+      ]
+    WH1_get_zone_by_postcode:
+      [
+        5,
+        5,
+        5,
+        5,
+        3,
+        3,
+        3
+      ]
+    WH1_BCA_climate_zone_by_postcode:
+      [
+        BCA_Climate_Zone_1,
+        BCA_Climate_Zone_2,
+        BCA_Climate_Zone_3,
+        BCA_Climate_Zone_7,
+        BCA_Climate_Zone_8,
+        BCA_Climate_Zone_8,
+        BCA_Climate_Zone_7
+      ]
+  output:
+    WH1_annual_energy_savings_eligible:
+      [
+        False,
+        True,
+        True,
+        False,
+        True,
+        False,
+        True
+      ]
+      
 - name: test WH1 peak demand reduction capacity
   period: 2022
   absolute_error_margin: 0

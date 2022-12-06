@@ -78,7 +78,7 @@ class WH1_get_zone_by_postcode(Variable):
     definition_period = ETERNITY
     metadata = {
         "variable-type": "inter-interesting",
-        "alias": "Zone",
+        "alias": "Zone"
     }
     def formula(building, period, parameters):
         postcode = building('WH1_PDRS__postcode', period)
@@ -100,23 +100,93 @@ class WH1_PDRS__postcode(Variable):
     }
 
 
+class WH1_BCA_climate_zone_by_postcode(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    metadata={
+        'variable-type' : 'inter-interesting'
+    }
+
+    def formula(buildings, period, parameters):
+        postcode = buildings('WH1_PDRS__postcode', period)
+        # Returns an integer
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        climate_zone_int = climate_zone.calc(postcode)
+        BCA_climate_zone_to_check = np.select(
+            [
+                climate_zone_int == 1,
+                climate_zone_int == 2,
+                climate_zone_int == 3,
+                climate_zone_int == 4,
+                climate_zone_int == 5,
+                climate_zone_int == 6,
+                climate_zone_int == 7,
+                climate_zone_int == 8
+            ],
+            [
+                'BCA_Climate_Zone_1',
+                'BCA_Climate_Zone_2',
+                'BCA_Climate_Zone_3',
+                'BCA_Climate_Zone_4',
+                'BCA_Climate_Zone_5',
+                'BCA_Climate_Zone_6',
+                'BCA_Climate_Zone_7',
+                'BCA_Climate_Zone_8'
+            ])
+
+        return BCA_climate_zone_to_check
+
 
 class WH1_annual_energy_savings_eligible(Variable):
-    value_type = float
+    value_type = bool
     entity = Building
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
+
         minimum_savings = buildings('WH1_annual_energy_savings', period)
         heat_pump_zone = buildings('WH1_get_zone_by_postcode', period)
+        BCA_climate_zone = buildings('WH1_BCA_climate_zone_by_postcode', period)
 
         minimum_savings_by_HP_zone_to_check = np.select(
             [
-                (minimum_savings <= 60) * (heat_pump_zone == WH1_get_zone_by_postcode.zone_5) * BCA climate zone 2,3,4,5,6
-                min savings <= 60 * heat pump zone 3 * BCA climate zone 7 or 8
+                minimum_savings < 60,
+                (minimum_savings >= 60) * (heat_pump_zone == 5) * (BCA_climate_zone == 'BCA_Climate_Zone_1'), 
+                (minimum_savings >= 60) * (heat_pump_zone == 5) * (BCA_climate_zone == 'BCA_Climate_Zone_2'), 
+                (minimum_savings >= 60) * (heat_pump_zone == 5) * (BCA_climate_zone == 'BCA_Climate_Zone_3'), 
+                (minimum_savings >= 60) * (heat_pump_zone == 5) * (BCA_climate_zone == 'BCA_Climate_Zone_4'), 
+                (minimum_savings >= 60) * (heat_pump_zone == 5) * (BCA_climate_zone == 'BCA_Climate_Zone_5'), 
+                (minimum_savings >= 60) * (heat_pump_zone == 5) * (BCA_climate_zone == 'BCA_Climate_Zone_6'), 
+                (minimum_savings >= 60) * (heat_pump_zone == 5) * (BCA_climate_zone == 'BCA_Climate_Zone_7'),
+                (minimum_savings >= 60) * (heat_pump_zone == 5) * (BCA_climate_zone == 'BCA_Climate_Zone_8'),
+                (minimum_savings >= 60) * (heat_pump_zone == 3) * (BCA_climate_zone == 'BCA_Climate_Zone_1'),
+                (minimum_savings >= 60) * (heat_pump_zone == 3) * (BCA_climate_zone == 'BCA_Climate_Zone_2'),
+                (minimum_savings >= 60) * (heat_pump_zone == 3) * (BCA_climate_zone == 'BCA_Climate_Zone_3'),
+                (minimum_savings >= 60) * (heat_pump_zone == 3) * (BCA_climate_zone == 'BCA_Climate_Zone_4'),
+                (minimum_savings >= 60) * (heat_pump_zone == 3) * (BCA_climate_zone == 'BCA_Climate_Zone_5'),
+                (minimum_savings >= 60) * (heat_pump_zone == 3) * (BCA_climate_zone == 'BCA_Climate_Zone_6'),
+                (minimum_savings >= 60) * (heat_pump_zone == 3) * (BCA_climate_zone == 'BCA_Climate_Zone_7'),
+                (minimum_savings >= 60) * (heat_pump_zone == 3) * (BCA_climate_zone == 'BCA_Climate_Zone_8')
             ],
             [
-
-            ])   
+                False,
+                False,
+                True,
+                True,
+                True,
+                True,
+                True,
+                False,
+                False,
+                False,
+                False,
+                False,
+                False,
+                False,
+                False,
+                True,
+                True
+            ])
 
         return minimum_savings_by_HP_zone_to_check

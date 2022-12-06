@@ -138,6 +138,10 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+      HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+      [
+        true
+      ]
     HVAC2_peak_demand_reduction_capacity:
       [
         21.96
@@ -156,6 +160,11 @@
   period: 2022
   absolute_error_margin: 0.5
   input:
+    HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+      [
+        true,
+        true
+      ]
     HVAC2_DNSP:
       [
         Ausgrid,

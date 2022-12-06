@@ -142,6 +142,7 @@ class WH1_annual_energy_savings_eligible(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
+    default_value = False
 
     def formula(buildings, period, parameters):
 

@@ -273,7 +273,7 @@ class HVAC1_new_installation_activity(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Replacement or new installation activity',
-        'display_question' : 'Is the activity a replacement of existing equipment?',
+        'display_question' : 'Is the activity an installation of a new high efficiency air conditioner?',
         'sorting' : 3
         }
 

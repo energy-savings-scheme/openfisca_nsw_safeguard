@@ -171,6 +171,36 @@
       [
         2.05
       ]
+- name: test minimum TCSFP AEER 
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_Air_Conditioner_type:
+      [
+        non_ducted_split_system,
+        non_ducted_split_system
+      ]
+    HVAC2_cooling_capacity_input:
+      [
+        8,  #expected AEER 3.5
+        8   #expected TCSPF 4.5
+      ]
+    HVAC2_TCSPF_mixed:
+      [
+        0,  #use AEER
+        20  #use TCSPF instead of AEER, > expected 4.5
+      ]
+    HVAC2_rated_AEER_input:
+      [
+         0,  #AEER < expected 3.5
+        50  
+      ]
+  output:
+    HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+      [
+        false,
+        true
+      ]
 
 - name: test ESC calculation
   period: 2022

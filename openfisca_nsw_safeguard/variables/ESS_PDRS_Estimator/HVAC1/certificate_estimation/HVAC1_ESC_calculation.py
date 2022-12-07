@@ -238,13 +238,27 @@ class HVAC1_ESC_calculation(Variable):
 
     def formula(buildings, period, parameters):
       HVAC1_electricity_savings = buildings('HVAC1_electricity_savings', period)
+      HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
+      HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark = buildings('HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
       electricity_certificate_conversion_factor = 1.06
 
       result = HVAC1_electricity_savings * electricity_certificate_conversion_factor
+      result_meet_elig = np.select([
+                         HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark, 
+                         np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark,
+                         HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark)
+                         ],
+      
+                        [
+                            result, 0, 0, 0
+                        ]
+      )
+      
       result_to_return = np.select([
-                result < 0, result > 0
+                result_meet_elig <= 0, result_meet_elig > 0
             ], [
-                0, result
+                0, result_meet_elig
             ])
 
       return result_to_return

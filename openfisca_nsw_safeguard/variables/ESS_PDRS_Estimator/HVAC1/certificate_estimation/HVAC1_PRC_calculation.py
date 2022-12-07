@@ -150,12 +150,23 @@ class HVAC1_PRC_calculation(Variable):
         peak_demand_capacity = buildings('HVAC1_peak_demand_reduction_capacity', period)
         network_loss_factor = buildings('HVAC1_network_loss_factor', period)
         kw_to_0_1kw = 10
+        
+        
+        HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
 
+        result = peak_demand_capacity * network_loss_factor * kw_to_0_1kw  
+        result_meet_elig = np.select(
+                        [
+                         HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark,
+                         np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark)
+                         ],
+                        [
+                            result, 0
+                        ])
 
-        result = peak_demand_capacity * network_loss_factor * kw_to_0_1kw    
         result_to_return = np.select([
-                result < 0, result > 0
+                result_meet_elig <= 0, result_meet_elig > 0
             ], [
-                0, result
+                0, result_meet_elig
             ])
         return result_to_return

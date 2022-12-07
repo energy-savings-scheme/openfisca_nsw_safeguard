@@ -62,15 +62,14 @@ class HVAC2_network_loss_factor(Variable):
         return network_loss_factor
 
 
-class HVAC2_New_Equipment(Variable):
+class HVAC2_new_installation_activity(Variable):  
     value_type = bool
     default_value = True
     entity = Building
     definition_period = ETERNITY
-    label = 'New or Used equipment'
     metadata = {
-        'variable-type': 'user-input',
-        'display_question': 'Is the End-User equipment a new air-conditioner?',
-        'sorting' : 3,
-        'label': 'New or Used equipment'
+        'variable-type' : 'user-input',
+        'label' : 'New installation or replacement activity',
+        'display_question' : 'is the activity an installation of a new high efficiency air conditioner?',
+        'sorting' : 3
         }

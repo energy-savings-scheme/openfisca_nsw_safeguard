@@ -134,27 +134,27 @@
         21.96
       ]
       
-- name: test HVAC2 PRC calculation simple
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-      HVAC2_TCSPF_or_AEER_exceeds_benchmark:
-      [
-        true
-      ]
-    HVAC2_peak_demand_reduction_capacity:
-      [
-        21.96
-      ]
-    HVAC2_network_loss_factor:
-      [
-        1.04
-      ]
-  output:
-    HVAC2_PRC_calculation:
-      [
-        228.38 #Fujitsu AOTA90LALT/ARTC90LATU
-      ]
+# - name: test HVAC2 PRC calculation simple
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#       HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+#       [
+#         True
+#       ]
+#     HVAC2_peak_demand_reduction_capacity:
+#       [
+#         21.96
+#       ]
+#     HVAC2_network_loss_factor:
+#       [
+#         1.04
+#       ]
+#   output:
+#     HVAC2_PRC_calculation:
+#       [
+#         228.38 #Fujitsu AOTA90LALT/ARTC90LATU
+#       ]
 
 - name: test HVAC2 PRC calculation complex
   period: 2022

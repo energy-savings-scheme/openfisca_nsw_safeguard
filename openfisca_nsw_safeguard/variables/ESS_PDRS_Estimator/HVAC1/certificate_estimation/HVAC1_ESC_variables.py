@@ -13,7 +13,6 @@ class HVAC1_heating_capacity_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Rated heated capacity (kW)'
     metadata = {
         "alias": "Air Conditioner Heating Capacity",
         'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
@@ -27,7 +26,6 @@ class HVAC1_cooling_capacity_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Rated cooling capacity (kW)'
     metadata = {
         "alias": "Air Conditioner Cooling Capacity",
         'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
@@ -40,7 +38,6 @@ class HVAC1_rated_ACOP_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Rated ACOP'
     metadata = {
         "alias": "Rated ACOP",
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
@@ -52,7 +49,6 @@ class HVAC1_rated_ACOP_input(Variable):
 class HVAC1_baseline_AEER_input(Variable):
     value_type = float
     entity = Building
-    label = "Baseline AEER"
     definition_period = ETERNITY
     metadata = {
         "alias": "AEER",
@@ -105,7 +101,6 @@ class HVAC1_rated_AEER_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Rated AEER'
     metadata = {
         "alias": "Rated AEER",
         "display_question": 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
@@ -415,16 +410,16 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
         AC_HSPF_cold = buildings('HVAC1_HSPF_cold', period)
         AC_ACOP = buildings('HVAC1_rated_ACOP_input', period)
         product_class = buildings('HVAC1_Air_Conditioner_type', period)
-        new_AC_heating_capacity = buildings('HVAC1_heating_capacity_input', period)
-        heating_capacity = np.select(
+        new_AC_cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
+        cooling_capacity = np.select(
                                     [
-                                        (new_AC_heating_capacity < 4),
-                                        ((new_AC_heating_capacity >= 4) * (new_AC_heating_capacity < 6)),
-                                        ((new_AC_heating_capacity >= 6) * (new_AC_heating_capacity < 10)),
-                                        ((new_AC_heating_capacity >= 10) * (new_AC_heating_capacity < 13)),
-                                        ((new_AC_heating_capacity >= 13) * (new_AC_heating_capacity < 25)),
-                                        ((new_AC_heating_capacity >= 25) * (new_AC_heating_capacity <= 65)),
-                                        (new_AC_heating_capacity > 65)
+                                        (new_AC_cooling_capacity < 4),
+                                        ((new_AC_cooling_capacity >= 4) * (new_AC_cooling_capacity < 6)),
+                                        ((new_AC_cooling_capacity >= 6) * (new_AC_cooling_capacity < 10)),
+                                        ((new_AC_cooling_capacity >= 10) * (new_AC_cooling_capacity < 13)),
+                                        ((new_AC_cooling_capacity >= 13) * (new_AC_cooling_capacity < 25)),
+                                        ((new_AC_cooling_capacity >= 25) * (new_AC_cooling_capacity <= 65)),
+                                        (new_AC_cooling_capacity > 65)
                                     ],
                                     [
                                         "less_than_4kW",
@@ -461,9 +456,9 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                             np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
                                             ],
                                             [
-            (AC_ACOP >= parameters(period).ESS.HEER.table_D16_5['ACOP'][product_class][heating_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_cold'][product_class][heating_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_mixed'][product_class][heating_capacity])
+            (AC_ACOP >= parameters(period).ESS.HEER.table_D16_5['ACOP'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_cold'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_mixed'][product_class][cooling_capacity])
                                             ]
             )
         return AC_exceeds_benchmark

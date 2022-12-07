@@ -87,7 +87,7 @@ class HVAC1_baseline_AEER_input(Variable):
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
        
-        new_or_used_equipment = building('HVAC1_New_Equipment', period)
+        new_or_used_equipment = building('HVAC1_new_installation_activity', period)
         
         
         baseline_aeer = np.select(
@@ -230,7 +230,7 @@ class HVAC1_baseline_ACOP_input(Variable):
             
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
-        new_or_used_equipment = building('HVAC1_New_Equipment', period)
+        new_or_used_equipment = building('HVAC1_new_installation_activity', period)
         
         
         baseline_acop = np.select(
@@ -265,19 +265,18 @@ class HVAC1_Air_Conditioner_type(Variable):
     }
     
 
-class HVAC1_New_Equipment(Variable):
+class HVAC1_new_installation_activity(Variable):  
     value_type = bool
     default_value = True
     entity = Building
     definition_period = ETERNITY
-    label = 'New or Used equipment'
     metadata = {
-        'variable-type': 'user-input',
-        'display_question': 'Is the end-user equipment a new air-conditioner?',
-        'sorting' : 3,
-        'label': 'New or Used equipment'
+        'variable-type' : 'user-input',
+        'label' : 'Replacement or new installation activity',
+        'display_question' : 'Is the activity a replacement of existing equipment?',
+        'sorting' : 3
         }
-    
+
 
 class HVAC1_get_climate_zone_by_postcode(Variable):
     value_type = str

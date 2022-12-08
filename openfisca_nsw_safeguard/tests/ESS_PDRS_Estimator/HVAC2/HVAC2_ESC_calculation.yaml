@@ -140,7 +140,7 @@
       [
         'The AC is a non-ducted split system.',
       ]
-    HVAC2_New_Equipment:
+    HVAC2_new_installation_activity:
       [
         true,
       ]
@@ -162,7 +162,7 @@
       [
         'The AC is a non-ducted split system.',
       ]
-    HVAC2_New_Equipment:
+    HVAC2_new_installation_activity:
       [
         true,
       ]
@@ -196,7 +196,7 @@
       [
         non_ducted_split_system
       ]
-    HVAC2_New_Equipment:
+    HVAC2_new_installation_activity:
       [
         true
       ]

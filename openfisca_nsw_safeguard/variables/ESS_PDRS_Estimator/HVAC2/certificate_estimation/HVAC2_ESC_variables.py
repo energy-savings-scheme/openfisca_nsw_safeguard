@@ -86,7 +86,7 @@ class HVAC2_baseline_AEER_input(Variable):
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
        
-        new_or_used_equipment = building('HVAC2_New_Equipment', period)
+        new_or_used_equipment = building('HVAC2_new_installation_activity', period)
         
         
         baseline_aeer = np.select(
@@ -257,7 +257,7 @@ class HVAC2_baseline_ACOP_input(Variable):
             
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
-        new_or_used_equipment = building('HVAC2_New_Equipment', period)
+        new_or_used_equipment = building('HVAC2_new_installation_activity', period)
         
         
         baseline_acop = np.select(

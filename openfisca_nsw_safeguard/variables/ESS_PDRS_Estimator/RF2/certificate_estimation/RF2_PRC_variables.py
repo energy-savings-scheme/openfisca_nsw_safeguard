@@ -35,4 +35,6 @@ class RF2_network_loss_factor(Variable):
     def formula(buildings, period, parameters):
         distribution_district = buildings('RF2_DNSP', period)
         network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors['network_loss_factor'][distribution_district]
+        print('network loss', network_loss_factor)
+        print('DNSP',  distribution_district)
         return network_loss_factor

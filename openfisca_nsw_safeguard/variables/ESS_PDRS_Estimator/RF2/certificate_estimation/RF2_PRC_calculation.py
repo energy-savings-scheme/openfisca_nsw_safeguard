@@ -121,4 +121,8 @@ class RF2_PRC_calculation(Variable):
             [
                 0, RF2_eligible_PRCs
             ])
+        print('replacement activity', replacement_activity)
+        print('eligible replacement', EEI_eligible_replacement)
+        print('eligible install', EEI_eligible_install)
+        print('PRCs', RF2_eligible_PRCs)
         return result_to_return

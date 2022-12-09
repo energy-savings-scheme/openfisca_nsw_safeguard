@@ -150,6 +150,10 @@ class RF2_baseline_EEI(Variable):
           parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
         ]
       )    
+      print('Product class', product_class)
+      print('Duty type', duty_type)
+      print('replacement activity', replacement_activity)
+      print('baseline EEI', baseline_EEI)
       return baseline_EEI
 
 
@@ -174,7 +178,7 @@ class RF2_product_EEI_ESC_replacement_eligibility(Variable):
       product_EEI = building('RF2_product_EEI', period)
       product_class_5 = building('RF2_product_class', period)
         
-      product_EEI_to_check_ESC = np.select(
+      replace_product_EEI_to_check_ESC = np.select(
           [
               (product_EEI < 51),
               (product_EEI >= 51) * (product_EEI < 81) * (np.logical_not(product_class_5) == np.logical_not(RF2ProductClass.product_class_five)),
@@ -187,8 +191,9 @@ class RF2_product_EEI_ESC_replacement_eligibility(Variable):
               False,
               False
           ])
-
-      return product_EEI_to_check_ESC
+      print('product EEI', product_EEI)
+      print('EEI for replace', replace_product_EEI_to_check_ESC )
+      return replace_product_EEI_to_check_ESC
 
 
 class RF2_product_EEI_ESC_install_eligibility(Variable):
@@ -199,7 +204,7 @@ class RF2_product_EEI_ESC_install_eligibility(Variable):
     def formula(building, period, parameters):
         product_EEI = building('RF2_product_EEI', period)
           
-        product_EEI_to_check_ESC = np.select(
+        install_product_EEI_to_check_ESC = np.select(
             [    
                 product_EEI < 77,
                 product_EEI >= 77
@@ -208,7 +213,9 @@ class RF2_product_EEI_ESC_install_eligibility(Variable):
                 True,
                 False
             ])
-        return product_EEI_to_check_ESC
+        print('product EEI install', product_EEI)
+        print('EEI for install',install_product_EEI_to_check_ESC )
+        return install_product_EEI_to_check_ESC
 
 
 class RF2_product_EEI_PRC_replacement_eligibility(Variable):

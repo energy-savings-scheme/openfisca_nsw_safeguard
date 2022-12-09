@@ -150,10 +150,6 @@ class RF2_baseline_EEI(Variable):
           parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
         ]
       )    
-      print('Product class', product_class)
-      print('Duty type', duty_type)
-      print('replacement activity', replacement_activity)
-      print('baseline EEI', baseline_EEI)
       return baseline_EEI
 
 
@@ -445,8 +441,6 @@ class RF2_product_EEI_ESC_replacement_eligibility(Variable):
               True,
               False
           ])
-      print('product EEI', product_EEI)
-      print('EEI for replace', replace_product_EEI_to_check_ESC )
       return replace_product_EEI_to_check_ESC
 
 
@@ -467,8 +461,6 @@ class RF2_product_EEI_ESC_install_eligibility(Variable):
                 True,
                 False
             ])
-        print('product EEI install', product_EEI)
-        print('EEI for install',install_product_EEI_to_check_ESC )
         return install_product_EEI_to_check_ESC
 
 
@@ -494,5 +486,4 @@ class RF2_product_EEI_PRC_replacement_eligibility(Variable):
               True,
               False
           ])
-        print('Product EEI to PRC', product_EEI_to_check_PRC)
         return product_EEI_to_check_PRC

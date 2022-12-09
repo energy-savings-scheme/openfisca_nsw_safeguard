@@ -38,7 +38,7 @@ class HVAC2_equipment_removed(Variable):
     label = 'Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?'
     metadata = {
         'display_question' : 'Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?',
-        'sorting' : 3, 
+        'sorting' : 3,
         'conditional': 'True'
     }
 

@@ -348,13 +348,11 @@ class RF2_product_type(Variable):
     entity = Building
     possible_values = RCProductType
     default_value = RCProductType.integral_RDC
-    definition_period = ETERNITY
-    label = 'What is the product type for the refrigerated cabinet?'
-    
+    definition_period = ETERNITY    
     metadata = {
-      "label": 'Product Type',
+      "label": 'Product Type for the refrigerated cabinet',
       # "display_question":  "What is the product type for the refrigerated cabinet?",
-      "variable-type": "inter-interesting",
+      "variable-type": "output",
     }
     
     def formula(buildings, period, parameters):
@@ -441,7 +439,6 @@ class RF2_product_type(Variable):
                                       RCProductType.RSC
                                   ]
                               )
-
       return product_type
 
 

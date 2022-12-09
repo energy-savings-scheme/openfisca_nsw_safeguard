@@ -99,7 +99,6 @@ class RF2_PRC_calculation(Variable):
         EEI_eligible_replacement = buildings('RF2_product_EEI_PRC_replacement_eligibility', period)
         EEI_eligible_install = buildings('RF2_product_EEI_ESC_install_eligibility', period)
 
-
         RF2_eligible_PRCs = np.select(
             [
                 replacement_activity * EEI_eligible_replacement,

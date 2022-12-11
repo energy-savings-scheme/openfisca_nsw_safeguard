@@ -90,7 +90,7 @@ class HVAC1_reference_heating_annual_energy_use(Variable):
                     ],
                     [
                         0,
-                        (heating_capacity * equivalent_heating_hours) / baseline_ACOP, 
+                        (heating_capacity * equivalent_heating_hours) / baseline_ACOP,
                         0,
                         (heating_capacity * equivalent_heating_hours) / baseline_ACOP
                     ])
@@ -196,10 +196,9 @@ class HVAC1_PDRS__regional_network_factor(Variable):
             ' A corresponding to the postcode of the Address of the Site or' \
             ' Sites where the Implementation(s) took place.'
     metadata = {
-        "variable-type": "inter-interesting",
-        "alias":"PDRS Regional Network Factor",
-        "display_question": "PDRS regional network factor",
-        "variable-type": "inter-interesting"
+        "variable-type" : "inter-interesting",
+        "alias" :"PDRS Regional Network Factor",
+        "display_question" : "PDRS regional network factor"
     }
 
     def formula(buildings, period, parameters):
@@ -223,8 +222,8 @@ class HVAC1_electricity_savings(Variable):
         deemed_electricity_savings = buildings('HVAC1_deemed_activity_electricity_savings', period)  # 2798.25 
         regional_network_factor = buildings('HVAC1_PDRS__regional_network_factor', period)
 
-        HVAC1_electricity_savings = (deemed_electricity_savings * regional_network_factor)
-        return HVAC1_electricity_savings
+        electricity_savings = (deemed_electricity_savings * regional_network_factor)
+        return electricity_savings
 
 
 class HVAC1_ESC_calculation(Variable):
@@ -238,13 +237,34 @@ class HVAC1_ESC_calculation(Variable):
 
     def formula(buildings, period, parameters):
       HVAC1_electricity_savings = buildings('HVAC1_electricity_savings', period)
+      HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
+      HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark = buildings('HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
       electricity_certificate_conversion_factor = 1.06
+      heating_capacity = buildings('HVAC1_heating_capacity_input', period)
 
       result = HVAC1_electricity_savings * electricity_certificate_conversion_factor
+      
+      zero_heating_capacity = ( heating_capacity == 0)
+      result_meet_elig = np.select([
+                         np.logical_not(zero_heating_capacity) * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark, 
+                         np.logical_not(zero_heating_capacity) * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark,
+                         np.logical_not(zero_heating_capacity) * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         np.logical_not(zero_heating_capacity) * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         zero_heating_capacity * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         zero_heating_capacity * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         zero_heating_capacity * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark
+                         ],
+      
+                        [
+                            result, 0, 0, 0, 0, 0, 0
+                        ],
+                        result
+      )
+      
       result_to_return = np.select([
-                result < 0, result > 0
+                result_meet_elig <= 0, result_meet_elig > 0
             ], [
-                0, result
+                0, result_meet_elig
             ])
 
       return result_to_return

@@ -1,3 +1,4 @@
+from distutils.command.build import build
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
@@ -236,12 +237,31 @@ class HVAC2_ESC_calculation(Variable):
     def formula(buildings, period, parameters):
       HVAC2_electricity_savings = buildings('HVAC2_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
+      HVAC2_TCSPF_or_AEER_exceeds_benchmark = buildings('HVAC2_TCSPF_or_AEER_exceeds_benchmark', period)
+    
+      heating_capacity = buildings('HVAC2_heating_capacity_input', period)
+      zero_heating_capacity = ( heating_capacity == 0)
 
+      print('Heating capacity', heating_capacity)
       result = np.rint(HVAC2_electricity_savings * electricity_certificate_conversion_factor)
+      
+      result_meet_elig = np.select([
+                            np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_benchmark,
+                            np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark),
+                            zero_heating_capacity * HVAC2_TCSPF_or_AEER_exceeds_benchmark,
+                            zero_heating_capacity * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark)
+                         ],
+      
+                        [
+                           result, 0, 0, 0
+                        ],
+                        result
+      )
+      
       result_to_return = np.select([
-                result < 0, result > 0
+                result_meet_elig <= 0, result_meet_elig > 0
             ], [
-                0, result
+                0, result_meet_elig
             ])
 
       return result_to_return

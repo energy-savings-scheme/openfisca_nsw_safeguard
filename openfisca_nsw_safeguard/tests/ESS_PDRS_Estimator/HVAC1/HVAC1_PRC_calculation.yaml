@@ -98,33 +98,52 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
+      [
+        true,
+        true,
+        false,
+        false
+      ]
     HVAC1_DNSP:
       [
+        Ausgrid,
+        Ausgrid,
         Ausgrid,
         Ausgrid #Coolmaster TCCF10C1S/AOCF10C-S
       ]
     HVAC1_input_power:
       [
         1,
+        2.89,
+        1,
         2.89
       ]
     HVAC1_Air_Conditioner_type:
       [
+        non_ducted_split_system,
+        ducted_split_system,
         non_ducted_split_system,
         ducted_split_system
       ]
     HVAC1_cooling_capacity_input:
       [
         2,
+        10.1,
+        2,
         10.1
       ]
     HVAC1_new_installation_activity:
       [
         true,
+        true,
+        true,
         true
       ]
     HVAC1_PDRS__postcode:
       [
+        2789,
+        2350,
         2789,
         2350
       ]
@@ -132,5 +151,7 @@
     HVAC1_PRC_calculation:
       [
         0,
-        126.779091
+        126.779091,
+        0,
+        0
       ]

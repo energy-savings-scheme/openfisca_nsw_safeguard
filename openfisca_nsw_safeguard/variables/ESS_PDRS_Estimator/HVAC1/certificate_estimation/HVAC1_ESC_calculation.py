@@ -240,18 +240,22 @@ class HVAC1_ESC_calculation(Variable):
       HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
       HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark = buildings('HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
       electricity_certificate_conversion_factor = 1.06
+      heating_capacity = buildings('HVAC1_heating_capacity_input', period)
 
       result = HVAC1_electricity_savings * electricity_certificate_conversion_factor
+      
+      zero_heating_capacity = ( heating_capacity == 0)
       result_meet_elig = np.select([
-                         HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark, 
-                         np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark,
-                         HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
-                         np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark)
+                         np.logical_not(zero_heating_capacity) * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark, 
+                         np.logical_not(zero_heating_capacity) * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark,
+                         np.logical_not(zero_heating_capacity) * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         np.logical_not(zero_heating_capacity) * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark)
                          ],
       
                         [
                             result, 0, 0, 0
-                        ]
+                        ],
+                        result
       )
       
       result_to_return = np.select([

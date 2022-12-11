@@ -239,17 +239,20 @@ class HVAC2_ESC_calculation(Variable):
       electricity_certificate_conversion_factor = 1.06
       HVAC2_TCSPF_or_AEER_exceeds_benchmark = buildings('HVAC2_TCSPF_or_AEER_exceeds_benchmark', period)
     
+      heating_capacity = buildings('HVAC2_heating_capacity_input', period)
+      zero_heating_capacity = ( heating_capacity == 0)
 
       result = np.rint(HVAC2_electricity_savings * electricity_certificate_conversion_factor)
       
       result_meet_elig = np.select([
-                            HVAC2_TCSPF_or_AEER_exceeds_benchmark,
-                            np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark)
+                            np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_benchmark,
+                            np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark)
                          ],
       
                         [
                             result, 0
-                        ]
+                        ],
+                        result
       )
       
       result_to_return = np.select([

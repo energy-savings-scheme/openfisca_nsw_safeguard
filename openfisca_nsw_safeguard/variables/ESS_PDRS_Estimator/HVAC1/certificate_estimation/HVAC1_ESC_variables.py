@@ -328,8 +328,8 @@ class HVAC1_HSPF_mixed(Variable):
     label = 'What is the HSPF mixed for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF mixed',
-    'label': 'Mixed TCSPF',
-    'display_question': 'Mixed TCSPF'
+    'label': 'Mixed HSPF',
+    'display_question': 'Mixed HSPF'
 }
 
 
@@ -340,8 +340,8 @@ class HVAC1_HSPF_cold(Variable):
     label = 'What is the HSPF cold for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF cold',
-    'label': 'Mixed TCSPF',
-    'display_question': 'Mixed TCSPF'
+    'label': 'Cold HSPF',
+    'display_question': 'Cold HSPF'
 }
 
 

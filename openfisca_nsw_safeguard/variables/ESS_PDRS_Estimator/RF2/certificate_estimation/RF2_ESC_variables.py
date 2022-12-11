@@ -165,77 +165,6 @@ class RF2_product_EEI(Variable):
     }
 
 
-class RF2_product_EEI_ESC_replacement_eligibility(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-    def formula(building, period, parameters):
-      product_EEI = building('RF2_product_EEI', period)
-      product_class_5 = building('RF2_product_class', period)
-        
-      product_EEI_to_check_ESC = np.select(
-          [
-              (product_EEI < 51),
-              (product_EEI >= 51) * (product_EEI < 81) * (np.logical_not(product_class_5) == np.logical_not(RF2ProductClass.product_class_five)),
-              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == RF2ProductClass.product_class_five),
-              (product_EEI >= 81)
-          ],
-          [
-              True,
-              True,
-              False,
-              False
-          ])
-
-      return product_EEI_to_check_ESC
-
-
-class RF2_product_EEI_ESC_install_eligibility(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-    def formula(building, period, parameters):
-        product_EEI = building('RF2_product_EEI', period)
-          
-        product_EEI_to_check_ESC = np.select(
-            [    
-                product_EEI < 77,
-                product_EEI >= 77
-            ],
-            [
-                True,
-                False
-            ])
-        return product_EEI_to_check_ESC
-
-
-class RF2_product_EEI_PRC_replacement_eligibility(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-    def formula(building, period, parameters):
-        product_EEI = building('RF2_product_EEI', period)
-        product_class_5 = building('RF2_product_class', period)
-        
-        product_EEI_to_check_PRC = np.select(
-            [
-              (product_EEI < 51),
-              (product_EEI >= 51) * (product_EEI < 81) * (np.logical_not(product_class_5) == RF2ProductClass.product_class_five),
-              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == RF2ProductClass.product_class_five),
-              (product_EEI >= 81)
-            ],
-            [
-                True,
-                True,
-                False,
-                False
-            ])
-        return product_EEI_to_check_PRC
-
-
 class RF2ProductClass(Enum):
     product_class_one = 'Class 1'
     product_class_two = 'Class 2'
@@ -348,13 +277,11 @@ class RF2_product_type(Variable):
     entity = Building
     possible_values = RCProductType
     default_value = RCProductType.integral_RDC
-    definition_period = ETERNITY
-    label = 'What is the product type for the refrigerated cabinet?'
-    
+    definition_period = ETERNITY    
     metadata = {
-      "label": 'Product Type',
+      "label": 'Product Type for the refrigerated cabinet',
       # "display_question":  "What is the product type for the refrigerated cabinet?",
-      "variable-type": "inter-interesting",
+      "variable-type": "output",
     }
     
     def formula(buildings, period, parameters):
@@ -441,7 +368,6 @@ class RF2_product_type(Variable):
                                       RCProductType.RSC
                                   ]
                               )
-
       return product_type
 
 
@@ -492,3 +418,72 @@ class RF2_replacement_activity(Variable):
         'display_question' : 'Is the activity a replacement of existing equipment?',
         'sorting' : 3
         }
+
+class RF2_product_EEI_ESC_replacement_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+      product_EEI = building('RF2_product_EEI', period)
+      product_class_5 = building('RF2_product_class', period)
+        
+      replace_product_EEI_to_check_ESC = np.select(
+           [
+              (product_EEI < 51),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == 'Class 5'),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != 'Class 5'),
+              (product_EEI >= 81)
+          ],
+          [
+              True,
+              False,
+              True,
+              False
+          ])
+      return replace_product_EEI_to_check_ESC
+
+
+class RF2_product_EEI_ESC_install_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+        product_EEI = building('RF2_product_EEI', period)
+          
+        install_product_EEI_to_check_ESC = np.select(
+            [    
+                product_EEI < 77,
+                product_EEI >= 77
+            ],
+            [
+                True,
+                False
+            ])
+        return install_product_EEI_to_check_ESC
+
+
+class RF2_product_EEI_PRC_replacement_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+        product_EEI = building('RF2_product_EEI', period)
+        product_class_5 = building('RF2_product_class', period)
+        
+        product_EEI_to_check_PRC = np.select(
+          [
+              (product_EEI < 51),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == 'Class 5'),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != 'Class 5'),
+              (product_EEI >= 81)
+          ],
+          [
+              True,
+              False,
+              True,
+              False
+          ])
+        return product_EEI_to_check_PRC

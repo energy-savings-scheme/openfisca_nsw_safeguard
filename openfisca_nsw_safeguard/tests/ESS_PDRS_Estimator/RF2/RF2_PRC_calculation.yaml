@@ -1,23 +1,116 @@
+- name: test RF2 baseline input power
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_total_energy_consumption:
+      [
+        16.17 #SKOPE TMF1000N-A
+      ]
+    RF2_af:
+      [
+        1
+      ]
+    RF2_baseline_EEI:
+      [
+        100
+      ]
+    RF2_product_EEI:
+      [
+        63.474
+      ]
+  output:
+    RF2_baseline_input_power:
+      [
+        1.061
+      ]
+
+- name: test RF2 input power
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_total_energy_consumption:
+      [
+        16.17 #SKOPE TMF1000N-A
+      ]
+    RF2_af: 
+      [
+        1
+      ]
+  output:
+    RF2_input_power:
+      [
+        0.674
+      ]
+
+- name: test RF2 peak demand savings capacity
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_baseline_peak_adjustment_factor:
+      [
+        1.14 #SKOPE TMF1000N-A
+      ]
+    RF2_baseline_input_power:
+      [
+        1.061
+      ]
+    RF2_input_power:
+      [
+        0.674
+      ]
+  output:
+    RF2_peak_demand_savings_capacity:
+      [
+        0.441
+      ]
+
+- name: test RF2 peak demand reduction capacity
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    RF2_peak_demand_savings_capacity:
+      [
+        0.441 #SKOPE TMF1000N-A
+      ]
+    RF2_lifetime_by_rc_class:
+      [
+        8
+      ]
+  output:
+    RF2_peak_demand_reduction_capacity:
+      [
+        21.168
+      ]
+
 - name: test RF2 PRC calculation
   period: 2022
   absolute_error_margin: 0.1
   input:
     RF2_peak_demand_reduction_capacity:
       [
-        25
+        25,
+        21.168 #SKOPE TMF1000N-A
       ]
     RF2_network_loss_factor:
       [
-        1.05
+        1.05,
+        1.05 #Endeavour
       ]
     RF2_replacement_activity:
       [
+        True,
+        True
+      ]
+    RF2_product_EEI_PRC_replacement_eligibility:
+      [
+        True,
         True
       ]
   output:
     RF2_PRC_calculation:
       [
-        262.50
+        262.50,
+        222.264
       ]
 
 - name: test Product EEI eligibility for replacement activity
@@ -103,4 +196,46 @@
     RF2_PRC_calculation:
       [
         0 #install activity is not eligible for PRCs
+      ]
+
+- name: test PRCs full calculation
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    RF2_DNSP: 
+      [
+        Endeavour #SKOPE TMF1000N-A  checked
+      ]
+    RF2_PDRS__postcode: 
+      [
+        2500
+      ]
+    RF2_duty_class:
+      [
+        normal_duty
+      ]
+    RF2_product_EEI:
+      [
+        63.474
+      ]
+    RF2_product_class:
+      [
+        Class 8
+      ]
+    RF2_replacement_activity:
+      [
+        true 
+      ]
+    RF2_total_display_area:
+      [
+        1.25
+      ]
+    RF2_total_energy_consumption:
+      [
+        16.17
+      ]
+  output: 
+    RF2_PRC_calculation: 
+      [
+        222.264
       ]

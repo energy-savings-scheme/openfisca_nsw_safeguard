@@ -68,7 +68,7 @@ class RF2_baseline_peak_adjustment_factor(Variable):
     definition_period = ETERNITY
     label = 'Adjustment Factor'
     metadata = {
-        'variable-type': 'inter-interesting'
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):
@@ -99,10 +99,9 @@ class RF2_PRC_calculation(Variable):
         EEI_eligible_replacement = buildings('RF2_product_EEI_PRC_replacement_eligibility', period)
         EEI_eligible_install = buildings('RF2_product_EEI_ESC_install_eligibility', period)
 
-
         RF2_eligible_PRCs = np.select(
             [
-                replacement_activity * EEI_eligible_replacement ,
+                replacement_activity * EEI_eligible_replacement,
                 np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_replacement),
                 replacement_activity * EEI_eligible_install,
                 np.logical_not(replacement_activity) * EEI_eligible_install

@@ -400,6 +400,12 @@
         True,
         True
       ]
+    HVAC1_heating_capacity_input:
+      [
+        5,
+        5,
+        5
+      ]
   output:
     HVAC1_ESC_calculation:
       [
@@ -416,11 +422,6 @@
       [
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
         1050  #AIRO ACP33HP
-      ]
-    HVAC1_heating_capacity_input: 
-      [
-        0,
-        0
       ]
     HVAC1_rated_AEER_input:
       [
@@ -457,10 +458,15 @@
         true,
         true
       ]
+    HVAC1_heating_capacity_input:
+      [
+        5,
+        5
+      ]
   output:
     HVAC1_ESC_calculation:
       [
-        1.13,
+        41.984,
         0
       ]
 

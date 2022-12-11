@@ -249,11 +249,14 @@ class HVAC1_ESC_calculation(Variable):
                          np.logical_not(zero_heating_capacity) * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark, 
                          np.logical_not(zero_heating_capacity) * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark,
                          np.logical_not(zero_heating_capacity) * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
-                         np.logical_not(zero_heating_capacity) * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark)
+                         np.logical_not(zero_heating_capacity) * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         zero_heating_capacity * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         zero_heating_capacity * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                         zero_heating_capacity * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark
                          ],
       
                         [
-                            result, 0, 0, 0
+                            result, 0, 0, 0, 0, 0, 0
                         ],
                         result
       )

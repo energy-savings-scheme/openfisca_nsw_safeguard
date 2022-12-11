@@ -202,6 +202,32 @@
         true
       ]
 
+- name: test ESC calculation when heating capacity is 0
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    HVAC2_electricity_savings:
+      [
+        25,
+        25
+      ]
+    HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+      [
+        true,
+        true
+      ]
+    HVAC2_heating_capacity_input:
+      [
+        0,
+        5
+      ]
+  output:
+    HVAC2_ESC_calculation:
+      [
+        0,
+        26.5
+      ]
+
 - name: test ESC calculation
   period: 2022
   absolute_error_margin: 0.1

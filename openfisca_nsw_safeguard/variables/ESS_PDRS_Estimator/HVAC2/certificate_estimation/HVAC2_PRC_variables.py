@@ -22,9 +22,9 @@ class HVAC2_input_power(Variable):
     definition_period = ETERNITY
     label = 'Rated cooling input power (kW)'
     metadata = {
-        'display_question': 'Rated cooling input power at 35C as recorded in the GEMS registry',
-        'sorting' : 9,
-        'label': 'Rated cooling input power (kW)'
+        'variable-type' : 'inter-interesting',
+        'display_question' : 'Rated cooling input power at 35C as recorded in the GEMS registry',
+        'label' : 'Rated cooling input power (kW)'
     }
 
 
@@ -60,16 +60,3 @@ class HVAC2_network_loss_factor(Variable):
         distribution_district = buildings('HVAC2_DNSP', period)
         network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors['network_loss_factor'][distribution_district]
         return network_loss_factor
-
-
-class HVAC2_new_installation_activity(Variable):  
-    value_type = bool
-    default_value = True
-    entity = Building
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type' : 'user-input',
-        'label' : 'New installation or replacement activity',
-        'display_question' : 'is the activity an installation of a new high efficiency air conditioner?',
-        'sorting' : 3
-        }

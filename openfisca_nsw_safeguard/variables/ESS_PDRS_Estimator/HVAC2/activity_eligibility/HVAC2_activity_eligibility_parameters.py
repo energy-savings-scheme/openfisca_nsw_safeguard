@@ -175,7 +175,7 @@ class HVAC2_new_equipment_heating_capacity(Variable):
     }
 
 
-class HVAC2_HSPF_mixed(Variable):
+class HVAC2_HSPF_mixed_eligible(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -188,7 +188,7 @@ class HVAC2_HSPF_mixed(Variable):
     }
 
 
-class HVAC2_ACOP(Variable):
+class HVAC2_ACOP_eligible(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -201,7 +201,7 @@ class HVAC2_ACOP(Variable):
     }
 
 
-class HVAC2_HSPF_cold(Variable):
+class HVAC2_HSPF_cold_eligible(Variable):
     value_type = bool
     entity = Building
     default_value = True

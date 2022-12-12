@@ -353,8 +353,8 @@ class HVAC2_TCSPF_or_AEER_exceeds_benchmark(Variable):
         TCSPF_is_zero = ((AC_TCSPF == 0) + (AC_TCSPF == None))
         AC_exceeds_benchmark = np.where(
             TCSPF_is_zero,
-            (AC_AEER >= parameters(period).PDRS.AC.table_HVAC_2_4[product_class][cooling_capacity]),
-            (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_2_3[product_class][cooling_capacity])
+            (AC_AEER >= parameters(period).PDRS.AC.table_HVAC_2_3[product_class][cooling_capacity]),
+            (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_2_4[product_class][cooling_capacity])
             )
         return AC_exceeds_benchmark
 
@@ -445,9 +445,9 @@ class HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                             np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
                                             ],
                                             [
-            (AC_ACOP >= parameters(period).ESS.HEER.table_D16_5['ACOP'][product_class][cooling_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_cold'][product_class][cooling_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_mixed'][product_class][cooling_capacity])
+            (AC_ACOP >= parameters(period).ESS.HEAB.table_F4_5['ACOP'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][product_class][cooling_capacity])
                                             ]
             )
         return AC_exceeds_benchmark

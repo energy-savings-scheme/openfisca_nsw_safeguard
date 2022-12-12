@@ -36,10 +36,10 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
         in_cold_zone = (climate_zone == ACClimateZone.cold_zone) # False
         
         heating_capacity = buildings('HVAC2_new_equipment_heating_capacity', period)
-        HSPF_mixed_value = buildings('HVAC2_HSPF_mixed', period)
-        HSPF_cold_value = buildings('HVAC2_HSPF_cold', period)
+        HSPF_mixed_value = buildings('HVAC2_HSPF_mixed_eligible', period)
+        HSPF_cold_value = buildings('HVAC2_HSPF_cold_eligible', period)
         AEER_greater_than_minimum = buildings('HVAC2_AEER_greater_than_minimum',period)
-        ACOP_value = buildings ('HVAC2_ACOP', period)
+        ACOP_value = buildings ('HVAC2_ACOP_eligible', period)
         
         # variables for equipment replacement
         replacement = buildings('HVAC2_equipment_replaced', period)

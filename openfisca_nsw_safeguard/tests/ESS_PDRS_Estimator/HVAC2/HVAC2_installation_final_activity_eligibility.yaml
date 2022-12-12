@@ -135,7 +135,7 @@
         True,
         False
       ]
-    HVAC2_HSPF_mixed:
+    HVAC2_HSPF_mixed_eligible:
       [
         True,
         False,
@@ -146,7 +146,7 @@
         True,
         False
       ]
-    HVAC2_HSPF_cold:
+    HVAC2_HSPF_cold_eligible:
       [
         False,
         False,
@@ -157,8 +157,7 @@
         False,
         False
       ]
-
-    HVAC2_ACOP:
+    HVAC2_ACOP_eligible:
       [
         True,
         True,

@@ -154,7 +154,6 @@ class HVAC2_PDRS__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "What is the postcode for the building you are calculating PRCs for?"
     metadata={
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
@@ -225,7 +224,6 @@ class HVAC2_equivalent_cooling_hours_input(Variable):
 class HVAC2_baseline_ACOP_input(Variable):
     value_type = float
     entity = Building
-    label = "Baseline ACOP"
     definition_period = ETERNITY
 
     def formula(building, period, parameters):
@@ -365,7 +363,6 @@ class HVAC2_HSPF_mixed(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the HSPF mixed for the AC, as listed in the GEMS Registry?'
     metadata = {
     'alias':  'Air Conditioner HSPF mixed',
     'label': 'Mixed HSPF',

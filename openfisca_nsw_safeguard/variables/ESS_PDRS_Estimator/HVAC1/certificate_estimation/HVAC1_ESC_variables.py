@@ -108,13 +108,7 @@ class HVAC1_rated_AEER_input(Variable):
         'label': 'Rated AEER'
     }
     
-
-class DefaultValuesCertificateClimateZone(Enum):
-    hot_zone = "Hot zone"
-    average_zone = "Average zone"
-    cold_zone = "Cold zone"
-
-
+    
 class HVAC1_certificate_climate_zone(Variable):
     value_type = int
     entity = Building

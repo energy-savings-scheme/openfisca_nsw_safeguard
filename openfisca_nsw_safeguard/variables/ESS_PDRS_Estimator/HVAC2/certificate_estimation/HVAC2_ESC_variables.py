@@ -164,8 +164,6 @@ class HVAC2_PDRS__postcode(Variable):
         }
 
 
-""" These variables use Rule tables
-"""
 class HVAC2_commercial_THEC(Variable):
     value_type = float
     entity = Building
@@ -183,7 +181,6 @@ class HVAC2_equivalent_heating_hours_input(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    
     metadata = {
         "variable-type": "output"
     }
@@ -293,17 +290,30 @@ class HVAC2_Air_Conditioner_type(Variable):
     }
 
 
+class HVAC2_new_installation_activity(Variable):
+    value_type = bool
+    default_value = True
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'New installation or replacement activity',
+        'display_question' : 'is the activity an installation of a new high efficiency air conditioner?',
+        'sorting' : 3
+    }
+
+
 class HVAC2_TCSPF_mixed(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {
-    'variable-type' : 'user-input',
-    'alias' :  'Air Conditioner TCSPF',
-    'label' : 'Total cooling season performance factor in an average climate zone',
-    'display_question' : 'Mixed TCSPF',
-    'sorting' : 8
-}
+        'variable-type' : 'user-input',
+        'alias' :  'Air Conditioner TCSPF',
+        'label' : 'Mixed TCSPF',
+        'display_question' : 'Total cooling season performance factor in an average climate zone',
+        'sorting' : 8
+    }
     
 
 class HVAC2_TCSPF_or_AEER_exceeds_benchmark(Variable):
@@ -347,5 +357,100 @@ class HVAC2_TCSPF_or_AEER_exceeds_benchmark(Variable):
             TCSPF_is_zero,
             (AC_AEER >= parameters(period).PDRS.AC.table_HVAC_2_4[product_class][cooling_capacity]),
             (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_2_3[product_class][cooling_capacity])
+            )
+        return AC_exceeds_benchmark
+
+
+class HVAC2_HSPF_mixed(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'What is the HSPF mixed for the AC, as listed in the GEMS Registry?'
+    metadata = {
+    'alias':  'Air Conditioner HSPF mixed',
+    'label': 'Mixed HSPF',
+    'display_question': 'Heating seasonal performance factor in an average climate zone'
+}
+
+
+class HVAC2_HSPF_cold(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'alias':  'Air Conditioner HSPF cold',
+        'label': 'Cold HSPF',
+        'display_question': 'Heating seasonal performance factor in a cold climate zone'
+    }
+
+
+class HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
+    """ This variable is used if the AC climate zone is hot or average and there is a GEMS heating capacity
+    """
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Does the Air Conditioner have a HSPF mixed equal or greater than the minimum' \
+            ' HSPF mixed listed in Table D16.3? If the HSPF is not available, is the Rated' \
+            ' ACOP equal or greater than the Minimum Rated ACOP listed in Table D16.5?'
+    metadata = {
+        'alias':  'ESS - HSPF or ACOP exceeds benchmark'
+    }
+
+    def formula(buildings, period, parameters):
+        AC_HSPF_mixed = buildings('HVAC1_HSPF_mixed', period)
+        AC_HSPF_cold = buildings('HVAC1_HSPF_cold', period)
+        AC_ACOP = buildings('HVAC1_rated_ACOP_input', period)
+        product_class = buildings('HVAC1_Air_Conditioner_type', period)
+        new_AC_cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
+        cooling_capacity = np.select(
+                                    [
+                                        (new_AC_cooling_capacity < 4),
+                                        ((new_AC_cooling_capacity >= 4) * (new_AC_cooling_capacity < 6)),
+                                        ((new_AC_cooling_capacity >= 6) * (new_AC_cooling_capacity < 10)),
+                                        ((new_AC_cooling_capacity >= 10) * (new_AC_cooling_capacity < 13)),
+                                        ((new_AC_cooling_capacity >= 13) * (new_AC_cooling_capacity < 25)),
+                                        ((new_AC_cooling_capacity >= 25) * (new_AC_cooling_capacity <= 65)),
+                                        (new_AC_cooling_capacity > 65)
+                                    ],
+                                    [
+                                        "less_than_4kW",
+                                        "4kW_to_6kW",
+                                        "6kW_to_10kW",
+                                        "10kW_to_13kW",
+                                        "13kW_to_25kW",
+                                        "25kW_to_65kW",
+                                        "over_65kW"
+                                    ]
+                                    )
+
+        climate_zone = buildings('HVAC1_certificate_climate_zone', period)
+        climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
+                                     ['hot_zone', 'average_zone', 'cold_zone'])
+
+        in_hot_zone = (climate_zone_str == 'hot_zone')
+        in_average_zone = (climate_zone_str == 'average_zone')
+        in_cold_zone = (climate_zone_str == 'cold_zone')
+
+        AC_HSPF = np.where(
+                            in_cold_zone,
+                            AC_HSPF_cold,
+                            AC_HSPF_mixed)
+        # determines which HSPF value to use
+        HSPF_is_zero = (
+                        (AC_HSPF == 0) + 
+                        (AC_HSPF == None)
+                        )
+        # tells you if the relevant HSPF is zero or non-existant
+        AC_exceeds_benchmark = np.select([
+                                            HSPF_is_zero,
+                                            np.logical_not(HSPF_is_zero) * in_cold_zone,
+                                            np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
+                                            ],
+                                            [
+            (AC_ACOP >= parameters(period).ESS.HEER.table_D16_5['ACOP'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_cold'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_mixed'][product_class][cooling_capacity])
+                                            ]
             )
         return AC_exceeds_benchmark

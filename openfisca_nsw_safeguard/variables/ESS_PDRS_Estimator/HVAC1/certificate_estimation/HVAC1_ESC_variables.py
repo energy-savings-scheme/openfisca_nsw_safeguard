@@ -30,7 +30,7 @@ class HVAC1_cooling_capacity_input(Variable):
         "alias": "Air Conditioner Cooling Capacity",
         'display_question': 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
         'label': 'Rated cooling capacity (kW)',
-        'sorting' : 6
+        'sorting' : 5
     }
 
 
@@ -41,7 +41,7 @@ class HVAC1_rated_ACOP_input(Variable):
     metadata = {
         "alias": "Rated ACOP",
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
-        'sorting' : 10,
+        'sorting' : 11,
         'label': 'Rated ACOP'
     }
 
@@ -131,8 +131,39 @@ class HVAC1_certificate_climate_zone(Variable):
         return zone_int
 
 
-""" These variables use Rule tables
-"""
+class HVAC1_get_climate_zone_by_postcode(Variable):
+    value_type = str
+    entity = Building
+    label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'inter-interesting',
+        'alias': 'climate zone'
+    }
+    
+    def formula(building, period, parameters):
+        postcode = building('HVAC1_PDRS__postcode', period)
+        rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
+        zone_int = rnf.calc(postcode)
+        climate_zone_str = np.select([zone_int == 1, zone_int == 2, zone_int == 3],
+                                     ['hot', 'mixed', 'cold'])
+        
+        return climate_zone_str
+
+
+class HVAC1_PDRS__postcode(Variable):
+    # using to get the climate zone
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    metadata={
+        'variable-type' : 'user-input',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'Postcode where the installation has taken place',
+        'sorting' : 1,
+        'label': 'Postcode'
+        }
+
 
 class HVAC1_residential_THEC(Variable):
     value_type = float
@@ -142,7 +173,7 @@ class HVAC1_residential_THEC(Variable):
         'variable-type' : 'user-input',
         'label' : 'THEC (kWh/year)',
         'display_question' : 'The total annual heating energy consumption of the new air conditioner',
-        'sorting' : 8
+        'sorting' : 10
     }
 
 
@@ -150,8 +181,7 @@ class HVAC1_equivalent_heating_hours_input(Variable):
     reference = 'unit in hours per year'
     value_type = float
     entity = Building
-    definition_period = ETERNITY 
-    
+    definition_period = ETERNITY
     metadata = {
         "variable-type": "output"
     }
@@ -172,10 +202,10 @@ class HVAC1_residential_TCEC(Variable):
         'variable-type' : 'user-input',
         'label' : 'TCEC (kWh/year)',
         'display_question' : 'The total annual cooling energy consumption of the new air conditioner',
-        'sorting' : 5
+        'sorting' : 6
     }
 
-     
+
 class HVAC1_equivalent_cooling_hours_input(Variable):
     reference = 'unit in hours per year'
     value_type = float
@@ -196,7 +226,6 @@ class HVAC1_equivalent_cooling_hours_input(Variable):
 class HVAC1_baseline_ACOP_input(Variable):
     value_type = float
     entity = Building
-    label = "Baseline ACOP"
     definition_period = ETERNITY
 
     def formula(building, period, parameters):
@@ -254,13 +283,13 @@ class HVAC1_Air_Conditioner_type(Variable):
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
+        'label': 'Air conditioner type',
         'display_question' : 'What is your air conditioner type?',
-        'sorting' : 4,
-        'label': "Air conditioner type"
+        'sorting' : 4
     }
-    
 
-class HVAC1_new_installation_activity(Variable):  
+
+class HVAC1_new_installation_activity(Variable):
     value_type = bool
     default_value = True
     entity = Building
@@ -270,79 +299,20 @@ class HVAC1_new_installation_activity(Variable):
         'label' : 'Replacement or new installation activity',
         'display_question' : 'Is the activity an installation of a new high efficiency air conditioner?',
         'sorting' : 3
-        }
-
-
-class HVAC1_get_climate_zone_by_postcode(Variable):
-    value_type = str
-    entity = Building
-    label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type': 'inter-interesting',
-        'alias': 'climate zone'
     }
     
-    def formula(building, period, parameters):
-        postcode = building('HVAC1_PDRS__postcode', period)
-        rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
-        zone_int = rnf.calc(postcode)
-        climate_zone_str = np.select([zone_int == 1, zone_int == 2, zone_int == 3],
-                                     ['hot', 'mixed', 'cold'])
-        
-        return climate_zone_str
 
-
-class HVAC1_PDRS__postcode(Variable):
-    # using to get the climate zone
-    value_type = int
-    entity = Building
-    definition_period = ETERNITY
-    label = "What is the postcode for the building you are calculating PRCs for?"
-    metadata={
-        'variable-type' : 'user-input',
-        'alias' : 'PDRS Postcode',
-        'display_question' : 'Postcode where the installation has taken place',
-        'sorting' : 1,
-        'label': 'Postcode'
-        }
-    
-    
 class HVAC1_TCSPF_mixed(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the TCSPF mixed for the AC, as listed in the GEMS Registry?'
     metadata = {
-    'variable-type': 'user-input',
-    'alias':  'Air Conditioner TCSPF',
-    'label': 'Mixed TCSPF',
-    'display_question': 'Mixed TCSPF'
-}
-
-
-class HVAC1_HSPF_mixed(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the HSPF mixed for the AC, as listed in the GEMS Registry?'
-    metadata = {
-    'alias':  'Air Conditioner HSPF mixed',
-    'label': 'Mixed HSPF',
-    'display_question': 'Mixed HSPF'
-}
-
-
-class HVAC1_HSPF_cold(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'What is the HSPF cold for the AC, as listed in the GEMS Registry?'
-    metadata = {
-    'alias':  'Air Conditioner HSPF cold',
-    'label': 'Cold HSPF',
-    'display_question': 'Cold HSPF'
-}
+        'variable-type': 'user-input',
+        'alias':  'Air Conditioner TCSPF',
+        'label': 'Mixed TCSPF',
+        'display_question': 'Total cooling season performance factor in an average climate zone',
+        'sorting' : 8
+    }
 
 
 class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
@@ -389,8 +359,28 @@ class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
             (AC_TCSPF >= parameters(period).PDRS.AC.table_D16_4[product_class][cooling_capacity])
             )
         return AC_exceeds_benchmark
-    
-    
+
+
+class HVAC1_HSPF_mixed(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'alias':  'Air Conditioner HSPF mixed',
+        'label': 'Mixed HSPF',
+        'display_question': 'Heating seasonal performance factor in an average climate zone'
+    }
+
+
+class HVAC1_HSPF_cold(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'alias':  'Air Conditioner HSPF cold',
+        'label': 'Cold HSPF',
+        'display_question': 'Heating seasonal performance factor in a cold climate zone'
+    }
 
 class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
     """ This variable is used if the AC climate zone is hot or average and there is a GEMS heating capacity

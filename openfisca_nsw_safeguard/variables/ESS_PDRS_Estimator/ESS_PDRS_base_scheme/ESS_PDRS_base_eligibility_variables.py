@@ -57,7 +57,6 @@ class Base_implementation_after_1_April_2022(Variable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
-    #label = 'What date did the implementation occur?'
     metadata = {
         'display_question' : 'What date did the implementation occur?',
         'sorting' : 4,
@@ -84,9 +83,9 @@ class Base_registered_ACP(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = """An Accredited Certificate Provider is a person who is accredited by the Statistical Society of Australia Inc. at the time of carrying out 
-               the verification in accordance with ESS clause 8.9.7(e), and who is accepted by the Scheme Administrator for the purposes of the Rule."""
     metadata = {
+        'label' : """An Accredited Certificate Provider is a person who is accredited by the Statistical Society of Australia Inc. at the time of carrying out
+                     the verification in accordance with ESS clause 8.9.7(e), and who is accepted by the Scheme Administrator for the purposes of the Rule.""",
         'display_question' : 'Are you an Accredited Certificate Provider?',
         'sorting' : 6
     }
@@ -166,7 +165,6 @@ class Base_greenhouse_emissions_increase(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    #label = 'Will your activity lead to a net increase in greenhouse emissions?'
     metadata = {
         'display_question': 'Will the activity lead to a net increase in greenhouse emissions?',
         'sorting' : 12,
@@ -209,7 +207,6 @@ class Base_prescribed_transmission_service(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Is your activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?'
     metadata = {
         'display_question': 'Is the activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?',
         'sorting' : 15,
@@ -250,7 +247,6 @@ class Base_replacement_solar_water_heater_certificates(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    #label = 'Is the activity the installation of a replacement solar water heater?'
     metadata = {
         'display_question' : 'Is the activity the installation of a replacement solar water heater?',
         'sorting' : 18,

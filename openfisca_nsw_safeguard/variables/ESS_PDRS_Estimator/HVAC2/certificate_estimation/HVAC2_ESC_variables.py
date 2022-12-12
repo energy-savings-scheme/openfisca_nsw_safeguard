@@ -32,7 +32,7 @@ class HVAC2_cooling_capacity_input(Variable):
         'alias' : 'Air Conditioner Cooling Capacity',
         'display_question' : 'Rated cooling capacity at 35c as recorded in the GEMS Registry',
         'label': 'Rated cooling capacity (kW)',
-        'sorting' : 6
+        'sorting' : 5
     }
 
 
@@ -43,7 +43,7 @@ class HVAC2_rated_ACOP_input(Variable):
     label = 'Rated ACOP'
     metadata = {
         'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
-        'sorting' : 10,
+        'sorting' : 11,
         'label': 'Rated ACOP'
     }
 
@@ -107,9 +107,9 @@ class HVAC2_rated_AEER_input(Variable):
     label = 'Rated AEER'
     metadata = {
         'alias': 'Rated AEER',
+        'label': 'Rated AEER',
         'display_question' : 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
-        'sorting': 7,
-        'label': 'Rated AEER'
+        'sorting': 7
     }
     
 
@@ -174,7 +174,7 @@ class HVAC2_commercial_THEC(Variable):
         'variable-type' : 'user-input',
         'label' : 'THEC (kWh/year)',
         'display_question' : 'The total annual heating energy consumption of the new air conditioner',
-        'sorting' : 8
+        'sorting' : 10
     }
 
 
@@ -182,7 +182,7 @@ class HVAC2_equivalent_heating_hours_input(Variable):
     reference = 'unit in hours per year'
     value_type = float
     entity = Building
-    definition_period = ETERNITY 
+    definition_period = ETERNITY
     
     metadata = {
         "variable-type": "output"
@@ -204,7 +204,7 @@ class HVAC2_commercial_TCEC(Variable):
         'variable-type' : 'user-input',
         'label' : 'TCEC (kWh/year)',
         'display_question' : 'The total annual cooling energy consumption of the new air conditioner',
-        'sorting' : 5
+        'sorting' : 6
     }
 
 
@@ -289,7 +289,7 @@ class HVAC2_Air_Conditioner_type(Variable):
         'variable-type' : 'user-input',
         'display_question' : 'What is your air conditioner type?',
         'sorting' : 4,
-        'label': "Air conditioner type"
+        'label': 'Air conditioner type'
     }
 
 
@@ -297,12 +297,12 @@ class HVAC2_TCSPF_mixed(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'What is the TCSPF mixed for the AC, as listed in the GEMS Registry?'
     metadata = {
-    'variable-type': 'user-input',
-    'alias':  'Air Conditioner TCSPF',
-    'label': 'Mixed TCSPF',
-    'display_question': 'Mixed TCSPF'
+    'variable-type' : 'user-input',
+    'alias' :  'Air Conditioner TCSPF',
+    'label' : 'Total cooling season performance factor in an average climate zone',
+    'display_question' : 'Mixed TCSPF',
+    'sorting' : 8
 }
     
 

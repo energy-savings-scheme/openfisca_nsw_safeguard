@@ -70,7 +70,7 @@
         850.81
       ] 
 
-- name: test HVAC1 TCEC versus reference cooling equation
+- name: test HVAC1 TCEC versus annual cooling equation
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -79,19 +79,19 @@
         0,
         25
       ]
-    HVAC1_reference_cooling_annual_energy_use:
+    HVAC1_cooling_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC1_TCEC_or_annual_reference_cooling:
+    HVAC1_TCEC_or_annual_cooling:
       [
         50,
         25
       ]
 
-- name: test HVAC1 THEC versus reference heating equation
+- name: test HVAC1 THEC versus annual heating equation
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -100,13 +100,13 @@
         0,
         25
       ]
-    HVAC1_reference_heating_annual_energy_use:
+    HVAC1_heating_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC1_THEC_or_annual_reference_heating:
+    HVAC1_THEC_or_annual_heating:
       [
         50,
         25
@@ -543,4 +543,70 @@
     HVAC1_ESC_calculation:
       [
         0
+      ]
+
+- name: test ESC calculation Panasonic second test
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC1_DNSP:
+      [
+        Essential
+      ]
+    HVAC1_HSPF_cold:
+      [
+        3.452 #is below minimum 3.5 (not used)
+      ]
+    HVAC1_HSPF_mixed:
+      [
+        4.093 # is greater than minimum 4.0
+      ]
+    HVAC1_PDRS__postcode: 
+      [
+        2450 #average zone
+      ]
+    HVAC1_TCSPF_mixed:
+      [
+        4.6 # is greater than minimum 4.5
+      ]
+    HVAC1_cooling_capacity_input: 
+      [
+        7.1
+      ]
+    HVAC1_heating_capacity_input: 
+      [
+        8 #not zero
+      ]
+    HVAC1_input_power: 
+      [
+        1.97
+      ]
+    HVAC1_new_installation_activity: 
+      [
+        true
+      ]
+    HVAC1_rated_ACOP_input:
+      [
+        3.7702
+      ]
+    HVAC1_rated_AEER_input:
+      [
+        3.5824 # is greater than minimum 3.5
+      ]
+    HVAC1_residential_TCEC: 
+      [
+        643
+      ]
+    HVAC1_residential_THEC:
+      [
+        1071
+      ] 
+  output:
+    HVAC1_ESC_calculation:
+      [
+        18.438
       ]

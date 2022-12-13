@@ -242,7 +242,6 @@ class HVAC2_ESC_calculation(Variable):
       heating_capacity = buildings('HVAC2_heating_capacity_input', period)
       zero_heating_capacity = ( heating_capacity == 0)
 
-      print('Heating capacity', heating_capacity)
       result = np.rint(HVAC2_electricity_savings * electricity_certificate_conversion_factor)
       
       result_meet_elig = np.select([

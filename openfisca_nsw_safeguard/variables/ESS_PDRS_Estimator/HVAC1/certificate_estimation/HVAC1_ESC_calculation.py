@@ -51,7 +51,7 @@ class HVAC1_cooling_annual_energy_use(Variable):
       cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
       equivalent_cooling_hours = buildings('HVAC1_equivalent_cooling_hours_input', period)
       rated_AEER = buildings('HVAC1_rated_AEER_input', period)
-      
+
       return np.select([    
                     rated_AEER == 0,
                     (cooling_capacity * equivalent_cooling_hours) > 0, 
@@ -81,7 +81,6 @@ class HVAC1_reference_heating_annual_energy_use(Variable):
       equivalent_heating_hours = buildings('HVAC1_equivalent_heating_hours_input', period)
       baseline_ACOP = buildings('HVAC1_baseline_ACOP_input', period)
       
-      
       return np.select([    
                         baseline_ACOP == 0,
                         (heating_capacity * equivalent_heating_hours) > 0, 
@@ -96,15 +95,15 @@ class HVAC1_reference_heating_annual_energy_use(Variable):
                     ])
 
 
-class HVAC1_THEC_or_annual_reference_heating(Variable):
-    #Check if there is a THEC and if not, use the reference heating annual energy use formula
+class HVAC1_THEC_or_annual_heating(Variable):
+    #Check if there is a THEC and if not, use the annual heating energy use formula
     value_type = float
     entity = Building
     definition_period = ETERNITY
    
     def formula(buildings, period, parameters):
         thec = buildings('HVAC1_residential_THEC',period)
-        refheat = buildings('HVAC1_reference_heating_annual_energy_use',period)
+        refheat = buildings('HVAC1_heating_annual_energy_use',period)
 
         result_to_return = np.select([
                 thec > 0, 
@@ -146,15 +145,15 @@ class HVAC1_reference_cooling_annual_energy_use(Variable):
                 ])
 
 
-class HVAC1_TCEC_or_annual_reference_cooling(Variable):
-    #Check if there is a TCEC and if not, use the reference cooling annual energy use formula
+class HVAC1_TCEC_or_annual_cooling(Variable):
+    #Check if there is a TCEC and if not, use the annual cooling energy use formula
     value_type = float
     entity = Building
     definition_period = ETERNITY
    
     def formula(buildings, period, parameters):
         tcec = buildings('HVAC1_residential_TCEC',period)
-        refcool = buildings('HVAC1_reference_cooling_annual_energy_use',period)
+        refcool = buildings('HVAC1_cooling_annual_energy_use',period)
 
         result_to_return = np.select([
                 tcec > 0, 
@@ -178,10 +177,10 @@ class HVAC1_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      reference_annual_cooling = buildings('HVAC1_TCEC_or_annual_reference_cooling', period)
-      annual_cooling = buildings('HVAC1_cooling_annual_energy_use', period)
-      reference_annual_heating = buildings('HVAC1_THEC_or_annual_reference_heating', period)
-      annual_heating = buildings('HVAC1_heating_annual_energy_use', period)
+      reference_annual_cooling = buildings('HVAC1_reference_cooling_annual_energy_use', period)
+      annual_cooling = buildings('HVAC1_TCEC_or_annual_cooling', period)
+      reference_annual_heating = buildings('HVAC1_reference_heating_annual_energy_use', period)
+      annual_heating = buildings('HVAC1_THEC_or_annual_heating', period)
       lifetime = 10
       
       deemed_electricity_savings = np.multiply(((reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating)), (lifetime / 1000))

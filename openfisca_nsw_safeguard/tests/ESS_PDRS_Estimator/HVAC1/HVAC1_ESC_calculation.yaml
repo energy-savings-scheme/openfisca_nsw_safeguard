@@ -385,24 +385,20 @@
     HVAC1_electricity_savings:
       [
         1.070,
-        2882.1975, #AIRO ACP33HP
-        17.397     #Panasonic CU-Z71VKR/CS-Z71VKR
+        2882.1975 #AIRO ACP33HP
       ]
     HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
       [
-        True,
         True,
         True
       ]
     HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark:
       [
         True,
-        True,
         True
       ]
     HVAC1_heating_capacity_input:
       [
-        5,
         5,
         5
       ]
@@ -410,8 +406,7 @@
     HVAC1_ESC_calculation:
       [
         1.13,
-        3055.12,
-        18.44
+        3055.12
       ]
 
 - name: test ESC calculation
@@ -470,25 +465,25 @@
         0
       ]
 
-- name: test ESC calculation case 2
+- name: test ESC calculation Panasonic
   period: 2022
   absolute_error_margin: 0.1
   input:
     HVAC1_cooling_capacity_input:
       [
-        32
+        7.1 #Panasonic CU-Z71VKR/CS-Z71VKR
       ]
     HVAC1_heating_capacity_input: 
       [
-        6
+        8
       ]
     HVAC1_rated_AEER_input:
       [
-        2.0
+        3.5824
       ]
     HVAC1_rated_ACOP_input:
       [
-        6.0
+        3.7702
       ]
     HVAC1_Air_Conditioner_type:
       [
@@ -500,12 +495,16 @@
       ]
     HVAC1_PDRS__postcode:
       [
-        2017
+        2450
+      ]
+    HVAC1_TCSPF_mixed:
+      [
+        4.6
       ]
   output:
     HVAC1_ESC_calculation:
       [
-        0
+        12.857
       ]
 
 - name: test ESC calculation case 3
@@ -531,44 +530,6 @@
     HVAC1_Air_Conditioner_type:
       [
         ducted_unitary_system
-      ]
-    HVAC1_new_installation_activity:
-      [
-        true
-      ]
-    HVAC1_PDRS__postcode:
-      [
-        2017
-      ]
-  output:
-    HVAC1_ESC_calculation:
-      [
-        0
-      ]
-
-- name: test ESC calculation case 2
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        32
-      ]
-    HVAC1_heating_capacity_input: 
-      [
-        6
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        2.0
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        6.0
-      ]
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system
       ]
     HVAC1_new_installation_activity:
       [

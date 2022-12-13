@@ -229,7 +229,7 @@
         26.5
       ]
 
-- name: test ESC calculation failing
+- name: test ESC calculation
   period: 2022
   absolute_error_margin: 0.1
   input:

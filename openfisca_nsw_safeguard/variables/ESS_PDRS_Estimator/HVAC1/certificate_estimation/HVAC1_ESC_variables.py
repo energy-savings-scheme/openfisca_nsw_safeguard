@@ -141,7 +141,6 @@ class HVAC1_get_climate_zone_by_postcode(Variable):
         zone_int = rnf.calc(postcode)
         climate_zone_str = np.select([zone_int == 1, zone_int == 2, zone_int == 3],
                                      ['hot', 'mixed', 'cold'])
-        
         return climate_zone_str
 
 
@@ -347,12 +346,13 @@ class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
                                     ]
                                     )
         TCSPF_is_zero = ((AC_TCSPF == 0) + (AC_TCSPF == None))
-        AC_exceeds_benchmark = np.where(
+        AC_exceeds_cooling_benchmark = np.where(
             TCSPF_is_zero,
             (AC_AEER >= parameters(period).PDRS.AC.table_HVAC_1_4[product_class][cooling_capacity]),
             (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_1_3[product_class][cooling_capacity])
             )
-        return AC_exceeds_benchmark
+        print('TCSPF check', AC_exceeds_cooling_benchmark)
+        return AC_exceeds_cooling_benchmark
 
 
 class HVAC1_HSPF_mixed(Variable):
@@ -445,4 +445,6 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
             (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_mixed'][product_class][cooling_capacity])
                                             ]
             )
+
+        print('HSPF check', AC_exceeds_benchmark)
         return AC_exceeds_benchmark

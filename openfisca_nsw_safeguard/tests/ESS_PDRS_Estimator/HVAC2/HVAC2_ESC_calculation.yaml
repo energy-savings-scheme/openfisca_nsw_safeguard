@@ -42,7 +42,7 @@
         100
       ] 
 
-- name: test HVAC2 THEC versus reference heating equation
+- name: test HVAC2 THEC versus heating equation
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -51,19 +51,19 @@
         0,
         25
       ]
-    HVAC2_reference_heating_annual_energy_use:
+    HVAC2_heating_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC2_THEC_or_annual_reference_heating:
+    HVAC2_THEC_or_annual_heating:
       [
         50,
         25
       ]
 
-- name: test HVAC2 TCEC versus reference cooling equation
+- name: test HVAC2 TCEC versus annual cooling equation
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -72,13 +72,13 @@
         0,
         25
       ]
-    HVAC2_reference_cooling_annual_energy_use:
+    HVAC2_cooling_annual_energy_use:
       [
         50,
         100
       ]
   output:
-    HVAC2_TCEC_or_annual_reference_cooling:
+    HVAC2_TCEC_or_annual_cooling:
       [
         50,
         25

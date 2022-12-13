@@ -70,7 +70,6 @@ class HVAC1_reference_heating_annual_energy_use(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Reference annual heating energy use'
     metadata = {
         "alias": "Reference annual heating energy use",
         "variable-type": "inter-interesting"
@@ -120,7 +119,6 @@ class HVAC1_reference_cooling_annual_energy_use(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'Reference annual cooling energy use'
     metadata = {
         "alias": "Reference annual cooling energy use",
         "variable-type": "inter-interesting"

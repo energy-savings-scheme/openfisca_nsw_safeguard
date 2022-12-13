@@ -255,10 +255,6 @@ class HVAC2_ESC_calculation(Variable):
                         result
       )
       
-      print('elec savings', HVAC2_electricity_savings)
-      print('heating cap',heating_capacity )
-      print('TCSPF check', result_meet_elig)  
-      print('ESCs',result)
       result_to_return = np.select([
                 result_meet_elig <= 0, result_meet_elig > 0
             ], [

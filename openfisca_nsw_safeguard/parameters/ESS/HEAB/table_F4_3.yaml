@@ -90,19 +90,19 @@ ACOP:
     less_than_4kW:
       values:
         2021-01-01:
-          value: 3.33
+          value: 2.17
     4kW_to_10kW:
       values:
         2021-01-01:
-          value: 2.93
+          value: 1.97
     10kW_to_39kW:
       values:
         2021-01-01:
-          value: 2.8
+          value: 1.9
     39kW_to_65kW:
       values:
         2021-01-01:
-          value: 2.75 
+          value: 1.88 
     more_than_65kW:
       values:
         2021-01-01:
@@ -111,19 +111,19 @@ ACOP:
     less_than_4kW:
       values:
         2021-01-01:
-          value: 2.8
+          value: 1.9
     4kW_to_10kW:
       values:
         2021-01-01:
-          value: 2.8
+          value: 1.9
     10kW_to_39kW:
       values:
         2021-01-01:
-          value: 2.8
+          value: 1.9
     39kW_to_65kW:
       values:
         2021-01-01:
-          value: 2.75 
+          value: 1.88 
     more_than_65kW:
       values:
         2021-01-01:
@@ -132,19 +132,19 @@ ACOP:
     less_than_4kW:
       values:
         2021-01-01:
-          value: 3.33
+          value: 2.17
     4kW_to_10kW:
       values:
         2021-01-01:
-          value: 2.93
+          value: 1.97
     10kW_to_39kW:
       values:
         2021-01-01:
-          value: 2.8
+          value: 1.9
     39kW_to_65kW:
       values:
         2021-01-01:
-          value: 2.75 
+          value: 1.88
     more_than_65kW:
       values:
         2021-01-01:
@@ -153,19 +153,19 @@ ACOP:
     less_than_4kW:
       values:
         2021-01-01:
-          value: 2.8
+          value: 1.9
     4kW_to_10kW:
       values:
         2021-01-01:
-          value: 2.8
+          value: 1.9
     10kW_to_39kW:
       values:
         2021-01-01:
-          value: 2.8
+          value: 1.9
     39kW_to_65kW:
       values:
         2021-01-01:
-          value: 2.75 
+          value: 1.88 
     more_than_65kW:
       values:
         2021-01-01:

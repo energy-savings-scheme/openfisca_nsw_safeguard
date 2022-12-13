@@ -351,7 +351,7 @@ class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
             (AC_AEER >= parameters(period).PDRS.AC.table_HVAC_1_4[product_class][cooling_capacity]),
             (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_1_3[product_class][cooling_capacity])
             )
-        print('TCSPF check', AC_exceeds_cooling_benchmark)
+
         return AC_exceeds_cooling_benchmark
 
 
@@ -446,5 +446,4 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                             ]
             )
 
-        print('HSPF check', AC_exceeds_benchmark)
         return AC_exceeds_benchmark

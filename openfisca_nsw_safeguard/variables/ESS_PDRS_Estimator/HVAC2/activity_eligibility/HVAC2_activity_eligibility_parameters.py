@@ -13,7 +13,7 @@ class HVAC2_installation(Variable):
     metadata = {
         'display_question' : 'Is the activity the installation of a new air conditioner?',
         'sorting' : 1,
-        'eligibility_clause' : """In PDRS HVAC2 Eligibility Requirements Clause 1, it states that this activity must be an installation of a new high efficiency air conditioner or a replacement of an existing air conditioner (whether operational or not) 
+        'eligibility_clause' : """In PDRS HVAC2 Eligibility Requirements Clause 1 it states that this activity must be an installation of a new high efficiency air conditioner or a replacement of an existing air conditioner (whether operational or not) 
         with a high efficiency air conditioner."""
     }
 
@@ -27,7 +27,7 @@ class HVAC2_equipment_replaced(Variable):
         'display_question' : 'Is the activity the replacement of an existing air conditioner?',
         'sorting' : 2,
         'conditional': 'True',
-        'eligibility_clause' : """In PDRS HVAC2 Eligibility Requirements Clause 1, it states that this activity must be an installation of a new high efficiency air conditioner or a replacement of an existing air conditioner (whether operational or not) 
+        'eligibility_clause' : """In PDRS HVAC2 Eligibility Requirements Clause 1 it states that this activity must be an installation of a new high efficiency air conditioner or a replacement of an existing air conditioner (whether operational or not) 
         with a high efficiency air conditioner."""
     }
 
@@ -41,7 +41,7 @@ class HVAC2_equipment_removed(Variable):
         'display_question' : 'Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?',
         'sorting' : 3,
         'conditional' : 'True',
-        'eligibility_clause' : """In PDRS HVAC2 Implementation Requirements Clause 3, it states that the activity, including the removal of any existing End-User Equipment, must be 
+        'eligibility_clause' : """In PDRS HVAC2 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be 
         performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
@@ -55,7 +55,7 @@ class HVAC2_Installed_by_qualified_person(Variable):
         'display_question': 'Has the installation of the end-user equipment been performed or supervised by a suitably licensed person?',
         'sorting' : 4,
         'conditional': 'True',
-        'eligibility_clause' : """In PDRS HVAC2 Implementation Requirements Clause 3, it states that the activity, including the removal 
+        'eligibility_clause' : """In PDRS HVAC2 Implementation Requirements Clause 3 it states that the activity, including the removal 
         of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
@@ -68,7 +68,7 @@ class HVAC2_Equipment_installed(Variable):
     metadata = {
         'display_question' : 'Is the new End-User equipment installed and operational?',
         'sorting' : 5,
-        'eligibility_clause' : """In PDRS HVAC2 Implementation Requirements Clause 2, it states that the New End-User Equipment or replacement End-User Equipment must be installed."""
+        'eligibility_clause' : """In PDRS HVAC2 Implementation Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must be installed."""
     }
 
 

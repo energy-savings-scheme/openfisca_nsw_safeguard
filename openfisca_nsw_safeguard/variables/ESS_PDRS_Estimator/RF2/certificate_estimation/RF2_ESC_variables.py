@@ -430,7 +430,7 @@ class RF2_product_EEI_ESC_replacement_eligibility(Variable):
       replace_product_EEI_to_check_ESC = np.select(
            [
               (product_EEI < 51),
-              (product_EEI == 51) * (product_EEI < 51) * (product_class_5 == 'Class 5'),
+              (product_EEI >= 51) * (product_class_5 == 'Class 5'),
               (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != 'Class 5'),
               (product_EEI >= 81)
           ],

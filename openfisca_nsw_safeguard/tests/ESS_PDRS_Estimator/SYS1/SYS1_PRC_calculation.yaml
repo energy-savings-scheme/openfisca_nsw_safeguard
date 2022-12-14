@@ -154,42 +154,62 @@
   input:
     SYS1_DNSP:
       [
-        Endeavour
+        Endeavour,
+        Ausgrid,
+        Ausgrid
       ]
     SYS1_PDRS__postcode:
       [
-        2753
+        2753,
+        2450,
+        2017
       ]
     SYS1_business_classification: 
       [
+        unknown,
+        unknown,
         unknown
       ]
     SYS1_end_use_service: 
       [
+        unknown,
+        unknown,
         unknown
       ]
     SYS1_new_efficiency:
       [
-        95.5
+        95.5,
+        95,
+        85
       ]
     SYS1_new_equipment_motor_frequency: 
       [
+        motor_50_hz,
+        motor_50_hz,
         motor_50_hz
       ]
     SYS1_new_equipment_no_of_poles: 
       [
-        poles_4
+        poles_4,
+        poles_4,
+        poles_6
       ]
     SYS1_new_equipment_rated_output: 
       [
-        132
+        132,
+        185, #not eligible
+        150
       ]
     SYS1_replacement_activity:
       [
+        false,
+        false,
         false
       ]
   output:
     SYS1_PRC_calculation:
       [
-        1148
+        1148,
+        0,
+        0
       ]

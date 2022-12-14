@@ -108,7 +108,7 @@ class SYS2_input_power_eligibility(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Pool pump input power (watts)',
-        'display_question' : 'What is the input power of the replacement pool pump?',
+        'display_question' : 'What is the input power of the replacement pool pump? (The pump unit must have an input power of not less than 600W and not more than 1,700W for single speed pumps and 3,450W for two speed, multi speed and variable speed pumps when tested in accordance with AS 5102.1)',
         'sorting' : 7
     }
 

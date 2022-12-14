@@ -13,7 +13,7 @@ class Base_reduces_energy_consumption(Variable):
     metadata = {
         'display_question' : 'Does the activity reduce energy consumption compared to what would have been consumed?',
         'sorting' : 1,
-        'eligibility_clause' : """In ESS Clause 5.3, it states that a Recognised Energy Saving Activity is any activity that meets all of the following criteria: \n
+        'eligibility_clause' : """In ESS Clause 5.3 it states that a Recognised Energy Saving Activity is any activity that meets all of the following criteria: \n
         (a) it increases the efficiency of energy consumption, by: \n
         (i) modifying End-User Equipment or the usage of End-User Equipment (including by installing additional components) with the result that there is a reduction in the
         consumption of energy compared to what would have otherwise been consumed;\n
@@ -34,7 +34,7 @@ class Base_provides_capacity_to_reduce_demand(Variable):
         'label' : 'The Peak Demand Reduction period is 2.30pm to 8.30pm AEST',
         'display_question' : 'Does the activity provide capacity to reduce demand during the Peak Demand Reduction period?',
         'sorting' : 2,
-        'eligibility_clause' : """ In PDRS Clause 5.1, it states a Recognised Peak Activity is an activity that:\n
+        'eligibility_clause' : """ In PDRS Clause 5.1 it states a Recognised Peak Activity is an activity that:\n
         (a) provides capacity to reduce peak demand during the Peak Demand Reduction Period."""
     }
 
@@ -100,7 +100,7 @@ class Base_engaged_ACP(Variable):
         'display_question' : 'Was an Accredited Certificate Provider engaged prior to the implementation date?',
         'sorting' : 7,
         'conditional' : 'True',
-        'eligibility_clause' : """In ESS Clause 6.2, it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of
+        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of
                                   the Energy Savings for an Implementation where:\n
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and \n
                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
@@ -127,7 +127,7 @@ class Base_resold_reused_or_refurbished(Variable):
         'display_question' : 'Is the removed End-User equipment re-sold, refurbished or re-used?',
         'sorting' : 9,
         'conditional' : 'True',
-        'eligibility_clause' : """In PDRS Clause 5.3(a), it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity
+        'eligibility_clause' : """In PDRS Clause 5.3(a) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity
         if the End-User Equipment is not refurbished, re-used or resold."""
     }
 
@@ -141,7 +141,7 @@ class Base_disposal_of_equipment(Variable):
         'display_question' : 'Will the End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?',
         'sorting' : 10,
         'conditional': 'True',
-        'eligibility_clause' : """In PDRS Clause 5.3(b), it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity if it is disposed of in accordance 
+        'eligibility_clause' : """In PDRS Clause 5.3(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity if it is disposed of in accordance 
         with legal requirements imposed through a statutory or regulatory instrument of the Commonwealth or a State or Territory of the Commonwealth, including by obtaining evidence for any refrigerants 
         being disposed of or recycled."""
     }

@@ -280,7 +280,6 @@ class RF2_product_type(Variable):
     definition_period = ETERNITY    
     metadata = {
       "label": 'Product Type for the refrigerated cabinet',
-      # "display_question":  "What is the product type for the refrigerated cabinet?",
       "variable-type": "output",
     }
     
@@ -431,7 +430,7 @@ class RF2_product_EEI_ESC_replacement_eligibility(Variable):
       replace_product_EEI_to_check_ESC = np.select(
            [
               (product_EEI < 51),
-              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == 'Class 5'),
+              (product_EEI >= 51) * (product_class_5 == 'Class 5'),
               (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != 'Class 5'),
               (product_EEI >= 81)
           ],
@@ -441,6 +440,7 @@ class RF2_product_EEI_ESC_replacement_eligibility(Variable):
               True,
               False
           ])
+
       return replace_product_EEI_to_check_ESC
 
 
@@ -451,16 +451,22 @@ class RF2_product_EEI_ESC_install_eligibility(Variable):
 
     def formula(building, period, parameters):
         product_EEI = building('RF2_product_EEI', period)
+        product_class_5 = building('RF2_product_class', period)
           
         install_product_EEI_to_check_ESC = np.select(
-            [    
-                product_EEI < 77,
-                product_EEI >= 77
-            ],
-            [
-                True,
-                False
-            ])
+             [
+              (product_EEI < 51),
+              (product_EEI >= 51) * (product_class_5 == 'Class 5'),
+              (product_EEI >= 51) * (product_EEI < 77) * (product_class_5 != 'Class 5'),
+              (product_EEI >= 77)
+          ],
+          [
+              True,
+              False,
+              True,
+              False
+          ])
+        
         return install_product_EEI_to_check_ESC
 
 
@@ -476,7 +482,7 @@ class RF2_product_EEI_PRC_replacement_eligibility(Variable):
         product_EEI_to_check_PRC = np.select(
           [
               (product_EEI < 51),
-              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 == 'Class 5'),
+              (product_EEI >= 51) * (product_class_5 == 'Class 5'),
               (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != 'Class 5'),
               (product_EEI >= 81)
           ],
@@ -486,4 +492,5 @@ class RF2_product_EEI_PRC_replacement_eligibility(Variable):
               True,
               False
           ])
+
         return product_EEI_to_check_PRC

@@ -104,7 +104,7 @@ class SYS1_peak_demand_reduction_capacity(Variable):
             ((rated_output >= 2.6) * (rated_output < 9.2)),    
             ((rated_output >= 9.2) * (rated_output < 41)),    
             ((rated_output >= 41) * (rated_output < 100)),    
-            ((rated_output >= 100) * (rated_output < 185)),    
+            ((rated_output >= 100) * (rated_output <= 185)),    
             (rated_output > 185), 
         ],
         [

@@ -81,10 +81,14 @@
         true,
         true,
         true,
+        true,
+        true,
         true
       ]
     SYS2_electricity_savings:
       [
+        15,
+        15,
         15,
         15,
         15,
@@ -97,17 +101,32 @@
         pump_under_100w,
         pump_100w_to_599w,
         pump_600w_to_1700w,
+        pump_600w_to_1700w,
+        pump_1701w_to_2500w,
         pump_1701w_to_2500w,
         pump_2501w_to_3450w,
         pump_more_than_3451w
+      ]
+    SYS2_pool_pump_type:
+      [
+        single_speed_pool_pump,    #fail
+        single_speed_pool_pump,    #fail
+        single_speed_pool_pump,    #pass
+        variable_speed_pool_pump,   #pass
+        single_speed_pool_pump,    #fail
+        variable_speed_pool_pump,  #pass
+        variable_speed_pool_pump,  #pass
+        variable_speed_pool_pump   #fail
       ]
   output:
     SYS2_ESC_calculation:
       [
         0,
-        15.9,
+        0,
         15.9,
         15.9,
         0,
+        15.9,
+        15.9,
         0
       ]

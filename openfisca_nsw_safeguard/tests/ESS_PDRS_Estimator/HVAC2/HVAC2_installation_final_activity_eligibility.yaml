@@ -3,7 +3,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    HVAC2_Installed_by_qualified_person:
+    HVAC2_installed_by_qualified_person:
       [
         True, 
         True, 
@@ -14,7 +14,7 @@
         False,
         False
       ]
-    HVAC2_Equipment_installed:
+    HVAC2_equipment_installed:
       [
         True, 
         True, 

@@ -21,8 +21,8 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
     
     def formula(buildings, period, parameter):
         new_installation = buildings('HVAC2_installation', period)
-        qualified_install = buildings('HVAC2_Installed_by_qualified_person', period)
-        equipment_installed = buildings('HVAC2_Equipment_installed', period)
+        qualified_install = buildings('HVAC2_installed_by_qualified_person', period)
+        equipment_installed = buildings('HVAC2_equipment_installed', period)
         residential_building = buildings('HVAC2_residential_building', period)
         registered_GEMS = buildings('HVAC2_equipment_registered_in_GEMS', period)
         cooling_capacity = buildings('HVAC2_new_equipment_cooling_capacity', period)

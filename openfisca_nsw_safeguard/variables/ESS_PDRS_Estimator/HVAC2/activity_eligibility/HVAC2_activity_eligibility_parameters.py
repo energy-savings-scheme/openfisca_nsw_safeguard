@@ -46,7 +46,7 @@ class HVAC2_equipment_removed(Variable):
     }
 
 
-class HVAC2_Installed_by_qualified_person(Variable):
+class HVAC2_installed_by_qualified_person(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -60,7 +60,7 @@ class HVAC2_Installed_by_qualified_person(Variable):
     }
 
 
-class HVAC2_Equipment_installed(Variable):
+class HVAC2_equipment_installed(Variable):
     value_type = bool
     entity = Building
     default_value = True

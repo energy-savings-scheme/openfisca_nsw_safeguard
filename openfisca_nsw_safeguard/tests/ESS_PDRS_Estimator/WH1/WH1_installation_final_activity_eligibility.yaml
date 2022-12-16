@@ -1,0 +1,24 @@
+- name:
+    Test storage 700L or less is certified
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_storage_volume:
+      [
+        Less than or equal to 700 litres,
+        Less than or equal to 700 litres,
+        More than 700 litres
+      ]
+    WH1_certified:
+      [
+        true,
+        false,
+        true
+      ]
+  output:
+    WH1_equipment_certified_by_storage_volume:
+      [
+        true,
+        false,
+        true
+      ]

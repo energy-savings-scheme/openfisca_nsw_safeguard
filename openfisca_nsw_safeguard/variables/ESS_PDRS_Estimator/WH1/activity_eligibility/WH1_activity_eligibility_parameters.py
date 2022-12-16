@@ -180,16 +180,25 @@ class WH1_equipment_certified_by_storage_volume(Variable):
       storage_volume = buildings('WH1_storage_volume', period)
       certified_AS_NZ_2712 = buildings('WH1_certified', period)
       
+      storage_volume = np.select(
+        [
+           storage_volume == 'Less than or equal to 700 litres',
+           storage_volume == 'More than 700 litres'
+        ],
+        [
+           WH1StorageVolume.less_than_or_equal_to_700_L,
+           WH1StorageVolume.more_than_700_L
+        ])
+
       eligible_by_storage = np.select(
-              [
-                (storage_volume == WH1StorageVolume.less_than_or_equal_to_700_L) * certified_AS_NZ_2712,
-                (storage_volume == WH1StorageVolume.less_than_or_equal_to_700_L) * np.logical_not(certified_AS_NZ_2712),
-                (storage_volume != WH1StorageVolume.more_than_700_L)
-              ],
-              [
-                True,
-                False,
-                True
-              ])
+        [
+          (storage_volume == WH1StorageVolume.less_than_or_equal_to_700_L) * certified_AS_NZ_2712,
+          (storage_volume == WH1StorageVolume.less_than_or_equal_to_700_L) * (certified_AS_NZ_2712 is not True),
+          (storage_volume == WH1StorageVolume.more_than_700_L)
+        ],
+        [
+          True,
+          False,
+          True
+        ])
       return eligible_by_storage
-   

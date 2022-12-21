@@ -1,5 +1,4 @@
-- name:
-    Test storage 700L or less is certified
+- name: Test storage 700L or less is certified
   period: 2022
   absolute_error_margin: 0
   input:
@@ -18,6 +17,89 @@
   output:
     WH1_equipment_certified_by_storage_volume:
       [
+        true,
+        false,
+        true
+      ]
+
+- name: Test WH1 final activity eligibility
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_installation:
+      [
+        true, #new install
+        false,
+        false,
+        true
+      ]
+    WH1_equipment_replaced:
+      [
+        false,
+        true, #replacement
+        true,
+        false
+      ]
+    WH1_equipment_replaces_gas:
+      [
+        false,
+        false,
+        true, #not eligible for PRCs
+        true  #new install, not relevant
+      ]
+    WH1_equipment_removed:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_equipment_installed_and_operational:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_building_BCA_not_class_1_or_4:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_air_source_heat_pump:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_scheme_admin_approved:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_minimum_savings:
+      [
+        true,
+        true,
+        true,
+        true  
+      ]
+    WH1_equipment_certified_by_storage_volume:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+  output:
+    WH1_installation_replacement_final_activity_eligibility:
+      [
+        true,
         true,
         false,
         true

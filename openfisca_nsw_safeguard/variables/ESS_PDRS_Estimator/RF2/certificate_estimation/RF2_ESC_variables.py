@@ -188,7 +188,6 @@ class RF2_product_class(Variable):
     entity = Building
     default_value = 'Class 1'
     definition_period = ETERNITY
-    label = 'What is the product class for the refrigerated cabinet?'
     metadata = {
       'variable-type': 'user-input',
       'label': 'Product Class',

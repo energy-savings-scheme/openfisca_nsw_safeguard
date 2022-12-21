@@ -1,0 +1,65 @@
+- name: Test RF2 final formula installation eligibility
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    RF2_equipment_replaced:
+      [
+        true,
+        false,
+        false
+      ]
+    RF2_installation:
+      [
+        false,
+        true, #new install
+        true
+      ]
+    RF2_qualified_install_removal:
+      [
+        true,
+        true,
+        true
+      ]
+    RF2_legal_disposal:
+      [
+        true,
+        true,
+        true
+      ]
+    RF2_equipment_installed:
+      [
+        true,
+        true,
+        true
+      ]
+    RF2_equipment_registered_in_GEMS:
+      [
+        true,
+        true,
+        true
+      ]
+    RF2_GEMS_product_class_5:
+      [
+        true,
+        false,
+        false
+      ]
+    RF2_EEI_under_51:
+      [
+        true,
+        true,
+        false
+      ]
+    RF2_EEI_under_81:
+      [
+        false,
+        false, #ineligible
+        true
+      ]
+  output:
+    RF2_installation_replacement_final_activity_eligibility:
+      [
+        true,
+        false,
+        true
+      ] 

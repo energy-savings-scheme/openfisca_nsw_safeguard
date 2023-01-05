@@ -128,7 +128,6 @@ class HVAC1_certificate_climate_zone(Variable):
 class HVAC1_get_climate_zone_by_postcode(Variable):
     value_type = str
     entity = Building
-    label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
     definition_period = ETERNITY
     metadata = {
         'variable-type': 'inter-interesting',

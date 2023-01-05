@@ -17,7 +17,6 @@ class RF2_DNSP(Variable):
     possible_values = RF2_DNSP_Options
     default_value = RF2_DNSP_Options.Ausgrid
     definition_period = ETERNITY
-    label = "Distribution Network Service Provider"
     metadata = {
         'variable-type': 'user-input',
         'display_question': 'Who is your Distribution Network Service Provider?',

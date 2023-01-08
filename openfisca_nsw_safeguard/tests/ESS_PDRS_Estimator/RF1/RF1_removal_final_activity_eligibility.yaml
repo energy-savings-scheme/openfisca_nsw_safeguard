@@ -1,0 +1,47 @@
+- name: Test RF1 final formula removal eligibility
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    RF1_removal:
+      [
+        true,
+        false,
+        true
+      ]
+    RF1_primary_refrigeration:
+      [
+        true,
+        true,
+        true
+      ]
+    RF1_residential_building:
+      [
+        true,
+        true,
+        true
+      ]
+    RF1_in_working_order:
+      [
+        true,
+        true,
+        true
+      ]
+    RF1_classified_group:
+      [
+        true,
+        true,
+        true
+      ]
+    RF1_capacity_200_litres_or_more:
+      [
+        true,
+        true,
+        false
+      ]
+  output:
+    RF1_removal_activity_eligibility:
+      [
+        true,
+        false,
+        false
+      ]

@@ -31,7 +31,7 @@ class Base_provides_capacity_to_reduce_demand(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'label' : 'The Peak Demand Reduction period is 2.30pm to 8.30pm AEST',
+        # 'label' : 'The Peak Demand Reduction period is 2.30pm to 8.30pm AEST',
         'display_question' : 'Does the activity provide capacity to reduce demand during the Peak Demand Reduction period?',
         'sorting' : 2,
         'eligibility_clause' : """ In PDRS Clause 5.1 it states a Recognised Peak Activity is an activity that:\n
@@ -84,8 +84,8 @@ class Base_registered_ACP(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'label' : """An Accredited Certificate Provider is a person who is accredited by the Statistical Society of Australia Inc. at the time of carrying out
-                     the verification in accordance with ESS clause 8.9.7(e), and who is accepted by the Scheme Administrator for the purposes of the Rule.""",
+        # 'label' : """An Accredited Certificate Provider is a person who is accredited by the Statistical Society of Australia Inc. at the time of carrying out
+        #              the verification in accordance with ESS clause 8.9.7(e), and who is accepted by the Scheme Administrator for the purposes of the Rule.""",
         'display_question' : 'Are you an Accredited Certificate Provider?',
         'sorting' : 6
     }

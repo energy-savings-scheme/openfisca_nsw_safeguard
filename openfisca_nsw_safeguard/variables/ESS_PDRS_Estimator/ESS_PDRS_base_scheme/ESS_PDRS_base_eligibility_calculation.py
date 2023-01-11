@@ -1,4 +1,3 @@
-from distutils.command.build import build
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
@@ -8,7 +7,7 @@ import numpy as np
 
 class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
     """
-        Formula to calculate the ESS PDRS Base Scheme eligibility for an ACP
+        Formula to calculate the ESS PDRS Base Scheme eligibility for an ACP.
     """
     value_type = bool
     entity = Building

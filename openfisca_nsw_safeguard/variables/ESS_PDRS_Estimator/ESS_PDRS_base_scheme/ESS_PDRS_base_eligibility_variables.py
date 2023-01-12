@@ -118,20 +118,6 @@ class Base_removing_or_replacing(Variable):
     }
 
 
-class Base_resold_reused_or_refurbished(Variable):
-    value_type = bool
-    entity = Building
-    default_value = False
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Is the removed End-User equipment re-sold, refurbished or re-used?',
-        'sorting' : 9,
-        'conditional' : 'True',
-        'eligibility_clause' : """In PDRS Clause 5.3(a) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity
-        if the End-User Equipment is not refurbished, re-used or resold."""
-    }
-
-
 class Base_disposal_of_equipment(Variable):
     value_type = bool
     entity = Building
@@ -139,11 +125,25 @@ class Base_disposal_of_equipment(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Will the End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?',
-        'sorting' : 10,
+        'sorting' : 9,
         'conditional': 'True',
         'eligibility_clause' : """In PDRS Clause 5.3(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity if it is disposed of in accordance 
         with legal requirements imposed through a statutory or regulatory instrument of the Commonwealth or a State or Territory of the Commonwealth, including by obtaining evidence for any refrigerants 
         being disposed of or recycled."""
+    }
+
+
+class Base_resold_reused_or_refurbished(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Is the removed End-User equipment re-sold, refurbished or re-used?',
+        'sorting' : 10,
+        'conditional' : 'True',
+        'eligibility_clause' : """In PDRS Clause 5.3(a) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity
+        if the End-User Equipment is not refurbished, re-used or resold."""
     }
 
 

@@ -151,20 +151,24 @@
   input:
     HVAC2_TCSPF_or_AEER_exceeds_benchmark:
       [
-        true 
+        true,
+        true  #Daikin RXM25UVMA / FTXM25UVMA
       ]
     HVAC2_peak_demand_reduction_capacity:
       [
-        21.96
+        21.96,
+        3.822
       ]
     HVAC2_network_loss_factor:
       [
-        1.04
+        1.04,
+        1.04 #Ausgrid
       ]
   output:
     HVAC2_PRC_calculation:
       [
-        228.38 #Fujitsu AOTA90LALT/ARTC90LATU
+        228.38, #Fujitsu AOTA90LALT/ARTC90LATU
+        39.7488 #Daikin RXM25UVMA / FTXM25UVMA
       ]
 
 - name: test HVAC2 PRC calculation complex

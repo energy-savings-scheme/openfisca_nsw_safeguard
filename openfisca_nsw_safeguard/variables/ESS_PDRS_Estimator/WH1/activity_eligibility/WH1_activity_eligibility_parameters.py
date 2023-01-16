@@ -123,11 +123,12 @@ class WH1StorageVolume(Enum):
     less_than_or_equal_to_700_L = 'Less than or equal to 700 litres'
     more_than_700_L = 'More than 700 litres'
 
-
+    
 class WH1_storage_volume(Variable):
-    value_type = str
+    value_type = Enum
     entity = Building
-    default_value = 'More than 700 litres'
+    default_value = WH1StorageVolume.more_than_700_L
+    possible_values = WH1StorageVolume
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
@@ -203,3 +204,4 @@ class WH1_equipment_certified_by_storage_volume(Variable):
           True
         ])
       return eligible_by_storage
+  

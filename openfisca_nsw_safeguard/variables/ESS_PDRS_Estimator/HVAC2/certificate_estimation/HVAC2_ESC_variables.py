@@ -318,9 +318,9 @@ class HVAC2_TCSPF_or_AEER_exceeds_benchmark(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the Air Conditioner have a Residential TCSPF mixed equal or greater than the minimum' \
-            ' TCSPF mixed listed in Table HVAC 1.3? If the TCPSF is not available, is the Rated' \
-            ' AEER equal or greater than the Minimum Rated AEER listed in Table HVAC1.4?'
+    label = 'Does the Air Conditioner have a Commercial TCSPF mixed equal or greater than the minimum' \
+            ' TCSPF mixed listed in Table HVAC 2.3? If the TCPSF is not available, is the Rated' \
+            ' AEER equal or greater than the Minimum Rated AEER listed in Table HVAC2.4?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty',
     }

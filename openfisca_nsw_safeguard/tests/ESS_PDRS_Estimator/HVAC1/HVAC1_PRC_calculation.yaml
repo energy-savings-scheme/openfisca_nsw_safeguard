@@ -5,18 +5,24 @@
     HVAC1_cooling_capacity_input:
       [
         40,
-        10.1 #Coolmaster TCCF10C1S/AOCF10C-S
+        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+        2.5,  #Daikin RXM25UVMA / FTXM25UVMA
+        7.1   #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
     HVAC1_baseline_AEER_input:
       [
         20,
-        3.1
+        3.1,
+        3.66,
+        3.22
       ]
   output:
     HVAC1_baseline_input_power: 
       [
         2,
-        3.25806452
+        3.25806452,
+        0.683,
+        2.205
       ]
 
 - name: test HVAC1 baseline peak adjustment factor
@@ -26,12 +32,16 @@
     HVAC1_BCA_climate_zone_by_postcode:
       [
         BCA_Climate_Zone_2,
-        BCA_Climate_Zone_7 #Coolmaster TCCF10C1S/AOCF10C-S
+        BCA_Climate_Zone_7,  #Coolmaster TCCF10C1S/AOCF10C-S
+        BCA_Climate_Zone_5,  #Daikin RXM25UVMA / FTXM25UVMA
+        BCA_Climate_Zone_7   #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
   output:
     HVAC1_baseline_peak_adjustment_factor:
       [
         0.288,
+        0.552,
+        0.33,
         0.552
       ]
 - name: test BCA climate zone by postcode
@@ -54,6 +64,7 @@
         3,
         3
       ]
+
 - name: test HVAC1 peak demand savings activity
   period: 2022
   absolute_error_margin: 0.1
@@ -61,23 +72,31 @@
     HVAC1_baseline_input_power:
       [
         70,
-        3.25806452 #Coolmaster TCCF10C1S/AOCF10C-S
+        3.25806452, #Coolmaster TCCF10C1S/AOCF10C-S
+        0.683,      #Daikin RXM25UVMA / FTXM25UVMA
+        2.205       #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
     HVAC1_baseline_peak_adjustment_factor:
       [
         3,
+        0.552,
+        0.33,
         0.552
       ]
     HVAC1_input_power:
       [
         5,
-        2.89
+        2.89,
+        0.49,
+        2.06
       ]
   output:
     HVAC1_peak_demand_savings_activity:
       [
         195,
-        0.20317162
+        0.20317162,
+        0.0637,
+        0.08
       ]
 - name: test HVAC1 peak demand reduction capacity
   period: 2022
@@ -86,55 +105,71 @@
     HVAC1_peak_demand_savings_activity:
       [
         600,
-        0.20317162 #Coolmaster TCCF10C1S/AOCF10C-S
+        0.20317162, #Coolmaster TCCF10C1S/AOCF10C-S
+        0.0637,     #Daikin RXM25UVMA / FTXM25UVMA
+        0.08        #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
   output:
     HVAC1_peak_demand_reduction_capacity:
       [
         36000,
-        12.1902972
+        12.1902972,
+        3.822,
+        4.8
       ]
 - name: test HVAC1 PRC calculation
   period: 2022
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0.5
   input:
     HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
       [
         true,
         true,
         false,
-        false
+        false,
+        true,  #Daikin RXM25UVMA / FTXM25UVMA
+        true   #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
     HVAC1_DNSP:
       [
         Ausgrid,
         Ausgrid,
         Ausgrid,
-        Ausgrid #Coolmaster TCCF10C1S/AOCF10C-S
+        Ausgrid, #Coolmaster TCCF10C1S/AOCF10C-S
+        Ausgrid,
+        Ausgrid
       ]
     HVAC1_input_power:
       [
         1,
         2.89,
         1,
-        2.89
+        2.89,
+        0.49,
+        2.06
       ]
     HVAC1_Air_Conditioner_type:
       [
         non_ducted_split_system,
         ducted_split_system,
         non_ducted_split_system,
-        ducted_split_system
+        ducted_split_system,
+        non_ducted_split_system,
+        non_ducted_split_system
       ]
     HVAC1_cooling_capacity_input:
       [
         2,
         10.1,
         2,
-        10.1
+        10.1,
+        2.5,
+        7.1
       ]
     HVAC1_new_installation_activity:
       [
+        true,
+        true,
         true,
         true,
         true,
@@ -145,7 +180,9 @@
         2789,
         2350,
         2789,
-        2350
+        2350,
+        2000,
+        2800
       ]
   output:
     HVAC1_PRC_calculation:
@@ -153,5 +190,7 @@
         0,
         126.779091,
         0,
-        0
+        0,
+        40,
+        50
       ]

@@ -7,17 +7,16 @@
         40,
         25,  #Fujitsu AOTA90LALT/ARTC90LATU
         2.5, #Daikin RXM25UVMA / FTXM25UVMA
-        25,  #Fujitsu AOTA90LALT/ARTC90LATU
-        2.5, #Daikin RXM25UVMA / FTXM25UVMA
-        7.1  #Panasonic CU-Z71XKR / CS-Z71XKRW
+        7.1, #Panasonic CU-Z71XKR / CS-Z71XKRW
+        12.5 #Mitsubishi PUMY-P112VKM-A
       ]
     HVAC2_baseline_AEER_input:
       [
         20,
         2.8,
         3.66,
-        3.66,
-        3.22
+        3.22,
+        3.1
       ]
   output:
     HVAC2_baseline_input_power: 
@@ -25,8 +24,8 @@
         2,
         8.929,
         0.683,
-        0.683,
-        2.205
+        2.205,
+        4.032
       ]
 
 - name: test HVAC2 baseline peak adjustment factor
@@ -38,9 +37,8 @@
         BCA_Climate_Zone_2,
         BCA_Climate_Zone_5,  #Fujitsu AOTA90LALT/ARTC90LATU
         BCA_Climate_Zone_5,  #Daikin RXM25UVMA / FTXM25UVMA
-        BCA_Climate_Zone_5,  #Fujitsu AOTA90LALT/ARTC90LATU
-        BCA_Climate_Zone_5,  #Daikin RXM25UVMA / FTXM25UVMA
-        BCA_Climate_Zone_7   #Panasonic CU-Z71XKR / CS-Z71XKRW
+        BCA_Climate_Zone_7,  #Panasonic CU-Z71XKR / CS-Z71XKRW
+        BCA_Climate_Zone_5   #Mitsubishi PUMY-P112VKM-A
       ]
   output:
     HVAC2_baseline_peak_adjustment_factor:
@@ -48,8 +46,8 @@
         0.288,
         0.33,
         0.33,
-        0.33,
-        0.552
+        0.552,
+        0.33
       ]
 
 - name: test climate zone by postcode #hot, average, cool
@@ -118,25 +116,24 @@
         70,
         8.929,  #Fujitsu AOTA90LALT/ARTC90LATU
         0.683,  #Daikin RXM25UVMA / FTXM25UVMA
-        8.929,  #Fujitsu AOTA90LALT/ARTC90LATU
-        0.683,  #Daikin RXM25UVMA / FTXM25UVMA
-        2.205   #Panasonic CU-Z71XKR / CS-Z71XKRW
+        2.205,  #Panasonic CU-Z71XKR / CS-Z71XKRW
+        4.032   #Mitsubishi PUMY-P112VKM-A
       ]
     HVAC2_baseline_peak_adjustment_factor:
       [
         3,
         0.33,
         0.33,
-        0.33,
-        0.552
+        0.552,
+        0.33
       ]
     HVAC2_input_power:
       [
         5,
         7.82,
-        0.49.
         0.49,
-        2.06
+        2.06,
+        2.935
       ]
   output:
     HVAC2_peak_demand_savings_activity:
@@ -144,8 +141,8 @@
         195,
         0.36597,
         0.0637,
-        0.0637,
-        0.08
+        0.08,
+        0.362
       ]
 
 - name: test HVAC2 peak demand reduction capacity
@@ -157,9 +154,8 @@
         600,
         0.366,  #Fujitsu AOTA90LALT/ARTC90LATU
         0.0637, #Daikin RXM25UVMA / FTXM25UVMA
-        0.366,  #Fujitsu AOTA90LALT/ARTC90LATU
-        0.0637, #Daikin RXM25UVMA / FTXM25UVMA
-        0.08    #Panasonic CU-Z71XKR / CS-Z71XKRW
+        0.08,   #Panasonic CU-Z71XKR / CS-Z71XKRW
+        0.362   #Mitsubishi PUMY-P112VKM-A
       ]
   output:
     HVAC2_peak_demand_reduction_capacity:
@@ -167,8 +163,8 @@
         36000,
         21.96,
         3.822,
-        3.822,
-        4.8
+        4.8,
+        21.72
       ]
       
 - name: test HVAC2 PRC calculation simple
@@ -179,31 +175,30 @@
       [
         true,
         true,  #Daikin RXM25UVMA / FTXM25UVMA
-        true,  #Daikin RXM25UVMA / FTXM25UVMA
-        true   #Panasonic CU-Z71XKR / CS-Z71XKRW
+        true,  #Panasonic CU-Z71XKR / CS-Z71XKRW
+        true   #Mitsubishi PUMY-P112VKM-A
       ]
     HVAC2_peak_demand_reduction_capacity:
       [
         21.96,
         3.822,
-        3.822,
-        4.8
+        4.8,
+        21.72
       ]
     HVAC2_network_loss_factor:
       [
         1.04,
-        1.04  #Ausgrid
         1.04, #Ausgrid
-        1.05  #Essential
+        1.05, #Essential
+        1.04, #Ausgrid
       ]
   output:
     HVAC2_PRC_calculation:
       [
         228.38,  #Fujitsu AOTA90LALT/ARTC90LATU
         39.7488, #Daikin RXM25UVMA / FTXM25UVMA
-        228.38,  #Fujitsu AOTA90LALT/ARTC90LATU
-        39.7488, #Daikin RXM25UVMA / FTXM25UVMA
-        50.4     #Panasonic CU-Z71XKR / CS-Z71XKRW
+        50.4,    #Panasonic CU-Z71XKR / CS-Z71XKRW
+        225.89   #Mitsubishi PUMY-P112VKM-A
       ]
 
 - name: test HVAC2 PRC calculation complex
@@ -215,29 +210,30 @@
         true,
         true,
         true,
+        true,
         true
       ]
     HVAC2_DNSP:
       [
         Ausgrid,
-        Ausgrid, #Fujitsu AOTA90LALT/ARTC90LATU
-        Daikin,   #Daikin RXM25UVMA / FTXM25UVMA
-        Ausgrid,  #Fujitsu AOTA90LALT/ARTC90LATU
-        Ausgrid,  #Daikin RXM25UVMA / FTXM25UVMA
-        Essential #Panasonic CU-Z71XKR / CS-Z71XKRW
+        Ausgrid,   #Fujitsu AOTA90LALT/ARTC90LATU
+        Ausgrid,   #Daikin RXM25UVMA / FTXM25UVMA
+        Essential, #Panasonic CU-Z71XKR / CS-Z71XKRW
+        Ausgrid    #Mitsubishi PUMY-P112VKM-A
       ]
     HVAC2_input_power:
       [
         1,
         7.82,
         0.49,
-        0.49,
-        2.06
+        2.06,
+        2.935
       ]
     HVAC2_Air_Conditioner_type:
       [
         non_ducted_split_system,
         ducted_split_system,
+        non_ducted_split_system,
         non_ducted_split_system,
         non_ducted_split_system
       ]
@@ -246,13 +242,14 @@
         2,
         25,
         2.5,
-        2.5,
-        7.1
+        7.1,
+        12.5
       ]
     HVAC2_new_installation_activity:
       [
         true,
         false,
+        true,
         true,
         true
       ]
@@ -261,8 +258,8 @@
         2789,
         2250,
         2000,
-        2000,
-        2800
+        2800,
+        2000
       ]
   output:
     HVAC2_PRC_calculation:
@@ -270,6 +267,64 @@
         0,
         228.38,
         40,
-        40,
-        50
+        50,
+        225.9
+      ]
+
+- name: test HVAC2 Mitsubishi PUMY-P112VKM-A
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    HVAC2_Air_Conditioner_type: 
+      [
+        non_ducted_split_system
+      ]
+    HVAC2_DNSP:
+      [
+        Ausgrid
+      ]
+    HVAC2_PDRS__postcode:
+      [
+        2000
+      ]
+    HVAC2_TCSPF_mixed:
+      [
+        0
+      ]
+    HVAC2_commercial_TCEC:
+      [
+        0
+      ]
+    HVAC2_commercial_THEC: 
+      [
+        0
+      ]
+    HVAC2_cooling_capacity_input:
+      [
+        12.5
+      ]
+    HVAC2_heating_capacity_input:
+      [
+       14
+      ]
+    HVAC2_input_power:
+      [
+        2.935
+      ]
+    HVAC2_new_installation_activity: 
+      [
+        true
+      ]
+    HVAC2_rated_ACOP_input:
+      [
+        4.1955
+      ]
+    HVAC2_rated_AEER_input:
+      [
+        4.1296
+      ]
+  output:
+    HVAC2_PRC_calculation:
+      [
+        225.9
       ]

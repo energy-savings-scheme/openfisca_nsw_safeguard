@@ -166,7 +166,7 @@
   input:
     HVAC2_cooling_capacity_input:
       [
-        32,
+        32
       ]
     HVAC2_Air_Conditioner_type:
       [
@@ -174,7 +174,7 @@
       ]
     HVAC2_new_installation_activity:
       [
-        true,
+        true
       ]
   output:
     HVAC2_baseline_AEER_input:
@@ -188,7 +188,7 @@
   input:
     HVAC2_cooling_capacity_input:
       [
-        32,
+        32
       ]
     HVAC2_Air_Conditioner_type:
       [
@@ -196,7 +196,7 @@
       ]
     HVAC2_new_installation_activity:
       [
-        true,
+        true
       ]
   output:
     HVAC2_baseline_ACOP_input:
@@ -267,15 +267,15 @@
   input:
     HVAC2_cooling_capacity_input:
       [
-        32,
+        32
       ]
     HVAC2_heating_capacity_input: 
       [
-        6,
+        6
       ]
     HVAC2_rated_AEER_input:
       [
-        2.0,
+        2.0
       ]
     HVAC2_rated_ACOP_input:
       [
@@ -305,67 +305,112 @@
   input:
     HVAC2_Air_Conditioner_type:
       [
-        ducted_split_system,
-        non_ducted_split_system ##Mitsubishi PUMY-P112VKM-A 
+        ducted_split_system
       ]
     HVAC2_DNSP: 
       [
-        Ausgrid,
         Ausgrid
       ]
     HVAC2_PDRS__postcode: 
       [
-        2250,
-        2000
+        2250
       ]
     HVAC2_TCSPF_mixed: 
       [
-        4.045, #below minimum standard of 5
+        4.045 #below minimum standard of 5
+      ]
+    HVAC2_commercial_TCEC:
+      [
+        5232
+      ]
+    HVAC2_commercial_THEC: 
+      [
+        2214
+      ]
+    HVAC2_cooling_capacity_input: 
+      [
+        25
+      ]
+    HVAC2_heating_capacity_input:
+      [
+        28
+      ]
+    HVAC2_input_power:
+      [
+        7.82
+      ]
+    HVAC2_new_installation_activity: 
+      [
+        false
+      ]
+    HVAC2_rated_ACOP_input: 
+      [
+        3.3365
+      ]   
+    HVAC2_rated_AEER_input: 
+      [
+        3.1359
+      ]
+  output:
+    HVAC2_ESC_calculation:
+      [
+        0
+      ]
+
+- name: test ESC calculation Mitsubishi PUMY-P112VKM-A 
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    HVAC2_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC2_DNSP:
+      [ 
+        Ausgrid
+      ]
+    HVAC2_PDRS__postcode:
+      [
+        2000
+      ]
+    HVAC2_TCSPF_mixed:
+      [
         0
       ]
     HVAC2_commercial_TCEC:
       [
-        5232,
         0
       ]
-    HVAC2_commercial_THEC: 
+    HVAC2_commercial_THEC:
       [
-        2214,
         0
       ]
-    HVAC2_cooling_capacity_input: 
+    HVAC2_cooling_capacity_input:
       [
-        25,
         12.5
       ]
     HVAC2_heating_capacity_input:
       [
-        28,
         14
       ]
     HVAC2_input_power:
       [
-        7.82,
         2.935
       ]
-    HVAC2_new_installation_activity: 
+    HVAC2_new_installation_activity:
       [
-        false,
         true
       ]
-    HVAC2_rated_ACOP_input: 
+    HVAC2_rated_ACOP_input:
       [
-        3.3365,
         4.1955
-      ]   
-    HVAC2_rated_AEER_input: 
+      ]
+    HVAC2_rated_AEER_input:
       [
-        3.1359,
         4.1296
       ]
   output:
     HVAC2_ESC_calculation:
       [
-        0,
-        19.75 #failing
+        19.75
       ]

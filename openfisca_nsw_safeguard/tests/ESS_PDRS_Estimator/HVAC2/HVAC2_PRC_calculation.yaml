@@ -7,12 +7,15 @@
         40,
         25,  #Fujitsu AOTA90LALT/ARTC90LATU
         2.5, #Daikin RXM25UVMA / FTXM25UVMA
+        25,  #Fujitsu AOTA90LALT/ARTC90LATU
+        2.5, #Daikin RXM25UVMA / FTXM25UVMA
         7.1  #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
     HVAC2_baseline_AEER_input:
       [
         20,
         2.8,
+        3.66,
         3.66,
         3.22
       ]
@@ -21,6 +24,7 @@
       [
         2,
         8.929,
+        0.683,
         0.683,
         2.205
       ]
@@ -34,12 +38,15 @@
         BCA_Climate_Zone_2,
         BCA_Climate_Zone_5,  #Fujitsu AOTA90LALT/ARTC90LATU
         BCA_Climate_Zone_5,  #Daikin RXM25UVMA / FTXM25UVMA
+        BCA_Climate_Zone_5,  #Fujitsu AOTA90LALT/ARTC90LATU
+        BCA_Climate_Zone_5,  #Daikin RXM25UVMA / FTXM25UVMA
         BCA_Climate_Zone_7   #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
   output:
     HVAC2_baseline_peak_adjustment_factor:
       [
         0.288,
+        0.33,
         0.33,
         0.33,
         0.552
@@ -111,11 +118,14 @@
         70,
         8.929,  #Fujitsu AOTA90LALT/ARTC90LATU
         0.683,  #Daikin RXM25UVMA / FTXM25UVMA
-        2.205    #Panasonic CU-Z71XKR / CS-Z71XKRW
+        8.929,  #Fujitsu AOTA90LALT/ARTC90LATU
+        0.683,  #Daikin RXM25UVMA / FTXM25UVMA
+        2.205   #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
     HVAC2_baseline_peak_adjustment_factor:
       [
         3,
+        0.33,
         0.33,
         0.33,
         0.552
@@ -124,6 +134,7 @@
       [
         5,
         7.82,
+        0.49.
         0.49,
         2.06
       ]
@@ -132,6 +143,7 @@
       [
         195,
         0.36597,
+        0.0637,
         0.0637,
         0.08
       ]
@@ -145,6 +157,8 @@
         600,
         0.366,  #Fujitsu AOTA90LALT/ARTC90LATU
         0.0637, #Daikin RXM25UVMA / FTXM25UVMA
+        0.366,  #Fujitsu AOTA90LALT/ARTC90LATU
+        0.0637, #Daikin RXM25UVMA / FTXM25UVMA
         0.08    #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
   output:
@@ -152,6 +166,7 @@
       [
         36000,
         21.96,
+        3.822,
         3.822,
         4.8
       ]
@@ -164,23 +179,28 @@
       [
         true,
         true,  #Daikin RXM25UVMA / FTXM25UVMA
+        true,  #Daikin RXM25UVMA / FTXM25UVMA
         true   #Panasonic CU-Z71XKR / CS-Z71XKRW
       ]
     HVAC2_peak_demand_reduction_capacity:
       [
         21.96,
         3.822,
+        3.822,
         4.8
       ]
     HVAC2_network_loss_factor:
       [
         1.04,
+        1.04  #Ausgrid
         1.04, #Ausgrid
         1.05  #Essential
       ]
   output:
     HVAC2_PRC_calculation:
       [
+        228.38,  #Fujitsu AOTA90LALT/ARTC90LATU
+        39.7488, #Daikin RXM25UVMA / FTXM25UVMA
         228.38,  #Fujitsu AOTA90LALT/ARTC90LATU
         39.7488, #Daikin RXM25UVMA / FTXM25UVMA
         50.4     #Panasonic CU-Z71XKR / CS-Z71XKRW
@@ -200,6 +220,8 @@
     HVAC2_DNSP:
       [
         Ausgrid,
+        Ausgrid, #Fujitsu AOTA90LALT/ARTC90LATU
+        Daikin,   #Daikin RXM25UVMA / FTXM25UVMA
         Ausgrid,  #Fujitsu AOTA90LALT/ARTC90LATU
         Ausgrid,  #Daikin RXM25UVMA / FTXM25UVMA
         Essential #Panasonic CU-Z71XKR / CS-Z71XKRW
@@ -208,6 +230,7 @@
       [
         1,
         7.82,
+        0.49,
         0.49,
         2.06
       ]
@@ -223,6 +246,7 @@
         2,
         25,
         2.5,
+        2.5,
         7.1
       ]
     HVAC2_new_installation_activity:
@@ -237,6 +261,7 @@
         2789,
         2250,
         2000,
+        2000,
         2800
       ]
   output:
@@ -244,6 +269,7 @@
       [
         0,
         228.38,
+        40,
         40,
         50
       ]

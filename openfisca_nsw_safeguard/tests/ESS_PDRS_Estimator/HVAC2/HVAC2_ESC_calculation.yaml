@@ -5,7 +5,7 @@
     HVAC2_heating_capacity_input:
       [
         10,
-        28  #Fujitsu General AOTA90LALT/ART
+        28  #Fujitsu General AOTA90LALT/ART     
       ]
     HVAC2_equivalent_heating_hours_input:
       [

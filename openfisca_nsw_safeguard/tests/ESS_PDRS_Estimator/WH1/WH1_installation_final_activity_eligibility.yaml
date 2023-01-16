@@ -63,10 +63,10 @@
       ]
     WH1_building_BCA_not_class_1_or_4:
       [
-        true,
-        true,
-        true,
-        true
+        false,
+        false,
+        false,
+        false
       ]
     WH1_air_source_heat_pump:
       [

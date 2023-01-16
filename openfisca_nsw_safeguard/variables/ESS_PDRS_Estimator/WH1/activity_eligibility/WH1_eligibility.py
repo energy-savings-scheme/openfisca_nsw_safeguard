@@ -36,7 +36,7 @@ class WH1_installation_replacement_final_activity_eligibility(Variable):
         installation_or_replacement = new_installation + (replacement * np.logical_not(gas_replacement))
 
         end_formula = ( installation_or_replacement * qualified_removal_install * equipment_installed *
-                        not_installed_class_1_or_4 * air_source_heat_pump * scheme_admin_approved *
+                        np.logical_not(not_installed_class_1_or_4) * air_source_heat_pump * scheme_admin_approved *
                         minimum_savings_met * storage_volume_certified )
 
         return end_formula

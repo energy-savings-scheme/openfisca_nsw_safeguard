@@ -4,9 +4,9 @@
   input:
     WH1_storage_volume:
       [
-        Less than or equal to 700 litres,
-        Less than or equal to 700 litres,
-        More than 700 litres
+        less_than_or_equal_to_700_L,
+        less_than_or_equal_to_700_L,
+        more_than_700_L
       ]
     WH1_certified:
       [

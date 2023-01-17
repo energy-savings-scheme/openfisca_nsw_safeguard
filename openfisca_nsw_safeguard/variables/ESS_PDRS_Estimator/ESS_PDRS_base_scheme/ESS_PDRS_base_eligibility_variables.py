@@ -74,7 +74,7 @@ class Base_lawful_activity(Variable):
     metadata = {
         'display_question' : 'Was the activity lawful in NSW on the implementation date?',
         'sorting' : 5,
-        'eligibility_clause' : """In PDRS Clause 5.1(c) it states tht a Recognised Peak Activity is an activity that is not unlawful in New South Wales on the Implementation Date;"""
+        'eligibility_clause' : """In PDRS Clause 5.1(c) it states that a Recognised Peak Activity is an activity that is not unlawful in New South Wales on the Implementation Date."""
     }
 
 
@@ -84,10 +84,12 @@ class Base_registered_ACP(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        # 'label' : """An Accredited Certificate Provider is a person who is accredited by the Statistical Society of Australia Inc. at the time of carrying out
-        #              the verification in accordance with ESS clause 8.9.7(e), and who is accepted by the Scheme Administrator for the purposes of the Rule.""",
         'display_question' : 'Are you an Accredited Certificate Provider?',
-        'sorting' : 6
+        'sorting' : 6,
+        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of
+                                  the Energy Savings for an Implementation where:\n
+                                  (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and \n
+                                  (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
     }
 
 

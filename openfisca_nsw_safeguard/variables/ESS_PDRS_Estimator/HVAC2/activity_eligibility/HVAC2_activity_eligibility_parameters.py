@@ -130,7 +130,7 @@ class HVAC2_AEER_greater_than_minimum(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is your AEER equal to or greater than the Minimum AEER for the Product Type and Cooling Capacity in Table HVAC2.4?',
+        'display_question' : 'Is your AEER equal to or greater than the Minimum AEER for the Product Type and Cooling Capacity in PDRS Table HVAC2.4?',
         'sorting' : 10,
         'conditional' : 'True',
         'eligibility_clause' : """In PDRS HVAC2 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: \n
@@ -145,7 +145,7 @@ class HVAC2_TCPSF_greater_than_minimum(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is your Commercial TCSPF_mixed value equal to or greater than the Minimum Commercial TCPSF_mixed value for the same Product Type and Cooling Capacity in Table HVAC2.3?',
+        'display_question' : 'Is your Commercial TCSPF_mixed value equal to or greater than the Minimum Commercial TCPSF_mixed value for the same Product Type and Cooling Capacity in Table PDRS HVAC2.3?',
         'sorting' : 11,
         'conditional' : 'True',
         'eligibility_clause' : """In PDRS HVAC2 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: \n

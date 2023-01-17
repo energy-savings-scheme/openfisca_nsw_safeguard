@@ -248,7 +248,7 @@ class HVAC1_HSPF_cold_eligible(Variable):
         and is installed in the hot or average zone as defined in Table A27: \n
         a. It must have a Residential HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the
         Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or\n
-        b. If it does not have a Residential HSPF_mixed value recorded in the GEMS Registry, then it must have aRated
+        b. If it does not have a Residential HSPF_mixed value recorded in the GEMS Registry, then it must have a Rated
         ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and
         Cooling Capacity in Table D16.5.\n
         4. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry

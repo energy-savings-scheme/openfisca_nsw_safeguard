@@ -82,7 +82,7 @@ class HVAC1_baseline_peak_adjustment_factor(Variable):
     }
 
     def formula(buildings, period, parameters):
-      usage_factor = 0.6
+      usage_factor = 0.72
       climate_zone = buildings('HVAC1_BCA_climate_zone_by_postcode', period)
       temp_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
 

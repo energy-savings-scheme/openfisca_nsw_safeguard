@@ -26,7 +26,7 @@ class RF2_installation(Variable):
     metadata = {
       'display_question' : 'Is the activity the installation of a new refrigerated cabinet?',
       'sorting' : 1,
-      'eligibility_clause' : """This activity is only eligible for ESCs, in PDRS RF2 Eligibility Requirements Clause 1 is states that this activity must be a replacement of an existing Refrigerated Cabinet (whether operational or not) with a high efficiency Refrigerated Cabinet."""
+      'eligibility_clause' : """This activity is only eligible for ESCs, in PDRS RF2 Eligibility Requirements Clause 1 it states that this activity must be a replacement of an existing Refrigerated Cabinet (whether operational or not) with a high efficiency Refrigerated Cabinet."""
     }
 
 

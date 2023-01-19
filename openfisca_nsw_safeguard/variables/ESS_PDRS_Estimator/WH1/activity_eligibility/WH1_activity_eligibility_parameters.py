@@ -23,7 +23,7 @@ class WH1_equipment_replaced(Variable):
     default_value = False
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the activity the replacement of an existing hot water boiler or heater with a heat pump water heater?',
+      'display_question' : 'Is the activity the replacement of an existing resistance hot water boiler or heater with a heat pump water heater?',
       'sorting' : 2,
       'conditional' : 'True',
       'eligibility_clause' : """In PDRS WH1 Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
@@ -114,8 +114,8 @@ class WH1_minimum_savings(Variable):
       'display_question' : 'Has the model met the 60% minimum annual energy savings requirement?',
       'sorting' : 9,
       'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 2 it states that the installed End-User Equipment must achieve minimum annual energy savings, when determined in accordance with the modelling procedure published by the Scheme Administrator, of: \n
-      a.60% when modelled in climate zone HP3-AU if the Site is in BCA Climate Zone 2, 3, 4, 5 or 6; \n
-      b.60% when modelled in climate zone HP5-AU if the Site is in BCA Climate Zone 7 or 8."""
+      a. 60% when modelled in climate zone HP3-AU if the Site is in BCA Climate Zone 2, 3, 4, 5 or 6; \n
+      b. 60% when modelled in climate zone HP5-AU if the Site is in BCA Climate Zone 7 or 8."""
     }
 
 

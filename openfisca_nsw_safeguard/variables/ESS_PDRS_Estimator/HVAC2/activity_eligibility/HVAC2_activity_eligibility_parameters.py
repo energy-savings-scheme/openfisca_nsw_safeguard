@@ -207,7 +207,7 @@ class HVAC2_HSPF_mixed_eligible(Variable):
     definition_period = ETERNITY
     label = 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?'
     metadata = {
-        'display_question' : 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity i,n ESS Table F4.4?',
+        'display_question' : 'Is your GEMS Commercial HSPF_mixed value equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table F4.4?',
         'sorting' : 14,
         'conditional': 'True',
         'eligibility_clause' : """In ESS F4 Equipment Requirements Clauses 3 and 4 it states that:\n

@@ -98,18 +98,21 @@
     HVAC1_residential_THEC:
       [
         0,
-        25
+        25,
+        362 #Daikin RXM25UVMA/FTXM25UVMA
       ]
     HVAC1_heating_annual_energy_use:
       [
         50,
-        100
+        100,
+        418.225
       ]
   output:
     HVAC1_THEC_or_annual_heating:
       [
         50,
-        25
+        25,
+        362
       ]
 
 - name: test HVAC1 reference heating annual energy use
@@ -119,23 +122,27 @@
     HVAC1_heating_capacity_input:
       [
         10,
-        8  #Panasonic CU-Z71VKR/CS-Z71VKR
+        8,  #Panasonic CU-Z71VKR/CS-Z71VKR
+        3.2 #Daikin RXM25UVMA/FTXM25UVMA
       ]
     HVAC1_equivalent_heating_hours_input:
       [
         20,
+        648,
         648
       ]
     HVAC1_baseline_ACOP_input:
       [
         100,
-        2.11
+        2.11,
+        2.33
       ]
   output:
     HVAC1_reference_heating_annual_energy_use:
       [
         2,
-        2456.87
+        2456.87,
+        889.957
       ]
 
 - name: test HVAC1 reference cooling annual energy use
@@ -147,12 +154,14 @@
         32,
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
         1050, #AIRO ACP33HP
-        7.1   #Panasonic CU-Z71VKR/CS-Z71VKR
+        7.1,  #Panasonic CU-Z71VKR/CS-Z71VKR
+        2.5   #Daikin RXM25UVMA/FTXM25UVMA
      ]
     HVAC1_equivalent_cooling_hours_input:
       [
         23,
         285,
+        429,
         429,
         429
       ]
@@ -161,7 +170,8 @@
         12,
         3.1,
         0,
-        3.22
+        3.22,
+        3.66
       ]
   output:
     HVAC1_reference_cooling_annual_energy_use:
@@ -169,7 +179,8 @@
         61.3,
         928.548,
         0,
-        945.932
+        945.932,
+        293.03
       ]
 
 - name: test baseline AEER input
@@ -609,4 +620,70 @@
     HVAC1_ESC_calculation:
       [
         18.438
+      ]
+
+- name: test ESC calculation Daikin RXM25UVMA/FTXM25UVMA
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC1_DNSP:
+      [
+        Ausgrid
+      ]
+    HVAC1_HSPF_cold:
+      [
+        4.525 #is below minimum 3.5 (not used)
+      ]
+    HVAC1_HSPF_mixed:
+      [
+        4.857 # is greater than minimum 4.0
+      ]
+    HVAC1_PDRS__postcode: 
+      [
+        2000 #average zone
+      ]
+    HVAC1_TCSPF_mixed:
+      [
+        7.065 # is greater than minimum 4.5
+      ]
+    HVAC1_cooling_capacity_input: 
+      [
+        2.5
+      ]
+    HVAC1_heating_capacity_input: 
+      [
+        3.2
+      ]
+    HVAC1_input_power: 
+      [
+        0.49
+      ]
+    HVAC1_new_installation_activity: 
+      [
+        true
+      ]
+    HVAC1_rated_ACOP_input:
+      [
+        3.7702
+      ]
+    HVAC1_rated_AEER_input:
+      [
+        5.0463
+      ]
+    HVAC1_residential_TCEC: 
+      [
+        145
+      ]
+    HVAC1_residential_THEC:
+      [
+        362
+      ] 
+  output:
+    HVAC1_ESC_calculation:
+      [
+        7.165
       ]

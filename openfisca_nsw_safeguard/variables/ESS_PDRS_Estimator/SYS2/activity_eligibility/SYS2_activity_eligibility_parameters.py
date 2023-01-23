@@ -139,13 +139,13 @@ class SYS2_not_single_speed(Variable):
     }
 
 
-class SYS2_single_speed_input_power(Variable):
+class SYS2_multiple_speeds_input_power(Variable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the input power of the pump unit between 600w and 1700w?',
+      'display_question' : 'Is the input power of the pump unit between 600w and 3450w?',
       'sorting' : 11,
       'conditional': 'True',
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic 
@@ -155,13 +155,13 @@ class SYS2_single_speed_input_power(Variable):
     }
 
 
-class SYS2_multiple_speeds_input_power(Variable):
+class SYS2_single_speed_input_power(Variable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the input power of the pump unit between 600w and 3450w?',
+      'display_question' : 'Is the input power of the pump unit between 600w and 1700w?',
       'sorting' : 12,
       'conditional': 'True',
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic 

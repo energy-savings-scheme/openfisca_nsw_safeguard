@@ -14,7 +14,7 @@ class RF2_equipment_replaced(Variable):
       'display_question' : 'Is the activity the replacement of an existing refrigerated cabinet?',
       'sorting' : 2,
       'conditional' : 'True',
-      'eligibility_clause' : """In PDRS RF2 Eligibility Requirements Clause 1 is states that this activity must be a replacement of an existing Refrigerated Cabinet (whether operational or not) with a high efficiency Refrigerated Cabinet."""
+      'eligibility_clause' : """In PDRS RF2 Eligibility Requirements Clause 1 it states that this activity must be a replacement of an existing Refrigerated Cabinet (whether operational or not) with a high efficiency Refrigerated Cabinet."""
     }
 
 

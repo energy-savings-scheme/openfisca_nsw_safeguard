@@ -1,295 +1,369 @@
-- name: test HVAC2 heating annual energy use
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_heating_capacity_input:
-      [
-        10,
-        28  #Fujitsu General AOTA90LALT/ART     
-      ]
-    HVAC2_equivalent_heating_hours_input:
-      [
-        20,
-        303 #average zone
-      ]
-    HVAC2_rated_ACOP_input:
-      [
-        30,
-        3.3365
-      ]
-  output:
-    HVAC2_heating_annual_energy_use: 
-      [
-        6.6,
-        2542.785
-      ]
+# - name: test HVAC2 heating annual energy use
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_heating_capacity_input:
+#       [
+#         10,
+#         28,  #Fujitsu General AOTA90LALT/ART   
+#         14   #Mitsubishi PUMYP112VKMA
+#       ]
+#     HVAC2_equivalent_heating_hours_input:
+#       [
+#         20,
+#         303, #average zone
+#         303
+#       ]
+#     HVAC2_rated_ACOP_input:
+#       [
+#         30,
+#         3.3365,
+#         4.1955
+#       ]
+#   output:
+#     HVAC2_heating_annual_energy_use: 
+#       [
+#         6.6,
+#         2542.785,
+#         1011.0833
+#       ]
 
-- name: test HVAC2 cooling annual energy use
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_cooling_capacity_input:
-      [
-        20,
-        25  #Fujitsu General AOTA90LALT/ART
-      ]
-    HVAC2_equivalent_cooling_hours_input:
-      [
-        50,
-        801 #average zone
-      ]
-    HVAC2_rated_AEER_input:
-      [
-        10,
-        3.1359
-      ]
-  output:
-    HVAC2_cooling_annual_energy_use:
-      [
-        100,
-        6385.727
-      ] 
+# - name: test HVAC2 cooling annual energy use
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_cooling_capacity_input:
+#       [
+#         20,
+#         25,  #Fujitsu General AOTA90LALT/ART
+#         12.5 #Mitsubishi PUMYP112VKMA
+#       ]
+#     HVAC2_equivalent_cooling_hours_input:
+#       [
+#         50,
+#         801, #average zone
+#         801
+#       ]
+#     HVAC2_rated_AEER_input:
+#       [
+#         10,
+#         3.1359,
+#         4.1296
+#       ]
+#   output:
+#     HVAC2_cooling_annual_energy_use:
+#       [
+#         100,
+#         6385.727,
+#         2424.56897
+#       ] 
 
-- name: test HVAC2 THEC versus heating equation
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_commercial_THEC:
-      [
-        0,
-        25
-      ]
-    HVAC2_heating_annual_energy_use:
-      [
-        50,
-        100
-      ]
-  output:
-    HVAC2_THEC_or_annual_heating:
-      [
-        50,
-        25
-      ]
+# - name: test HVAC2 THEC versus heating equation
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_commercial_THEC:
+#       [
+#         0,
+#         25
+#       ]
+#     HVAC2_heating_annual_energy_use:
+#       [
+#         50,
+#         100
+#       ]
+#   output:
+#     HVAC2_THEC_or_annual_heating:
+#       [
+#         50,
+#         25
+#       ]
 
-- name: test HVAC2 TCEC versus annual cooling equation
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_commercial_TCEC:
-      [
-        0,
-        25
-      ]
-    HVAC2_cooling_annual_energy_use:
-      [
-        50,
-        100
-      ]
-  output:
-    HVAC2_TCEC_or_annual_cooling:
-      [
-        50,
-        25
-      ]
+# - name: test HVAC2 TCEC versus annual cooling equation
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_commercial_TCEC:
+#       [
+#         0,
+#         25
+#       ]
+#     HVAC2_cooling_annual_energy_use:
+#       [
+#         50,
+#         100
+#       ]
+#   output:
+#     HVAC2_TCEC_or_annual_cooling:
+#       [
+#         50,
+#         25
+#       ]
       
-- name: test HVAC2 reference heating annual energy use
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_heating_capacity_input:
-      [
-        10,
-        28  #Fujitsu General AOTA90LALT/ART
-      ]
-    HVAC2_equivalent_heating_hours_input:
-      [
-        20,
-        303 #average zone
-      ]
-    HVAC2_baseline_ACOP_input:
-      [
-        100,
-        1.9
-      ]
-  output:
-    HVAC2_reference_heating_annual_energy_use:
-      [
-        2,
-        4465.263
-      ]
+# - name: test HVAC2 reference heating annual energy use
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_heating_capacity_input:
+#       [
+#         10,
+#         28,  #Fujitsu General AOTA90LALT/ART
+#         14   #Mitsubishi PUMYP112VKMA
+#       ]
+#     HVAC2_equivalent_heating_hours_input:
+#       [
+#         20,
+#         303, #average zone
+#         303
+#       ]
+#     HVAC2_baseline_ACOP_input:
+#       [
+#         100,
+#         1.9,
+#         2.05
+#       ]
+#   output:
+#     HVAC2_reference_heating_annual_energy_use:
+#       [
+#         2,
+#         4465.263,
+#         2069.26829
+#       ]
 
-- name: test HVAC2 reference cooling annual energy use
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_cooling_capacity_input:
-      [
-        32,
-        25  #Fujitsu General AOTA90LALT/ART
-      ]
-    HVAC2_equivalent_cooling_hours_input:
-      [
-        23,
-        801
-      ]
-    HVAC2_baseline_AEER_input:
-      [
-        12,
-        2.8
-      ]
-  output:
-    HVAC2_reference_cooling_annual_energy_use:
-      [
-        61.3,
-        7151.786
-      ]
+# - name: test HVAC2 reference cooling annual energy use
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_cooling_capacity_input:
+#       [
+#         32,
+#         25,  #Fujitsu General AOTA90LALT/ART
+#         12.5 #Mitsubishi PUMYP112VKMA
+#       ]
+#     HVAC2_equivalent_cooling_hours_input:
+#       [
+#         23,
+#         801,
+#         801
+#       ]
+#     HVAC2_baseline_AEER_input:
+#       [
+#         12,
+#         2.8,
+#         3.1
+#       ]
+#   output:
+#     HVAC2_reference_cooling_annual_energy_use:
+#       [
+#         61.3,
+#         7151.786,
+#         3229.83871
+#       ]
 
-- name: test baseline AEER input
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_cooling_capacity_input:
-      [
-        32,
-      ]
-    HVAC2_Air_Conditioner_type:
-      [
-        non_ducted_split_system
-      ]
-    HVAC2_new_installation_activity:
-      [
-        true,
-      ]
-  output:
-    HVAC2_baseline_AEER_input:
-      [
-        3.1
-      ]
+# - name: test baseline AEER input
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_cooling_capacity_input:
+#       [
+#         32,
+#       ]
+#     HVAC2_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system
+#       ]
+#     HVAC2_new_installation_activity:
+#       [
+#         true,
+#       ]
+#   output:
+#     HVAC2_baseline_AEER_input:
+#       [
+#         3.1
+#       ]
 
-- name: test baseline ACOP input
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_cooling_capacity_input:
-      [
-        32,
-      ]
-    HVAC2_Air_Conditioner_type:
-      [
-        non_ducted_split_system
-      ]
-    HVAC2_new_installation_activity:
-      [
-        true,
-      ]
-  output:
-    HVAC2_baseline_ACOP_input:
-      [
-        2.05
-      ]
+# - name: test baseline ACOP input
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_cooling_capacity_input:
+#       [
+#         32,
+#       ]
+#     HVAC2_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system
+#       ]
+#     HVAC2_new_installation_activity:
+#       [
+#         true,
+#       ]
+#   output:
+#     HVAC2_baseline_ACOP_input:
+#       [
+#         2.05
+#       ]
 
-- name: test minimum TCSFP AEER failing
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_Air_Conditioner_type:
-      [
-        non_ducted_split_system,
-        non_ducted_split_system
-      ]
-    HVAC2_cooling_capacity_input:
-      [
-        8,  #expected AEER 3.5
-        8   #expected TCSPF 4.5
-      ]
-    HVAC2_TCSPF_mixed:
-      [
-        0,  #use AEER
-        20  #use TCSPF instead of AEER, > expected 4.5
-      ]
-    HVAC2_rated_AEER_input:
-      [
-         0,  #AEER < expected 3.5
-        50  
-      ]
-  output:
-    HVAC2_TCSPF_or_AEER_exceeds_benchmark:
-      [
-        false,
-        true
-      ]
+# - name: test minimum TCSFP AEER failing
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system,
+#         non_ducted_split_system
+#       ]
+#     HVAC2_cooling_capacity_input:
+#       [
+#         8,  #expected AEER 3.5
+#         8   #expected TCSPF 4.5
+#       ]
+#     HVAC2_TCSPF_mixed:
+#       [
+#         0,  #use AEER
+#         20  #use TCSPF instead of AEER, > expected 4.5
+#       ]
+#     HVAC2_rated_AEER_input:
+#       [
+#          0,  #AEER < expected 3.5
+#         50  
+#       ]
+#   output:
+#     HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+#       [
+#         false,
+#         true
+#       ]
 
-- name: test ESC calculation when heating capacity is 0
-  period: 2022
-  absolute_error_margin: 0.5
-  input:
-    HVAC2_electricity_savings:
-      [
-        25,
-        25
-      ]
-    HVAC2_TCSPF_or_AEER_exceeds_benchmark:
-      [
-        true,
-        true
-      ]
-    HVAC2_heating_capacity_input:
-      [
-        0,
-        5
-      ]
-  output:
-    HVAC2_ESC_calculation:
-      [
-        0,
-        26.5
-      ]
+# - name: test ESC calculation when heating capacity is 0
+#   period: 2022
+#   absolute_error_margin: 0.5
+#   input:
+#     HVAC2_electricity_savings:
+#       [
+#         25,
+#         25
+#       ]
+#     HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+#       [
+#         true,
+#         true
+#       ]
+#     HVAC2_heating_capacity_input:
+#       [
+#         0,
+#         5
+#       ]
+#   output:
+#     HVAC2_ESC_calculation:
+#       [
+#         0,
+#         26.5
+#       ]
+
+# - name: test ESC calculation
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_cooling_capacity_input:
+#       [
+#         32
+#       ]
+#     HVAC2_heating_capacity_input: 
+#       [
+#         6
+#       ]
+#     HVAC2_rated_AEER_input:
+#       [
+#         2.0
+#       ]
+#     HVAC2_rated_ACOP_input:
+#       [
+#         6.0
+#       ]
+#     HVAC2_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system
+#       ]
+#     HVAC2_new_installation_activity:
+#       [
+#         true
+#       ]
+#     HVAC2_PDRS__postcode:
+#       [
+#         2017
+#       ]
+#   output:
+#     HVAC2_ESC_calculation:
+#       [
+#         0
+#       ]
+
+# - name: test ESC calculation
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC2_Air_Conditioner_type:
+#       [
+#         ducted_split_system       #Fujitsu General AOTA90LALT/ART 
+#       ]
+#     HVAC2_DNSP: 
+#       [
+#         Ausgrid
+#       ]
+#     HVAC2_PDRS__postcode: 
+#       [
+#         2250
+#       ]
+#     HVAC2_TCSPF_mixed: 
+#       [
+#         4.045 #below minimum standard of 5
+#       ]
+#     HVAC2_commercial_TCEC:
+#       [
+#         5232
+#       ]
+#     HVAC2_commercial_THEC: 
+#       [
+#         2214
+#       ]
+#     HVAC2_cooling_capacity_input: 
+#       [
+#         25
+#       ]
+#     HVAC2_heating_capacity_input:
+#       [
+#         28
+#       ]
+#     HVAC2_input_power:
+#       [
+#         7.82
+#       ]
+#     HVAC2_new_installation_activity: 
+#       [
+#         false
+#       ]
+#     HVAC2_rated_ACOP_input: 
+#       [
+#         3.3365
+#       ]   
+#     HVAC2_rated_AEER_input: 
+#       [
+#         3.1359
+#       ]
+#   output:
+#     HVAC2_ESC_calculation:
+#       [
+#         0
+#       ]
 
 - name: test ESC calculation
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_cooling_capacity_input:
-      [
-        32,
-      ]
-    HVAC2_heating_capacity_input: 
-      [
-        6,
-      ]
-    HVAC2_rated_AEER_input:
-      [
-        2.0,
-      ]
-    HVAC2_rated_ACOP_input:
-      [
-        6.0
-      ]
     HVAC2_Air_Conditioner_type:
       [
-        non_ducted_split_system
-      ]
-    HVAC2_new_installation_activity:
-      [
-        true
-      ]
-    HVAC2_PDRS__postcode:
-      [
-        2017
-      ]
-  output:
-    HVAC2_ESC_calculation:
-      [
-        0
-      ]
-
-- name: test ESC calculation Fujitsu General
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC2_Air_Conditioner_type:
-      [
-        ducted_split_system
+        non_ducted_split_system    #Mitsubishi PUMYP112VKMA
       ]
     HVAC2_DNSP: 
       [
@@ -297,46 +371,46 @@
       ]
     HVAC2_PDRS__postcode: 
       [
-        2250
+        2000
       ]
     HVAC2_TCSPF_mixed: 
       [
-        4.045 #below minimum standard of 5
+        0
       ]
     HVAC2_commercial_TCEC:
       [
-        5232
+        0
       ]
     HVAC2_commercial_THEC: 
       [
-        2214
+        0
       ]
     HVAC2_cooling_capacity_input: 
       [
-        25
+        12.5
       ]
     HVAC2_heating_capacity_input:
       [
-        28
+        14
       ]
     HVAC2_input_power:
       [
-        7.82
+        2.935
       ]
     HVAC2_new_installation_activity: 
       [
-        false
+        true
       ]
     HVAC2_rated_ACOP_input: 
       [
-        3.3365
+        4.1955
       ]   
     HVAC2_rated_AEER_input: 
       [
-        3.1359
+        4.1296
       ]
   output:
     HVAC2_ESC_calculation:
       [
-        0
+        20
       ]

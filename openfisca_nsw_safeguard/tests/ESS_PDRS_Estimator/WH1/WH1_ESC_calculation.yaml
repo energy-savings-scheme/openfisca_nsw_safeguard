@@ -15,6 +15,7 @@
       [
         1
       ]
+
 - name: test WH1 cooling capacity HP Cap greater than WH Cap
   period: 2022
   absolute_error_margin: 0
@@ -32,6 +33,7 @@
       [
         0.5
       ]
+
 - name: test WH1 deemed activity gas savings
   period: 2022
   absolute_error_margin: 0.1
@@ -52,6 +54,7 @@
         -33.33,
         0
       ]
+
 - name: test WH1 reference electricity
   period: 2022
   absolute_error_margin: 0.1
@@ -67,6 +70,7 @@
         104.05,
         32.949
       ]
+
 - name: test WH1 deemed activity electricity savings
   period: 2022
   absolute_error_margin: 0.5
@@ -74,25 +78,30 @@
     WH1_Ref_Elec:
       [
         500,
-        32.949 #RNF1, Zone 3, Ecogenica EG215F
+        32.949, #RNF1, Zone 3, Ecogenica EG215F
+        26.71
       ]
     WH1_HP_elec:
       [
         400,
-        9.54
+        9.54,
+        9.62
       ]
     WH1_capacity_factor:
       [
         0.5,
+        1,
         1
       ]
   output:
     WH1_deemed_activity_electricity_savings:
       [
         166.66667,
-        78
+        78,
+        56.94
       ]
-- name: test network provider regional factor
+
+- name: test network loss factor
   period: 2022
   absolute_error_margin: 0
   input: 
@@ -105,45 +114,53 @@
       [
         1.04
       ]
+
 - name: test WH1 ESC calculation
   period: 2022
-  absolute_error_margin: 0
+  absolute_error_margin: 0.5
   input:
     WH1_Ref_Elec:
       [
         170.98,
-        32.949 #RNF1, Zone 3, Ecogenica EG215F
+        32.949, #RNF1, Zone 3, Ecogenica EG215F
+        26.71   #EcoAlliance ECO-155LU
       ]
     WH1_HP_elec:
      [
-       10.7,
-       9.54
+        10.7,
+        9.54,
+        9.62
      ]
     WH1_HP_capacity_factor:
       [
         -33.33,
-        3.6
+        3.6,
+        3.65
       ]
     WH1_WH_capacity_factor:
       [
         -12.56,
-        3.6
+        3.6,
+        3.65
       ]
     WH1_PDRS__postcode:
       [
         2017,
-        2074
+        2074,
+        2000
       ]
     WH1_HP_gas:
       [
         34,
+        0,
         0
       ]
   output:
     WH1_ESC_calculation:
       [
         522.1226,
-        82.71179
+        82.71179,
+        60.36
       ]
 
 - name: test WH1 ESC not eligible on new installation

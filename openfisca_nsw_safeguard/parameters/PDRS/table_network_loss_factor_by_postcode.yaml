@@ -1,0 +1,434 @@
+description: Network Loss factor by postcode, for use in PDRS calculations.
+brackets:
+  - amount:
+        2023-25-01:
+          value: 1.04
+    threshold:
+        2023-25-01:
+          value: 2000
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2001
+  - amount:
+        2023-25-01:
+          value: 1.04
+    threshold:
+        2023-25-01:
+          value: 2006 
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2013
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2015
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2053
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2055
+ - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2056
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2057
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2078
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2079
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2113
+  - amount:
+      2023-25-01:
+        value: 1.05
+    threshold:
+      2023-25-01:
+        value: 2115
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2118 
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2123
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2125
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2127
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2140
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2142
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2143
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2145
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2154
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2155
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2158
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2160
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2162
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2164
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2172
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2173
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2190
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2198
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2199
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2200
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2201
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2203
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2213
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2215
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2216
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2233
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2234
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2235
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2251
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2252
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2256
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2257
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2258
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2266
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2267
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2268
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2278
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2279
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2280
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2283
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2284
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2288
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2289
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2301
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2302
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2304
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2305
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2309
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2314
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2320
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2322
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2323
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2326
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2328
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2331
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2333
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2337
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2338
+  - amount:
+      2023-25-01:
+        value: 1.045
+    threshold:
+      2023-25-01:
+        value: 2775

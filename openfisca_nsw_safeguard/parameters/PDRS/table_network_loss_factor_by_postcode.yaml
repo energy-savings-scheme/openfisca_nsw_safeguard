@@ -8,7 +8,7 @@ brackets:
           value: 2000
   - amount:
       2023-25-01:
-        value: unknown
+        value: unknown #2001-2005 are either PO Boxes or don't exist
     threshold:
       2023-25-01:
         value: 2001
@@ -32,7 +32,7 @@ brackets:
         value: 2015
   - amount:
       2023-25-01:
-        value: unknown
+        value: unknown #2053 2054 not a postcode
     threshold:
       2023-25-01:
         value: 2053
@@ -44,7 +44,7 @@ brackets:
         value: 2055
  - amount:
       2023-25-01:
-        value: unknown
+        value: unknown #2056 not a postcode
     threshold:
       2023-25-01:
         value: 2056
@@ -56,7 +56,7 @@ brackets:
         value: 2057
   - amount:
       2023-25-01:
-        value: unknown
+        value: unknown #2078 not a postcode
     threshold:
       2023-25-01:
         value: 2078
@@ -66,6 +66,18 @@ brackets:
     threshold:
       2023-25-01:
         value: 2079
+  - amount:
+      2023-25-01:
+        value: unknown #2098 not a postcode
+    threshold:
+      2023-25-01:
+        value: 2098   
+  - amount:
+      2023-25-01:
+        value: 1.04
+    threshold:
+      2023-25-01:
+        value: 2099
   - amount:
       2023-25-01:
         value: 1.045
@@ -92,7 +104,7 @@ brackets:
         value: 2123
   - amount:
       2023-25-01:
-        value: unknown
+        value: unknown #2124 PO Boxes
     threshold:
       2023-25-01:
         value: 2124
@@ -116,7 +128,7 @@ brackets:
         value: 2140
   - amount:
       2023-25-01:
-        value: unknown
+        value: 1.05
     threshold:
       2023-25-01:
         value: 2142
@@ -128,10 +140,22 @@ brackets:
         value: 2143
   - amount:
       2023-25-01:
-        value: unknown
+        value: 1.05
     threshold:
       2023-25-01:
         value: 2145
+  - amount:
+      2023-25-01:
+        value: unknown #2145 not a postcode
+    threshold:
+      2023-25-01:
+        value: 2149
+  - amount:
+      2023-25-01:
+        value: 1.05
+    threshold:
+      2023-25-01:
+        value: 2150
   - amount:
       2023-25-01:
         value: 1.045
@@ -140,7 +164,7 @@ brackets:
         value: 2154
   - amount:
       2023-25-01:
-        value: unknown
+        value: 1.05
     threshold:
       2023-25-01:
         value: 2155

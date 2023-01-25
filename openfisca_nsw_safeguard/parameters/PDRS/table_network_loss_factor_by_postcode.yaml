@@ -86,10 +86,16 @@ brackets:
         value: 2118 
   - amount:
       2023-25-01:
-        value: unknown
+        value: 1.04
     threshold:
       2023-25-01:
         value: 2123
+  - amount:
+      2023-25-01:
+        value: unknown
+    threshold:
+      2023-25-01:
+        value: 2124
   - amount:
       2023-25-01:
         value: 1.045

@@ -138,6 +138,20 @@ class WH1_BCA_climate_zone_by_postcode(Variable):
         return BCA_climate_zone_to_check
 
 
+class WH1_get_network_loss_factor_by_postcode(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        "variable-type": "inter-interesting"
+    }
+    def formula(building, period, parameters):
+        postcode = building('WH1_PDRS__postcode', period)
+        network_loss_factor = parameters(period).PDRS.table_network_loss_factor_by_postcode[postcode]
+
+        return network_loss_factor
+
+
 class WH1_annual_energy_savings_eligible(Variable):
     value_type = bool
     entity = Building

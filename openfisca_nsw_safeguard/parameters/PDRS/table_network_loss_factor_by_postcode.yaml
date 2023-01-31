@@ -1,15 +1,15 @@
 description: Network Loss factor by postcode, for use in PDRS calculations.
-#0 not a NSW postcode
-#1.04 Ausgrid
-#1.05 Essential/Endeavour
-#1.045 Ausgrid or Essential/Endeavour
 brackets:
+# 0 = not a NSW postcode
+# 1.04 = Ausgrid
+# 1.05 = Essential/Endeavour
+# 1.045 = Ausgrid or Essential/Endeavour
   - amount:
-        2023-25-01:
-          value: 1.04
+      2023-25-01:
+        value: 1.04
     threshold:
-        2023-25-01:
-          value: 2000
+      2023-25-01:
+        value: 2000
   - amount:
       2023-25-01:
         value: 0
@@ -17,11 +17,11 @@ brackets:
       2023-25-01:
         value: 2001
   - amount:
-        2023-25-01:
-          value: 1.04
+      2023-25-01:
+        value: 1.04
     threshold:
-        2023-25-01:
-          value: 2006 
+      2023-25-01:
+        value: 2006 
   - amount:
       2023-25-01:
         value: 0
@@ -46,7 +46,7 @@ brackets:
     threshold:
       2023-25-01:
         value: 2055
- - amount:
+  - amount:
       2023-25-01:
         value: 0
     threshold:

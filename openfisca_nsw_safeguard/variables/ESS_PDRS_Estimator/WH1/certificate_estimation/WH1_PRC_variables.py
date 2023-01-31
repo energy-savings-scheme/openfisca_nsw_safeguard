@@ -147,9 +147,10 @@ class WH1_get_network_loss_factor_by_postcode(Variable):
     }
     def formula(building, period, parameters):
         postcode = building('WH1_PDRS__postcode', period)
-        network_loss_factor = parameters(period).PDRS.table_network_loss_factor_by_postcode[postcode]
+        network_loss_factor = parameters(period).PDRS.table_network_loss_factor_by_postcode(postcode)
 
         return network_loss_factor
+        #return network_loss_factor.calc(postcode)
 
 
 class WH1_annual_energy_savings_eligible(Variable):

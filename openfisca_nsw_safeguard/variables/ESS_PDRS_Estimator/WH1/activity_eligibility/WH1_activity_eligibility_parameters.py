@@ -20,7 +20,7 @@ class WH1_installation(Variable):
 class WH1_equipment_replaced(Variable):
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the activity the replacement of an existing resistance hot water boiler or heater with a heat pump water heater?',

@@ -1,6 +1,7 @@
 import numpy as np
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 from datetime import date
 
@@ -64,6 +65,55 @@ class Base_implementation_after_1_April_2022(Variable):
         Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.\n
         In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
     }
+
+class BaseImplementationDateOptions(Enum):
+    planned_activity        = 'Planned activity'
+    before_may_2016         = 'Before 15 May 2016'
+    may_2016_to_march_2022  = '15 May 2016 - 31 March 2022'
+    april_1_2022_or_later   = '1 April 2022 or later'
+
+
+class Base_implementation_date(Variable):
+    value_type = str
+    entity = Building
+    default_value = 'Planned activity'
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'user-input',
+        'label' : 'Business Classification',
+        'display_question' : 'What date did the implementation occur?',
+        'sorting' : 4,
+        'eligibility_clause' : """In ESS Clause 5.3A(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy
+        Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.\n
+        In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
+    }
+
+
+class Implementation_date_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+     implementation_date = buildings('Base_implementation_date', period)
+     implementation_date_eligibility = np.select(
+        [
+            implementation_date == 'Planned activity',
+            implementation_date == 'Before 15 May 2016',
+            implementation_date == '15 May 2016 - 31 March 2022',
+            implementation_date == '1 April 2022 or later'
+        ],
+        [
+            True,
+            False,
+            True,
+            True
+            # BaseImplementationDateOptions.planned_activity,
+            # BaseImplementationDateOptions.before_may_2016,
+            # BaseImplementationDateOptions.may_2016_to_march_2022,
+            # BaseImplementationDateOptions.april_1_2022_or_later
+        ])
+     return implementation_date_eligibility
 
 
 class Base_lawful_activity(Variable):

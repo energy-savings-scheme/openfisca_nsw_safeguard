@@ -341,7 +341,7 @@ class SYS1_business_classification(Variable):
     metadata = {
         'variable-type': 'user-input',
         'label' : 'Business Classification',
-        'display_question' : 'What is the business classification of your new clectric motor?',
+        'display_question' : 'What is the business classification of your new electric motor?',
         'sorting' : 4
     }
     

@@ -30,7 +30,7 @@ class RF2_installation_replacement_final_activity_eligibility(Variable):
 
         #check if its installation or replacement
         
-        replacement_or_installation_qualified = (new_installation * qualified_install) + (replacement * qualified_install_removal)
+        replacement_or_installation_qualified = (replacement * qualified_install_removal) + (new_installation * qualified_install)
 
         #if product class is 5 then EEI must be below 51 otherwise for all other product classes EEI must be below 81
         EEI_under_51 = buildings('RF2_EEI_under_51', period)

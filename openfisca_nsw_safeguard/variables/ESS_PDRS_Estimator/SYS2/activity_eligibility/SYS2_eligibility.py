@@ -34,7 +34,7 @@ class SYS2_replacement_final_activity_eligibility(Variable):
         GEMS_or_voluntary_labelling_scheme = (registered_GEMS * np.logical_not(voluntary_labelling_scheme)) + (np.logical_not(registered_GEMS) * voluntary_labelling_scheme)
 
         #single speed is YES and single speed input power is YES or multiple speed is YES and multiple speed input power is YES
-        speed_and_input_power_eligible = (np.logical_not(pump_not_single_speed) * single_speed_input_power) + (pump_not_single_speed * multiple_speeds_input_power)
+        speed_and_input_power_eligible = (np.logical_not(pump_not_single_speed) * multiple_speeds_input_power) + (pump_not_single_speed * single_speed_input_power)
 
         end_formula = ( replacement * old_equipment_installed_on_site * qualified_install * 
                         legal_disposal * GEMS_or_voluntary_labelling_scheme * star_rating_minimum_four_and_a_half *

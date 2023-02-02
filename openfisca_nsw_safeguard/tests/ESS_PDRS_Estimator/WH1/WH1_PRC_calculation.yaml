@@ -76,14 +76,13 @@
 
 - name: test Postcode to DNSP to network loss factor
   period: 2021
-  absolute_error_margin: 0
   input:
     WH1_PDRS__postcode:
       [
         2006
       ]
   output:
-    WH1_get_network_loss_factor:
+    WH1_get_network_loss_factor_by_postcode:
       [
         1.04
       ]

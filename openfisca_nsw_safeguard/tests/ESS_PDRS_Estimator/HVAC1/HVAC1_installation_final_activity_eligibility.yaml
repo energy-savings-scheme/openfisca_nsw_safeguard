@@ -166,16 +166,19 @@
       [
         false,
         true, #new install
+        true,
         true
       ]
     HVAC1_installed_by_qualified_person:
       [
         false,
         true,
-        true
+        true,
+        false
       ]
     HVAC1_equipment_installed:
       [
+        true,
         true,
         true,
         true
@@ -184,16 +187,19 @@
       [
         true,
         false,
-        true #should return false because already marked as new install
+        true, #should return false because already marked as new install,
+        false
       ]
     HVAC1_equipment_removed:
       [
         true,
         false,
+        false,
         false
       ]
     HVAC1_equipment_registered_in_GEMS:
       [
+        true,
         true,
         true,
         true
@@ -202,10 +208,12 @@
       [
         true,
         false,
+        false,
         false
       ]
     HVAC1_TCPSF_greater_than_minimum:
       [
+        true,
         true,
         true,
         true
@@ -214,11 +222,13 @@
       [
         average_zone,
         cold_zone,
-        average_zone
+        average_zone,
+        cold_zone
       ]
     HVAC1_new_equipment_heating_capacity:
       [
         false,
+        true,
         true,
         true
       ]
@@ -226,11 +236,13 @@
       [
         false, #not needed because it uses ACOP (no heating cap)
         false,
+        false,
         false
       ]
     HVAC1_HSPF_cold_eligible:
       [
         false,
+        true,
         true,
         true
       ]
@@ -238,12 +250,14 @@
       [
         false, #not needed because it has a cooling cap (TCSPF)
         true,
+        true,
         true
       ]
     HVAC1_ACOP_eligible:
       [
         true,
         false, #not needed because it has a heating cap (HSPF)
+        false,
         false
       ]
   output:
@@ -251,5 +265,6 @@
       [
         true,
         true,
+        false,
         false
       ]

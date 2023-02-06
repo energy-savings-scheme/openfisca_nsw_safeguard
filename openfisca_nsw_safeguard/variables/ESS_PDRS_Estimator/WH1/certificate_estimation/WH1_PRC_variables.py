@@ -145,7 +145,7 @@ class WH1_get_network_loss_factor_by_postcode(Variable):
     metadata = {
         'variable-type': 'input',
         'sorting' : 2,
-        'label' : 'Network loss factor is calculated automatically from your postcode. If you are seeimg a 0 here, please check your postcode is correct.'
+        'label' : 'Network loss factor is calculated automatically from your postcode. If you have a 0 here, please check your postcode is correct. If the postcode has more than one distribution network service provider, we have chosen the network factor loss with the lowest value.'
     }
     def formula(building, period, parameters):
         postcode = building('WH1_PDRS__postcode', period)

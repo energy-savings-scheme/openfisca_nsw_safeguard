@@ -54,33 +54,20 @@ class Base_implemented_activity(Variable):
     }
 
 
-class Base_implementation_after_1_April_2022(Variable):
-    value_type = date
-    entity = Building
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'What date did the implementation occur?',
-        'sorting' : 4,
-        'eligibility_clause' : """In ESS Clause 5.3A(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy
-        Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.\n
-        In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
-    }
-
-class BaseImplementationDateOptions(Enum):
+class implementation_date_options(Enum):
     planned_activity        = 'Planned activity'
     before_may_2016         = 'Before 15 May 2016'
     may_2016_to_march_2022  = '15 May 2016 - 31 March 2022'
     april_1_2022_or_later   = '1 April 2022 or later'
 
 
-class Base_implementation_date(Variable):
-    value_type = str
+class Implementation_date(Variable):
+    value_type = Enum
     entity = Building
-    default_value = 'Planned activity'
+    possible_values = implementation_date_options
+    default_value = implementation_date_options.planned_activity
     definition_period = ETERNITY
     metadata = {
-        'variable-type': 'user-input',
-        'label' : 'Business Classification',
         'display_question' : 'What date did the implementation occur?',
         'sorting' : 4,
         'eligibility_clause' : """In ESS Clause 5.3A(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy
@@ -95,25 +82,22 @@ class Implementation_date_eligibility(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-     implementation_date = buildings('Base_implementation_date', period)
-     implementation_date_eligibility = np.select(
-        [
-            implementation_date == 'Planned activity',
-            implementation_date == 'Before 15 May 2016',
-            implementation_date == '15 May 2016 - 31 March 2022',
-            implementation_date == '1 April 2022 or later'
-        ],
-        [
-            True,
-            False,
-            True,
-            True
-            # BaseImplementationDateOptions.planned_activity,
-            # BaseImplementationDateOptions.before_may_2016,
-            # BaseImplementationDateOptions.may_2016_to_march_2022,
-            # BaseImplementationDateOptions.april_1_2022_or_later
-        ])
-     return implementation_date_eligibility
+
+        implementation_date = buildings('Implementation_date', period)
+        print('date', implementation_date)
+        return np.select(
+            [
+                implementation_date == implementation_date_options.planned_activity,
+                implementation_date == implementation_date_options.before_may_2016,
+                implementation_date == implementation_date_options.may_2016_to_march_2022,
+                implementation_date == implementation_date_options.april_1_2022_or_later
+            ],
+            [
+                True,
+                False,
+                True,
+                True
+            ])
 
 
 class Base_lawful_activity(Variable):

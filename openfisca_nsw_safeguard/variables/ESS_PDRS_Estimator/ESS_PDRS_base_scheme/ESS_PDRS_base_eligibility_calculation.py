@@ -21,6 +21,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         energy_consumption = buildings('Base_reduces_energy_consumption', period)
         reduce_demand = buildings('Base_provides_capacity_to_reduce_demand', period)
         activity_implemented = buildings('Base_implemented_activity', period)
+        implementation_date_eligible = buildings('Implementation_date_eligibility', period)
         lawful = buildings('Base_lawful_activity', period)
         registered_ACP = buildings('Base_registered_ACP', period)
         engaged_an_ACP = buildings('Base_engaged_ACP', period)
@@ -48,13 +49,13 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         # tradeable certificates is YES and replacement heat pump water heater is YES and solar water heater is no
         tradeable_certificates_allowed = np.logical_not(tradeable_certificates) + (tradeable_certificates * replacement_hw) + (tradeable_certificates * replacement_solar_hw)
 
-        implementation_date = (buildings('Base_implementation_after_1_April_2022', period).astype('datetime64[D]'))
-        enforcement_date = np.datetime64('2022-04-01')
-        on_or_after_1_April_2022 = (
-            implementation_date > enforcement_date)
+        # implementation_date = (buildings('Base_implementation_after_1_April_2022', period).astype('datetime64[D]'))
+        # enforcement_date = np.datetime64('2022-04-01')
+        # on_or_after_1_April_2022 = (
+        #     implementation_date > enforcement_date)
         
-        end_formula =  ( energy_consumption * reduce_demand * activity_implemented * lawful * acp_status *
+        end_formula =  ( energy_consumption * reduce_demand * activity_implemented * implementation_date_eligible * lawful * acp_status *
                          removing_replacing_intermediary * np.logical_not(reduce_safety_levels) * np.logical_not(increase_emissions) * mandatory_allowance *
-                         np.logical_not(prescribed_service) * tradeable_certificates_allowed * on_or_after_1_April_2022)
+                         np.logical_not(prescribed_service) * tradeable_certificates_allowed)
         
         return end_formula

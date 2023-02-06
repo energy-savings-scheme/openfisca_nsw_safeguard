@@ -3,7 +3,7 @@ brackets:
 # 0 = not a NSW postcode
 # 1.04 = Ausgrid
 # 1.05 = Essential/Endeavour
-# 1.045 = Ausgrid or Essential/Endeavour
+#  = Ausgrid or Essential/Endeavour
   - amount:
       2020-25-01:
         value: 1.04
@@ -90,28 +90,10 @@ brackets:
         value: 2115
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2118 
-  - amount:
-      2020-25-01:
-        value: 1.04
-    threshold:
-      2020-25-01:
-        value: 2119
-  - amount:
-      2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2121
-  - amount:
-      2020-25-01:
-        value: 1.04
-    threshold:
-      2020-25-01:
-        value: 2123
   - amount:
       2020-25-01:
         value: 0
@@ -120,16 +102,10 @@ brackets:
         value: 2124
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2125
-  - amount:
-      2020-25-01:
-        value: 1.04
-    threshold:
-      2020-25-01:
-        value: 2126
   - amount:
       2020-25-01:
         value: 1.05
@@ -162,7 +138,7 @@ brackets:
         value: 2150
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2154
@@ -174,16 +150,10 @@ brackets:
         value: 2155
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2157
-  - amount:
-      2020-25-01:
-        value: 1.04
-    threshold:
-      2020-25-01:
-        value: 2159
   - amount:
       2020-25-01:
         value: 1.05
@@ -192,7 +162,7 @@ brackets:
         value: 2160
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2161
@@ -204,7 +174,7 @@ brackets:
         value: 2164
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2172
@@ -216,7 +186,7 @@ brackets:
         value: 2173
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2175
@@ -348,12 +318,6 @@ brackets:
         value: 2314
   - amount:
       2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2324
-  - amount:
-      2020-25-01:
         value: 1.04
     threshold:
       2020-25-01:
@@ -376,18 +340,6 @@ brackets:
     threshold:
       2020-25-01:
         value: 2338
-  - amount:
-      2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2340
-  - amount:
-      2020-25-01:
-        value: 1.05
-    threshold:
-      2020-25-01:
-        value: 2341
   - amount:
       2020-25-01:
         value: 0
@@ -510,7 +462,7 @@ brackets:
         value: 2420
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2421
@@ -690,19 +642,7 @@ brackets:
         value: 2533
   - amount:
       2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2536
-  - amount:
-      2020-25-01:
-        value: 1.05
-    threshold:
-      2020-25-01:
-        value: 2537
-  - amount:
-      2020-25-01:
-        value: 1.045
+        value: 1.04 #2 x DNSPs
     threshold:
       2020-25-01:
         value: 2540
@@ -738,7 +678,7 @@ brackets:
         value: 2548
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.0
     threshold:
       2020-25-01:
         value: 2550
@@ -772,30 +712,7 @@ brackets:
     threshold:
       2020-25-01:
         value: 2563
-  - amount:
-      2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2571
-  - amount:
-      2020-25-01:
-        value: 1.05
-    threshold:
-      2020-25-01:
-        value: 2572
-  - amount:
-      2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2579
-  - amount:
-      2020-25-01:
-        value: 1.05
-    threshold:
-      2020-25-01:
-        value: 2581
+
   - amount:
       2020-25-01:
         value: 0
@@ -816,19 +733,13 @@ brackets:
         value: 2595
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.05
     threshold:
       2020-25-01:
         value: 2620
   - amount:
       2020-25-01:
-        value: 1.05
-    threshold:
-      2020-25-01:
-        value: 2621
-  - amount:
-      2020-25-01:
-        value: 1.045
+        value: 1.04
     threshold:
       2020-25-01:
         value: 2622
@@ -840,16 +751,10 @@ brackets:
         value: 2623
   - amount:
       2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2632
-  - amount:
-      2020-25-01:
         value: 1.05
     threshold:
       2020-25-01:
-        value: 2633
+        value: 2632
   - amount:
       2020-25-01:
         value: 0
@@ -1080,7 +985,7 @@ brackets:
         value: 2773
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04
     threshold:
       2020-25-01:
         value: 2775
@@ -1090,12 +995,6 @@ brackets:
     threshold:
       2020-25-01:
         value: 2776
-  - amount:
-      2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2787
   - amount:
       2020-25-01:
         value: 0
@@ -1108,12 +1007,6 @@ brackets:
     threshold:
       2020-25-01:
         value: 2790
-  - amount:
-      2020-25-01:
-        value: 1.045
-    threshold:
-      2020-25-01:
-        value: 2795
   - amount:
       2020-25-01:
         value: 0
@@ -1146,7 +1039,7 @@ brackets:
         value: 2811
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04
     threshold:
       2020-25-01:
         value: 2817
@@ -1170,7 +1063,7 @@ brackets:
         value: 2820
   - amount:
       2020-25-01:
-        value: 1.045
+        value: 1.04
     threshold:
       2020-25-01:
         value: 2822
@@ -1198,12 +1091,6 @@ brackets:
     threshold:
       2020-25-01:
         value: 2842
-  - amount:
-      2020-25-01:
-        value: 1.05
-    threshold:
-      2020-25-01:
-        value: 2850
   - amount:
       2020-25-01:
         value: 0
@@ -1269,7 +1156,7 @@ brackets:
         value: 0
     threshold:
       2020-25-01:
-        value: 2890
+        value: 2900
   - amount:
       2020-25-01:
         value: 1.05

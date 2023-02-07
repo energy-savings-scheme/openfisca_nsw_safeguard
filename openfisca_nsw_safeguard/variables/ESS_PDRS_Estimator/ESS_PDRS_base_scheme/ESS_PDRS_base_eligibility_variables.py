@@ -101,7 +101,6 @@ class Base_engaged_ACP(Variable):
     metadata = {
         'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 6,
-        'conditional' : 'True',
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of
                                   the Energy Savings for an Implementation where:\n
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and \n

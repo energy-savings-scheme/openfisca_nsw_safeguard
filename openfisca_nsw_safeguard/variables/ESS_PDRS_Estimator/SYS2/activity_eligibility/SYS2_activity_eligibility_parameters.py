@@ -124,7 +124,7 @@ class SYS2_single_phase(Variable):
     }
 
 
-class SYS2_not_single_speed(Variable):
+class SYS2_single_speed(Variable):
     value_type = bool
     entity = Building
     default_value = False

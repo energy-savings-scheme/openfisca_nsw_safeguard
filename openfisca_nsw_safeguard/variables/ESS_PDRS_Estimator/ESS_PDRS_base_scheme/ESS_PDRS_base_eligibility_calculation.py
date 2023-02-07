@@ -22,7 +22,6 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         reduce_demand = buildings('Base_provides_capacity_to_reduce_demand', period)
         activity_implemented = buildings('Base_implemented_activity', period)
         lawful = buildings('Base_lawful_activity', period)
-        registered_ACP = buildings('Base_registered_ACP', period)
         engaged_an_ACP = buildings('Base_engaged_ACP', period)
         removing_or_replacing = buildings('Base_removing_or_replacing', period)
         resold_reused_refurbished = buildings('Base_resold_reused_or_refurbished', period)
@@ -42,9 +41,6 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         # mandatory requirement is YES and basix affected is YES
         mandatory_allowance = np.logical_not(mandatory_requirement) + (mandatory_requirement * basix_affected)
         
-        # are you a registered ACP or engaged an ACP
-        acp_status = registered_ACP + (np.logical_not(registered_ACP) * engaged_an_ACP)
-
         # tradeable certificates is YES and replacement heat pump water heater is YES and solar water heater is no
         tradeable_certificates_allowed = np.logical_not(tradeable_certificates) + (tradeable_certificates * replacement_hw) + (tradeable_certificates * replacement_solar_hw)
 
@@ -53,7 +49,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         on_or_after_1_April_2022 = (
             implementation_date > enforcement_date)
         
-        end_formula =  ( energy_consumption * reduce_demand * activity_implemented * lawful * acp_status *
+        end_formula =  ( energy_consumption * reduce_demand * activity_implemented * lawful * engaged_an_ACP *
                          removing_replacing_intermediary * np.logical_not(reduce_safety_levels) * np.logical_not(increase_emissions) * mandatory_allowance *
                          np.logical_not(prescribed_service) * tradeable_certificates_allowed * on_or_after_1_April_2022)
         

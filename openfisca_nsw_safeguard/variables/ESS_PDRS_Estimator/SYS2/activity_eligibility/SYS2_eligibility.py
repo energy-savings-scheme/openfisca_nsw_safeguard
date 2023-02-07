@@ -36,6 +36,18 @@ class SYS2_replacement_final_activity_eligibility(Variable):
         #single speed is YES and single speed input power is YES or multiple speed is YES and multiple speed input power is YES
         speed_and_input_power_eligible = (np.logical_not(pump_not_single_speed) * multiple_speeds_input_power) + (pump_not_single_speed * single_speed_input_power)
 
+        print('equipment replaced', replacement)
+        print('installed on site', old_equipment_installed_on_site)
+        print('qualified install', qualified_install)
+        print('legal disposal', legal_disposal)
+        print('reg in GEMS',registered_GEMS )
+        print('labeling scheme', voluntary_labelling_scheme)
+        print('star rating', star_rating_minimum_four_and_a_half)
+        print('warranty', warranty)
+        print('single_phase', single_phase)
+        print('pump_not_single_speed',pump_not_single_speed)
+        print('single_speed_input_power',single_speed_input_power)
+        print('multiple_speeds_input_power', multiple_speeds_input_power)
         end_formula = ( replacement * old_equipment_installed_on_site * qualified_install * 
                         legal_disposal * GEMS_or_voluntary_labelling_scheme * star_rating_minimum_four_and_a_half *
                         warranty * single_phase * speed_and_input_power_eligible )

@@ -62,21 +62,13 @@
         True,
         True
       ]
-    Base_registered_ACP:
-      [
-        True,
-        True,
-        False, #not an ACP
-        True,
-        True
-      ]
     Base_engaged_ACP:
       [
-        False,
-        False,
         True,
-        False,
-        False
+        True,
+        True,
+        True,
+        True
       ]
     Base_removing_or_replacing:
       [

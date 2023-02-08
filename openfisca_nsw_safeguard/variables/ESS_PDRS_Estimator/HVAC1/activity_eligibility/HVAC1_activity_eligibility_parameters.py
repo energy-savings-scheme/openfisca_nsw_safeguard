@@ -130,9 +130,9 @@ class HVAC1_TCPSF_greater_than_minimum(Variable):
 
 
 class DefaultValuesClimateZone(Enum):
-    hot_zone = "AC is installed in the hot zone."
-    average_zone = "AC is installed in the average zone."
-    cold_zone = "AC is installed in the cold zone."
+    hot_zone = "Hot zone"
+    average_zone = "Average zone"
+    cold_zone = "Cold zone"
 
 
 class HVAC1_climate_zone(Variable):

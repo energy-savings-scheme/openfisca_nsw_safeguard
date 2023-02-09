@@ -1,6 +1,7 @@
 import numpy as np
 from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
+from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 from datetime import date
 
@@ -53,9 +54,18 @@ class Base_implemented_activity(Variable):
     }
 
 
-class Base_implementation_after_1_April_2022(Variable):
-    value_type = date
+class implementation_date_options(Enum):
+    planned_activity        = 'Planned activity'
+    before_may_2016         = 'Before 15 May 2016'
+    may_2016_to_march_2022  = '15 May 2016 - 31 March 2022'
+    april_1_2022_or_later   = '1 April 2022 or later'
+
+
+class Implementation_date(Variable):
+    value_type = Enum
     entity = Building
+    possible_values = implementation_date_options
+    default_value = implementation_date_options.planned_activity
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'What date did the implementation occur?',
@@ -64,6 +74,30 @@ class Base_implementation_after_1_April_2022(Variable):
         Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.\n
         In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
     }
+
+
+class Implementation_date_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+
+        implementation_date = buildings('Implementation_date', period)
+        print('date', implementation_date)
+        return np.select(
+            [
+                implementation_date == implementation_date_options.planned_activity,
+                implementation_date == implementation_date_options.before_may_2016,
+                implementation_date == implementation_date_options.may_2016_to_march_2022,
+                implementation_date == implementation_date_options.april_1_2022_or_later
+            ],
+            [
+                True,
+                False,
+                True,
+                True
+            ])
 
 
 class Base_lawful_activity(Variable):

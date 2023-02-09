@@ -417,6 +417,7 @@ class RF2_replacement_activity(Variable):
         'sorting' : 3
         }
 
+
 class RF2_product_EEI_ESC_replacement_eligibility(Variable):
     value_type = bool
     entity = Building

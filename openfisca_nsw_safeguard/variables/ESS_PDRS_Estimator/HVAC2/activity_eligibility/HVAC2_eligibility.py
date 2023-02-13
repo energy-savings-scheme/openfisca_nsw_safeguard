@@ -21,6 +21,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
     
     def formula(buildings, period, parameter):
         new_installation = buildings('HVAC2_installation', period)
+        replacement = buildings('HVAC2_equipment_replaced', period)
         qualified_install = buildings('HVAC2_installed_by_qualified_person', period)
         equipment_installed = buildings('HVAC2_equipment_installed', period)
         residential_building = buildings('HVAC2_residential_building', period)
@@ -41,12 +42,8 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
         AEER_greater_than_minimum = buildings('HVAC2_AEER_greater_than_minimum',period)
         ACOP_value = buildings ('HVAC2_ACOP_eligible', period)
         
-        # variables for equipment replacement
-        replacement = buildings('HVAC2_equipment_replaced', period)
-        qualified_removal_replacement = buildings('HVAC2_equipment_removed', period)
-        
         # check if its installation or replacement
-        installation_or_replacement = (new_installation * qualified_install) + (replacement * qualified_removal_replacement)
+        installation_or_replacement = (new_installation * qualified_install) + (replacement * qualified_install)
         
         # residential building is NO or residential building is yes and is installed in BCA class 2
         residential_building_with_class_2 = np.logical_not(residential_building) + (residential_building * is_installed_in_class_2)
@@ -60,7 +57,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
         
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
         
-        end_formula =  ( installation_or_replacement * equipment_installed * residential_building_with_class_2 * 
+        end_formula =  ( installation_or_replacement * equipment_installed * residential_building_with_class_2 *
                         registered_GEMS * gems_cooling_capacity_path * climate_zone_condition )
         
         return end_formula

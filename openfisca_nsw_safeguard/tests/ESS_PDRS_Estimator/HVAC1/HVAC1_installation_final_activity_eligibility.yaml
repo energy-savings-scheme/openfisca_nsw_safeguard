@@ -176,7 +176,7 @@
       [
         true,
         false,
-        true, #should return false because already marked as new install,
+        true, #should return false because already marked as new install
         false
       ]
     HVAC1_equipment_registered_in_GEMS:

@@ -124,13 +124,13 @@ class SYS2_single_phase(Variable):
     }
 
 
-class SYS2_single_speed(Variable):
+class SYS2_multiple_speed(Variable):
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the End-User equipment single speed?',
+      'display_question' : 'Is the End-User equipment two speed, multi speed or variable speed?',
       'sorting' : 10,
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic 
                                 pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed 
@@ -147,7 +147,6 @@ class SYS2_multiple_speeds_input_power(Variable):
     metadata = {
       'display_question' : 'Is the input power of the pump unit between 600w and 3450w?',
       'sorting' : 11,
-      'conditional': 'True',
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic 
                                 pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed 
                                 pump unit. The pump unit must have an input power of not less than 600W and not more than 1,700W for single speed pumps and 3,450W 
@@ -156,6 +155,7 @@ class SYS2_multiple_speeds_input_power(Variable):
 
 
 class SYS2_single_speed_input_power(Variable):
+    #only display this question if SYS2_multiple_speed is false
     value_type = bool
     entity = Building
     default_value = True

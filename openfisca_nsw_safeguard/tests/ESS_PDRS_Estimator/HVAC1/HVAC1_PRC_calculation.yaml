@@ -131,7 +131,8 @@
         false,
         false,
         true,  #Daikin RXM25UVMA / FTXM25UVMA
-        true   #Panasonic CU-Z71XKR / CS-Z71XKRW
+        true,  #Panasonic CU-Z71XKR / CS-Z71XKRW
+        true   #ACTRON Air WRC-050CS/WRE-050CS
       ]
     HVAC1_DNSP:
       [
@@ -140,7 +141,8 @@
         Ausgrid,
         Ausgrid, #Coolmaster TCCF10C1S/AOCF10C-S
         Ausgrid,
-        Essential
+        Essential,
+        Ausgrid
       ]
     HVAC1_input_power:
       [
@@ -149,7 +151,8 @@
         1,
         2.89,
         0.49,
-        2.06
+        2.06,
+        1.17
       ]
     HVAC1_Air_Conditioner_type:
       [
@@ -157,6 +160,7 @@
         ducted_split_system,
         non_ducted_split_system,
         ducted_split_system,
+        non_ducted_split_system,
         non_ducted_split_system,
         non_ducted_split_system
       ]
@@ -167,7 +171,8 @@
         2,
         10.1,
         2.5,
-        7.1
+        7.1,
+        5
       ]
     HVAC1_new_installation_activity:
       [
@@ -176,7 +181,8 @@
         true,
         true,
         true,
-        true
+        true,
+        false
       ]
     HVAC1_PDRS__postcode:
       [
@@ -185,7 +191,8 @@
         2789,
         2350,
         2000,
-        2800
+        2800,
+        2000
       ]
   output:
     HVAC1_PRC_calculation:
@@ -195,5 +202,6 @@
         0,
         0,
         47.7,
-        60.5
+        60.5,
+        132.662
       ]

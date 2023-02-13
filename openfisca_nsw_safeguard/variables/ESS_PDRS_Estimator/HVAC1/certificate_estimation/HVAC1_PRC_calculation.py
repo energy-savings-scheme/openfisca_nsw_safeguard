@@ -154,6 +154,7 @@ class HVAC1_PRC_calculation(Variable):
         
         HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
 
+        print('peak_demand_capacity', peak_demand_capacity)
         result = peak_demand_capacity * network_loss_factor * kw_to_0_1kw  
         result_meet_elig = np.select(
                         [

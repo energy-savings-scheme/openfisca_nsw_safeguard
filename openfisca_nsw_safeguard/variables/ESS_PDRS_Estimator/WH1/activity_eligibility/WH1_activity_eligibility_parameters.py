@@ -5,18 +5,6 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-class WH1_installation(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-      'display_question' : 'Is the activity the installation of a new heat pump water heater?',
-      'sorting' : 1,
-      'eligibility_clause' : """In PDRS WH1 Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
-    }
-
-
 class WH1_equipment_replaced(Variable):
     value_type = bool
     entity = Building
@@ -24,23 +12,34 @@ class WH1_equipment_replaced(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the activity the replacement of an existing resistance hot water boiler or heater with a heat pump water heater?',
+      'sorting' : 1,
+      'eligibility_clause' : """In PDRS WH1 Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
+    }
+
+
+class WH1_installation(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+      'display_question' : 'Is the activity the installation of a new heat pump water heater?',
       'sorting' : 2,
       'conditional' : 'True',
       'eligibility_clause' : """In PDRS WH1 Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
     }
 
 
-class WH1_equipment_replaces_gas(Variable):
+class WH1_equipment_replaces_electric(Variable):
     #replacement of an existing gas hot water heater or boiler is only eligible for ESCs (not PRCs)
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the activity the replacement of a gas hot water boiler with a heat pump water heater?',
+      'display_question' : 'Is the equipment being replaced an electric hot water boiler or water heater?',
       'sorting' : 3,
-      'conditional' : 'True',
-      'eligibility_clause' : """This activity is only eligible for ESCs, in PDRS WH1 Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
+      'eligibility_clause' : """The replacement of a gas hot water heater or boiler is only eligible for ESCs, in PDRS WH1 Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
     }
 
 

@@ -84,7 +84,6 @@ class Implementation_date_eligibility(Variable):
     def formula(buildings, period, parameters):
 
         implementation_date = buildings('Implementation_date', period)
-        print('date', implementation_date)
         return np.select(
             [
                 implementation_date == implementation_date_options.planned_activity,

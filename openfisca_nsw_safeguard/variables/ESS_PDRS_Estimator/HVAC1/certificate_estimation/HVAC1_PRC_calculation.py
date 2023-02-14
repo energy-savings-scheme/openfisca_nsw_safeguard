@@ -18,6 +18,8 @@ class HVAC1_baseline_input_power(Variable):
       rated_cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
       baseline_AEER = buildings('HVAC1_baseline_AEER_input', period)
       
+      print('rated_cooling_capacity', rated_cooling_capacity)
+      print('baseline_AEER', baseline_AEER)
       return np.select([    
                     baseline_AEER == 0,
                     (rated_cooling_capacity / baseline_AEER) > 0, 
@@ -105,6 +107,9 @@ class HVAC1_peak_demand_savings_activity(Variable):
         input_power = buildings('HVAC1_input_power', period)
         firmness_factor = 1
 
+        print('baseline_input_power',baseline_input_power)
+        print('baseline_peak_adjustment',baseline_peak_adjustment)
+        print('input_power',input_power)
         return (
                     (
                         baseline_input_power *
@@ -133,6 +138,7 @@ class HVAC1_peak_demand_reduction_capacity(Variable):
         summer_peak_demand_duration = 6
         lifetime = 10
 
+        print('peak_demand_savings', peak_demand_savings)
         peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
         return peak_demand_reduction_capacity
 
@@ -154,6 +160,7 @@ class HVAC1_PRC_calculation(Variable):
         
         HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
 
+        print('peak_demand_reduction capacity', peak_demand_capacity)
         result = peak_demand_capacity * network_loss_factor * kw_to_0_1kw  
         result_meet_elig = np.select(
                         [

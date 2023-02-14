@@ -22,7 +22,6 @@ class HVAC2_heating_annual_energy_use(Variable):
       equivalent_heating_hours = buildings('HVAC2_equivalent_heating_hours_input', period)
       rated_ACOP = buildings('HVAC2_rated_ACOP_input', period)
       
-      print('rated ACOP', rated_ACOP)
       return np.select([    
                             rated_ACOP == 0,
                             (heating_capacity * equivalent_heating_hours) > 0, 
@@ -52,9 +51,6 @@ class HVAC2_cooling_annual_energy_use(Variable):
       equivalent_cooling_hours = buildings('HVAC2_equivalent_cooling_hours_input', period)
       rated_AEER = buildings('HVAC2_rated_AEER_input', period)
       
-      print('cooling cap', cooling_capacity)
-      print('equiv cooling hours', equivalent_cooling_hours)
-      print('rated AEER', rated_AEER)
       return np.select([    
                     rated_AEER == 0,
                     (cooling_capacity * equivalent_cooling_hours) > 0, 
@@ -83,9 +79,6 @@ class HVAC2_reference_heating_annual_energy_use(Variable):
       equivalent_heating_hours = buildings('HVAC2_equivalent_heating_hours_input', period)
       baseline_ACOP = buildings('HVAC2_baseline_ACOP_input', period)
       
-      print('heating cap', heating_capacity)
-      print('equiv heating hours', equivalent_heating_hours)
-      print('base ACOP', baseline_ACOP)
       return np.select([    
                         baseline_ACOP == 0,
                         (heating_capacity * equivalent_heating_hours) > 0, 
@@ -117,8 +110,6 @@ class HVAC2_THEC_or_annual_heating(Variable):
                 thec,
                 refheat
             ])
-        print ('THEC', thec)
-        print ('refheat', refheat)
         return result_to_return
 
 
@@ -168,8 +159,6 @@ class HVAC2_TCEC_or_annual_cooling(Variable):
                 tcec,
                 refcool
             ])
-        print ('TCEC', tcec)
-        print ('refcool', refcool)
         return result_to_return
 
 
@@ -191,10 +180,6 @@ class HVAC2_deemed_activity_electricity_savings(Variable):
       lifetime = 10
       
       deemed_electricity_savings = np.sum([(reference_annual_cooling - annual_cooling), (reference_annual_heating - annual_heating)]) * (lifetime / 1000)
-      print('reference_annual_cooling', reference_annual_cooling)
-      print('annual_cooling', annual_cooling)
-      print('reference_annual_heating', reference_annual_heating)
-      print('annual_heating', annual_heating)
       return deemed_electricity_savings
 
 
@@ -234,8 +219,6 @@ class HVAC2_electricity_savings(Variable):
         regional_network_factor = buildings('HVAC2_PDRS__regional_network_factor', period)
 
         HVAC2_electricity_savings = (deemed_electricity_savings * regional_network_factor)
-        print('deemed lx savings', deemed_electricity_savings)
-        print('rnf', regional_network_factor)
         return HVAC2_electricity_savings
 
 
@@ -276,7 +259,4 @@ class HVAC2_ESC_calculation(Variable):
                 0, result_meet_elig
             ])
 
-      print('HVAC2_electricity_savings', HVAC2_electricity_savings)
-      print('HVAC2_TCSPF_or_AEER_exceeds_benchmark', HVAC2_TCSPF_or_AEER_exceeds_benchmark)
-      print('heating_capacity', heating_capacity)
       return result_to_return

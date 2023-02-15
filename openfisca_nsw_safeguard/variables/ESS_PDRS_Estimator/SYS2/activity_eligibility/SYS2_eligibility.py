@@ -31,8 +31,19 @@ class SYS2_replacement_final_activity_eligibility(Variable):
         multiple_speeds_input_power = buildings('SYS2_multiple_speeds_input_power', period)
 
         # check if it's registered in GEMS or the voluntary labelling scheme                                 
-        GEMS_or_voluntary_labelling_scheme = (registered_GEMS * np.logical_not(voluntary_labelling_scheme)) + (np.logical_not(registered_GEMS) * voluntary_labelling_scheme)
 
+        GEMS_or_voluntary_labelling_scheme = np.select([
+            (registered_GEMS * np.logical_not(voluntary_labelling_scheme)),
+            (np.logical_not(registered_GEMS) * voluntary_labelling_scheme),
+            (np.logical_not(registered_GEMS) * np.logical_not(voluntary_labelling_scheme)),
+            (registered_GEMS * voluntary_labelling_scheme) # default value of voluntary labelling scheme
+        ],
+        [
+            True,
+            True,
+            False,
+            True
+        ])
         #single speed is YES and single speed input power is YES or multiple speed is YES and multiple speed input power is YES
         speed_and_input_power_eligible = (pump_multiple_speed * multiple_speeds_input_power) + (np.logical_not(pump_multiple_speed) * single_speed_input_power)
 

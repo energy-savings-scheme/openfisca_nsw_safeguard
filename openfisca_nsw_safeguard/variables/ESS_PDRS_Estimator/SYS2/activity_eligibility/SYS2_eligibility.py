@@ -5,6 +5,27 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
+class SYS2_input_power_Options(Enum):
+    single_speed = 'Between 600w and 1700w'
+    multiple_speed = 'Between 600w and 3450w'
+
+
+class SYS2_input_power_dropdown(Variable):
+     # this variable is used as the second input on all estimator certificate calculation pages
+    value_type = Enum
+    entity = Building
+    possible_values = SYS2_input_power_Options
+    default_value = SYS2_input_power_Options.single_speed
+    definition_period = ETERNITY
+    label = "Input Power"
+    metadata = {
+        'variable-type': 'user-input',
+        'label': "Input Power",
+        'display_question' : 'What is the input power of the pump unit?',
+        'sorting' : 11
+    }
+
+
 class SYS2_replacement_final_activity_eligibility(Variable):
     """
         Formula to calculate the SYS2 replacement activity eligibility
@@ -27,8 +48,7 @@ class SYS2_replacement_final_activity_eligibility(Variable):
         warranty = buildings('SYS2_warranty', period)
         single_phase = buildings('SYS2_single_phase', period)
         pump_multiple_speed = buildings('SYS2_multiple_speed', period)
-        single_speed_input_power = buildings('SYS2_single_speed_input_power', period)
-        multiple_speeds_input_power = buildings('SYS2_multiple_speeds_input_power', period)
+        input_power = buildings('SYS2_input_power_dropdown', period)
 
         # check if it's registered in GEMS or the voluntary labelling scheme                                 
 
@@ -45,20 +65,22 @@ class SYS2_replacement_final_activity_eligibility(Variable):
             True
         ])
         #single speed is YES and single speed input power is YES or multiple speed is YES and multiple speed input power is YES
-        speed_and_input_power_eligible = (pump_multiple_speed * multiple_speeds_input_power) + (np.logical_not(pump_multiple_speed) * single_speed_input_power)
+        print(pump_multiple_speed)
+        print(input_power)
 
+        
         speed_and_input_power_eligible = np.select([
-            (np.logical_not(pump_multiple_speed) * single_speed_input_power),
-            (np.logical_not(pump_multiple_speed) * np.logical_not(single_speed_input_power)),
-            (pump_multiple_speed * multiple_speeds_input_power),
-            (pump_multiple_speed * np.logical_not(multiple_speeds_input_power))
+            (np.logical_not(pump_multiple_speed) * (input_power == SYS2_input_power_Options.single_speed)),
+            (np.logical_not(pump_multiple_speed) * (input_power != SYS2_input_power_Options.single_speed)),
+            (pump_multiple_speed * (input_power == SYS2_input_power_Options.multiple_speed)),
+            (pump_multiple_speed * (input_power != SYS2_input_power_Options.multiple_speed))
         ],
-        [
-            True,
-            False,
-            True,
-            False
-        ])
+            [
+                True,
+                False,
+                True,
+                False
+            ])
 
         end_formula = ( replacement * old_equipment_installed_on_site * qualified_install * 
                         legal_disposal * GEMS_or_voluntary_labelling_scheme * star_rating_minimum_four_and_a_half *

@@ -17,10 +17,8 @@ class SYS2_input_power_dropdown(Variable):
     possible_values = SYS2_input_power_Options
     default_value = SYS2_input_power_Options.single_speed
     definition_period = ETERNITY
-    label = "Input Power"
     metadata = {
         'variable-type': 'user-input',
-        'label': "Input Power",
         'display_question' : 'What is the input power of the pump unit?',
         'sorting' : 11
     }

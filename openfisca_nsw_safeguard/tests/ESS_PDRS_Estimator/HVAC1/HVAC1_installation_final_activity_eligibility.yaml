@@ -158,7 +158,6 @@
         True
       ]
 
-
 - name: test HVAC1 activity eligibility second check
   period: 2022
   absolute_error_margin: 0
@@ -210,7 +209,7 @@
         true,
         false,
         false,
-        false # check
+        false
       ]
     HVAC1_TCPSF_greater_than_minimum:
       [

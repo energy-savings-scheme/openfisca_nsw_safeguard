@@ -20,7 +20,11 @@ class SYS2_input_power_dropdown(Variable):
     metadata = {
         'variable-type': 'user-input',
         'display_question' : 'What is the input power of the pump unit?',
-        'sorting' : 11
+        'sorting' : 11,
+        'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic 
+            pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed 
+            pump unit. The pump unit must have an input power of not less than 600W and not more than 1,700W for single speed pumps and 3,450W 
+            for two speed, multi speed and variable speed pumps when tested in accordance with AS 5102.1."""
     }
 
 

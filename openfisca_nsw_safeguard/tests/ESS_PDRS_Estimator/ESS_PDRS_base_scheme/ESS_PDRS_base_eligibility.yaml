@@ -5,15 +5,13 @@
     Implementation_date:
       [
         planned_activity,
-        before_may_2016,
-        may_2016_to_march_2022,
+        before_april_1_2022, 
         april_1_2022_or_later
       ]
   output:
     Implementation_date_eligibility:
       [
         True,
-        False,
         True,
         True
       ]

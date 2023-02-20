@@ -55,10 +55,9 @@ class Base_implemented_activity(Variable):
 
 
 class implementation_date_options(Enum):
-    planned_activity        = 'Planned activity'
-    before_may_2016         = 'Before 15 May 2016'
-    may_2016_to_march_2022  = '15 May 2016 - 31 March 2022'
-    april_1_2022_or_later   = '1 April 2022 or later'
+    planned_activity        = 'Planned activity'        #not eligible
+    before_april_1_2022     = 'Before 1 April 2022'     #ESCs only
+    april_1_2022_or_later   = '1 April 2022 or later'   #ESCs and PRCs 
 
 
 class Implementation_date(Variable):
@@ -87,13 +86,11 @@ class Implementation_date_eligibility(Variable):
         return np.select(
             [
                 implementation_date == implementation_date_options.planned_activity,
-                implementation_date == implementation_date_options.before_may_2016,
-                implementation_date == implementation_date_options.may_2016_to_march_2022,
+                implementation_date == implementation_date_options.before_april_1_2022,
                 implementation_date == implementation_date_options.april_1_2022_or_later
             ],
             [
                 True,
-                False,
                 True,
                 True
             ])
@@ -148,8 +145,7 @@ class Base_removing_or_replacing(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the activity removing or replacing End-User equipment?',
-        'sorting' : 7
-    }
+        'sorting' : 7    }
 
 
 class Base_disposal_of_equipment(Variable):

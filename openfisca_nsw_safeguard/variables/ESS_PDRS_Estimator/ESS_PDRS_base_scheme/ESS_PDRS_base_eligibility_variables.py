@@ -14,13 +14,13 @@ class Base_reduces_energy_consumption(Variable):
     metadata = {
         'display_question' : 'Does the activity reduce energy consumption compared to what would have been consumed?',
         'sorting' : 1,
-        'eligibility_clause' : """In ESS Clause 5.3 it states that a Recognised Energy Saving Activity is any activity that meets all of the following criteria: \n
-        (a) it increases the efficiency of energy consumption, by: \n
+        'eligibility_clause' : """In ESS Clause 5.3 it states that a Recognised Energy Saving Activity is any activity that meets all of the following criteria: <br />
+        (a) it increases the efficiency of energy consumption, by: <br />
         (i) modifying End-User Equipment or the usage of End-User Equipment (including by installing additional components) with the result that there is a reduction in the
-        consumption of energy compared to what would have otherwise been consumed;\n
-        (ii) replacing End-User Equipment with other End-User Equipment that consumes less energy, subject to clause 5.3A;\n
+        consumption of energy compared to what would have otherwise been consumed;<br />
+        (ii) replacing End-User Equipment with other End-User Equipment that consumes less energy, subject to clause 5.3A;<br />
         (iii) installing New End-User Equipment that consumes less energy than other comparable End-User Equipment of the same type, function, output or service, subject to clause
-        5.3B; or \n
+        5.3B; or <br />
         (iv) removing End-User Equipment with the result that there is a reduction in the consumption of energy compared to what would have otherwise been consumed,
         subject to clause 5.3A."""
     }
@@ -35,7 +35,7 @@ class Base_provides_capacity_to_reduce_demand(Variable):
         # 'label' : 'The Peak Demand Reduction period is 2.30pm to 8.30pm AEST',
         'display_question' : 'Does the activity provide capacity to reduce demand during the Peak Demand Reduction period?',
         'sorting' : 2,
-        'eligibility_clause' : """ In PDRS Clause 5.1 it states a Recognised Peak Activity is an activity that:\n
+        'eligibility_clause' : """ In PDRS Clause 5.1 it states a Recognised Peak Activity is an activity that:<br />
         (a) provides capacity to reduce peak demand during the Peak Demand Reduction Period."""
     }
 
@@ -49,7 +49,7 @@ class Base_implemented_activity(Variable):
         'display_question' : 'Has implementation already occurred?',
         'sorting' : 3,
         'eligibility_clause' : """In ESS Clause 5.3A(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy
-        Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.\n
+        Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.<br />
         In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
     }
 
@@ -70,7 +70,7 @@ class Implementation_date(Variable):
         'display_question' : 'What date did the implementation occur?',
         'sorting' : 4,
         'eligibility_clause' : """In ESS Clause 5.3A(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy
-        Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.\n
+        Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.<br />
         In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
     }
 
@@ -108,21 +108,6 @@ class Base_lawful_activity(Variable):
     }
 
 
-# class Base_registered_ACP(Variable):
-#     value_type = bool
-#     entity = Building
-#     default_value = True
-#     definition_period = ETERNITY
-#     metadata = {
-#         'display_question' : 'Are you an Accredited Certificate Provider?',
-#         'sorting' : 6,
-#         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of
-#                                   the Energy Savings for an Implementation where:\n
-#                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and \n
-#                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
-#     }
-
-
 class Base_engaged_ACP(Variable):
     value_type = bool
     entity = Building
@@ -132,8 +117,8 @@ class Base_engaged_ACP(Variable):
         'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 6,
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of
-                                  the Energy Savings for an Implementation where:\n
-                                  (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and \n
+                                  the Energy Savings for an Implementation where:<br />
+                                  (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
     }
 
@@ -281,7 +266,7 @@ class Base_replacement_solar_water_heater_certificates(Variable):
         'display_question' : 'Is the activity the installation of a replacement solar water heater?',
         'sorting' : 17,
         'conditional': 'True',
-        'eligibility_clause' : """In ESS Clause 5.4(g) it states that Recognised Energy Saving Activities do not include any of the following:\n
+        'eligibility_clause' : """In ESS Clause 5.4(g) it states that Recognised Energy Saving Activities do not include any of the following:<br />
         an activity that is eligible to create tradeable certificates under the Renewable Energy (Electricity) Act 2000 (Cth), except if the activity is the installation of a new or
         replacement solar water heater or heat pump water heater."""
     }

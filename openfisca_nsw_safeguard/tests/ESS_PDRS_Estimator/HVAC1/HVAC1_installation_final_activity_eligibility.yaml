@@ -35,17 +35,6 @@
         True,
         True
       ]
-    HVAC1_equipment_removed:
-      [
-        False, 
-        False, 
-        False,
-        False,
-        False,
-        False,
-        True,
-        True
-      ]
     HVAC1_equipment_registered_in_GEMS:
       [
         True,
@@ -154,8 +143,8 @@
         True,
         True,
         False,
-        True,
-        True
+        False,
+        False
       ]
 
 - name: test HVAC1 activity eligibility second check
@@ -187,14 +176,7 @@
       [
         true,
         false,
-        true, #should return false because already marked as new install,
-        false
-      ]
-    HVAC1_equipment_removed:
-      [
-        true,
-        false,
-        false,
+        true, #should return false because already marked as new install
         false
       ]
     HVAC1_equipment_registered_in_GEMS:
@@ -263,7 +245,7 @@
   output:
     HVAC1_installation_replacement_final_activity_eligibility:
       [
-        true,
+        false,
         true,
         false,
         false

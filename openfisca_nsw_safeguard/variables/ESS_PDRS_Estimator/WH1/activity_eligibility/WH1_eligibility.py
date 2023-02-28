@@ -17,7 +17,9 @@ class WH1_installation_replacement_final_activity_eligibility(Variable):
     }
 
     def formula(buildings, period, parameters):
+        replacement = buildings('WH1_equipment_replaced', period)
         new_installation = buildings('WH1_installation', period)
+        electric_replacement = buildings('WH1_equipment_replaces_electric', period)
         qualified_removal_install = buildings('WH1_equipment_removed', period)
         equipment_installed = buildings('WH1_equipment_installed_and_operational', period)
         not_installed_class_1_or_4 = buildings('WH1_building_BCA_not_class_1_or_4', period)
@@ -26,14 +28,9 @@ class WH1_installation_replacement_final_activity_eligibility(Variable):
         minimum_savings_met = buildings('WH1_minimum_savings', period)
         storage_volume_certified = buildings('WH1_equipment_certified_by_storage_volume', period)
         
-        # variables for equipment replacement
-        replacement = buildings('WH1_equipment_replaced', period)
 
-        #note that gas replacement is only eligible for ESCs (not PRCs)
-        gas_replacement = buildings('WH1_equipment_replaces_gas', period)
-
-        #check if its installation or replacement and not a gas replacement
-        installation_or_replacement = new_installation + (replacement * np.logical_not(gas_replacement))
+        #check if its installation or replacement and if replacement, that it's replacing electric
+        installation_or_replacement = new_installation + (replacement * electric_replacement)
 
         end_formula = ( installation_or_replacement * qualified_removal_install * equipment_installed *
                         np.logical_not(not_installed_class_1_or_4) * air_source_heat_pump * scheme_admin_approved *

@@ -21,6 +21,7 @@ class HVAC1_installation_replacement_final_activity_eligibility(Variable):
     
     def formula(buildings, period, parameter):
         new_installation = buildings('HVAC1_installation', period)
+        replacement = buildings('HVAC1_equipment_replaced', period)
         qualified_install = buildings('HVAC1_installed_by_qualified_person', period)
         equipment_installed = buildings('HVAC1_equipment_installed', period)
         registered_GEMS = buildings('HVAC1_equipment_registered_in_GEMS', period)
@@ -37,13 +38,9 @@ class HVAC1_installation_replacement_final_activity_eligibility(Variable):
         HSPF_cold_value = buildings('HVAC1_HSPF_cold_eligible', period)
         AEER_greater_than_minimum = buildings('HVAC1_AEER_greater_than_minimum',period)
         ACOP_value = buildings ('HVAC1_ACOP_eligible', period)
-        
-        # variables for equipment replacement
-        replacement = buildings('HVAC1_equipment_replaced', period)
-        qualified_removal_replacement = buildings('HVAC1_equipment_removed', period)
-        
+                
         # check if its installation or replacement
-        installation_or_replacement = (new_installation * qualified_install) + (replacement * qualified_removal_replacement)
+        installation_or_replacement = (new_installation * qualified_install) + (replacement * qualified_install)
                 
         # GEMS cooling capacity is NO but AEER greater than minimum YES OR GEMS cooling capacity is YES and TCPSF_greater greater than minimum YES
         gems_cooling_capacity_path = (np.logical_not(cooling_capacity) * AEER_greater_than_minimum) + (cooling_capacity * TCPSF_greater)
@@ -58,4 +55,3 @@ class HVAC1_installation_replacement_final_activity_eligibility(Variable):
                         registered_GEMS * gems_cooling_capacity_path * climate_zone_condition )
         
         return end_formula
-

@@ -112,8 +112,8 @@ class WH1_minimum_savings(Variable):
     metadata = {  
       'display_question' : 'Has the model met the 60% minimum annual energy savings requirement?',
       'sorting' : 9,
-      'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 2 it states that the installed End-User Equipment must achieve minimum annual energy savings, when determined in accordance with the modelling procedure published by the Scheme Administrator, of: \n
-      a. 60% when modelled in climate zone HP3-AU if the Site is in BCA Climate Zone 2, 3, 4, 5 or 6; \n
+      'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 2 it states that the installed End-User Equipment must achieve minimum annual energy savings, when determined in accordance with the modelling procedure published by the Scheme Administrator, of: <br />
+      a. 60% when modelled in climate zone HP3-AU if the Site is in BCA Climate Zone 2, 3, 4, 5 or 6; <br />
       b. 60% when modelled in climate zone HP5-AU if the Site is in BCA Climate Zone 7 or 8."""
     }
 

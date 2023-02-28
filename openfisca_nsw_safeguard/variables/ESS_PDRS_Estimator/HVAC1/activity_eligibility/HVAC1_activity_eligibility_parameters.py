@@ -77,9 +77,9 @@ class HVAC1_new_equipment_cooling_capacity(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question': 'Does the new air conditioner have a cooling capacity recorded in the GEMS registry?',
-        'sorting' : 6,
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: \n
-        a. The New End-User Equipment or replacement End-User Equipment must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the corresponding Product Type and Cooling Capacity in Table HVAC1.3; or \n
+        'sorting' : 7,
+        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: <br />
+        a. The New End-User Equipment or replacement End-User Equipment must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the corresponding Product Type and Cooling Capacity in Table HVAC1.3; or <br />
         b. If the New End-User Equipment or replacement End-User Equipment does not have a Residential TCSPF_mixed value recorded in the GEMS Registry, then it must have an AEER in the GEMS Registry equal to or greater than the Minimum AEER for the Product Type and Cooling Capacity in Table HVAC1.4."""
     }
 
@@ -93,8 +93,8 @@ class HVAC1_AEER_greater_than_minimum(Variable):
         'display_question' : 'Is your AEER equal to or greater than the Minimum AEER for the Product Type and Cooling Capacity in PDRS Table HVAC1.4?',
         'sorting' : 7,
         'conditional' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: \n
-        a. The New End-User Equipment or replacement End-User Equipment must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the corresponding Product Type and Cooling Capacity in Table HVAC1.3; or \n
+        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: <br />
+        a. The New End-User Equipment or replacement End-User Equipment must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the corresponding Product Type and Cooling Capacity in Table HVAC1.3; or <br />
         b. If the New End-User Equipment or replacement End-User Equipment does not have a Residential TCSPF_mixed value recorded in the GEMS Registry, then it must have an AEER in the GEMS Registry equal to or greater than the Minimum AEER for the Product Type and Cooling Capacity in Table HVAC1.4."""
     }
 
@@ -108,8 +108,8 @@ class HVAC1_TCPSF_greater_than_minimum(Variable):
         'display_question' : 'Is your Residential TCSPF_mixed value equal to or greater than the Minimum Residential TCPSF_mixed value for the same Product Type and Cooling Capacity in PDRS Table HVAC1.3?',
         'sorting' : 8,
         'conditional' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: \n
-        a. The New End-User Equipment or replacement End-User Equipment must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the corresponding Product Type and Cooling Capacity in Table HVAC1.3; or \n
+        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: <br />
+        a. The New End-User Equipment or replacement End-User Equipment must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the corresponding Product Type and Cooling Capacity in Table HVAC1.3; or <br />
         b. If the New End-User Equipment or replacement End-User Equipment does not have a Residential TCSPF_mixed value recorded in the GEMS Registry, then it must have an AEER in the GEMS Registry equal to or greater than the Minimum AEER for the Product Type and Cooling Capacity in Table HVAC1.4."""
     }
 
@@ -140,19 +140,19 @@ class HVAC1_new_equipment_heating_capacity(Variable):
     label = 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?'
     metadata = {
         'display_question' : 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?',
-        'sorting' : 10,
-        'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:\n
+        'sorting' : 11,
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:<br />
         3. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry,
-        and is installed in the hot or average zone as defined in Table A27: \n
+        and is installed in the hot or average zone as defined in Table A27: <br />
         a. It must have a Residential HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the
-        Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or\n
+        Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or<br />
         b. If it does not have a Residential HSPF_mixed value recorded in the GEMS Registry, then it must have a Rated
         ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and
-        Cooling Capacity in Table D16.5.\n
+        Cooling Capacity in Table D16.5.<br />
         4. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry
-        and is installed in the cold zone as defined in Table A27:\n
+        and is installed in the cold zone as defined in Table A27:<br />
         a. It must have a Residential HSPF_cold value, as recorded in the GEMS Registry, equal to or greater than the
-        Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in Table D16.4; or\n
+        Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in Table D16.4; or<br />
         b. If it does not have a Residential HSPF_cold value recorded in the GEMS Registry, then it must have a Rated ACOP
         in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and Cooling
         Capacity in Table D16.5.
@@ -170,18 +170,18 @@ class HVAC1_HSPF_mixed_eligible(Variable):
         'display_question' : 'Is your GEMS Residential HSPF_mixed value equal to or greater than the Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in ESS Table D16.4?',
         'sorting' : 11,
         'conditional': 'True',
-        'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:\n
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:<br />
         3. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry,
-        and is installed in the hot or average zone as defined in Table A27: \n
+        and is installed in the hot or average zone as defined in Table A27: <br />
         a. It must have a Residential HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the
-        Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or\n
+        Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or<br />
         b. If it does not have a Residential HSPF_mixed value recorded in the GEMS Registry, then it must have a Rated
         ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and
-        Cooling Capacity in Table D16.5.\n
+        Cooling Capacity in Table D16.5.<br />
         4. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry
-        and is installed in the cold zone as defined in Table A27:\n
+        and is installed in the cold zone as defined in Table A27:<br />
         a. It must have a Residential HSPF_cold value, as recorded in the GEMS Registry, equal to or greater than the
-        Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in Table D16.4; or\n
+        Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in Table D16.4; or<br />
         b. If it does not have a Residential HSPF_cold value recorded in the GEMS Registry, then it must have a Rated ACOP
         in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and Cooling
         Capacity in Table D16.5.
@@ -199,18 +199,18 @@ class HVAC1_ACOP_eligible(Variable):
         'display_question' : 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table D16.5?',
         'sorting' : 12,
         'conditional': 'True',
-        'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:\n
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:<br />
         3. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry,
-        and is installed in the hot or average zone as defined in Table A27: \n
+        and is installed in the hot or average zone as defined in Table A27: <br />
         a. It must have a Residential HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the
-        Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or\n
+        Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or<br />
         b. If it does not have a Residential HSPF_mixed value recorded in the GEMS Registry, then it must have a Rated
         ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and
-        Cooling Capacity in Table D16.5.\n
+        Cooling Capacity in Table D16.5.<br />
         4. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry
-        and is installed in the cold zone as defined in Table A27:\n
+        and is installed in the cold zone as defined in Table A27:<br />
         a. It must have a Residential HSPF_cold value, as recorded in the GEMS Registry, equal to or greater than the
-        Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in Table D16.4; or\n
+        Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in Table D16.4; or<br />
         b. If it does not have a Residential HSPF_cold value recorded in the GEMS Registry, then it must have a Rated ACOP
         in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and Cooling
         Capacity in Table D16.5.
@@ -228,18 +228,18 @@ class HVAC1_HSPF_cold_eligible(Variable):
         'display_question' : 'Is your GEMS Residential HSPF_cold value equal to or greater than the Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table D16.4?',
         'sorting' : 13,
         'conditional': 'True',
-        'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:\n
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:<br />
         3. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry,
-        and is installed in the hot or average zone as defined in Table A27: \n
+        and is installed in the hot or average zone as defined in Table A27: <br />
         a. It must have a Residential HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the
-        Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or\n
+        Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or<br />
         b. If it does not have a Residential HSPF_mixed value recorded in the GEMS Registry, then it must have a Rated
         ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and
-        Cooling Capacity in Table D16.5.\n
+        Cooling Capacity in Table D16.5.<br />
         4. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry
-        and is installed in the cold zone as defined in Table A27:\n
+        and is installed in the cold zone as defined in Table A27:<br />
         a. It must have a Residential HSPF_cold value, as recorded in the GEMS Registry, equal to or greater than the
-        Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in Table D16.4; or\n
+        Minimum Residential HSPF_cold value for the same Product Type and Cooling Capacity in Table D16.4; or<br />
         b. If it does not have a Residential HSPF_cold value recorded in the GEMS Registry, then it must have a Rated ACOP
         in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and Cooling
         Capacity in Table D16.5.

@@ -90,7 +90,7 @@ class Implementation_date_eligibility(Variable):
                 implementation_date == implementation_date_options.april_1_2022_or_later
             ],
             [
-                True,
+                False,
                 True,
                 True
             ])

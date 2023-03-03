@@ -130,7 +130,17 @@ class Base_removing_or_replacing(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the activity removing or replacing End-User equipment?',
-        'sorting' : 7    }
+        'sorting' : 7,
+        'eligibility_clause' : """In ESS Clause 5.3 it states that a Recognised Energy Saving Activity is any activity that meets all of the following criteria: <br />
+        (a) it increases the efficiency of energy consumption, by: <br />
+        (i) modifying End-User Equipment or the usage of End-User Equipment (including by installing additional components) with the result that there is a reduction in the
+        consumption of energy compared to what would have otherwise been consumed;<br />
+        (ii) replacing End-User Equipment with other End-User Equipment that consumes less energy, subject to clause 5.3A;<br />
+        (iii) installing New End-User Equipment that consumes less energy than other comparable End-User Equipment of the same type, function, output or service, subject to clause
+        5.3B; or <br />
+        (iv) removing End-User Equipment with the result that there is a reduction in the consumption of energy compared to what would have otherwise been consumed,
+        subject to clause 5.3A."""
+    }
 
 
 class Base_disposal_of_equipment(Variable):

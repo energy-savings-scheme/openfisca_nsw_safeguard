@@ -31,48 +31,6 @@ class WH1_annual_energy_savings(Variable):
 
 """ These variables use Rule tables
 """
-class network_loss_factor_options(Enum):
-    Ausgrid = 'Ausgrid'
-    Endeavour = 'Endeavour'
-    Essential = 'Essential'
-
-
-class PDRS_network_loss_factor(Variable):
-    #pulls in to PRC calculations
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    
-    def formula(building, period, parameters):
-        network_loss = building('WH1_Provider_to_network_loss_factor_enum', period)
-        return np.select(
-            [
-                network_loss == network_loss_factor_options.Ausgrid,
-                network_loss == network_loss_factor_options.Endeavour,
-                network_loss == network_loss_factor_options.Essential     
-            ],
-            [  
-                1.04,
-                1.05,
-                1.05
-            ])
-
-
-class WH1_Provider_to_network_loss_factor_enum(Variable):
-    value_type = Enum
-    entity = Building
-    possible_values = network_loss_factor_options
-    default_value = network_loss_factor_options.Ausgrid
-    definition_period = ETERNITY
-    metadata = {
-        "variable-type": "user-input",
-        "alias": "PFC Distribution District",
-        "display_question": "Who is your network service provider?",
-        'sorting' : 2,
-        "label": "Distribution Network Service Provider"
-    }
-
-
 class WH1_get_zone_by_postcode(Variable):
     value_type = int
     entity = Building
@@ -85,7 +43,7 @@ class WH1_get_zone_by_postcode(Variable):
         postcode = building('WH1_PDRS__postcode', period)
         zones = parameters(period).ESS.ESS_general.Postcode_zones_air_source_heat_pumps
         return zones.calc(postcode)
-    
+
 
 class WH1_PDRS__postcode(Variable):
     value_type = int
@@ -137,6 +95,22 @@ class WH1_BCA_climate_zone_by_postcode(Variable):
             ])
 
         return BCA_climate_zone_to_check
+
+
+class WH1_get_network_loss_factor_by_postcode(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'input',
+        'sorting' : 2,
+        'label' : 'Network loss factor is calculated automatically from your postcode. If you have a 0 here, please check your postcode is correct. If the postcode has more than one distribution network service provider, we have chosen the network factor loss with the lowest value.'
+    }
+    def formula(building, period, parameters):
+        postcode = building('WH1_PDRS__postcode', period)
+        network_loss_factor = parameters(period).PDRS.table_network_loss_factor_by_postcode
+
+        return network_loss_factor.calc(postcode)
 
 
 class WH1_annual_energy_savings_eligible(Variable):

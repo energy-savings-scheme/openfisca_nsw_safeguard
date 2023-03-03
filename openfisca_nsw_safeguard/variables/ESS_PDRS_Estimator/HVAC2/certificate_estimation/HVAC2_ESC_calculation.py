@@ -50,7 +50,7 @@ class HVAC2_cooling_annual_energy_use(Variable):
       cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
       equivalent_cooling_hours = buildings('HVAC2_equivalent_cooling_hours_input', period)
       rated_AEER = buildings('HVAC2_rated_AEER_input', period)
-      
+
       return np.select([    
                     rated_AEER == 0,
                     (cooling_capacity * equivalent_cooling_hours) > 0, 
@@ -78,7 +78,7 @@ class HVAC2_reference_heating_annual_energy_use(Variable):
       heating_capacity = buildings('HVAC2_heating_capacity_input', period)
       equivalent_heating_hours = buildings('HVAC2_equivalent_heating_hours_input', period)
       baseline_ACOP = buildings('HVAC2_baseline_ACOP_input', period)
-      
+
       return np.select([    
                         baseline_ACOP == 0,
                         (heating_capacity * equivalent_heating_hours) > 0, 
@@ -180,6 +180,7 @@ class HVAC2_deemed_activity_electricity_savings(Variable):
       lifetime = 10
       
       deemed_electricity_savings = np.sum([(reference_annual_cooling - annual_cooling), (reference_annual_heating - annual_heating)]) * (lifetime / 1000)
+
       return deemed_electricity_savings
 
 

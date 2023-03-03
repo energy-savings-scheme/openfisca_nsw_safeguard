@@ -90,10 +90,11 @@ class WH1_PRC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         peak_demand_capacity = buildings('WH1_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('PDRS_network_loss_factor', period)
+        network_loss_factor = buildings('WH1_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
         replacement_activity = buildings('WH1_replacement_activity', period)
 
+        print('NLF', network_loss_factor)
         WH1_eligible_PRCs = np.select(
             [
                 replacement_activity,
@@ -112,4 +113,3 @@ class WH1_PRC_calculation(Variable):
                 0, WH1_eligible_PRCs
             ])
         return result_to_return
-

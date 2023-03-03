@@ -101,20 +101,6 @@
         56.94
       ]
 
-- name: test network loss factor
-  period: 2022
-  absolute_error_margin: 0
-  input: 
-    WH1_Provider_to_network_loss_factor_enum: 
-      [
-        Ausgrid
-      ]
-  output:
-    PDRS_network_loss_factor: 
-      [
-        1.04
-      ]
-
 - name: test WH1 ESC calculation
   period: 2022
   absolute_error_margin: 0.5

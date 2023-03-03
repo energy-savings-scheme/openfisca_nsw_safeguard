@@ -1,0 +1,1187 @@
+description: Network Loss factor by postcode, for use in PDRS calculations.
+brackets:
+# 0 = not a NSW postcode
+# 1.04 = Ausgrid
+# 1.05 = Essential/Endeavour
+#  = Ausgrid or Essential/Endeavour
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2000
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2001
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2006 
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2013
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2015
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2053
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2055
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2056
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2057
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2078
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2079
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2098   
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2099
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2115
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2118 
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2124
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2125
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2142
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2143
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2145
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2149
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2150
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2154
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2155
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2157
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2160
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2161
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2164
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2172
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2173
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2175
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2176
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2180
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2190
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2201
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2203
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2235
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2250
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2266
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2267
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2268
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2278
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2279
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2280
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2288
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2289
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2301
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2302
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2309
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2311
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2313
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2314
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2325
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2332
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2333
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2338
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2348
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2350
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2362
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2365
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2366
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2369
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2373
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2379
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2383
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2386
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2389
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2390
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2391
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2395
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2407
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2408
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2412
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2415
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2416
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2420
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2421
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2422
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2432
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2439
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2442
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2443
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2451
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2452
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2457
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2460
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2461
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2462
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2467
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2469
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2491
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2500
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2501
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2502
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2503
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2505
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2507
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2508
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2509
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2515
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2520
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2521
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2523
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2525
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2531
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2533
+  - amount:
+      2020-25-01:
+        value: 1.04 #2 x DNSPs
+    threshold:
+      2020-25-01:
+        value: 2540
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2541
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2542
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2545
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2547
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2548
+  - amount:
+      2020-25-01:
+        value: 1.0
+    threshold:
+      2020-25-01:
+        value: 2550
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2551
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2552
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2555
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2561
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2563
+
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2591
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2594
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2595
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2620
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2622
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2623
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2632
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2634
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2640
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2654
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2655
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2657
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2658
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2662
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2663
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2664
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2665
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2667
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2668
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2670
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2671
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2673
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2675
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2676
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2680
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2682
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2700
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2704
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2705
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2708
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2710
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2718  
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2720
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2723
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2725
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2728
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2729
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2740
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2745
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2746
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2747
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2751
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2752
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2771
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2773
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2775
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2776
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2788
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2790
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2796
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2797
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2801
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2803
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2811
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2817
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2818
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2819
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2820
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2822
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2837
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2838
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2841
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2842
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2851
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2852
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2853
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2864
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2872
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 2873
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2881
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2890
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2891
+  - amount:
+      2020-25-01:
+        value: 1.04
+    threshold:
+      2020-25-01:
+        value: 2899
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 2900
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 3644
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 3645
+  - amount:
+      2020-25-01:
+        value: 1.05
+    threshold:
+      2020-25-01:
+        value: 3707
+  - amount:
+      2020-25-01:
+        value: 0
+    threshold:
+      2020-25-01:
+        value: 3708
+metadata:
+  type: single_amount
+  threshold_unit: postcode
+  amount_unit: 0.05

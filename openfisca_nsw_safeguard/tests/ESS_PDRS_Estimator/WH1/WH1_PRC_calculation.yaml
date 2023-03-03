@@ -13,6 +13,7 @@
         2,
         0.95
       ]
+
 - name: test WH1 input power
   period: 2022
   absolute_error_margin: 0.5
@@ -33,6 +34,7 @@
         0.6,
         0.275
       ]
+
 - name: test WH1 peak demand savings capacity
   period: 2022
   absolute_error_margin: 0
@@ -53,6 +55,7 @@
         1.538,
         0.73825
       ]
+
 - name: test zones by postcode
   period: 2022
   absolute_error_margin: 0
@@ -69,6 +72,29 @@
         3,
         5,
         3
+      ]
+
+- name: test Postcode to DNSP to network loss factor
+  period: 2021
+  input:
+    WH1_PDRS__postcode:
+      [
+        2006,
+        2795,
+        3000,
+        3643,
+        3644,
+        2074
+      ]
+  output:
+    WH1_get_network_loss_factor_by_postcode:
+      [
+        1.04,
+        1.05,
+        0,
+        0,
+        1.05,
+        1.04
       ]
 
 - name: test WH1 eligibility by min savings, HP zone, BCA climate zone
@@ -132,6 +158,7 @@
         200.16,
         53.154
       ]
+
 - name: test WH1 PRC calculation
   period: 2022
   absolute_error_margin: 0.5
@@ -156,10 +183,10 @@
         2017,
         2074
       ]
-    WH1_Provider_to_network_loss_factor_enum:
+    WH1_get_network_loss_factor_by_postcode:
       [
-        Endeavour,
-        Ausgrid
+        1.04,
+        1.04
       ]
     WH1_WH_capacity_factor: 
       [
@@ -192,7 +219,7 @@
         120,
         120
       ]
-    PDRS_network_loss_factor:
+    WH1_get_network_loss_factor_by_postcode:
       [
         1.05,
         1.05

@@ -79,11 +79,21 @@
   input:
     WH1_PDRS__postcode:
       [
-        2006
+        2006,
+        2795,
+        3000,
+        3643,
+        3644,
+        2074
       ]
   output:
     WH1_get_network_loss_factor_by_postcode:
       [
+        1.04,
+        1.05,
+        0,
+        0,
+        1.05,
         1.04
       ]
 

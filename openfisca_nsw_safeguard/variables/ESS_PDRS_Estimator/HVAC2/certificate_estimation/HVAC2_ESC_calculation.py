@@ -50,7 +50,7 @@ class HVAC2_cooling_annual_energy_use(Variable):
       cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
       equivalent_cooling_hours = buildings('HVAC2_equivalent_cooling_hours_input', period)
       rated_AEER = buildings('HVAC2_rated_AEER_input', period)
- 
+
       return np.select([    
                     rated_AEER == 0,
                     (cooling_capacity * equivalent_cooling_hours) > 0, 
@@ -220,7 +220,6 @@ class HVAC2_electricity_savings(Variable):
         regional_network_factor = buildings('HVAC2_PDRS__regional_network_factor', period)
 
         HVAC2_electricity_savings = (deemed_electricity_savings * regional_network_factor)
-
         return HVAC2_electricity_savings
 
 

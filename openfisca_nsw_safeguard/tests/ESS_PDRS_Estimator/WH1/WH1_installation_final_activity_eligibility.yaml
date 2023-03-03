@@ -26,26 +26,26 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_installation:
-      [
-        true, #new install
-        false,
-        false,
-        true
-      ]
     WH1_equipment_replaced:
       [
-        false,
-        true, #replacement
         true,
-        false
+        true,
+        false,
+        false,
       ]
-    WH1_equipment_replaces_gas:
+    WH1_installation:
       [
         false,
         false,
-        true, #not eligible for PRCs
-        true  #new install, not relevant
+        true,
+        false #not eligible
+      ]
+    WH1_equipment_replaces_electric:
+      [
+        true,
+        false, #not eligible
+        false, #ignored
+        true
       ]
     WH1_equipment_removed:
       [
@@ -100,7 +100,7 @@
     WH1_installation_replacement_final_activity_eligibility:
       [
         true,
-        true,
         false,
-        true
+        true,
+        false
       ]

@@ -58,20 +58,14 @@ class SYS2_PRC_calculation(Variable):
         network_loss_factor = buildings('SYS2_network_loss_factor', period)
         kw_to_0_1kw = 10
         replacement_activity = buildings('SYS2_replacement_activity', period)
-        input_power_eligibility = buildings('SYS2_input_power_PRCS_eligibility_int', period)
 
         SYS2_eligible_PRCs = np.select(
             [
-                replacement_activity * input_power_eligibility,
-                np.logical_not(replacement_activity) * input_power_eligibility,
-                replacement_activity * np.logical_not(input_power_eligibility),
-                np.logical_not(replacement_activity) * np.logical_not(input_power_eligibility)
-
+                replacement_activity,
+                np.logical_not(replacement_activity)
             ],
             [
                 (peak_demand_capacity * network_loss_factor * kw_to_0_1kw),
-                0,
-                0,
                 0
             ])
 

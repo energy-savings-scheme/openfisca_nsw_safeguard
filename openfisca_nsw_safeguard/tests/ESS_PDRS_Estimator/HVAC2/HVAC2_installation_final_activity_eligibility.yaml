@@ -3,23 +3,11 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    HVAC2_installed_by_qualified_person:
+    HVAC2_installation:
       [
-        True, 
-        True, 
-        False,
-        True,
         True,
         False,
         False,
-        False
-      ]
-    HVAC2_equipment_installed:
-      [
-        True, 
-        True, 
-        True,
-        True,
         True,
         True,
         True,
@@ -27,47 +15,53 @@
       ]
     HVAC2_equipment_replaced:
       [
-        False, 
-        False, 
         False,
+        True, #replacement
+        False, #not eligible 
         False,
-        False,
-        False,
+        True,
         True,
         True
       ]
-    HVAC2_equipment_removed:
+    HVAC2_installed_by_qualified_person:
       [
-        False, 
-        False, 
-        False,
-        False,
-        False,
-        False,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    HVAC2_equipment_installed:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
         True,
         True
       ]
     HVAC2_residential_building:
       [
-        False, 
-        True, 
+        False,
+        False,
         False,
         True,
-        False,
         True,
-        False, 
-        True, 
+        False,
+        False
       ]
     HVAC2_installed_centralised_system_common_area_BCA_Class2_building:
       [
         False,
-        True,
-        True,
-        False,
-        True,
         False,
         False,
-        True,
+        True, #eligible
+        False, #not eligible
+        False,
+        False
       ]
     HVAC2_equipment_registered_in_GEMS:
       [
@@ -76,31 +70,28 @@
         True,
         True,
         True,
-        False,
         True,
         True
       ]
     HVAC2_new_equipment_cooling_capacity:
       [
         True,
-        False,
         True,
         True,
-        False,
-        False,
         True,
-        False
+        True,
+        False, #uses AEER instead
+        True
       ]
     HVAC2_AEER_greater_than_minimum:
       [
         False,
         True,
-        False,
         True,
         True,
-        False,
-        False,
         True,
+        True, #eligible
+        False #ignored
       ]
     HVAC2_TCPSF_greater_than_minimum:
       [
@@ -108,75 +99,68 @@
         True,
         True,
         True,
-        False,
-        False,
         True,
-        True
+        False, #ignored
+        False  #not eligible
       ]
     HVAC2_climate_zone:
       [
         hot_zone,
         average_zone,
-        cold_zone,
-        cold_zone,
-        cold_zone,
-        hot_zone,
-        hot_zone,
         average_zone,
+        average_zone,
+        average_zone,
+        average_zone,
+        average_zone
       ]
     HVAC2_new_equipment_heating_capacity:
       [
         True,
-        False,
         True,
         True,
-        False,
-        False,
         True,
-        False
+        True,
+        False, #uses ACOP
+        True
       ]
     HVAC2_HSPF_mixed_eligible:
       [
         True,
-        False,
-        False,
         True,
-        False,
-        False,
         True,
-        False
+        True,
+        True,
+        False, #ignored
+        False  #not eligible
       ]
     HVAC2_HSPF_cold_eligible:
       [
         False,
-        False,
-        False,
         True,
         True,
-        False,
-        False,
-        False
+        True,
+        True,
+        False, #ignored
+        True   #ignored
       ]
     HVAC2_ACOP_eligible:
       [
-        True,
-        True,
         False,
         True,
         True,
         True,
         True,
-        True
+        True, #eligible
+        True  #ignored
       ]
   output:
     HVAC2_installation_replacement_final_activity_eligibility:
       [
-        True, 
         True,
-        False,
-        False,
         True,
         False,
         True,
-        True
+        False,
+        True,
+        False
       ]

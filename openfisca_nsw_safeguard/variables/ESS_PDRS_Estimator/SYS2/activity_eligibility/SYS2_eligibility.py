@@ -5,6 +5,29 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
+class SYS2_input_power_Options(Enum):
+    single_speed = 'Between 600w and 1700w'
+    multiple_speed = 'Between 600w and 3450w'
+
+
+class SYS2_input_power_dropdown(Variable):
+     # this variable is used as the second input on all estimator certificate calculation pages
+    value_type = Enum
+    entity = Building
+    possible_values = SYS2_input_power_Options
+    default_value = SYS2_input_power_Options.single_speed
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'user-input',
+        'display_question' : 'What is the input power of the pump unit?',
+        'sorting' : 11,
+        'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic 
+            pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed 
+            pump unit. The pump unit must have an input power of not less than 600W and not more than 1,700W for single speed pumps and 3,450W 
+            for two speed, multi speed and variable speed pumps when tested in accordance with AS 5102.1."""
+    }
+
+
 class SYS2_replacement_final_activity_eligibility(Variable):
     """
         Formula to calculate the SYS2 replacement activity eligibility
@@ -26,15 +49,40 @@ class SYS2_replacement_final_activity_eligibility(Variable):
         star_rating_minimum_four_and_a_half = buildings('SYS2_star_rating_minimum_four_and_a_half', period)
         warranty = buildings('SYS2_warranty', period)
         single_phase = buildings('SYS2_single_phase', period)
-        pump_not_single_speed = buildings('SYS2_not_single_speed', period)
-        single_speed_input_power = buildings('SYS2_single_speed_input_power', period)
-        multiple_speeds_input_power = buildings('SYS2_multiple_speeds_input_power', period)
+        pump_multiple_speed = buildings('SYS2_multiple_speed', period)
+        input_power = buildings('SYS2_input_power_dropdown', period)
 
         # check if it's registered in GEMS or the voluntary labelling scheme                                 
-        GEMS_or_voluntary_labelling_scheme = (registered_GEMS * np.logical_not(voluntary_labelling_scheme)) + (np.logical_not(registered_GEMS) * voluntary_labelling_scheme)
 
+        GEMS_or_voluntary_labelling_scheme = np.select([
+            (registered_GEMS * np.logical_not(voluntary_labelling_scheme)),
+            (np.logical_not(registered_GEMS) * voluntary_labelling_scheme),
+            (np.logical_not(registered_GEMS) * np.logical_not(voluntary_labelling_scheme)),
+            (registered_GEMS * voluntary_labelling_scheme) # default value of voluntary labelling scheme
+        ],
+        [
+            True,
+            True,
+            False,
+            True
+        ])
         #single speed is YES and single speed input power is YES or multiple speed is YES and multiple speed input power is YES
-        speed_and_input_power_eligible = (np.logical_not(pump_not_single_speed) * single_speed_input_power) + (pump_not_single_speed * multiple_speeds_input_power)
+        print(pump_multiple_speed)
+        print(input_power)
+
+        
+        speed_and_input_power_eligible = np.select([
+            (np.logical_not(pump_multiple_speed) * (input_power == SYS2_input_power_Options.single_speed)),
+            (np.logical_not(pump_multiple_speed) * (input_power != SYS2_input_power_Options.single_speed)),
+            (pump_multiple_speed * (input_power == SYS2_input_power_Options.multiple_speed)),
+            (pump_multiple_speed * (input_power != SYS2_input_power_Options.multiple_speed))
+        ],
+            [
+                True,
+                False,
+                True,
+                False
+            ])
 
         end_formula = ( replacement * old_equipment_installed_on_site * qualified_install * 
                         legal_disposal * GEMS_or_voluntary_labelling_scheme * star_rating_minimum_four_and_a_half *

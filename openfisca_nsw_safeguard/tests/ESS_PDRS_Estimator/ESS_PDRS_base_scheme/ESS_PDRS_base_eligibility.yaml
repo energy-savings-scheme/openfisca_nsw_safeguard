@@ -1,5 +1,22 @@
-- name:
-    test ESS PDRS base scheme eligibility for an ACP
+- name: test implementation date eligibility
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    Implementation_date:
+      [
+        planned_activity,
+        before_april_1_2022, 
+        april_1_2022_or_later
+      ]
+  output:
+    Implementation_date_eligibility:
+      [
+        True,
+        True,
+        True
+      ]
+
+- name: test ESS PDRS base scheme eligibility for an ACP
   period: 2022
   absolute_error_margin: 0
   input:
@@ -27,13 +44,13 @@
         True,
         True
       ]
-    Base_implementation_after_1_April_2022:
+    Implementation_date_eligibility:
       [
-        '2022-04-22',
-        '2021-07-01',
-        '2022-04-22',
-        '2022-04-01', # on April 1st
-        '2022-09-03'
+        True,
+        True,
+        True,
+        True,
+        True
       ]
     Base_lawful_activity:
       [
@@ -43,21 +60,13 @@
         True,
         True
       ]
-    Base_registered_ACP:
-      [
-        True,
-        True,
-        False, #not an ACP
-        True,
-        True
-      ]
     Base_engaged_ACP:
       [
-        False,
-        False,
         True,
-        False,
-        False
+        True,
+        True,
+        True,
+        True
       ]
     Base_removing_or_replacing:
       [

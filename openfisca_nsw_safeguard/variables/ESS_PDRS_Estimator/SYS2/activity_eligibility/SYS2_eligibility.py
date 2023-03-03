@@ -67,10 +67,6 @@ class SYS2_replacement_final_activity_eligibility(Variable):
             True
         ])
         #single speed is YES and single speed input power is YES or multiple speed is YES and multiple speed input power is YES
-        print(pump_multiple_speed)
-        print(input_power)
-
-        
         speed_and_input_power_eligible = np.select([
             (np.logical_not(pump_multiple_speed) * (input_power == SYS2_input_power_Options.single_speed)),
             (np.logical_not(pump_multiple_speed) * (input_power != SYS2_input_power_Options.single_speed)),

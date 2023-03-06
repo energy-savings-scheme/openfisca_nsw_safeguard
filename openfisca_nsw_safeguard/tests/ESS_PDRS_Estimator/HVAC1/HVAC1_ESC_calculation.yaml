@@ -564,9 +564,9 @@
       [
         non_ducted_split_system
       ]
-    HVAC1_DNSP:
+    HVAC1_get_network_loss_factor_by_postcode:
       [
-        Essential
+        1.05
       ]
     HVAC1_HSPF_cold:
       [
@@ -630,9 +630,9 @@
       [
         non_ducted_split_system
       ]
-    HVAC1_DNSP:
+    HVAC1_get_network_loss_factor_by_postcode:
       [
-        Ausgrid
+        1.04
       ]
     HVAC1_HSPF_cold:
       [

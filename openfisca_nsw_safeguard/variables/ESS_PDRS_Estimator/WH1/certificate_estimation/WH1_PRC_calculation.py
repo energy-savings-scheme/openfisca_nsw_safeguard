@@ -94,7 +94,6 @@ class WH1_PRC_calculation(Variable):
         kw_to_0_1kw = 10
         replacement_activity = buildings('WH1_replacement_activity', period)
 
-        print('NLF', network_loss_factor)
         WH1_eligible_PRCs = np.select(
             [
                 replacement_activity,

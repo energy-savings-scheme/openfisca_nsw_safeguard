@@ -148,7 +148,7 @@ class HVAC1_PRC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         peak_demand_capacity = buildings('HVAC1_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('HVAC1_network_loss_factor', period)
+        network_loss_factor = buildings('HVAC1_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
         
         

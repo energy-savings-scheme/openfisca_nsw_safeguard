@@ -66,6 +66,29 @@
         3
       ]
 
+- name: test Postcode to DNSP to network loss factor
+  period: 2021
+  input:
+    WH1_PDRS__postcode:
+      [
+        2006,
+        2795,
+        3000,
+        3643,
+        3644,
+        2074
+      ]
+  output:
+    WH1_get_network_loss_factor_by_postcode:
+      [
+        1.04,
+        1.05,
+        0,
+        0,
+        1.05,
+        1.04
+      ]
+
 - name: test HVAC1 peak demand savings activity
   period: 2022
   absolute_error_margin: 0.1
@@ -134,16 +157,6 @@
         true,  #Panasonic CU-Z71XKR / CS-Z71XKRW
         true   #ACTRON Air WRC-050CS/WRE-050CS
       ]
-    HVAC1_DNSP:
-      [
-        Ausgrid,
-        Ausgrid,
-        Ausgrid,
-        Ausgrid, #Coolmaster TCCF10C1S/AOCF10C-S
-        Ausgrid,
-        Essential,
-        Ausgrid
-      ]
     HVAC1_input_power:
       [
         1,
@@ -193,6 +206,16 @@
         2000,
         2800,
         2000
+      ]
+    HVAC1_get_network_loss_factor_by_postcode:
+      [ 
+        1.04,
+        1.04,
+        1.04,
+        1.04,
+        1.04,
+        1.05,
+        1.04
       ]
   output:
     HVAC1_PRC_calculation:

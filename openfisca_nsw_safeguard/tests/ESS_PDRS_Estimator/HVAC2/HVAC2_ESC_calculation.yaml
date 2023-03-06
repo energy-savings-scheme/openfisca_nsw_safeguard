@@ -307,9 +307,9 @@
       [
         ducted_split_system       #Fujitsu General AOTA90LALT/ART 
       ]
-    HVAC2_DNSP: 
+    HVAC2_get_network_loss_factor_by_postcode:
       [
-        Ausgrid
+        1.04
       ]
     HVAC2_PDRS__postcode: 
       [
@@ -357,7 +357,7 @@
         0
       ]
 
-- name: test ESC calculation
+- name: test ESC calculation Mitsubishi
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -365,9 +365,9 @@
       [
         non_ducted_split_system    #Mitsubishi PUMYP112VKMA
       ]
-    HVAC2_DNSP: 
+    HVAC2_get_network_loss_factor_by_postcode:
       [
-        Ausgrid
+        1.04
       ]
     HVAC2_PDRS__postcode: 
       [

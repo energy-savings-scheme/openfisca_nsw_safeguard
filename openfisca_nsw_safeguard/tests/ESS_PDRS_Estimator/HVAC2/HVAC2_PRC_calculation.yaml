@@ -185,7 +185,7 @@
         4.8,
         21.72
       ]
-    HVAC2_network_loss_factor:
+    HVAC2_get_network_loss_factor_by_postcode:
       [
         1.04,
         1.04, #Ausgrid
@@ -213,13 +213,13 @@
         true,
         true
       ]
-    HVAC2_DNSP:
+    HVAC2_get_network_loss_factor_by_postcode:
       [
-        Ausgrid,
-        Ausgrid,   #Fujitsu AOTA90LALT/ARTC90LATU
-        Ausgrid,   #Daikin RXM25UVMA / FTXM25UVMA
-        Essential, #Panasonic CU-Z71XKR / CS-Z71XKRW
-        Ausgrid    #Mitsubishi PUMY-P112VKM-A
+        1.04,
+        1.04, #Fujitsu AOTA90LALT/ARTC90LATU
+        1.04, #Daikin RXM25UVMA / FTXM25UVMA
+        1.05, #Panasonic CU-Z71XKR / CS-Z71XKRW
+        1.04  #Mitsubishi PUMY-P112VKM-A
       ]
     HVAC2_input_power:
       [
@@ -279,9 +279,9 @@
       [
         non_ducted_split_system
       ]
-    HVAC2_DNSP:
+    HVAC2_get_network_loss_factor_by_postcode:
       [
-        Ausgrid
+        1.04
       ]
     HVAC2_PDRS__postcode:
       [

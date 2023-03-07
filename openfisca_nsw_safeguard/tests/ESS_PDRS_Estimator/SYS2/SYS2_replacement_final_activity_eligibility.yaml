@@ -73,18 +73,25 @@
         true,
         false
       ]
-    SYS2_input_power_dropdown:
+    SYS2_single_speed_input_power:
       [
-        multiple_speed,
-        single_speed,
-        single_speed,
-        single_speed
+        true,
+        false,
+        false,
+        true
+      ]
+    SYS2_multiple_speeds_input_power:
+      [
+        true,
+        false, #not eligible
+        true,
+        true
       ]
   output:
     SYS2_replacement_final_activity_eligibility:
       [
         true,
         false,
-        false,
+        true,
         true
       ]

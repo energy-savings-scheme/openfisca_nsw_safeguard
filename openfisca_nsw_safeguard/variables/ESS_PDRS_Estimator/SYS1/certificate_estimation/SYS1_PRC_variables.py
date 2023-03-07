@@ -21,6 +21,22 @@ class SYS1_PDRS__postcode(Variable):
     }
 
 
+class SYS1_get_network_loss_factor_by_postcode(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'input',
+        'sorting' : 2,
+        'label' : 'Network loss factor is calculated automatically from your postcode. If you have a 0 here, please check your postcode is correct. If the postcode has more than one distribution network service provider, we have chosen the network factor loss with the lowest value.'
+    }
+    def formula(building, period, parameters):
+        postcode = building('SYS1_PDRS__postcode', period)
+        network_loss_factor = parameters(period).PDRS.table_network_loss_factor_by_postcode
+
+        return network_loss_factor.calc(postcode)
+
+
 class SYS1_BCA_climate_zone_by_postcode(Variable):
     value_type = str
     entity = Building
@@ -58,15 +74,3 @@ class SYS1_BCA_climate_zone_by_postcode(Variable):
                 "BCA_Climate_Zone_8"
             ])
         return cooling_capacity_to_check
-    
-
-class SYS1_network_loss_factor(Variable):
-    reference = 'table_A3_network_loss_factors'
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    
-    def formula(buildings, period, parameters):
-        distribution_district = buildings('SYS1_DNSP', period)
-        network_loss_factor = parameters(period).PDRS.table_A3_network_loss_factors['network_loss_factor'][distribution_district]
-        return network_loss_factor

@@ -133,7 +133,7 @@ class SYS1_PRC_calculation(Variable):
     
     def formula(buildings, period, parameters):
         peak_demand_reduction_capacity = buildings('SYS1_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('SYS1_network_loss_factor', period) 
+        network_loss_factor = buildings('SYS1_get_network_loss_factor_by_postcode', period) 
 
         result = (peak_demand_reduction_capacity * network_loss_factor * 10)
         

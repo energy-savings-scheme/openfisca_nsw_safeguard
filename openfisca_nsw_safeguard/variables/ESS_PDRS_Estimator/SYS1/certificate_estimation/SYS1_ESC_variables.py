@@ -81,28 +81,6 @@ class SYS1_new_efficiency(Variable):
     }
 
 
-class SYS1_DNSP_Options(Enum):
-    Ausgrid = 'Ausgrid'
-    Endeavour = 'Endeavour'
-    Essential = 'Essential'
-
-
-class SYS1_DNSP(Variable):
-     # this variable is used as the second input on all estimator certificate calculation pages
-    value_type = Enum
-    entity = Building
-    possible_values = SYS1_DNSP_Options
-    default_value = SYS1_DNSP_Options.Ausgrid
-    definition_period = ETERNITY
-    label = "Distribution Network Service Provider"
-    metadata = {
-        'variable-type': 'user-input',
-        'label': "Distribution Network Service Provider",
-        'display_question' : 'Who is your Distribution Network Service Provider?',
-        'sorting' : 2
-    }
-
-
 class SYS1_new_equipment_baseline_efficiency(Variable):
     value_type = float
     entity = Building

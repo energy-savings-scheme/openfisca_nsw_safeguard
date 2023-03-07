@@ -96,7 +96,7 @@
       [
         109.35 #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
-    SYS1_network_loss_factor:
+    SYS1_get_network_loss_factor_by_postcode:
       [
         1.05 #Essential
       ]
@@ -128,11 +128,11 @@
         9.54,
         94.7
      ]
-    SYS1_DNSP:
+    SYS1_get_network_loss_factor_by_postcode:
       [
-        Ausgrid,   
-        Endeavour, 
-        Endeavour  
+        1.04,
+        1.05,
+        1.05 
       ]
     SYS1_BCA_climate_zone_by_postcode:
       [
@@ -152,11 +152,11 @@
   period: 2022
   absolute_error_margin: 0.5
   input:
-    SYS1_DNSP:
+    SYS1_get_network_loss_factor_by_postcode:
       [
-        Endeavour,
-        Ausgrid,
-        Ausgrid
+        1.05,
+        1.04,
+        1.04
       ]
     SYS1_PDRS__postcode:
       [

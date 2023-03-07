@@ -17,7 +17,7 @@ class RF1_PRC_calculation(Variable):
     
     def formula(buildings, period, parameters):
         peak_demand_reduction_capacity = buildings('RF1_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('RF1_network_loss_factor', period) 
+        network_loss_factor = buildings('RF1_get_network_loss_factor_by_postcode', period) 
         storage_volume_eligibility = buildings('RF1_storage_volume', period)
 
         RF1_eligible_PRCs = np.select(

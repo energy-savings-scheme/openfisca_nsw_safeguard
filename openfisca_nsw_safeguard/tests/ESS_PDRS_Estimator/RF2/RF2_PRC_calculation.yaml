@@ -91,7 +91,7 @@
         25,
         21.168 #SKOPE TMF1000N-A
       ]
-    RF2_network_loss_factor:
+    RF2_get_network_loss_factor_by_postcode:
       [
         1.05,
         1.05 #Endeavour
@@ -125,7 +125,7 @@
         25,
         25
       ]
-    RF2_network_loss_factor:
+    RF2_get_network_loss_factor_by_postcode:
       [
         1.05,
         1.05,
@@ -183,7 +183,7 @@
       [
         25
       ]
-    RF2_network_loss_factor:
+    RF2_get_network_loss_factor_by_postcode:
       [
         1.05
       ]
@@ -209,10 +209,10 @@
   period: 2022
   absolute_error_margin: 0.5
   input:
-    RF2_DNSP: 
+    RF2_get_network_loss_factor_by_postcode: 
       [
-        Endeavour, #SKOPE TMF1000N-A
-        Endeavour
+        1.05, #SKOPE TMF1000N-A
+        1.05
       ]
     RF2_PDRS__postcode: 
       [
@@ -254,4 +254,24 @@
       [
         0,
         233.377
+      ]
+
+- name: test postcode to network loss factor
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    RF2_PDRS__postcode:
+      [
+        2000,
+        2113,
+        2115,
+        3700
+      ]
+  output:
+    RF2_get_network_loss_factor_by_postcode:
+      [
+        1.04,
+        1.04,
+        1.05,
+        0
       ]

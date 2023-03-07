@@ -303,9 +303,9 @@
   period: 2022
   absolute_error_margin: 1
   input:
-    RF2_DNSP: 
+    RF2_get_network_loss_factor_by_postcode:
       [
-        Endeavour
+        1.05,
       ]
     RF2_PDRS__postcode:
       [

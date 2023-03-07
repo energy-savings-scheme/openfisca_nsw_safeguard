@@ -93,7 +93,7 @@ class RF2_PRC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         peak_demand_capacity = buildings('RF2_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('RF2_network_loss_factor', period)
+        network_loss_factor = buildings('RF2_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
         replacement_activity = buildings('RF2_replacement_activity', period)
         EEI_eligible_replacement = buildings('RF2_product_EEI_PRC_replacement_eligibility', period)

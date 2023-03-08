@@ -90,7 +90,7 @@
         120,
         3.47 
       ]
-    SYS2_network_loss_factor:
+    SYS2_get_network_loss_factor_by_postcode:
       [
         1.05,
         1.05  #Essential
@@ -111,7 +111,7 @@
         120,
         120
       ]
-    SYS2_network_loss_factor:
+    SYS2_get_network_loss_factor_by_postcode:
       [
         1.05,
         1.05

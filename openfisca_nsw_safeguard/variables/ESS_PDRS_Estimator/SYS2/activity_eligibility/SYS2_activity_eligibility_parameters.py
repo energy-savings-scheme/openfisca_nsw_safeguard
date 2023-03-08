@@ -130,7 +130,7 @@ class SYS2_multiple_speed(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the End-User equipment two speed, multi speed or variable speed?',
+      'display_question' : 'Is the pool pump any of the following types: single speed, two speed, multi speed, variable speed?',
       'sorting' : 10,
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic 
                                 pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed 

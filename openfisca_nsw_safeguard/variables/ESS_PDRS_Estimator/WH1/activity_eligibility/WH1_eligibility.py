@@ -29,8 +29,17 @@ class WH1_installation_replacement_final_activity_eligibility(Variable):
         storage_volume_certified = buildings('WH1_equipment_certified_by_storage_volume', period)
         
 
-        #check if its installation or replacement and if replacement, that it's replacing electric
-        installation_or_replacement = new_installation + (replacement * electric_replacement)
+        #check if it's an installation or replacement and (if replacing), if it's an existing gas or electric 
+        installation_or_replacement = np.select([
+            (replacement * np.logical_not(electric_replacement)),
+            (replacement * electric_replacement),
+            (np.logical_not(replacement) * new_installation)
+        ],
+        [
+            False,
+            True,
+            False
+        ])
 
         end_formula = ( installation_or_replacement * qualified_removal_install * equipment_installed *
                         np.logical_not(not_installed_class_1_or_4) * air_source_heat_pump * scheme_admin_approved *

@@ -28,25 +28,24 @@ class SYS2_PDRS__regional_network_factor(Variable):
 
 class SYS2StarRating(Enum):
     #New End-User Equipment must achieve a minimum 4.5 star rating to be eligible
-    four_and_a_half_stars = '4.5 stars'
-    five_stars = '5 stars'
-    five_and_a_half_stars = '5.5 stars'
-    six_stars = '6 stars'
-    six_and_a_half_stars = '6.5 stars'
-    seven_stars = '7 stars'
-    seven_and_a_half_stars = '7.5 stars'
-    eight_stars = '8 stars'
-    eight_and_a_half_stars = '8.5 stars'
-    nine_stars = '9 stars'
-    nine_and_a_half_stars = '9.5 stars'
-    ten_stars = '10 stars'
+    four_and_a_half_stars = '4.5'
+    five_stars = '5'
+    five_and_a_half_stars = '5.5'
+    six_stars = '6'
+    six_and_a_half_stars = '6.5'
+    seven_stars = '7'
+    seven_and_a_half_stars = '7.5'
+    eight_stars = '8'
+    eight_and_a_half_stars = '8.5'
+    nine_stars = '9'
+    nine_and_a_half_stars = '9.5'
+    ten_stars = '10'
 
 
 class SYS2_star_rating(Variable):
-    value_type = Enum
+    value_type = str
     entity = Building
-    possible_values = SYS2StarRating
-    default_value = SYS2StarRating.five_and_a_half_stars
+    default_value = SYS2StarRating.four_and_a_half_stars
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',

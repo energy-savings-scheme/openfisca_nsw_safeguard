@@ -27,13 +27,13 @@
       ]
     SYS2_pool_pump_type:
       [
-        fixed_speed_pool_pump,
-        single_speed_pool_pump
+        'fixed speed',
+        'single speed'
       ]
     SYS2_star_rating:
       [ 
-        eight_stars,
-        eight_stars
+        '5',
+        '8'
       ]
   output:
     SYS2_input_power:

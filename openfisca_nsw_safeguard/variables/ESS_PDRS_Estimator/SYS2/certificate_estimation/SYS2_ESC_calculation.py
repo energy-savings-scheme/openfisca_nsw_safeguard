@@ -40,6 +40,45 @@ class SYS2StarRating(Enum):
     nine_stars = '9'
     nine_and_a_half_stars = '9.5'
     ten_stars = '10'
+    
+    
+class SYS2StarRatingString(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      product_class = buildings('SYS2_star_rating', period)
+      
+      product_class = np.select([
+        product_class == '4.5',
+        product_class == '5',
+        product_class == '5.5',
+        product_class == '6',
+        product_class == '6.5',
+        product_class == '7',
+        product_class == '7.5',
+        product_class == '8',
+        product_class == '8.5',
+        product_class == '9',
+        product_class == '9.5',
+        product_class == '10'
+      ], 
+      [
+        SYS2StarRating.four_and_a_half_stars,
+        SYS2StarRating.five_stars,
+        SYS2StarRating.five_and_a_half_stars,
+        SYS2StarRating.six_stars,
+        SYS2StarRating.six_and_a_half_stars,
+        SYS2StarRating.seven_stars,
+        SYS2StarRating.seven_and_a_half_stars,
+        SYS2StarRating.eight_stars,
+        SYS2StarRating.eight_and_a_half_stars,
+        SYS2StarRating.nine_stars,
+        SYS2StarRating.nine_and_a_half_stars,
+        SYS2StarRating.ten_stars      
+      ])
+      return product_class
 
 
 class SYS2_star_rating(Variable):
@@ -61,7 +100,7 @@ class SYS2_savings_factor(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-        star_rating = buildings('SYS2_star_rating', period)
+        star_rating = buildings('SYS2StarRatingString', period)
         savings_factor = parameters(period).ESS.HEER.table_D5_1['electricity_savings_factor'][star_rating]
 
         return savings_factor

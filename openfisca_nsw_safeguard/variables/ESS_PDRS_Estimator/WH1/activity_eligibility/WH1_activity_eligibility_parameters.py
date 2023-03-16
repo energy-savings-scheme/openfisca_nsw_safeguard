@@ -13,7 +13,7 @@ class WH1_equipment_replaced(Variable):
     metadata = {
       'display_question' : 'Is the activity the replacement of an existing resistance hot water boiler or heater with a heat pump water heater?',
       'sorting' : 1,
-      'eligibility_clause' : """In PDRS WH1 Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
+      'eligibility_clause' : """In PDRS WH1 the activity definition states that the activity must replace one or more existing hot water boilers or water heaters with one or more air source heat pump water heater systems."""
     }
 
 
@@ -26,7 +26,7 @@ class WH1_installation(Variable):
       'display_question' : 'Is the activity the installation of a new heat pump water heater?',
       'sorting' : 2,
       'conditional' : 'True',
-      'eligibility_clause' : """In PDRS WH1 Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
+      'eligibility_clause' : """This activity is not eligible for PRCs (only eligible for ESCs), in PDRS WH1 the activity definition states that the activity must replace one or more existing hot water boilers or water heaters with one or more air source heat pump water heater systems."""
     }
 
 

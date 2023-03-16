@@ -4,7 +4,7 @@
   input:
     SYS2_star_rating:
       [
-        six_stars
+        '6'
       ]
   output:
     SYS2_savings_factor:
@@ -23,8 +23,8 @@
       ]
     SYS2_star_rating:
       [
-        seven_stars,
-        ten_stars
+        '7',
+        '10'
       ]
   output:
     SYS2_electricity_savings:

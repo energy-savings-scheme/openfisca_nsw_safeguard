@@ -77,6 +77,30 @@ class SYS2PoolPumpType(Enum):
     multiple_speed_pool_pump = 'multiple speed'
 
 
+class SYS2_pool_pump_type_string(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      product_class = buildings('SYS2_pool_pump_type', period)
+      
+      product_class = np.select([
+        product_class == 'single speed',
+        product_class == 'fixed speed',
+        product_class == 'variable speed',
+        product_class == 'multiple speed'
+      ], 
+      [
+        SYS2PoolPumpType.single_speed_pool_pump,
+        SYS2PoolPumpType.fixed_speed_pool_pump,
+        SYS2PoolPumpType.variable_speed_pool_pump,
+        SYS2PoolPumpType.multiple_speed_pool_pump
+      ])
+      
+      return product_class
+
+
 class SYS2_pool_pump_type(Variable):
     value_type = str
     entity = Building
@@ -97,8 +121,8 @@ class SYS2_input_power(Variable):
 
     def formula(buildings, period, parameters):
       pool_size = buildings('SYS2_pool_size_int', period)
-      pool_pump_type = buildings('SYS2_pool_pump_type', period)
-      star_rating = buildings('SYS2_star_rating', period)
+      pool_pump_type = buildings('SYS2_pool_pump_type_string', period)
+      star_rating = buildings('SYS2StarRatingString', period)
 
       input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size][star_rating][pool_pump_type]
       return input_power

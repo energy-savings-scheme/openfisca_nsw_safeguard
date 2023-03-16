@@ -9,7 +9,7 @@ from openfisca_nsw_base.entities import Building
     These variables use Rule tables
 """
 class SYS2_PDRS__postcode(Variable):
-    # using to get the regional network factor
+    # using to get the regional network factor and network loss factor
     # this variable is used as the first input on all estimator certificate calculation pages
     value_type = int
     entity = Building

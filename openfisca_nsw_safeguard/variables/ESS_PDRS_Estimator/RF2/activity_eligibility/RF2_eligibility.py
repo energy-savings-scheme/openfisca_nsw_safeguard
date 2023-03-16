@@ -25,8 +25,19 @@ class RF2_installation_replacement_final_activity_eligibility(Variable):
         registered_GEMS = buildings('RF2_equipment_registered_in_GEMS', period)
         product_class_5 = buildings('RF2_GEMS_product_class_5', period)
 
-        #check if its installation or replacement      
-        replacement_or_installation_qualified = (replacement * qualified_install_removal) + (new_installation * qualified_install_removal)
+        #check if its installation or replacement     
+        replacement_or_installation_qualified = np.select([
+            (replacement * qualified_install_removal),
+            (replacement * np.logical_not(qualified_install_removal)),
+            (np.logical_not(replacement) * new_installation * qualified_install_removal),
+            (np.logical_not(replacement) * new_installation * np.logical_not(qualified_install_removal))
+        ],
+        [
+            True,
+            False,
+            False,
+            False
+        ])
 
         #if product class is 5 then EEI must be below 51 otherwise for all other product classes EEI must be below 81
         EEI_under_51 = buildings('RF2_EEI_under_51', period)

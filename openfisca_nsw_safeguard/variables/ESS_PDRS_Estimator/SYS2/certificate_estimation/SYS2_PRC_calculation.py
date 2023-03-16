@@ -55,7 +55,7 @@ class SYS2_PRC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         peak_demand_capacity = buildings('SYS2_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('SYS2_network_loss_factor', period)
+        network_loss_factor = buildings('SYS2_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
         replacement_activity = buildings('SYS2_replacement_activity', period)
 

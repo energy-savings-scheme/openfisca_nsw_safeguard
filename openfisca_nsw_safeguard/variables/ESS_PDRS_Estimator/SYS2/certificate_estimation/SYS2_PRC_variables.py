@@ -71,7 +71,7 @@ class SYS2_baseline_input_power(Variable):
 
 
 class SYS2PoolPumpType(Enum):
-    single_speed_pool_pump = 'single speed',
+    single_speed_pool_pump = 'single speed'
     fixed_speed_pool_pump = 'fixed speed'
     variable_speed_pool_pump = 'variable speed'
     multiple_speed_pool_pump = 'multiple speed'
@@ -80,7 +80,7 @@ class SYS2PoolPumpType(Enum):
 class SYS2_pool_pump_type(Variable):
     value_type = str
     entity = Building
-    default_value = SYS2PoolPumpType.variable_speed_pool_pump
+    default_value = 'variable speed'
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',

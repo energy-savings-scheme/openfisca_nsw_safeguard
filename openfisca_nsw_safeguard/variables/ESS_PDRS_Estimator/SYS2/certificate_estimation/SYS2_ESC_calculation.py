@@ -45,7 +45,7 @@ class SYS2StarRating(Enum):
 class SYS2_star_rating(Variable):
     value_type = str
     entity = Building
-    default_value = SYS2StarRating.four_and_a_half_stars
+    default_value = '4.5'
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',

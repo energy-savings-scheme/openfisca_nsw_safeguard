@@ -54,7 +54,7 @@ class Base_implemented_activity(Variable):
 
 class implementation_date_options(Enum):
     planned_activity        = 'Planned activity'        #not eligible
-    before_april_1_2022     = 'Before 1 April 2022'     #ESCs only
+    before_april_1_2022     = 'Before 1 April 2022'     #not eligible
     april_1_2022_or_later   = '1 April 2022 or later'   #ESCs and PRCs 
 
 
@@ -87,7 +87,7 @@ class Implementation_date_eligibility(Variable):
             ],
             [
                 False,
-                True,
+                False,
                 True
             ])
 

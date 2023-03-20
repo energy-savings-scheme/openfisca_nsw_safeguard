@@ -12,7 +12,7 @@
     Implementation_date_eligibility:
       [
         False,
-        True,
+        False,
         True
       ]
 

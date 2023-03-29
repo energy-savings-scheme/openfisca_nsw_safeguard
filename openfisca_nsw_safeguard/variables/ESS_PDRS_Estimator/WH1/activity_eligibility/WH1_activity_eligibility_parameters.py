@@ -193,4 +193,3 @@ class WH1_equipment_certified_by_storage_volume(Variable):
           True
         ])
       return eligible_by_storage
-  

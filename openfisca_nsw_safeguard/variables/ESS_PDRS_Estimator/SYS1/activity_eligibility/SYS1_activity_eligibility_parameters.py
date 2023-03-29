@@ -25,8 +25,7 @@ class SYS1_equipment_registered_in_GEMS(Variable):
     metadata = {
         'display_question' : 'Is the new End-User equipment a registered product on the GEMS registry under GEMS (Three Phase Cage Induction Motors) Determination 2019?',
         'sorting' : 2,
-        'eligibility_clause' : """In PDRS SYS1 Equipment Requirements Clause 2 it states that The electric motor must be a registered product under GEMS and comply with 
-                                  the Greenhouse and Energy Minimum Standards (Three Phase Cage Induction Motors) Determination 2019."""
+        'eligibility_clause' : """In PDRS SYS1 Equipment Requirements Clause 2 it states that The electric motor must be a registered product under GEMS and comply with the Greenhouse and Energy Minimum Standards (Three Phase Cage Induction Motors) Determination 2019."""
     }
 
 
@@ -38,9 +37,7 @@ class SYS1_high_efficiency(Variable):
     metadata = {
       'display_question' : 'Is the new End-User equipment a 3-phase, high efficiency electric motor?',
       'sorting' : 3,
-      'eligibility_clause' : """In PDRS SYS1 Equipment Requirements Clause 1 it states that the End-User Equipment must be a 3 phase electric motor rated high efficiency within the meaning 
-                                of Part 5 of the Greenhouse and Energy Minimum Standards (Three Phase Cage Induction Motors) Determination 2019 when tested in accordance with subclause 6.1.3 
-                                of IEC60034-2-1."""
+      'eligibility_clause' : """In PDRS SYS1 Equipment Requirements Clause 1 it states that the End-User Equipment must be a 3 phase electric motor rated high efficiency within the meaning of Part 5 of the Greenhouse and Energy Minimum Standards (Three Phase Cage Induction Motors) Determination 2019 when tested in accordance with subclause 6.1.3 of IEC60034-2-1."""
     }   
 
 

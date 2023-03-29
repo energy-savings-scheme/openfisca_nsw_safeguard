@@ -48,7 +48,8 @@ class Base_implemented_activity(Variable):
     metadata = {
         'display_question' : 'Has implementation already occurred?',
         'sorting' : 3,
-        'eligibility_clause' : """In ESS Clause 5.3A(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.<br /> In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
+        'eligibility_clause' : """In ESS Clause 5.3A(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.<br /> 
+                                  In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
     }
 
 
@@ -112,8 +113,7 @@ class Base_engaged_ACP(Variable):
     metadata = {
         'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 6,
-        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of
-                                  the Energy Savings for an Implementation where:<br />
+        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
     }
@@ -148,9 +148,7 @@ class Base_disposal_of_equipment(Variable):
         'display_question' : 'Will the End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?',
         'sorting' : 8,
         'conditional': 'True',
-        'eligibility_clause' : """In PDRS Clause 5.3(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity if it is disposed of in accordance 
-        with legal requirements imposed through a statutory or regulatory instrument of the Commonwealth or a State or Territory of the Commonwealth, including by obtaining evidence for any refrigerants 
-        being disposed of or recycled."""
+        'eligibility_clause' : """In PDRS Clause 5.3(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity if it is disposed of in accordance with legal requirements imposed through a statutory or regulatory instrument of the Commonwealth or a State or Territory of the Commonwealth, including by obtaining evidence for any refrigerants being disposed of or recycled."""
     }
 
 
@@ -163,8 +161,7 @@ class Base_resold_reused_or_refurbished(Variable):
         'display_question' : 'Is the removed End-User equipment re-sold, refurbished or re-used?',
         'sorting' : 9,
         'conditional' : 'True',
-        'eligibility_clause' : """In PDRS Clause 5.3(a) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity
-        if the End-User Equipment is not refurbished, re-used or resold."""
+        'eligibility_clause' : """In PDRS Clause 5.3(a) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Peak Activity if the End-User Equipment is not refurbished, re-used or resold."""
     }
 
 
@@ -201,9 +198,7 @@ class Base_meets_mandatory_requirement(Variable):
     metadata = {
         'display_question': 'Is the activity being undertaken to comply with any mandatory legal requirements?',
         'sorting' : 12,
-        'eligibility_clause' : """In PDRS Clause 5.4(c) it states that an activity is not a Recognised Peak Activity if it is undertaken to comply with any mandatory legal requirement imposed 
-        through a statutory or regulatory instrument of the Commonwealth or a State or Territory of the Commonwealth, including but not limited to National Construction Code and BASIX affected 
-        development requirements, except for alterations, enlargements or extensions of a BASIX affected development as defined in clause 3(1)(c) of the Environmental Planning and Assessment Regulation 2021."""
+        'eligibility_clause' : """In PDRS Clause 5.4(c) it states that an activity is not a Recognised Peak Activity if it is undertaken to comply with any mandatory legal requirement imposed through a statutory or regulatory instrument of the Commonwealth or a State or Territory of the Commonwealth, including but not limited to National Construction Code and BASIX affected development requirements, except for alterations, enlargements or extensions of a BASIX affected development as defined in clause 3(1)(c) of the Environmental Planning and Assessment Regulation 2021."""
     }
 
 
@@ -216,10 +211,7 @@ class Base_basix_affected_development(Variable):
         'display_question': 'Is the activity an alteration, enlargement or extension of a BASIX affected development?',
         'sorting' : 13,
         'conditional': 'True',
-        'eligibility_clause' : """In PDRS Clause 5.4(c) it states that an activity is not a Recognised Peak Activity if it is undertaken to comply with any mandatory legal requirement imposed 
-        through a statutory or regulatory instrument of the Commonwealth or a State or Territory of the Commonwealth, including but not limited to National Construction Code and BASIX affected 
-        development requirements, except for alterations, enlargements or extensions of a BASIX affected development as defined in clause 3(1)(c) of the Environmental Planning and Assessment Regulation 2021."""
-
+        'eligibility_clause' : """In PDRS Clause 5.4(c) it states that an activity is not a Recognised Peak Activity if it is undertaken to comply with any mandatory legal requirement imposed through a statutory or regulatory instrument of the Commonwealth or a State or Territory of the Commonwealth, including but not limited to National Construction Code and BASIX affected development requirements, except for alterations, enlargements or extensions of a BASIX affected development as defined in clause 3(1)(c) of the Environmental Planning and Assessment Regulation 2021."""
     }
 
 
@@ -231,8 +223,7 @@ class Base_prescribed_transmission_service(Variable):
     metadata = {
         'display_question': 'Is the activity a Standard Control Service or Prescribed Transmission service undertaken by a Network Service Provider?',
         'sorting' : 14,
-        'eligibility_clause' : """In PDRS Clause 5.4(d) it states that an activity is not a Recognised Peak Activity if it is a Standard Control Service or Prescribed Transmission Service 
-        undertaken by a Network Service Provider in accordance with the National Electricity Rules under the National Electricity (NSW) Law, except if the activity is a Non-Network Option."""
+        'eligibility_clause' : """In PDRS Clause 5.4(d) it states that an activity is not a Recognised Peak Activity if it is a Standard Control Service or Prescribed Transmission Service undertaken by a Network Service Provider in accordance with the National Electricity Rules under the National Electricity (NSW) Law, except if the activity is a Non-Network Option."""
     }
 
 
@@ -244,8 +235,7 @@ class Base_tradeable_certificates(Variable):
     metadata = {
         'display_question' : 'Is the activity eligible to create tradeable certificates under the Renewable Energy Act?',
         'sorting' : 15,
-        'eligibility_clause' : """In PDRS Clause 5.4(e) it states that an activity is not a Recognised Peak Activity if it is eligible to create tradeable certificates under the Renewable Energy (Electricity) Act 2000 (Cth),
-        except if the activity is the installation of a replacement heat pump water heater."""
+        'eligibility_clause' : """In PDRS Clause 5.4(e) it states that an activity is not a Recognised Peak Activity if it is eligible to create tradeable certificates under the Renewable Energy (Electricity) Act 2000 (Cth), except if the activity is the installation of a replacement heat pump water heater."""
     }
 
 
@@ -258,8 +248,7 @@ class Base_replacement_water_heater_certificates(Variable):
         'display_question' : 'Is the activity the installation of a replacement heat pump water heater?',
         'sorting' : 16,
         'conditional': 'True',
-        'eligibility_clause' : """In PDRS Clause 5.4(e) it states that an activity is not a Recognised Peak Activity if it is eligible to create tradeable certificates under the Renewable Energy (Electricity) Act 2000 (Cth),
-        except if the activity is the installation of a replacement heat pump water heater."""
+        'eligibility_clause' : """In PDRS Clause 5.4(e) it states that an activity is not a Recognised Peak Activity if it is eligible to create tradeable certificates under the Renewable Energy (Electricity) Act 2000 (Cth), except if the activity is the installation of a replacement heat pump water heater."""
     }
 
 
@@ -273,6 +262,5 @@ class Base_replacement_solar_water_heater_certificates(Variable):
         'sorting' : 17,
         'conditional': 'True',
         'eligibility_clause' : """In ESS Clause 5.4(g) it states that Recognised Energy Saving Activities do not include any of the following:<br />
-        an activity that is eligible to create tradeable certificates under the Renewable Energy (Electricity) Act 2000 (Cth), except if the activity is the installation of a new or
-        replacement solar water heater or heat pump water heater."""
+        an activity that is eligible to create tradeable certificates under the Renewable Energy (Electricity) Act 2000 (Cth), except if the activity is the installation of a new or replacement solar water heater or heat pump water heater."""
     }

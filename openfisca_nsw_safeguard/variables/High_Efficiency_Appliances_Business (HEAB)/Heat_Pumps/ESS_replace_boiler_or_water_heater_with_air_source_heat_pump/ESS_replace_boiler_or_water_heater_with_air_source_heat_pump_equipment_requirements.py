@@ -10,7 +10,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_AS4234_
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Is the installed end-user equipment an air source heat pump water heater as defined by AS/NZS 4234?'
+    label = 'Is the installed End-User equipment an air source heat pump water heater as defined by AS/NZS 4234?'
     metadata = {
           'alias':  'air source heat pump water heater',
       }
@@ -111,7 +111,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'What is the storage volume (in Litres) of your installed end-user equipment?'
+    label = 'What is the storage volume (in Litres) of your installed End-User equipment?'
     metadata = {
           'alias':  'Storage volume',
       }
@@ -155,9 +155,9 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_equipme
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the installed end-user equipment meet the Equipment Requirements?'
+    label = 'Does the installed End-User equipment meet the Equipment Requirements?'
     metadata = {
-        'alias':  'The installed end-user equipment meets the equipment requirements'
+        'alias':  'The installed End-User equipment meets the equipment requirements'
     }
 
     def formula(buildings, period, parameters):

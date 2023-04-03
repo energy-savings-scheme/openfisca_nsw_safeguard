@@ -17,7 +17,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Has the replacement end-user equipment been installed?'
+    label = 'Has the replacement End-User equipment been installed?'
     metadata = {
         'alias':  'The replacement hot water pump is installed'
     }
@@ -29,7 +29,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_impleme
     definition_period = ETERNITY
     label = 'Does the new End-User equipment meet the Implementation Requirements?'
     metadata = {
-        'alias':  'The new end-user equipment meets the implementation requirements'
+        'alias':  'The new End-User equipment meets the implementation requirements'
     }
 
     def formula(buildings, period, parameters):  

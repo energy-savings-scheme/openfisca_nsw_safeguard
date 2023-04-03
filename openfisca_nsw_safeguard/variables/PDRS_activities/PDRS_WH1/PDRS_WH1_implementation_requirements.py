@@ -21,7 +21,7 @@ class PDRS_WH1_implementation_requirements_replacement_hot_water_pump_is_install
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Has the replacement end-user equipment been installed?'
+    label = 'Has the replacement End-User equipment been installed?'
     metadata = {
         'alias':  'The replacement hot water pump is installed'
     }
@@ -30,7 +30,7 @@ class PDRS_WH1_implementation_requirements_install_or_removal_hot_water_pump_is_
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Has the installation and removal of the end-user equipment been performed or supervised by a suitably licensed person?'
+    label = 'Has the installation and removal of the End-User equipment been performed or supervised by a suitably licensed person?'
     metadata = {
         'alias':  'The installation and removal has been supervised or performed by suitably licensed person' 
     }
@@ -41,7 +41,7 @@ class PDRS_WH1_meets_implementation_requirements(Variable):
     definition_period = ETERNITY
     label = 'Does the new End-User equipment meet the Implementation Requirements?'
     metadata = {
-        'alias':  'The new end-user equipment meets the implementation requirements'
+        'alias':  'The new End-User equipment meets the implementation requirements'
     }
 
     def formula(buildings, period, parameters):  

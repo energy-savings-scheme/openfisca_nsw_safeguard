@@ -68,7 +68,7 @@ class Implementation_date(Variable):
     metadata = {
         'display_question' : 'What date did the implementation occur?',
         'sorting' : 4,
-        'eligibility_clause' : """In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
+        'eligibility_clause' : """Planned activities are not eligible under the scheme. To meet rule requirements, make sure you have engaged an Accredited Certificate Provider before implementation."""
     }
 
 

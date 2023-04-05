@@ -26,6 +26,7 @@ class RF1_PDRS__postcode(Variable):
 class RF1_storage_volume(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',

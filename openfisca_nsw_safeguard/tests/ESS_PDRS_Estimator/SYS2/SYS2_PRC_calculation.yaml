@@ -32,8 +32,8 @@
       ]
     SYS2_star_rating:
       [ 
-        '5',
-        '8'
+        5,
+        8
       ]
   output:
     SYS2_input_power:
@@ -126,4 +126,34 @@
       [
         0,
         1260
+      ]
+
+- name: test SYS2 PRC certificate
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_PDRS__postcode:
+      [
+        2017
+      ]
+    SYS2_pool_pump_type:
+      [
+        multiple speed
+      ]
+    SYS2_pool_size:
+      [
+        pool_under_20000_L
+      ]
+    SYS2_replacement_activity:
+      [
+        true
+      ]
+    SYS2_star_rating:
+      [
+        4.5
+      ]
+  output:
+    SYS2_PRC_calculation:
+      [
+        24.32
       ]

@@ -207,7 +207,7 @@ class ACClimateZone(Enum):
 class AC_climate_zone(Variable):
     value_type = Enum
     entity = Building
-    label = "What is the climate zone the end-user equipment is installed in?"
+    label = "What is the climate zone the End-User equipment is installed in?"
     definition_period = ETERNITY
     possible_values = ACClimateZone
     default_value = ACClimateZone.average_zone

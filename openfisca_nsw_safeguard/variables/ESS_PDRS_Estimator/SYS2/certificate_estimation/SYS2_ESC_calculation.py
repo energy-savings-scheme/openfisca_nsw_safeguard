@@ -51,18 +51,18 @@ class SYS2StarRatingString(Variable):
       product_class = buildings('SYS2_star_rating', period)
       
       product_class = np.select([
-        product_class == 4.5,
-        product_class == 5,
-        product_class == 5.5,
-        product_class == 6,
-        product_class == 6.5,
-        product_class == 7,
-        product_class == 7.5,
-        product_class == 8,
-        product_class == 8.5,
-        product_class == 9,
-        product_class == 9.5,
-        product_class == 10
+        int(product_class) == 4.5,
+        int(product_class) == 5,
+        int(product_class) == 5.5,
+        int(product_class) == 6,
+        int(product_class) == 6.5,
+        int(product_class) == 7,
+        int(product_class) == 7.5,
+        int(product_class) == 8,
+        int(product_class) == 8.5,
+        int(product_class) == 9,
+        int(product_class) == 9.5,
+        int(product_class) == 10
       ], 
       [
         SYS2StarRating.four_and_a_half_stars,

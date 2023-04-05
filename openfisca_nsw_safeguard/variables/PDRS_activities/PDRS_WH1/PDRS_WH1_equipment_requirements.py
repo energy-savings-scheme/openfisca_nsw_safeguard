@@ -13,7 +13,7 @@ class PDRS_WH1_meets_equipment_requirements_air_source_heat_pump(Variable):
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'Is the installed end-user equipment an air source heat pump water heater as defined by AS/NZS 4234?'
+    label = 'Is the installed End-User equipment an air source heat pump water heater as defined by AS/NZS 4234?'
     metadata = {
           'alias':  'air source heat pump water heater',
       }
@@ -48,7 +48,7 @@ class PDRS_WH1_meets_equipment_requirements_hot_water_pump_storage_volume(Variab
     entity = Building
     default_value = False
     definition_period = ETERNITY
-    label = 'What is the storage volume (in Litres) of your installed end-user equipment?'
+    label = 'What is the storage volume (in Litres) of your installed End-User equipment?'
     metadata = {
           'alias':  'Storage volume',
       }
@@ -97,9 +97,9 @@ class PDRS_WH1_meets_equipment_requirements(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the installed end-user equipment meet the Equipment Requirements?'
+    label = 'Does the installed End-User equipment meet the Equipment Requirements?'
     metadata = {
-        'alias':  'The installed end-user equipment meets the equipment requirements'
+        'alias':  'The installed End-User equipment meets the equipment requirements'
     }
 
     def formula(buildings, period, parameters):

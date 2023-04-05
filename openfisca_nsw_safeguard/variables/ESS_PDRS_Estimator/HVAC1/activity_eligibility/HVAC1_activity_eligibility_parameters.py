@@ -36,7 +36,7 @@ class HVAC1_installed_by_qualified_person(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?',
+        'display_question' : 'Has the removal of the existing equipment and the installation of the End-User equipment been performed or supervised by a suitably licensed person?',
         'sorting' : 3,
         'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 3, it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }

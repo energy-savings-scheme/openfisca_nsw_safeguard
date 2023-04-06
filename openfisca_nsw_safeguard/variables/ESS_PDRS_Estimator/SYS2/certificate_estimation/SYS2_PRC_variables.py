@@ -72,9 +72,9 @@ class SYS2_baseline_input_power(Variable):
 
 class SYS2PoolPumpType(Enum):
     single_speed_pool_pump = 'single speed'
-    fixed_speed_pool_pump = 'fixed speed'
+    fixed_speed_pool_pump = 'two speed'
     variable_speed_pool_pump = 'variable speed'
-    multiple_speed_pool_pump = 'multiple speed'
+    multiple_speed_pool_pump = 'multi speed'
 
 
 class SYS2_pool_pump_type_string(Variable):
@@ -87,9 +87,9 @@ class SYS2_pool_pump_type_string(Variable):
       
       product_class = np.select([
         product_class == 'single speed',
-        product_class == 'fixed speed',
+        product_class == 'two speed',
         product_class == 'variable speed',
-        product_class == 'multiple speed'
+        product_class == 'multi speed'
       ], 
       [
         SYS2PoolPumpType.single_speed_pool_pump,

@@ -74,7 +74,7 @@ class SYS2PoolPumpType(Enum):
     single_speed_pool_pump = 'single speed'
     fixed_speed_pool_pump = 'two speed'
     variable_speed_pool_pump = 'variable speed'
-    multiple_speed_pool_pump = 'multiple speed'
+    multiple_speed_pool_pump = 'multi speed'
 
 
 class SYS2_pool_pump_type_string(Variable):

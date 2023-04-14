@@ -72,10 +72,10 @@ class SYS2_baseline_input_power(Variable):
 
 
 class SYS2PoolPumpType(Enum):
-    single_speed_pool_pump = 'single speed'
-    fixed_speed_pool_pump = 'two speed'
-    variable_speed_pool_pump = 'variable speed'
-    multiple_speed_pool_pump = 'multi speed'
+    single_speed_pool_pump = 'Single speed'
+    fixed_speed_pool_pump = 'Two speed'
+    variable_speed_pool_pump = 'Variable speed'
+    multiple_speed_pool_pump = 'Multi speed'
 
 
 # class SYS2_pool_pump_type_string(Variable):

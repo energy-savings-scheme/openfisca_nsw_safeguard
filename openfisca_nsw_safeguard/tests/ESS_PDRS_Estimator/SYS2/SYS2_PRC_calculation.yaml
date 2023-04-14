@@ -138,7 +138,7 @@
       ]
     SYS2_pool_pump_type:
       [
-        multiple speed
+        multiple_speed_pool_pump
       ]
     SYS2_pool_size:
       [

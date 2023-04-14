@@ -1,3 +1,4 @@
+import enum
 from multiprocessing import pool
 import numpy as np
 from openfisca_core.variables import Variable
@@ -77,39 +78,40 @@ class SYS2PoolPumpType(Enum):
     multiple_speed_pool_pump = 'multi speed'
 
 
-class SYS2_pool_pump_type_string(Variable):
-    value_type = str
-    entity = Building
-    definition_period = ETERNITY
+# class SYS2_pool_pump_type_string(Variable):
+#     value_type = str
+#     entity = Building
+#     definition_period = ETERNITY
 
-    def formula(buildings, period, parameters):
-      product_class = buildings('SYS2_pool_pump_type', period)
+#     def formula(buildings, period, parameters):
+#       product_class = buildings('SYS2_pool_pump_type', period)
       
-      product_class = np.select([
-        product_class == 'single speed',
-        product_class == 'two speed',
-        product_class == 'variable speed',
-        product_class == 'multi speed'
-      ], 
-      [
-        SYS2PoolPumpType.single_speed_pool_pump,
-        SYS2PoolPumpType.fixed_speed_pool_pump,
-        SYS2PoolPumpType.variable_speed_pool_pump,
-        SYS2PoolPumpType.multiple_speed_pool_pump
-      ])
+#       product_class = np.select([
+#         product_class == 'single speed',
+#         product_class == 'two speed',
+#         product_class == 'variable speed',
+#         product_class == 'multi speed'
+#       ], 
+#       [
+#         SYS2PoolPumpType.single_speed_pool_pump,
+#         SYS2PoolPumpType.fixed_speed_pool_pump,
+#         SYS2PoolPumpType.variable_speed_pool_pump,
+#         SYS2PoolPumpType.multiple_speed_pool_pump
+#       ])
       
-      return product_class
+#       return product_class
 
 
 class SYS2_pool_pump_type(Variable):
-    value_type = str
+    value_type = Enum
     entity = Building
-    default_value = 'variable speed'
+    default_value = SYS2PoolPumpType.variable_speed_pool_pump
+    possible_values = SYS2PoolPumpType
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Pool pump type',
-        'display_question' : 'What is the pool pump type? (single speed, two speed, multi speed or variable speed)',
+        'display_question' : 'What is the pool pump type?',
         'sorting' : 5
     }
 
@@ -121,7 +123,7 @@ class SYS2_input_power(Variable):
 
     def formula(buildings, period, parameters):
       pool_size = buildings('SYS2_pool_size_int', period)
-      pool_pump_type = buildings('SYS2_pool_pump_type_string', period)
+      pool_pump_type = buildings('SYS2_pool_pump_type', period)
       star_rating = buildings('SYS2StarRatingString', period)
 
       input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size][star_rating][pool_pump_type]

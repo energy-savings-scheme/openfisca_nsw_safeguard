@@ -6,10 +6,19 @@
       [
         true,
         false,
+        true,
         true
+      ]
+    RF1_engaged_ACP:
+      [
+        true,
+        true,
+        true,
+        false
       ]
     RF1_primary_refrigeration:
       [
+        true,
         true,
         true,
         true
@@ -18,10 +27,12 @@
       [
         true,
         true,
+        true,
         true
       ]
     RF1_in_working_order:
       [
+        true,
         true,
         true,
         true
@@ -30,18 +41,21 @@
       [
         true,
         true,
+        true,
         true
       ]
     RF1_capacity_200_litres_or_more:
       [
         true,
         true,
-        false
+        false,
+        true
       ]
   output:
     RF1_removal_activity_eligibility:
       [
         true,
+        false,
         false,
         false
       ]

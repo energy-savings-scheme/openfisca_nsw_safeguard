@@ -7,17 +7,20 @@
         true,
         true,
         true,
-        false
+        false,
+        true
       ]
     SYS1_equipment_registered_in_GEMS:
       [
         true,
         true,
         false,
+        true,
         true
       ]
     SYS1_high_efficiency:
       [
+        true,
         true,
         true,
         true,
@@ -28,12 +31,22 @@
         true,
         true,
         true,
+        true,
         true
       ]
+    SYS1_engaged_ACP:
+      [
+        true,
+        true,
+        true,
+        true,
+        false #not eligible
+      ]    
     SYS1_rated_output_eligible:
       [
         true,
         false,
+        true,
         true,
         true
       ]
@@ -41,6 +54,7 @@
     SYS1_installation_final_activity_eligibility:
       [
         true,
+        false,
         false,
         false,
         false

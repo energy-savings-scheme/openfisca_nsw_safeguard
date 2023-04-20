@@ -6,16 +6,19 @@
       [
         true,
         false,
-        false
+        false,
+        true
       ]
     RF2_installation:
       [
         false,
         true, #new install
+        true,
         true
       ]
     RF2_qualified_install_removal:
       [
+        true,
         true,
         true,
         true
@@ -24,16 +27,19 @@
       [
         true,
         true,
+        true,
         true
       ]
-    RF2_equipment_installed:
+    RF2_engaged_ACP:
       [
         true,
         true,
-        true
+        true,
+        false #not eligible
       ]
     RF2_equipment_registered_in_GEMS:
       [
+        true,
         true,
         true,
         true
@@ -42,24 +48,28 @@
       [
         true,
         false,
-        false
+        false,
+        true
       ]
     RF2_EEI_under_51:
       [
         true,
         true,
-        false
+        false,
+        true
       ]
     RF2_EEI_under_81:
       [
         false,
         false, #ineligible
-        true
+        true,
+        false
       ]
   output:
     RF2_installation_replacement_final_activity_eligibility:
       [
         true,
+        false,
         false,
         false
       ] 

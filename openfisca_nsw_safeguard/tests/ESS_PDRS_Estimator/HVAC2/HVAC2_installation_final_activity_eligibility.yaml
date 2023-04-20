@@ -11,6 +11,7 @@
         True,
         True,
         True,
+        True,
         True
       ]
     HVAC2_equipment_replaced:
@@ -21,7 +22,8 @@
         False,
         True,
         True,
-        True
+        True,
+        False
       ]
     HVAC2_installed_by_qualified_person:
       [
@@ -31,9 +33,10 @@
         True,
         True,
         True,
+        True,
         True
       ]
-    HVAC2_equipment_installed:
+    HVAC2_engaged_ACP:
       [
         True,
         True,
@@ -41,7 +44,8 @@
         True,
         True,
         True,
-        True
+        True,
+        False #not eligible
       ]
     HVAC2_residential_building:
       [
@@ -50,6 +54,7 @@
         False,
         True,
         True,
+        False,
         False,
         False
       ]
@@ -61,10 +66,12 @@
         True, #eligible
         False, #not eligible
         False,
+        False,
         False
       ]
     HVAC2_equipment_registered_in_GEMS:
       [
+        True,
         True,
         True,
         True,
@@ -81,6 +88,7 @@
         True,
         True,
         False, #uses AEER instead
+        True,
         True
       ]
     HVAC2_AEER_greater_than_minimum:
@@ -91,7 +99,8 @@
         True,
         True,
         True, #eligible
-        False #ignored
+        False, #ignored
+        True
       ]
     HVAC2_TCPSF_greater_than_minimum:
       [
@@ -101,7 +110,8 @@
         True,
         True,
         False, #ignored
-        False  #not eligible
+        False,  #not eligible
+        True
       ]
     HVAC2_climate_zone:
       [
@@ -111,7 +121,8 @@
         average_zone,
         average_zone,
         average_zone,
-        average_zone
+        average_zone,
+        hot_zone
       ]
     HVAC2_new_equipment_heating_capacity:
       [
@@ -121,6 +132,7 @@
         True,
         True,
         False, #uses ACOP
+        True,
         True
       ]
     HVAC2_HSPF_mixed_eligible:
@@ -131,7 +143,8 @@
         True,
         True,
         False, #ignored
-        False  #not eligible
+        False, #not eligible
+        True
       ]
     HVAC2_HSPF_cold_eligible:
       [
@@ -141,7 +154,8 @@
         True,
         True,
         False, #ignored
-        True   #ignored
+        True,  #ignored
+        False
       ]
     HVAC2_ACOP_eligible:
       [
@@ -151,7 +165,8 @@
         True,
         True,
         True, #eligible
-        True  #ignored
+        True,  #ignored
+        False
       ]
   output:
     HVAC2_installation_replacement_final_activity_eligibility:
@@ -162,5 +177,6 @@
         True,
         False,
         True,
+        False,
         False
       ]

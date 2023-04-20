@@ -43,15 +43,17 @@ class HVAC2_installed_by_qualified_person(Variable):
     }
 
 
-class HVAC2_equipment_installed(Variable):
+class HVAC2_engaged_ACP(Variable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is the new End-User equipment installed and operational?',
+        'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 5,
-        'eligibility_clause' : """In PDRS HVAC2 Implementation Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must be installed."""
+        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
+                                  (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
+                                  (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
     }
 
 

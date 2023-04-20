@@ -21,9 +21,10 @@ class SYS1_installation_final_activity_eligibility(Variable):
       registered_GEMS = buildings('SYS1_equipment_registered_in_GEMS', period)
       high_efficiency = buildings('SYS1_high_efficiency', period)
       equipment_installed = buildings('SYS1_equipment_installed', period)
+      ACP_engaged = buildings('SYS1_engaged_ACP', period)
       rated_output_eligible = buildings('SYS1_rated_output_eligible', period)
 
       end_formula = ( new_motor_ventilation_refrigeration * registered_GEMS * high_efficiency * 
-                      equipment_installed * rated_output_eligible )
+                      equipment_installed * ACP_engaged * rated_output_eligible )
 
       return end_formula

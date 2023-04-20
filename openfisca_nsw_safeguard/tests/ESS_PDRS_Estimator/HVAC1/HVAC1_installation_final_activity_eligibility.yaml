@@ -13,7 +13,7 @@
         False,
         False
       ]
-    HVAC1_equipment_installed:
+    HVAC1_engaged_ACP:
       [
         True, 
         True, 
@@ -165,7 +165,7 @@
         true,
         false
       ]
-    HVAC1_equipment_installed:
+    HVAC1_engaged_ACP:
       [
         true,
         true,

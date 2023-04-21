@@ -23,7 +23,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
         new_installation = buildings('HVAC2_installation', period)
         replacement = buildings('HVAC2_equipment_replaced', period)
         qualified_install = buildings('HVAC2_installed_by_qualified_person', period)
-        equipment_installed = buildings('HVAC2_equipment_installed', period)
+        ACP_engaged = buildings('HVAC2_engaged_ACP', period)
         residential_building = buildings('HVAC2_residential_building', period)
         registered_GEMS = buildings('HVAC2_equipment_registered_in_GEMS', period)
         cooling_capacity = buildings('HVAC2_new_equipment_cooling_capacity', period)
@@ -57,7 +57,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(Variable):
         
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
         
-        end_formula =  ( installation_or_replacement * equipment_installed * residential_building_with_class_2 *
+        end_formula =  ( installation_or_replacement * ACP_engaged * residential_building_with_class_2 *
                         registered_GEMS * gems_cooling_capacity_path * climate_zone_condition )
         
         return end_formula

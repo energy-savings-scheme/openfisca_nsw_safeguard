@@ -20,6 +20,7 @@ class SYS2_replacement_final_activity_eligibility(Variable):
         replacement = buildings('SYS2_equipment_replaced', period)
         old_equipment_installed_on_site = buildings('SYS2_old_equipment_installed_on_site', period)
         qualified_install = buildings('SYS2_qualified_install_removal', period)
+        ACP_engaged = buildings('SYS2_engaged_ACP', period)
         legal_disposal = buildings('SYS2_legal_disposal', period)
         registered_GEMS = buildings('SYS2_equipment_registered_in_GEMS', period)
         voluntary_labelling_scheme = buildings('SYS2_voluntary_labelling_scheme', period)
@@ -58,7 +59,7 @@ class SYS2_replacement_final_activity_eligibility(Variable):
             False
         ])
 
-        end_formula = ( replacement * old_equipment_installed_on_site * qualified_install * 
+        end_formula = ( replacement * old_equipment_installed_on_site * qualified_install * ACP_engaged *
                         legal_disposal * GEMS_or_voluntary_labelling_scheme * star_rating_minimum_four_and_a_half *
                         warranty * single_phase * speed_and_input_power_eligible )
 

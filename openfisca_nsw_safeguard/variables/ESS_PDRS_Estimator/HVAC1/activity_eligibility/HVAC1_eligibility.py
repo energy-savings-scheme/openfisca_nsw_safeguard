@@ -23,7 +23,7 @@ class HVAC1_installation_replacement_final_activity_eligibility(Variable):
         new_installation = buildings('HVAC1_installation', period)
         replacement = buildings('HVAC1_equipment_replaced', period)
         qualified_install = buildings('HVAC1_installed_by_qualified_person', period)
-        ACP_engaged = buildings('HVAC2_engaged_ACP', period)
+        ACP_engaged = buildings('HVAC1_engaged_ACP', period)
         registered_GEMS = buildings('HVAC1_equipment_registered_in_GEMS', period)
         cooling_capacity = buildings('HVAC1_new_equipment_cooling_capacity', period)
         TCPSF_greater = buildings('HVAC1_TCPSF_greater_than_minimum', period)

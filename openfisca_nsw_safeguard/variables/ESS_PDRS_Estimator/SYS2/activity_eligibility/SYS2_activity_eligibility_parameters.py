@@ -41,6 +41,19 @@ class SYS2_qualified_install_removal(Variable):
     }
 
 
+class SYS2_engaged_ACP(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
+        'sorting' : 4,
+        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
+                                  (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
+                                  (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
+    }
+
 class SYS2_legal_disposal(Variable):
     value_type = bool
     entity = Building
@@ -48,7 +61,7 @@ class SYS2_legal_disposal(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Has the decommissioned pool pump been removed in accordance with relevant safety standards and legislation?',
-      'sorting' : 4,
+      'sorting' : 5,
       'eligibility_clause' : """In PDRS SYS2 Implementation Requirements Clause 2 it states that the decommissioned pool pump must be removed in accordance with relevant safety standards and legislation."""
     }
 
@@ -60,7 +73,7 @@ class SYS2_equipment_registered_in_GEMS(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the installed End-User equipment a registered product on the GEMS registry under GEMS (Swimming Pool Pump-units) Determination 2021?',
-        'sorting' : 5,
+        'sorting' : 6,
         'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 2 it states that the new End-User Equipment must be listed as part of a labelling scheme determined in accordance with the Equipment Energy Efficiency (E3) Committee's Voluntary Energy Rating Labelling Program for Swimming Pool Pump-units: Rules for Participation, April 2010, or be a registered product in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Swimming Pool Pump-units) Determination 2021."""
     }
 
@@ -73,7 +86,7 @@ class SYS2_voluntary_labelling_scheme(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the installed End-User equipment listed as part of the Equipment Energy Efficiency (E3) Committees Voluntary Energy Rating Labelling Program for Swimming Pool Pump-units: Rules for Participation, April 2010?',
-      'sorting' : 6,
+      'sorting' : 7,
       'conditional': 'True',
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 2 it states that the new End-User Equipment must be listed as part of a labelling scheme determined in accordance with the Equipment Energy Efficiency (E3) Committee's Voluntary Energy Rating Labelling Program for Swimming Pool Pump-units: Rules for Participation, April 2010, or be a registered product in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Swimming Pool Pump-units) Determination 2021."""
     }
@@ -86,7 +99,7 @@ class SYS2_star_rating_minimum_four_and_a_half(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Does the new End-User equipment have a minimum star rating of 4.5?',
-      'sorting' : 7,
+      'sorting' : 8,
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 3 it states that the new End-User Equipment must achieve a minimum 4.5 star rating when determined in accordance with AS 5102.2."""
     }
 
@@ -98,7 +111,7 @@ class SYS2_warranty(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Does the new End-User equipment have a warranty of at least 3 years?',
-      'sorting' : 8,
+      'sorting' : 9,
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 4 it states that the new End-User Equipment must have a warranty of at least 3 years."""
     }
 
@@ -110,7 +123,7 @@ class SYS2_single_phase(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the new End-User equipment single phase?',
-      'sorting' : 9,
+      'sorting' : 10,
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed pump unit. The pump unit must have an input power of not less than 600W and not more than 1,700W for single speed pumps and 3,450W for two speed, multi speed and variable speed pumps when tested in accordance with AS 5102.1."""
     }
 
@@ -122,7 +135,7 @@ class SYS2_multiple_speed(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the pool pump any of the following types: single speed, two speed, multi speed, variable speed?',
-      'sorting' : 10,
+      'sorting' : 11,
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed pump unit. The pump unit must have an input power of not less than 600W and not more than 1,700W for single speed pumps and 3,450W for two speed, multi speed and variable speed pumps when tested in accordance with AS 5102.1."""
     }
 
@@ -134,7 +147,7 @@ class SYS2_multiple_speeds_input_power(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the input power of the pump unit between 600w and 3450w?',
-      'sorting' : 11,
+      'sorting' : 12,
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed pump unit. The pump unit must have an input power of not less than 600W and not more than 1,700W for single speed pumps and 3,450W for two speed, multi speed and variable speed pumps when tested in accordance with AS 5102.1."""
     }
 
@@ -147,7 +160,7 @@ class SYS2_single_speed_input_power(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the input power of the pump unit between 600w and 1700w?',
-      'sorting' : 12,
+      'sorting' : 13,
       'conditional': 'True',
       'eligibility_clause' : """In PDRS SYS2 Equipment Requirements Clause 1 it states that the New End-User Equipment must be a product for use with a domestic pool or spa that is a single phase motor and any of the following types: single speed, two speed, multi speed or variable speed pump unit. The pump unit must have an input power of not less than 600W and not more than 1,700W for single speed pumps and 3,450W for two speed, multi speed and variable speed pumps when tested in accordance with AS 5102.1."""
     }

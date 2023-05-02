@@ -48,15 +48,14 @@ class Base_implemented_activity(Variable):
     metadata = {
         'display_question' : 'Has implementation already occurred?',
         'sorting' : 3,
-        'eligibility_clause' : """In ESS Clause 5.3A(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy Saving Activity if the Implementation Date is on or after 15 May 2016, disposes of that End-User Equipment appropriately.<br /> 
-                                  In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
+        'eligibility_clause' : """In order to access scheme certificates, an Accredited Certificate Provider must be engaged before any works commence."""
     }
 
 
 class implementation_date_options(Enum):
-    planned_activity        = 'Planned activity'        #not eligible
+    planned_activity        = 'Planned activity'        #eligible
     before_april_1_2022     = 'Before 1 April 2022'     #not eligible
-    april_1_2022_or_later   = '1 April 2022 or later'   #ESCs and PRCs 
+    april_1_2022_or_later   = '1 April 2022 or later'   #eligible 
 
 
 class Implementation_date(Variable):
@@ -68,7 +67,7 @@ class Implementation_date(Variable):
     metadata = {
         'display_question' : 'What date did the implementation occur?',
         'sorting' : 4,
-        'eligibility_clause' : """Planned activities are not eligible under the scheme. To meet rule requirements, make sure you have engaged an Accredited Certificate Provider before implementation."""
+        'eligibility_clause' : """In PDRS Clause5.1(d), it states that a Recognised Peak Activity is an activity that has an Implementation Date on or after 1 April 2022."""
     }
 
 
@@ -87,7 +86,7 @@ class Implementation_date_eligibility(Variable):
                 implementation_date == implementation_date_options.april_1_2022_or_later
             ],
             [
-                False,
+                True,
                 False,
                 True
             ])

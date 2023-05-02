@@ -36,6 +36,9 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         replacement_hw = buildings('Base_replacement_water_heater_certificates', period)
         replacement_solar_hw = buildings('Base_replacement_solar_water_heater_certificates', period)
         
+        # activity is implemented and the implementation date is eligible
+        implementation_eligible = (activity_implemented) + (implementation_date_eligible)
+
         # removing or replacing is YES and equipment is not resold, reused or refurbished and is disposed of appropriately
         removing_replacing_intermediary = np.logical_not(removing_or_replacing) + (removing_or_replacing * np.logical_not(resold_reused_refurbished) * appropriate_disposal)
 
@@ -45,7 +48,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         # tradeable certificates is YES and replacement heat pump water heater is YES and solar water heater is no
         tradeable_certificates_allowed = np.logical_not(tradeable_certificates) + (tradeable_certificates * replacement_hw) + (tradeable_certificates * replacement_solar_hw)
         
-        end_formula =  ( energy_consumption * reduce_demand * activity_implemented * implementation_date_eligible * lawful * engaged_an_ACP *
+        end_formula =  ( energy_consumption * reduce_demand * implementation_eligible * lawful * engaged_an_ACP *
                          removing_replacing_intermediary * np.logical_not(reduce_safety_levels) * np.logical_not(increase_emissions) * mandatory_allowance *
                          np.logical_not(prescribed_service) * tradeable_certificates_allowed)
         

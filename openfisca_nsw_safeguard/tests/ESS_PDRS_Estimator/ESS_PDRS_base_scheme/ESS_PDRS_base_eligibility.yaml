@@ -36,14 +36,6 @@
         True,
         True
       ]
-    Base_implemented_activity:
-      [
-        True,
-        True,
-        True,
-        True,
-        False
-      ]
     Implementation_date_eligibility:
       [
         True,
@@ -174,19 +166,10 @@
       [
         True,
         True,
-        True,
         True
       ]
     Base_provides_capacity_to_reduce_demand:
       [
-        True,
-        True,
-        True,
-        True
-      ]
-    Base_implemented_activity:
-      [
-        False,
         True,
         True,
         True
@@ -195,12 +178,10 @@
       [
         'planned_activity',
         'before_april_1_2022', #not eligible
-        'april_1_2022_or_later',
-        'planned_activity'
+        'april_1_2022_or_later'
       ]
     Base_lawful_activity:
       [
-        True,
         True,
         True,
         True
@@ -209,12 +190,10 @@
       [
         True,
         True,
-        True,
         True
       ]
     Base_removing_or_replacing:
       [
-        False,
         False,
         False,
         False
@@ -223,12 +202,10 @@
       [
         True,
         True,
-        True,
         True
       ]
     Base_disposal_of_equipment:
       [
-        True,
         True,
         True,
         True
@@ -237,12 +214,10 @@
       [
         False,
         False,
-        False,
         False
       ]
     Base_greenhouse_emissions_increase:
       [
-        False,
         False,
         False,
         False
@@ -251,12 +226,10 @@
       [
         False,
         False,
-        False,
         False
       ]
     Base_basix_affected_development:
       [ 
-        False,
         False,
         False,
         False
@@ -265,12 +238,10 @@
       [
         False,
         False,
-        False,
         False
       ]
     Base_tradeable_certificates:
       [
-        False,
         False,
         False,
         False
@@ -279,12 +250,10 @@
       [
         False,
         False,
-        False,
         False
       ] 
     Base_replacement_solar_water_heater_certificates:
       [
-        False,
         False,
         False,
         False
@@ -294,6 +263,5 @@
       [
         True,
         False,
-        True,
-        False
+        True
       ]

@@ -40,18 +40,6 @@ class Base_provides_capacity_to_reduce_demand(Variable):
     }
 
 
-class Base_implemented_activity(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Has implementation already occurred?',
-        'sorting' : 3,
-        'eligibility_clause' : """In order to access scheme certificates, an Accredited Certificate Provider must be engaged before any works commence."""
-    }
-
-
 class implementation_date_options(Enum):
     planned_activity        = 'Planned activity'        #eligible
     before_april_1_2022     = 'Before 1 April 2022'     #not eligible
@@ -92,18 +80,6 @@ class Implementation_date_eligibility(Variable):
             ])
 
 
-class Base_lawful_activity(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Was the activity lawful in NSW on the implementation date?',
-        'sorting' : 5,
-        'eligibility_clause' : """In PDRS Clause 5.1(c) it states that a Recognised Peak Activity is an activity that is not unlawful in New South Wales on the Implementation Date."""
-    }
-
-
 class Base_engaged_ACP(Variable):
     value_type = bool
     entity = Building
@@ -111,11 +87,27 @@ class Base_engaged_ACP(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
-        'sorting' : 6,
-        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
+        'sorting' : 5,
+        'eligibility_clause' : """In order to access scheme certificates, an Accredited Certificate Provider must be engaged before any works commence.<br />
+                                  In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
     }
+
+
+class Base_lawful_activity(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Was the activity lawful in NSW on the implementation date?',
+        'sorting' : 6,
+        'eligibility_clause' : """In PDRS Clause 5.1(c) it states that a Recognised Peak Activity is an activity that is not unlawful in New South Wales on the Implementation Date."""
+    }
+
+
+
 
 
 class Base_removing_or_replacing(Variable):

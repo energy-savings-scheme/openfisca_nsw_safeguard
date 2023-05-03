@@ -24,7 +24,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         implementation_date = buildings('Implementation_date', period)
         date_options = implementation_date.possible_values
         planned_activity = (implementation_date == date_options.planned_activity)
-        before_april_1 = (implementation_date == date_options.before_april_1_2022)
+        # before_april_1 = (implementation_date == date_options.before_april_1_2022)
         april_1_or_later = (implementation_date == date_options.april_1_2022_or_later)
         lawful = buildings('Base_lawful_activity', period)
         engaged_an_ACP = buildings('Base_engaged_ACP', period)
@@ -41,7 +41,7 @@ class ESS__PDRS__ACP_base_scheme_eligibility(Variable):
         replacement_solar_hw = buildings('Base_replacement_solar_water_heater_certificates', period)
         
         # activity implemented is YES and the implementation date is planned activity or after april 1
-        implementation_eligible = ((activity_implemented) * (planned_activity)) + ((activity_implemented) * (april_1_or_later))
+        implementation_eligible = (np.logical_not(activity_implemented) * planned_activity) + (activity_implemented * april_1_or_later)
 
         # removing or replacing is YES and equipment is not resold, reused or refurbished and is disposed of appropriately
         removing_replacing_intermediary = np.logical_not(removing_or_replacing) + (removing_or_replacing * np.logical_not(resold_reused_refurbished) * appropriate_disposal)

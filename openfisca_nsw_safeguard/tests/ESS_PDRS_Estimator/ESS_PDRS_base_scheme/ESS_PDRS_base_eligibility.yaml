@@ -42,7 +42,7 @@
         True,
         True,
         True,
-        True
+        False
       ]
     Implementation_date_eligibility:
       [
@@ -186,10 +186,10 @@
       ]
     Base_implemented_activity:
       [
+        False,
         True,
         True,
-        True,
-        False #not eligible
+        True
       ]
     Implementation_date:
       [

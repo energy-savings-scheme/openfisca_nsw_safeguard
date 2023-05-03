@@ -22,7 +22,7 @@
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
                                                     1147.7478,
-                                                    3064.6047,
+                                                    3043.686,
                                                     9100,
                                                     18530.908
                                                     ]
@@ -134,7 +134,7 @@
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
                                                     386.48648,
-                                                    1031.9587,
+                                                    1024.9147,
                                                     3064.2856,
                                                     6240
                                                     ]
@@ -162,7 +162,7 @@
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
                                                     256.75674,
-                                                    685.567,
+                                                    680.8874
                                                     2035.7142,
                                                     4145.4546
                                                     ]
@@ -274,7 +274,7 @@
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
                                                     1147.7478,
-                                                    3064.6047,
+                                                    3043.686,
                                                     9100,
                                                     18530.908
                                                     ]
@@ -302,7 +302,7 @@
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
                                                     386.48648,
-                                                    1031.9587,
+                                                    1024.9147,
                                                     3064.2856,
                                                     6240
                                                     ]
@@ -330,7 +330,7 @@
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
                                                     256.75674,
-                                                    685.567,
+                                                    680.8874,
                                                     2035.7142,
                                                     4145.4546
                                                     ]

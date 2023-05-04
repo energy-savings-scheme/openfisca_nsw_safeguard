@@ -40,7 +40,7 @@ class HVAC1_rated_ACOP_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Rated ACOP",
-        'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS standard (air conditioners up to 65kW) Determination 2019',
+        'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS (air conditioners up to 65kW) Determination 2019',
         'sorting' : 11,
         'label': 'Rated ACOP'
     }

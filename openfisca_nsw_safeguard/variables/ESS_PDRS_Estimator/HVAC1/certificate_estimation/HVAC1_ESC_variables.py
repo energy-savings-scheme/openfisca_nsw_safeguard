@@ -40,7 +40,7 @@ class HVAC1_rated_ACOP_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Rated ACOP",
-        'display_question': 'Annual Coefficient of Performance (ACOP) as defined in the GEMS (air conditioners up to 65kW) Determination 2019',
+        'display_question': 'Annual Coefficient of Performance (ACOP) as defined in GEMS Determination 2019 (Air Conditioners up to 65kW)',
         'sorting' : 11,
         'label': 'Rated ACOP'
     }
@@ -103,7 +103,7 @@ class HVAC1_rated_AEER_input(Variable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Rated AEER",
-        "display_question": 'Annual Energy Efficiency Ratio as defined in the GEMS Standards (Air Conditioners up to 65kW) Determination 2019',
+        "display_question": 'Annual Energy Efficiency Ratio as defined in GEMS Determination 2019 (Air Conditioners up to 65kW)',
         'sorting': 7,
         'label': 'Rated AEER'
     }

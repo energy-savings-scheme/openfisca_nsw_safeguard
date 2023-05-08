@@ -216,8 +216,8 @@ class SYS1_existing_equipment_baseline_efficiency(Variable):
 
 
 class SYS1_motor_frequency_Options(Enum):
-    motor_50_hz = '50 hz'
-    motor_60_hz = '60 hz'
+    motor_50_hz = '50 Hz'
+    motor_60_hz = '60 Hz'
 
 
 class SYS1_new_equipment_motor_frequency(Variable):
@@ -226,10 +226,10 @@ class SYS1_new_equipment_motor_frequency(Variable):
     possible_values = SYS1_motor_frequency_Options
     default_value = SYS1_motor_frequency_Options.motor_50_hz
     definition_period = ETERNITY
-    label = "Motor Frequency (hz)"
+    label = "Motor Frequency (Hz)"
     metadata = {
         'variable-type': 'user-input',
-        'label': 'Motor Frequency (hz)',
+        'label': 'Motor Frequency (Hz)',
         'display_question' : 'What is the frequency of your new motor power supply?',
         'sorting' : 8
     }
@@ -241,10 +241,10 @@ class SYS1_existing_equipment_motor_frequency(Variable):
     possible_values = SYS1_motor_frequency_Options
     default_value = SYS1_motor_frequency_Options.motor_50_hz
     definition_period = ETERNITY
-    label = "Motor Frequency (hz)"
+    label = "Motor Frequency (Hz)"
     metadata = {
         'variable-type': 'user-input',
-        'label': 'Motor Frequency (hz)',
+        'label': 'Motor Frequency (Hz)',
         'display_question' : 'What is the frequency of your existing motor power supply?',
         'sorting' : 11
     }

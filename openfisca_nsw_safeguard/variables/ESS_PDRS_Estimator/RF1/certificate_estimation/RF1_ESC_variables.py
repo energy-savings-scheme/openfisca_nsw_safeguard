@@ -30,7 +30,7 @@ class RF1_storage_volume(Variable):
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
-        'label': 'Refrigerator or Freezer storage capacity',
+        'label': 'Refrigerator or freezer storage capacity',
         'display_question' : 'Is the capacity of the non-primary refrigerator or freezer that is being removed 200 litres or greater?',
         'sorting' : 4
         }

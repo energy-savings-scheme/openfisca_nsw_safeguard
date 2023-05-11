@@ -187,15 +187,15 @@
         7.1,
         5
       ]
-    HVAC1_new_installation_activity:
+    HVAC1_Activity:
       [
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        false
+        new_installation_activity,
+        new_installation_activity,
+        new_installation_activity,
+        new_installation_activity,
+        new_installation_activity,
+        new_installation_activity,
+        replacement_activity
       ]
     HVAC1_PDRS__postcode:
       [

@@ -302,19 +302,6 @@ class HVAC1_Activity(Variable):
     }
 
 
-# class HVAC1_new_installation_activity(Variable):
-#     value_type = bool
-#     default_value = True
-#     entity = Building
-#     definition_period = ETERNITY
-#     metadata = {
-#         'variable-type' : 'user-input',
-#         'label' : 'Replacement or new installation activity',
-#         'display_question' : 'Is the activity an installation of a new high efficiency air conditioner?',
-#         'sorting' : 3
-#     }
-    
-
 class HVAC1_TCSPF_mixed(Variable):
     value_type = float
     entity = Building

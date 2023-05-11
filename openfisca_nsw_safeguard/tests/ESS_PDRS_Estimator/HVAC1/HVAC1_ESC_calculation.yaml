@@ -191,26 +191,30 @@
       [
         32,
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050  #AIRO ACP33HP
+        1050,  #AIRO ACP33HP
+        6
       ]
     HVAC1_Air_Conditioner_type:
       [
         non_ducted_split_system,
         ducted_split_system,
-        ducted_unitary_system
+        ducted_unitary_system,
+        non_ducted_split_system
       ]
-    HVAC1_new_installation_activity:
+    HVAC1_Activity:
       [
-        true,
-        true,
-        true
+        new_installation_activity,
+        new_installation_activity,
+        new_installation_activity,
+        replacement_activity
       ]
   output:
     HVAC1_baseline_AEER_input:
       [
         3.1,
         3.1,
-        0
+        0,
+        2.93
       ]
 
 - name: test baseline ACOP input
@@ -221,26 +225,30 @@
       [
         32,
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050  #AIRO ACP33HP
+        1050,  #AIRO ACP33HP
+        32
       ]
     HVAC1_Air_Conditioner_type:
       [
         non_ducted_split_system,
         ducted_split_system,
-        ducted_unitary_system
+        ducted_unitary_system,
+        non_ducted_split_system
       ]
-    HVAC1_new_installation_activity:
+    HVAC1_Activity:
       [
-        true,
-        true,
-        true
+        new_installation_activity,
+        new_installation_activity,
+        new_installation_activity,
+        replacement_activity
       ]
   output:
     HVAC1_baseline_ACOP_input:
       [
         2.05,
         2.05,
-        0
+        0,
+        1.9
       ]
 
 - name: test minimum TCSFP AEER 
@@ -444,10 +452,10 @@
         ducted_split_system, # baseline AEER input 3.1
         ducted_unitary_system
       ]
-    HVAC1_new_installation_activity:
+    HVAC1_Activity:
       [
-        true,
-        true
+        new_installation_activity,
+        new_installation_activity
       ]
     HVAC1_PDRS__postcode:
       [
@@ -500,9 +508,9 @@
       [
         non_ducted_split_system
       ]
-    HVAC1_new_installation_activity:
+    HVAC1_Activity:
       [
-        true
+        new_installation_activity
       ]
     HVAC1_PDRS__postcode:
       [
@@ -542,9 +550,9 @@
       [
         ducted_unitary_system
       ]
-    HVAC1_new_installation_activity:
+    HVAC1_Activity:
       [
-        true
+        new_installation_activity
       ]
     HVAC1_PDRS__postcode:
       [
@@ -596,9 +604,9 @@
       [
         1.97
       ]
-    HVAC1_new_installation_activity: 
+    HVAC1_Activity: 
       [
-        true
+        new_installation_activity
       ]
     HVAC1_rated_ACOP_input:
       [
@@ -662,9 +670,9 @@
       [
         0.49
       ]
-    HVAC1_new_installation_activity: 
+    HVAC1_Activity:
       [
-        true
+        new_installation_activity
       ]
     HVAC1_rated_ACOP_input:
       [

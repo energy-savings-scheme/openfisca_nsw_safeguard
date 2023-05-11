@@ -86,11 +86,11 @@ class HVAC2_baseline_AEER_input(Variable):
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
        
-        new_or_used_equipment = building('HVAC2_new_installation_activity', period)
-        
+        new_or_replacement_activity = building('HVAC2_Activity', period)
         
         baseline_aeer = np.select(
-            [new_or_used_equipment, np.logical_not(new_or_used_equipment)],
+            [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
+                new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity],
             
                 [parameters(period).ESS.HEAB.table_F4_2.AEER[aircon][cooling_capacity_to_check], 
                     parameters(period).ESS.HEAB.table_F4_3.AEER[aircon][cooling_capacity_to_check] 
@@ -252,11 +252,13 @@ class HVAC2_baseline_ACOP_input(Variable):
             
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
-        new_or_used_equipment = building('HVAC2_new_installation_activity', period)
+        
+        new_or_replacement_activity = building('HVAC2_Activity', period)
         
         
         baseline_acop = np.select(
-            [new_or_used_equipment, np.logical_not(new_or_used_equipment)],
+            [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
+                new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity],
             
                 [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check], 
                     parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check] 
@@ -288,15 +290,21 @@ class HVAC2_Air_Conditioner_type(Variable):
     }
 
 
-class HVAC2_new_installation_activity(Variable):
-    value_type = bool
-    default_value = True
+class HVAC2_Activity_Type(Enum):
+    new_installation_activity = 'Installation of a new air conditioner'
+    replacement_activity = 'Replacement of an existing air conditioner'
+
+
+class HVAC2_Activity(Variable):
+    value_type = Enum
     entity = Building
+    possible_values = HVAC2_Activity_Type
+    default_value = HVAC2_Activity_Type.replacement_activity
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
-        'label' : 'New installation or replacement activity',
-        'display_question' : 'is the activity an installation of a new high efficiency air conditioner?',
+        'label': 'Replacement or new installation activity',
+        'display_question' : 'Which of the following activities are you implementing?',
         'sorting' : 3
     }
 

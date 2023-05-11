@@ -83,14 +83,14 @@ class HVAC1_baseline_AEER_input(Variable):
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
        
-        new_or_used_equipment = building('HVAC1_new_installation_activity', period)
-        
+        new_or_replacement_activity = building('HVAC1_Activity', period)
         
         baseline_aeer = np.select(
-            [new_or_used_equipment, np.logical_not(new_or_used_equipment)],
+            [new_or_replacement_activity == HVAC1_Activity_Type.new_installation_activity,
+                new_or_replacement_activity == HVAC1_Activity_Type.replacement_activity],
             
-                [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check], 
-                    parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check] 
+                [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
                     ]
             )
 
@@ -246,13 +246,14 @@ class HVAC1_baseline_ACOP_input(Variable):
             
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
-        new_or_used_equipment = building('HVAC1_new_installation_activity', period)
         
+        new_or_replacement_activity = building('HVAC1_Activity', period)
         
         baseline_acop = np.select(
-            [new_or_used_equipment, np.logical_not(new_or_used_equipment)],
+            [new_or_replacement_activity == HVAC1_Activity_Type.new_installation_activity,
+                new_or_replacement_activity == HVAC1_Activity_Type.replacement_activity],
             
-                [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check], 
+                 [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check], 
                     parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check] 
                     ]
             )
@@ -281,18 +282,25 @@ class HVAC1_Air_Conditioner_type(Variable):
     }
 
 
-class HVAC1_new_installation_activity(Variable):
-    value_type = bool
-    default_value = True
+class HVAC1_Activity_Type(Enum):
+    new_installation_activity = 'Installation of a new air conditioner'
+    replacement_activity = 'Replacement of an existing air conditioner'
+
+
+
+class HVAC1_Activity(Variable):
+    value_type = Enum
     entity = Building
+    possible_values = HVAC1_Activity_Type
+    default_value = HVAC1_Activity_Type.replacement_activity
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
-        'label' : 'Replacement or new installation activity',
-        'display_question' : 'Is the activity an installation of a new high efficiency air conditioner?',
+        'label': 'Replacement or new installation activity',
+        'display_question' : 'Which of the following activities are you implementing?',
         'sorting' : 3
     }
-    
+
 
 class HVAC1_TCSPF_mixed(Variable):
     value_type = float

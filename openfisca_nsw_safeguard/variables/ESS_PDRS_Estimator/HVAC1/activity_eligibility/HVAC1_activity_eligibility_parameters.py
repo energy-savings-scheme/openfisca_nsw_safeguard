@@ -41,19 +41,6 @@ class HVAC1_installed_by_qualified_person(Variable):
         'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 3, it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
-
-# class HVAC1_equipment_installed(Variable):
-#     value_type = bool
-#     entity = Building
-#     default_value = True
-#     definition_period = ETERNITY
-#     metadata = {
-#         'display_question' : 'Is the new End-User equipment installed and operational?',
-#         'sorting' : 4,
-#         'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 2, it states that the New End-User Equipment or replacement End-User Equipment must be installed."""
-#     }
-
-
 class HVAC1_engaged_ACP(Variable):
     value_type = bool
     entity = Building

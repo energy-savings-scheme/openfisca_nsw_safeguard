@@ -172,9 +172,9 @@
       [
         non_ducted_split_system
       ]
-    HVAC2_new_installation_activity:
+    HVAC2_Activity:
       [
-        true,
+        new_installation_activity
       ]
   output:
     HVAC2_baseline_AEER_input:
@@ -194,9 +194,9 @@
       [
         non_ducted_split_system
       ]
-    HVAC2_new_installation_activity:
+    HVAC2_Activity:
       [
-        true,
+        new_installation_activity,
       ]
   output:
     HVAC2_baseline_ACOP_input:
@@ -285,9 +285,9 @@
       [
         non_ducted_split_system
       ]
-    HVAC2_new_installation_activity:
+    HVAC2_Activity:
       [
-        true
+        new_installation_activity
       ]
     HVAC2_PDRS__postcode:
       [
@@ -339,9 +339,9 @@
       [
         7.82
       ]
-    HVAC2_new_installation_activity: 
+    HVAC2_Activity: 
       [
-        false
+        replacement_activity
       ]
     HVAC2_rated_ACOP_input: 
       [
@@ -397,9 +397,9 @@
       [
         2.935
       ]
-    HVAC2_new_installation_activity: 
+    HVAC2_Activity: 
       [
-        true
+        new_installation_activity
       ]
     HVAC2_rated_ACOP_input: 
       [

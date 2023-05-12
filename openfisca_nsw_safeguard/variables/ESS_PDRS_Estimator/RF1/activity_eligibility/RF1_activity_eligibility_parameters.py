@@ -85,7 +85,7 @@ class RF1_capacity_200_litres_or_more(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the capacity of the refrigerator or freezer 200 litres or more? (The capacity of the refrigerator or freezer must be 200 litres or more)',
+      'display_question' : 'Is the capacity of the refrigerator or freezer 200 litres or more?',
       'sorting' : 7,
       'eligibility_clause' : """In PDRS RF1 Equipment Requirements Clause 3 it states that the capacity of the Refrigerator or Freezer (as defined in AS/NZS 4474) must be 200 litres or more."""
     }

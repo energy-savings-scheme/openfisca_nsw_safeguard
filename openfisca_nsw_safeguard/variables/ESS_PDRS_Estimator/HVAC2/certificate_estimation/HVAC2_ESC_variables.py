@@ -304,7 +304,7 @@ class HVAC2_Activity(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label': 'Replacement or new installation activity',
-        'display_question' : 'Which of the following activities are you implementing?',
+        'display_question' : 'Which one of the following activities are you implementing?',
         'sorting' : 3
     }
 

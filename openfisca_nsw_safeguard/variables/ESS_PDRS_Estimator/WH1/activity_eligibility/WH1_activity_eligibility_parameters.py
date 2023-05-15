@@ -82,18 +82,6 @@ class WH1_building_BCA_not_class_1_or_4(Variable):
     }
 
 
-class WH1_air_source_heat_pump(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = { 
-      'display_question' : 'Is the installed End-User equipment an air source heat pump water heater as defined by AS/NZS 4234?',
-      'sorting' : 7,
-      'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 1 it states that the installed End-User Equipment must be an air source heat pump water heater as defined by AS/NZS 4234."""
-    }
-
-
 class WH1_scheme_admin_approved(Variable):
     value_type = bool
     entity = Building
@@ -101,7 +89,7 @@ class WH1_scheme_admin_approved(Variable):
     definition_period = ETERNITY
     metadata = {  
       'display_question' : 'Has the installed end user equipment been accepted by the Scheme Administrator?',
-      'sorting' : 8,
+      'sorting' : 7,
       'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 4 it states that the installed End-User Equipment must be accepted in a manner determined by the Scheme Administrator."""
     }
 
@@ -119,7 +107,7 @@ class WH1_storage_volume(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
-      'sorting' : 10,
+      'sorting' : 8,
       'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
 
@@ -152,7 +140,7 @@ class WH1_certified(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User equipment AS/NZ 2712 certified?',
-      'sorting' : 11,
+      'sorting' : 9,
       'conditional' : 'True',
       'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }

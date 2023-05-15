@@ -23,7 +23,6 @@ class WH1_installation_replacement_final_activity_eligibility(Variable):
         qualified_removal_install = buildings('WH1_equipment_removed', period)
         ACP_engaged = buildings('WH1_engaged_ACP', period)
         not_installed_class_1_or_4 = buildings('WH1_building_BCA_not_class_1_or_4', period)
-        air_source_heat_pump = buildings('WH1_air_source_heat_pump', period)
         scheme_admin_approved = buildings('WH1_scheme_admin_approved', period)
         storage_volume_certified = buildings('WH1_equipment_certified_by_storage_volume', period)
         
@@ -41,7 +40,7 @@ class WH1_installation_replacement_final_activity_eligibility(Variable):
         ])
 
         end_formula = ( installation_or_replacement * qualified_removal_install * ACP_engaged *
-                        np.logical_not(not_installed_class_1_or_4) * air_source_heat_pump * scheme_admin_approved 
+                        np.logical_not(not_installed_class_1_or_4) * scheme_admin_approved 
                         * storage_volume_certified )
 
         return end_formula

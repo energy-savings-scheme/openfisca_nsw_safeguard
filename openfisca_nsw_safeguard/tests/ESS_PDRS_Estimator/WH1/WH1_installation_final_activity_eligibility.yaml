@@ -74,14 +74,6 @@
         false,
         false
       ]
-    WH1_air_source_heat_pump:
-      [
-        true,
-        true,
-        true,
-        true,
-        true
-      ]
     WH1_scheme_admin_approved:
       [
         true,

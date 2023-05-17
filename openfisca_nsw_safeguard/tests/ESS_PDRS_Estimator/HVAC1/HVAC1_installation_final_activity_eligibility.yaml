@@ -2,6 +2,17 @@
   period: 2022
   absolute_error_margin: 0
   input:
+    HVAC1_new_installation_or_replacement_eligible:
+      [
+        True, 
+        True, 
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
     HVAC1_installed_by_qualified_person:
       [
         True, 
@@ -21,17 +32,6 @@
         True,
         True,
         True,
-        True,
-        True
-      ]
-    HVAC1_equipment_replaced:
-      [
-        False, 
-        False, 
-        False,
-        False,
-        False,
-        False,
         True,
         True
       ]
@@ -147,106 +147,76 @@
         False
       ]
 
-- name: test HVAC1 activity eligibility second check
+- name: test PDRS activity eligibility
   period: 2022
   absolute_error_margin: 0
   input:
-    HVAC1_installation:
+    HVAC1_new_installation_or_replacement:
       [
-        false,
-        true, #new install
+       new_installation_activity,
+       replacement_activity 
+      ]
+  output:
+    HVAC1_new_installation_or_replacement_eligible:
+      [
         true,
+        true
+      ]
+
+- name: test PDRS final formula installation eligibility second check
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    HVAC1_new_installation_or_replacement_eligible:
+      [
         true
       ]
     HVAC1_installed_by_qualified_person:
       [
-        false,
-        true,
-        true,
-        false
+        true
       ]
     HVAC1_engaged_ACP:
       [
-        true,
-        true,
-        true,
         true
-      ]
-    HVAC1_equipment_replaced:
-      [
-        true,
-        false,
-        true, #should return false because already marked as new install
-        false
       ]
     HVAC1_equipment_registered_in_GEMS:
       [
-        true,
-        true,
-        true,
         true
       ]
     HVAC1_new_equipment_cooling_capacity:
       [
-        true,
-        false,
-        false,
-        false
-      ]
-    HVAC1_TCPSF_greater_than_minimum:
-      [
-        true,
-        true,
-        true,
-        true
-      ]
-    HVAC1_climate_zone:
-      [
-        average_zone,
-        cold_zone,
-        average_zone,
-        cold_zone
-      ]
-    HVAC1_new_equipment_heating_capacity:
-      [
-        false,
-        true,
-        true,
-        true
-      ]
-    HVAC1_HSPF_mixed_eligible:
-      [
-        false, #not needed because it uses ACOP (no heating cap)
-        false,
-        false,
-        false
-      ]
-    HVAC1_HSPF_cold_eligible:
-      [
-        false,
-        true,
-        true,
         true
       ]
     HVAC1_AEER_greater_than_minimum:
       [
-        false, #not needed because it has a cooling cap (TCSPF)
-        true,
-        true,
+        true
+      ]
+    HVAC1_TCPSF_greater_than_minimum:
+      [
+        true
+      ]
+    HVAC1_climate_zone:
+      [
+        hot_zone
+      ]
+    HVAC1_new_equipment_heating_capacity:
+      [
+        true
+      ]
+    HVAC1_HSPF_mixed_eligible:
+      [
+        true
+      ]
+    HVAC1_HSPF_cold_eligible:
+      [
         true
       ]
     HVAC1_ACOP_eligible:
       [
-        true,
-        false, #not needed because it has a heating cap (HSPF)
-        false,
-        false
+        true
       ]
   output:
     HVAC1_installation_replacement_final_activity_eligibility:
       [
-        false,
-        true,
-        false,
-        false
+        true
       ]

@@ -5,30 +5,6 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-# class HVAC1_installation(Variable):
-#     value_type = bool
-#     entity = Building
-#     default_value = True
-#     definition_period = ETERNITY
-#     metadata = {
-#         'display_question' : 'Is the activity the installation of a new air conditioner?',
-#         'sorting' : 1,
-#         'eligibility_clause' : """In PDRS HVAC1 Eligibility Requirements Clause 1, it states that this activity must be an installation of a new high efficiency air conditioner or a replacement of an existing air conditioner (whether operational or not) with a high efficiency air conditioner."""
-#     }
-
-
-# class HVAC1_equipment_replaced(Variable):
-#     value_type = bool
-#     entity = Building
-#     default_value = True
-#     definition_period = ETERNITY
-#     metadata = {
-#         'display_question' : 'Is the activity the replacement of an existing air conditioner?',
-#         'sorting' : 2,
-#         'conditonal' : 'True',
-#         'eligibility_clause' : """In PDRS HVAC1 Eligibility Requirements Clause 1, it states that this activity must be an installation of a new high efficiency air conditioner or a replacement of an existing air conditioner (whether operational or not) with a high efficiency air conditioner."""
-#     }
-
 class HVAC1NewInstallationReplacement(Enum):
     new_installation_activity = 'Installation of a new air conditioner'
     replacement_activity = 'Replacement of an existing air conditioner'

@@ -26,11 +26,13 @@ class HVAC1_installation_replacement_final_activity_eligibility(Variable):
         registered_GEMS = buildings('HVAC1_equipment_registered_in_GEMS', period)
         cooling_capacity = buildings('HVAC1_new_equipment_cooling_capacity', period)
         TCPSF_greater = buildings('HVAC1_TCPSF_greater_than_minimum', period)
+
         climate_zone = buildings('HVAC1_climate_zone', period)
         ACClimateZone = climate_zone.possible_values
         in_average_zone = (climate_zone == ACClimateZone.average_zone) # True
         in_hot_zone = (climate_zone == ACClimateZone.hot_zone) # False
         in_cold_zone = (climate_zone == ACClimateZone.cold_zone) # False
+
         heating_capacity = buildings('HVAC1_new_equipment_heating_capacity', period)
         HSPF_mixed_value = buildings('HVAC1_HSPF_mixed_eligible', period)
         HSPF_cold_value = buildings('HVAC1_HSPF_cold_eligible', period)

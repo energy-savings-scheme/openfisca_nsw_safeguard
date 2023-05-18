@@ -3,27 +3,16 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    HVAC2_installation:
+    HVAC1_new_installation_or_replacement_eligible:
       [
+        True, 
+        True, 
         True,
-        False,
-        False,
         True,
         True,
         True,
         True,
         True
-      ]
-    HVAC2_equipment_replaced:
-      [
-        False,
-        True, #replacement
-        False, #not eligible 
-        False,
-        True,
-        True,
-        True,
-        False
       ]
     HVAC2_installed_by_qualified_person:
       [
@@ -173,10 +162,26 @@
       [
         True,
         True,
-        False,
+        True,
         True,
         False,
         True,
         False,
         False
+      ]
+
+- name: test PDRS activity eligibility
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    HVAC2_new_installation_or_replacement:
+      [
+       new_installation_activity,
+       replacement_activity 
+      ]
+  output:
+    HVAC2_new_installation_or_replacement_eligible:
+      [
+        true,
+        true
       ]

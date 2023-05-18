@@ -5,29 +5,46 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-class HVAC2_installation(Variable):
-    value_type = bool
+class HVAC2NewInstallationReplacement(Enum):
+    new_installation_activity = 'Installation of a new air conditioner'
+    replacement_activity = 'Replacement of an existing air conditioner'
+
+
+class HVAC2_new_installation_or_replacement(Variable):
+    value_type = Enum
     entity = Building
-    default_value = True
+    possible_values = HVAC2NewInstallationReplacement
+    default_value = HVAC2NewInstallationReplacement.replacement_activity
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is the activity the installation of a new air conditioner?',
-        'sorting' : 1,
-        'eligibility_clause' : """In PDRS HVAC2 Eligibility Requirements Clause 1 it states that this activity must be an installation of a new high efficiency air conditioner or a replacement of an existing air conditioner (whether operational or not) with a high efficiency air conditioner."""
+        'variable-type' : 'user-input',
+        'label': 'Replacement or new installation activity',
+        'display_question' : 'Which one of the following activities are you implementing?',
+        'sorting' : 1
     }
 
 
-class HVAC2_equipment_replaced(Variable):
+class HVAC2_new_installation_or_replacement_eligible(Variable):
+    """Checks if the type of activity is eligible
+    """
     value_type = bool
-    entity = Building
-    default_value = True
+    entity = Building 
     definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Is the activity the replacement of an existing air conditioner?',
-        'sorting' : 2,
-        'conditional': 'True',
-        'eligibility_clause' : """In PDRS HVAC2 Eligibility Requirements Clause 1 it states that this activity must be an installation of a new high efficiency air conditioner or a replacement of an existing air conditioner (whether operational or not) with a high efficiency air conditioner."""
-    }
+
+    def formula(buildings, period, parameters):
+      activity_type = buildings('HVAC2_new_installation_or_replacement', period)
+
+      activity_type_eligible = np.select(
+        [
+          (activity_type == HVAC2NewInstallationReplacement.new_installation_activity),
+          (activity_type == HVAC2NewInstallationReplacement.replacement_activity)
+        ],
+        [
+          True,
+          True
+        ])
+
+      return activity_type_eligible
 
 
 class HVAC2_installed_by_qualified_person(Variable):

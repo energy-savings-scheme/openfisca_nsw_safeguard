@@ -395,7 +395,7 @@ class RF2_PDRS__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "What is the postcode for the building you are calculating PRCs for?"
+    label = 'Postcode where the installation has taken place'
     metadata = {
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',

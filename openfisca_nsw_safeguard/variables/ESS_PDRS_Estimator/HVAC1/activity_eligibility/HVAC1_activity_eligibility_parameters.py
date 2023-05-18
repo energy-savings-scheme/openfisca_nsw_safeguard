@@ -19,7 +19,6 @@ class HVAC1_new_installation_or_replacement(Variable):
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
-        'label': 'Replacement or new installation activity',
         'display_question' : 'Which one of the following activities are you implementing?',
         'sorting' : 1
     }

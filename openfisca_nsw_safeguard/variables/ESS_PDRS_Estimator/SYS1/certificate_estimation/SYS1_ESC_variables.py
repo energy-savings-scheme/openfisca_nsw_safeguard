@@ -49,7 +49,7 @@ class SYS1_new_equipment_rated_output(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Rated output of new equipment (kW)',
-        'display_question' : 'What is the Rated Output of your new electric motor? (The electric motor must have a rated output from 0.73kW to <185kW)',
+        'display_question' : 'What is the rated output of your new electric motor? (The electric motor must have a rated output from 0.73kW to <185kW)',
         'sorting' : 7
     }
 
@@ -63,7 +63,7 @@ class SYS1_existing_equipment_rated_output(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Rated output of existing equipment (kW)',
-        'display_question' : 'What is the Rated Output of your existing electric motor?',
+        'display_question' : 'What is the rated output of your existing electric motor?',
         'sorting' : 10
     }
 
@@ -226,10 +226,10 @@ class SYS1_new_equipment_motor_frequency(Variable):
     possible_values = SYS1_motor_frequency_Options
     default_value = SYS1_motor_frequency_Options.motor_50_hz
     definition_period = ETERNITY
-    label = "Motor Frequency (Hz)"
+    label = "Motor frequency (Hz)"
     metadata = {
         'variable-type': 'user-input',
-        'label': 'Motor Frequency (Hz)',
+        'label': 'Motor frequency (Hz)',
         'display_question' : 'What is the frequency of your new motor power supply?',
         'sorting' : 8
     }

@@ -1,0 +1,15 @@
+- name: test HVAC2 heating annual energy use
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    D17_system_size_int:
+      [
+        small,
+        medium
+      ]
+  output:
+     D17_Baseline_A:
+      [
+        30.78,
+        50.76
+      ]

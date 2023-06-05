@@ -3,12 +3,11 @@ reference: Energy Savings Scheme Rule
 metadata:
   unit: MWh/year
 baseline_energy_consumption:
-  system_size:
-    small:
-      values:
-        2023-05-01:
-          value: 30.78
-    medium:
-      values:
-        2023-05-01:
-          value: 50.76
+  small:
+    values:
+      2021-01-01:
+        value: 30.78
+  medium:
+    values:
+      2021-01-01:
+        value: 50.76

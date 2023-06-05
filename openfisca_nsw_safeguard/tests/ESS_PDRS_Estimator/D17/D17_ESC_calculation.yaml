@@ -1,5 +1,5 @@
-- name: test HVAC2 heating annual energy use
-  period: 2022
+- name: test D17 Baseline A from system size
+  period: 2023
   absolute_error_margin: 0
   input:
     D17_system_size_int:
@@ -12,4 +12,30 @@
       [
         30.78,
         50.76
+      ]
+
+- name: test D17 deemed electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D17_Baseline_A:
+      [
+        3.320,
+        10
+      ]
+    D17_Bs:
+      [
+        2,
+        5
+      ]
+    D17_Be:
+      [
+        2,
+        3
+      ]
+  output:
+    D17_deemed_activity_electricity_savings:
+      [
+        4,
+        61.44
       ]

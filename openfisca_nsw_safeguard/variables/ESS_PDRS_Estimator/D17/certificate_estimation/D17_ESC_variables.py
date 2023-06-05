@@ -11,37 +11,53 @@ import numpy as np
 """
 
 
-# #get the postcode and calculate the heat pump zone
+#get the postcode and calculate the heat pump zone
 
-# class D17_get_zone_by_postcode(Variable):
-#     value_type = int
-#     entity = Building
-#     definition_period = ETERNITY
-#     metadata = {
-#         "variable-type": "inter-interesting",
-#         "alias": "Zone"
-#     }
-#     def formula(building, period, parameters):
-#         postcode = building('D17_PDRS__postcode', period)
-#         zones = parameters(period).ESS.ESS_general.Postcode_zones_air_source_heat_pumps
-#         return zones.calc(postcode)
+class D17_get_zone_by_postcode(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        "variable-type": "inter-interesting",
+        "alias": "Zone"
+    }
+    def formula(building, period, parameters):
+        postcode = building('D17_PDRS__postcode', period)
+        zones = parameters(period).ESS.ESS_general.Postcode_zones_air_source_heat_pumps
+        return zones.calc(postcode)
     
 
-# class D17_PDRS__postcode(Variable):
-#     value_type = int
-#     entity = Building
-#     definition_period = ETERNITY
-#     metadata={
-#         'variable-type' : 'user-input',
-#         'alias' : 'PDRS Postcode',
-#         'display_question' : 'Postcode where the installation has taken place',
-#         'sorting' : 1,
-#         'label': 'Postcode'
-#     }
+class D17_PDRS__postcode(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    metadata={
+        'variable-type' : 'user-input',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'Postcode where the installation has taken place',
+        'sorting' : 1,
+        'label': 'Postcode'
+    }
 
 
-#get the heat pump zone, brand and model and calculate the Bs and Be
-#get the brand and model, find the system size value and calculate the Baseline A
+class D17_Activity_Type(Enum):
+    new_installation_activity = 'Installation of a new air conditioner'
+    replacement_activity = 'Replacement of an existing air conditioner'
+
+
+
+class D17_Activity(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = D17_Activity_Type
+    default_value = D17_Activity_Type.replacement_activity
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label': 'Replacement or new installation activity',
+        'display_question' : 'Which one of the following activities are you implementing?',
+        'sorting' : 2
+    }
 
 
 class D17_System_Size(Enum):
@@ -81,15 +97,6 @@ class D17_system_size_int(Variable):
             ])
         return system_size_int
 
-# class D17_system_size(Variable):
-#     value_type = str
-#     entity = Building
-#     definition_period = ETERNITY
-#     metadata={
-#         'variable-type' : 'user-input',
-#         'display_question' : 'Postcode where the installation has taken place',
-#     }
-
 
 class D17_Baseline_A(Variable):
     value_type = float
@@ -103,30 +110,27 @@ class D17_Baseline_A(Variable):
         return baseline_A
   
 
-# class D17_Bs(Variable):
-#     #baseline energy consumption
-#     value_type = int
-#     entity = Building
-#     definition_period = ETERNITY
-   
-#     def formula(buildings, period, parameters):
-        
-#         heat_pump_zone = buildings('D17_get_zone_by_postcode', period)
-
-        
-#         baseline_energy_consumption = parameters(period).
-
-#         return baseline_energy_consumption
+class D17_Bs(Variable):
+    reference = 'Gj per year'
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'display_question': 'Annual supplementary energy used by the installed End-User Equipment',
+        'sorting' : 4,
+        'label': 'Bs (GJ/year)',
+        'variable-type': 'input'
+    }
 
 
-
-
-# class D17_Be(Variable):
-#     #annual electricity usage
-#     value_type = int
-#     entity = Building
-#     definition_period = ETERNITY
-#     metadata={
-        
-
-#     }
+class D17_Be(Variable):
+    reference = 'Gj per year'
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'display_question': 'Annual electrical energy used by the auxiliary equipment',
+        'sorting' : 4,
+        'label': 'Be (GJ/year)',
+        'variable-type': 'input'
+    }

@@ -11,7 +11,18 @@ import numpy as np
 """
 
 
-#get the postcode and calculate the heat pump zone
+class D17_PDRS__postcode(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    metadata={
+        'variable-type' : 'user-input',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'Postcode where the installation has taken place',
+        'sorting' : 1,
+        'label': 'Postcode'
+    }
+
 
 class D17_get_zone_by_postcode(Variable):
     value_type = int
@@ -27,35 +38,27 @@ class D17_get_zone_by_postcode(Variable):
         return zones.calc(postcode)
     
 
-class D17_PDRS__postcode(Variable):
-    value_type = int
+class D17_regional_network_factor(Variable):
+    value_type = float
     entity = Building
     definition_period = ETERNITY
-    metadata={
-        'variable-type' : 'user-input',
-        'alias' : 'PDRS Postcode',
-        'display_question' : 'Postcode where the installation has taken place',
-        'sorting' : 1,
-        'label': 'Postcode'
-    }
+    label = 'Regional Network Factor from ESS Table A24'
+    
+    def formula(buildings, period, parameters):
+        postcode = buildings('D17_PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        return rnf.calc(postcode)
 
 
-class D17_Activity_Type(Enum):
-    new_installation_activity = 'Installation of a new air conditioner'
-    replacement_activity = 'Replacement of an existing air conditioner'
-
-
-
-class D17_Activity(Variable):
-    value_type = Enum
+class D17_replacement_activity(Variable):
+    value_type = bool
+    default_value = True
     entity = Building
-    possible_values = D17_Activity_Type
-    default_value = D17_Activity_Type.replacement_activity
     definition_period = ETERNITY
     metadata = {
-        'variable-type' : 'user-input',
+        'variable-type': 'user-input',
         'label': 'Replacement or new installation activity',
-        'display_question' : 'Which one of the following activities are you implementing?',
+        'display_question': 'Is the activity the replacement of existing equipment?',
         'sorting' : 2
     }
 

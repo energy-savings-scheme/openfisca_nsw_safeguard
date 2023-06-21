@@ -1,0 +1,156 @@
+- name: test D19 heat pump zone
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D19_PDRS__postcode: 
+      [
+        2352,
+        2729,
+        2801
+      ]
+  output: 
+    D19_get_zone_by_postcode:
+      [
+        3,
+        5,
+        0
+      ]
+
+- name: test D19 regional network factor
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D19_PDRS__postcode:
+      [
+        2352,
+        2729,
+        2801,
+        2846
+      ]
+  output: 
+    D19_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1
+      ]
+
+- name: test D19 Baseline A from system size
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D19_system_size_int:
+      [
+        small,
+        medium
+      ]
+  output:
+     D19_Baseline_A:
+      [
+        0.58,
+        0.58
+      ]
+
+- name: test D19 Baseline B (deemed gas savings) from system size
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D19_system_size_int:
+      [
+        small,
+        medium
+      ]
+  output:
+     D19_Baseline_B:
+      [
+        48.68,
+        69.05
+      ]
+
+- name: test D19 deemed electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D19_Baseline_A:
+      [
+        3.320,
+        10
+      ]
+    D19_Bs:
+      [
+        2,
+        5
+      ]
+    D19_Be:
+      [
+        2,
+        3
+      ]
+  output:
+    D19_deemed_activity_electricity_savings:
+      [
+        4,
+        61.44
+      ]
+
+- name: test D19 electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D19_deemed_activity_electricity_savings:
+      [
+        4,
+        61.44,
+        3,
+        104
+      ]
+    D19_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1
+      ]
+  output:
+    D19_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104 
+      ]
+
+- name: test D19 ESC calculation
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D19_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104
+      ]
+    D19_Baseline_B:
+      [
+        1,
+        2,
+        0,
+        5.4
+      ]
+    D19_replacement_activity:
+      [
+        true,
+        true,
+        false, #not eligible
+        true
+      ]
+  output:
+    D19_ESC_calculation:
+      [
+        4.757,
+        67.859,
+        0,
+        112.346
+      ]

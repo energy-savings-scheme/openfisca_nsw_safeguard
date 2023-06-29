@@ -413,7 +413,7 @@ class RF2_replacement_activity(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'Replacement or new installation activity',
-        'display_question' : 'Is the activity a replacement of existing equipment?',
+        'display_question' : 'Is the activity the replacement of existing equipment?',
         'sorting' : 3
         }
 

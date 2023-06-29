@@ -1,0 +1,133 @@
+- name: test D17 heat pump zone
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D17_PDRS__postcode: 
+      [
+        2352,
+        2729,
+        2801
+      ]
+  output: 
+    D17_get_zone_by_postcode:
+      [
+        3,
+        5,
+        0
+      ]
+
+- name: test D17 regional network factor
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D17_PDRS__postcode:
+      [
+        2352,
+        2729,
+        2801,
+        2846
+      ]
+  output: 
+    D17_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1
+      ]
+
+- name: test D17 Baseline A from system size
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D17_system_size_int:
+      [
+        small,
+        medium
+      ]
+  output:
+     D17_Baseline_A:
+      [
+        30.78,
+        50.76
+      ]
+
+- name: test D17 deemed electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D17_Baseline_A:
+      [
+        3.320,
+        10
+      ]
+    D17_Bs:
+      [
+        2,
+        5
+      ]
+    D17_Be:
+      [
+        2,
+        3
+      ]
+  output:
+    D17_deemed_activity_electricity_savings:
+      [
+        4,
+        61.44
+      ]
+
+- name: test D17 electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D17_deemed_activity_electricity_savings:
+      [
+        4,
+        61.44,
+        3,
+        104
+      ]
+    D17_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1
+      ]
+  output:
+    D17_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104 
+      ]
+
+- name: test D17 ESC calculation
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D17_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104
+      ]
+    D17_replacement_activity:
+      [
+        true,
+        true,
+        false, #not eligible
+        true
+      ]
+  output:
+    D17_ESC_calculation:
+      [
+        4.367,
+        67.079,
+        0,
+        110.24
+      ]

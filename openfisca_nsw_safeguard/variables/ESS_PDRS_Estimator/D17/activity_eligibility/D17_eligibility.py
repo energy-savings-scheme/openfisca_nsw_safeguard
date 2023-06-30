@@ -25,9 +25,9 @@ class D17_replacement_final_activity_eligibility(Variable):
         equipment_removed = buildings('D17_equipment_removed', period)
         new_equipment_installed = buildings('D17_equipment_installed', period)
         qualified_install = buildings('D17_installed_by_qualified_person', period)
-        registered_GEMS = buildings('D17_equipment_registered_in_GEMS', period)
+        registered_IPART = buildings('D17_equipment_registered_IPART', period)
         
         end_formula =  ( equipment_replaced * replaces_electric * ACP_engaged *
-                        equipment_removed * new_equipment_installed * qualified_install * registered_GEMS)
+                        equipment_removed * new_equipment_installed * qualified_install * registered_IPART)
         
         return end_formula

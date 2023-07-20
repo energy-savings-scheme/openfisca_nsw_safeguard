@@ -469,13 +469,21 @@
     #   [
     #     true
     #   ]
+    HVAC2_TCSPF_mixed:
+      [
+        8.777
+      ]
+    HVAC2_rated_AEER_input:
+      [
+        7.8714
+      ]
     HVAC2_rated_ACOP_input:
       [
         9.1521
       ]
     HVAC2_HSPF_mixed:
       [
-        6.921 #benchmark is 4
+        3 #benchmark is 4
       ]
     # HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark:
     #   [
@@ -487,78 +495,103 @@
         24.51
       ]
 
+# - name: test ESC calculation Dayton HL-SLRC02
+#   period: 2022
+#   absolute_error_margin: 0.5
+#   input:
+#     HVAC2_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system,    ##Dayton HL-SLRC02
+#         non_ducted_split_system
+#       ]
+#     HVAC2_PDRS__postcode: 
+#       [
+#         2770,
+#         2770
+#       ]
+#     HVAC2_commercial_TCEC:
+#       [
+#         923,
+#         923
+#       ]
+#     HVAC2_commercial_THEC: 
+#       [
+#         296,
+#         296
+#       ]
+#     HVAC2_cooling_capacity_input: 
+#       [
+#         9,
+#         9
+#       ]
+#     HVAC2_heating_capacity_input:
+#       [
+#         9,
+#         9
+#       ]
+#     HVAC2_Activity: 
+#       [
+#         new_installation_activity,
+#         new_installation_activity
+#       ]
+#     HVAC2_TCSPF_mixed:
+#       [
+#         8.777,
+#         8.777
+#       ]
+#     HVAC2_rated_AEER_input:
+#       [
+#         7.8714,
+#         7.8714
+#       ]
+#     HVAC2_HSPF_mixed:
+#       [
+#         6.921,
+#         6.921
+#       ]
+#     HVAC2_rated_ACOP_input:
+#       [
+#         9.1521,
+#         9.1521
+#       ]
+#     HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+#       [
+#         true,
+#         false
+#       ]
+#     HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark:
+#       [
+#         true,
+#         true
+#       ]
+#   output:
+#     HVAC2_ESC_calculation:
+#       [
+#         49,
+#         0
+#       ]
+
 - name: test ESC calculation Dayton HL-SLRC02
   period: 2022
   absolute_error_margin: 0.5
   input:
-    HVAC2_Air_Conditioner_type:
-      [
-        non_ducted_split_system,    ##Dayton HL-SLRC02
-        non_ducted_split_system
-      ]
-    HVAC2_PDRS__postcode: 
-      [
-        2770,
-        2770
-      ]
-    HVAC2_commercial_TCEC:
-      [
-        923,
-        923
-      ]
-    HVAC2_commercial_THEC: 
-      [
-        296,
-        296
-      ]
-    HVAC2_cooling_capacity_input: 
-      [
-        9,
-        9
-      ]
-    HVAC2_heating_capacity_input:
-      [
-        9,
-        9
-      ]
-    HVAC2_Activity: 
-      [
-        new_installation_activity,
-        new_installation_activity
-      ]
+    # HVAC2_rated_AEER_input:
+    #   [
+    #     7.8714
+    #   ]
     HVAC2_TCSPF_mixed:
       [
-        8.777,
-        8.777
+        8.777, #benchmark 6
+        3
       ]
-    HVAC2_rated_AEER_input:
+    HVAC2_Air_Conditioner_type:
       [
-        7.8714,
-        7.8714
+        non_ducted_split_system,
+        non_ducted_split_system
       ]
-    HVAC2_HSPF_mixed:
-      [
-        6.921,
-        6.921
-      ]
-    HVAC2_rated_ACOP_input:
-      [
-        9.1521,
-        9.1521
-      ]
+  output:
     HVAC2_TCSPF_or_AEER_exceeds_benchmark:
       [
         true,
         false
-      ]
-    HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark:
-      [
-        true,
-        true
-      ]
-  output:
-    HVAC2_ESC_calculation:
-      [
-        49,
-        0
-      ]
+      ]  

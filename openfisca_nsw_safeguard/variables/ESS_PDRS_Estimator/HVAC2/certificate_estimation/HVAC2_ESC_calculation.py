@@ -243,14 +243,14 @@ class HVAC2_ESC_calculation(Variable):
 
       result = np.rint(HVAC2_electricity_savings * electricity_certificate_conversion_factor)      
       result_meet_elig = np.select([
-                            np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_benchmark * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark,
-                            np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark) * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark,
-                            np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_benchmark * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark),
-                            np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark) * np.logical_not(HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark),
-                            zero_heating_capacity * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark) * np.logical_not(HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark),
-                            zero_heating_capacity * HVAC2_TCSPF_or_AEER_exceeds_benchmark * np.logical_not(HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark),
-                            zero_heating_capacity * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark) * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark,
-                            zero_heating_capacity * HVAC2_TCSPF_or_AEER_exceeds_benchmark * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark,
+                            (np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_benchmark * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                            (np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark) * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                            (np.logical_not(zero_heating_capacity) * (HVAC2_TCSPF_or_AEER_exceeds_benchmark) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark)),
+                            (np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark) * np.logical_not(HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark)),
+                            (zero_heating_capacity * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark) * np.logical_not(HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark)),
+                            (zero_heating_capacity * HVAC2_TCSPF_or_AEER_exceeds_benchmark * np.logical_not(HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark)),
+                            (zero_heating_capacity * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark) * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark),
+                            (zero_heating_capacity * HVAC2_TCSPF_or_AEER_exceeds_benchmark * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark),
                          ],
       
                         [

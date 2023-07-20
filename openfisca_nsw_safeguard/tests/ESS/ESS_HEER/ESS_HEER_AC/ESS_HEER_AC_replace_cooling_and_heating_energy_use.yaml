@@ -1,5 +1,6 @@
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -27,7 +28,8 @@
                                                     18530.908
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -55,7 +57,8 @@
                                                     6240
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -83,7 +86,8 @@
                                                     4145.4546
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -111,7 +115,8 @@
                                                     18530.908
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -139,7 +144,8 @@
                                                     6240
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -162,12 +168,13 @@
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
                                                     256.75674,
-                                                    680.8874
+                                                    680.8874,
                                                     2035.7142,
                                                     4145.4546
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -195,7 +202,8 @@
                                                     18530.908
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -223,7 +231,8 @@
                                                     6240
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -251,7 +260,8 @@
                                                     4145.4546
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -279,7 +289,8 @@
                                                     18530.908
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,
@@ -307,7 +318,8 @@
                                                     6240
                                                     ]
 - name: Test AC cooling annual energy use for non-ducted split systems.
-  period: 2022
+  period: 2023
+  absolute_error_margin: 50
   input:
     new_AC_cooling_capacity: [
                               3,

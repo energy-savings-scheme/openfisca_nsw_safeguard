@@ -458,4 +458,8 @@ class HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
             (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][product_class][cooling_capacity])
                                             ]
             )
+        
+        print('HSPF',AC_HSPF_mixed)
+        print('ACOP', AC_ACOP)
+        print('product class', product_class)
         return AC_exceeds_benchmark

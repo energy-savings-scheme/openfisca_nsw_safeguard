@@ -396,18 +396,18 @@ class HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Does the Air Conditioner have a HSPF mixed equal or greater than the minimum' \
-            ' HSPF mixed listed in Table D16.3? If the HSPF is not available, is the Rated' \
+            ' HSPF mixed listed in Table F4.5? If the HSPF is not available, is the Rated' \
             ' ACOP equal or greater than the Minimum Rated ACOP listed in Table D16.5?'
     metadata = {
         'alias':  'ESS - HSPF or ACOP exceeds benchmark'
     }
 
     def formula(buildings, period, parameters):
-        AC_HSPF_mixed = buildings('HVAC1_HSPF_mixed', period)
-        AC_HSPF_cold = buildings('HVAC1_HSPF_cold', period)
-        AC_ACOP = buildings('HVAC1_rated_ACOP_input', period)
-        product_class = buildings('HVAC1_Air_Conditioner_type', period)
-        new_AC_cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
+        AC_HSPF_mixed = buildings('HVAC2_HSPF_mixed', period)
+        AC_HSPF_cold = buildings('HVAC2_HSPF_cold', period)
+        AC_ACOP = buildings('HVAC2_rated_ACOP_input', period)
+        product_class = buildings('HVAC2_Air_Conditioner_type', period)
+        new_AC_cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
         cooling_capacity = np.select(
                                     [
                                         (new_AC_cooling_capacity < 4),
@@ -429,7 +429,7 @@ class HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                     ]
                                     )
 
-        climate_zone = buildings('HVAC1_certificate_climate_zone', period)
+        climate_zone = buildings('HVAC2_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
 

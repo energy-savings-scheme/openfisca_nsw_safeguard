@@ -65,18 +65,21 @@
     HVAC2_commercial_THEC:
       [
         0,
-        25
+        25,
+        296 #Dayton HL-SLRC02
       ]
     HVAC2_heating_annual_energy_use:
       [
         50,
-        100
+        100,
+        9799
       ]
   output:
     HVAC2_THEC_or_annual_heating:
       [
         50,
-        25
+        25,
+        296
       ]
 
 - name: test HVAC2 TCEC versus annual cooling equation
@@ -86,18 +89,21 @@
     HVAC2_commercial_TCEC:
       [
         0,
-        25
+        25,
+        923 #Dayton HL-SLRC02
       ]
     HVAC2_cooling_annual_energy_use:
       [
         50,
-        100
+        100,
+        939
       ]
   output:
     HVAC2_TCEC_or_annual_cooling:
       [
         50,
-        25
+        25,
+        923
       ]
       
 - name: test HVAC2 reference heating annual energy use
@@ -108,26 +114,30 @@
       [
         10,
         28,  #Fujitsu General AOTA90LALT/ART
-        14   #Mitsubishi PUMYP112VKMA
+        14,  #Mitsubishi PUMYP112VKMA
+        9    #Dayton HL-SLRC02
       ]
     HVAC2_equivalent_heating_hours_input:
       [
         20,
         303, #average zone
-        303
+        303,
+        303  #average zone
       ]
     HVAC2_baseline_ACOP_input:
       [
         100,
         1.9,
-        2.05
+        2.05,
+        2.11
       ]
   output:
     HVAC2_reference_heating_annual_energy_use:
       [
         2,
         4465.263,
-        2069.26829
+        2069.26829,
+        1292.417
       ]
 
 - name: test HVAC2 reference cooling annual energy use
@@ -137,27 +147,31 @@
     HVAC2_cooling_capacity_input:
       [
         32,
-        25,  #Fujitsu General AOTA90LALT/ART
-        12.5 #Mitsubishi PUMYP112VKMA
+        25,   #Fujitsu General AOTA90LALT/ART
+        12.5, #Mitsubishi PUMYP112VKMA
+        9     #Dayton HL-SLRC02
       ]
     HVAC2_equivalent_cooling_hours_input:
       [
         23,
         801,
-        801
+        801,
+        801 #average zone
       ]
     HVAC2_baseline_AEER_input:
       [
         12,
         2.8,
-        3.1
+        3.1,
+        3.22
       ]
   output:
     HVAC2_reference_cooling_annual_energy_use:
       [
         61.3,
         7151.786,
-        3229.83871
+        3229.83871,
+        2238.82
       ]
 
 - name: test baseline AEER input
@@ -167,19 +181,23 @@
     HVAC2_cooling_capacity_input:
       [
         32,
+        9 #Dayton HL-SLRC02
       ]
     HVAC2_Air_Conditioner_type:
       [
+        non_ducted_split_system,
         non_ducted_split_system
       ]
     HVAC2_Activity:
       [
+        new_installation_activity,
         new_installation_activity
       ]
   output:
     HVAC2_baseline_AEER_input:
       [
-        3.1
+        3.1,
+        3.22
       ]
 
 - name: test baseline ACOP input
@@ -413,4 +431,54 @@
     HVAC2_ESC_calculation:
       [
         20
+      ]
+
+- name: test ESC calculation Dayton HL-SLRC02
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    HVAC2_Air_Conditioner_type:
+      [
+        non_ducted_split_system    ##Dayton HL-SLRC02
+      ]
+    HVAC2_PDRS__postcode: 
+      [
+        2770
+      ]
+    HVAC2_TCSPF_mixed: 
+      [
+        8.777
+      ]
+    HVAC2_commercial_TCEC:
+      [
+        923
+      ]
+    HVAC2_commercial_THEC: 
+      [
+        296
+      ]
+    HVAC2_cooling_capacity_input: 
+      [
+        9
+      ]
+    HVAC2_heating_capacity_input:
+      [
+        9
+      ]
+    HVAC2_Activity: 
+      [
+        new_installation_activity
+      ]
+    HVAC2_rated_ACOP_input: 
+      [
+        9.1521
+      ]   
+    HVAC2_rated_AEER_input: 
+      [
+        7.8714
+      ]
+  output:
+    HVAC2_ESC_calculation:
+      [
+        24.51
       ]

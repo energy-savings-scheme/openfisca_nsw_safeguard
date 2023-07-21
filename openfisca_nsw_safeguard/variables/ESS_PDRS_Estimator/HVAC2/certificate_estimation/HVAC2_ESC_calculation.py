@@ -3,6 +3,7 @@ from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
+import math
 
 import numpy as np
 
@@ -239,7 +240,7 @@ class HVAC2_ESC_calculation(Variable):
       heating_capacity = buildings('HVAC2_heating_capacity_input', period)
       zero_heating_capacity = ( heating_capacity == 0)
 
-      result = np.rint(HVAC2_electricity_savings * electricity_certificate_conversion_factor)      
+      result = np.floor(HVAC2_electricity_savings * electricity_certificate_conversion_factor)      
       result_meet_elig = np.select([
                             np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_benchmark,
                             np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark),

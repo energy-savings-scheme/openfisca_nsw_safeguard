@@ -424,8 +424,8 @@
   output:
     HVAC1_ESC_calculation:
       [
-        1.13,
-        3055.12
+        1,
+        3055
       ]
 
 - name: test ESC calculation
@@ -480,7 +480,7 @@
   output:
     HVAC1_ESC_calculation:
       [
-        41.984,
+        41,
         0
       ]
 
@@ -523,7 +523,7 @@
   output:
     HVAC1_ESC_calculation:
       [
-        12.857
+        12
       ]
 
 - name: test ESC calculation case 3
@@ -627,7 +627,7 @@
   output:
     HVAC1_ESC_calculation:
       [
-        18.438
+        18
       ]
 
 - name: test ESC calculation Daikin RXM25UVMA/FTXM25UVMA
@@ -693,5 +693,5 @@
   output:
     HVAC1_ESC_calculation:
       [
-        7.165
+        7
       ]

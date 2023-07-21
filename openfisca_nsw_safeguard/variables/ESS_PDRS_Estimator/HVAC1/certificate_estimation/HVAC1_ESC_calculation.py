@@ -239,7 +239,7 @@ class HVAC1_ESC_calculation(Variable):
       electricity_certificate_conversion_factor = 1.06
       heating_capacity = buildings('HVAC1_heating_capacity_input', period)
 
-      result = HVAC1_electricity_savings * electricity_certificate_conversion_factor
+      result = np.floor(HVAC1_electricity_savings * electricity_certificate_conversion_factor)
       
       zero_heating_capacity = ( heating_capacity == 0)
       result_meet_elig = np.select([

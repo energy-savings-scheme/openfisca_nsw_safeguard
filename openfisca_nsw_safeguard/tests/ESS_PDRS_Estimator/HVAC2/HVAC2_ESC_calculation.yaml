@@ -276,7 +276,7 @@
     HVAC2_ESC_calculation:
       [
         0,
-        26.5
+        26
       ]
 
 - name: test ESC calculation
@@ -430,7 +430,7 @@
   output:
     HVAC2_ESC_calculation:
       [
-        20
+        19
       ]
 
 - name: test ESC calculation Dayton HL-SLRC02
@@ -476,5 +476,5 @@
   output:
     HVAC2_ESC_calculation:
       [
-        24.51
+        24
       ]

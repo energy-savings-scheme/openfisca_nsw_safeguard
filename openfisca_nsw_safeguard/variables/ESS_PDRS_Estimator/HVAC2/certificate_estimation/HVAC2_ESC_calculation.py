@@ -179,8 +179,7 @@ class HVAC2_deemed_activity_electricity_savings(Variable):
       annual_heating = buildings('HVAC2_THEC_or_annual_heating', period)
       lifetime = 10
       
-      deemed_electricity_savings = np.sum([(reference_annual_cooling - annual_cooling), (reference_annual_heating - annual_heating)]) * (lifetime / 1000)
-
+      deemed_electricity_savings = np.multiply(((reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating)), (lifetime / 1000))
       return deemed_electricity_savings
 
 

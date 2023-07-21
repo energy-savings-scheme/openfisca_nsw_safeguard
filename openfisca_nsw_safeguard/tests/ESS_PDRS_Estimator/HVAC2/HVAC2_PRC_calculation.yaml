@@ -195,10 +195,10 @@
   output:
     HVAC2_PRC_calculation:
       [
-        228.38,  #Fujitsu AOTA90LALT/ARTC90LATU
-        39.7488, #Daikin RXM25UVMA / FTXM25UVMA
-        50.4,    #Panasonic CU-Z71XKR / CS-Z71XKRW
-        225.89   #Mitsubishi PUMY-P112VKM-A
+        228,  #Fujitsu AOTA90LALT/ARTC90LATU
+        39, #Daikin RXM25UVMA / FTXM25UVMA
+        50,    #Panasonic CU-Z71XKR / CS-Z71XKRW
+        225   #Mitsubishi PUMY-P112VKM-A
       ]
 
 - name: test HVAC2 PRC calculation complex
@@ -265,10 +265,10 @@
     HVAC2_PRC_calculation:
       [
         0,
-        228.38,
-        40,
+        228,
+        39,
         50,
-        225.9
+        225
       ]
 
 - name: test HVAC2 Mitsubishi PUMY-P112VKM-A
@@ -326,5 +326,5 @@
   output:
     HVAC2_PRC_calculation:
       [
-        225.9
+        225
       ]

@@ -472,10 +472,6 @@
     HVAC2_rated_ACOP_input: 
       [
         9.1521
-      ]   
-    HVAC2_rated_AEER_input: 
-      [
-        7.8714
       ]
   output:
     HVAC2_ESC_calculation:

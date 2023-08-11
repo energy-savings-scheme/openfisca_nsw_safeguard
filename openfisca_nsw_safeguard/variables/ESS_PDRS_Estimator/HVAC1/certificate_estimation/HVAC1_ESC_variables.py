@@ -94,6 +94,7 @@ class HVAC1_baseline_AEER_input(Variable):
                     ]
             )
 
+        print('baseline AEER', baseline_aeer)
         return baseline_aeer
 
 
@@ -258,6 +259,7 @@ class HVAC1_baseline_ACOP_input(Variable):
                     ]
             )
 
+        print('baseline ACOP', baseline_acop)
         return baseline_acop
 
 
@@ -359,6 +361,7 @@ class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
             (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_1_3[product_class][cooling_capacity])
             )
 
+        print('AEER vs TCSPF', AC_exceeds_cooling_benchmark)
         return AC_exceeds_cooling_benchmark
 
 
@@ -453,4 +456,5 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                             ]
             )
 
+        print('AEER vs HSPF', AC_exceeds_benchmark)
         return AC_exceeds_benchmark

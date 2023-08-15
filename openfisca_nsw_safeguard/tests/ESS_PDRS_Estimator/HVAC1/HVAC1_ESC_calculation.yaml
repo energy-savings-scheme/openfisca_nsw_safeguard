@@ -695,3 +695,135 @@
       [
         7
       ]
+
+- name: test ESC calculation Fujitsu General AOTA45LCTL/SUTA45LCLU
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC1_get_network_loss_factor_by_postcode:
+      [
+        1.04
+      ]
+    HVAC1_HSPF_cold:
+      [
+        4.525 #is below minimum 3.5 (not used)
+      ]
+    HVAC1_HSPF_mixed:
+      [
+        4.857 # is greater than minimum 4.0
+      ]
+    HVAC1_PDRS__postcode: 
+      [
+        2000 #average zone
+      ]
+    HVAC1_TCSPF_mixed:
+      [
+        7.065 # is greater than minimum 4.5
+      ]
+    HVAC1_cooling_capacity_input: 
+      [
+        2.5
+      ]
+    HVAC1_heating_capacity_input: 
+      [
+        3.2
+      ]
+    HVAC1_input_power: 
+      [
+        0.49
+      ]
+    HVAC1_Activity:
+      [
+        new_installation_activity
+      ]
+    HVAC1_rated_ACOP_input:
+      [
+        3.7702
+      ]
+    HVAC1_rated_AEER_input:
+      [
+        5.0463
+      ]
+    HVAC1_residential_TCEC: 
+      [
+        145
+      ]
+    HVAC1_residential_THEC:
+      [
+        362
+      ] 
+  output:
+    HVAC1_ESC_calculation:
+      [
+        7
+      ]
+
+- name: test ESC calculation Carrier 42SHDV140-1 / 38SHDV140-1
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_Air_Conditioner_type:
+      [
+        ducted_split_system
+      ]
+    HVAC1_get_network_loss_factor_by_postcode:
+      [
+        1.04
+      ]
+    HVAC1_HSPF_cold:
+      [
+        0 #not used
+      ]
+    HVAC1_HSPF_mixed:
+      [
+        0 #not used
+      ]
+    HVAC1_PDRS__postcode: 
+      [
+        2000 #average zone
+      ]
+    HVAC1_TCSPF_mixed:
+      [
+        0 #not used
+      ]
+    HVAC1_cooling_capacity_input: 
+      [
+        14.3
+      ]
+    HVAC1_heating_capacity_input: 
+      [
+        17.8
+      ]
+    HVAC1_input_power: 
+      [
+        14.3
+      ]
+    HVAC1_Activity:
+      [
+        new_installation_activity
+      ]
+    HVAC1_rated_ACOP_input:
+      [
+        3.9666
+      ]
+    HVAC1_rated_AEER_input:
+      [
+        3.3906
+      ]
+    HVAC1_residential_TCEC: 
+      [
+        0
+      ]
+    HVAC1_residential_THEC:
+      [
+        0
+      ] 
+  output:
+    HVAC1_ESC_calculation:
+      [
+        30
+      ]

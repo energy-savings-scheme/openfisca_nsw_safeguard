@@ -94,7 +94,6 @@ class HVAC1_baseline_AEER_input(Variable):
                     ]
             )
 
-        print('baseline AEER', baseline_aeer)
         return baseline_aeer
 
 
@@ -259,7 +258,6 @@ class HVAC1_baseline_ACOP_input(Variable):
                     ]
             )
 
-        print('baseline ACOP', baseline_acop)
         return baseline_acop
 
 
@@ -361,7 +359,6 @@ class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
             (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_1_3[product_class][cooling_capacity])
             )
 
-        print('AEER vs TCSPF', AC_exceeds_cooling_benchmark)
         return AC_exceeds_cooling_benchmark
 
 
@@ -403,7 +400,6 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
         AC_HSPF_mixed = buildings('HVAC1_HSPF_mixed', period)
         AC_HSPF_cold = buildings('HVAC1_HSPF_cold', period)
         AC_ACOP = buildings('HVAC1_rated_ACOP_input', period)
-        print("AC_ACOP", AC_ACOP)
         product_class = buildings('HVAC1_Air_Conditioner_type', period)
         new_AC_cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
         cooling_capacity = np.select(
@@ -438,18 +434,12 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
 
         AC_HSPF = np.where(in_cold_zone, AC_HSPF_cold, AC_HSPF_mixed)
         # AC_HSPF_mixed
-        
-        print("AC_HSPF", AC_HSPF)
-        
+                
         # determines which HSPF value to use
         HSPF_is_zero = (
                         (AC_HSPF == 0) + 
                         (AC_HSPF == None)
                         )
-        
-        print("HSEP is zero", HSPF_is_zero)
-        
-        # HSPF is zero is true
         
         # tells you if the relevant HSPF is zero or non-existant
         AC_exceeds_benchmark = np.select([
@@ -464,5 +454,4 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                             ]
             )
 
-        print('AEER vs HSPF', AC_exceeds_benchmark)
         return AC_exceeds_benchmark

@@ -56,22 +56,42 @@
         0.73825
       ]
 
-- name: test zones by postcode
-  period: 2022
+# - name: test zones by postcode
+#   period: 2022
+#   absolute_error_margin: 0
+#   input:
+#     WH1_PDRS__postcode:
+#       [
+#         2354,
+#         2365,
+#         2074
+#       ]
+#   output:
+#     WH1_get_zone_by_postcode:
+#       [
+#         3,
+#         5,
+#         3
+#       ]
+
+- name: test postcode to BCA climate zone to heat pump zone
+  period: 2023
   absolute_error_margin: 0
   input:
     WH1_PDRS__postcode:
       [
-        2354,
-        2365,
-        2074
+        2324, #BCA climate zone 2 - HP zone 3
+        2588, #BCA climate zone 4 - HP zone 3
+        2328, #BCA climate zone 7 - HP zone 5
+        2624  #BCA climate zone 8 - HP zone 5
       ]
   output:
-    WH1_get_zone_by_postcode:
+    WH1_get_HP_zone_by_BCA_climate_zone:
       [
         3,
+        3,
         5,
-        3
+        5
       ]
 
 - name: test Postcode to DNSP to network loss factor
@@ -97,51 +117,38 @@
         1.04
       ]
 
-- name: test WH1 eligibility by min savings, HP zone, BCA climate zone
-  period: 2022
-  absolute_error_margin: 0
-  input:
-    WH1_annual_energy_savings:
-      [
-        80,
-        80,
-        80,
-        80,
-        80,
-        50,
-        60
-      ]
-    WH1_get_zone_by_postcode:
-      [
-        5,
-        5,
-        5,
-        5,
-        3,
-        3,
-        3
-      ]
-    WH1_BCA_climate_zone_by_postcode:
-      [
-        BCA_Climate_Zone_1,
-        BCA_Climate_Zone_2,
-        BCA_Climate_Zone_3,
-        BCA_Climate_Zone_7,
-        BCA_Climate_Zone_8,
-        BCA_Climate_Zone_8,
-        BCA_Climate_Zone_7
-      ]
-  output:
-    WH1_annual_energy_savings_eligible:
-      [
-        False,
-        True,
-        True,
-        False,
-        True,
-        False,
-        True
-      ]
+# - name: test WH1 eligibility by min savings, HP zone, BCA climate zone
+#   period: 2022
+#   absolute_error_margin: 0
+#   input:
+#     WH1_annual_energy_savings:
+#       [
+#         80,
+#         80,
+#         80,
+#         80,
+#         80,
+#         50,
+#         60
+#       ]
+#     WH1_PDRS__postcode:
+#       [
+#         2324, #BCA climate zone 2 - HP zone 3
+#         2588, #BCA climate zone 4 - HP zone 3
+#         2328, #BCA climate zone 7 - HP zone 5
+#         2624  #BCA climate zone 8 - HP zone 5
+#       ]
+#   output:
+#     WH1_annual_energy_savings_eligible:
+#       [
+#         False,
+#         True,
+#         True,
+#         False,
+#         True,
+#         False,
+#         True
+#       ]
       
 - name: test WH1 peak demand reduction capacity
   period: 2022

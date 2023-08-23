@@ -97,16 +97,16 @@ class WH1_BCA_climate_zone_by_postcode(Variable):
         return BCA_climate_zone_to_check
     
 
-class WH1_get_HP_zone_by_BCA_climate_zone(Variable):
-        value_type = int
-        entity = Building
-        definition_period = ETERNITY
+# class WH1_get_HP_zone_by_BCA_climate_zone(Variable):
+#         value_type = int
+#         entity = Building
+#         definition_period = ETERNITY
         
-        def formula(building, period, parameters):
-            BCA_climate_zone = building('WH1_BCA_climate_zone_by_postcode', period)
-            heat_pump_zone = parameters(period).ESS.ESS_general.heat_pump_zone_by_BCA_climate_zone
+#         def formula(building, period, parameters):
+#             BCA_climate_zone = building('WH1_BCA_climate_zone_by_postcode', period)
+#             heat_pump_zone = parameters(period).ESS.ESS_general.heat_pump_zone_by_BCA_climate_zone
 
-            return heat_pump_zone.calc(BCA_climate_zone)
+#             return heat_pump_zone.calc(BCA_climate_zone)
 
 
 class WH1_get_network_loss_factor_by_postcode(Variable):

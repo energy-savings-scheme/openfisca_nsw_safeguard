@@ -56,23 +56,23 @@
         0.73825
       ]
 
-# - name: test zones by postcode
-#   period: 2022
-#   absolute_error_margin: 0
-#   input:
-#     WH1_PDRS__postcode:
-#       [
-#         2354,
-#         2365,
-#         2074
-#       ]
-#   output:
-#     WH1_get_zone_by_postcode:
-#       [
-#         3,
-#         5,
-#         3
-#       ]
+- name: test zones by postcode
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    WH1_PDRS__postcode:
+      [
+        2354,
+        2365,
+        2074
+      ]
+  output:
+    WH1_BCA_climate_zone_by_postcode_int:
+      [
+        7,
+        7,
+        5
+      ]
 
 - name: test postcode to BCA climate zone to heat pump zone
   period: 2023
@@ -92,6 +92,26 @@
         3,
         5,
         5
+      ]
+
+- name: test BCA climate zone to heat pump zone
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    WH1_BCA_climate_zone_by_postcode_int:
+      [
+       2,
+       4,
+       7,
+       8
+      ]
+  output:
+    WH1_get_HP_zone_by_BCA_climate_zone:
+      [
+       3,
+       3,
+       5,
+       5
       ]
 
 - name: test Postcode to DNSP to network loss factor

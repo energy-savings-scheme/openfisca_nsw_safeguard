@@ -1,0 +1,49 @@
+description: BCA climate zone to heat pump zone
+reference: Energy Savings Scheme Rule
+brackets:
+  - amount:
+      2023-01-01:
+        value: 3
+    threshold:
+      2023-01-01:
+        value: 2
+  - amount:
+      2023-01-01:
+        value: 3
+    threshold:
+      2023-01-01:
+        value: 3
+  - amount:
+      2023-01-01:
+        value: 3
+    threshold:
+      2023-01-01:
+        value: 4
+  - amount:
+      2023-01-01:
+        value: 3
+    threshold:
+      2023-01-01:
+        value: 5
+  - amount:
+      2023-01-01:
+        value: 3
+    threshold:
+      2023-01-01:
+        value: 6
+  - amount:
+      2023-01-01:
+        value: 5
+    threshold:
+      2023-01-01:
+        value: 7
+  - amount:
+      2023-01-01:
+        value: 5
+    threshold:
+      2023-01-01:
+        value: 8
+metadata:
+  type: single_amount
+  threshold_unit: BCA_climate_zone
+  amount_unit: 1

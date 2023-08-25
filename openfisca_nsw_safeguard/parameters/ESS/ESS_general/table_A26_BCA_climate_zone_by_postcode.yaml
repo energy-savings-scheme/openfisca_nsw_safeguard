@@ -140,12 +140,6 @@ brackets:
         value: 2336
   - amount:
       2020-01-01:
-        value: 7
-    threshold:
-      2020-01-01:
-        value: 2336
-  - amount:
-      2020-01-01:
         value: 4
     threshold:
       2020-01-01:

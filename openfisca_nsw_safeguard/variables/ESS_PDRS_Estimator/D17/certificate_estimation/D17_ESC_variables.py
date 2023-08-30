@@ -24,19 +24,73 @@ class D17_PDRS__postcode(Variable):
     }
 
 
-class D17_get_zone_by_postcode(Variable):
+class D17_BCA_climate_zone_by_postcode(Variable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    metadata={
+        'variable-type' : 'inter-interesting'
+    }
+
+    def formula(buildings, period, parameters):
+        postcode = buildings('D17_PDRS__postcode', period)
+        # Returns an integer
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        climate_zone_int = climate_zone.calc(postcode)
+        BCA_climate_zone_to_check = np.select(
+            [
+                climate_zone_int == 1,
+                climate_zone_int == 2,
+                climate_zone_int == 3,
+                climate_zone_int == 4,
+                climate_zone_int == 5,
+                climate_zone_int == 6,
+                climate_zone_int == 7,
+                climate_zone_int == 8
+            ],
+            [
+                'BCA_Climate_Zone_1',
+                'BCA_Climate_Zone_2',
+                'BCA_Climate_Zone_3',
+                'BCA_Climate_Zone_4',
+                'BCA_Climate_Zone_5',
+                'BCA_Climate_Zone_6',
+                'BCA_Climate_Zone_7',
+                'BCA_Climate_Zone_8'
+            ])
+
+        return BCA_climate_zone_to_check
+    
+    
+class D17_BCA_climate_zone_by_postcode_int(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    metadata = {
-        "variable-type": "inter-interesting",
-        "alias": "Zone"
+    metadata={
+        'variable-type' : 'inter-interesting'
     }
-    def formula(building, period, parameters):
-        postcode = building('D17_PDRS__postcode', period)
-        zones = parameters(period).ESS.ESS_general.Postcode_zones_air_source_heat_pumps
-        return zones.calc(postcode)
+
+    def formula(buildings, period, parameters):
+        postcode = buildings('D17_PDRS__postcode', period)
+        # Returns an integer
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        climate_zone_int = climate_zone.calc(postcode)
+
+        return climate_zone_int
     
+
+class D17_get_HP_zone_by_BCA_climate_zone(Variable): 
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    
+    def formula(building, period, parameters):
+        BCA_climate_zone = building('D17_BCA_climate_zone_by_postcode_int', period)
+        heat_pump_zone = parameters(period).ESS.ESS_general.heat_pump_zone_by_BCA_climate_zone
+        heat_pump_zone_int = heat_pump_zone.calc(BCA_climate_zone)
+
+        return heat_pump_zone_int
+
 
 class D17_regional_network_factor(Variable):
     value_type = float

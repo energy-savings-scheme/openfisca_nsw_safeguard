@@ -157,3 +157,33 @@
       [
         24.32
       ]
+
+- name: test SYS2 certificate calculation bug Sept 2023
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_PDRS__postcode:
+      [
+        2017
+      ]
+    SYS2_pool_pump_type:
+      [
+        variable_speed_pool_pump
+      ]
+    SYS2_pool_size:
+      [
+        pool_under_20000_L
+      ]
+    SYS2_replacement_activity:
+      [
+        true
+      ]
+    SYS2_star_rating:
+      [
+        5.5
+      ]
+  output:
+    SYS2_PRC_calculation:
+      [
+        27.885
+      ]

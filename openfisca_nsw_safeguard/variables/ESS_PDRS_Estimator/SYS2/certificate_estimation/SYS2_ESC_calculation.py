@@ -82,9 +82,9 @@ class SYS2StarRatingString(Variable):
 
 
 class SYS2_star_rating(Variable):
-    value_type = str
+    value_type = float
     entity = Building
-    default_value = '4.5'
+    default_value = 4.5
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',

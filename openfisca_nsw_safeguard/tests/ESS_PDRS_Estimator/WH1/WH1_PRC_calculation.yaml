@@ -237,9 +237,11 @@
     WH1_PDRS__postcode:
       [
         2337, #BCA climate zone 7 - HP zone 5
+        2000
       ]
   output:
     WH1_get_HP_zone_by_BCA_climate_zone:
       [
-        5
+        5,
+        3
       ]

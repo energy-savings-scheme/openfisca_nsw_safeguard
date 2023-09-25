@@ -100,7 +100,7 @@ class SYS2_input_power(Variable):
     def formula(buildings, period, parameters):
         pool_size = buildings('SYS2_pool_size_int', period)
         pool_pump_type = buildings('SYS2_pool_pump_type', period)
-        star_rating = buildings('SYS2StarRatingString', period)
+        star_rating = buildings('SYS2_star_rating', period)
 
         input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size][star_rating][pool_pump_type]
         return input_power

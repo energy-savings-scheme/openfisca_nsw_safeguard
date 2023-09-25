@@ -56,43 +56,43 @@ class SYS2_star_rating(Variable):
     }
 
 
-class SYS2StarRatingString(Variable):
-    value_type = str
-    entity = Building
-    definition_period = ETERNITY
+# class SYS2StarRatingString(Variable):
+#     value_type = str
+#     entity = Building
+#     definition_period = ETERNITY
 
-    def formula(buildings, period, parameters):
-      star_rating = buildings('SYS2_star_rating', period)
+#     def formula(buildings, period, parameters):
+#       star_rating = buildings('SYS2_star_rating', period)
       
-      star_rating = np.select([
-        star_rating == 4.5,
-        star_rating == 5,
-        star_rating == 5.5,
-        star_rating == 6,
-        star_rating == 6.5,
-        star_rating == 7,
-        star_rating == 7.5,
-        star_rating == 8,
-        star_rating == 8.5,
-        star_rating == 9,
-        star_rating == 9.5,
-        star_rating == 10
-      ], 
-      [
-        SYS2StarRating.four_and_a_half_stars,
-        SYS2StarRating.five_stars,
-        SYS2StarRating.five_and_a_half_stars,
-        SYS2StarRating.six_stars,
-        SYS2StarRating.six_and_a_half_stars,
-        SYS2StarRating.seven_stars,
-        SYS2StarRating.seven_and_a_half_stars,
-        SYS2StarRating.eight_stars,
-        SYS2StarRating.eight_and_a_half_stars,
-        SYS2StarRating.nine_stars,
-        SYS2StarRating.nine_and_a_half_stars,
-        SYS2StarRating.ten_stars      
-      ])
-      return star_rating  
+#       star_rating = np.select([
+#         star_rating == 4.5,
+#         star_rating == 5,
+#         star_rating == 5.5,
+#         star_rating == 6,
+#         star_rating == 6.5,
+#         star_rating == 7,
+#         star_rating == 7.5,
+#         star_rating == 8,
+#         star_rating == 8.5,
+#         star_rating == 9,
+#         star_rating == 9.5,
+#         star_rating == 10
+#       ], 
+#       [
+#         SYS2StarRating.four_and_a_half_stars,
+#         SYS2StarRating.five_stars,
+#         SYS2StarRating.five_and_a_half_stars,
+#         SYS2StarRating.six_stars,
+#         SYS2StarRating.six_and_a_half_stars,
+#         SYS2StarRating.seven_stars,
+#         SYS2StarRating.seven_and_a_half_stars,
+#         SYS2StarRating.eight_stars,
+#         SYS2StarRating.eight_and_a_half_stars,
+#         SYS2StarRating.nine_stars,
+#         SYS2StarRating.nine_and_a_half_stars,
+#         SYS2StarRating.ten_stars      
+#       ])
+#       return star_rating  
 
 
 class SYS2_savings_factor(Variable):
@@ -101,7 +101,7 @@ class SYS2_savings_factor(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-        star_rating = buildings('SYS2StarRatingString', period)
+        star_rating = buildings('SYS2_star_rating', period)
         savings_factor = parameters(period).ESS.HEER.table_D5_1['electricity_savings_factor'][star_rating]
 
         return savings_factor

@@ -60,11 +60,11 @@ class SYS2_pool_size_int(Variable):
 
 
 class SYS2_baseline_input_power(Variable):
-      value_type = float
-      entity = Building
-      definition_period = ETERNITY
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
 
-      def formula(buildings, period, parameters):
+    def formula(buildings, period, parameters):
         pool_size = buildings('SYS2_pool_size_int', period)
 
         baseline_input_power = parameters(period).PDRS.pool_pumps.table_sys2_1['baseline_input_power'][pool_size]
@@ -76,30 +76,6 @@ class SYS2PoolPumpType(Enum):
     fixed_speed_pool_pump = 'Two speed'
     variable_speed_pool_pump = 'Variable speed'
     multiple_speed_pool_pump = 'Multi speed'
-
-
-# class SYS2_pool_pump_type_string(Variable):
-#     value_type = str
-#     entity = Building
-#     definition_period = ETERNITY
-
-#     def formula(buildings, period, parameters):
-#       product_class = buildings('SYS2_pool_pump_type', period)
-      
-#       product_class = np.select([
-#         product_class == 'single speed',
-#         product_class == 'two speed',
-#         product_class == 'variable speed',
-#         product_class == 'multi speed'
-#       ], 
-#       [
-#         SYS2PoolPumpType.single_speed_pool_pump,
-#         SYS2PoolPumpType.fixed_speed_pool_pump,
-#         SYS2PoolPumpType.variable_speed_pool_pump,
-#         SYS2PoolPumpType.multiple_speed_pool_pump
-#       ])
-      
-#       return product_class
 
 
 class SYS2_pool_pump_type(Variable):
@@ -122,12 +98,12 @@ class SYS2_input_power(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      pool_size = buildings('SYS2_pool_size_int', period)
-      pool_pump_type = buildings('SYS2_pool_pump_type', period)
-      star_rating = buildings('SYS2StarRatingString', period)
+        pool_size = buildings('SYS2_pool_size_int', period)
+        pool_pump_type = buildings('SYS2_pool_pump_type', period)
+        star_rating = buildings('SYS2StarRatingString', period)
 
-      input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size][star_rating][pool_pump_type]
-      return input_power
+        input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size][star_rating][pool_pump_type]
+        return input_power
 
 
 class SYS2_get_network_loss_factor_by_postcode(Variable):

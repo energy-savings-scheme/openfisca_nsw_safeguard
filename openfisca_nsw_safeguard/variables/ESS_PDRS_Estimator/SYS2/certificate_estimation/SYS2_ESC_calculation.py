@@ -40,29 +40,43 @@ class SYS2StarRating(Enum):
     nine_stars = '9'
     nine_and_a_half_stars = '9.5'
     ten_stars = '10'
+
     
-    
+class SYS2_star_rating(Variable):
+    value_type = Enum
+    entity = Building
+    default_value = SYS2StarRating.four_and_a_half_stars
+    possible_values = SYS2StarRating
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'New equipment star rating',
+        'display_question' : 'What is the star rating of your new equipment? (Equipment must achieve a 4.5 star rating or higher)',
+        'sorting' : 5
+    }
+
+
 class SYS2StarRatingString(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      product_class = buildings('SYS2_star_rating', period)
+      star_rating = buildings('SYS2_star_rating', period)
       
-      product_class = np.select([
-        product_class == 4.5,
-        product_class == 5,
-        product_class == 5.5,
-        product_class == 6,
-        product_class == 6.5,
-        product_class == 7,
-        product_class == 7.5,
-        product_class == 8,
-        product_class == 8.5,
-        product_class == 9,
-        product_class == 9.5,
-        product_class == 10
+      star_rating = np.select([
+        star_rating == 4.5,
+        star_rating == 5,
+        star_rating == 5.5,
+        star_rating == 6,
+        star_rating == 6.5,
+        star_rating == 7,
+        star_rating == 7.5,
+        star_rating == 8,
+        star_rating == 8.5,
+        star_rating == 9,
+        star_rating == 9.5,
+        star_rating == 10
       ], 
       [
         SYS2StarRating.four_and_a_half_stars,
@@ -78,20 +92,7 @@ class SYS2StarRatingString(Variable):
         SYS2StarRating.nine_and_a_half_stars,
         SYS2StarRating.ten_stars      
       ])
-      return product_class
-
-
-class SYS2_star_rating(Variable):
-    value_type = float
-    entity = Building
-    default_value = 4.5
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type' : 'user-input',
-        'label' : 'New equipment star rating',
-        'display_question' : 'What is the star rating of your new equipment? (Equipment must achieve a 4.5 star rating or higher)',
-        'sorting' : 5
-    }
+      return star_rating  
 
 
 class SYS2_savings_factor(Variable):

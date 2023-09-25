@@ -340,3 +340,45 @@
       [
         49.775
       ]
+
+- name: test RF2 ESC full CDScake cds1200cake
+  period: 2022
+  absolute_error_margin: 1
+  input:
+    RF2_get_network_loss_factor_by_postcode:
+      [
+        1.04
+      ]
+    RF2_PDRS__postcode:
+      [
+        2076
+      ]
+    RF2_duty_class: 
+      [
+        normal_duty
+      ]
+    RF2_product_EEI:
+      [
+        0
+      ]
+    RF2_product_class:
+      [
+        Class 8
+      ]
+    RF2_replacement_activity:
+      [
+        false
+      ]
+    RF2_total_display_area: 
+      [ 
+        1.863
+      ]
+    RF2_total_energy_consumption:
+      [
+        0
+      ]
+  output:
+    RF2_ESC_calculation:
+      [
+        0
+      ]

@@ -50,18 +50,34 @@ electricity_savings_factor:
     values:
       2020-01-01:
         value: 4.5
+  six_and_a_half_stars:
+    values:
+      2020-01-01:
+        value: 4.5
   seven_stars:
     values:
       2020-01-01:
         value: 6.1
+  seven_and_a_half_stars:
+    values:
+      2020-01-01:
+        value: 4.5
   eight_stars:
     values:
       2020-01-01:
         value: 7.4
+  eight_and_a_half_stars:
+    values:
+      2020-01-01:
+        value: 4.5
   nine_stars:
     values:
       2020-01-01:
         value: 8.4
+  nine_and_a_half_stars:
+    values:
+      2020-01-01:
+        value: 4.5
   ten_stars:
     values:
       2020-01-01:

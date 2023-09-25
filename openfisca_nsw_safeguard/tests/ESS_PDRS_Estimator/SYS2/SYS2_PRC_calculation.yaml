@@ -150,7 +150,7 @@
       ]
     SYS2_star_rating:
       [
-        4.5
+        four_and_a_half_stars
       ]
   output:
     SYS2_PRC_calculation:

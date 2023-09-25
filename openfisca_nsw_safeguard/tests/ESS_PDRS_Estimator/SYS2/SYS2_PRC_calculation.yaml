@@ -157,3 +157,17 @@
       [
         24.32
       ]
+
+- name: test SYS2 star rating
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_star_rating:
+      [
+        4.5
+      ]
+  output:
+    SYS2StarRatingString:
+      [
+        '4.5'
+      ]

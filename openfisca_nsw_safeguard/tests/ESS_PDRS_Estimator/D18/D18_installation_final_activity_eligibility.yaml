@@ -1,0 +1,94 @@
+- name:
+    Test D18 final formula installation eligibility
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    D18_equipment_replaced:
+      [
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    D18_equipment_replaces_electric:
+      [
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    D18_engaged_ACP:
+      [
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True
+      ]
+    D18_equipment_removed:
+      [
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True
+      ]
+    D18_equipment_installed:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True
+      ]
+    D18_installed_by_qualified_person:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True
+      ]
+    D18_equipment_registered_IPART:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False #not eligible
+      ]
+  output:
+    D18_replacement_final_activity_eligibility:
+      [
+        True,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False
+      ]

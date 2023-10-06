@@ -51,7 +51,7 @@ class D19_equipment_removed(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Has the existing equipment been removed',
+        'display_question' : 'Has the existing equipment been removed?',
         'sorting' : 4,
         'eligibility_clause' : """In ESS D19 Implementation Requirements Clause 1 it states that the existing End-User Equipment must be removed."""
     }
@@ -90,7 +90,7 @@ class D19_equipment_registered_IPART(Variable):
         'display_question' : 'Is the installed air source heat pump a registered product on the IPART Registry?',
         'sorting' : 7,
         'eligibility_clause' : """In order to be listed on the IPART product register, the product has met the following three product requirements of this activity:<br /> 
-                                  1.The installed End-User Equipment must be an air source heat pump water heater as defined by AS/NZS 4234;<br />
+                                  1. The installed End-User Equipment must be an air source heat pump water heater as defined by AS/NZS 4234;<br />
                                   2. The installed End-User Equipment must be certified to AS/NZS 2712; and <br />
                                   3. The installed End-User equipment must achieve minimum annual energy savings, when determined as an air sourced heat
                                      pump using a small or medium thermal peak load in accordance with AS/NZS 4232, of: <br />

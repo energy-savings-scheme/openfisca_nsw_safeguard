@@ -1,0 +1,94 @@
+- name:
+    Test D20 final formula installation eligibility
+  period: 2022
+  absolute_error_margin: 0
+  input:
+    D20_equipment_replaced:
+      [
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    D20_equipment_replaces_gas:
+      [
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    D20_engaged_ACP:
+      [
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True
+      ]
+    D20_equipment_removed:
+      [
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True
+      ]
+    D20_equipment_installed:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True
+      ]
+    D20_installed_by_qualified_person:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True
+      ]
+    D20_equipment_registered_IPART:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False #not eligible
+      ]
+  output:
+    D20_replacement_final_activity_eligibility:
+      [
+        True,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False
+      ]

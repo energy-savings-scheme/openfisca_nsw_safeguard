@@ -1,0 +1,23 @@
+description: Baseline energy consumption by system size, table D20.1, Energy Savings Scheme Rule
+reference: Energy Savings Scheme Rule
+metadata:
+  unit: MWh/year
+baseline_energy_consumption:
+  small:
+    baseline_A:
+      values:
+        2023-01-01:
+          value: 0.58
+    baseline_B:
+      values:
+         2023-01-01:
+          value: 60.85
+  medium:
+    baseline_A:
+      values:
+        2023-01-01:
+          value: 0.58
+    baseline_B:
+      values:
+         2023-01-01:
+          value: 86.32

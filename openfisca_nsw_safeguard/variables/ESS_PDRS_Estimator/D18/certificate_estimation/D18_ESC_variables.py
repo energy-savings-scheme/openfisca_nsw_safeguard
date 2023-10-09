@@ -6,12 +6,12 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-""" Parameters for D17 ESC Calculation
+""" Parameters for D18 ESC Calculation
     These variables use Rule tables and IPART Registry data
 """
 
 
-class D17_PDRS__postcode(Variable):
+class D18_PDRS__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class D17_PDRS__postcode(Variable):
     }
 
 
-class D17_BCA_climate_zone_by_postcode(Variable):
+class D18_BCA_climate_zone_by_postcode(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -33,7 +33,7 @@ class D17_BCA_climate_zone_by_postcode(Variable):
     }
 
     def formula(buildings, period, parameters):
-        postcode = buildings('D17_PDRS__postcode', period)
+        postcode = buildings('D18_PDRS__postcode', period)
         # Returns an integer
         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
         climate_zone_int = climate_zone.calc(postcode)
@@ -62,7 +62,7 @@ class D17_BCA_climate_zone_by_postcode(Variable):
         return BCA_climate_zone_to_check
     
     
-class D17_BCA_climate_zone_by_postcode_int(Variable):
+class D18_BCA_climate_zone_by_postcode_int(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -71,7 +71,7 @@ class D17_BCA_climate_zone_by_postcode_int(Variable):
     }
 
     def formula(buildings, period, parameters):
-        postcode = buildings('D17_PDRS__postcode', period)
+        postcode = buildings('D18_PDRS__postcode', period)
         # Returns an integer
         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
         climate_zone_int = climate_zone.calc(postcode)
@@ -79,32 +79,32 @@ class D17_BCA_climate_zone_by_postcode_int(Variable):
         return climate_zone_int
     
 
-class D17_get_HP_zone_by_BCA_climate_zone(Variable): 
+class D18_get_HP_zone_by_BCA_climate_zone(Variable): 
     value_type = int
     entity = Building
     definition_period = ETERNITY
     
     def formula(building, period, parameters):
-        BCA_climate_zone = building('D17_BCA_climate_zone_by_postcode_int', period)
+        BCA_climate_zone = building('D18_BCA_climate_zone_by_postcode_int', period)
         heat_pump_zone = parameters(period).ESS.ESS_general.heat_pump_zone_by_BCA_climate_zone
         heat_pump_zone_int = heat_pump_zone.calc(BCA_climate_zone)
 
         return heat_pump_zone_int
 
 
-class D17_regional_network_factor(Variable):
+class D18_regional_network_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'Regional Network Factor from ESS Table A24'
     
     def formula(buildings, period, parameters):
-        postcode = buildings('D17_PDRS__postcode', period)
+        postcode = buildings('D18_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         return rnf.calc(postcode)
 
 
-class D17_replacement_activity(Variable):
+class D18_replacement_activity(Variable):
     value_type = bool
     default_value = True
     entity = Building
@@ -117,17 +117,17 @@ class D17_replacement_activity(Variable):
     }
 
 
-class D17_System_Size(Enum):
+class D18_System_Size(Enum):
     system_size_small = 'small'
     system_size_medium = 'medium'
 
 
-class D17_system_size(Variable):
+class D18_system_size(Variable):
     value_type = Enum
     entity = Building
     definition_period = ETERNITY
-    possible_values = D17_System_Size
-    default_value = D17_System_Size.system_size_small
+    possible_values = D18_System_Size
+    default_value = D18_System_Size.system_size_small
     metadata = {
       'variable-type': 'user-input',
       'label': 'System Size',
@@ -136,17 +136,17 @@ class D17_system_size(Variable):
     }
 
 
-class D17_system_size_int(Variable):
+class D18_system_size_int(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-        system_size = buildings('D17_system_size', period)
+        system_size = buildings('D18_system_size', period)
         system_size_int = np.select(
             [
-                (system_size == D17_System_Size.system_size_small),
-                (system_size == D17_System_Size.system_size_medium)
+                (system_size == D18_System_Size.system_size_small),
+                (system_size == D18_System_Size.system_size_medium)
             ],
             [
                 'small',
@@ -155,19 +155,19 @@ class D17_system_size_int(Variable):
         return system_size_int
 
 
-class D17_Baseline_A(Variable):
+class D18_Baseline_A(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     
     def formula(buildings, period, parameters):
-        system_size = buildings('D17_system_size_int', period)
+        system_size = buildings('D18_system_size_int', period)
 
-        baseline_A = parameters(period).ESS.HEER.table_D17_1['baseline_energy_consumption'][system_size]
+        baseline_A = parameters(period).ESS.HEER.table_D18_1['baseline_energy_consumption'][system_size]
         return baseline_A
   
 
-class D17_Bs(Variable):
+class D18_Bs(Variable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -180,7 +180,7 @@ class D17_Bs(Variable):
     }
 
 
-class D17_Be(Variable):
+class D18_Be(Variable):
     reference = 'Gj per year'
     value_type = float
     entity = Building

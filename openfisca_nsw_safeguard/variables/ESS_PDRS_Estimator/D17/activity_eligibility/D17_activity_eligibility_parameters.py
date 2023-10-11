@@ -25,7 +25,7 @@ class D17_equipment_replaces_electric(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the equipment being replaced an electric resistance storage or instantaneous water heater?',
+      'display_question' : 'Is the equipment that is being replaced an electric resistance storage or instantaneous water heater?',
       'sorting' : 2,
       'eligibility_clause' : """In ESS D17 Eligibility Requirements Clause 1 it states that the existing electric water heater must be an electric resistance storage or instantaneous water heater."""
     }

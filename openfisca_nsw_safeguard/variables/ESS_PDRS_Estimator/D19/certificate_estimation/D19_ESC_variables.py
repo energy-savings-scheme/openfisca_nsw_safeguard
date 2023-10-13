@@ -118,8 +118,8 @@ class D19_replacement_activity(Variable):
 
 
 class D19_System_Size(Enum):
-    system_size_small = 'small'
-    system_size_medium = 'medium'
+    system_size_small = 'Small'
+    system_size_medium = 'Medium'
 
 
 class D19_system_size(Variable):

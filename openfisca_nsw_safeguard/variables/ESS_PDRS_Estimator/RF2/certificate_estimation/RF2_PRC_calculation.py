@@ -21,7 +21,14 @@ class RF2_baseline_input_power(Variable):
       baseline_EEI = buildings('RF2_baseline_EEI', period)
       product_EEI = buildings('RF2_product_EEI', period)
       
-      baseline_input_power = np.multiply((total_energy_consumption * af), (baseline_EEI / product_EEI) / 24)
+      baseline_input_power = np.select(
+          [
+            product_EEI == 0, product_EEI != 0
+          ], 
+         [
+              0, np.multiply((total_energy_consumption * af), (baseline_EEI / product_EEI) / 24)
+          ])
+      
       return baseline_input_power
   
   
@@ -98,7 +105,6 @@ class RF2_PRC_calculation(Variable):
         replacement_activity = buildings('RF2_replacement_activity', period)
         EEI_eligible_replacement = buildings('RF2_product_EEI_PRC_replacement_eligibility', period)
         EEI_eligible_install = buildings('RF2_product_EEI_ESC_install_eligibility', period)
-
         RF2_eligible_PRCs = np.select(
             [
                 replacement_activity * EEI_eligible_replacement,
@@ -112,7 +118,7 @@ class RF2_PRC_calculation(Variable):
                 0,
                 0
             ])
-
+        
         result_to_return = np.select(
             [
                 RF2_eligible_PRCs <= 0, RF2_eligible_PRCs > 0

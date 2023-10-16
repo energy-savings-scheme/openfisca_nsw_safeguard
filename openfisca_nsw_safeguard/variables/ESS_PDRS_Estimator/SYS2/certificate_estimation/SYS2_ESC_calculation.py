@@ -32,13 +32,9 @@ class SYS2StarRating(Enum):
     five_stars = '5'
     five_and_a_half_stars = '5.5'
     six_stars = '6'
-    six_and_a_half_stars = '6.5'
     seven_stars = '7'
-    seven_and_a_half_stars = '7.5'
     eight_stars = '8'
-    eight_and_a_half_stars = '8.5'
     nine_stars = '9'
-    nine_and_a_half_stars = '9.5'
     ten_stars = '10'
 
     
@@ -54,45 +50,6 @@ class SYS2_star_rating(Variable):
         'display_question' : 'What is the star rating of your new equipment? (Equipment must achieve a 4.5 star rating or higher)',
         'sorting' : 5
     }
-
-
-# class SYS2StarRatingString(Variable):
-#     value_type = str
-#     entity = Building
-#     definition_period = ETERNITY
-
-#     def formula(buildings, period, parameters):
-#       star_rating = buildings('SYS2_star_rating', period)
-      
-#       star_rating = np.select([
-#         star_rating == 4.5,
-#         star_rating == 5,
-#         star_rating == 5.5,
-#         star_rating == 6,
-#         star_rating == 6.5,
-#         star_rating == 7,
-#         star_rating == 7.5,
-#         star_rating == 8,
-#         star_rating == 8.5,
-#         star_rating == 9,
-#         star_rating == 9.5,
-#         star_rating == 10
-#       ], 
-#       [
-#         SYS2StarRating.four_and_a_half_stars,
-#         SYS2StarRating.five_stars,
-#         SYS2StarRating.five_and_a_half_stars,
-#         SYS2StarRating.six_stars,
-#         SYS2StarRating.six_and_a_half_stars,
-#         SYS2StarRating.seven_stars,
-#         SYS2StarRating.seven_and_a_half_stars,
-#         SYS2StarRating.eight_stars,
-#         SYS2StarRating.eight_and_a_half_stars,
-#         SYS2StarRating.nine_stars,
-#         SYS2StarRating.nine_and_a_half_stars,
-#         SYS2StarRating.ten_stars      
-#       ])
-#       return star_rating  
 
 
 class SYS2_savings_factor(Variable):

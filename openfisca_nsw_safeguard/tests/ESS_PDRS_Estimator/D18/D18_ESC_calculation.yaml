@@ -98,8 +98,8 @@
   input:
     D18_Baseline_A:
       [
-        3.320,
-        12.355
+        50,
+        200
       ]
     D18_Bs:
       [
@@ -114,8 +114,8 @@
   output:
     D18_deemed_activity_electricity_savings:
       [
-        3.86,
-        80
+        40.58,
+        181.16
       ]
 
 - name: test D18 electricity savings

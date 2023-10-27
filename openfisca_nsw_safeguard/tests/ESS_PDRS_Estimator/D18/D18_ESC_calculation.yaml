@@ -98,24 +98,32 @@
   input:
     D18_Baseline_A:
       [
-        3.320,
-        12.355
+        50,
+        200,
+        38.47,
+        63.45
       ]
     D18_Bs:
       [
         2,
-        5
+        5,
+        4.96,
+        7.54
       ]
     D18_Be:
       [
         2,
-        3
+        3,
+        1.2,
+        0.6
       ]
   output:
     D18_deemed_activity_electricity_savings:
       [
-        3.86,
-        80
+        40.58,
+        181.16,
+        23.96,
+        44.28
       ]
 
 - name: test D18 electricity savings
@@ -127,12 +135,16 @@
         4,
         61.44,
         3,
-        104
+        104,
+        23.96,
+        44.28
       ]
     D18_regional_network_factor:
       [
         1.03,
         1.03,
+        1.03,
+        1,
         1.03,
         1
       ]
@@ -142,7 +154,9 @@
         4.12,
         63.283,
         3.09,
-        104 
+        104,
+        24.68,
+        44.28
       ]
 
 - name: test D18 ESC calculation
@@ -154,13 +168,17 @@
         4.12,
         63.283,
         3.09,
-        104
+        104,
+        24.68,
+        44.28
       ]
     D18_replacement_activity:
       [
         true,
         true,
         false, #not eligible
+        true,
+        true,
         true
       ]
   output:
@@ -169,5 +187,7 @@
         4.367,
         67.079,
         0,
-        110.24
+        110.24,
+        26.16,
+        46.93
       ]

@@ -21,7 +21,7 @@ class D19_deemed_activity_electricity_savings(Variable):
         Bs = buildings('D19_Bs', period)
         Be = buildings('D19_Be', period)
 
-        electricity_savings = (Baseline_A - a) * (Bs + Be)
+        electricity_savings = Baseline_A - (a * (Bs + Be))
         return electricity_savings
 
 

@@ -114,8 +114,8 @@
   input:
     D20_Baseline_A:
       [
-        3.320,
-        10
+        200,
+        100
       ]
     D20_Bs:
       [
@@ -130,8 +130,8 @@
   output:
     D20_deemed_activity_electricity_savings:
       [
-        3.86,
-        61.16
+        190.58,
+        81.16
       ]
 
 - name: test D20 electricity savings

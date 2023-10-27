@@ -99,23 +99,27 @@
     D17_Baseline_A:
       [
         3.320,
-        10
+        100,
+        50.76
       ]
     D17_Bs:
       [
         2,
-        5
+        5,
+        5.29
       ]
     D17_Be:
       [
         2,
-        3
+        3,
+        0.05
       ]
   output:
     D17_deemed_activity_electricity_savings:
       [
-        4,
-        61.44
+        -5.96,
+        81.44,
+        38.37
       ]
 
 - name: test D17 electricity savings
@@ -127,13 +131,15 @@
         4,
         61.44,
         3,
-        104
+        104,
+        38.37
       ]
     D17_regional_network_factor:
       [
         1.03,
         1.03,
         1.03,
+        1,
         1
       ]
   output:
@@ -142,7 +148,8 @@
         4.12,
         63.283,
         3.09,
-        104 
+        104 ,
+        38.37
       ]
 
 - name: test D17 ESC calculation
@@ -154,13 +161,15 @@
         4.12,
         63.283,
         3.09,
-        104
+        104,
+        38.37
       ]
     D17_replacement_activity:
       [
         true,
         true,
         false, #not eligible
+        true,
         true
       ]
   output:
@@ -169,5 +178,58 @@
         4.367,
         67.079,
         0,
-        110.24
+        110.24,
+        40.67
+      ]
+
+- name: test D17 ESC full calculation Rinnai EHPA315VM
+  period: 2023
+  absolute_error_margin: 0.1
+  input: 
+    D17_PDRS__postcode:
+      [
+        2541
+      ]
+    D17_Baseline_A:
+      [
+        50.76
+      ]
+    D17_Bs:
+      [
+        5.29
+      ]
+    D17_Be:
+      [
+        0.05
+      ]
+  output:
+    D17_ESC_calculation:
+      [
+        40.67
+      ]
+
+- name: test D17 ESC full calculation Quantum 200-08AC6-290
+  period: 2023
+  absolute_error_margin: 0.1
+  input: 
+    D17_PDRS__postcode:
+      [
+        2350
+      ]
+    D17_Baseline_A:
+      [
+        50.76
+      ]
+    D17_Bs:
+      [
+        6.21
+      ]
+    D17_Be:
+      [
+        0
+      ]
+  output:
+    D17_ESC_calculation:
+      [
+        39.68
       ]

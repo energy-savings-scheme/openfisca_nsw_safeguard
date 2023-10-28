@@ -114,24 +114,32 @@
   input:
     D19_Baseline_A:
       [
-        50,
-        200
+        3.320,
+        10,
+        0.58,
+        0.58
       ]
     D19_Bs:
       [
         2,
-        5
+        5,
+        7.43,
+        5.82
       ]
     D19_Be:
       [
         2,
-        3
+        3,
+        0.4,
+        0.03
       ]
   output:
     D19_deemed_activity_electricity_savings:
       [
-        40.72,
-        181.44
+        -5.96,
+        -8.6,
+        -17.58,
+        -12.99
       ]
 
 - name: test D19 electricity savings
@@ -143,14 +151,18 @@
         4,
         61.44,
         3,
-        104
+        104,
+        -17.58,
+        -12.99
       ]
     D19_regional_network_factor:
       [
         1.03,
         1.03,
         1.03,
-        1
+        1,
+        1.03,
+        1.03
       ]
   output:
     D19_electricity_savings:
@@ -158,7 +170,9 @@
         4.12,
         63.283,
         3.09,
-        104 
+        104,
+        -18.11,
+        -13.38
       ]
 
 - name: test D19 ESC calculation
@@ -170,20 +184,26 @@
         4.12,
         63.283,
         3.09,
-        104
+        104,
+         -18.11,
+         -13.38
       ]
     D19_Baseline_B:
       [
         1,
         2,
         0,
-        5.4
+        5.4,
+        69.05,
+        48.68
       ]
     D19_replacement_activity:
       [
         true,
         true,
         false, #not eligible
+        true,
+        true,
         true
       ]
   output:
@@ -192,5 +212,7 @@
         4.757,
         67.859,
         0,
-        112.346
+        112.346,
+        7.73,
+        4.8
       ]

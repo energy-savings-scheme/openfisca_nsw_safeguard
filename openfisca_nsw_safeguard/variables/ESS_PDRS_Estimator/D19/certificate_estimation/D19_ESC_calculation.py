@@ -55,7 +55,7 @@ class D19_ESC_calculation(Variable):
         electricity_savings = buildings('D19_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('D19_Baseline_B', period)
-        gas_certificate_conversion_factor = 0.39
+        gas_certificate_conversion_factor = 0.47
         replacement_activity = buildings('D19_replacement_activity', period)
 
         D19_eligible_ESCs = np.select(

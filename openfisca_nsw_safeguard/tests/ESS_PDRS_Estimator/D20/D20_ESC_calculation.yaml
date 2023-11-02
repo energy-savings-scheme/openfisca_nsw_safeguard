@@ -136,10 +136,10 @@
   output:
     D20_deemed_activity_electricity_savings:
       [
-        3.86,
-        61.16,
-        -17,
-        -14.9
+        -6.1,
+        -8.84,
+        -22.01,
+        -19.27
       ]
 
 - name: test D20 electricity savings
@@ -209,10 +209,10 @@
   output:
     D20_ESC_calculation:
       [
-        4.757,
-        67.859,
+        4.837,
+        68.02,
         0,
-        112.346,
-        15.64,
-        24.76
+        112.78,
+        22.54,
+        33.18
       ]

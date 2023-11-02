@@ -216,3 +216,76 @@
         22.54,
         33.18
       ]
+
+- name: test ACP scenario 5 - D20 deemed electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D20_Baseline_A:
+      [
+        0.58,
+        0.58
+      ]
+    D20_Bs:
+      [
+        9.53,
+        8.43
+      ]
+    D20_Be:
+      [
+        0.06,
+        0
+      ]
+  output:
+    D20_deemed_activity_electricity_savings:
+      [
+        -22.1,
+        -19.28
+      ]
+
+- name: test ACP scenario 5 - D20 electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D20_deemed_activity_electricity_savings:
+      [
+       -22.1,
+       -19.28
+      ]
+    D20_regional_network_factor:
+      [
+        1,
+        1.03
+      ]
+  output:
+    D20_electricity_savings:
+      [
+        -22.1,
+        -19.86
+      ]
+
+- name: test ACP scenario 5 - D20 ESC calculation
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D20_electricity_savings:
+      [
+        -22.1,
+        -19.86
+      ]
+    D20_Baseline_B:
+      [
+        86.32,
+        86.32
+      ]
+    D20_replacement_activity:
+      [
+        true,
+        true
+      ]
+  output:
+    D20_ESC_calculation:
+      [
+        17.14,
+        19.51
+      ]

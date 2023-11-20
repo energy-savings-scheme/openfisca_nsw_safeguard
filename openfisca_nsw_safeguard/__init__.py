@@ -21,6 +21,7 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
         # We initialize our tax and benefit system with the general constructor
         super(CountryTaxBenefitSystem, self).__init__(entities.entities)
         # We add to our tax and benefit system all the variables
+        print("***", COUNTRY_DIR)
         self.add_variables_from_directory(os.path.join(COUNTRY_DIR, 'variables'))
         # We add to our tax and benefit system all the legislation parameters defined in the  parameters files
         param_path = os.path.join(COUNTRY_DIR, 'parameters')

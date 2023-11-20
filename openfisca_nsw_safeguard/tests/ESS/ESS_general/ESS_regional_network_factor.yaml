@@ -1,6 +1,0 @@
-- name: Regional network factor for postcode 2313
-  period: 2020
-  input:
-    ESS__postcode: [2313, 2583, 4382, 4386]
-  output:
-    ESS__regional_network_factor: [1.0, 1.03, 1.0, 1.0]

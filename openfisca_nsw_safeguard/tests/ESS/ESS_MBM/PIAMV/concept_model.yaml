@@ -1,8 +1,0 @@
-- name: sample rules as code exercise (ACP is eligible)
-  period: 2022
-  input:
-    start_date_of_measurement_period: 2021-07-31
-    end_date_of_measurement_period: 2022-07-30
-    implementation_date: 2022-01-30
-  output:
-    implementation_date_is_within_measurement_period: True

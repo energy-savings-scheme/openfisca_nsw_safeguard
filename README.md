@@ -10,12 +10,14 @@ you may need to add `--user` at the end of all commands starting by `pip`.
 
 Make sure you CD into your extension's repository! 
 
+For linux/mac:
 ```sh
 python3 -m venv safeguard
 deactive
 source safeguard/bin/activate
 
 ```
+
 To install, run:
 
 ```sh

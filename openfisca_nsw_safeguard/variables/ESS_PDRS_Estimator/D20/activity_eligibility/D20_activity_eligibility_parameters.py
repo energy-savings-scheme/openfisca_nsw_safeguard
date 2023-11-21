@@ -92,7 +92,5 @@ class D20_equipment_registered_IPART(Variable):
         'eligibility_clause' : """In order to be listed on the IPART product registry, the product has met the following three product requirements of this activity:<br /> 
                                   1. The installed End-User Equipment must be a solar water heater with a collector as defined in AS/NZS 4234;<br />
                                   2. The installed End-User Equipment must be certified to AS/NZS 2712; and <br />
-                                  3. The installed End-User Equipment must achieve minimum annual energy savings of 60% when determined as a solar thermal collector system 
-                                     with supplementary electric resistive heating in AS/NZS 4234 climate zone 3 using a small or medium thermal peak load in accordance with 
-                                     AS/NZS 4234, for all Sites in an ESS Jurisdiction."""
+                                  3. The installed End-User Equipment must achieve minimum annual energy savings of 60% when determined as a solar thermal collector system with supplementary electric resistive heating in AS/NZS 4234 climate zone 3 using a small or medium thermal peak load in accordance with AS/NZS 4234, for all Sites in an ESS Jurisdiction."""
     }

@@ -18,7 +18,7 @@ class BESS1_new_installation(Variable):
     }
     
 
-class BESS1_new_solar(Variable):
+class BESS1_new_solar_battery(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -103,7 +103,7 @@ class BESS1_battery_internet_connectable(Variable):
     }
 
 
-class BESS1_battery_controllable(Variable):
+class BESS1_battery_controllable_third_party(Variable):
     value_type = bool
     entity = Building
     default_value = True

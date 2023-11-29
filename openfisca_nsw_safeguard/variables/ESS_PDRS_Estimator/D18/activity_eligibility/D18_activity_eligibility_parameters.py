@@ -87,7 +87,7 @@ class D18_equipment_registered_IPART(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is the installed air source heat pump a registered product on the IPART Registry?',
+        'display_question' : 'Is the installed solar water heater a registered product on the IPART Product Registry?',
         'sorting' : 7,
         'eligibility_clause' : """In order to be listed on the IPART product registry, the product has met the following three product requirements of this activity:<br /> 
                                   1. The installed End-User Equipment must be a solar water heater with a collector as defined in AS/NZS 4234;<br />

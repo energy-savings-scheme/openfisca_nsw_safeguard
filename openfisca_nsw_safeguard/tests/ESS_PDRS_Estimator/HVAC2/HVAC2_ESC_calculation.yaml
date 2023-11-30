@@ -253,6 +253,52 @@
         true
       ]
 
+
+- name: test Deemed Activity Electricity Savings Mitsubishi
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_reference_cooling_annual_energy_use:
+      [
+        3229.838
+      ]
+    HVAC2_TCEC_or_annual_cooling:
+      [
+        2424.569
+      ]
+    HVAC2_reference_heating_annual_energy_use:
+      [
+        2069.268
+      ]
+    HVAC2_THEC_or_annual_heating:
+      [
+        1011.08
+      ] 
+  output:
+    HVAC2_deemed_activity_electricity_savings:
+      [
+        18.63
+      ]
+
+
+- name: test Electricity Savings Mitsubishi
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_deemed_activity_electricity_savings:
+      [
+        18.63
+      ]
+    HVAC2_PDRS__regional_network_factor:
+      [
+        1.04
+      ]
+  output:
+    HVAC2_electricity_savings:
+      [
+        19.38
+      ]
+
 - name: test ESC calculation when heating capacity is 0
   period: 2022
   absolute_error_margin: 0.5
@@ -376,61 +422,25 @@
       ]
 
 - name: test ESC calculation Mitsubishi
-  period: 2022
+  period: 2023
   absolute_error_margin: 0.1
   input:
-    HVAC2_Air_Conditioner_type:
+    HVAC2_electricity_savings:
       [
-        non_ducted_split_system    #Mitsubishi PUMYP112VKMA
+        19.38
       ]
-    HVAC2_get_network_loss_factor_by_postcode:
+    HVAC2_TCSPF_or_AEER_exceeds_benchmark:
       [
-        1.04
-      ]
-    HVAC2_PDRS__postcode: 
-      [
-        2000
-      ]
-    HVAC2_TCSPF_mixed: 
-      [
-        0
-      ]
-    HVAC2_commercial_TCEC:
-      [
-        0
-      ]
-    HVAC2_commercial_THEC: 
-      [
-        0
-      ]
-    HVAC2_cooling_capacity_input: 
-      [
-        12.5
+        true
       ]
     HVAC2_heating_capacity_input:
       [
         14
       ]
-    HVAC2_input_power:
-      [
-        2.935
-      ]
-    HVAC2_Activity: 
-      [
-        new_installation_activity
-      ]
-    HVAC2_rated_ACOP_input: 
-      [
-        4.1955
-      ]   
-    HVAC2_rated_AEER_input: 
-      [
-        4.1296
-      ]
   output:
     HVAC2_ESC_calculation:
       [
-        19
+        20
       ]
 
 - name: test ESC calculation Dayton HL-SLRC02

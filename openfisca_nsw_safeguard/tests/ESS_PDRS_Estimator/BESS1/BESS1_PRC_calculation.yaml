@@ -1,0 +1,83 @@
+- name: Test BESS1 demand shifting component
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    BESS1_usable_battery_capacity:
+      [
+        1,
+        5,
+        0.1
+      ]
+  output:
+    BESS1_demand_shifting_component:
+      [
+        0.0853,
+        0.427,
+        0.00853
+      ]
+
+- name: Test BESS1 peak demand shifting capacity
+  period: 2023
+  absolute_error_margin: 0.1
+  input:   
+    BESS1_demand_shifting_component:
+      [
+        1,
+        6.5,
+        0.5
+      ]
+  output:
+    BESS1_peak_demand_shifting_capacity:
+      [
+        1,
+        6.5,
+        0.5
+      ]
+
+- name: Test BESS1 peak demand reduction capacity
+  period: 2023
+  absolute_error_margin: 0.1
+  input:   
+    BESS1_peak_demand_shifting_capacity:
+      [
+        2,
+        3.45,
+        0.56
+      ]
+  output:
+    BESS1_peak_demand_reduction_capacity:
+      [
+        96,
+        165.6,
+        26.88
+      ]
+
+- name: Test BESS1 PRC calculation
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    BESS1_peak_demand_reduction_capacity:
+      [
+        1,
+        1,
+        -0.89
+      ]
+    BESS1_get_network_loss_factor_by_postcode:
+      [
+        1.04,
+        1.04,
+        1.04
+      ]
+    BESS1_installation_activity:
+      [
+        true,
+        false, #not eligible
+        true
+      ]
+  output:
+    BESS1_PRC_calculation:
+      [
+        10.4,
+        0,
+        0
+      ]

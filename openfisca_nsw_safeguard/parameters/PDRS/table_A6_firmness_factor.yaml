@@ -1,5 +1,13 @@
 description: Firmness factor, for use in PDRS calculations.
 firmness_factor:
+  BESS1:
+    values:
+      2021-01-01:
+        value: 1
+  BESS2:
+    values:
+      2021-01-01:
+        value: 1
   HVAC1:
     values:
       2021-01-01:
@@ -8,6 +16,10 @@ firmness_factor:
     values:
       2021-01-01:
         value: 1
+  HVAC3:
+    values:
+      2021-01-01:
+        value: 0.8
   WH1:
     values:
       2021-01-01:

@@ -181,7 +181,7 @@
       ]
     HVAC1_equipment_registered_in_GEMS:
       [
-        true
+        True
       ]
     HVAC1_new_equipment_cooling_capacity:
       [

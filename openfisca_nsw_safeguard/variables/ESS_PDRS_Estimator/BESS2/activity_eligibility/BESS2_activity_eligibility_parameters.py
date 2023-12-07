@@ -90,6 +90,18 @@ class BESS2_internet_connectable(Variable):
     }
 
 
+class BESS2_battery_controllable_third_party(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Is the battery controllable by a third party energy retailer or service provider?',
+        'sorting' : 8,
+        'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 3 it states that the End-User Equipment must be internet connectable and controllable by a Demand Response Aggregator."""
+    }
+
+
 class BESS2_approved_battery_list(Variable):
     value_type = bool
     entity = Building
@@ -97,6 +109,6 @@ class BESS2_approved_battery_list(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the battery a registered product on the Clean Energy Council approved battery list?',
-        'sorting' : 8,
+        'sorting' : 9,
         'eligibility_clause' : """In PDRS BESS2 Equipment Requirements clause 1 it states that the End-User Equipment must be listed on the approved product list specified by the Scheme Administrator."""
     }

@@ -26,11 +26,12 @@ class BESS2_installation_final_activity_eligibility(Variable):
         battery_capacity = buildings('BESS2_battery_capacity', period)
         implementation_date = buildings('BESS2_implementation_date', period)
         battery_internet_connectable = buildings('BESS2_internet_connectable', period)
+        battery_controllable_third_party = buildings('BESS2_battery_controllable_third_party', period)
         approved_battery_list = buildings('BESS2_approved_battery_list', period)
 
 
 
         end_formula = (demand_response_contract * existing_solar_battery * solar_panels_existing_address * life_support_equipment *
-                       battery_capacity * implementation_date * battery_internet_connectable * approved_battery_list)
+                       battery_capacity * implementation_date * battery_internet_connectable * battery_controllable_third_party * approved_battery_list)
 
         return end_formula

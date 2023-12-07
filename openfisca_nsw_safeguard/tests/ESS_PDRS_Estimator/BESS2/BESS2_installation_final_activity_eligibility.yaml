@@ -13,6 +13,7 @@
         True,
         True,
         True,
+        True,
         True
       ]
     BESS2_existing_solar_battery:
@@ -20,6 +21,7 @@
         True,
         True,
         False, #not eligible
+        True,
         True,
         True,
         True,
@@ -37,6 +39,7 @@
         True,
         True,
         True,
+        True,
         True
       ]
     BESS2_life_support_equipment:
@@ -46,6 +49,7 @@
         True,
         True,
         False, #not eligible
+        True,
         True,
         True,
         True,
@@ -61,6 +65,7 @@
         False, #not eligible
         True,
         True,
+        True,
         True
       ]
     BESS2_implementation_date:
@@ -72,6 +77,7 @@
         True,
         True,
         False, #not eligible
+        True,
         True,
         True
       ]
@@ -85,6 +91,20 @@
         True,
         True,
         False, #not eligible
+        True,
+        True
+      ]
+    BESS2_battery_controllable_third_party:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
         True
       ]
     BESS2_approved_battery_list:
@@ -97,7 +117,8 @@
         True,
         True,
         True,
-        False #not eligible
+        False, #not eligible
+        True
       ]
   output:
     BESS2_installation_final_activity_eligibility:
@@ -110,5 +131,6 @@
         False,
         False,
         False,
-        False
+        False,
+        True
       ]

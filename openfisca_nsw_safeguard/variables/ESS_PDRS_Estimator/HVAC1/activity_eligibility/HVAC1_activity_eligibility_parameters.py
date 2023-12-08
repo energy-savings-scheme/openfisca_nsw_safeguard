@@ -78,7 +78,7 @@ class HVAC1_equipment_registered_in_GEMS(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is the new air conditioner recorded in the GEMS registry (as defined within the GEMS Determination 2019)?',
+        'display_question' : 'Is the new air conditioner registered on the GEMS registry (as defined within the GEMS Determination 2019)?',
         'sorting' : 5,
         'conditonal' : 'True',
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 1 it states that the New End-User Equipment or replacement End-User Equipment must be a registered product in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Air Conditioners up to 65kW) Determination 2019.  """

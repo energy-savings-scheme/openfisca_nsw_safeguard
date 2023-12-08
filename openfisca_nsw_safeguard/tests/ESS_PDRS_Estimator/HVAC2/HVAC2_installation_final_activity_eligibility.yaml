@@ -3,7 +3,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    HVAC1_new_installation_or_replacement_eligible:
+    HVAC2_new_installation_or_replacement_eligible:
       [
         True, 
         True, 
@@ -67,7 +67,7 @@
         True,
         True,
         True,
-        True
+        False
       ]
     HVAC2_new_equipment_cooling_capacity:
       [

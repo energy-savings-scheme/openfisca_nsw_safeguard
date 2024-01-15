@@ -40,7 +40,24 @@ class RF1_peak_demand_savings_capacity(Variable):
         temp2 = (input_power * peak_adjustment_factor )
         
         return ((temp1 - temp2) * firmness_factor)
-    
+
+
+class RF1_peak_demand_annual_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Peak demand annual savings'
+    metadata = {
+        'variable-type': 'output'
+    }
+
+    def formula(buildings, period, parameters):
+      peak_demand_savings_capacity = buildings('RF1_peak_demand_savings_capacity', period)
+      summer_peak_demand_reduction_duration = 6
+
+      peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration
+      return peak_demand_annual_savings
+
     
 class RF1_peak_demand_reduction_capacity(Variable):
     reference = 'peak demand reduction capacity'

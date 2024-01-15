@@ -145,6 +145,24 @@
         0.362
       ]
 
+- name: test HVAC2 peak demand annual savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_peak_demand_savings_activity:
+      [
+        1,
+        2,
+        3
+      ]
+  output:
+    HVAC2_peak_demand_annual_savings:
+      [
+        6,
+        12,
+        18
+      ]
+
 - name: test HVAC2 peak demand reduction capacity
   period: 2022
   absolute_error_margin: 0.1

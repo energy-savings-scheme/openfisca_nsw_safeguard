@@ -133,6 +133,7 @@ class HVAC1_peak_demand_annual_savings(Variable):
 
         peak_demand_annual_savings = peak_demand_savings * summer_peak_demand_duration
         return peak_demand_annual_savings
+    
 
 class HVAC1_peak_demand_reduction_capacity(Variable):
     value_type = float

@@ -59,6 +59,23 @@ class WH1_peak_demand_savings_capacity(Variable):
 
         peak_demand_savings_capacity = (baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor * firmness_factor)
         return peak_demand_savings_capacity
+    
+
+class WH1_peak_demand_annual_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Peak demand annual savings'
+    metadata = {
+        'variable-type': 'output'
+    }
+
+    def formula(buildings, period, parameters):
+      peak_demand_savings_capacity = buildings('WH1_peak_demand_savings_capacity', period)
+      summer_peak_demand_reduction_duration = 6
+
+      peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration
+      return peak_demand_annual_savings
 
 
 class WH1_peak_demand_reduction_capacity(Variable):

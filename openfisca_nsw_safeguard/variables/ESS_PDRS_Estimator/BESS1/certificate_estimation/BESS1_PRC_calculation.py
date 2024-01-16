@@ -38,7 +38,24 @@ class BESS1_peak_demand_shifting_capacity(Variable):
 
         peak_demand_shifting_capacity = demand_shifting_component * firmness_factor
         return peak_demand_shifting_capacity
-    
+
+
+class BESS1_peak_demand_annual_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Peak demand annual savings'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        peak_demand_shifting_capacity = buildings('BESS1_peak_demand_shifting_capacity', period)
+        summer_peak_demand_duration = 6
+
+        peak_demand_annual_savings = peak_demand_shifting_capacity * summer_peak_demand_duration
+        return peak_demand_annual_savings
+
 
 class BESS1_peak_demand_reduction_capacity(Variable):
     value_type = float

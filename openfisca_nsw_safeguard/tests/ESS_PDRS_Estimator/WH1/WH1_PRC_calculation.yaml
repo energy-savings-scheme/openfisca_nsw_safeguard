@@ -60,14 +60,14 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    SYS2_peak_demand_savings_capacity:
+    WH1_peak_demand_savings_capacity:
       [
         1,
         2,
         3
       ]
   output:
-    SYS2_peak_demand_annual_savings:
+    WH1_peak_demand_annual_savings:
       [
         6,
         12,

@@ -119,8 +119,25 @@ class HVAC2_peak_demand_savings_activity(Variable):
                     *
                     firmness_factor
             )
+    
 
+class HVAC2_peak_demand_annual_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Peak demand annual savings'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        peak_demand_savings = buildings('HVAC2_peak_demand_savings_activity', period)
+        summer_peak_demand_duration = 6
+
+        peak_demand_annual_savings = peak_demand_savings * summer_peak_demand_duration
+        return peak_demand_annual_savings
   
+
 class HVAC2_peak_demand_reduction_capacity(Variable):
     reference = 'unit in kW'
     value_type = float

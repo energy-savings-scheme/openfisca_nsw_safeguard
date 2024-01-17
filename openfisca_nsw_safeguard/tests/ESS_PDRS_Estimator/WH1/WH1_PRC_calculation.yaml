@@ -56,6 +56,24 @@
         0.73825
       ]
 
+- name: test WH1 peak demand annual savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    WH1_peak_demand_savings_capacity:
+      [
+        1,
+        2,
+        3
+      ]
+  output:
+    WH1_peak_demand_annual_savings:
+      [
+        6,
+        12,
+        18
+      ]
+
 - name: test zones by postcode
   period: 2022
   absolute_error_margin: 0

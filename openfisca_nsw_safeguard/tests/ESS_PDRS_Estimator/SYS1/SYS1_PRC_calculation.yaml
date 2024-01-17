@@ -88,6 +88,24 @@
         109.35
       ]
 
+- name: test SYS1 peak demand annual savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    SYS1_peak_demand_savings_capacity:
+      [
+        1,
+        2,
+        3
+      ]
+  output:
+    SYS1_peak_demand_annual_savings:
+      [
+        6,
+        12,
+        18
+      ]
+
 - name: test SYS1 PRC calculation simple
   period: 2022
   absolute_error_margin: 0.5

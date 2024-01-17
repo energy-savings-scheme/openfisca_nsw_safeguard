@@ -1,20 +1,20 @@
-# - name: test SYS2 baseline input power
-#   period: 2022
-#   absolute_error_margin: 0.5
-#   input:
-#     SYS2_pool_size_int:
-#       [
-#         30001_to_40000_L,
-#         under_20000_L,
-#         20000_to_30000_L
-#       ]
-#   output:
-#     SYS2_baseline_input_power:
-#       [
-#         0.370,
-#         0.202,
-#         0.256
-#       ]
+- name: test SYS2 baseline input power
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS2_pool_size_int:
+      [
+        30001_to_40000_L,
+        under_20000_L,
+        20000_to_30000_L
+      ]
+  output:
+    SYS2_baseline_input_power:
+      [
+        0.370,
+        0.202,
+        0.256
+      ]
 
 - name: test SYS2 input power
   period: 2022
@@ -42,118 +42,136 @@
         0.084
       ]
 
-# - name: test SYS2 peak demand savings capacity simple version
-#   period: 2022
-#   absolute_error_margin: 0.5
-#   input: 
-#     SYS2_baseline_input_power:
-#       [
-#         0.370,
-#         0.256
-#       ]
-#     SYS2_input_power:
-#       [
-#         0.121,
-#         0.084
-#       ]
-#   output:
-#     SYS2_peak_demand_savings_capacity:
-#       [
-#         0.0697,
-#         0.048
-#       ]
+- name: test SYS2 peak demand savings capacity simple version
+  period: 2022
+  absolute_error_margin: 0.5
+  input: 
+    SYS2_baseline_input_power:
+      [
+        0.370,
+        0.256
+      ]
+    SYS2_input_power:
+      [
+        0.121,
+        0.084
+      ]
+  output:
+    SYS2_peak_demand_savings_capacity:
+      [
+        0.0697,
+        0.048
+      ]
 
-# - name: test SYS2 peak demand reduction capacity
-#   period: 2022
-#   absolute_error_margin: 0.1
-#   input:
-#     SYS2_peak_demand_savings_capacity:
-#       [
-#         600,
-#         200,
-#         0.048
-#       ]
-#   output:
-#     SYS2_peak_demand_reduction_capacity:
-#       [
-#         43200,
-#         14400,
-#         3.47
-#       ]
+- name: test SYS2 peak demand reduction capacity
+  period: 2022
+  absolute_error_margin: 0.1
+  input:
+    SYS2_peak_demand_savings_capacity:
+      [
+        600,
+        200,
+        0.048
+      ]
+  output:
+    SYS2_peak_demand_reduction_capacity:
+      [
+        43200,
+        14400,
+        3.47
+      ]
 
-# - name: test SYS2 PRC calculation
-#   period: 2022
-#   absolute_error_margin: 0.5
-#   input:
-#     SYS2_peak_demand_reduction_capacity:
-#       [
-#         120,
-#         3.47 
-#       ]
-#     SYS2_get_network_loss_factor_by_postcode:
-#       [
-#         1.05,
-#         1.05  #Essential
-#       ]
-#   output:
-#     SYS2_PRC_calculation:
-#       [
-#         1260,
-#         36
-#       ]
+- name: test SYS2 peak demand annual savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    SYS2_peak_demand_savings_capacity:
+      [
+        1,
+        2,
+        3
+      ]
+  output:
+    SYS2_peak_demand_annual_savings:
+      [
+        6,
+        12,
+        18
+      ]
 
-# - name: test SYS2 PRC not eligible on new installation
-#   period: 2022
-#   absolute_error_margin: 0.1
-#   input: 
-#     SYS2_peak_demand_reduction_capacity:
-#       [
-#         120,
-#         120
-#       ]
-#     SYS2_get_network_loss_factor_by_postcode:
-#       [
-#         1.05,
-#         1.05
-#       ]
-#     SYS2_replacement_activity:
-#       [
-#         False, #activity is a new installation
-#         True   #activity is a replacement
-#       ]
-#   output:
-#     SYS2_PRC_calculation:
-#       [
-#         0,
-#         1260
-#       ]
+- name: test SYS2 PRC calculation
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    SYS2_peak_demand_reduction_capacity:
+      [
+        120,
+        3.47 
+      ]
+    SYS2_get_network_loss_factor_by_postcode:
+      [
+        1.05,
+        1.05  #Essential
+      ]
+  output:
+    SYS2_PRC_calculation:
+      [
+        1260,
+        36
+      ]
 
-# - name: test SYS2 PRC certificate
-#   period: 2022
-#   absolute_error_margin: 0.1
-#   input: 
-#     SYS2_PDRS__postcode:
-#       [
-#         2017
-#       ]
-#     SYS2_pool_pump_type:
-#       [
-#         multiple_speed_pool_pump
-#       ]
-#     SYS2_pool_size:
-#       [
-#         pool_under_20000_L
-#       ]
-#     SYS2_replacement_activity:
-#       [
-#         true
-#       ]
-#     SYS2_star_rating:
-#       [
-#         four_and_a_half_stars
-#       ]
-#   output:
-#     SYS2_PRC_calculation:
-#       [
-#         24.32
-#       ]
+- name: test SYS2 PRC not eligible on new installation
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_peak_demand_reduction_capacity:
+      [
+        120,
+        120
+      ]
+    SYS2_get_network_loss_factor_by_postcode:
+      [
+        1.05,
+        1.05
+      ]
+    SYS2_replacement_activity:
+      [
+        False, #activity is a new installation
+        True   #activity is a replacement
+      ]
+  output:
+    SYS2_PRC_calculation:
+      [
+        0,
+        1260
+      ]
+
+- name: test SYS2 PRC certificate
+  period: 2022
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_PDRS__postcode:
+      [
+        2017
+      ]
+    SYS2_pool_pump_type:
+      [
+        multiple_speed_pool_pump
+      ]
+    SYS2_pool_size:
+      [
+        pool_under_20000_L
+      ]
+    SYS2_replacement_activity:
+      [
+        true
+      ]
+    SYS2_star_rating:
+      [
+        four_and_a_half_stars
+      ]
+  output:
+    SYS2_PRC_calculation:
+      [
+        24.32
+      ]

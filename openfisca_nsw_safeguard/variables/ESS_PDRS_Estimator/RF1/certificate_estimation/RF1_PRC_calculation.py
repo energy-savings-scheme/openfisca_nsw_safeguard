@@ -10,7 +10,7 @@ class RF1_PRC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    label = 'RF2 PRC calculation'
+    label = 'RF1 PRC calculation'
     metadata = {
         'variable-type': 'output'
     }

@@ -34,6 +34,20 @@
         0.5
       ]
 
+- name: Test BESS1 peak demand annual savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    BESS1_peak_demand_shifting_capacity:
+      [
+        5 
+      ]
+  output:
+    BESS1_peak_demand_annual_savings:
+      [
+        30
+      ]
+
 - name: Test BESS1 peak demand reduction capacity
   period: 2023
   absolute_error_margin: 0.1

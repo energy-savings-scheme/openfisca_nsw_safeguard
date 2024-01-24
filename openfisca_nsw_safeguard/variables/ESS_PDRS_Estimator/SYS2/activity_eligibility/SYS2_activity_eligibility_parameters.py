@@ -60,7 +60,7 @@ class SYS2_legal_disposal(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Will the decommissioned pool pump been removed in accordance with relevant safety standards and legislation?',
+      'display_question' : 'Will the decommissioned pool pump be removed in accordance with relevant safety standards and legislation?',
       'sorting' : 5,
       'eligibility_clause' : """In PDRS SYS2 Implementation Requirements Clause 2 it states that the decommissioned pool pump must be removed in accordance with relevant safety standards and legislation."""
     }

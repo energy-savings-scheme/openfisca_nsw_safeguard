@@ -52,7 +52,7 @@ class HVAC2_installed_by_qualified_person(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question': 'Has the removal of the existing equipment and the installation of the end-user equipment been performed or supervised by a suitably licensed person?',
+        'display_question': 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?',
         'sorting' : 4,
         'conditional': 'True',
         'eligibility_clause' : """In PDRS HVAC2 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
@@ -65,7 +65,7 @@ class HVAC2_engaged_ACP(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
+        'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 5,
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
@@ -79,7 +79,7 @@ class HVAC2_residential_building(Variable):
     default_value = False
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Has the new End-User equipment been installed in a residential building?',
+        'display_question' : 'Will the new End-User equipment been installed in a residential building?',
         'sorting' : 6,
         'eligibility_clause' : """In PDRS HVAC2 Eligibility Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must not be installed in a Residential Building unless the activity is the replacement of an existing air conditioner in a centralised system or in the common areas of a Class 2 building."""
     }

@@ -23,7 +23,7 @@ class SYS2_old_equipment_installed_on_site(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Was the existing pool pump installed on Site at time of replacement?',
+        'display_question' : 'Will the existing pool pump be installed on Site at time of replacement?',
         'sorting' : 2,
         'eligibility_clause' : """In PDRS SYS2 Eligibility Requirements Clause 1 it states that there must be an existing pool pump installed at the Site at time of replacement."""
     }
@@ -35,7 +35,7 @@ class SYS2_qualified_install_removal(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Has the removal of the existing equipment and the installation of the End-User equipment been performed or supervised by a suitably licensed person?',
+      'display_question' : 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?',
       'sorting' : 3,
       'eligibility_clause' : """In PDRS SYS2 Implementation Requirements Clause 1 it states that the activity, including the removal of the existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
@@ -47,7 +47,7 @@ class SYS2_engaged_ACP(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
+        'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 4,
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
@@ -60,7 +60,7 @@ class SYS2_legal_disposal(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Has the decommissioned pool pump been removed in accordance with relevant safety standards and legislation?',
+      'display_question' : 'Will the decommissioned pool pump been removed in accordance with relevant safety standards and legislation?',
       'sorting' : 5,
       'eligibility_clause' : """In PDRS SYS2 Implementation Requirements Clause 2 it states that the decommissioned pool pump must be removed in accordance with relevant safety standards and legislation."""
     }

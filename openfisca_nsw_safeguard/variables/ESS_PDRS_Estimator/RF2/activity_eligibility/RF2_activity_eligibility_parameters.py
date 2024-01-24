@@ -36,7 +36,7 @@ class RF2_qualified_install_removal(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Has the removal of the existing equipment and the installation of the End-User equipment been performed or supervised by a suitably licensed person?',
+      'display_question' : 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?',
       'sorting' : 3,
       'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 3 it states that the activity, including the removal of the existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
@@ -48,7 +48,7 @@ class RF2_legal_disposal(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Has the existing End-User equipment been removed and disposed of in accordance with legislation?',
+      'display_question' : 'Will the existing End-User equipment be removed and disposed of in accordance with legislation?',
       'sorting' : 4,
       'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 1 it states that the existing End-User Equipment must be removed and disposed of in accordance with legislation."""
     }
@@ -60,7 +60,7 @@ class RF2_engaged_ACP(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
+        'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 5,
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />

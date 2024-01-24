@@ -79,7 +79,7 @@ class HVAC2_residential_building(Variable):
     default_value = False
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Will the new End-User equipment been installed in a residential building?',
+        'display_question' : 'Will the new End-User equipment be installed in a residential building?',
         'sorting' : 6,
         'eligibility_clause' : """In PDRS HVAC2 Eligibility Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must not be installed in a Residential Building unless the activity is the replacement of an existing air conditioner in a centralised system or in the common areas of a Class 2 building."""
     }

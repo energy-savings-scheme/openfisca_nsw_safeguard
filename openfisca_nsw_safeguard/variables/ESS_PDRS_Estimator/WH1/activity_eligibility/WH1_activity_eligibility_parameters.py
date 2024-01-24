@@ -48,9 +48,9 @@ class WH1_equipment_removed(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = 'Has the removal of the existing equipment and the installation of the End-User equipment been performed or supervised by a suitably licensed person?'
+    label = 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?'
     metadata = {
-        'display_question' : 'Has the removal of the existing equipment and the installation of the End-User equipment been performed or supervised by a suitably licensed person?',
+        'display_question' : 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?',
         'sorting' : 4,
         'eligibility_clause' : """In PDRS WH1 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
@@ -62,7 +62,7 @@ class WH1_engaged_ACP(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
+        'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 5,
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />

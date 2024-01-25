@@ -35,7 +35,7 @@ class RF1_engaged_ACP(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Was or will an Accredited Certificate Provider be engaged before the implementation date?',
+        'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
         'sorting' : 3,
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />

@@ -419,19 +419,6 @@ class HVAC1_annual_energy_savings(Variable):
       lifetime = 10
 
       deemed_electricity_savings = np.multiply(((reference_cooling - annual_cooling) + (reference_heating - annual_heating)), (lifetime / 1000))
-      
-      print('cooling annual',annual_cooling)
-      print('heating annual',annual_heating)
-      print('reference cooling',reference_cooling)
-      print('reference heating',reference_heating) 
-      print('baseline AEER', baseline_AEER)
-      print('baseline ACOP', baseline_ACOP)  
-      print('rated AEER', rated_AEER)
-      print('rated ACOP', rated_ACOP)
-      print('cooling capacity', cooling_capacity) 
-      print('equivalent cooling hours', equivalent_cooling_hours)
-      print('equivalent heating hours', equivalent_heating_hours) 
-
       return deemed_electricity_savings
 
 
@@ -501,7 +488,6 @@ class HVAC1_ESC_calculation(Variable):
                          zero_heating_capacity * np.logical_not(HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark) * np.logical_not(HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark),
                          zero_heating_capacity * HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark
                          ],
-      
                         [
                             result, 0, 0, 0, 0, 0, 0
                         ],

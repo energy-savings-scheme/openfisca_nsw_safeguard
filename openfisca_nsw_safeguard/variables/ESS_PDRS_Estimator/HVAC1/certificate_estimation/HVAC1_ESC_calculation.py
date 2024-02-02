@@ -282,7 +282,6 @@ class HVAC1_annual_energy_savings(Variable):
       rated_AEER = buildings('HVAC1_rated_AEER_input', period)
 
       #cooling annual energy use
-      
       annual_cooling = np.select([  
                     rated_AEER == 0,
                     (cooling_capacity * equivalent_cooling_hours) > 0, 
@@ -373,8 +372,8 @@ class HVAC1_annual_energy_savings(Variable):
             [new_or_replacement_activity == HVAC1_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC1_Activity_Type.replacement_activity],
             
-                [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
+                [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
                     ]
             )
 
@@ -413,9 +412,9 @@ class HVAC1_annual_energy_savings(Variable):
                         ],
                         [
                             0,
-                            (heating_capacity * equivalent_heating_hours) / rated_ACOP,
+                            (heating_capacity * equivalent_heating_hours) / baseline_ACOP,
                             0,
-                            (heating_capacity * equivalent_heating_hours) / rated_ACOP
+                            (heating_capacity * equivalent_heating_hours) / baseline_ACOP
                         ])
       lifetime = 10
 
@@ -429,7 +428,10 @@ class HVAC1_annual_energy_savings(Variable):
       print('baseline ACOP', baseline_ACOP)  
       print('rated AEER', rated_AEER)
       print('rated ACOP', rated_ACOP)
-      print('cooling capacity', cooling_capacity)    
+      print('cooling capacity', cooling_capacity) 
+      print('equivalent cooling hours', equivalent_cooling_hours)
+      print('equivalent heating hours', equivalent_heating_hours) 
+
       return deemed_electricity_savings
 
 

@@ -416,7 +416,7 @@
   output:
     HVAC1_annual_energy_savings:
       [
-        16.81
+        14.327
       ]
 
 - name: test electricity savings

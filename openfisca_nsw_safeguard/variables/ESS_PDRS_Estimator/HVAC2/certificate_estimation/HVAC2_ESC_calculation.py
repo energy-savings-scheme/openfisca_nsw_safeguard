@@ -416,9 +416,6 @@ class HVAC2_annual_energy_savings(Variable):
       lifetime = 10
 
       deemed_electricity_savings = np.multiply(((reference_cooling - annual_cooling) + (reference_heating - annual_heating)), (lifetime / 1000))
-      print('TCEC', tcec)
-      print('THEC', thec)
-      print('annual cooling', annual_cooling)
       return deemed_electricity_savings
 
 

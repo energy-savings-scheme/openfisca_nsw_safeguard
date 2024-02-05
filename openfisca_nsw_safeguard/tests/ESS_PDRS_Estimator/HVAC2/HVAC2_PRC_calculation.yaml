@@ -149,18 +149,31 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    HVAC2_peak_demand_savings_activity:
+    HVAC2_cooling_capacity_input:
       [
-        1,
-        2,
+        100,
+        300
+      ]
+    HVAC2_baseline_AEER_input:
+      [
+        20,
         3
+      ]
+    HVAC2_BCA_climate_zone_by_postcode:
+      [
+        BCA_Climate_Zone_2,
+        BCA_Climate_Zone_6
+      ]
+    HVAC2_input_power:
+      [
+        3,
+        80
       ]
   output:
     HVAC2_peak_demand_annual_savings:
       [
-        6,
-        12,
-        18
+        4.1472,
+        89.88
       ]
 
 - name: test HVAC2 peak demand reduction capacity

@@ -75,7 +75,6 @@ class D17_annual_energy_savings(Variable):
         Be = buildings('D17_Be', period)
 
         deemed_electricity_savings = Baseline_A - (a * (Bs + Be))
-        print('Selvas favourite', system_size)
         return deemed_electricity_savings
 
 

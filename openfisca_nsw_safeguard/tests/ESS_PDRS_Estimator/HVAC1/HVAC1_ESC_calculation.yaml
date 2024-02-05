@@ -373,6 +373,52 @@
         16.89
       ]
 
+- name: test ESS annual energy savings
+  absolute_error_margin: 0.1
+  period: 2024
+  input:
+    HVAC1_cooling_capacity_input:
+      [
+        8
+      ]
+    HVAC1_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC1_Activity_savings:
+      [
+        new_installation_activity
+      ]
+    HVAC1_certificate_climate_zone:
+      [
+        2
+      ]
+    HVAC1_rated_AEER_input:
+      [
+        10
+      ]
+    HVAC1_residential_TCEC:
+      [
+        0
+      ]
+    HVAC1_heating_capacity_input:
+      [
+        4
+      ]
+    HVAC1_rated_ACOP_input:
+      [
+        5
+      ]
+    HVAC1_residential_THEC:
+      [
+        0
+      ]
+  output:
+    HVAC1_annual_energy_savings:
+      [
+        14.327
+      ]
+
 - name: test electricity savings
   absolute_error_margin: 0.1
   period: 2022

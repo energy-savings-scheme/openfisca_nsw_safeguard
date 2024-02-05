@@ -43,6 +43,7 @@ class D17_system_size_savings(Variable):
       'sorting' : 3
     }
  
+
 class D17_annual_energy_savings(Variable):
     value_type = float  
     entity = Building
@@ -74,7 +75,7 @@ class D17_annual_energy_savings(Variable):
         Be = buildings('D17_Be', period)
 
         deemed_electricity_savings = Baseline_A - (a * (Bs + Be))
-        print('system size', system_size)
+        print('Selvas favourite', system_size)
         return deemed_electricity_savings
 
 

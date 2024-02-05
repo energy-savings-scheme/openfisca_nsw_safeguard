@@ -128,9 +128,9 @@
   input:
     D17_system_size_savings:
       [
-        small,
-        medium,
-        small
+        system_size_small,
+        system_size_medium,
+        system_size_small
       ]
     D17_Bs:   
       [

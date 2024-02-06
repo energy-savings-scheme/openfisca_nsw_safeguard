@@ -69,15 +69,21 @@ class D19_annual_energy_savings(Variable):
         #Baseline A
         Baseline_A = parameters(period).ESS.HEER.table_D19_1['baseline_energy_consumption'][system_size_int]['baseline_A']
         
+        #Baseline B (deemed gas savings)
+        Baseline_B = parameters(period).ESS.HEER.table_D19_1['baseline_energy_consumption'][system_size_int]['baseline_B']
+
         #Deemed electricity savings
         a = 2.320
         Bs = buildings('D19_Bs', period)
         Be = buildings('D19_Be', period)
 
         deemed_electricity_savings = Baseline_A - (a * (Bs + Be))
-        return deemed_electricity_savings
+        deemed_gas_savings = Baseline_B
 
-
+        annual_energy_savings = deemed_electricity_savings + deemed_gas_savings
+        return annual_energy_savings
+    
+       
 class D19_electricity_savings(Variable):
     value_type = float
     entity = Building

@@ -167,9 +167,9 @@
   output:
     D19_annual_energy_savings:
       [
-        -27.26,
-        -69.02,
-        -15.196
+        21.42,
+        0.03,
+        33.484
       ]
 
 - name: test D19 electricity savings

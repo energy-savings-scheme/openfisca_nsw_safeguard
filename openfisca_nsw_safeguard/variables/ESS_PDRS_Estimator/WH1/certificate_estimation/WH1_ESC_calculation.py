@@ -125,7 +125,11 @@ class WH1_energy_savings(Variable):
         #lifetime
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
-        annual_energy_savings = (ref_elec - hp_elec) * capacity_factor * (lifetime / 3.6)
+        #gas savings
+        HP_gas = buildings('WH1_HP_gas', period)
+        gas_savings = -(HP_gas) * capacity_factor * (lifetime / 3.6)
+
+        annual_energy_savings = (ref_elec - hp_elec) * capacity_factor * (lifetime / 3.6) + gas_savings
         return annual_energy_savings
 
 

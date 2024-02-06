@@ -125,11 +125,16 @@
         25,
         6
       ]
+    WH1_HP_gas:
+      [
+        20,
+        30
+      ]
   output:
     WH1_energy_savings:
       [
-        -10.19,
-        17.61
+        -76.88,
+        0.936
       ]
 
 - name: test WH1 ESC calculation

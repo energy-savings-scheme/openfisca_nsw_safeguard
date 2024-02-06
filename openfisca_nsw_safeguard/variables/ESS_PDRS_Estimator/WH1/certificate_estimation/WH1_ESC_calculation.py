@@ -90,6 +90,45 @@ class WH1_deemed_activity_electricity_savings(Variable):
         return electricity_savings
 
 
+class WH1_energy_savings(Variable):
+    value_type = float  
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Deemed activity electricity savings'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        #ref elec
+        com_peak_load = buildings('WH1_com_peak_load', period)
+        
+        ref_elec = 365 * 0.905 * 1.05 * (com_peak_load / 1000)
+
+        #hp elec
+        hp_elec = buildings('WH1_HP_elec', period)
+
+        #capacity factor
+        HP_Cap = buildings('WH1_HP_capacity_factor', period)
+        WH_Cap = buildings('WH1_WH_capacity_factor', period)
+
+        capacity_factor = np.select(
+                                 [
+                                    (HP_Cap <= WH_Cap),
+                                    (HP_Cap > WH_Cap)
+                                 ],
+                                 [
+                                    1,
+                                    WH_Cap / HP_Cap
+                                 ])
+        
+        #lifetime
+        lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
+
+        annual_energy_savings = (ref_elec - hp_elec) * capacity_factor * (lifetime / 3.6)
+        return annual_energy_savings
+
+
 class WH1_electricity_savings(Variable):
     value_type = float
     entity = Building

@@ -126,6 +126,28 @@
         44.28
       ]
 
+- name: test D18 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    D18_system_size_savings:
+      [
+        system_size_small
+      ]
+    D18_Bs:   
+      [
+        10
+      ]
+    D18_Be:
+      [
+        20
+      ]
+  output:
+    D18_annual_energy_savings:
+      [
+        -39.87       
+      ]
+
 - name: test D18 electricity savings
   period: 2023
   absolute_error_margin: 0.1

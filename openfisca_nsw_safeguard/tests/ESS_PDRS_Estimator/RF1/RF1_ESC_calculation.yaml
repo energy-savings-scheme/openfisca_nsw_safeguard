@@ -16,6 +16,24 @@
         723.9
       ]
 
+- name: test RF1 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF1_number_of_refrigerator_freezers_removal:
+      [
+        3,
+        6,
+        2
+      ]
+  output:
+    RF1_energy_savings:
+      [
+        17.1,
+        34.2,
+        11.4
+      ]
+
 - name: test RF1 electricity savings
   period: 2022
   absolute_error_margin: 0.1

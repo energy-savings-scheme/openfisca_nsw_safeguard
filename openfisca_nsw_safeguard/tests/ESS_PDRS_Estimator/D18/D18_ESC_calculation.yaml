@@ -132,20 +132,32 @@
   input:
     D18_system_size_savings:
       [
-        system_size_small
+        system_size_small,
+        system_size_medium,
+        system_size_small,
+        system_size_medium
       ]
     D18_Bs:   
       [
-        10
+        10,
+        25,
+        18,
+        35
       ]
     D18_Be:
       [
-        20
+        20,
+        15,
+        24,
+        48
       ]
   output:
     D18_annual_energy_savings:
       [
-        -39.87       
+        -39.87,
+        -43.44,
+        -68.13,
+        -144.7
       ]
 
 - name: test D18 electricity savings

@@ -51,7 +51,36 @@ class RF2_peak_demand_savings_capacity(Variable):
                                         - (input_power * baseline_peak_adjustment_factor )) * firmness_factor
       return peak_demand_savings_capacity
   
+
+# class RF2_peak_demand_annual_savings(Variable):
+#     value_type = float
+#     entity = Building
+#     definition_period = ETERNITY
+#     label = 'Peak demand annual savings'
+#     metadata = {
+#         'variable-type': 'output'
+#     }
+
+#     def formula(buildings, period, parameters):
+#       #baseline peak adjustment
+
+#       #baseline input power
+
+#       #input power
+
+      
+
+#       baseline_peak_adjustment_factor = buildings('RF2_baseline_peak_adjustment_factor', period)
+#       baseline_input_power = buildings('RF2_baseline_input_power', period)
+#       input_power = buildings('RF2_input_power', period)
+#       firmness_factor = 1
+#       summer_peak_demand_reduction_duration = 6
+
+#       peak_demand_annual_savings= (((baseline_peak_adjustment_factor * baseline_input_power)
+#                                         - (input_power * baseline_peak_adjustment_factor )) * firmness_factor) * summer_peak_demand_reduction_duration
+#       return peak_demand_annual_savings
   
+
 class RF2_peak_demand_annual_savings(Variable):
     value_type = float
     entity = Building

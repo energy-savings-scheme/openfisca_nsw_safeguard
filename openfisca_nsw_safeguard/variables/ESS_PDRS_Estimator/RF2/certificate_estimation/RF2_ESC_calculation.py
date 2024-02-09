@@ -111,11 +111,12 @@ class RF2ProductClass(Enum):
 
 
 class RF2_product_class_savings(Variable):
-    value_type = Enum
+    value_type = str
     entity = Building
     definition_period = ETERNITY
-    possible_values = RF2ProductClass
-    default_value = RF2ProductClass.product_class_one
+    # possible_values = RF2ProductClass
+    # default_value = RF2ProductClass.product_class_one
+    default_value = 'Class 1'
     metadata = {
       'variable-type': 'user-input',
       'label': 'Product Class',
@@ -138,28 +139,29 @@ class RF2_annual_energy_savings(Variable):
         total_energy_consumption = buildings('RF2_total_energy_consumption', period)
 
         #baseline EEI
-        product_class = buildings('RF2_product_class_savings', period)
+        product_class_savings = buildings('RF2_product_class_savings', period)
         duty_type = buildings('RF2_duty_class', period)
         replacement_activity = buildings('RF2_replacement_activity', period)
     
-        product_class_int = np.select(
-            [
-                product_class == 'Class 1',
-                product_class == 'Class 2',
-                product_class == 'Class 3',
-                product_class == 'Class 4',
-                product_class == 'Class 5',
-                product_class == 'Class 6',
-                product_class == 'Class 7',
-                product_class == 'Class 8',
-                product_class == 'Class 9',
-                product_class == 'Class 10',
-                product_class == 'Class 11',
-                product_class == 'Class 12',
-                product_class == 'Class 13',
-                product_class == 'Class 14',
-                product_class == 'Class 15',
-            ],
+        product_class = buildings('RF2_product_class', period)
+      
+        product_class = np.select([
+                product_class_savings == 'Class 1',
+                product_class_savings == 'Class 2',
+                product_class_savings == 'Class 3',
+                product_class_savings == 'Class 4',
+                product_class_savings == 'Class 5',
+                product_class_savings == 'Class 6',
+                product_class_savings == 'Class 7',
+                product_class_savings == 'Class 8',
+                product_class_savings == 'Class 9',
+                product_class_savings == 'Class 10',
+                product_class_savings == 'Class 11',
+                product_class_savings == 'Class 12',
+                product_class_savings == 'Class 13',
+                product_class_savings == 'Class 14',
+                product_class_savings == 'Class 15',
+            ], 
             [
                 RF2ProductClass.product_class_one,
                 RF2ProductClass.product_class_two,
@@ -176,6 +178,23 @@ class RF2_annual_energy_savings(Variable):
                 RF2ProductClass.product_class_thirteen,
                 RF2ProductClass.product_class_fourteen,
                 RF2ProductClass.product_class_fifteen         
+            ])
+        product_class_int = np.select([
+                product_class == RF2ProductClass.product_class_one,
+                product_class == RF2ProductClass.product_class_two,
+                product_class == RF2ProductClass.product_class_three,
+                product_class == RF2ProductClass.product_class_four,
+                product_class == RF2ProductClass.product_class_five,
+                product_class == RF2ProductClass.product_class_six,
+                product_class == RF2ProductClass.product_class_seven,
+                product_class == RF2ProductClass.product_class_eight,
+                product_class == RF2ProductClass.product_class_nine,
+                product_class == RF2ProductClass.product_class_ten,
+                product_class == RF2ProductClass.product_class_eleven,
+                product_class == RF2ProductClass.product_class_twelve,
+                product_class == RF2ProductClass.product_class_thirteen,
+                product_class == RF2ProductClass.product_class_fourteen,
+                product_class == RF2ProductClass.product_class_fifteen
             ],
             [
                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
@@ -189,7 +208,7 @@ class RF2_annual_energy_savings(Variable):
             [ 
                 parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class_int][duty_type],
                 parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class_int][duty_type]
-            ])   
+            ])
 
         #product EEI
         product_EEI = buildings('RF2_product_EEI', period)
@@ -197,21 +216,21 @@ class RF2_annual_energy_savings(Variable):
         #af
         product_class = np.select(
             [
-                product_class == 'Class 1',
-                product_class == 'Class 2',
-                product_class == 'Class 3',
-                product_class == 'Class 4',
-                product_class == 'Class 5',
-                product_class == 'Class 6',
-                product_class == 'Class 7',
-                product_class == 'Class 8',
-                product_class == 'Class 9',
-                product_class == 'Class 10',
-                product_class == 'Class 11',
-                product_class == 'Class 12',
-                product_class == 'Class 13',
-                product_class == 'Class 14',
-                product_class == 'Class 15',
+                product_class_savings == 'Class 1',
+                product_class_savings == 'Class 2',
+                product_class_savings == 'Class 3',
+                product_class_savings == 'Class 4',
+                product_class_savings == 'Class 5',
+                product_class_savings == 'Class 6',
+                product_class_savings == 'Class 7',
+                product_class_savings == 'Class 8',
+                product_class_savings == 'Class 9',
+                product_class_savings == 'Class 10',
+                product_class_savings == 'Class 11',
+                product_class_savings == 'Class 12',
+                product_class_savings == 'Class 13',
+                product_class_savings == 'Class 14',
+                product_class_savings == 'Class 15',
             ], 
             [
                 RF2ProductClass.product_class_one,
@@ -237,10 +256,10 @@ class RF2_annual_energy_savings(Variable):
                 np.logical_not(replacement_activity)
             ],
             [ 
-                parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
-                parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
+                parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class_int][duty_type],
+                parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class_int][duty_type]
             ])
-
+        
         #lifetime_by_rc_class
         display_area =  buildings('RF2_total_display_area', period)
         
@@ -281,14 +300,6 @@ class RF2_annual_energy_savings(Variable):
             ])
 
         annual_energy_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
-        print('product class int', product_class_int)
-        print('product_class', product_class)
-        print('duty_type', duty_type)
-        print('replacement_activity', replacement_activity)
-        print('baseline_EEI', baseline_EEI)
-        print('af', af)
-        print('lifetime_by_rc_class', lifetime_by_rc_class)
-
         return annual_energy_savings
 
 

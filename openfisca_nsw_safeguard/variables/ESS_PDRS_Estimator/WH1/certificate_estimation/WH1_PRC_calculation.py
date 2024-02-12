@@ -71,12 +71,29 @@ class WH1_peak_demand_annual_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      peak_demand_savings_capacity = buildings('WH1_peak_demand_savings_capacity', period)
-      summer_peak_demand_reduction_duration = 6
+        #baseline input power
+        com_peak_load = buildings('WH1_com_peak_load', period)
+        baseline_input_power = com_peak_load * 0.01
 
-      peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration
-      return peak_demand_annual_savings
+        #baseline peak adjustment factor
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH1']
 
+        #input power
+        annual_energy_savings = buildings('WH1_annual_energy_savings', period)
+        input_power = (100 - annual_energy_savings) * (baseline_input_power / 100)
+
+        #peak adjustment factor
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH1']
+
+        #firmness factor
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH1']
+
+        #peak demand savings capacity
+        summer_peak_demand_reduction_duration = 6
+        peak_demand_annual_savings = ((baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor * firmness_factor)) * summer_peak_demand_reduction_duration
+        
+        return peak_demand_annual_savings
+        
 
 class WH1_peak_demand_reduction_capacity(Variable):
     value_type = float

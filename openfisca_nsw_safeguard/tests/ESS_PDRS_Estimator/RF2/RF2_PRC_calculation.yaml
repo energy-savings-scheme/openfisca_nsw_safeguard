@@ -68,18 +68,41 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    RF2_peak_demand_savings_capacity:
+    RF2_product_class_peak_savings:
       [
-        1,
-        2,
-        3
+        product_class_six,
+        product_class_fourteen
+      ]
+    RF2_duty_class_peak_savings:
+      [
+        normal_duty,
+        heavy_duty
+      ]
+    RF2_product_type_savings:
+      [
+        gelato_ice_cream_scooping_cabinet,
+        remote_RDC
+      ]
+    RF2_replacement_activity:
+      [
+        true,
+        true
+      ]
+    RF2_total_energy_consumption:
+      [
+        50,
+        40
+      ]
+    RF2_product_EEI:
+      [
+        100,
+        70
       ]
   output:
     RF2_peak_demand_annual_savings:
       [
-        6,
-        12,
-        18
+        -4.182,
+        -18.1
       ]
 
 - name: test RF2 peak demand reduction capacity

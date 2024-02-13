@@ -78,9 +78,6 @@ class WH1_HP_elec(Variable):
     }
 
 
-""" These variables use Rule tables
-"""
-
 class WH1_regional_network_factor(Variable):
     value_type = float
     entity = Building

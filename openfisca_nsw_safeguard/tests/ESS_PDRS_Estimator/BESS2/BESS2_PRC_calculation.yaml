@@ -38,14 +38,18 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    BESS2_peak_demand_response_capacity:
+    BESS2_usable_battery_capacity:
       [
-        6
+        10,
+        90,
+        35
       ]
   output:
     BESS2_peak_demand_annual_savings:
       [
-        36
+        3.882,
+        34.938,
+        13.587
       ]
 
 - name: Test BESS2 peak demand reduction capacity

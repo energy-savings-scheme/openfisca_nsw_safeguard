@@ -258,32 +258,39 @@
   input:
     RF2_total_energy_consumption:
       [
-        16.7
+        16.7,
+        32
       ]
     RF2_product_class_savings:
       [
-        Class 5
+        product_class_five,
+        product_class_three
       ]
     RF2_duty_class:
       [
-        normal_duty
+        normal_duty,
+        heavy_duty
       ]
     RF2_replacement_activity:
       [
+        true,
         true
       ]
     RF2_product_EEI:
       [
-        50
+        50,
+        200
       ]
     RF2_total_display_area:
       [ 
-        700
+        700,
+        200
       ]
   output:
     RF2_annual_energy_savings:
       [
-        26.33
+        48.764,
+        -57.46
       ]
 
 - name: test RF2 electricity savings

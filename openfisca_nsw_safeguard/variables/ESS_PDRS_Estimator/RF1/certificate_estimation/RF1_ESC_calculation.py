@@ -32,6 +32,22 @@ class RF1_deemed_activity_electricity_savings(Variable):
       return deemed_electricity_savings
 
 
+class RF1_energy_savings(Variable):
+    value_type = float  
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Deemed activity electricity savings'
+    metadata = {
+        'variable-type': 'output'
+    }
+
+    def formula(buildings, period, parameters):
+      number_fridges_freezers = buildings('RF1_number_of_refrigerator_freezers_removal', period)
+
+      annual_energy_savings = number_fridges_freezers * 5.7
+      return annual_energy_savings
+
+
 class RF1_PDRS__regional_network_factor(Variable):
     value_type = float
     entity = Building

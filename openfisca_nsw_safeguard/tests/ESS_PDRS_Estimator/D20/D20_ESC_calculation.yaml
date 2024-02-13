@@ -142,6 +142,36 @@
         -19.27
       ]
 
+- name: test D20 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    D20_system_size_savings:
+      [
+        system_size_small,
+        system_size_medium,
+        system_size_small
+      ]
+    D20_Bs:   
+      [
+        5,
+        10,
+        2.5
+      ]
+    D20_Be:
+      [
+        7,
+        20,
+        4.3
+      ]
+  output:
+    D20_annual_energy_savings:
+      [
+        33.59,
+        17.3,
+        45.65        
+      ]
+
 - name: test D20 electricity savings
   period: 2023
   absolute_error_margin: 0.1

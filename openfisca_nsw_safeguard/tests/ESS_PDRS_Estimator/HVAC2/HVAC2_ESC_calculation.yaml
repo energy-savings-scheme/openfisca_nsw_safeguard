@@ -280,6 +280,51 @@
         18.63
       ]
 
+- name: test ESS annual energy savings
+  absolute_error_margin: 0.1
+  period: 2024
+  input:
+    HVAC2_cooling_capacity_input:
+      [
+        8
+      ]
+    HVAC2_Air_Conditioner_type_savings:
+      [
+        non_ducted_split_system
+      ]
+    HVAC2_Activity_savings:
+      [
+        new_installation_activity
+      ]
+    HVAC2_certificate_climate_zone:
+      [
+        2
+      ]
+    HVAC2_rated_AEER_input:
+      [
+        10
+      ]
+    HVAC2_commercial_TCEC:
+      [
+        0
+      ]
+    HVAC2_heating_capacity_input:
+      [
+        4
+      ]
+    HVAC2_rated_ACOP_input:
+      [
+        5
+      ]
+    HVAC2_commercial_THEC:
+      [
+        0
+      ]
+  output:
+    HVAC2_annual_energy_savings:
+      [
+        14.327
+      ]
 
 - name: test Electricity Savings Mitsubishi
   period: 2023

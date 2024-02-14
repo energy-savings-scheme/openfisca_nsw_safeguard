@@ -182,6 +182,241 @@ class HVAC2_deemed_activity_electricity_savings(Variable):
       
       deemed_electricity_savings = np.multiply(((reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating)), (lifetime / 1000))
       return deemed_electricity_savings
+    
+
+class HVAC2_AC_Type(Enum):
+    non_ducted_split_system = 'Non-ducted split system'
+    ducted_split_system = 'Ducted split system'
+    non_ducted_unitary_system = 'Non-ducted unitary system'
+    ducted_unitary_system = 'Ducted unitary system'
+
+
+
+class HVAC2_Air_Conditioner_type_savings(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = HVAC2_AC_Type
+    default_value = HVAC2_AC_Type.non_ducted_split_system
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label': 'Air conditioner type',
+        'display_question' : 'What is your air conditioner type?',
+        'sorting' : 4
+    }
+
+
+class HVAC2_Activity_Type(Enum):
+    new_installation_activity = 'Installation of a new air conditioner'
+    replacement_activity = 'Replacement of an existing air conditioner'
+
+
+class HVAC2_Activity_savings(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = HVAC2_Activity_Type
+    default_value = HVAC2_Activity_Type.replacement_activity
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label': 'Replacement or new installation activity',
+        'display_question' : 'Which one of the following activities are you implementing?',
+        'sorting' : 3
+    }
+
+
+class HVAC2_annual_energy_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Annual ESS energy savings'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+      #baseline AEER
+      cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
+      air_conditioner_type = buildings('HVAC2_Air_Conditioner_type_savings', period)
+      new_or_replacement_activity = buildings('HVAC2_Activity_savings', period)
+
+      cooling_capacity_to_check = np.select(
+            [
+                cooling_capacity < 4,
+                (cooling_capacity < 10) * (cooling_capacity >= 4),
+                (cooling_capacity < 39) * (cooling_capacity >= 10),
+                (cooling_capacity < 65) * (cooling_capacity >= 39),
+                cooling_capacity > 65
+            ],
+            [
+                "less_than_4kW",
+                "4kW_to_10kW",
+                "10kW_to_39kW",
+                "39kW_to_65kW",
+                "more_than_65kW"
+            ])
+
+      aircon = np.select(
+            [air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system],
+
+                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
+            )
+
+      baseline_AEER = np.select(
+            [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
+                new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity
+            ],
+            [parameters(period).ESS.HEAB.table_F4_2.AEER[aircon][cooling_capacity_to_check], 
+                    parameters(period).ESS.HEAB.table_F4_3.AEER[aircon][cooling_capacity_to_check] 
+            ])
+
+      #equivalent cooling hours
+      climate_zone = buildings('HVAC2_certificate_climate_zone', period)
+      climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
+                                    ['hot_zone', 'average_zone', 'cold_zone'])
+      equivalent_cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone_str]
+
+      #rated AEER
+      rated_AEER = buildings('HVAC2_rated_AEER_input', period)
+
+      #cooling annual energy use
+      annual_cooling = np.select([  
+                    rated_AEER == 0,
+                    (cooling_capacity * equivalent_cooling_hours) > 0, 
+                    (cooling_capacity * equivalent_cooling_hours) == 0,
+                    (cooling_capacity * equivalent_cooling_hours) < 0
+                ],
+                [
+                    0,
+                    (cooling_capacity * equivalent_cooling_hours) / rated_AEER, 
+                    0,
+                    (cooling_capacity * equivalent_cooling_hours) / rated_AEER
+                ])
+
+      #TCEC or annual cooling
+      tcec = buildings('HVAC2_commercial_TCEC',period)
+
+      tcec_or_annual_cooling = np.select([
+                tcec > 0, 
+                tcec <= 0 #if there is no TCEC use annual cooling energy formula
+            ],
+            [
+                tcec,
+                annual_cooling
+            ])
+
+      #reference cooling energy use
+      reference_cooling = np.select([  
+                    baseline_AEER == 0,  
+                    (cooling_capacity * equivalent_cooling_hours) > 0, 
+                    (cooling_capacity * equivalent_cooling_hours) == 0,
+                    (cooling_capacity * equivalent_cooling_hours) < 0
+                ],
+                [
+                    0,
+                    (cooling_capacity * equivalent_cooling_hours) / baseline_AEER, 
+                    0,
+                    (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
+                ])
+
+      #baseline ACOP
+      cooling_capacity_to_check = np.select(
+            [
+                cooling_capacity < 4,
+                (cooling_capacity < 10) * (cooling_capacity >= 4),
+                (cooling_capacity < 39) * (cooling_capacity >= 10),
+                (cooling_capacity < 65) * (cooling_capacity >= 39),
+                cooling_capacity > 65
+            ],
+            [
+                "less_than_4kW",
+                "4kW_to_10kW",
+                "10kW_to_39kW",
+                "39kW_to_65kW",
+                "more_than_65kW"
+            ])
+
+      aircon = np.select(
+            [air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system],
+
+                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
+            )
+
+      baseline_ACOP = np.select(
+            [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
+                new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity
+            ],
+            [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
+            ])
+
+      #heating capacity input
+      heating_capacity = buildings('HVAC2_heating_capacity_input', period)
+
+      #equivalent heating hours
+      equivalent_heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
+
+      #rated ACOP
+      rated_ACOP = buildings('HVAC2_rated_ACOP_input', period)
+
+      aircon = np.select(
+            [air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system],
+
+                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
+            )
+
+      baseline_ACOP = np.select(
+            [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
+                new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity],
+
+                [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
+                    ]
+            )
+
+      #heating annual energy use
+      annual_heating = np.select([  
+                    rated_ACOP == 0,
+                    (heating_capacity * equivalent_heating_hours) > 0, 
+                    (heating_capacity * equivalent_heating_hours) == 0,
+                    (heating_capacity * equivalent_heating_hours) < 0
+                ],
+                [
+                    0,
+                    (heating_capacity * equivalent_heating_hours) / rated_ACOP, 
+                    0,
+                    (cooling_capacity * equivalent_heating_hours) / rated_ACOP
+                ])
+
+      #THEC or annual heating
+      thec = buildings('HVAC2_commercial_THEC',period)
+
+      thec_or_annual_heating = np.select([
+                thec > 0, 
+                thec <= 0 #if there is no THEC
+            ],
+            [
+                thec,
+                annual_heating
+            ])
+
+      #reference heating annual energy use
+      reference_heating = np.select([    
+                            baseline_ACOP == 0,
+                            (heating_capacity * equivalent_heating_hours) > 0, 
+                            (heating_capacity * equivalent_heating_hours) == 0,
+                            (heating_capacity * equivalent_heating_hours) < 0
+                        ],
+                        [
+                            0,
+                            (heating_capacity * equivalent_heating_hours) / baseline_ACOP,
+                            0,
+                            (heating_capacity * equivalent_heating_hours) / baseline_ACOP
+                        ])
+      lifetime = 10
+
+      deemed_electricity_savings = np.multiply(((reference_cooling - annual_cooling) + (reference_heating - annual_heating)), (lifetime / 1000))
+      return deemed_electricity_savings
 
 
 class HVAC2_PDRS__regional_network_factor(Variable):

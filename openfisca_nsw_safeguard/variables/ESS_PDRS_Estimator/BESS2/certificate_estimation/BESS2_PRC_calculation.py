@@ -50,7 +50,20 @@ class BESS2_peak_demand_annual_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        peak_demand_response_capacity = buildings('BESS2_peak_demand_response_capacity', period)
+        #useable battery capacity
+        usable_battery_capacity = buildings('BESS2_usable_battery_capacity', period)
+
+        #demand response component
+        demand_reduction_factor = 0.0647
+
+        demand_response_component = usable_battery_capacity * demand_reduction_factor
+
+        #peak demand response capacity
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['BESS2']
+
+        peak_demand_response_capacity = demand_response_component * firmness_factor
+
+        #peak demand annual savings
         summer_peak_demand_duration = 6
 
         peak_demand_annual_savings = peak_demand_response_capacity * summer_peak_demand_duration

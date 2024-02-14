@@ -131,12 +131,53 @@ class HVAC2_peak_demand_annual_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        peak_demand_savings = buildings('HVAC2_peak_demand_savings_activity', period)
+        #baseline input power
+        rated_cooling_capacity = buildings('HVAC2_cooling_capacity_input', period)
+        baseline_AEER = buildings('HVAC2_baseline_AEER_input', period)
+
+        baseline_input_power = np.select([    
+                    baseline_AEER == 0,
+                    (rated_cooling_capacity / baseline_AEER) > 0, 
+                    (rated_cooling_capacity / baseline_AEER) == 0,
+                    (rated_cooling_capacity / baseline_AEER) < 0
+                ],
+                [
+                    0,
+                    rated_cooling_capacity / baseline_AEER,
+                    0,
+                    rated_cooling_capacity / baseline_AEER
+                ])
+
+        #baseline peak adjustment factor
+        usage_factor = 0.72
+        climate_zone = buildings('HVAC2_BCA_climate_zone_by_postcode', period)
+        temp_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
+
+        baseline_peak_adjustment = usage_factor * temp_factor
+
+        #peak demand savings activity
+        input_power = buildings('HVAC2_input_power', period)
+        firmness_factor = 1
+
+        peak_demand_savings_activity = (
+                    (
+                        baseline_input_power *
+                        baseline_peak_adjustment
+                    ) -
+                    (
+                        input_power *
+                        baseline_peak_adjustment
+                    )
+                    *
+                    firmness_factor
+            )
+
+        #peak demand annual savings
         summer_peak_demand_duration = 6
 
-        peak_demand_annual_savings = peak_demand_savings * summer_peak_demand_duration
+        peak_demand_annual_savings = peak_demand_savings_activity * summer_peak_demand_duration
         return peak_demand_annual_savings
-  
+
 
 class HVAC2_peak_demand_reduction_capacity(Variable):
     reference = 'unit in kW'

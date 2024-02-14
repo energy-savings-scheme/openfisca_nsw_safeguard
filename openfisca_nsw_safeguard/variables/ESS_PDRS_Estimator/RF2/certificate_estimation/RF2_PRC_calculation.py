@@ -52,34 +52,76 @@ class RF2_peak_demand_savings_capacity(Variable):
       return peak_demand_savings_capacity
   
 
-# class RF2_peak_demand_annual_savings(Variable):
-#     value_type = float
-#     entity = Building
-#     definition_period = ETERNITY
-#     label = 'Peak demand annual savings'
-#     metadata = {
-#         'variable-type': 'output'
-#     }
+class RF2ProductClass(Enum):
+    product_class_one = 'Class 1'
+    product_class_two = 'Class 2'
+    product_class_three = 'Class 3'
+    product_class_four = 'Class 4'
+    product_class_five = 'Class 5'
+    product_class_six = 'Class 6'
+    product_class_seven = 'Class 7'
+    product_class_eight = 'Class 8'
+    product_class_nine = 'Class 9'
+    product_class_ten = 'Class 10'
+    product_class_eleven = 'Class 11'
+    product_class_twelve = 'Class 12'
+    product_class_thirteen = 'Class 13'
+    product_class_fourteen = 'Class 14'
+    product_class_fifteen = 'Class 15'
 
-#     def formula(buildings, period, parameters):
-#       #baseline peak adjustment
 
-#       #baseline input power
+class RF2_product_class_peak_savings(Variable):
+    value_type = Enum
+    entity = Building
+    definition_period = ETERNITY
+    possible_values = RF2ProductClass
+    default_value = RF2ProductClass.product_class_one
+    metadata = {
+      'variable-type': 'user-input',
+      'label': 'Product Class',
+      'display_question': 'Refrigerated Cabinet Product Class (Product Characteristics Code)',
+      'sorting' : 6
+    }
 
-#       #input power
 
-      
+class RCDutyClass_peak_savings(Enum):
+    heavy_duty = 'Heavy duty'
+    normal_duty = 'Normal duty'
+    light_duty = 'Light duty'
 
-#       baseline_peak_adjustment_factor = buildings('RF2_baseline_peak_adjustment_factor', period)
-#       baseline_input_power = buildings('RF2_baseline_input_power', period)
-#       input_power = buildings('RF2_input_power', period)
-#       firmness_factor = 1
-#       summer_peak_demand_reduction_duration = 6
 
-#       peak_demand_annual_savings= (((baseline_peak_adjustment_factor * baseline_input_power)
-#                                         - (input_power * baseline_peak_adjustment_factor )) * firmness_factor) * summer_peak_demand_reduction_duration
-#       return peak_demand_annual_savings
-  
+class RF2_duty_class_peak_savings(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = RCDutyClass_peak_savings
+    default_value = RCDutyClass_peak_savings.normal_duty
+    definition_period = ETERNITY
+    metadata = {
+      'variable-type' : 'user-input',
+      'label' : 'Duty Classification',
+      'display_question' : 'Duty Classification for refrigerated cabinet',
+      'sorting' : 4
+    }
+
+
+class RCProductType(Enum):
+    integral_RDC = 'Integral refrigerated display cabinet'
+    integral_ice_cream_freezer_cabinet = 'Integral ice cream freezer cabinet'
+    remote_RDC = 'Remote refrigerated display cabinet'
+    gelato_ice_cream_scooping_cabinet = 'Gelato or ice cream scooping cabinet'
+    RSC = 'Refrigerated storage cabinet'
+
+
+class RF2_product_type_savings(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = RCProductType
+    default_value = RCProductType.integral_RDC
+    definition_period = ETERNITY    
+    metadata = {
+      "label": 'Product Type for the refrigerated cabinet',
+      "variable-type": "output",
+    }
 
 class RF2_peak_demand_annual_savings(Variable):
     value_type = float
@@ -91,13 +133,121 @@ class RF2_peak_demand_annual_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      peak_demand_savings_capacity = buildings('RF2_peak_demand_savings_capacity', period)
-      summer_peak_demand_reduction_duration = 6
+        #product class
+        product_class_savings = buildings('RF2_product_class_peak_savings', period)
 
-      peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration
-      return peak_demand_annual_savings
+        #duty class
+        duty_type = buildings('RF2_duty_class_peak_savings', period)
+        
+        #product type
+        is_integral_RDC = (
+                            (product_class_savings == RF2ProductClass.product_class_one) +
+                            (product_class_savings == RF2ProductClass.product_class_two) +
+                            (product_class_savings == RF2ProductClass.product_class_seven) +
+                            (product_class_savings == RF2ProductClass.product_class_eight) +
+                            (product_class_savings == RF2ProductClass.product_class_eleven)
+                            )
 
-  
+        is_integral_ice_cream_freezer_cabinet = (
+                            (product_class_savings == RF2ProductClass.product_class_five)
+        )
+
+        is_remote_RDC = (
+                            (product_class_savings == RF2ProductClass.product_class_twelve) +
+                            (product_class_savings == RF2ProductClass.product_class_thirteen) +
+                            (product_class_savings == RF2ProductClass.product_class_fourteen) +
+                            (product_class_savings == RF2ProductClass.product_class_fifteen)
+        )
+
+        is_gelato_or_icecream_scooping_cabinets = (
+                            (product_class_savings == RF2ProductClass.product_class_six)
+        )
+
+        is_RSC = (
+                            (product_class_savings == RF2ProductClass.product_class_three) +
+                            (product_class_savings == RF2ProductClass.product_class_four) +
+                            (product_class_savings == RF2ProductClass.product_class_nine) +
+                            (product_class_savings == RF2ProductClass.product_class_ten)
+        )
+
+        product_type = np.select(
+                                    [
+                                    is_integral_RDC,
+                                    is_integral_ice_cream_freezer_cabinet,
+                                    is_remote_RDC,
+                                    is_gelato_or_icecream_scooping_cabinets,
+                                    is_RSC
+                                    ],
+                                    [
+                                        RCProductType.integral_RDC,
+                                        RCProductType.integral_ice_cream_freezer_cabinet,
+                                        RCProductType.remote_RDC,
+                                        RCProductType.gelato_ice_cream_scooping_cabinet,
+                                        RCProductType.RSC
+                                    ])
+
+        #baseline peak adjustment factor
+        usage_factor = 1
+        temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2['temperature_factor'][product_type][duty_type]
+        
+        baseline_peak_adjustment_factor = temperature_factor * usage_factor
+
+        #replacement activity
+        replacement_activity = buildings('RF2_replacement_activity', period)
+
+        #af
+        af = np.select(
+            [
+                np.logical_not(replacement_activity), #new install
+                replacement_activity
+            ],
+            [
+                parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class_savings][duty_type],
+                parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class_savings][duty_type]
+            ])
+        
+        #tec
+        total_energy_consumption = buildings('RF2_total_energy_consumption', period)
+
+        #baseline EEI
+        baseline_EEI = np.select(
+            [
+                replacement_activity,
+                np.logical_not(replacement_activity) #new install
+            ],
+            [
+                parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class_savings][duty_type],
+                parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class_savings][duty_type]
+            ])
+
+        #product EEI
+        product_EEI = buildings('RF2_product_EEI', period)
+
+        #baseline input power
+        baseline_input_power = np.select(
+            [
+                product_EEI == 0, product_EEI != 0
+            ],
+            [
+                0, np.multiply((total_energy_consumption * af), (baseline_EEI / product_EEI) / 24)
+            ])
+
+        #input power
+        input_power = (total_energy_consumption * af) / 24
+
+        #firmness factor
+        firmness_factor = 1
+
+        #peak demand savings capacity
+        peak_demand_savings_capacity = ((baseline_peak_adjustment_factor * baseline_input_power) - (input_power * baseline_peak_adjustment_factor )) * firmness_factor
+
+        #peak demand annual savings
+        summer_peak_demand_reduction_duration = 6
+
+        peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration
+        return peak_demand_annual_savings
+
+
 class RF2_peak_demand_reduction_capacity(Variable):
     value_type = float
     entity = Building

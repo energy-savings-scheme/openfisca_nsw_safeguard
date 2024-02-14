@@ -16,18 +16,16 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    RF1_peak_demand_savings_capacity:
+    RF1_number_of_refrigerator_freezers_removal:
       [
         1,
-        2,
-        3
+        2  
       ]
   output:
     RF1_peak_demand_annual_savings:
       [
-        6,
-        12,
-        18
+        0.6975,
+        1.395
       ]
 
 - name: test RF1 PRC calculation
@@ -55,11 +53,18 @@
         False,
         True
       ]
+    RF1_number_of_refrigerator_freezers_removal:
+      [
+        1,
+        2,
+        4,
+        6
+      ]
   output:
     RF1_PRC_calculation:
       [
         50.778,
-        51.45,
+        102.9,
         0,
-        50.778
+        304.67
       ]

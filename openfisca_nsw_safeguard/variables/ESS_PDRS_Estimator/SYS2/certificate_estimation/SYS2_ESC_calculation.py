@@ -62,7 +62,25 @@ class SYS2_savings_factor(Variable):
         savings_factor = parameters(period).ESS.HEER.table_D5_1['electricity_savings_factor'][star_rating]
 
         return savings_factor
+    
 
+class SYS2_energy_savings(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Deemed activity electricity savings'
+    metadata = {
+        'variable-type': 'output'
+    }
+
+    def formula(buildings, period, parameters):
+        #deemed electricity savings equals the savings factor for this activity
+        star_rating = buildings('SYS2_star_rating', period)
+        savings_factor = parameters(period).ESS.HEER.table_D5_1['electricity_savings_factor'][star_rating]
+
+        annual_energy_savings = savings_factor
+        return annual_energy_savings
+        
 
 class SYS2_electricity_savings(Variable):
     value_type = int

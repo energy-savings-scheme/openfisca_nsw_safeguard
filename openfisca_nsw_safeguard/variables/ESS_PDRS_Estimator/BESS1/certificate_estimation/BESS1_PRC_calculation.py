@@ -49,8 +49,21 @@ class BESS1_peak_demand_annual_savings(Variable):
         "variable-type": "output"
     }
 
-    def formula(buildings, period, parameters):
-        peak_demand_shifting_capacity = buildings('BESS1_peak_demand_shifting_capacity', period)
+    def formula(buildings, period, parameters):    
+        #useable battery capacity
+        usable_battery_capacity = buildings('BESS1_usable_battery_capacity', period)
+
+        #demand shifting component
+        demand_reduction_factor = 0.0853
+
+        demand_shifting_component = usable_battery_capacity * demand_reduction_factor
+        
+        #peak demand shifting capacity
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['BESS1']
+
+        peak_demand_shifting_capacity = demand_shifting_component * firmness_factor
+        
+        #peak demand annual savings
         summer_peak_demand_duration = 6
 
         peak_demand_annual_savings = peak_demand_shifting_capacity * summer_peak_demand_duration

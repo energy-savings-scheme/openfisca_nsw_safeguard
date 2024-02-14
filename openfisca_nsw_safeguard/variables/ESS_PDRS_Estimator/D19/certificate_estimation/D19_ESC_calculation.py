@@ -23,8 +23,67 @@ class D19_deemed_activity_electricity_savings(Variable):
 
         electricity_savings = Baseline_A - (a * (Bs + Be))
         return electricity_savings
+    
+
+class D19_System_Size(Enum):
+    system_size_small = 'small'
+    system_size_medium = 'medium'
 
 
+class D19_system_size_savings(Variable):
+    value_type = Enum
+    entity = Building
+    definition_period = ETERNITY
+    possible_values = D19_System_Size
+    default_value = D19_System_Size.system_size_small
+    metadata = {
+      'variable-type': 'user-input',
+      'label': 'System Size',
+      'display_question' : 'Thermal peak load size',
+      'sorting' : 3
+    }
+    
+
+class D19_annual_energy_savings(Variable):
+    value_type = float  
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Deemed activity electricity savings'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        #system size
+        system_size = buildings('D19_system_size_savings', period)
+        system_size_int = np.select(
+            [
+                (system_size == D19_System_Size.system_size_small),
+                (system_size == D19_System_Size.system_size_medium)
+            ],
+            [
+                'small',
+                'medium'
+            ])
+        
+        #Baseline A
+        Baseline_A = parameters(period).ESS.HEER.table_D19_1['baseline_energy_consumption'][system_size_int]['baseline_A']
+        
+        #Baseline B (deemed gas savings)
+        Baseline_B = parameters(period).ESS.HEER.table_D19_1['baseline_energy_consumption'][system_size_int]['baseline_B']
+
+        #Deemed electricity savings
+        a = 2.320
+        Bs = buildings('D19_Bs', period)
+        Be = buildings('D19_Be', period)
+
+        deemed_electricity_savings = Baseline_A - (a * (Bs + Be))
+        deemed_gas_savings = Baseline_B
+
+        annual_energy_savings = deemed_electricity_savings + deemed_gas_savings
+        return annual_energy_savings
+    
+       
 class D19_electricity_savings(Variable):
     value_type = float
     entity = Building

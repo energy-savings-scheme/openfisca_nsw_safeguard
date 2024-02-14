@@ -85,18 +85,26 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    SYS2_peak_demand_savings_capacity:
+    SYS2_pool_size_savings:
       [
-        1,
-        2,
-        3
+        pool_under_20000_L,
+        pool_50001_to_60000_L
+      ]
+    SYS2_pool_pump_type_savings:
+      [
+        variable_speed_pool_pump,
+        single_speed_pool_pump
+      ]
+    SYS2_star_rating_peak_savings:
+      [
+        six_stars,
+        five_stars
       ]
   output:
     SYS2_peak_demand_annual_savings:
       [
-        6,
-        12,
-        18
+        0.237,
+        0.3744
       ]
 
 - name: test SYS2 PRC calculation

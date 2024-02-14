@@ -82,7 +82,63 @@ class SYS1_peak_demand_savings_capacity(Variable):
 
         return ((temp1 - temp2) * firmness_factor)
     
-    
+
+class SYS1_motor_frequency_Options(Enum):
+    motor_50_hz = '50 Hz'
+    motor_60_hz = '60 Hz'
+
+
+class SYS1_new_equipment_motor_frequency_peak_savings(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = SYS1_motor_frequency_Options
+    default_value = SYS1_motor_frequency_Options.motor_50_hz
+    definition_period = ETERNITY
+    label = "Motor frequency (Hz)"
+    metadata = {
+        'variable-type': 'user-input',
+        'label': 'Motor frequency (Hz)',
+        'display_question' : 'What is the frequency of your new motor power supply?',
+        'sorting' : 8
+    }
+
+
+class SYS1_no_of_poles_Options(Enum):
+    poles_2 = '2 poles'
+    poles_4 = '4 poles'
+    poles_6 = '6 poles'
+    poles_8 = '8 poles'
+
+
+class SYS1_new_equipment_no_of_poles_peak_savings(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = SYS1_no_of_poles_Options
+    default_value = SYS1_no_of_poles_Options.poles_2
+    definition_period = ETERNITY
+    label = "Number of poles"
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Number of poles',
+        'display_question' : 'How many poles is your new motor?',
+        'sorting' : 9
+    }
+
+
+class SYS1_existing_equipment_no_of_poles_peak_savings(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = SYS1_no_of_poles_Options
+    default_value = SYS1_no_of_poles_Options.poles_2
+    definition_period = ETERNITY
+    label = "Number of poles"
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Number of poles',
+        'display_question' : 'How many poles is your existing motor?',
+        'sorting' : 12
+    }
+
 class SYS1_peak_demand_annual_savings(Variable):
     value_type = float
     entity = Building
@@ -93,12 +149,121 @@ class SYS1_peak_demand_annual_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      peak_demand_savings_capacity = buildings('SYS1_peak_demand_savings_capacity', period)
-      summer_peak_demand_reduction_duration = 6
+        #new equipment baseline efficiency
+        new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
+        motor_frequency = buildings('SYS1_new_equipment_motor_frequency_peak_savings', period)
+        no_of_poles = buildings('SYS1_new_equipment_no_of_poles_peak_savings', period)
 
-      peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration
-      return peak_demand_annual_savings
+        frequency = np.select(
+            [ 
+                motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
+                motor_frequency == SYS1_motor_frequency_Options.motor_60_hz
+            ],
+            [ 
+                '50hz',
+                '60hz'
+            ])
 
+        node = parameters(period).PDRS.motors.motors_baseline_efficiency
+
+        poles_2_value_50hz = node["poles_2"].rated_output.calc(
+            new_equipment_rated_output, interpolate=True)
+        poles_4_value_50hz = node["poles_4"].rated_output.calc(
+            new_equipment_rated_output, interpolate=True)
+        poles_6_value_50hz = node["poles_6"].rated_output.calc(
+            new_equipment_rated_output, interpolate=True)
+        poles_8_value_50hz = node["poles_8"].rated_output.calc(
+            new_equipment_rated_output, interpolate=True)
+
+        poles_2_value_60hz = node["poles_2_60hz"].rated_output.calc(
+            new_equipment_rated_output, interpolate=True)
+        poles_4_value_60hz = node["poles_4_60hz"].rated_output.calc(
+            new_equipment_rated_output, interpolate=True)
+        poles_6_value_60hz = node["poles_6_60hz"].rated_output.calc(
+            new_equipment_rated_output, interpolate=True)
+        poles_8_value_60hz = node["poles_8_60hz"].rated_output.calc(
+            new_equipment_rated_output, interpolate=True)
+
+        new_equipment_baseline_efficiency = np.select([
+                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_peak_savings.possible_values.poles_2, frequency == '50hz'),
+                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_peak_savings.possible_values.poles_4, frequency == '50hz'),
+                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_peak_savings.possible_values.poles_6, frequency == '50hz'),
+                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_peak_savings.possible_values.poles_8, frequency == '50hz'),
+                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_peak_savings.possible_values.poles_2, frequency == '60hz'),
+                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_peak_savings.possible_values.poles_4, frequency == '60hz'),
+                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_peak_savings.possible_values.poles_6, frequency == '60hz'),
+                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_peak_savings.possible_values.poles_8, frequency == '60hz')
+            ],
+            [
+                poles_2_value_50hz, 
+                poles_4_value_50hz,
+                poles_6_value_50hz, 
+                poles_8_value_50hz, 
+                poles_2_value_60hz,
+                poles_4_value_60hz,
+                poles_6_value_60hz,
+                poles_8_value_60hz
+            ])
+
+        #baseline input power
+        baseline_input_power = new_equipment_rated_output / (new_equipment_baseline_efficiency /100)
+        print('rated output', new_equipment_rated_output)
+        print('new equip base efficiency', new_equipment_baseline_efficiency)
+        print('baseline input power',baseline_input_power)
+        print('motor frequency', motor_frequency)
+
+        #BCA climate zozne  
+        postcode = buildings('SYS1_PDRS__postcode', period)
+        # Returns an integer
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        climate_zone_int = climate_zone.calc(postcode)
+        climate_zone_savings = np.select(
+            [
+                climate_zone_int == 1,
+                climate_zone_int == 2,
+                climate_zone_int == 3,
+                climate_zone_int == 4,
+                climate_zone_int == 5,
+                climate_zone_int == 6,
+                climate_zone_int == 7,
+                climate_zone_int == 8
+            ],
+            [
+                "BCA_Climate_Zone_1",
+                "BCA_Climate_Zone_2",
+                "BCA_Climate_Zone_3",
+                "BCA_Climate_Zone_4",
+                "BCA_Climate_Zone_5",
+                "BCA_Climate_Zone_6",
+                "BCA_Climate_Zone_7",
+                "BCA_Climate_Zone_8"
+            ])
+
+        #baseline peak adjustment factor
+        temp_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone_savings]        
+        usage_factor = 0.6
+
+        baseline_peak_adjustment_factor = temp_factor * usage_factor
+
+        #input power
+        new_efficiency = buildings('SYS1_new_efficiency', period)
+
+        input_power = (new_equipment_rated_output / (new_efficiency / 100))
+        
+        firmness_factor = 1
+        summer_peak_demand_reduction_duration = 6
+
+        temp1 = baseline_input_power * baseline_peak_adjustment_factor
+        temp2 = input_power * baseline_peak_adjustment_factor
+
+        peak_demand_annual_savings = ((temp1 - temp2) * firmness_factor) * summer_peak_demand_reduction_duration
+       
+        print('input power', input_power)
+        print('baseline peak adj factor', baseline_peak_adjustment_factor)
+
+
+        return peak_demand_annual_savings
+    
 
 class SYS1_peak_demand_reduction_capacity(Variable):
     value_type = float

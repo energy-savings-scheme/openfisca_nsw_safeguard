@@ -92,20 +92,43 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    SYS1_peak_demand_savings_capacity:
+    SYS1_new_equipment_rated_output:
       [
-        1,
-        2,
-        3
+        75,
+        55
+      ]
+    SYS1_new_equipment_baseline_efficiency:
+      [
+        95,
+        93.6
+      ]
+    SYS1_new_equipment_motor_frequency_peak_savings:
+      [
+        motor_50_hz,
+        motor_60_hz
+      ]
+    SYS1_new_equipment_no_of_poles_peak_savings:
+      [
+        poles_4,
+        poles_6
+      ]
+    SYS1_PDRS__postcode:
+      [
+        2465,
+        2789
+      ]
+    SYS1_new_efficiency:
+      [
+        95,
+        50
       ]
   output:
     SYS1_peak_demand_annual_savings:
       [
-        6,
-        12,
-        18
+        1.452,
+        -101.455
       ]
-
+ 
 - name: test SYS1 PRC calculation simple
   period: 2022
   absolute_error_margin: 0.5

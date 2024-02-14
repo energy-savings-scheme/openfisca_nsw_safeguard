@@ -79,17 +79,20 @@
       [
         500,
         32.949, #RNF1, Zone 3, Ecogenica EG215F
-        26.71
+        26.71, 
+        63.472 #Emerald Energy EE-HWS-RCHPOU/EE-HWS-RCHP-200E-2
       ]
     WH1_HP_elec:
       [
         400,
         9.54,
-        9.62
+        9.62,
+        19.5
       ]
     WH1_capacity_factor:
       [
         0.5,
+        1,
         1,
         1
       ]
@@ -98,7 +101,8 @@
       [
         166.66667,
         78,
-        56.94
+        56.94,
+        146.57
       ]
 
 - name: test WH1 annual ESS savings

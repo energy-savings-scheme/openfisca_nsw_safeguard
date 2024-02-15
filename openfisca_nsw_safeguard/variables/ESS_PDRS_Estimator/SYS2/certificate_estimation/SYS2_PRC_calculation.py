@@ -139,7 +139,7 @@ class SYS2_peak_demand_annual_savings(Variable):
         star_rating = buildings('SYS2_star_rating_peak_savings', period)
         
         input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size_int][star_rating][pool_pump_type]
- 
+    
         #peak adjustment factor
         peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['SYS2']
 

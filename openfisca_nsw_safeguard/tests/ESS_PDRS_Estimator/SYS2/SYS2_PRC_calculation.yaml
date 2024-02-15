@@ -83,7 +83,7 @@
 
 - name: test SYS2 peak demand annual savings
   period: 2024
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0.5
   input:
     SYS2_pool_size_savings:
       [

@@ -88,23 +88,35 @@
     SYS2_pool_size_savings:
       [
         pool_under_20000_L,
-        pool_50001_to_60000_L
+        pool_50001_to_60000_L,
+        pool_40001_to_50000_L, #Baker hydro Nova ECO-V1000
+        pool_40001_to_50000_L, #Barracuda WP000209 (Supra ECO3)
+        pool_40001_to_50000_L  #OASIS Reltech
       ]
     SYS2_pool_pump_type_savings:
       [
         variable_speed_pool_pump,
-        single_speed_pool_pump
+        single_speed_pool_pump,
+        variable_speed_pump,
+        multiple_speed_pool_pump,
+        variable_speed_pump
       ]
     SYS2_star_rating_peak_savings:
       [
         six_stars,
-        five_stars
+        five_stars,
+        five_stars,
+        four_and_a_half_stars,
+        six_stars
       ]
   output:
     SYS2_peak_demand_annual_savings:
       [
         0.237,
-        0.3744
+        0.3744,
+        0.695,
+        0.680,
+        0.722
       ]
 
 - name: test SYS2 PRC calculation

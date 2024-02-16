@@ -96,6 +96,21 @@ class SYS1_new_equipment_motor_frequency_savings(Variable):
     }
 
 
+class SYS1_existing_equipment_motor_frequency_savings(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = SYS1_motor_frequency_Options
+    default_value = SYS1_motor_frequency_Options.motor_50_hz
+    definition_period = ETERNITY
+    label = "Motor frequency (Hz)"
+    metadata = {
+        'variable-type': 'user-input',
+        'label': 'Motor frequency (Hz)',
+        'display_question' : 'What is the frequency of your new motor power supply?',
+        'sorting' : 11
+    }
+
+
 class SYS1_no_of_poles_Options(Enum):
     poles_2 = '2 poles'
     poles_4 = '4 poles'
@@ -276,13 +291,16 @@ class SYS1_energy_savings(Variable):
                 poles_8_value_60hz
             ])
 
-        #existing equipment baseline efficiency
+        #existing equipment rated output
         existing_equipment_rated_output = buildings('SYS1_existing_equipment_rated_output', period)
+
+        #existing equipment baseline efficiency
+        motor_frequency_existing = buildings('SYS1_existing_equipment_motor_frequency_savings', period)
         no_of_poles = buildings('SYS1_existing_equipment_no_of_poles_savings', period)
         
         frequency = np.select( [ 
-                         motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
-                         motor_frequency == SYS1_motor_frequency_Options.motor_60_hz
+                         motor_frequency_existing == SYS1_motor_frequency_Options.motor_50_hz,
+                         motor_frequency_existing == SYS1_motor_frequency_Options.motor_60_hz
             ],
             [ 
                 '50hz',
@@ -402,6 +420,7 @@ class SYS1_energy_savings(Variable):
                 existing_equipment_baseline_efficiency
             ])
             
+        print('new vs existing', new_vs_existing_equipment_baseline)
         temp_calc_1 = ( new_equipment_rated_output / (new_vs_existing_equipment_baseline / 100))
         temp_calc_2 = ( new_equipment_rated_output / (new_efficiency / 100))
         temp_calc_3 = (load_utilisation_factor * asset_life * ( 8760 / 1000 ))

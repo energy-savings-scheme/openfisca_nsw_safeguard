@@ -207,10 +207,6 @@ class SYS1_peak_demand_annual_savings(Variable):
 
         #baseline input power
         baseline_input_power = new_equipment_rated_output / (new_equipment_baseline_efficiency /100)
-        print('rated output', new_equipment_rated_output)
-        print('new equip base efficiency', new_equipment_baseline_efficiency)
-        print('baseline input power',baseline_input_power)
-        print('motor frequency', motor_frequency)
 
         #BCA climate zozne  
         postcode = buildings('SYS1_PDRS__postcode', period)

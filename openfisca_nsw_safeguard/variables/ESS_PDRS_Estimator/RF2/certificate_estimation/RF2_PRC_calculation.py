@@ -123,7 +123,6 @@ class RF2_product_type_savings(Variable):
       "variable-type": "output",
     }
 
-
 class RF2_peak_demand_annual_savings(Variable):
     value_type = float
     entity = Building

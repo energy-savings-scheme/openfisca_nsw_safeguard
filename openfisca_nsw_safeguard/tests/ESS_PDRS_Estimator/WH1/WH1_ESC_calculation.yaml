@@ -79,17 +79,20 @@
       [
         500,
         32.949, #RNF1, Zone 3, Ecogenica EG215F
-        26.71
+        26.71, 
+        63.472 #Emerald Energy EE-HWS-RCHPOU/EE-HWS-RCHP-200E-2
       ]
     WH1_HP_elec:
       [
         400,
         9.54,
-        9.62
+        9.62,
+        19.5
       ]
     WH1_capacity_factor:
       [
         0.5,
+        1,
         1,
         1
       ]
@@ -98,7 +101,8 @@
       [
         166.66667,
         78,
-        56.94
+        56.94,
+        146.57
       ]
 
 - name: test WH1 annual ESS savings
@@ -108,33 +112,51 @@
     WH1_com_peak_load:
       [
         20,
-        100
+        100,
+        77,   #ECO ALLIANCE ECO-155LU
+        81,   #Quantum 150-08AC6-290
+        78    #Wulfe W200PW-1
       ]
     WH1_HP_elec:
       [
         10,
-        3
+        3,
+        9.62,
+        9.62,
+        8.75
       ]
     WH1_HP_capacity_factor:
       [
         20,
-        36
+        36,
+        3.65,
+        3.1,
+        2.3
       ]
     WH1_WH_capacity_factor:
       [
         25,
-        6
+        6,
+        5,
+        6,
+        3.5
       ]
     WH1_HP_gas:
       [
         20,
-        30
+        30,
+        0,
+        0,
+        0
       ]
   output:
     WH1_energy_savings:
       [
         -76.88,
-        0.936
+        0.936,
+        56.956,
+        61.58,
+        61
       ]
 
 - name: test WH1 ESC calculation

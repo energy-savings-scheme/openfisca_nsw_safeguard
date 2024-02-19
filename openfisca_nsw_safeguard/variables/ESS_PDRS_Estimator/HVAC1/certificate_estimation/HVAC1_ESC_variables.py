@@ -320,11 +320,8 @@ class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Does the Air Conditioner have a TCSPF mixed equal or greater than the minimum' \
-            ' TCSPF mixed listed in Table D16.3? If the TCPSF is not available, is the Rated' \
+            ' TCSPF mixed listed in Table D16.4? If the TCPSF is not available, is the Rated' \
             ' AEER equal or greater than the Minimum Rated AEER listed in Table D16.5?'
-    metadata = {
-        'alias':  'Air Conditioner has at least 5 years of Warranty'
-    }
 
     def formula(buildings, period, parameters):
         AC_TCSPF = buildings('HVAC1_TCSPF_mixed', period)

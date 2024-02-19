@@ -227,4 +227,5 @@ class HVAC1_PRC_calculation(Variable):
             ], [
                 0, result_meet_elig
             ])
+
         return result_to_return

@@ -170,10 +170,11 @@ class HVAC1_peak_demand_annual_savings(Variable):
                     firmness_factor
             )
 
-        #peak demand annual savings
+        #peak demand reduction capacity
         summer_peak_demand_duration = 6
+        lifetime = 10
 
-        peak_demand_annual_savings = peak_demand_savings_activity * summer_peak_demand_duration
+        peak_demand_annual_savings = (peak_demand_savings_activity * summer_peak_demand_duration * lifetime)
         return peak_demand_annual_savings
     
 

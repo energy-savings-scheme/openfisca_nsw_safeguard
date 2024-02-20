@@ -207,10 +207,6 @@ class SYS1_peak_demand_annual_savings(Variable):
 
         #baseline input power
         baseline_input_power = new_equipment_rated_output / (new_equipment_baseline_efficiency /100)
-        print('rated output', new_equipment_rated_output)
-        print('new equip base efficiency', new_equipment_baseline_efficiency)
-        print('baseline input power',baseline_input_power)
-        print('motor frequency', motor_frequency)
 
         #BCA climate zozne  
         postcode = buildings('SYS1_PDRS__postcode', period)
@@ -257,11 +253,6 @@ class SYS1_peak_demand_annual_savings(Variable):
         temp2 = input_power * baseline_peak_adjustment_factor
 
         peak_demand_annual_savings = ((temp1 - temp2) * firmness_factor) * summer_peak_demand_reduction_duration
-       
-        print('input power', input_power)
-        print('baseline peak adj factor', baseline_peak_adjustment_factor)
-
-
         return peak_demand_annual_savings
     
 

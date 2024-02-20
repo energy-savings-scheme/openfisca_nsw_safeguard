@@ -228,3 +228,28 @@ class HVAC1_PRC_calculation(Variable):
                 0, result_meet_elig
             ])
         return result_to_return
+    
+
+class HVAC1_PRC_savings_check(Variable):
+    #this variable checks if PRCs are zero, and if they are returns zero peak savings
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        number_of_prcs = buildings('HVAC1_PRC_calculation', period)
+        peak_demand_annual_savings = buildings('HVAC1_peak_demand_annual_savings', period)
+        
+        peak_demand_savings_vs_prcs = np.select([
+                number_of_prcs <= 0,
+                number_of_prcs > 0
+        ],
+        [
+                peak_demand_annual_savings == 0,
+                peak_demand_annual_savings
+        ])
+
+        return peak_demand_savings_vs_prcs

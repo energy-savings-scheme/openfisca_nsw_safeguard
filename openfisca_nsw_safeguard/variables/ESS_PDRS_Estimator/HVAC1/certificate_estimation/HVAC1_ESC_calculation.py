@@ -416,11 +416,20 @@ class HVAC1_annual_energy_savings(Variable):
                             0,
                             (heating_capacity * equivalent_heating_hours) / baseline_ACOP
                         ])
+      
+      #deemed electricity savings
       lifetime = 10
+      deemed_electricity_savings = np.multiply(((reference_cooling - annual_cooling) + (reference_heating - annual_heating)), (lifetime / 1000))
+      
+      #regional network factor
+      postcode = buildings('HVAC1_PDRS__postcode', period)
+      rnf = parameters(period).PDRS.table_A24_regional_network_factor
+      regional_network_factor = rnf.calc(postcode)
 
-      annual_savings = np.multiply(((reference_cooling - annual_cooling) + (reference_heating - annual_heating)), (lifetime / 1000))
+      #electricity savings
+      annual_savings = (deemed_electricity_savings * regional_network_factor)
       return annual_savings
-
+      
 
 class HVAC1_PDRS__regional_network_factor(Variable):
     value_type = float

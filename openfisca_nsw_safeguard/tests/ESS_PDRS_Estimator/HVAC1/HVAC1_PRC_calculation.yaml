@@ -150,8 +150,8 @@
   output:
     HVAC1_peak_demand_annual_savings:
       [
-        4.1472,
-        89.88
+        41.472,
+        898.56
       ]
 
 - name: test HVAC1 peak demand reduction capacity

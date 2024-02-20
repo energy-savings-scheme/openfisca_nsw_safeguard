@@ -448,11 +448,16 @@
         0,
         0
       ]
+    HVAC1_PDRS__postcode:
+      [
+        2791, #regional network factor 1.03
+        2791  #regional network factor 1.03
+      ]
   output:
     HVAC1_annual_energy_savings:
       [
-        14.327,
-        30.46166
+        14.757,
+        31.3755
       ]
 
 - name: test electricity savings

@@ -271,7 +271,7 @@ class HVAC1_annual_energy_savings(Variable):
                     parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
                     ]
             )
-      
+
       #equivalent cooling hours
       climate_zone = buildings('HVAC1_certificate_climate_zone', period)
       climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
@@ -306,7 +306,7 @@ class HVAC1_annual_energy_savings(Variable):
             tcec,
             annual_cooling
         ])
-      
+
       #reference cooling energy use
       reference_cooling = np.select([  
                     baseline_AEER == 0,  
@@ -320,7 +320,7 @@ class HVAC1_annual_energy_savings(Variable):
                     0,
                     (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
                 ])
-      
+
       #baseline ACOP
       cooling_capacity_to_check = np.select(
             [
@@ -352,7 +352,7 @@ class HVAC1_annual_energy_savings(Variable):
                     parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
                     ]
             )
-      
+
       #heating capacity input
       heating_capacity = buildings('HVAC1_heating_capacity_input', period)
 
@@ -424,7 +424,6 @@ class HVAC1_annual_energy_savings(Variable):
       #regional network factor
       postcode = buildings('HVAC1_PDRS__postcode', period)
       rnf = parameters(period).PDRS.table_A24_regional_network_factor
-      
       regional_network_factor = rnf.calc(postcode)
 
       #electricity savings

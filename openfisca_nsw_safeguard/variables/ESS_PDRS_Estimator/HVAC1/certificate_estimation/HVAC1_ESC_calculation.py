@@ -238,8 +238,8 @@ class HVAC1_annual_energy_savings(Variable):
     def formula(buildings, period, parameters):
       #baseline AEER
       cooling_capacity = buildings('HVAC1_cooling_capacity_input', period)
-      air_conditioner_type = buildings('HVAC1_Air_Conditioner_type_savings', period)
-      new_or_replacement_activity = buildings('HVAC1_Activity_savings', period)
+      air_conditioner_type = buildings('HVAC1_Air_Conditioner_type', period)
+      new_or_replacement_activity = buildings('HVAC1_Activity', period)
 
       cooling_capacity_to_check = np.select(
             [

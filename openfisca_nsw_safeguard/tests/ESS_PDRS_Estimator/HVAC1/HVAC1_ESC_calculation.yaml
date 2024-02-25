@@ -413,7 +413,7 @@
         non_ducted_split_system,
         non_ducted_split_system
       ]
-    HVAC1_Activity_savings:
+    HVAC1_Activity:
       [
         new_installation_activity,
         new_installation_activity

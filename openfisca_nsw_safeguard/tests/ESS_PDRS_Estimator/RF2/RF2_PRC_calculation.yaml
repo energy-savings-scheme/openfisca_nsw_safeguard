@@ -4,24 +4,29 @@
   input:
     RF2_total_energy_consumption:
       [
-        16.17 #SKOPE TMF1000N-A
+        16.17, #SKOPE TMF1000N-A
+        7.57   #ANVIL DGV0530
       ]
     RF2_af:
       [
+        1,
         1
       ]
     RF2_baseline_EEI:
       [
+        100,
         100
       ]
     RF2_product_EEI:
       [
-        63.474
+        63.474,
+        44.014221927702
       ]
   output:
     RF2_baseline_input_power:
       [
-        1.061
+        1.061,
+        0.72
       ]
 
 - name: test RF2 input power
@@ -30,16 +35,19 @@
   input:
     RF2_total_energy_consumption:
       [
-        16.17 #SKOPE TMF1000N-A
+        16.17, #SKOPE TMF1000N-A
+        7.57
       ]
     RF2_af: 
       [
+        1,
         1
       ]
   output:
     RF2_input_power:
       [
-        0.674
+        0.674,
+        0.32
       ]
 
 - name: test RF2 peak demand savings capacity
@@ -48,20 +56,24 @@
   input:
     RF2_baseline_peak_adjustment_factor:
       [
-        1.14 #SKOPE TMF1000N-A
+        1.14, #SKOPE TMF1000N-A
+        0.84  #ANVIL DGV0530
       ]
     RF2_baseline_input_power:
       [
-        1.061
+        1.061,
+        0.72
       ]
     RF2_input_power:
       [
-        0.674
+        0.674,
+        0.32
       ]
   output:
     RF2_peak_demand_savings_capacity:
       [
-        0.441
+        0.441,
+        0.337
       ]
 
 - name: test RF2 peak demand annual savings
@@ -71,38 +83,45 @@
     RF2_product_class_peak_savings:
       [
         product_class_six,
-        product_class_fourteen
+        product_class_fourteen,
+        product_class-five
       ]
     RF2_duty_class_peak_savings:
       [
         normal_duty,
-        heavy_duty
+        heavy_duty,
+        light_duty
       ]
     RF2_product_type_savings:
       [
         gelato_ice_cream_scooping_cabinet,
-        remote_RDC
+        remote_RDC,
+        integral_ice_cream_freezer_cabinet
       ]
     RF2_replacement_activity:
       [
+        true,
         true,
         true
       ]
     RF2_total_energy_consumption:
       [
         50,
-        40
+        40,
+        7.57
       ]
     RF2_product_EEI:
       [
         100,
-        70
+        70,
+        44.01422193
       ]
   output:
     RF2_peak_demand_annual_savings:
       [
         -4.182,
-        -18.1
+        -18.1,
+        2.7442613
       ]
 
 - name: test RF2 peak demand reduction capacity
@@ -111,16 +130,19 @@
   input:
     RF2_peak_demand_savings_capacity:
       [
-        0.441 #SKOPE TMF1000N-A
+        0.441,  #SKOPE TMF1000N-A
+        0.337   #ANVIL DGV0530
       ]
     RF2_lifetime_by_rc_class:
       [
+        8,
         8
       ]
   output:
     RF2_peak_demand_reduction_capacity:
       [
-        21.168
+        21.168,
+        16.1767
       ]
 
 - name: test RF2 PRC calculation
@@ -130,20 +152,24 @@
     RF2_peak_demand_reduction_capacity:
       [
         25,
-        21.168 #SKOPE TMF1000N-A
+        21.168,  #SKOPE TMF1000N-A
+        16.1767  #ANVIL DGV0530
       ]
     RF2_get_network_loss_factor_by_postcode:
       [
         1.05,
-        1.05 #Endeavour
+        1.05, #Endeavour
+        1.04
       ]
     RF2_replacement_activity:
       [
+        True,
         True,
         True
       ]
     RF2_product_EEI_PRC_replacement_eligibility:
       [
+        True,
         True,
         True
       ]
@@ -151,7 +177,8 @@
     RF2_PRC_calculation:
       [
         262.50,
-        222.264
+        222.264,
+        168.238
       ]
 
 - name: test Product EEI eligibility for replacement activity

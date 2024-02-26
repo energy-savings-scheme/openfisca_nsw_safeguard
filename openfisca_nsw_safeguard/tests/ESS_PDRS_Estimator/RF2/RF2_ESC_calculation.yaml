@@ -194,20 +194,23 @@
       [
         integral_RDC,
         integral_RDC, #De Rigo Clio 3P
-        integral_RDC
+        integral_RDC,
+        integral_ice_cream_freezer_cabinet
       ]
     RF2_duty_class:
       [
         heavy_duty,
         normal_duty,
-        normal_duty
+        normal_duty,
+        light_duty
       ]
   output:
     RF2_baseline_peak_adjustment_factor:
       [
         1.14,
         1.14,
-        1.14
+        1.14,
+        0.84
       ]
 
 - name: test RF2 deemed activity electricity savings

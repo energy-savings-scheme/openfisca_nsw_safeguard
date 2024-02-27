@@ -130,26 +130,30 @@
       [
         system_size_small,
         system_size_medium,
-        system_size_small
+        system_size_small,
+        system_size_medium
       ]
     D17_Bs:   
       [
         5,
         10,
-        2.5
+        2.5,
+        3.286
       ]
     D17_Be:
       [
         7,
         20,
-        4.3
+        4.3,
+        0
       ]
   output:
     D17_annual_energy_savings:
       [
         2.94,
         -18.84,
-        15.004
+        15.004,
+        43.136
       ]
 
 - name: test D17 electricity savings

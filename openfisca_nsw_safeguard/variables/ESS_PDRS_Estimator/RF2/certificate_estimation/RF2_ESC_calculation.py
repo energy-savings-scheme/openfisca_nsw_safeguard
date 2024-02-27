@@ -190,11 +190,6 @@ class RF2_annual_energy_savings(Variable):
         
         #product EEI
         product_EEI = buildings('RF2_product_EEI', period)
-        
-        print('af', af)
-        print('product class', product_class_savings)
-        print('duty class', duty_type)
-        print('baseline EEI', baseline_EEI)
 
         #lifetime_by_rc_class
         display_area_savings =  buildings('RF2_total_display_area', period)
@@ -240,8 +235,7 @@ class RF2_annual_energy_savings(Variable):
                 12,
                 12
             ])
-        
-        print('lifetime', lifetime_by_rc_class)
+      
         annual_energy_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
         return annual_energy_savings
 

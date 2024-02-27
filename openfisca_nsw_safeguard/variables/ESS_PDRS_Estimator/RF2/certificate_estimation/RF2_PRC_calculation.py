@@ -281,7 +281,6 @@ class RF2_baseline_peak_adjustment_factor(Variable):
       
       temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2['temperature_factor'][product_type][duty_type]
       
-      print('temperature factor', temperature_factor)
       baseline_peak_adjustment_factor = temperature_factor * usage_factor
       return baseline_peak_adjustment_factor
   
@@ -316,8 +315,6 @@ class RF2_PRC_calculation(Variable):
                 0
             ])
         
-       
-        print('nlf',network_loss_factor)
         result_to_return = np.select(
             [
                 RF2_eligible_PRCs <= 0, RF2_eligible_PRCs > 0

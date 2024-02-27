@@ -55,7 +55,7 @@ class D17_annual_energy_savings(Variable):
 
     def formula(buildings, period, parameters):
         #system size
-        system_size = buildings('D17_system_size_savings', period)
+        system_size = buildings('D17_system_size', period)
         system_size_int = np.select(
             [
                 (system_size == D17_System_Size.system_size_small),

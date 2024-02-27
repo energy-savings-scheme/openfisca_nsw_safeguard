@@ -47,7 +47,7 @@ class RF2_peak_demand_savings_capacity(Variable):
       input_power = buildings('RF2_input_power', period)
       firmness_factor = 1
 
-      peak_demand_savings_capacity= ((baseline_peak_adjustment_factor * baseline_input_power)
+      peak_demand_savings_capacity = ((baseline_input_power * baseline_peak_adjustment_factor)
                                         - (input_power * baseline_peak_adjustment_factor )) * firmness_factor
       return peak_demand_savings_capacity
   
@@ -280,7 +280,7 @@ class RF2_baseline_peak_adjustment_factor(Variable):
       usage_factor = 1
       
       temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2['temperature_factor'][product_type][duty_type]
-        # 1.14
+      
       baseline_peak_adjustment_factor = temperature_factor * usage_factor
       return baseline_peak_adjustment_factor
   

@@ -1,0 +1,45 @@
+- name: test WH2 test PRC calculation
+  period: 2022
+  absolute_error_margin: 0.5
+  input:
+    WH2_test_HP_capacity_factor:
+      [
+        3.26
+      ]
+    WH2_test_HP_elec:
+      [
+        9.39
+      ]
+    WH2_test_HP_gas:
+      [
+        0
+      ]
+    WH2_test_PDRS__postcode:
+      [
+        2017
+      ]
+    WH2_test_WH_capacity_factor: 
+      [
+        1
+      ]
+    WH2_test_annual_energy_savings:
+      [
+        71.8
+      ]
+    WH2_test_com_peak_load:
+      [
+        96
+      ]
+    WH2_test_old_equipment:
+      [
+        gas_water_boiler_heater
+      ]
+    WH2_test_replacement_activity:
+      [
+        true
+      ]
+  output:
+    WH2_test_PRC_calculation:
+      [
+        562.50
+      ]

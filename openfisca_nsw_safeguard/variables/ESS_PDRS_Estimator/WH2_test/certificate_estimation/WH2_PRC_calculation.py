@@ -52,10 +52,10 @@ class WH2_test_peak_demand_savings_capacity(Variable):
 
     def formula(buildings, period, parameters):
         baseline_input_power = buildings('WH2_test_baseline_input_power', period)
-        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH2_test']
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH1']
         input_power = buildings('WH2_test_input_power', period)
-        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH2_test']
-        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH2_test']
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH1']
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH1']
 
         peak_demand_savings_capacity = (baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor * firmness_factor)
         return peak_demand_savings_capacity
@@ -76,17 +76,17 @@ class WH2_test_peak_demand_annual_savings(Variable):
         baseline_input_power = com_peak_load * 0.01
 
         #baseline peak adjustment factor
-        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH2_test']
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH1']
 
         #input power
         annual_energy_savings = buildings('WH2_test_annual_energy_savings', period)
         input_power = (100 - annual_energy_savings) * (baseline_input_power / 100)
 
         #peak adjustment factor
-        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH2_test']
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH1']
 
         #firmness factor
-        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH2_test']
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH1']
 
         #peak demand savings capacity
         summer_peak_demand_reduction_duration = 6

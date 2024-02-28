@@ -219,9 +219,9 @@
   output:
     WH2_test_ESC_calculation:
       [
-        513.06,
-        82.71179,
-        60.36
+        522.1226,
+        82.7118,
+        60.385
       ]
 
 - name: test WH2_test ESC not eligible on new installation
@@ -252,5 +252,5 @@
     WH2_test_ESC_calculation:
       [
         0,
-        32.35
+        29.55
       ]

@@ -224,7 +224,7 @@ class WH2_test_ESC_calculation(Variable):
         electricity_savings = buildings('WH2_test_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('WH2_test_deemed_activity_gas_savings', period) #gas savings and deemed activity gas savings are the same value
-        gas_certificate_conversion_factor = 0.47
+        gas_certificate_conversion_factor = 0.39
         replacement_activity = buildings('WH2_test_replacement_activity', period)
 
         WH2_test_eligible_ESCs = np.select(

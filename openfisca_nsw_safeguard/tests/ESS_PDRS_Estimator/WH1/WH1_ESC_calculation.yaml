@@ -202,9 +202,9 @@
   output:
     WH1_ESC_calculation:
       [
-        513.06,
-        82.71179,
-        60.36
+        522.1226,
+        82.7112,
+        60.385
       ]
 
 - name: test WH1 ESC not eligible on new installation
@@ -230,5 +230,5 @@
     WH1_ESC_calculation:
       [
         0,
-        32.35
+        29.55
       ]

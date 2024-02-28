@@ -101,21 +101,24 @@
         50,
         200,
         38.47,
-        63.45
+        63.45,
+        63.45 #Ecogenica EG-155FR
       ]
     D18_Bs:
       [
         2,
         5,
         4.96,
-        7.54
+        7.54,
+        3.28640
       ]
     D18_Be:
       [
         2,
         3,
         1.2,
-        0.6
+        0.6,
+        0
       ]
   output:
     D18_deemed_activity_electricity_savings:
@@ -123,7 +126,8 @@
         40.58,
         181.16,
         23.96,
-        44.28
+        44.28,
+        55.711
       ]
 
 - name: test D18 annual energy savings
@@ -135,29 +139,33 @@
         system_size_small,
         system_size_medium,
         system_size_small,
-        system_size_medium
+        system_size_medium,
+        system_size_medium  #Ecogenica EG-155FR
       ]
     D18_Bs:   
       [
         10,
         25,
         18,
-        35
+        35,
+        3.28640
       ]
     D18_Be:
       [
         20,
         15,
         24,
-        48
+        48,
+        0
       ]
   output:
     D18_annual_energy_savings:
       [
-        -39.87,
-        -43.44,
-        -68.13,
-        -144.7
+        -32.18,
+        -30.75,
+        -60.44,
+        -132.015,
+        55.711
       ]
 
 - name: test D18 electricity savings

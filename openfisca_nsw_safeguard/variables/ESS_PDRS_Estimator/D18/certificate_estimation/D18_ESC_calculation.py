@@ -22,7 +22,6 @@ class D18_deemed_activity_electricity_savings(Variable):
         Be = buildings('D18_Be', period)
 
         electricity_savings = Baseline_A - (a * (Bs + Be))
-
         return electricity_savings
 
 
@@ -41,7 +40,6 @@ class D18_annual_energy_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        #system size
         system_size = buildings('D18_system_size', period)
         system_size_int = np.select(
             [
@@ -54,15 +52,15 @@ class D18_annual_energy_savings(Variable):
             ])
 
         #Baseline A
-        Baseline_A = parameters(period).ESS.HEER.table_D17_1['baseline_energy_consumption'][system_size_int]
+        Baseline_A = parameters(period).ESS.HEER.table_D18_1['baseline_energy_consumption'][system_size_int]
 
         #Deemed electricity savings
         a = 2.355
         Bs = buildings('D18_Bs', period)
         Be = buildings('D18_Be', period)
 
-        deemed_electricity_savings = Baseline_A - (a * (Bs + Be))
-        return deemed_electricity_savings
+        annual_savings = Baseline_A - (a * (Bs + Be)) 
+        return annual_savings
 
 
 class D18_electricity_savings(Variable):

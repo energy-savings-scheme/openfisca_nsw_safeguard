@@ -388,7 +388,7 @@ class HVAC1_annual_energy_savings(Variable):
                     0,
                     (heating_capacity * equivalent_heating_hours) / rated_ACOP, 
                     0,
-                    (cooling_capacity * equivalent_heating_hours) / rated_ACOP
+                    (heating_capacity * equivalent_heating_hours) / rated_ACOP
                 ])
 
       #THEC or annual heating
@@ -419,7 +419,7 @@ class HVAC1_annual_energy_savings(Variable):
       
       #deemed electricity savings
       lifetime = 10
-      deemed_electricity_savings = np.multiply(((reference_cooling - annual_cooling) + (reference_heating - annual_heating)), (lifetime / 1000))
+      deemed_electricity_savings = np.multiply(((reference_cooling - tcec_or_annual_cooling) + (reference_heating - thec_or_annual_heating)), (lifetime / 1000))
       
       #regional network factor
       postcode = buildings('HVAC1_PDRS__postcode', period)

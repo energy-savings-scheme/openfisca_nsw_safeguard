@@ -88,8 +88,8 @@
   output:
      D20_Baseline_A:
       [
-        0.58,
-        0.58
+        0.73,
+        0.73
       ]
 
 - name: test D20 Baseline B (deemed gas savings) from system size
@@ -104,8 +104,8 @@
   output:
      D20_Baseline_B:
       [
-        60.85,
-        86.32
+        35.036,
+        59.171
       ]
 
 - name: test D20 deemed electricity savings
@@ -144,32 +144,44 @@
 
 - name: test D20 annual energy savings
   period: 2024
-  absolute_error_margin: 0.5
+  absolute_error_margin: 0.1
   input:
     D20_system_size:
       [
         system_size_small,
         system_size_medium,
-        system_size_small
+        system_size_small,
+        system_size_medium,  #Chromagen 9302TOBP1108
+        system_size_small,   #Rheem 511271/2CS07
+        system_size_medium   #Dux D2M36F202
       ]
     D20_Bs:   
       [
         5,
         10,
-        2.5
+        2.5,
+        4.231,
+        3.18090,
+        2.679
       ]
     D20_Be:
       [
-        7,
+        8,
         20,
-        4.3
+        4.3,
+        0,
+        0.144,
+        0.0376
       ]
   output:
     D20_annual_energy_savings:
       [
-        33.59,
-        17.3,
-        45.65        
+        5.736,
+        -9.399,
+        20.058,
+        50.12739,
+        28.08548,
+        53.62565   
       ]
 
 - name: test D20 electricity savings

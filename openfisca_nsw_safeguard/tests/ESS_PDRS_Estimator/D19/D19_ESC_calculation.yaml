@@ -117,21 +117,24 @@
         3.320,
         10,
         0.58,
-        0.58
+        0.58,
+        0.58   #Ecogenica EG-155FR
       ]
     D19_Bs:
       [
         2,
         5,
         7.43,
-        5.82
+        5.82,
+        3.28640
       ]
     D19_Be:
       [
         2,
         3,
         0.4,
-        0.03
+        0.03,
+        0
       ]
   output:
     D19_deemed_activity_electricity_savings:
@@ -139,7 +142,8 @@
         -5.96,
         -8.6,
         -17.58,
-        -12.99
+        -12.99,
+        -7.04
       ]
 
 - name: test D19 annual energy savings

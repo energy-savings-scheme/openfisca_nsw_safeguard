@@ -31,20 +31,6 @@ class D18_System_Size(Enum):
     system_size_medium = 'medium'
 
 
-class D18_system_size_savings(Variable):
-    value_type = Enum
-    entity = Building
-    definition_period = ETERNITY
-    possible_values = D18_System_Size
-    default_value = D18_System_Size.system_size_small
-    metadata = {
-      'variable-type': 'user-input',
-      'label': 'System Size',
-      'display_question' : 'Thermal peak load size',
-      'sorting' : 3
-    }
-
-
 class D18_annual_energy_savings(Variable):
     value_type = float  
     entity = Building
@@ -56,7 +42,7 @@ class D18_annual_energy_savings(Variable):
 
     def formula(buildings, period, parameters):
         #system size
-        system_size = buildings('D18_system_size_savings', period)
+        system_size = buildings('D18_system_size', period)
         system_size_int = np.select(
             [
                 (system_size == D18_System_Size.system_size_small),

@@ -151,8 +151,8 @@ class SYS1_peak_demand_annual_savings(Variable):
     def formula(buildings, period, parameters):
         #new equipment baseline efficiency
         new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
-        motor_frequency = buildings('SYS1_new_equipment_motor_frequency_peak_savings', period)
-        no_of_poles = buildings('SYS1_new_equipment_no_of_poles_peak_savings', period)
+        motor_frequency = buildings('SYS1_new_equipment_motor_frequency', period)
+        no_of_poles = buildings('SYS1_new_equipment_no_of_poles', period)
 
         frequency = np.select(
             [ 

@@ -288,11 +288,11 @@
       [
         8
       ]
-    HVAC2_Air_Conditioner_type_savings:
+    HVAC2_Air_Conditioner_type:
       [
         non_ducted_split_system
       ]
-    HVAC2_Activity_savings:
+    HVAC2_Activity:
       [
         new_installation_activity
       ]

@@ -102,12 +102,12 @@
         95,
         93.6
       ]
-    SYS1_new_equipment_motor_frequency_peak_savings:
+    SYS1_new_equipment_motor_frequency:
       [
         motor_50_hz,
         motor_60_hz
       ]
-    SYS1_new_equipment_no_of_poles_peak_savings:
+    SYS1_new_equipment_no_of_poles:
       [
         poles_4,
         poles_6

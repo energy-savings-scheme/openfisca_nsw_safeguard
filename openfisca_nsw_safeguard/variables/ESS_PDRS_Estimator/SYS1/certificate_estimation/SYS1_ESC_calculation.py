@@ -223,8 +223,8 @@ class SYS1_energy_savings(Variable):
         new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
 
         #new equipment baseline efficiency
-        motor_frequency = buildings('SYS1_new_equipment_motor_frequency_savings', period)
-        no_of_poles = buildings('SYS1_new_equipment_no_of_poles_savings', period)
+        motor_frequency = buildings('SYS1_new_equipment_motor_frequency', period)
+        no_of_poles = buildings('SYS1_new_equipment_no_of_poles', period)
         
         frequency = np.select( [ 
                          motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
@@ -278,7 +278,7 @@ class SYS1_energy_savings(Variable):
 
         #existing equipment baseline efficiency
         existing_equipment_rated_output = buildings('SYS1_existing_equipment_rated_output', period)
-        no_of_poles = buildings('SYS1_existing_equipment_no_of_poles_savings', period)
+        no_of_poles = buildings('SYS1_existing_equipment_no_of_poles', period)
         
         frequency = np.select( [ 
                          motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
@@ -334,8 +334,8 @@ class SYS1_energy_savings(Variable):
         new_efficiency = buildings('SYS1_new_efficiency', period)
 
         #luf
-        business_classification = buildings('SYS1_business_classification_savings', period)
-        end_use_service = buildings('SYS1_end_use_service_savings', period)
+        business_classification = buildings('SYS1_business_classification', period)
+        end_use_service = buildings('SYS1_end_use_service', period)
         
         rated_output = np.select(
             [

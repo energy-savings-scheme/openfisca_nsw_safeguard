@@ -146,7 +146,7 @@
   period: 2024
   absolute_error_margin: 0.5
   input:
-    D19_system_size_savings:
+    D19_system_size:
       [
         system_size_small,
         system_size_medium,

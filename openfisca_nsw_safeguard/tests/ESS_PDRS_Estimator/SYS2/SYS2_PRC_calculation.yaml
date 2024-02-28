@@ -85,17 +85,17 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    SYS2_pool_size_savings:
+    SYS2_pool_size:
       [
         pool_under_20000_L,
         pool_50001_to_60000_L
       ]
-    SYS2_pool_pump_type_savings:
+    SYS2_pool_pump_type:
       [
         variable_speed_pool_pump,
         single_speed_pool_pump
       ]
-    SYS2_star_rating_peak_savings:
+    SYS2_star_rating:
       [
         six_stars,
         five_stars

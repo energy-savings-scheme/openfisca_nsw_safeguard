@@ -156,12 +156,12 @@
         110,
         37
       ]
-    SYS1_new_equipment_motor_frequency_savings:
+    SYS1_new_equipment_motor_frequency:
       [
         motor_50_hz,
         motor_60_hz
       ]
-    SYS1_new_equipment_no_of_poles_savings:
+    SYS1_new_equipment_no_of_poles:
       [
         poles_6,
         poles_4
@@ -171,7 +171,7 @@
         10,
         75
       ]
-    SYS1_existing_equipment_no_of_poles_savings:
+    SYS1_existing_equipment_no_of_poles:
       [
         poles_4,
         poles_4
@@ -181,12 +181,12 @@
         20,
         100
       ]
-    SYS1_business_classification_savings:
+    SYS1_business_classification:
       [
         division_B,
         division_D
       ]
-    SYS1_end_use_service_savings:
+    SYS1_end_use_service:
       [
         air_compression,
         refrigeration

@@ -108,7 +108,7 @@ class SYS2_peak_demand_annual_savings(Variable):
 
     def formula(buildings, period, parameters):
         #pool size
-        pool_size = buildings('SYS2_pool_size_savings', period)
+        pool_size = buildings('SYS2_pool_size', period)
         pool_size_int = np.select([
             (pool_size == SYS2PoolSize.pool_under_20000_L),
             (pool_size == SYS2PoolSize.pool_20000_to_30000_L),
@@ -135,8 +135,8 @@ class SYS2_peak_demand_annual_savings(Variable):
         baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['SYS2']
 
         #input power
-        pool_pump_type = buildings('SYS2_pool_pump_type_savings', period)
-        star_rating = buildings('SYS2_star_rating_peak_savings', period)
+        pool_pump_type = buildings('SYS2_pool_pump_type', period)
+        star_rating = buildings('SYS2_star_rating', period)
         
         input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size_int][star_rating][pool_pump_type]
  

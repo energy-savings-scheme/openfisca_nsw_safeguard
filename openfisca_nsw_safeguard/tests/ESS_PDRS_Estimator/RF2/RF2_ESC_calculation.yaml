@@ -255,47 +255,6 @@
         27.171
       ]
 
-- name: test RF2 annual energy savings
-  period: 2024
-  absolute_error_margin: 0.1
-  input:
-    RF2_total_energy_consumption:
-      [
-        16.7,
-        32
-      ]
-    RF2_product_class_savings:
-      [
-        product_class_five,
-        product_class_three
-      ]
-    RF2_duty_class:
-      [
-        normal_duty,
-        heavy_duty
-      ]
-    RF2_replacement_activity:
-      [
-        true,
-        true
-      ]
-    RF2_product_EEI:
-      [
-        50,
-        200
-      ]
-    RF2_total_display_area:
-      [ 
-        700,
-        200
-      ]
-  output:
-    RF2_annual_energy_savings:
-      [
-        48.764,
-        -57.46
-      ]
-
 - name: test RF2 electricity savings
   period: 2022
   absolute_error_margin: 0.1
@@ -425,4 +384,45 @@
     RF2_ESC_calculation:
       [
         0
+      ]
+
+- name: test RF2 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_total_energy_consumption:
+      [
+        16.7,
+        32
+      ]
+    RF2_product_class_savings:
+      [
+        product_class_five,
+        product_class_three
+      ]
+    RF2_duty_class:
+      [
+        normal_duty,
+        heavy_duty
+      ]
+    RF2_replacement_activity:
+      [
+        true,
+        true
+      ]
+    RF2_product_EEI:
+      [
+        50,
+        200
+      ]
+    RF2_total_display_area:
+      [ 
+        700,
+        200
+      ]
+  output:
+    RF2_annual_energy_savings:
+      [
+        48.764,
+        -57.46
       ]

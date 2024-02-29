@@ -17,7 +17,7 @@ class D20_deemed_activity_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         Baseline_A = buildings('D20_Baseline_A', period)
-        a = 2.355
+        a = 2.31
         Bs = buildings('D20_Bs', period)
         Be = buildings('D20_Be', period)
 

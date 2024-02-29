@@ -253,8 +253,15 @@ class SYS1_peak_demand_annual_savings(Variable):
         temp2 = input_power * baseline_peak_adjustment_factor
 
         peak_demand_annual_savings = ((temp1 - temp2) * firmness_factor) * summer_peak_demand_reduction_duration
-        return peak_demand_annual_savings
-    
+        
+        peak_demand_annual_savings_return = np.select([
+                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+            ], [
+                0, peak_demand_annual_savings
+            ])
+        
+        return peak_demand_annual_savings_return
+        
 
 class SYS1_peak_demand_reduction_capacity(Variable):
     value_type = float

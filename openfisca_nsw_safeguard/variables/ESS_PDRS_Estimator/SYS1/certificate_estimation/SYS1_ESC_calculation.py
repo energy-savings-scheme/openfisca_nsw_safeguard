@@ -407,7 +407,14 @@ class SYS1_energy_savings(Variable):
         temp_calc_3 = (load_utilisation_factor * asset_life * ( 8760 / 1000 ))
 
         annual_energy_savings = ((temp_calc_1 - temp_calc_2) * temp_calc_3)
-        return annual_energy_savings
+
+        annual_savings_return = np.select([
+            annual_energy_savings <= 0, annual_energy_savings > 0
+        ], [
+            0, annual_energy_savings
+        ])
+        
+        return annual_savings_return
 
 
 class SYS1_electricity_savings(Variable):

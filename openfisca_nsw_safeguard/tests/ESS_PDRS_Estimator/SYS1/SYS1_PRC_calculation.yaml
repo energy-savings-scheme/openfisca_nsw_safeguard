@@ -126,7 +126,7 @@
     SYS1_peak_demand_annual_savings:
       [
         1.452,
-        -101.455
+        0
       ]
  
 - name: test SYS1 PRC calculation simple

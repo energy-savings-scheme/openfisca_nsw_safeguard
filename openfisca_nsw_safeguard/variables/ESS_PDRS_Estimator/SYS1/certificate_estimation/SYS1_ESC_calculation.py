@@ -402,13 +402,22 @@ class SYS1_energy_savings(Variable):
                 existing_equipment_baseline_efficiency
             ])
             
+        #deemed electricity savings
         temp_calc_1 = ( new_equipment_rated_output / (new_vs_existing_equipment_baseline / 100))
         temp_calc_2 = ( new_equipment_rated_output / (new_efficiency / 100))
         temp_calc_3 = (load_utilisation_factor * asset_life * ( 8760 / 1000 ))
 
-        annual_energy_savings = ((temp_calc_1 - temp_calc_2) * temp_calc_3)
-        return annual_energy_savings
+        deemed_electricity_savings = ((temp_calc_1 - temp_calc_2) * temp_calc_3)
+        
+        #regional network factor
+        postcode = buildings('SYS1_PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        regional_network_factor = rnf.calc(postcode)
 
+        #electricity savings
+        annual_savings = (deemed_electricity_savings * regional_network_factor)
+        return annual_savings
+        
 
 class SYS1_electricity_savings(Variable):
     value_type = float

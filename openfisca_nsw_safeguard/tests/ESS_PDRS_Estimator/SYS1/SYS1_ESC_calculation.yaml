@@ -199,7 +199,7 @@
   output:  
     SYS1_energy_savings:
       [
-        -30369.238,
+        0,
         41.501
       ]
 

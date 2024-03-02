@@ -67,7 +67,7 @@ class D19_annual_energy_savings(Variable):
         deemed_gas_savings = Baseline_B
 
         #regional network factor
-        postcode = buildings('D17_PDRS__postcode', period)
+        postcode = buildings('D19_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         regional_network_factor = rnf.calc(postcode)
 

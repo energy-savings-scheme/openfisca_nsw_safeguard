@@ -66,16 +66,8 @@ class D19_annual_energy_savings(Variable):
         deemed_electricity_savings = Baseline_A - (a * (Bs + Be))
         deemed_gas_savings = Baseline_B
 
-        #combined savings
-        combined_savings = deemed_electricity_savings + deemed_gas_savings
-
-        #regional network factor
-        postcode = buildings('D19_PDRS__postcode', period)
-        rnf = parameters(period).PDRS.table_A24_regional_network_factor
-        regional_network_factor = rnf.calc(postcode)
-
         #annual savings
-        annual_energy_savings = combined_savings * regional_network_factor
+        annual_energy_savings = deemed_electricity_savings + deemed_gas_savings
     
         annual_savings_return = np.select([
                 annual_energy_savings <= 0, annual_energy_savings > 0

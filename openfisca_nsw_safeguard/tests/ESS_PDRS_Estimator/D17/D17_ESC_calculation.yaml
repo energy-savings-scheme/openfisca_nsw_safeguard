@@ -144,11 +144,17 @@
         20,
         4.3
       ]
+    D17_PDRS__postcode:
+      [
+        2352, #rnf 1.03
+        2729, #rnf 1.03
+        2024  #rnf 1
+      ]
   output:
     D17_annual_energy_savings:
       [
-        2.94,
-        -18.84,
+        3.0282,
+        0,
         15.004
       ]
 

@@ -416,7 +416,7 @@ class SYS1_energy_savings(Variable):
         regional_network_factor = rnf.calc(postcode)
 
         #electricity savings
-        annual_savings = (deemed_electricity_savings * regional_network_factor)
+        annual_energy_savings = (deemed_electricity_savings * regional_network_factor)
         
         annual_savings_return = np.select([
             annual_energy_savings <= 0, annual_energy_savings > 0

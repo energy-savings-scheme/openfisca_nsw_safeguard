@@ -420,7 +420,8 @@ class SYS1_energy_savings(Variable):
         
         annual_savings_return = np.select([
             annual_energy_savings <= 0, annual_energy_savings > 0
-        ], [
+        ], 
+        [
             0, annual_energy_savings
         ])
         

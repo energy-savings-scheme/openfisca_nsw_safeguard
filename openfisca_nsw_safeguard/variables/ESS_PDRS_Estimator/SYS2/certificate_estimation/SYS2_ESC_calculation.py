@@ -90,10 +90,10 @@ class SYS2_energy_savings(Variable):
         annual_energy_savings = deemed_electricity_savings * regional_network_factor
         
         annual_savings_return = np.select([
-            annual_energy_savings <= 0, annual_energy_savings > 0
-        ], 
-        [
-            0, annual_energy_savings
+                annual_energy_savings <= 0, annual_energy_savings > 0
+            ], 
+            [
+                0, annual_energy_savings
         ])
         
         return annual_savings_return

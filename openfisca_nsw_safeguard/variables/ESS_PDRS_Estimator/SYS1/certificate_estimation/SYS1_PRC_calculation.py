@@ -73,7 +73,6 @@ class SYS1_peak_demand_savings_capacity(Variable):
         # user input
         baseline_input_power = buildings('SYS1_baseline_input_power', period)
         baseline_peak_adjustment_factor = buildings('SYS1_baseline_peak_adjustment_factor', period)
-        # temp_factor = buildings('SYS1_temperature_factor', period)
         input_power = buildings('SYS1_input_power', period)
         firmness_factor = 1
 
@@ -205,33 +204,12 @@ class SYS1_peak_demand_annual_savings(Variable):
                 poles_6_value_60hz,
                 poles_8_value_60hz
             ])
-        
-        # rated_output = np.select(
-        #     [
-        #         (new_equipment_rated_output < 0.73), 
-        #         ((new_equipment_rated_output >= 0.73) * (new_equipment_rated_output < 2.6)),    
-        #         ((new_equipment_rated_output >= 2.6) * (new_equipment_rated_output < 9.2)),    
-        #         ((new_equipment_rated_output >= 9.2) * (new_equipment_rated_output < 41)),    
-        #         ((new_equipment_rated_output >= 41) * (new_equipment_rated_output < 100)),    
-        #         ((new_equipment_rated_output >= 100) * (new_equipment_rated_output <= 185)),    
-        #         (new_equipment_rated_output > 185),
-        #     ],
-        #     [
-        #         'under_0.73_kW',
-        #         '0.73_to_2.6kW',
-        #         '2.6_to_9.2kW',
-        #         '9.2_to_41kW',
-        #         '41_to_100kW',
-        #         '100_to_185kW',
-        #         'over_185kW'
-        #     ])
 
         #baseline input power
         baseline_input_power = new_equipment_rated_output / (new_equipment_baseline_efficiency/100)
 
         #BCA climate zozne  
         postcode = buildings('SYS1_PDRS__postcode', period)
-        # Returns an integer
         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
         climate_zone_int = climate_zone.calc(postcode)
         climate_zone_savings = np.select(
@@ -303,7 +281,7 @@ class SYS1_peak_demand_annual_savings(Variable):
 
         peak_demand_annual_savings_return = np.select([
                 peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
-            ], 
+            ],
             [
                 0, peak_demand_annual_savings
             ])

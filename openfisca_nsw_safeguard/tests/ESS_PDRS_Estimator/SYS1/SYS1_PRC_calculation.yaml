@@ -138,8 +138,8 @@
     SYS1_peak_demand_annual_savings:
       [
         31.928179,
-        -2231.9846,
-        -631.7569,
+        0, #negative value
+        0, #negative value
         160.72308
       ]
  

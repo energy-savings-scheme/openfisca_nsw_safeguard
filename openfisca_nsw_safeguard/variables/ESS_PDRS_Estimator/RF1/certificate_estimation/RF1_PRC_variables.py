@@ -55,6 +55,5 @@ class RF1_peak_demand_reduction_capacity(Variable):
       peak_demand_savings_capacity = buildings('RF1_peak_demand_savings_capacity', period)
       summer_peak_demand_reduction_duration = 6
       lifetime = 7
-      number_of_fridges = buildings('RF1_number_of_refrigerator_freezers_removal', period)
 
-      return peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime * number_of_fridges
+      return peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime

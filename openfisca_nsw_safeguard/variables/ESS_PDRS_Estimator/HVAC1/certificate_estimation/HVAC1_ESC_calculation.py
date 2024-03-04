@@ -428,7 +428,15 @@ class HVAC1_annual_energy_savings(Variable):
 
       #electricity savings
       annual_savings = (deemed_electricity_savings * regional_network_factor)
-      return annual_savings
+
+      annual_savings_return = np.select([
+            annual_energy_savings <= 0, annual_energy_savings > 0
+        ], 
+	    [
+            0, annual_energy_savings
+        ])
+        
+      return annual_savings_return
       
 
 class HVAC1_PDRS__regional_network_factor(Variable):
@@ -510,3 +518,28 @@ class HVAC1_ESC_calculation(Variable):
             ])
 
       return result_to_return
+    
+
+class HVAC1_ESS_savings_check(Variable):
+    #this variable checks if ESCs are zero, and if they are returns zero energy savings
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        number_of_escs = buildings('HVAC1_ESC_calculation', period)
+        annual_energy_savings = buildings('HVAC1_annual_energy_savings', period)
+        
+        annual_energy_savings_check = np.select([
+                number_of_escs <= 0,
+                number_of_escs > 0
+            ],
+            [
+                0,
+                annual_energy_savings
+            ])
+
+        return annual_energy_savings_check

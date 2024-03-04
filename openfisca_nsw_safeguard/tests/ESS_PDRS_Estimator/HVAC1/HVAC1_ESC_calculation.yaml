@@ -1009,3 +1009,27 @@
         0,
         0
       ]
+
+- name: test HVAC1 ESCs to savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_ESC_calculation:
+      [
+        -0.4,
+        40,
+        0
+      ]
+    HVAC1_annual_energy_savings:
+      [
+        50,
+        200,
+        321
+      ]
+  output:
+    HVAC1_ESS_savings_check:
+      [
+        0,
+        200,
+        0
+      ]

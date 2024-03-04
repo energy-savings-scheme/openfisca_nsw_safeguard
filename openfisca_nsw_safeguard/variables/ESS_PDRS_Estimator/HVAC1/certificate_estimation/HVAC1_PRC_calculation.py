@@ -175,7 +175,15 @@ class HVAC1_peak_demand_annual_savings(Variable):
         lifetime = 10
 
         peak_demand_annual_savings = (peak_demand_savings_activity * summer_peak_demand_duration * lifetime)
-        return peak_demand_annual_savings
+
+        peak_demand_annual_savings_return = np.select([
+                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+            ], 
+	        [
+                0, peak_demand_annual_savings
+            ])
+        
+        return peak_demand_annual_savings_return
     
 
 class HVAC1_peak_demand_reduction_capacity(Variable):

@@ -130,44 +130,51 @@
       [
         20,
         100,
-        20
+        20,
+        81 #Quantum 150-08AC6-290
       ]
     WH2_test_HP_elec:
       [
         10,
         3,
-        20
+        20,
+        9.54
       ]
     WH2_test_HP_capacity_factor:
       [
         20,
         36,
-        50
+        50,
+        3.1
       ]
     WH2_test_WH_capacity_factor:
       [
         25,
         6,
-        2
+        2,
+        6
       ]
     WH2_test_HP_gas:
       [
         20,
         30,
-        50
+        50,
+        0
       ]
     WH2_test_old_equipment:
       [
         electric_water_boiler_heater,
         electric_water_boiler_heater,
+        gas_water_boiler_heater,
         gas_water_boiler_heater
       ]
   output:
     WH2_test_energy_savings:
       [
-        -76.88,
+        0, #negative value
         0.95,
-        -8.16
+        0, #negative value
+        87.04
       ]
 
 - name: test WH2_test ESC calculation

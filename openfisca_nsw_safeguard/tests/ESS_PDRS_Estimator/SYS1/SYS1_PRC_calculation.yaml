@@ -95,38 +95,52 @@
     SYS1_new_equipment_rated_output:
       [
         75,
-        55
+        55,
+        110,
+        110
       ]
     SYS1_new_equipment_baseline_efficiency:
       [
         95,
-        93.6
+        93.6,
+        94.3,
+        94.3
       ]
     SYS1_new_equipment_motor_frequency:
       [
         motor_50_hz,
-        motor_60_hz
+        motor_60_hz,
+        motor_50_hz,
+        motor_50_hz
       ]
     SYS1_new_equipment_no_of_poles:
       [
         poles_4,
+        poles_6,
+        poles_6,
         poles_6
       ]
     SYS1_PDRS__postcode:
       [
         2465,
-        2789
+        2789,
+        2024,
+        2024
       ]
     SYS1_new_efficiency:
       [
         95,
-        50
+        50,
+        85,
+        97
       ]
   output:
     SYS1_peak_demand_annual_savings:
       [
-        1.452,
-        0
+        31.928179,
+        -2231.9846,
+        -631.7569,
+        160.72308
       ]
  
 - name: test SYS1 PRC calculation simple

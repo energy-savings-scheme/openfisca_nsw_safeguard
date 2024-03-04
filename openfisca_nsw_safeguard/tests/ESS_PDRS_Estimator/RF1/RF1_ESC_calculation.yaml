@@ -26,11 +26,17 @@
         6,
         2
       ]
+    RF1_PDRS__postcode:
+      [
+        2024, #rnf 1
+        2800,  #rnf 1.03
+        2076  #rnf 1
+      ]
   output:
     RF1_energy_savings:
       [
         17.1,
-        34.2,
+        35.226,
         11.4
       ]
 

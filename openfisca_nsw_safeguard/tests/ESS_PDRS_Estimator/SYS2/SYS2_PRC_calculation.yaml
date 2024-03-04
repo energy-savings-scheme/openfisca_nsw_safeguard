@@ -23,23 +23,27 @@
     SYS2_pool_size_int:
       [
         30001_to_40000_L,
-        20000_to_30000_L
+        20000_to_30000_L,
+        50001_to_60000_L
       ]
     SYS2_pool_pump_type:
       [
         'fixed speed',
-        'single speed'
+        'single speed',
+        'variable speed'
       ]
     SYS2_star_rating:
       [ 
         '5',
-        '8'
+        '8',
+        '4.5'
       ]
   output:
     SYS2_input_power:
       [
         0.121,
-        0.084
+        0.084,
+        0.263
       ]
 
 - name: test SYS2 peak demand savings capacity simple version
@@ -103,8 +107,38 @@
   output:
     SYS2_peak_demand_annual_savings:
       [
-        0.237,
-        0.3744
+        2.84256,
+        4.49568
+      ]
+
+- name: test SYS2 peak demand annual savings master tester
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    SYS2_pool_size:
+      [
+        pool_50001_to_60000_L,  #Neptune NPVS150
+        over_70001_L,           #Zodiac WP000024 (FLOPRO VS 1.5HP)
+        pool_30001_to_40000_L   #Aquatight Apex VS100
+      ]
+    SYS2_pool_pump_type:
+      [
+        variable_speed_pool_pump,
+        variable_speed_pool_pump,
+        variable_speed_pool_pump
+      ]
+    SYS2_star_rating:
+      [
+        four_and_a_half_stars,
+        six_stars,
+        five_stars
+      ]
+  output:
+    SYS2_peak_demand_annual_savings:
+      [
+        7.19712,
+        11.65,
+        4.61664
       ]
 
 - name: test SYS2 PRC calculation

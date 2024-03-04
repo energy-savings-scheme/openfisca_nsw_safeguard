@@ -148,32 +148,48 @@
 
 - name: test D19 annual energy savings
   period: 2024
-  absolute_error_margin: 0.5
+  absolute_error_margin: 0.1
   input:
     D19_system_size:
       [
         system_size_small,
         system_size_medium,
-        system_size_small
+        system_size_small,
+        system_size_small,  #ENEFT EL220A10
+        system_size_medium  #Ecogenica EG-155FR
       ]
     D19_Bs:   
       [
         5,
         10,
-        2.5
+        2.5,
+        4.386,
+        3.2864
       ]
     D19_Be:
       [
         7,
         20,
-        4.3
+        4.3,
+        0,
+        0
+      ]
+    D19_PDRS__postcode:
+      [
+        2352, #rnf 1.03
+        2729, #rnf 1.03
+        2801, #rnf 1.03
+        2024, #rnf 1
+        2800  #rnf 1.03
       ]
   output:
     D19_annual_energy_savings:
       [
-        21.42,
-        0.03,
-        33.484
+        20.6,
+        0,
+        33.03,
+        39.08,
+        61.794
       ]
 
 - name: test D19 electricity savings

@@ -256,7 +256,8 @@ class SYS1_peak_demand_annual_savings(Variable):
         
         peak_demand_annual_savings_return = np.select([
                 peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
-            ], [
+            ], 
+            [
                 0, peak_demand_annual_savings
             ])
         

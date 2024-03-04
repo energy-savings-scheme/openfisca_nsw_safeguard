@@ -6,14 +6,10 @@
       [
         0.11625
       ]
-    RF1_number_of_refrigerator_freezers_removal:
-      [
-        3
-      ]
   output:
     RF1_peak_demand_reduction_capacity:
       [
-        14.6475
+        4.882
       ]
 
 - name: test RF1 peak demand annual savings

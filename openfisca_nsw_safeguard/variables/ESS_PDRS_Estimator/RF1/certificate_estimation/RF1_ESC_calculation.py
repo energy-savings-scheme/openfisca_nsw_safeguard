@@ -44,8 +44,25 @@ class RF1_energy_savings(Variable):
     def formula(buildings, period, parameters):
       number_fridges_freezers = buildings('RF1_number_of_refrigerator_freezers_removal', period)
 
-      annual_energy_savings = number_fridges_freezers * 5.7
-      return annual_energy_savings
+      #deemed electricity savings
+      deemed_electricity_savings = number_fridges_freezers * 5.7
+      
+      #regional network factor
+      postcode = buildings('RF1_PDRS__postcode', period)
+      rnf = parameters(period).PDRS.table_A24_regional_network_factor
+      regional_network_factor = rnf.calc(postcode) 
+   
+      #electricity savings
+      annual_energy_savings = deemed_electricity_savings * regional_network_factor
+
+      annual_savings_return = np.select([
+            annual_energy_savings <= 0, annual_energy_savings > 0
+        ], 
+	    [
+            0, annual_energy_savings
+        ])
+        
+      return annual_savings_return
 
 
 class RF1_PDRS__regional_network_factor(Variable):

@@ -186,7 +186,7 @@
         49.90
       ]
 
-- name: test baseline_peak_adjustment_factor
+- name: test baseline peak adjustment factor
   period: 2022
   absolute_error_margin: 0
   input:
@@ -393,36 +393,65 @@
     RF2_total_energy_consumption:
       [
         16.7,
-        32
+        32,
+        7.57, #ANVIL DGV0530
+        3.75, #Bakers Mate BMC1
+        9.80 #Bonvue C4RF9
       ]
     RF2_product_class_savings:
       [
         product_class_five,
-        product_class_three
+        product_class_three,
+        product_class_five,
+        product_class_eleven,
+        product_class_eleven
       ]
     RF2_duty_class:
       [
         normal_duty,
-        heavy_duty
+        heavy_duty,
+        light_duty,
+        normal_duty,
+        normal_duty
       ]
     RF2_replacement_activity:
       [
+        true,
+        true,
+        true,
         true,
         true
       ]
     RF2_product_EEI:
       [
         50,
-        200
+        200,
+        44.0142,
+        108.66,
+        51.53
       ]
     RF2_total_display_area:
       [ 
         700,
-        200
+        200,
+        0.89,
+        0,
+        1.09
+      ]
+    RF2_PDRS__postcode:
+      [
+        2800, #nlf 1.03
+        2024,
+        2024,
+        2024,
+        2024
       ]
   output:
     RF2_annual_energy_savings:
       [
-        48.764,
-        -57.46
+        50.227,
+        0, #negative value
+        28.117,
+        0,
+        26.919
       ]

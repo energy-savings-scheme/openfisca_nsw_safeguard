@@ -158,14 +158,22 @@
         48,
         0
       ]
+    D18_PDRS__postcode:
+      [
+        2352, #rnf 1.03
+        2729, #rnf 1.03
+        2076, #rnf 1
+        2824,  #rnf 1
+        2801 #rnf 1.03
+      ]
   output:
     D18_annual_energy_savings:
       [
-        -32.18,
-        -30.75,
-        -60.44,
-        -132.015,
-        55.711
+        0, #negative value
+        0, #negative value
+        0, #negative value
+        0, #negative value
+        57.382
       ]
 
 - name: test D18 electricity savings

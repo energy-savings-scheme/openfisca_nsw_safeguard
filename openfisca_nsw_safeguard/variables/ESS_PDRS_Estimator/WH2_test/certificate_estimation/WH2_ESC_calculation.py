@@ -189,9 +189,17 @@ class WH2_test_energy_savings(Variable):
             (- HP_elec) * capacity_factor * (lifetime / 3.6),
             (ref_elec - HP_elec) * capacity_factor * (lifetime / 3.6)
         ])
-
+      
         annual_energy_savings = deemed_electricity_savings + deemed_gas_savings
-        return annual_energy_savings
+    
+        annual_savings_return = np.select([
+            annual_energy_savings <= 0, annual_energy_savings > 0
+        ], 
+	    [
+            0, annual_energy_savings
+        ])
+        
+        return annual_savings_return
 
 
 class WH2_test_electricity_savings(Variable):

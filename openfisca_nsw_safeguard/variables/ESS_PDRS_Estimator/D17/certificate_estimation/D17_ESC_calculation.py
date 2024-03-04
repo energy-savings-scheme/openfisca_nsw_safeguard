@@ -74,8 +74,24 @@ class D17_annual_energy_savings(Variable):
         Bs = buildings('D17_Bs', period)
         Be = buildings('D17_Be', period)
 
-        deemed_electricity_savings = Baseline_A - (a * (Bs + Be))
-        return deemed_electricity_savings
+        deemed_activity_electricity_savings = Baseline_A - (a * (Bs + Be))
+    
+        #regional network factor
+        postcode = buildings('D17_PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        regional_network_factor = rnf.calc(postcode)
+
+        #electricity savings
+        annual_energy_savings = deemed_activity_electricity_savings * regional_network_factor
+    
+        annual_savings_return = np.select([
+                annual_energy_savings <= 0, annual_energy_savings > 0
+            ],
+            [
+                0, annual_energy_savings
+            ])
+        
+        return annual_savings_return
 
 
 class D17_electricity_savings(Variable):

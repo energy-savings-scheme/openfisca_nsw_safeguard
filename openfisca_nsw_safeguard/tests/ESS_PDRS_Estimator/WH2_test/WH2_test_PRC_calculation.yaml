@@ -1,45 +1,83 @@
+- name: test WH2_test annual ESS savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    WH2_test_com_peak_load:
+      [
+        20,
+        100,
+        20,
+        81 #Quantum 150-08AC6-290
+      ]
+    WH2_test_annual_energy_savings:
+      [
+        50,
+        50,
+        60,
+        66
+      ]
+  output:
+    WH2_test_peak_demand_annual_savings:
+      [
+        8.856,
+        44.28,
+        9.964799,
+        43.05
+      ]
+
+
 - name: test WH2 test PRC calculation
   period: 2022
   absolute_error_margin: 0.5
   input:
     WH2_test_HP_capacity_factor:
       [
-        3.26
+        3.26,
+        3.1
       ]
     WH2_test_HP_elec:
       [
-        9.39
+        9.39,
+        9.54
       ]
     WH2_test_HP_gas:
       [
+        0,
         0
       ]
     WH2_test_PDRS__postcode:
       [
-        2017
+        2017,
+        2024
       ]
     WH2_test_WH_capacity_factor: 
       [
-        1
+        1,
+        6
       ]
     WH2_test_annual_energy_savings:
       [
-        71.8
+        71.8,
+        66
       ]
     WH2_test_com_peak_load:
       [
-        96
+        96,
+        81
       ]
     WH2_test_old_equipment:
       [
+        gas_water_boiler_heater,
         gas_water_boiler_heater
       ]
     WH2_test_replacement_activity:
       [
+        true,
         true
       ]
   output:
     WH2_test_PRC_calculation:
       [
-        562.50
+        562.50,
+        447.73
       ]

@@ -188,7 +188,7 @@ class HVAC2_equivalent_heating_hours_input(Variable):
         climate_zone = building('HVAC2_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[climate_zone_str]
+        heating_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_heating_hours[climate_zone_str]
         return heating_hours
 
 
@@ -217,7 +217,7 @@ class HVAC2_equivalent_cooling_hours_input(Variable):
         climate_zone = building('HVAC2_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        cooling_hours = parameters(period).ESS.HEAB.table_F4_1.cooling_hours[climate_zone_str]
+        cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[climate_zone_str]
         return cooling_hours
 
 

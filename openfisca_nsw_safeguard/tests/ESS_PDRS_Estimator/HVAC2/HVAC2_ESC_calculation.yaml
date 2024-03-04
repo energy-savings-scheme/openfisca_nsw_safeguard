@@ -286,44 +286,60 @@
   input:
     HVAC2_cooling_capacity_input:
       [
-        8
+        8,
+        1.6, #Kogan KAHCWDAC16A
+        
       ]
     HVAC2_Air_Conditioner_type:
       [
+        non_ducted_split_system,
         non_ducted_split_system
       ]
     HVAC2_Activity:
       [
+        new_installation_activity,
         new_installation_activity
       ]
     HVAC2_certificate_climate_zone:
       [
+        2,
         2
       ]
     HVAC2_rated_AEER_input:
       [
-        10
+        10,
+        3.1658
       ]
     HVAC2_commercial_TCEC:
       [
-        0
+        0,
+        207
       ]
     HVAC2_heating_capacity_input:
       [
-        4
+        4,
+        0
       ]
     HVAC2_rated_ACOP_input:
       [
-        5
+        5,
+        0
       ]
     HVAC2_commercial_THEC:
       [
+        0,
         0
+      ]
+    HVAC2_PDRS__postcode:
+      [
+        2024, #rnf 1
+        2024
       ]
   output:
     HVAC2_annual_energy_savings:
       [
-        14.327
+        16.813,
+        1.43
       ]
 
 - name: test Electricity Savings Mitsubishi

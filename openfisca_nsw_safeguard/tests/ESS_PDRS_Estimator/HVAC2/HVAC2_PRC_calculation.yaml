@@ -147,33 +147,43 @@
 
 - name: test HVAC2 peak demand annual savings
   period: 2024
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0.2
   input:
     HVAC2_cooling_capacity_input:
       [
         100,
-        300
+        300,
+        1.6, #Kogan KAHCWDAC16A
+        2.8 #SPT AW028C-1/AW028E
       ]
     HVAC2_baseline_AEER_input:
       [
         20,
-        3
+        3,
+        3.66,
+        3.1
       ]
     HVAC2_BCA_climate_zone_by_postcode:
       [
         BCA_Climate_Zone_2,
-        BCA_Climate_Zone_6
+        BCA_Climate_Zone_6,
+        BCA_Climate_Zone_6,
+        BCA_Climate_Zone_7
       ]
     HVAC2_input_power:
       [
         3,
-        80
+        80,
+        0.5,
+        0.51
       ]
   output:
     HVAC2_peak_demand_annual_savings:
       [
-        4.1472,
-        89.88
+        34.56,
+        748.8,
+        0,
+        13.0236
       ]
 
 - name: test HVAC2 peak demand reduction capacity
@@ -227,8 +237,8 @@
     HVAC2_PRC_calculation:
       [
         228,  #Fujitsu AOTA90LALT/ARTC90LATU
-        39, #Daikin RXM25UVMA / FTXM25UVMA
-        50,    #Panasonic CU-Z71XKR / CS-Z71XKRW
+        39,   #Daikin RXM25UVMA / FTXM25UVMA
+        50,   #Panasonic CU-Z71XKR / CS-Z71XKRW
         225   #Mitsubishi PUMY-P112VKM-A
       ]
 

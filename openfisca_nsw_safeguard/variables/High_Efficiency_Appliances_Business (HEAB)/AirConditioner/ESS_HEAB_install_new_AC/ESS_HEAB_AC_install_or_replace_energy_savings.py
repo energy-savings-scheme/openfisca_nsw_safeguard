@@ -124,7 +124,7 @@ class ESS_HEAB_install_or_replace_AC_reference_cooling_annual_energy_use(Variabl
         product_class = buildings('Air_Conditioner_type', period)
         AC_Class = (product_class.possible_values)
 
-        equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.cooling_hours[AC_climate_zone]
+        equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[AC_climate_zone]
 
         baseline_rated_AEER = np.select([
             activity_type == ActivityType.install_AC,
@@ -184,7 +184,7 @@ class ESS_HEAB_install_or_replace_AC_reference_heating_annual_energy_use(Variabl
         product_class = buildings('Air_Conditioner_type', period)
         AC_Class = (product_class.possible_values)
 
-        equivalent_heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[AC_climate_zone]
+        equivalent_heating_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_heating_hours[AC_climate_zone]
         baseline_rated_ACOP = np.select([
             activity_type == ActivityType.install_AC,
             activity_type == ActivityType.replace_AC,
@@ -219,7 +219,7 @@ class ESS_HEAB_install_or_replace_AC_cooling_annual_energy_use(Variable):
     def formula(buildings, period, parameters):
         cooling_capacity = buildings('new_AC_cooling_capacity', period)
         AC_climate_zone = buildings('AC_climate_zone', period)
-        equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.cooling_hours[AC_climate_zone]
+        equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[AC_climate_zone]
         new_rated_AEER = buildings('AC_AEER', period)
         return(
             cooling_capacity *
@@ -239,7 +239,7 @@ class ESS_HEAB_install_or_replace_AC_heating_annual_energy_use(Variable):
     def formula(buildings, period, parameters):
         heating_capacity = buildings('new_AC_heating_capacity', period)
         AC_climate_zone = buildings('AC_climate_zone', period)
-        equivalent_heating_hours = parameters(period).ESS.HEAB.table_F4_1.heating_hours[AC_climate_zone]
+        equivalent_heating_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_heating_hours[AC_climate_zone]
         new_rated_ACOP = buildings('AC_ACOP', period)
         return(
             heating_capacity *

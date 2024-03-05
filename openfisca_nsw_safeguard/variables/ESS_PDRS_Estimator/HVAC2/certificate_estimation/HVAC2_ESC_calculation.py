@@ -191,7 +191,6 @@ class HVAC2_AC_Type(Enum):
     ducted_unitary_system = 'Ducted unitary system'
 
 
-
 class HVAC2_Air_Conditioner_type_savings(Variable):
     value_type = Enum
     entity = Building
@@ -274,7 +273,7 @@ class HVAC2_annual_energy_savings(Variable):
       climate_zone = buildings('HVAC2_certificate_climate_zone', period)
       climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                     ['hot_zone', 'average_zone', 'cold_zone'])
-      equivalent_cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone_str]
+      equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[climate_zone_str]
 
       #rated AEER
       rated_AEER = buildings('HVAC2_rated_AEER_input', period)
@@ -346,15 +345,15 @@ class HVAC2_annual_energy_savings(Variable):
             [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity
             ],
-            [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
+            [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check]
             ])
 
       #heating capacity input
       heating_capacity = buildings('HVAC2_heating_capacity_input', period)
 
       #equivalent heating hours
-      equivalent_heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
+      equivalent_heating_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_heating_hours[climate_zone_str]
 
       #rated ACOP
       rated_ACOP = buildings('HVAC2_rated_ACOP_input', period)
@@ -369,8 +368,8 @@ class HVAC2_annual_energy_savings(Variable):
             [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity],
 
-                [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
+                [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check]
                     ]
             )
 
@@ -415,8 +414,25 @@ class HVAC2_annual_energy_savings(Variable):
                         ])
       lifetime = 10
 
-      deemed_electricity_savings = np.multiply(((reference_cooling - annual_cooling) + (reference_heating - annual_heating)), (lifetime / 1000))
-      return deemed_electricity_savings
+      #deemed electricity savings
+      deemed_electricity_savings = np.multiply(((reference_cooling - tcec_or_annual_cooling) + (reference_heating - thec_or_annual_heating)), (lifetime / 1000))
+      
+      #regional network factor
+      postcode = buildings('HVAC2_PDRS__postcode', period)
+      rnf = parameters(period).PDRS.table_A24_regional_network_factor
+      regional_network_factor = rnf.calc(postcode)
+
+      #electricity savings
+      annual_energy_savings = (deemed_electricity_savings * regional_network_factor)
+    
+      annual_savings_return = np.select([
+            annual_energy_savings <= 0, annual_energy_savings > 0
+        ],
+	    [
+            0, annual_energy_savings
+        ])
+        
+      return annual_savings_return
 
 
 class HVAC2_PDRS__regional_network_factor(Variable):

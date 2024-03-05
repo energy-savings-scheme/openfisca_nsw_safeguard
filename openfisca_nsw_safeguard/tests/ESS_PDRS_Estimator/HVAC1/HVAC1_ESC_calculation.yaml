@@ -406,17 +406,20 @@
     HVAC1_cooling_capacity_input:
       [
         8,
-        8.2,  #Bonaire 6920082/6920020/6920027
-        20    #Samsung AC200JXAFNH/ AC200JNHFKH
+        8.2,   #Bonaire 6920082/6920020/6920027
+        20,    #Samsung AC200JXAFNH/ AC200JNHFKH
+        3      #annual savings between 0 and 1
       ]
     HVAC1_Air_Conditioner_type:
       [
         non_ducted_split_system,
         non_ducted_split_system,
-        ducted_unitary_system
+        ducted_unitary_system,
+        non_ducted_split_system
       ]
     HVAC1_Activity:
       [
+        new_installation_activity,
         new_installation_activity,
         new_installation_activity,
         new_installation_activity
@@ -425,50 +428,58 @@
       [
         2,
         3,
+        2,
         2
       ]
     HVAC1_rated_AEER_input:
       [
         10,
         3.5589,
-        3.246
+        3.246,
+        3.1
       ]
     HVAC1_residential_TCEC:
       [
         0,
         0,
-        2292
+        2292,
+        850
       ]
     HVAC1_heating_capacity_input:
       [
         4,
         9.6,
-        22.5
+        22.5,
+        5
       ]
     HVAC1_rated_ACOP_input:
       [
         5,
         3.6795,
-        3.64
+        3.64,
+        10
       ]
     HVAC1_residential_THEC:
       [
         0,
         0,
-        3662
+        3662,
+        850
       ]
     HVAC1_PDRS__postcode:
       [
         2791,  #regional network factor 1.03
         2791,  #regional network factor 1.03
-        2222   #regional network factor 1
+        2222,  #regional network factor 1
+        2024
       ]
   output:
     HVAC1_annual_energy_savings:
       [
         14.757,
         31.3755,
-        39.26
+        39.26,
+        0.422
       ]
 
 - name: test electricity savings
@@ -480,14 +491,16 @@
         1.03929,
         2798.25, #AIRO ACP33HP
         16.89,   #Panasonic CU-Z71VKR/CS-Z71VKR
-        30.462   #Bonaire 6920082/6920020/6920027
+        30.462,  #Bonaire 6920082/6920020/6920027
+        0.422    #annual savings between 0 and 1
       ]
     HVAC1_PDRS__regional_network_factor:
       [
         1.03,
         1.03,
         1.03,
-        1.03  #postcode 2795
+        1.03,  #postcode 2795
+        1
       ]
   output:
     HVAC1_electricity_savings:
@@ -495,7 +508,8 @@
         1.070,
         2882.1975,
         17.397,
-        31.376
+        31.376,
+        0.422
       ]
 
 - name: test ESC calculation with electricity savings
@@ -505,20 +519,24 @@
     HVAC1_electricity_savings:
       [
         1.070,
-        2882.1975 #AIRO ACP33HP
+        2882.1975, #AIRO ACP33HP
+        0.422      #annual savings between 0 and 1
       ]
     HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
       [
+        True,
         True,
         True
       ]
     HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark:
       [
         True,
+        True,
         True
       ]
     HVAC1_heating_capacity_input:
       [
+        5,
         5,
         5
       ]
@@ -526,7 +544,8 @@
     HVAC1_ESC_calculation:
       [
         1,
-        3055
+        3055,
+        0
       ]
 
 - name: test ESC calculation

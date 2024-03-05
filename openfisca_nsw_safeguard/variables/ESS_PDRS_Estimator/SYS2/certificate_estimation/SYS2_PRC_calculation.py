@@ -139,7 +139,7 @@ class SYS2_peak_demand_annual_savings(Variable):
         star_rating = buildings('SYS2_star_rating', period)
         
         input_power = parameters(period).PDRS.pool_pumps.table_sys2_2['input_power'][pool_size_int][star_rating][pool_pump_type]
- 
+     
         #peak adjustment factor
         peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['SYS2']
 
@@ -151,9 +151,18 @@ class SYS2_peak_demand_annual_savings(Variable):
 
         #peak demand annual savings 
         summer_peak_demand_reduction_duration = 6   
+        lifetime = 12
 
-        peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration
-        return peak_demand_annual_savings           
+        peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration *lifetime
+        
+        peak_demand_annual_savings_return = np.select([
+                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+            ], 
+	        [
+                0, peak_demand_annual_savings
+            ])
+        
+        return peak_demand_annual_savings_return        
 
 
 class SYS2_peak_demand_reduction_capacity(Variable):

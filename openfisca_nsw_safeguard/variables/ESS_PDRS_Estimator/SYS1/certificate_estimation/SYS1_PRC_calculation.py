@@ -73,7 +73,6 @@ class SYS1_peak_demand_savings_capacity(Variable):
         # user input
         baseline_input_power = buildings('SYS1_baseline_input_power', period)
         baseline_peak_adjustment_factor = buildings('SYS1_baseline_peak_adjustment_factor', period)
-        # temp_factor = buildings('SYS1_temperature_factor', period)
         input_power = buildings('SYS1_input_power', period)
         firmness_factor = 1
 
@@ -138,6 +137,7 @@ class SYS1_existing_equipment_no_of_poles_peak_savings(Variable):
         'display_question' : 'How many poles is your existing motor?',
         'sorting' : 12
     }
+
 
 class SYS1_peak_demand_annual_savings(Variable):
     value_type = float
@@ -206,11 +206,10 @@ class SYS1_peak_demand_annual_savings(Variable):
             ])
 
         #baseline input power
-        baseline_input_power = new_equipment_rated_output / (new_equipment_baseline_efficiency /100)
+        baseline_input_power = new_equipment_rated_output / (new_equipment_baseline_efficiency/100)
 
         #BCA climate zozne  
         postcode = buildings('SYS1_PDRS__postcode', period)
-        # Returns an integer
         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
         climate_zone_int = climate_zone.calc(postcode)
         climate_zone_savings = np.select(
@@ -247,14 +246,48 @@ class SYS1_peak_demand_annual_savings(Variable):
         input_power = (new_equipment_rated_output / (new_efficiency / 100))
         
         firmness_factor = 1
-        summer_peak_demand_reduction_duration = 6
+        summer_peak_demand_duration = 6
 
+        #asset life
+        rated_output_band = np.select([
+            (new_equipment_rated_output < 0.73), 
+            ((new_equipment_rated_output >= 0.73) * (new_equipment_rated_output < 2.6)),    
+            ((new_equipment_rated_output >= 2.6) * (new_equipment_rated_output < 9.2)),    
+            ((new_equipment_rated_output >= 9.2) * (new_equipment_rated_output < 41)),    
+            ((new_equipment_rated_output >= 41) * (new_equipment_rated_output < 100)),    
+            ((new_equipment_rated_output >= 100) * (new_equipment_rated_output <= 185)),    
+            (new_equipment_rated_output > 185)
+        ],
+        [
+            'under_0.73_kW',
+            '0.73_to_2.6kW',
+            '2.6_to_9.2kW',
+            '9.2_to_41kW',
+            '41_to_100kW',
+            '100_to_185kW',
+            'over_185kW'
+        ])
+
+        asset_life = parameters(period).ESS.HEAB.table_F7_4['asset_life'][rated_output_band]      
+
+        #peak demand savings capacity
         temp1 = baseline_input_power * baseline_peak_adjustment_factor
         temp2 = input_power * baseline_peak_adjustment_factor
 
-        peak_demand_annual_savings = ((temp1 - temp2) * firmness_factor) * summer_peak_demand_reduction_duration
-        return peak_demand_annual_savings
-    
+        peak_demand_savings_capacity = ((temp1 - temp2) * firmness_factor)
+       
+        #peak demand reduction capacity
+        peak_demand_annual_savings = (peak_demand_savings_capacity * summer_peak_demand_duration * asset_life)
+
+        peak_demand_annual_savings_return = np.select([
+                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+            ],
+            [
+                0, peak_demand_annual_savings
+            ])
+        
+        return peak_demand_annual_savings_return
+        
 
 class SYS1_peak_demand_reduction_capacity(Variable):
     value_type = float

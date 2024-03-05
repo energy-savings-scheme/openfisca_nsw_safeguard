@@ -149,7 +149,7 @@ class HVAC2_peak_demand_annual_savings(Variable):
                 ])
 
         #baseline peak adjustment factor
-        usage_factor = 0.72
+        usage_factor = 0.6
         climate_zone = buildings('HVAC2_BCA_climate_zone_by_postcode', period)
         temp_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
 
@@ -174,9 +174,18 @@ class HVAC2_peak_demand_annual_savings(Variable):
 
         #peak demand annual savings
         summer_peak_demand_duration = 6
+        lifetime = 10
 
-        peak_demand_annual_savings = peak_demand_savings_activity * summer_peak_demand_duration
-        return peak_demand_annual_savings
+        peak_demand_annual_savings = peak_demand_savings_activity * summer_peak_demand_duration * lifetime
+    
+        peak_demand_annual_savings_return = np.select([
+                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+            ], 
+	        [
+                0, peak_demand_annual_savings
+            ])
+        
+        return peak_demand_annual_savings_return
 
 
 class HVAC2_peak_demand_reduction_capacity(Variable):

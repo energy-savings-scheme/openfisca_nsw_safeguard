@@ -292,11 +292,29 @@ class RF2_annual_energy_savings(Variable):
                 12,
                 12
             ])
-              
-        annual_energy_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
-        return annual_energy_savings
+      
+        #deemed electricity savings
+        deemed_electricity_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
+    
+        #regional network factor
+        postcode = buildings('RF2_PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        regional_network_factor = rnf.calc(postcode) 
 
+        #electricity savings
+        annual_energy_savings = deemed_electricity_savings * regional_network_factor
 
+        annual_savings_return = np.select([
+            annual_energy_savings <= 0, annual_energy_savings > 0
+        ], 
+	    [
+            0, annual_energy_savings
+        ])
+        print('regional_network_factor', regional_network_factor)
+        print('baseline_EEI', baseline_EEI)
+        print('deemed_electricity_savings', deemed_electricity_savings)
+        return annual_savings_return
+    
 class RF2_PDRS__regional_network_factor(Variable):
     value_type = float
     entity = Building

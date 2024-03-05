@@ -123,6 +123,7 @@ class RF2_product_type_savings(Variable):
       "variable-type": "output",
     }
 
+
 class RF2_peak_demand_annual_savings(Variable):
     value_type = float
     entity = Building
@@ -278,11 +279,64 @@ class RF2_peak_demand_annual_savings(Variable):
         #peak demand savings capacity
         peak_demand_savings_capacity = ((baseline_peak_adjustment_factor * baseline_input_power) - (input_power * baseline_peak_adjustment_factor )) * firmness_factor
 
-        #peak demand annual savings
+        #lifetime
+        display_area_savings =  buildings('RF2_total_display_area', period)
+
+        lifetime_by_rc_class = np.select(
+            [
+                (product_class_savings == 1),
+                (product_class_savings == 2),
+                (product_class_savings == 3),
+                (product_class_savings == 4),
+                (product_class_savings == 5),
+                (product_class_savings == 6),
+                (product_class_savings == 9),
+                (product_class_savings == 10),
+                (product_class_savings == 7) * (display_area_savings < 3.3),
+                (product_class_savings == 8) * (display_area_savings < 3.3),
+                (product_class_savings == 11) * (display_area_savings < 3.3),
+                (product_class_savings == 7) * (display_area_savings >= 3.3),
+                (product_class_savings == 8) * (display_area_savings >= 3.3),
+                (product_class_savings == 11) * (display_area_savings >= 3.3),
+                (product_class_savings == 12),
+                (product_class_savings == 13),
+                (product_class_savings == 14),
+                (product_class_savings == 15)
+            ],
+            [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12
+            ])
+
+        #peak demand reduction capacity
         summer_peak_demand_reduction_duration = 6
 
-        peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration
-        return peak_demand_annual_savings
+        peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime_by_rc_class
+
+        peak_demand_annual_savings_return = np.select([
+                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+            ], 
+	        [
+                0, peak_demand_annual_savings
+            ])
+
+        return peak_demand_annual_savings_return
 
 
 class RF2_peak_demand_reduction_capacity(Variable):

@@ -9,7 +9,7 @@
   output:
     RF1_peak_demand_reduction_capacity:
       [
-        4.8825
+        4.882
       ]
 
 - name: test RF1 peak demand annual savings
@@ -24,8 +24,8 @@
   output:
     RF1_peak_demand_annual_savings:
       [
-        0.6975,
-        1.395
+        4.8825,
+        9.765
       ]
 
 - name: test RF1 PRC calculation

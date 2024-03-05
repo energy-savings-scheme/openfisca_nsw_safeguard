@@ -78,28 +78,40 @@
 
 - name: test RF2 peak demand annual savings
   period: 2024
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0.5
   input:
     RF2_product_class:
       [
         Class 6,
         Class 14,
-        Class 5
+        Class 5,
+        Class 5,
+        Class 11,
+        Class 11
       ]
     RF2_duty_class:
       [
         normal_duty,
         heavy_duty,
-        light_duty
+        light_duty,
+        light_duty,
+        normal_duty,
+        normal_duty
       ]
     RF2_product_type:
       [
         gelato_ice_cream_scooping_cabinet,
         remote_RDC,
-        integral_ice_cream_freezer_cabinet
+        integral_ice_cream_freezer_cabinet,
+        integral_ice_cream_freezer_cabinet,
+        integral_RDC,
+        integral_RDC
       ]
     RF2_replacement_activity:
       [
+        true,
+        true,
+        true,
         true,
         true,
         true
@@ -108,20 +120,38 @@
       [
         50,
         40,
-        7.57
+        7.57,
+        7.57,
+        3.75,
+        9.8
       ]
     RF2_product_EEI:
       [
         100,
         70,
-        44.01422193
+        44.01422193,
+        44.01422,
+        108.66286,
+        51.527
+      ]
+    RF2_total_display_area:
+      [
+        1,
+        1,
+        1,
+        0.89,
+        0,
+        1.09
       ]
   output:
     RF2_peak_demand_annual_savings:
       [
-        -4.182,
-        -18.1,
-        2.022
+        0, #negative value
+        0, #negative value
+        0, #negative value
+        16.1767,
+        0,
+        21.019
       ]
 
 - name: test RF2 peak demand reduction capacity

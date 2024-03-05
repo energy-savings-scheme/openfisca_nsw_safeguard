@@ -78,9 +78,25 @@ class SYS2_energy_savings(Variable):
         star_rating = buildings('SYS2_star_rating', period)
         savings_factor = parameters(period).ESS.HEER.table_D5_1['electricity_savings_factor'][star_rating]
 
-        annual_energy_savings = savings_factor
-        return annual_energy_savings
+        #regional network factor
+        postcode = buildings('SYS2_PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        regional_network_factor = rnf.calc(postcode)
+
+        #deemed electricity savings
+        deemed_electricity_savings = savings_factor
+
+        #annual energy savings
+        annual_energy_savings = deemed_electricity_savings * regional_network_factor
         
+        annual_savings_return = np.select([
+                annual_energy_savings <= 0, annual_energy_savings > 0
+            ], 
+            [
+                0, annual_energy_savings
+        ])
+        
+        return annual_savings_return
 
 class SYS2_electricity_savings(Variable):
     value_type = int

@@ -17,7 +17,7 @@ class D20_deemed_activity_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         Baseline_A = buildings('D20_Baseline_A', period)
-        a = 2.355
+        a = 2.31
         Bs = buildings('D20_Bs', period)
         Be = buildings('D20_Be', period)
 
@@ -59,15 +59,33 @@ class D20_annual_energy_savings(Variable):
         Baseline_B = parameters(period).ESS.HEER.table_D20_1['baseline_energy_consumption'][system_size_int]['baseline_B']
 
         #Deemed electricity savings
-        a = 2.320
+        a = 2.355
         Bs = buildings('D20_Bs', period)
         Be = buildings('D20_Be', period)
 
         deemed_electricity_savings = Baseline_A - (a * (Bs + Be))
         deemed_gas_savings = Baseline_B
+    
+        #regional network factor
+        postcode = buildings('D20_PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        regional_network_factor = rnf.calc(postcode)
 
-        annual_energy_savings = deemed_electricity_savings + deemed_gas_savings
-        return annual_energy_savings
+        #electricity savings
+        electricity_savings = deemed_electricity_savings * regional_network_factor
+   
+        #annual savings
+        annual_energy_savings = electricity_savings + deemed_gas_savings
+
+
+        annual_savings_return = np.select([
+                annual_energy_savings <= 0, annual_energy_savings > 0
+            ],
+            [
+                0, annual_energy_savings
+            ])
+        
+        return annual_savings_return
 
 
 class D20_electricity_savings(Variable):

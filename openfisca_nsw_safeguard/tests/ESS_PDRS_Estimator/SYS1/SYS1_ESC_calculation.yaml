@@ -146,6 +146,11 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
+    SYS1_PDRS__postcode:
+      [
+        2024,
+        2753
+      ]
     SYS1_replacement_activity:
       [
         false, #new install
@@ -194,7 +199,7 @@
   output:  
     SYS1_energy_savings:
       [
-        -30369.238,
+        0,
         41.501
       ]
 

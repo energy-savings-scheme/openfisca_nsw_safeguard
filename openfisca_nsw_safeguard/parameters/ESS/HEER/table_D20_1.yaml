@@ -7,17 +7,17 @@ baseline_energy_consumption:
     baseline_A:
       values:
         2023-01-01:
-          value: 0.73
+          value: 0.58
     baseline_B:
       values:
          2023-01-01:
-          value: 35.036
+          value: 60.85
   medium:
     baseline_A:
       values:
         2023-01-01:
-          value: 0.73
+          value: 0.58
     baseline_B:
       values:
          2023-01-01:
-          value: 59.171
+          value: 86.32

@@ -59,7 +59,7 @@ class D20_annual_energy_savings(Variable):
         Baseline_B = parameters(period).ESS.HEER.table_D20_1['baseline_energy_consumption'][system_size_int]['baseline_B']
 
         #Deemed electricity savings
-        a = 2.31
+        a = 2.355
         Bs = buildings('D20_Bs', period)
         Be = buildings('D20_Be', period)
 

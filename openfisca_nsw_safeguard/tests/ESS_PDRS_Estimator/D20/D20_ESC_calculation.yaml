@@ -88,8 +88,8 @@
   output:
      D20_Baseline_A:
       [
-        0.73,
-        0.73
+        0.58,
+        0.58
       ]
 
 - name: test D20 Baseline B (deemed gas savings) from system size
@@ -104,8 +104,8 @@
   output:
      D20_Baseline_B:
       [
-        35.036,
-        59.171
+        60.85,
+        86.32
       ]
 
 - name: test D20 deemed electricity savings
@@ -157,7 +157,9 @@
         system_size_small,
         system_size_medium,  #Chromagen 9302TOBP1108
         system_size_small,   #Rheem 511271/2CS07
-        system_size_medium   #Dux D2M36F202
+        system_size_medium,  #Dux D2M36F202
+        system_size_medium,  #Envirosun AS315/40/O/E24/E20HS-DM
+        system_size_small    #Apricus Australia AE-250-GL-BOT-30
       ]
     D20_Bs:   
       [
@@ -166,7 +168,9 @@
         2.5,
         4.231,
         3.18090,
-        2.679
+        2.679,
+        2.5856,
+        0
       ]
     D20_Be:
       [
@@ -175,7 +179,9 @@
         4.3,
         0,
         0.144,
-        0.0376
+        0.0376,
+        0.3022,
+        0
       ]
     D20_PDRS__postcode:
       [
@@ -184,17 +190,21 @@
         2801, #rnf 1.03
         2024, #rnf 1
         2729, #rnf 1.03
-        2024  #rnf 1
+        2024, #rnf 1
+        2148, #rnf 1
+        2800  #rnf 1.03
       ]
   output:
     D20_annual_energy_savings:
       [
-        4.857,
-        0,
-        19.61,
-        50.12739,
-        27.877,
-        53.626   
+        29.914,
+        14.148,
+        44.953,
+        76.936,
+        53.382,
+        80.502,
+        80.099,
+        61.447
       ]
 
 - name: test D20 electricity savings

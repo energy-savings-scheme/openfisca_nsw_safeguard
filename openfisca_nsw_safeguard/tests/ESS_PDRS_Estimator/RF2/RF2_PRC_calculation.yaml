@@ -80,19 +80,19 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    RF2_product_class_peak_savings:
+    RF2_product_class:
       [
-        product_class_six,
-        product_class_fourteen,
-        product_class-five
+        Class 6,
+        Class 14,
+        Class 5
       ]
-    RF2_duty_class_peak_savings:
+    RF2_duty_class:
       [
         normal_duty,
         heavy_duty,
         light_duty
       ]
-    RF2_product_type_savings:
+    RF2_product_type:
       [
         gelato_ice_cream_scooping_cabinet,
         remote_RDC,
@@ -121,7 +121,7 @@
       [
         -4.182,
         -18.1,
-        2.7442613
+        2.022
       ]
 
 - name: test RF2 peak demand reduction capacity

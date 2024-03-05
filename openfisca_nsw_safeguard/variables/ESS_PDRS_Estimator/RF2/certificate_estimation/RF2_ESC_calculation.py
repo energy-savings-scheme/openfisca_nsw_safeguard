@@ -155,10 +155,45 @@ class RF2_annual_energy_savings(Variable):
 
     def formula(buildings, period, parameters):
         #product class
-        product_class_savings = buildings('RF2_product_class_savings', period)
-
+        product_class_savings = buildings('RF2_product_class', period)
+        
+        product_class_savings = np.select([
+            product_class_savings == 'Class 1',
+            product_class_savings == 'Class 2',
+            product_class_savings == 'Class 3',
+            product_class_savings == 'Class 4',
+            product_class_savings == 'Class 5',
+            product_class_savings == 'Class 6',
+            product_class_savings == 'Class 7',
+            product_class_savings == 'Class 8',
+            product_class_savings == 'Class 9',
+            product_class_savings == 'Class 10',
+            product_class_savings == 'Class 11',
+            product_class_savings == 'Class 12',
+            product_class_savings == 'Class 13',
+            product_class_savings == 'Class 14',
+            product_class_savings == 'Class 15',
+        ], 
+        [
+            RF2ProductClass.product_class_one,
+            RF2ProductClass.product_class_two,
+            RF2ProductClass.product_class_three,
+            RF2ProductClass.product_class_four,
+            RF2ProductClass.product_class_five,
+            RF2ProductClass.product_class_six,
+            RF2ProductClass.product_class_seven,
+            RF2ProductClass.product_class_eight,
+            RF2ProductClass.product_class_nine,
+            RF2ProductClass.product_class_ten,
+            RF2ProductClass.product_class_eleven,
+            RF2ProductClass.product_class_twelve,
+            RF2ProductClass.product_class_thirteen,
+            RF2ProductClass.product_class_fourteen,
+            RF2ProductClass.product_class_fifteen         
+      ])
+        
         #duty class
-        duty_type = buildings('RF2_duty_class_savings', period)
+        duty_type = buildings('RF2_duty_class', period)
 
         #replacement activity
         replacement_activity = buildings('RF2_replacement_activity', period)
@@ -187,13 +222,35 @@ class RF2_annual_energy_savings(Variable):
                 parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class_savings][duty_type],
                 parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class_savings][duty_type]
             ])
-        
+                
         #product EEI
         product_EEI = buildings('RF2_product_EEI', period)
 
         #lifetime_by_rc_class
         display_area_savings =  buildings('RF2_total_display_area', period)
         
+        product_class_savings = np.select([
+            product_class_savings == RF2ProductClass.product_class_one,
+            product_class_savings == RF2ProductClass.product_class_two,
+            product_class_savings == RF2ProductClass.product_class_three,
+            product_class_savings == RF2ProductClass.product_class_four,
+            product_class_savings == RF2ProductClass.product_class_five,
+            product_class_savings == RF2ProductClass.product_class_six,
+            product_class_savings == RF2ProductClass.product_class_seven,
+            product_class_savings == RF2ProductClass.product_class_eight,
+            product_class_savings == RF2ProductClass.product_class_nine,
+            product_class_savings == RF2ProductClass.product_class_ten,
+            product_class_savings == RF2ProductClass.product_class_eleven,
+            product_class_savings == RF2ProductClass.product_class_twelve,
+            product_class_savings == RF2ProductClass.product_class_thirteen,
+            product_class_savings == RF2ProductClass.product_class_fourteen,
+            product_class_savings == RF2ProductClass.product_class_fifteen
+        ],
+        [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+        ]
+        )
+                
         lifetime_by_rc_class = np.select(
             [
                 (product_class_savings == 1),
@@ -235,7 +292,7 @@ class RF2_annual_energy_savings(Variable):
                 12,
                 12
             ])
-      
+              
         annual_energy_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
         return annual_energy_savings
 

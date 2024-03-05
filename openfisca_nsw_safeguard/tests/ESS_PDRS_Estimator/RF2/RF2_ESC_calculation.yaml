@@ -395,10 +395,10 @@
         16.7,
         32
       ]
-    RF2_product_class_savings:
+    RF2_product_class:
       [
-        product_class_five,
-        product_class_three
+        Class 5,
+        Class 3
       ]
     RF2_duty_class:
       [

@@ -134,40 +134,75 @@ class RF2_peak_demand_annual_savings(Variable):
 
     def formula(buildings, period, parameters):
         #product class
-        product_class_savings = buildings('RF2_product_class_peak_savings', period)
+        product_class = buildings('RF2_product_class', period)
 
         #duty class
-        duty_type = buildings('RF2_duty_class_peak_savings', period)
+        duty_type = buildings('RF2_duty_class', period)
+        
+        product_class = np.select([
+            product_class == 'Class 1',
+            product_class == 'Class 2',
+            product_class == 'Class 3',
+            product_class == 'Class 4',
+            product_class == 'Class 5',
+            product_class == 'Class 6',
+            product_class == 'Class 7',
+            product_class == 'Class 8',
+            product_class == 'Class 9',
+            product_class == 'Class 10',
+            product_class == 'Class 11',
+            product_class == 'Class 12',
+            product_class == 'Class 13',
+            product_class == 'Class 14',
+            product_class == 'Class 15',
+        ], 
+        [
+            RF2ProductClass.product_class_one,
+            RF2ProductClass.product_class_two,
+            RF2ProductClass.product_class_three,
+            RF2ProductClass.product_class_four,
+            RF2ProductClass.product_class_five,
+            RF2ProductClass.product_class_six,
+            RF2ProductClass.product_class_seven,
+            RF2ProductClass.product_class_eight,
+            RF2ProductClass.product_class_nine,
+            RF2ProductClass.product_class_ten,
+            RF2ProductClass.product_class_eleven,
+            RF2ProductClass.product_class_twelve,
+            RF2ProductClass.product_class_thirteen,
+            RF2ProductClass.product_class_fourteen,
+            RF2ProductClass.product_class_fifteen         
+      ])
         
         #product type
         is_integral_RDC = (
-                            (product_class_savings == RF2ProductClass.product_class_one) +
-                            (product_class_savings == RF2ProductClass.product_class_two) +
-                            (product_class_savings == RF2ProductClass.product_class_seven) +
-                            (product_class_savings == RF2ProductClass.product_class_eight) +
-                            (product_class_savings == RF2ProductClass.product_class_eleven)
+                            (product_class == RF2ProductClass.product_class_one) +
+                            (product_class == RF2ProductClass.product_class_two) +
+                            (product_class == RF2ProductClass.product_class_seven) +
+                            (product_class == RF2ProductClass.product_class_eight) +
+                            (product_class == RF2ProductClass.product_class_eleven)
                             )
 
         is_integral_ice_cream_freezer_cabinet = (
-                            (product_class_savings == RF2ProductClass.product_class_five)
+                            (product_class == RF2ProductClass.product_class_five)
         )
 
         is_remote_RDC = (
-                            (product_class_savings == RF2ProductClass.product_class_twelve) +
-                            (product_class_savings == RF2ProductClass.product_class_thirteen) +
-                            (product_class_savings == RF2ProductClass.product_class_fourteen) +
-                            (product_class_savings == RF2ProductClass.product_class_fifteen)
+                            (product_class == RF2ProductClass.product_class_twelve) +
+                            (product_class == RF2ProductClass.product_class_thirteen) +
+                            (product_class == RF2ProductClass.product_class_fourteen) +
+                            (product_class == RF2ProductClass.product_class_fifteen)
         )
 
         is_gelato_or_icecream_scooping_cabinets = (
-                            (product_class_savings == RF2ProductClass.product_class_six)
+                            (product_class == RF2ProductClass.product_class_six)
         )
 
         is_RSC = (
-                            (product_class_savings == RF2ProductClass.product_class_three) +
-                            (product_class_savings == RF2ProductClass.product_class_four) +
-                            (product_class_savings == RF2ProductClass.product_class_nine) +
-                            (product_class_savings == RF2ProductClass.product_class_ten)
+                            (product_class == RF2ProductClass.product_class_three) +
+                            (product_class == RF2ProductClass.product_class_four) +
+                            (product_class == RF2ProductClass.product_class_nine) +
+                            (product_class == RF2ProductClass.product_class_ten)
         )
 
         product_type = np.select(
@@ -187,6 +222,8 @@ class RF2_peak_demand_annual_savings(Variable):
                                     ])
 
         #baseline peak adjustment factor
+        print(product_type)
+        print(duty_type)
         usage_factor = 1
         temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2['temperature_factor'][product_type][duty_type]
         
@@ -202,8 +239,8 @@ class RF2_peak_demand_annual_savings(Variable):
                 replacement_activity
             ],
             [
-                parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class_savings][duty_type],
-                parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class_savings][duty_type]
+                parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
+                parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
             ])
         
         #tec
@@ -216,8 +253,8 @@ class RF2_peak_demand_annual_savings(Variable):
                 np.logical_not(replacement_activity) #new install
             ],
             [
-                parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class_savings][duty_type],
-                parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class_savings][duty_type]
+                parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type],
+                parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
             ])
 
         #product EEI

@@ -281,27 +281,49 @@ class RF2_peak_demand_annual_savings(Variable):
 
         #lifetime
         display_area_savings =  buildings('RF2_total_display_area', period)
+        
+        product_class = np.select([
+            product_class == RF2ProductClass.product_class_one,
+            product_class == RF2ProductClass.product_class_two,
+            product_class == RF2ProductClass.product_class_three,
+            product_class == RF2ProductClass.product_class_four,
+            product_class == RF2ProductClass.product_class_five,
+            product_class == RF2ProductClass.product_class_six,
+            product_class == RF2ProductClass.product_class_seven,
+            product_class == RF2ProductClass.product_class_eight,
+            product_class == RF2ProductClass.product_class_nine,
+            product_class == RF2ProductClass.product_class_ten,
+            product_class == RF2ProductClass.product_class_eleven,
+            product_class == RF2ProductClass.product_class_twelve,
+            product_class == RF2ProductClass.product_class_thirteen,
+            product_class == RF2ProductClass.product_class_fourteen,
+            product_class == RF2ProductClass.product_class_fifteen
+        ],
+        [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+        ]
+        )
 
         lifetime_by_rc_class = np.select(
             [
-                (product_class_savings == 1),
-                (product_class_savings == 2),
-                (product_class_savings == 3),
-                (product_class_savings == 4),
-                (product_class_savings == 5),
-                (product_class_savings == 6),
-                (product_class_savings == 9),
-                (product_class_savings == 10),
-                (product_class_savings == 7) * (display_area_savings < 3.3),
-                (product_class_savings == 8) * (display_area_savings < 3.3),
-                (product_class_savings == 11) * (display_area_savings < 3.3),
-                (product_class_savings == 7) * (display_area_savings >= 3.3),
-                (product_class_savings == 8) * (display_area_savings >= 3.3),
-                (product_class_savings == 11) * (display_area_savings >= 3.3),
-                (product_class_savings == 12),
-                (product_class_savings == 13),
-                (product_class_savings == 14),
-                (product_class_savings == 15)
+                (product_class == 1),
+                (product_class == 2),
+                (product_class == 3),
+                (product_class == 4),
+                (product_class == 5),
+                (product_class == 6),
+                (product_class == 9),
+                (product_class == 10),
+                (product_class == 7) * (display_area_savings < 3.3),
+                (product_class == 8) * (display_area_savings < 3.3),
+                (product_class == 11) * (display_area_savings < 3.3),
+                (product_class == 7) * (display_area_savings >= 3.3),
+                (product_class == 8) * (display_area_savings >= 3.3),
+                (product_class == 11) * (display_area_savings >= 3.3),
+                (product_class == 12),
+                (product_class == 13),
+                (product_class == 14),
+                (product_class == 15)
             ],
             [
                 8,

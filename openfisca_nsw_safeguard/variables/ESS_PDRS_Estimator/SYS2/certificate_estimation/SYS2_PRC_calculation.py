@@ -162,9 +162,6 @@ class SYS2_peak_demand_annual_savings(Variable):
                 0, peak_demand_annual_savings
             ])
         
-        print('input power', input_power)
-        print('peak_adjustment_factor', peak_adjustment_factor)
-        print('baseline_input_power', baseline_input_power)
         return peak_demand_annual_savings_return        
 
 

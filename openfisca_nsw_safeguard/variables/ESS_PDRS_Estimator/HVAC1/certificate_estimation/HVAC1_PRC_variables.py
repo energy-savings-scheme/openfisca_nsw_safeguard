@@ -24,7 +24,8 @@ class HVAC1_input_power(Variable):
     metadata = {
         'display_question' : 'Rated cooling input power at 35C as recorded in the GEMS registry',
         'sorting' : 9,
-        'label': 'Rated cooling input power (kW)'
+        'label': 'Rated cooling input power (kW)',
+        'variable-type': 'input'
     }
     
 

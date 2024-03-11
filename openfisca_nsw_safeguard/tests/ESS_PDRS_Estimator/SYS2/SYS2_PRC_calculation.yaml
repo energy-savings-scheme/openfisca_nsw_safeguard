@@ -92,23 +92,27 @@
     SYS2_pool_size:
       [
         pool_under_20000_L,
-        pool_50001_to_60000_L
+        pool_50001_to_60000_L,
+        pool_under_20000_L  #Noria ECO100
       ]
     SYS2_pool_pump_type:
       [
         variable_speed_pool_pump,
-        single_speed_pool_pump
+        single_speed_pool_pump,
+        variable_speed_pool_pump
       ]
     SYS2_star_rating:
       [
         six_stars,
-        five_stars
+        five_stars,
+        four_and_a_half_stars
       ]
   output:
     SYS2_peak_demand_annual_savings:
       [
         2.84256,
-        4.49568
+        4.49568,
+        2.338
       ]
 
 - name: test SYS2 peak demand annual savings master tester

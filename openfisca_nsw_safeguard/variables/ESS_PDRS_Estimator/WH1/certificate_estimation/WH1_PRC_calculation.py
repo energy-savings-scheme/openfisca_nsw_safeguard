@@ -89,10 +89,24 @@ class WH1_peak_demand_annual_savings(Variable):
         firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH1']
 
         #peak demand savings capacity
-        summer_peak_demand_reduction_duration = 6
-        peak_demand_annual_savings = ((baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor * firmness_factor)) * summer_peak_demand_reduction_duration
+        peak_demand_savings_capacity = ((baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor) * firmness_factor)
         
-        return peak_demand_annual_savings
+        #lifetime
+        lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
+        
+        #peak demand reduction capacity
+        summer_peak_duration = 6
+
+        peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_duration * lifetime
+
+        peak_demand_annual_savings_return = np.select([
+                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+            ], 
+	        [
+                0, peak_demand_annual_savings
+            ])
+        
+        return peak_demand_annual_savings_return
         
 
 class WH1_peak_demand_reduction_capacity(Variable):

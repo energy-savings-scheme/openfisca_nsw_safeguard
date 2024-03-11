@@ -398,13 +398,13 @@
         3.75, #Bakers Mate BMC1
         9.80  #Bonvue C4RF9
       ]
-    RF2_product_class_savings:
+    RF2_product_class:
       [
-        product_class_five,
-        product_class_three,
-        product_class_five,
-        product_class_eleven,
-        product_class_eleven
+        Class 5,
+        Class 3,
+        Class 5,
+        Class 11,
+        Class 11
       ]
     RF2_duty_class:
       [

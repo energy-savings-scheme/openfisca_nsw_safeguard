@@ -80,16 +80,16 @@
   period: 2024
   absolute_error_margin: 0.5
   input:
-    RF2_product_class_peak_savings:
+    RF2_product_class:
       [
-        product_class_six,
-        product_class_fourteen,
-        product_class-five,
-        product_class_five,   #ANVIL DGV0530
-        product_class_eleven, #Bakers Mate BMC1
-        product_class_eleven  #Bonvue C4RF9
+        Class 6,
+        Class 14,
+        Class 5,
+        Class 5,
+        Class 11,
+        Class 11
       ]
-    RF2_duty_class_peak_savings:
+    RF2_duty_class:
       [
         normal_duty,
         heavy_duty,
@@ -98,7 +98,7 @@
         normal_duty,
         normal_duty
       ]
-    RF2_product_type_savings:
+    RF2_product_type:
       [
         gelato_ice_cream_scooping_cabinet,
         remote_RDC,
@@ -148,8 +148,8 @@
       [
         0, #negative value
         0, #negative value
-        0, #negative value
         16.1767,
+        16.17,
         0,
         21.019
       ]

@@ -22,10 +22,10 @@ class HVAC2_input_power(Variable):
     definition_period = ETERNITY
     label = 'Rated cooling input power (kW)'
     metadata = {
-        'variable-type' : 'inter-interesting',
         'display_question' : 'Rated cooling input power at 35C as recorded in the GEMS registry',
         'label' : 'Rated cooling input power (kW)',
-        'variable-type': 'user-input'
+        'variable-type': 'user-input',
+        'sorting' : 11
     }
 
 

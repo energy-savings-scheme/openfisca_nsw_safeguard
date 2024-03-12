@@ -16,41 +16,22 @@ class WH1_capacity_factor(Variable):
     }
 
     def formula(buildings, period, parameters):
-      HP_Cap = buildings('WH1_HP_capacity_factor', period)
-      WH_Cap = buildings('WH1_WH_capacity_factor', period)
+      HP_cap = buildings('WH1_HP_capacity_factor', period)
+      WH_cap = buildings('WH1_WH_capacity_factor', period)
 
       capacity_factor = np.select(
                                  [
-                                    (HP_Cap <= WH_Cap),
-                                    (HP_Cap > WH_Cap)
+                                    (HP_cap <= WH_cap),
+                                    (HP_cap > WH_cap)
                                  ],
                                  [
                                     1,
-                                    WH_Cap / HP_Cap
+                                    WH_cap / HP_cap
                                  ]
                                  )
 
       return capacity_factor
-
-
-class WH1_deemed_activity_gas_savings(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = 'Deemed activity gas savings'
-    metadata = {
-        "variable-type": "output"
-    }
-
-    def formula(buildings, period, parameters):
-      HP_gas = buildings('WH1_HP_gas', period)
-      capacity_factor = buildings('WH1_capacity_factor', period)
-      lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
-
-      gas_savings = -(HP_gas) * capacity_factor * (lifetime / 3.6)
-
-      return gas_savings
-
+    
 
 class WH1_Ref_Elec(Variable):
     """ Annual Electrical Energy used by a reference electric resistance water heater in a year
@@ -69,7 +50,25 @@ class WH1_Ref_Elec(Variable):
         # we divide this by 1000 to convert MJ to GJ
         ref_elec = 365 * 0.905 * 1.05 * (com_peak_load / 1000)
         return ref_elec
+    
 
+class WH1_deemed_activity_gas_savings(Variable):
+    #this is the deemed gas savings for a replacing electric equipment
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+      HP_gas = buildings('WH1_HP_gas', period)
+      capacity_factor = buildings('WH1_capacity_factor', period)
+      lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
+
+      deemed_gas_savings = (-HP_gas) * capacity_factor * (lifetime / 3.6)
+      return deemed_gas_savings
+    
 
 class WH1_deemed_activity_electricity_savings(Variable):
     value_type = float
@@ -82,21 +81,20 @@ class WH1_deemed_activity_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         ref_elec = buildings('WH1_Ref_Elec', period)
-        hp_elec = buildings('WH1_HP_elec', period)
+        HP_elec = buildings('WH1_HP_elec', period)
         capacity_factor = buildings('WH1_capacity_factor', period)
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
-        electricity_savings = (ref_elec - hp_elec) * capacity_factor * (lifetime / 3.6)
-        return electricity_savings
+        deemed_electricity_savings = (ref_elec - HP_elec) * capacity_factor * (lifetime / 3.6)
+        return deemed_electricity_savings    
 
 
 class WH1_energy_savings(Variable):
     value_type = float  
     entity = Building
     definition_period = ETERNITY
-    label = 'Deemed activity electricity savings'
     metadata = {
-        "variable-type": "output"
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):
@@ -105,8 +103,11 @@ class WH1_energy_savings(Variable):
         
         ref_elec = 365 * 0.905 * 1.05 * (com_peak_load / 1000)
 
-        #hp elec
-        hp_elec = buildings('WH1_HP_elec', period)
+        #HP elec
+        HP_elec = buildings('WH1_HP_elec', period)
+
+        #HP gas
+        HP_gas = buildings('WH1_HP_gas', period)
 
         #capacity factor
         HP_Cap = buildings('WH1_HP_capacity_factor', period)
@@ -125,12 +126,23 @@ class WH1_energy_savings(Variable):
         #lifetime
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
-        #gas savings
-        HP_gas = buildings('WH1_HP_gas', period)
-        gas_savings = -(HP_gas) * capacity_factor * (lifetime / 3.6)
+        #gas savings for replacing electric
+        deemed_gas_savings = (-HP_gas) * capacity_factor * (lifetime / 3.6)
 
-        annual_energy_savings = (ref_elec - hp_elec) * capacity_factor * (lifetime / 3.6) + gas_savings
-        return annual_energy_savings
+        #electricity savings for replacing electric
+        deemed_electricity_savings = (ref_elec - HP_elec) * capacity_factor * (lifetime / 3.6)
+       
+        #annual energy savings
+        annual_energy_savings = deemed_electricity_savings + deemed_gas_savings
+    
+        annual_savings_return = np.select([
+            annual_energy_savings <= 0, annual_energy_savings > 0
+        ], 
+	    [
+            0, annual_energy_savings
+        ])
+        
+        return annual_savings_return
 
 
 class WH1_electricity_savings(Variable):

@@ -310,9 +310,6 @@ class RF2_annual_energy_savings(Variable):
 	    [
             0, annual_energy_savings
         ])
-        print('regional_network_factor', regional_network_factor)
-        print('baseline_EEI', baseline_EEI)
-        print('deemed_electricity_savings', deemed_electricity_savings)
         return annual_savings_return
     
 class RF2_PDRS__regional_network_factor(Variable):

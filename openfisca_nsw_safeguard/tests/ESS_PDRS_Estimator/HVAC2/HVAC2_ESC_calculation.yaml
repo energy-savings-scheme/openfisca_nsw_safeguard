@@ -288,58 +288,79 @@
       [
         8,
         1.6, #Kogan KAHCWDAC16A
-        
+        2.8, #SPT AW028C-1/AW028E
+        2.5  #Emerald Energy ACSS25
       ]
     HVAC2_Air_Conditioner_type:
       [
         non_ducted_split_system,
+        non_ducted_split_system,
+        ducted_unitary_system,
         non_ducted_split_system
       ]
     HVAC2_Activity:
       [
         new_installation_activity,
-        new_installation_activity
+        new_installation_activity,
+        replacement_activity,
+        replacement_activity
       ]
     HVAC2_certificate_climate_zone:
       [
         2,
+        2,
+        3,  #cold
         2
       ]
     HVAC2_rated_AEER_input:
       [
         10,
-        3.1658
+        3.1658,
+        5.454,
+        4.7582
       ]
     HVAC2_commercial_TCEC:
       [
         0,
-        207
+        207,
+        107,
+        272
       ]
     HVAC2_heating_capacity_input:
       [
         4,
-        0
+        0,
+        2.85,
+        3.2
       ]
     HVAC2_rated_ACOP_input:
       [
         5,
-        0
+        0,
+        5.5514,
+        4.7379
       ]
     HVAC2_commercial_THEC:
       [
         0,
-        0
+        0,
+        232,
+        163
       ]
     HVAC2_PDRS__postcode:
       [
         2024, #rnf 1
-        2024
+        2024,
+        2800, #rnf 1.03
+        2423  #rnf 1.03
       ]
   output:
     HVAC2_annual_energy_savings:
       [
         16.813,
-        1.43
+        1.432,
+        10.1558,
+        6.32
       ]
 
 - name: test Electricity Savings Mitsubishi

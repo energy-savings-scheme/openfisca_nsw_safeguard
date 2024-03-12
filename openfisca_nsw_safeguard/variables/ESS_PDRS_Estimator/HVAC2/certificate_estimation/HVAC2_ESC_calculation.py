@@ -279,7 +279,7 @@ class HVAC2_annual_energy_savings(Variable):
       rated_AEER = buildings('HVAC2_rated_AEER_input', period)
 
       #cooling annual energy use
-      annual_cooling = np.select([  
+      annual_cooling = np.select([
                     rated_AEER == 0,
                     (cooling_capacity * equivalent_cooling_hours) > 0, 
                     (cooling_capacity * equivalent_cooling_hours) == 0,
@@ -416,7 +416,7 @@ class HVAC2_annual_energy_savings(Variable):
 
       #deemed electricity savings
       deemed_electricity_savings = np.multiply(((reference_cooling - tcec_or_annual_cooling) + (reference_heating - thec_or_annual_heating)), (lifetime / 1000))
-      
+  
       #regional network factor
       postcode = buildings('HVAC2_PDRS__postcode', period)
       rnf = parameters(period).PDRS.table_A24_regional_network_factor
@@ -443,11 +443,9 @@ class HVAC2_PDRS__regional_network_factor(Variable):
             ' A corresponding to the postcode of the Address of the Site or' \
             ' Sites where the Implementation(s) took place.'
     metadata = {
-        "variable-type": "inter-interesting",
-        "alias":"PDRS Regional Network Factor",
-        "display_question": "PDRS regional network factor",
-        "variable-type": "inter-interesting"
-    }
+        'variable-type': 'inter-interesting',
+        'display_question': 'PDRS regional network factor'
+        }
 
     def formula(buildings, period, parameters):
         postcode = buildings('HVAC2_PDRS__postcode', period)
@@ -470,8 +468,8 @@ class HVAC2_electricity_savings(Variable):
         deemed_electricity_savings = buildings('HVAC2_deemed_activity_electricity_savings', period)   
         regional_network_factor = buildings('HVAC2_PDRS__regional_network_factor', period)
 
-        HVAC2_electricity_savings = (deemed_electricity_savings * regional_network_factor)
-        return HVAC2_electricity_savings
+        electricity_savings = (deemed_electricity_savings * regional_network_factor)
+        return electricity_savings
 
 
 class HVAC2_ESC_calculation(Variable):
@@ -484,14 +482,14 @@ class HVAC2_ESC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-      HVAC2_electricity_savings = buildings('HVAC2_electricity_savings', period)
+      electricity_savings = buildings('HVAC2_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
       HVAC2_TCSPF_or_AEER_exceeds_benchmark = buildings('HVAC2_TCSPF_or_AEER_exceeds_benchmark', period)
     
       heating_capacity = buildings('HVAC2_heating_capacity_input', period)
       zero_heating_capacity = ( heating_capacity == 0)
 
-      result = np.floor(HVAC2_electricity_savings * electricity_certificate_conversion_factor)      
+      result = np.floor(electricity_savings * electricity_certificate_conversion_factor)      
       result_meet_elig = np.select([
                             np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_benchmark,
                             np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_benchmark),

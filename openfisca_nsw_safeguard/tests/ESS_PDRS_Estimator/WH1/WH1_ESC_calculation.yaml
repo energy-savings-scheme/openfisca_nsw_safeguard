@@ -122,7 +122,7 @@
         10,
         3,
         9.62,
-        9.62,
+        9.54,
         8.75
       ]
     WH1_HP_capacity_factor:
@@ -152,10 +152,10 @@
   output:
     WH1_energy_savings:
       [
-        -76.88,
+        0, #negative value
         0.936,
         56.956,
-        61.58,
+        61.85,
         61
       ]
 
@@ -166,36 +166,42 @@
     WH1_Ref_Elec:
       [
         170.98,
-        32.949, #RNF1, Zone 3, Ecogenica EG215F
-        26.71   #EcoAlliance ECO-155LU
+        32.949, #Ecogenica EG215F
+        26.71,  #EcoAlliance ECO-155LU
+        63.47   #Emerald Energy EE-HWS-RCHPOU/EE-HWS-RCHP-200E-2
       ]
     WH1_HP_elec:
      [
         10.7,
         9.54,
-        9.62
+        9.62,
+        19.5
      ]
     WH1_HP_capacity_factor:
       [
         -33.33,
         3.6,
-        3.65
+        3.65,
+        3.64
       ]
     WH1_WH_capacity_factor:
       [
         -12.56,
         3.6,
-        3.65
+        3.65,
+        3.6
       ]
     WH1_PDRS__postcode:
       [
         2017,
-        2074,
+        2074, #RNF1
+        2000,
         2000
       ]
     WH1_HP_gas:
       [
         34,
+        0,
         0,
         0
       ]
@@ -204,7 +210,8 @@
       [
         513.06,
         82.71179,
-        60.36
+        60.36,
+        153.66
       ]
 
 - name: test WH1 ESC not eligible on new installation

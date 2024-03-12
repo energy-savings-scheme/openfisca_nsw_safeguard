@@ -223,8 +223,6 @@ class RF2_peak_demand_annual_savings(Variable):
                                     ])
 
         #baseline peak adjustment factor
-        print(product_type)
-        print(duty_type)
         usage_factor = 1
         temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2['temperature_factor'][product_type][duty_type]
         

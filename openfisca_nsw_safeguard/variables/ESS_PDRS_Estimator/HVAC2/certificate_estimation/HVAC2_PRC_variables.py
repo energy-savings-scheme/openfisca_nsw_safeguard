@@ -25,7 +25,7 @@ class HVAC2_input_power(Variable):
         'variable-type' : 'inter-interesting',
         'display_question' : 'Rated cooling input power at 35C as recorded in the GEMS registry',
         'label' : 'Rated cooling input power (kW)',
-        'variable-type': 'input'
+        'variable-type': 'user-input'
     }
 
 

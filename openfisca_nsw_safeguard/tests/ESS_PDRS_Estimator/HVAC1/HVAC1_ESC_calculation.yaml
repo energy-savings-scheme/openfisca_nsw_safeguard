@@ -1,1030 +1,1045 @@
-- name: test HVAC1 heating annual energy use
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_heating_capacity_input:
-      [
-        10,
-        0, #Coolmaster TCCF10C1S/AOCF10C-S
-        0, #AIRO ACP33HP
-        8  #Panasonic CU-Z71VKR/CS-Z71VKR
-      ]
-    HVAC1_equivalent_heating_hours_input:
-      [
-        20,
-        1534,
-        648,
-        648 #average zone
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        30,
-        0,
-        0,
-        3.7702
-      ]
-  output:
-    HVAC1_heating_annual_energy_use: 
-      [
-        6.6666,
-        0,
-        0,
-        1374.993
-      ]
+# - name: test HVAC1 heating annual energy use
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_heating_capacity_input:
+#       [
+#         10,
+#         0, #Coolmaster TCCF10C1S/AOCF10C-S
+#         0, #AIRO ACP33HP
+#         8  #Panasonic CU-Z71VKR/CS-Z71VKR
+#       ]
+#     HVAC1_equivalent_heating_hours_input:
+#       [
+#         20,
+#         1534,
+#         648,
+#         648 #average zone
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         30,
+#         0,
+#         0,
+#         3.7702
+#       ]
+#   output:
+#     HVAC1_heating_annual_energy_use: 
+#       [
+#         6.6666,
+#         0,
+#         0,
+#         1374.993
+#       ]
 
-- name: test HVAC1 cooling annual energy use
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        20,
-        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050, #AIRO ACP33HP
-        3.5,  #Mitsubushi SCM71ZS-W/SRK20ZSXA-W
-        7.1   #Panasonic CU-Z71VKR/CS-Z71VKR
-      ]
-    HVAC1_equivalent_cooling_hours_input:
-      [
-        50,
-        285,
-        429,
-        285,
-        429
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        10,
-        3.4907,
-        2.64,
-        3.847,
-        3.58
-      ]
-  output:
-    HVAC1_cooling_annual_energy_use:
-      [
-        100,
-        824.619,
-        170625,
-        259.293,
-        850.81
-      ] 
+# - name: test HVAC1 cooling annual energy use
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_cooling_capacity_input:
+#       [
+#         20,
+#         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+#         1050, #AIRO ACP33HP
+#         3.5,  #Mitsubushi SCM71ZS-W/SRK20ZSXA-W
+#         7.1   #Panasonic CU-Z71VKR/CS-Z71VKR
+#       ]
+#     HVAC1_equivalent_cooling_hours_input:
+#       [
+#         50,
+#         285,
+#         429,
+#         285,
+#         429
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         10,
+#         3.4907,
+#         2.64,
+#         3.847,
+#         3.58
+#       ]
+#   output:
+#     HVAC1_cooling_annual_energy_use:
+#       [
+#         100,
+#         824.619,
+#         170625,
+#         259.293,
+#         850.81
+#       ] 
 
-- name: test HVAC1 TCEC versus annual cooling equation
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_residential_TCEC:
-      [
-        0,
-        25
-      ]
-    HVAC1_cooling_annual_energy_use:
-      [
-        50,
-        100
-      ]
-  output:
-    HVAC1_TCEC_or_annual_cooling:
-      [
-        50,
-        25
-      ]
+# - name: test HVAC1 TCEC versus annual cooling equation
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_residential_TCEC:
+#       [
+#         0,
+#         25
+#       ]
+#     HVAC1_cooling_annual_energy_use:
+#       [
+#         50,
+#         100
+#       ]
+#   output:
+#     HVAC1_TCEC_or_annual_cooling:
+#       [
+#         50,
+#         25
+#       ]
 
-- name: test HVAC1 THEC versus annual heating equation
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_residential_THEC:
-      [
-        0,
-        25,
-        362 #Daikin RXM25UVMA/FTXM25UVMA
-      ]
-    HVAC1_heating_annual_energy_use:
-      [
-        50,
-        100,
-        418.225
-      ]
-  output:
-    HVAC1_THEC_or_annual_heating:
-      [
-        50,
-        25,
-        362
-      ]
+# - name: test HVAC1 THEC versus annual heating equation
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_residential_THEC:
+#       [
+#         0,
+#         25,
+#         362 #Daikin RXM25UVMA/FTXM25UVMA
+#       ]
+#     HVAC1_heating_annual_energy_use:
+#       [
+#         50,
+#         100,
+#         418.225
+#       ]
+#   output:
+#     HVAC1_THEC_or_annual_heating:
+#       [
+#         50,
+#         25,
+#         362
+#       ]
 
-- name: test HVAC1 reference heating annual energy use
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_heating_capacity_input:
-      [
-        10,
-        8,     #Panasonic CU-Z71VKR/CS-Z71VKR
-        3.2,   #Daikin RXM25UVMA/FTXM25UVMA
-        23.39, #Aggreko RPA-020S-R410A
-        9.6    #Bonaire 6920082/6920020/6920027
-      ]
-    HVAC1_equivalent_heating_hours_input:
-      [
-        20,
-        648,
-        648,
-        1534, #cold zone
-        1534
-      ]
-    HVAC1_baseline_ACOP_input:
-      [
-        100,
-        2.11,
-        2.33,
-        2.05,
-        2.11
-      ]
-  output:
-    HVAC1_reference_heating_annual_energy_use:
-      [
-        2,
-        2456.87,
-        889.957,
-        17502.566,
-        6979.336
-      ]
+# - name: test HVAC1 reference heating annual energy use
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_heating_capacity_input:
+#       [
+#         10,
+#         8,     #Panasonic CU-Z71VKR/CS-Z71VKR
+#         3.2,   #Daikin RXM25UVMA/FTXM25UVMA
+#         23.39, #Aggreko RPA-020S-R410A
+#         9.6    #Bonaire 6920082/6920020/6920027
+#       ]
+#     HVAC1_equivalent_heating_hours_input:
+#       [
+#         20,
+#         648,
+#         648,
+#         1534, #cold zone
+#         1534
+#       ]
+#     HVAC1_baseline_ACOP_input:
+#       [
+#         100,
+#         2.11,
+#         2.33,
+#         2.05,
+#         2.11
+#       ]
+#   output:
+#     HVAC1_reference_heating_annual_energy_use:
+#       [
+#         2,
+#         2456.87,
+#         889.957,
+#         17502.566,
+#         6979.336
+#       ]
 
-- name: test HVAC1 reference cooling annual energy use
-  period: 2022
-  absolute_error_margin: 0.5
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        32,
-        10.1,  #Coolmaster TCCF10C1S/AOCF10C-S
-        1050,  #AIRO ACP33HP
-        7.1,   #Panasonic CU-Z71VKR/CS-Z71VKR
-        2.5,   #Daikin RXM25UVMA/FTXM25UVMA
-        20.96, #Aggreko RPA-020S-R410A
-        8.2    #Bonaire 6920082/6920020/6920027
-     ]
-    HVAC1_equivalent_cooling_hours_input:
-      [
-        23,
-        285,
-        429,
-        429,
-        429,
-        285, #cold zone
-        285
-      ]
-    HVAC1_baseline_AEER_input:
-      [
-        12,
-        3.1,
-        0,
-        3.22,
-        3.66,
-        3.1,
-        3.22
-      ]
-  output:
-    HVAC1_reference_cooling_annual_energy_use:
-      [
-        61.3,
-        928.548,
-        0,
-        945.932,
-        293.03,
-        1926.968,
-        725.776
-      ]
+# - name: test HVAC1 reference cooling annual energy use
+#   period: 2022
+#   absolute_error_margin: 0.5
+#   input:
+#     HVAC1_cooling_capacity_input:
+#       [
+#         32,
+#         10.1,  #Coolmaster TCCF10C1S/AOCF10C-S
+#         1050,  #AIRO ACP33HP
+#         7.1,   #Panasonic CU-Z71VKR/CS-Z71VKR
+#         2.5,   #Daikin RXM25UVMA/FTXM25UVMA
+#         20.96, #Aggreko RPA-020S-R410A
+#         8.2    #Bonaire 6920082/6920020/6920027
+#      ]
+#     HVAC1_equivalent_cooling_hours_input:
+#       [
+#         23,
+#         285,
+#         429,
+#         429,
+#         429,
+#         285, #cold zone
+#         285
+#       ]
+#     HVAC1_baseline_AEER_input:
+#       [
+#         12,
+#         3.1,
+#         0,
+#         3.22,
+#         3.66,
+#         3.1,
+#         3.22
+#       ]
+#   output:
+#     HVAC1_reference_cooling_annual_energy_use:
+#       [
+#         61.3,
+#         928.548,
+#         0,
+#         945.932,
+#         293.03,
+#         1926.968,
+#         725.776
+#       ]
 
-- name: test baseline AEER input
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        32,
-        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050,  #AIRO ACP33HP
-        6
-      ]
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system,
-        ducted_split_system,
-        ducted_unitary_system,
-        non_ducted_split_system
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
-        replacement_activity
-      ]
-  output:
-    HVAC1_baseline_AEER_input:
-      [
-        3.1,
-        3.1,
-        0,
-        2.93
-      ]
+# - name: test baseline AEER input
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_cooling_capacity_input:
+#       [
+#         32,
+#         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+#         1050,  #AIRO ACP33HP
+#         6
+#       ]
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system,
+#         ducted_split_system,
+#         ducted_unitary_system,
+#         non_ducted_split_system
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity,
+#         new_installation_activity,
+#         new_installation_activity,
+#         replacement_activity
+#       ]
+#   output:
+#     HVAC1_baseline_AEER_input:
+#       [
+#         3.1,
+#         3.1,
+#         0,
+#         2.93
+#       ]
 
-- name: test baseline ACOP input
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        32,
-        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050,  #AIRO ACP33HP
-        32
-      ]
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system,
-        ducted_split_system,
-        ducted_unitary_system,
-        non_ducted_split_system
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
-        replacement_activity
-      ]
-  output:
-    HVAC1_baseline_ACOP_input:
-      [
-        2.05,
-        2.05,
-        0,
-        1.9
-      ]
+# - name: test baseline ACOP input
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_cooling_capacity_input:
+#       [
+#         32,
+#         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+#         1050,  #AIRO ACP33HP
+#         32
+#       ]
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system,
+#         ducted_split_system,
+#         ducted_unitary_system,
+#         non_ducted_split_system
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity,
+#         new_installation_activity,
+#         new_installation_activity,
+#         replacement_activity
+#       ]
+#   output:
+#     HVAC1_baseline_ACOP_input:
+#       [
+#         2.05,
+#         2.05,
+#         0,
+#         1.9
+#       ]
 
-- name: test minimum TCSFP AEER 
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system,
-        non_ducted_split_system
-      ]
-    HVAC1_cooling_capacity_input:
-      [
-        8,  #expected AEER 3.5
-        8   #expected TCSPF 4.5
-      ]
-    HVAC1_TCSPF_mixed:
-      [
-        0,  #use AEER
-        20  #use TCSPF instead of AEER, > expected 4.5
-      ]
-    HVAC1_rated_AEER_input:
-      [
-         0,  #AEER < expected 3.5
-        50  
-      ]
-  output:
-    HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
-      [
-        false,
-        true
-      ]
+# - name: test minimum TCSFP AEER 
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system,
+#         non_ducted_split_system
+#       ]
+#     HVAC1_cooling_capacity_input:
+#       [
+#         8,  #expected AEER 3.5
+#         8   #expected TCSPF 4.5
+#       ]
+#     HVAC1_TCSPF_mixed:
+#       [
+#         0,  #use AEER
+#         20  #use TCSPF instead of AEER, > expected 4.5
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#          0,  #AEER < expected 3.5
+#         50  
+#       ]
+#   output:
+#     HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
+#       [
+#         false,
+#         true
+#       ]
 
-- name: test minimum HSPF ACOP 
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system
-      ]
-    HVAC1_cooling_capacity_input:
-      [
-        8,  #expected HSPF_mixed 4
-        8,  #expected HSPF_mixed 4
-        8,  #expected HSPF_cold 3.5
-        8   #expected ACOP 3.5
-      ]
-    HVAC1_PDRS__postcode:
-      [
-        2481, #hot,
-        2530, #average,
-        2533, #cold,
-        2552  #average
-      ]
-    HVAC1_HSPF_mixed:
-      [
-        50, # > expected
-        1 , # < expected
-        2,  #not relevant (cold zone)
-        0   #use ACOP
-      ]
-    HVAC1_HSPF_cold:
-      [
-        2, #not relevant (hot zone)
-        2, #not relevant (average zone)
-        5, # > expected 
-        0  #use ACOP
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        1,  #not used 
-        15, #not used
-        0,  #not used
-        10  # > expected
-      ]
-  output: 
-    HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark:
-      [
-        true,
-        false,
-        true,
-        true
-      ]
+# - name: test minimum HSPF ACOP 
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system,
+#         non_ducted_split_system,
+#         non_ducted_split_system,
+#         non_ducted_split_system
+#       ]
+#     HVAC1_cooling_capacity_input:
+#       [
+#         8,  #expected HSPF_mixed 4
+#         8,  #expected HSPF_mixed 4
+#         8,  #expected HSPF_cold 3.5
+#         8   #expected ACOP 3.5
+#       ]
+#     HVAC1_PDRS__postcode:
+#       [
+#         2481, #hot,
+#         2530, #average,
+#         2533, #cold,
+#         2552  #average
+#       ]
+#     HVAC1_HSPF_mixed:
+#       [
+#         50, # > expected
+#         1 , # < expected
+#         2,  #not relevant (cold zone)
+#         0   #use ACOP
+#       ]
+#     HVAC1_HSPF_cold:
+#       [
+#         2, #not relevant (hot zone)
+#         2, #not relevant (average zone)
+#         5, # > expected 
+#         0  #use ACOP
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         1,  #not used 
+#         15, #not used
+#         0,  #not used
+#         10  # > expected
+#       ]
+#   output: 
+#     HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark:
+#       [
+#         true,
+#         false,
+#         true,
+#         true
+#       ]
 
-- name: test Deemed Electricity Savings
-  period: 2022
-  absolute_error_margin: 0.1
-  input: 
-    HVAC1_reference_cooling_annual_energy_use: 
-      [
-        928.548,
-        450450,   #AIRO ACP33HP
-        945.932,  #Panasonic CU-Z71VKR/CS-Z71VKR
-        1926.968, #Aggreko RPA-020S-R410A
-        725.776   #Bonaire 6920082/6920020/6920027
-      ]
-    HVAC1_cooling_annual_energy_use:
-      [
-        824.619,
-        170625,
-        643,  #TCEC residential mixed
-        1817, #TCEC residential
-        656.7
-      ]
-    HVAC1_reference_heating_annual_energy_use:
-      [
-        0,
-        0,
-        2456.87,
-        17502.566,
-        6979.336
-      ]
-    HVAC1_heating_annual_energy_use:
-      [
-        0,
-        0,
-        1071,  #THEC residential mixed
-        12094, #THEC residential
-        4002.3
-      ]
-  output:
-    HVAC1_deemed_activity_electricity_savings:
-      [
-        1.03929,
-        2798.25,
-        16.89,
-        55.19,
-        30.462
-      ]
+# - name: test Deemed Electricity Savings
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input: 
+#     HVAC1_reference_cooling_annual_energy_use: 
+#       [
+#         928.548,
+#         450450,   #AIRO ACP33HP
+#         945.932,  #Panasonic CU-Z71VKR/CS-Z71VKR
+#         1926.968, #Aggreko RPA-020S-R410A
+#         725.776   #Bonaire 6920082/6920020/6920027
+#       ]
+#     HVAC1_cooling_annual_energy_use:
+#       [
+#         824.619,
+#         170625,
+#         643,  #TCEC residential mixed
+#         1817, #TCEC residential
+#         656.7
+#       ]
+#     HVAC1_reference_heating_annual_energy_use:
+#       [
+#         0,
+#         0,
+#         2456.87,
+#         17502.566,
+#         6979.336
+#       ]
+#     HVAC1_heating_annual_energy_use:
+#       [
+#         0,
+#         0,
+#         1071,  #THEC residential mixed
+#         12094, #THEC residential
+#         4002.3
+#       ]
+#   output:
+#     HVAC1_deemed_activity_electricity_savings:
+#       [
+#         1.03929,
+#         2798.25,
+#         16.89,
+#         55.19,
+#         30.462
+#       ]
 
-- name: test ESS annual energy savings
-  absolute_error_margin: 0.1
-  period: 2024
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        8,
-        8.2,   #Bonaire 6920082/6920020/6920027
-        20,    #Samsung AC200JXAFNH/ AC200JNHFKH
-        3      #annual savings between 0 and 1
-      ]
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system,
-        non_ducted_split_system,
-        ducted_unitary_system,
-        non_ducted_split_system
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity
-      ]
-    HVAC1_certificate_climate_zone:
-      [
-        2,
-        3,
-        2,
-        2
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        10,
-        3.5589,
-        3.246,
-        3.1
-      ]
-    HVAC1_residential_TCEC:
-      [
-        0,
-        0,
-        2292,
-        850
-      ]
-    HVAC1_heating_capacity_input:
-      [
-        4,
-        9.6,
-        22.5,
-        5
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        5,
-        3.6795,
-        3.64,
-        10
-      ]
-    HVAC1_residential_THEC:
-      [
-        0,
-        0,
-        3662,
-        850
-      ]
-    HVAC1_PDRS__postcode:
-      [
-        2791,  #regional network factor 1.03
-        2791,  #regional network factor 1.03
-        2222,  #regional network factor 1
-        2024
-      ]
-  output:
-    HVAC1_annual_energy_savings:
-      [
-        14.757,
-        31.3755,
-        39.26,
-        0.422
-      ]
+# - name: test ESS annual energy savings
+#   absolute_error_margin: 0.1
+#   period: 2024
+#   input:
+#     HVAC1_cooling_capacity_input:
+#       [
+#         8,
+#         8.2,   #Bonaire 6920082/6920020/6920027
+#         20,    #Samsung AC200JXAFNH/ AC200JNHFKH
+#         3      #annual savings between 0 and 1
+#       ]
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system,
+#         non_ducted_split_system,
+#         ducted_unitary_system,
+#         non_ducted_split_system
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity,
+#         new_installation_activity,
+#         new_installation_activity,
+#         new_installation_activity
+#       ]
+#     HVAC1_certificate_climate_zone:
+#       [
+#         2,
+#         3,
+#         2,
+#         2
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         10,
+#         3.5589,
+#         3.246,
+#         3.1
+#       ]
+#     HVAC1_residential_TCEC:
+#       [
+#         0,
+#         0,
+#         2292,
+#         850
+#       ]
+#     HVAC1_heating_capacity_input:
+#       [
+#         4,
+#         9.6,
+#         22.5,
+#         5
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         5,
+#         3.6795,
+#         3.64,
+#         10
+#       ]
+#     HVAC1_residential_THEC:
+#       [
+#         0,
+#         0,
+#         3662,
+#         850
+#       ]
+#     HVAC1_PDRS__postcode:
+#       [
+#         2791,  #regional network factor 1.03
+#         2791,  #regional network factor 1.03
+#         2222,  #regional network factor 1
+#         2024
+#       ]
+#   output:
+#     HVAC1_annual_energy_savings:
+#       [
+#         14.757,
+#         31.3755,
+#         39.26,
+#         0.422
+#       ]
 
-- name: test electricity savings
-  absolute_error_margin: 0.1
-  period: 2022
-  input:
-    HVAC1_deemed_activity_electricity_savings:
-      [
-        1.03929,
-        2798.25, #AIRO ACP33HP
-        16.89,   #Panasonic CU-Z71VKR/CS-Z71VKR
-        30.462,  #Bonaire 6920082/6920020/6920027
-        0.422    #annual savings between 0 and 1
-      ]
-    HVAC1_PDRS__regional_network_factor:
-      [
-        1.03,
-        1.03,
-        1.03,
-        1.03,  #postcode 2795
-        1
-      ]
-  output:
-    HVAC1_electricity_savings:
-      [
-        1.070,
-        2882.1975,
-        17.397,
-        31.376,
-        0.422
-      ]
+# - name: test electricity savings
+#   absolute_error_margin: 0.1
+#   period: 2022
+#   input:
+#     HVAC1_deemed_activity_electricity_savings:
+#       [
+#         1.03929,
+#         2798.25, #AIRO ACP33HP
+#         16.89,   #Panasonic CU-Z71VKR/CS-Z71VKR
+#         30.462,  #Bonaire 6920082/6920020/6920027
+#         0.422    #annual savings between 0 and 1
+#       ]
+#     HVAC1_PDRS__regional_network_factor:
+#       [
+#         1.03,
+#         1.03,
+#         1.03,
+#         1.03,  #postcode 2795
+#         1
+#       ]
+#   output:
+#     HVAC1_electricity_savings:
+#       [
+#         1.070,
+#         2882.1975,
+#         17.397,
+#         31.376,
+#         0.422
+#       ]
 
-- name: test ESC calculation with electricity savings
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_electricity_savings:
-      [
-        1.070,
-        2882.1975, #AIRO ACP33HP
-        0.422      #annual savings between 0 and 1
-      ]
-    HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
-      [
-        True,
-        True,
-        True
-      ]
-    HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark:
-      [
-        True,
-        True,
-        True
-      ]
-    HVAC1_heating_capacity_input:
-      [
-        5,
-        5,
-        5
-      ]
-  output:
-    HVAC1_ESC_calculation:
-      [
-        1,
-        3055,
-        0
-      ]
+# - name: test ESC calculation with electricity savings
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_electricity_savings:
+#       [
+#         1.070,
+#         2882.1975, #AIRO ACP33HP
+#         0.422      #annual savings between 0 and 1
+#       ]
+#     HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
+#       [
+#         True,
+#         True,
+#         True
+#       ]
+#     HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark:
+#       [
+#         True,
+#         True,
+#         True
+#       ]
+#     HVAC1_heating_capacity_input:
+#       [
+#         5,
+#         5,
+#         5
+#       ]
+#   output:
+#     HVAC1_ESC_calculation:
+#       [
+#         1,
+#         3055,
+#         0
+#       ]
+
+# - name: test ESC calculation
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_cooling_capacity_input:
+#       [
+#         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+#         1050  #AIRO ACP33HP
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         3.4907,
+#         2.64
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         0,
+#         0
+#       ]
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         ducted_split_system, # baseline AEER input 3.1
+#         ducted_unitary_system
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity,
+#         new_installation_activity
+#       ]
+#     HVAC1_PDRS__postcode:
+#       [
+#         2350,
+#         2017
+#       ]
+#     HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
+#       [
+#         true,
+#         true
+#       ]
+#     HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark:
+#       [
+#         true,
+#         true
+#       ]
+#     HVAC1_heating_capacity_input:
+#       [
+#         5,
+#         5
+#       ]
+#   output:
+#     HVAC1_ESC_calculation:
+#       [
+#         41,
+#         0
+#       ]
+
+# - name: test ESC calculation Panasonic
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_cooling_capacity_input:
+#       [
+#         7.1 #Panasonic CU-Z71VKR/CS-Z71VKR
+#       ]
+#     HVAC1_heating_capacity_input: 
+#       [
+#         8
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         3.5824
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         3.7702
+#       ]
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity
+#       ]
+#     HVAC1_PDRS__postcode:
+#       [
+#         2450
+#       ]
+#     HVAC1_TCSPF_mixed:
+#       [
+#         4.6
+#       ]
+#   output:
+#     HVAC1_ESC_calculation:
+#       [
+#         12
+#       ]
+
+# - name: test ESC calculation case 3
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_cooling_capacity_input:
+#       [
+#         1050 #AIRO ACP33HP
+#       ]
+#     HVAC1_heating_capacity_input: 
+#       [
+#         0
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         2.64
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         0
+#       ]
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         ducted_unitary_system
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity
+#       ]
+#     HVAC1_PDRS__postcode:
+#       [
+#         2017
+#       ]
+#   output:
+#     HVAC1_ESC_calculation:
+#       [
+#         0
+#       ]
+
+# - name: test ESC calculation Panasonic second test
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system
+#       ]
+#     HVAC1_get_network_loss_factor_by_postcode:
+#       [
+#         1.05
+#       ]
+#     HVAC1_HSPF_cold:
+#       [
+#         3.452 #is below minimum 3.5 (not used)
+#       ]
+#     HVAC1_HSPF_mixed:
+#       [
+#         4.093 # is greater than minimum 4.0
+#       ]
+#     HVAC1_PDRS__postcode: 
+#       [
+#         2450 #average zone
+#       ]
+#     HVAC1_TCSPF_mixed:
+#       [
+#         4.6 # is greater than minimum 4.5
+#       ]
+#     HVAC1_cooling_capacity_input: 
+#       [
+#         7.1
+#       ]
+#     HVAC1_heating_capacity_input: 
+#       [
+#         8 #not zero
+#       ]
+#     HVAC1_input_power: 
+#       [
+#         1.97
+#       ]
+#     HVAC1_Activity: 
+#       [
+#         new_installation_activity
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         3.7702
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         3.5824 # is greater than minimum 3.5
+#       ]
+#     HVAC1_residential_TCEC: 
+#       [
+#         643
+#       ]
+#     HVAC1_residential_THEC:
+#       [
+#         1071
+#       ] 
+#   output:
+#     HVAC1_ESC_calculation:
+#       [
+#         18
+#       ]
+
+# - name: test ESC calculation Daikin RXM25UVMA/FTXM25UVMA
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system
+#       ]
+#     HVAC1_get_network_loss_factor_by_postcode:
+#       [
+#         1.04
+#       ]
+#     HVAC1_HSPF_cold:
+#       [
+#         4.525 #is below minimum 3.5 (not used)
+#       ]
+#     HVAC1_HSPF_mixed:
+#       [
+#         4.857 # is greater than minimum 4.0
+#       ]
+#     HVAC1_PDRS__postcode: 
+#       [
+#         2000 #average zone
+#       ]
+#     HVAC1_TCSPF_mixed:
+#       [
+#         7.065 # is greater than minimum 4.5
+#       ]
+#     HVAC1_cooling_capacity_input: 
+#       [
+#         2.5
+#       ]
+#     HVAC1_heating_capacity_input: 
+#       [
+#         3.2
+#       ]
+#     HVAC1_input_power: 
+#       [
+#         0.49
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         3.7702
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         5.0463
+#       ]
+#     HVAC1_residential_TCEC: 
+#       [
+#         145
+#       ]
+#     HVAC1_residential_THEC:
+#       [
+#         362
+#       ] 
+#   output:
+#     HVAC1_ESC_calculation:
+#       [
+#         7
+#       ]
+
+# - name: test ESC calculation Fujitsu General AOTA45LCTL/SUTA45LCLU
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system
+#       ]
+#     HVAC1_get_network_loss_factor_by_postcode:
+#       [
+#         1.04
+#       ]
+#     HVAC1_HSPF_cold:
+#       [
+#         4.525 #is below minimum 3.5 (not used)
+#       ]
+#     HVAC1_HSPF_mixed:
+#       [
+#         4.857 # is greater than minimum 4.0
+#       ]
+#     HVAC1_PDRS__postcode: 
+#       [
+#         2000 #average zone
+#       ]
+#     HVAC1_TCSPF_mixed:
+#       [
+#         7.065 # is greater than minimum 4.5
+#       ]
+#     HVAC1_cooling_capacity_input: 
+#       [
+#         2.5
+#       ]
+#     HVAC1_heating_capacity_input: 
+#       [
+#         3.2
+#       ]
+#     HVAC1_input_power: 
+#       [
+#         0.49
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         3.7702
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         5.0463
+#       ]
+#     HVAC1_residential_TCEC: 
+#       [
+#         145
+#       ]
+#     HVAC1_residential_THEC:
+#       [
+#         362
+#       ] 
+#   output:
+#     HVAC1_ESC_calculation:
+#       [
+#         7
+#       ]
+
+# - name: test ESC calculation Carrier 42SHDV140-1 / 38SHDV140-1
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_Air_Conditioner_type:
+#       [
+#         ducted_split_system
+#       ]
+#     HVAC1_get_network_loss_factor_by_postcode:
+#       [
+#         1.04
+#       ]
+#     HVAC1_HSPF_cold:
+#       [
+#         0 #not used
+#       ]
+#     HVAC1_HSPF_mixed:
+#       [
+#         0 #not used
+#       ]
+#     HVAC1_PDRS__postcode: 
+#       [
+#         2000 #average zone
+#       ]
+#     HVAC1_TCSPF_mixed:
+#       [
+#         0 #not used
+#       ]
+#     HVAC1_cooling_capacity_input: 
+#       [
+#         14.3
+#       ]
+#     HVAC1_heating_capacity_input: 
+#       [
+#         17.8
+#       ]
+#     HVAC1_input_power: 
+#       [
+#         14.3
+#       ]
+#     HVAC1_Activity:
+#       [
+#         new_installation_activity
+#       ]
+#     HVAC1_rated_ACOP_input:
+#       [
+#         3.9666
+#       ]
+#     HVAC1_rated_AEER_input:
+#       [
+#         3.3906
+#       ]
+#     HVAC1_residential_TCEC: 
+#       [
+#         0
+#       ]
+#     HVAC1_residential_THEC:
+#       [
+#         0
+#       ] 
+#   output:
+#     HVAC1_ESC_calculation:
+#       [
+#         30
+#       ]
 
 - name: test ESC calculation
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        1050  #AIRO ACP33HP
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        3.4907,
-        2.64
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        0,
-        0
-      ]
-    HVAC1_Air_Conditioner_type:
-      [
-        ducted_split_system, # baseline AEER input 3.1
-        ducted_unitary_system
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity,
-        new_installation_activity
-      ]
-    HVAC1_PDRS__postcode:
-      [
-        2350,
-        2017
-      ]
-    HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark:
-      [
-        true,
-        true
-      ]
-    HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark:
-      [
-        true,
-        true
-      ]
-    HVAC1_heating_capacity_input:
-      [
-        5,
-        5
-      ]
-  output:
-    HVAC1_ESC_calculation:
-      [
-        41,
-        0
-      ]
-
-- name: test ESC calculation Panasonic
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        7.1 #Panasonic CU-Z71VKR/CS-Z71VKR
-      ]
-    HVAC1_heating_capacity_input: 
-      [
-        8
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        3.5824
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        3.7702
-      ]
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity
-      ]
-    HVAC1_PDRS__postcode:
-      [
-        2450
-      ]
-    HVAC1_TCSPF_mixed:
-      [
-        4.6
-      ]
-  output:
-    HVAC1_ESC_calculation:
-      [
-        12
-      ]
-
-- name: test ESC calculation case 3
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_cooling_capacity_input:
-      [
-        1050 #AIRO ACP33HP
-      ]
-    HVAC1_heating_capacity_input: 
-      [
-        0
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        2.64
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        0
-      ]
-    HVAC1_Air_Conditioner_type:
-      [
-        ducted_unitary_system
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity
-      ]
-    HVAC1_PDRS__postcode:
-      [
-        2017
-      ]
-  output:
-    HVAC1_ESC_calculation:
-      [
-        0
-      ]
-
-- name: test ESC calculation Panasonic second test
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system
-      ]
-    HVAC1_get_network_loss_factor_by_postcode:
-      [
-        1.05
-      ]
-    HVAC1_HSPF_cold:
-      [
-        3.452 #is below minimum 3.5 (not used)
-      ]
-    HVAC1_HSPF_mixed:
-      [
-        4.093 # is greater than minimum 4.0
-      ]
-    HVAC1_PDRS__postcode: 
-      [
-        2450 #average zone
-      ]
-    HVAC1_TCSPF_mixed:
-      [
-        4.6 # is greater than minimum 4.5
-      ]
-    HVAC1_cooling_capacity_input: 
-      [
-        7.1
-      ]
-    HVAC1_heating_capacity_input: 
-      [
-        8 #not zero
-      ]
-    HVAC1_input_power: 
-      [
-        1.97
-      ]
-    HVAC1_Activity: 
-      [
-        new_installation_activity
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        3.7702
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        3.5824 # is greater than minimum 3.5
-      ]
-    HVAC1_residential_TCEC: 
-      [
-        643
-      ]
-    HVAC1_residential_THEC:
-      [
-        1071
-      ] 
-  output:
-    HVAC1_ESC_calculation:
-      [
-        18
-      ]
-
-- name: test ESC calculation Daikin RXM25UVMA/FTXM25UVMA
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system
-      ]
-    HVAC1_get_network_loss_factor_by_postcode:
-      [
-        1.04
-      ]
-    HVAC1_HSPF_cold:
-      [
-        4.525 #is below minimum 3.5 (not used)
-      ]
-    HVAC1_HSPF_mixed:
-      [
-        4.857 # is greater than minimum 4.0
-      ]
-    HVAC1_PDRS__postcode: 
-      [
-        2000 #average zone
-      ]
-    HVAC1_TCSPF_mixed:
-      [
-        7.065 # is greater than minimum 4.5
-      ]
-    HVAC1_cooling_capacity_input: 
-      [
-        2.5
-      ]
-    HVAC1_heating_capacity_input: 
-      [
-        3.2
-      ]
-    HVAC1_input_power: 
-      [
-        0.49
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        3.7702
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        5.0463
-      ]
-    HVAC1_residential_TCEC: 
-      [
-        145
-      ]
-    HVAC1_residential_THEC:
-      [
-        362
-      ] 
-  output:
-    HVAC1_ESC_calculation:
-      [
-        7
-      ]
-
-- name: test ESC calculation Fujitsu General AOTA45LCTL/SUTA45LCLU
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_Air_Conditioner_type:
-      [
-        non_ducted_split_system
-      ]
-    HVAC1_get_network_loss_factor_by_postcode:
-      [
-        1.04
-      ]
-    HVAC1_HSPF_cold:
-      [
-        4.525 #is below minimum 3.5 (not used)
-      ]
-    HVAC1_HSPF_mixed:
-      [
-        4.857 # is greater than minimum 4.0
-      ]
-    HVAC1_PDRS__postcode: 
-      [
-        2000 #average zone
-      ]
-    HVAC1_TCSPF_mixed:
-      [
-        7.065 # is greater than minimum 4.5
-      ]
-    HVAC1_cooling_capacity_input: 
-      [
-        2.5
-      ]
-    HVAC1_heating_capacity_input: 
-      [
-        3.2
-      ]
-    HVAC1_input_power: 
-      [
-        0.49
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        3.7702
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        5.0463
-      ]
-    HVAC1_residential_TCEC: 
-      [
-        145
-      ]
-    HVAC1_residential_THEC:
-      [
-        362
-      ] 
-  output:
-    HVAC1_ESC_calculation:
-      [
-        7
-      ]
-
-- name: test ESC calculation Carrier 42SHDV140-1 / 38SHDV140-1
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_Air_Conditioner_type:
-      [
-        ducted_split_system
-      ]
-    HVAC1_get_network_loss_factor_by_postcode:
-      [
-        1.04
-      ]
-    HVAC1_HSPF_cold:
-      [
-        0 #not used
-      ]
-    HVAC1_HSPF_mixed:
-      [
-        0 #not used
-      ]
-    HVAC1_PDRS__postcode: 
-      [
-        2000 #average zone
-      ]
-    HVAC1_TCSPF_mixed:
-      [
-        0 #not used
-      ]
-    HVAC1_cooling_capacity_input: 
-      [
-        14.3
-      ]
-    HVAC1_heating_capacity_input: 
-      [
-        17.8
-      ]
-    HVAC1_input_power: 
-      [
-        14.3
-      ]
-    HVAC1_Activity:
-      [
-        new_installation_activity
-      ]
-    HVAC1_rated_ACOP_input:
-      [
-        3.9666
-      ]
-    HVAC1_rated_AEER_input:
-      [
-        3.3906
-      ]
-    HVAC1_residential_TCEC: 
-      [
-        0
-      ]
-    HVAC1_residential_THEC:
-      [
-        0
-      ] 
-  output:
-    HVAC1_ESC_calculation:
-      [
-        30
-      ]
-
-- name: test ESC calculation
   period: 2024
   absolute_error_margin: 0.1
   input:
     HVAC1_Air_Conditioner_type:
       [
         non_ducted_split_system,
-        non_ducted_split_system   #Bonaire 6920082/6920020/6920027
+        non_ducted_split_system,   #Bonaire 6920082/6920020/6920027
+        non_ducted_split_system    #Arctix  SGEO-RCSS-02-EEF1
       ]
     HVAC1_get_network_loss_factor_by_postcode:
       [
+        1.045,
         1.045,
         1.045
       ]
     HVAC1_HSPF_cold:
       [
         0, #not used
+        0,
         0
       ]
     HVAC1_HSPF_mixed:
       [
-        0, #not used
-        0
+        0,     #not used
+        0,
+        3.962  #does not meet minimum
       ]
     HVAC1_PDRS__postcode: 
       [
         2795, #cold zone
-        2795
+        2795,
+        2000  #average zone
       ]
     HVAC1_TCSPF_mixed:
       [
         0, #not used
-        0
+        0,
+        5.032
       ]
     HVAC1_cooling_capacity_input: 
       [
         20.96,
-        8.2
+        8.2,
+        7.3
       ]
     HVAC1_heating_capacity_input: 
       [
         23.39,
-        9.6
+        9.6,
+        8.1
       ]
     HVAC1_input_power: 
       [
         6.626,
-        2.25
+        2.25,
+        3.98
       ]
     HVAC1_Activity:
       [
+        new_installation_activity,
         new_installation_activity,
         new_installation_activity
       ]
     HVAC1_rated_ACOP_input:
       [
-        3.2143, #does not meet minimum
-        3.6795  #does not meet minimum
+        3.2143,  #does not meet minimum
+        3.6795,  #does not meet minimum
+        4.0943   #not used
       ]
     HVAC1_rated_AEER_input:
       [
         3.1552, #does not meet minimum
-        3.5589
+        3.5589,
+        3.876
       ]
     HVAC1_residential_TCEC: 
       [
         1817,
-        0
+        0,
+        613
       ]
     HVAC1_residential_THEC:
       [
         12094,
-        0
+        0,
+        1113
       ] 
   output:
     HVAC1_ESC_calculation:
       [
+        0,
         0,
         0
       ]

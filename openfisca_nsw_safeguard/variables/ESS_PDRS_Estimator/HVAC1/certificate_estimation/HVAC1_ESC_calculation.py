@@ -508,5 +508,4 @@ class HVAC1_ESC_calculation(Variable):
             ], [
                 0, result_meet_elig
             ])
-
       return result_to_return

@@ -417,7 +417,7 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                         "4kW_to_6kW",
                                         "6kW_to_10kW",
                                         "10kW_to_13kW",
-                                        "13kW_to_25kW", # this
+                                        "13kW_to_25kW",
                                         "25kW_to_65kW",
                                         "over_65kW"
                                     ]
@@ -453,5 +453,4 @@ class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
             (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_mixed'][product_class][cooling_capacity])
                                             ]
             )
-
         return AC_exceeds_benchmark

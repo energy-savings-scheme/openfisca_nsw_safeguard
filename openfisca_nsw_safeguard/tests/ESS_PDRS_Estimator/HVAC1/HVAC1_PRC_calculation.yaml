@@ -130,28 +130,33 @@
     HVAC1_cooling_capacity_input:
       [
         100,
-        300
+        300,
+        10
       ]
     HVAC1_baseline_AEER_input:
       [
         20,
-        3
+        3,
+        -2
       ]
     HVAC1_BCA_climate_zone_by_postcode:
       [
         BCA_Climate_Zone_2,
+        BCA_Climate_Zone_6,
         BCA_Climate_Zone_6
       ]
     HVAC1_input_power:
       [
         3,
-        80
+        80,
+        1
       ]
   output:
     HVAC1_peak_demand_annual_savings:
       [
         41.472,
-        898.56
+        898.56,
+        0
       ]
 
 - name: test HVAC1 peak demand reduction capacity

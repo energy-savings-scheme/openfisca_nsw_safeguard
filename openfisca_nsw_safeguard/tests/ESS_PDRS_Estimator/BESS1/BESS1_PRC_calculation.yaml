@@ -41,13 +41,15 @@
     BESS1_usable_battery_capacity:
       [
         10,
-        15 
+        15,
+        -10
       ] 
   output:
     BESS1_peak_demand_annual_savings:
       [
         5.118,
-        7.677
+        7.677,
+        0
       ]
 
 - name: Test BESS1 peak demand reduction capacity

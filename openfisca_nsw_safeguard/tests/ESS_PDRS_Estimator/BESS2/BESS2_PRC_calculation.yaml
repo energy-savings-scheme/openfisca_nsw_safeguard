@@ -42,14 +42,16 @@
       [
         10,
         90,
-        35
+        35,
+        -10
       ]
   output:
     BESS2_peak_demand_annual_savings:
       [
         3.882,
         34.938,
-        13.587
+        13.587,
+        0
       ]
 
 - name: Test BESS2 peak demand reduction capacity

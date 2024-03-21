@@ -67,7 +67,15 @@ class BESS2_peak_demand_annual_savings(Variable):
         summer_peak_demand_duration = 6
 
         peak_demand_annual_savings = peak_demand_response_capacity * summer_peak_demand_duration
-        return peak_demand_annual_savings
+        peak_demand_annual_savings_return = np.select([
+                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+            ],
+            [
+                0, peak_demand_annual_savings
+            ])
+        
+        
+        return peak_demand_annual_savings_return
 
 
 class BESS2_peak_demand_reduction_capacity(Variable):

@@ -185,6 +185,12 @@ class HVAC2_peak_demand_annual_savings(Variable):
                 0, peak_demand_annual_savings
             ])
         
+        print('baseline_AEER', baseline_AEER)
+        print('firmness_factor', firmness_factor)
+        print('input_power', input_power)
+        print('baseline_input_power', baseline_input_power)
+        print('peak_demand_savings_activity', peak_demand_savings_activity)
+        print('baseline_peak_adjustment', baseline_peak_adjustment)
         return peak_demand_annual_savings_return
 
 

@@ -154,28 +154,32 @@
         100,
         300,
         1.6, #Kogan KAHCWDAC16A
-        2.8 #SPT AW028C-1/AW028E
+        2.8, #SPT AW028C-1/AW028E
+        45   #Daikin REYQ16BYM
       ]
     HVAC2_baseline_AEER_input:
       [
         20,
         3,
         3.66,
-        3.1
+        3.1,
+        2.9
       ]
     HVAC2_BCA_climate_zone_by_postcode:
       [
         BCA_Climate_Zone_2,
         BCA_Climate_Zone_6,
         BCA_Climate_Zone_6,
-        BCA_Climate_Zone_7
+        BCA_Climate_Zone_7,
+        BCA_Climate_Zone_4
       ]
     HVAC2_input_power:
       [
         3,
         80,
         0.5,
-        0.51
+        0.51,
+        13.316
       ]
   output:
     HVAC2_peak_demand_annual_savings:
@@ -183,7 +187,8 @@
         34.56,
         748.8,
         0,
-        13.0236
+        13.0236,
+        81.622
       ]
 
 - name: test HVAC2 peak demand reduction capacity
@@ -252,6 +257,7 @@
         true,
         true,
         true,
+        true,
         true
       ]
     HVAC2_get_network_loss_factor_by_postcode:
@@ -260,7 +266,8 @@
         1.04, #Fujitsu AOTA90LALT/ARTC90LATU
         1.04, #Daikin RXM25UVMA / FTXM25UVMA
         1.05, #Panasonic CU-Z71XKR / CS-Z71XKRW
-        1.04  #Mitsubishi PUMY-P112VKM-A
+        1.04, #Mitsubishi PUMY-P112VKM-A
+        1.05  #Daikin REYQ16BYM 
       ]
     HVAC2_input_power:
       [
@@ -268,12 +275,14 @@
         7.82,
         0.49,
         2.06,
-        2.935
+        2.935,
+        13.316
       ]
     HVAC2_Air_Conditioner_type:
       [
         non_ducted_split_system,
         ducted_split_system,
+        non_ducted_split_system,
         non_ducted_split_system,
         non_ducted_split_system,
         non_ducted_split_system
@@ -284,12 +293,14 @@
         25,
         2.5,
         7.1,
-        12.5
+        12.5,
+        45
       ]
     HVAC2_Activity:
       [
         new_installation_activity,
         replacement_activity,
+        new_installation_activity,
         new_installation_activity,
         new_installation_activity,
         new_installation_activity
@@ -300,7 +311,8 @@
         2250,
         2000,
         2800,
-        2000
+        2000,
+        2640
       ]
   output:
     HVAC2_PRC_calculation:
@@ -309,7 +321,8 @@
         228,
         39,
         50,
-        225
+        225,
+        857
       ]
 
 - name: test HVAC2 Mitsubishi PUMY-P112VKM-A

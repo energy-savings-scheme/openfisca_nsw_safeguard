@@ -18,7 +18,7 @@ class F17_installation_final_activity_eligibility(Variable):
 
     def formula(buildings, period, parameters):
         equipment = buildings('F17_equipment_installation', period)
-        qualified_install = buildings('F17_qualified_intallation', period)
+        qualified_install = buildings('F17_installed_by_qualified_person', period)
         minimum_payment = buildings('F17_minimum_payment', period)
         not_installed_class_1_or_4 = buildings('F17_building_BCA_not_class_1_or_4', period)
         minimum_savings = buildings('F17_minimum_annual_energy_savings', period)

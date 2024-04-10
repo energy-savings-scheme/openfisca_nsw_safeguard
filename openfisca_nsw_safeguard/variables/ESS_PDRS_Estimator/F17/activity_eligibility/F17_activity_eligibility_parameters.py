@@ -17,7 +17,7 @@ class F17_equipment_installation(Variable):
     }
 
 
-class F17_qualified_intallation(Variable):
+class F17_installed_by_qualified_person(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -131,9 +131,9 @@ class F17_equipment_certified_by_storage_volume(Variable):
 
       eligible_by_storage = np.select(
         [
-          (storage_volume == WH1StorageVolume.less_than_or_equal_to_700_L) * certified_AS_NZ_2712,
-          (storage_volume == WH1StorageVolume.less_than_or_equal_to_700_L) * np.logical_not(certified_AS_NZ_2712),
-          (storage_volume == WH1StorageVolume.more_than_700_L)
+          (storage_volume == F17StorageVolume.less_than_or_equal_to_700_L) * certified_AS_NZ_2712,
+          (storage_volume == F17StorageVolume.less_than_or_equal_to_700_L) * np.logical_not(certified_AS_NZ_2712),
+          (storage_volume == F17StorageVolume.more_than_700_L)
         ],
         [
           True,

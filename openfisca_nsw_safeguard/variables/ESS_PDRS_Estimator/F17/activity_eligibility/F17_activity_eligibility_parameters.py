@@ -44,7 +44,7 @@ class F17_minimum_payment(Variable):
 class F17_building_BCA_not_class_1_or_4(Variable):
     value_type = bool
     entity = Building
-    default_value = True
+    default_value = False
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User Equipment installed in a BCA Class 1 or 4 building?',

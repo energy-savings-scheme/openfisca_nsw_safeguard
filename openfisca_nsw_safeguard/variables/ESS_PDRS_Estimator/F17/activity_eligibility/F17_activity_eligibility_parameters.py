@@ -106,7 +106,7 @@ class F17_storage_volume_int(Variable):
 
 
 class F17_certified(Variable):
-    #only show this if the storage volume is 700L or less
+    #only show this if the storage volume is 700L or less 
     value_type = bool
     entity = Building
     default_value = True

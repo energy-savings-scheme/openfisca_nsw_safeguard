@@ -1,3 +1,33 @@
+- name: Test storage 700L or less is certified
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    F17_storage_volume:
+      [
+        less_than_or_equal_to_700_L,
+        more_than_700_L,
+        less_than_or_equal_to_700_L,
+        less_than_or_equal_to_700_L,
+        more_than_700_L
+      ]
+    F17_certified:
+      [
+        true,
+        false,
+        false,
+        false,
+        true
+      ]
+  output:
+    F17_equipment_certified_by_storage_volume:
+      [
+        true,
+        true,
+        false,
+        false,
+        true
+      ]
+
 - name: Test F17 final activity eligibility
   period: 2024
   absolute_error_margin: 0
@@ -6,28 +36,38 @@
       [
         false,
         true,
-        false
+        false,
+        true,
+        true
       ]
     F17_installed_by_qualified_person:
       [
         true,
         false,
+        true,
+        true,
         true
       ]
     F17_minimum_payment:
       [
         true,
         false,
+        true,
+        true,
         true
       ]
     F17_building_BCA_not_class_1_or_4:
       [
         true,
         false,
+        true,
+        true,
         true
       ]
     F17_minimum_annual_energy_savings:
       [
+        true,
+        true,
         true,
         true,
         true
@@ -36,18 +76,24 @@
       [
         true,
         true,
-        false
+        false,
+        false,
+        true
       ]
     F17_equipment_certified_by_storage_volume:
       [
         true,
         true,
-        false
+        false,
+        false,
+        true
       ]
   output:
     F17_installation_final_activity_eligibility:
       [
         false,
         false,
-        false
+        false,
+        false,
+        true
       ]

@@ -7,7 +7,7 @@ import numpy as np
 
 class F17_installation_final_activity_eligibility(Variable):
     """
-        Formula to calculate the WH1 installation activity eligibility
+        Formula to calculate the F17 installation activity eligibility
     """
     value_type = bool
     entity = Building

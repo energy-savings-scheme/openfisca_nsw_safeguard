@@ -58,6 +58,7 @@ class HVAC1_installed_by_qualified_person(Variable):
         'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 3, it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
+
 class HVAC1_engaged_ACP(Variable):
     value_type = bool
     entity = Building
@@ -92,7 +93,7 @@ class HVAC1_new_equipment_cooling_capacity(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question': 'Does the new air conditioner have a cooling capacity recorded in the GEMS registry?',
-        'sorting' : 7,
+        'sorting' : 6,
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry: <br />
         a. The New End-User Equipment or replacement End-User Equipment must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the corresponding Product Type and Cooling Capacity in Table HVAC1.3; or <br />
         b. If the New End-User Equipment or replacement End-User Equipment does not have a Residential TCSPF_mixed value recorded in the GEMS Registry, then it must have an AEER in the GEMS Registry equal to or greater than the Minimum AEER for the Product Type and Cooling Capacity in Table HVAC1.4."""
@@ -155,7 +156,7 @@ class HVAC1_new_equipment_heating_capacity(Variable):
     label = 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?'
     metadata = {
         'display_question' : 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?',
-        'sorting' : 11,
+        'sorting' : 10,
         'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:<br />
         3. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry, and is installed in the hot or average zone as defined in Table A27: <br />
           a. It must have a Residential HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential HSPF_mixed value for the same Product Type and Cooling Capacity in Table D16.4; or<br />

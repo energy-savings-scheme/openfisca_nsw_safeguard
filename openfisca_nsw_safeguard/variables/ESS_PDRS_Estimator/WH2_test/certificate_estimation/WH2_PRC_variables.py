@@ -39,7 +39,7 @@ class WH2_test_PDRS__postcode(Variable):
     metadata={
         'variable-type' : 'user-input',
         'alias' : 'PDRS Postcode',
-        'display_question' : 'Postcode where the installation has taken place',
+        'display_question' : 'Postcode where the <a href="https://www.abcb.gov.au/resources/climate-zone-map" target="_blank">installation</a> has taken place',
         'sorting' : 1,
         'label': 'Postcode'
     }

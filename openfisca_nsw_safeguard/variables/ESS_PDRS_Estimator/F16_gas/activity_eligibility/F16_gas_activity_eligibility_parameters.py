@@ -13,9 +13,8 @@ class F16_gas_equipment_replaced(Variable):
     metadata = {
       'display_question' : 'Is the activity the replacement of a gas hot water boiler or heater with a heat pump water heater?',
       'sorting' : 1,
-      'eligibility_clause' : """In ESS F16 the activity definition states that the activity must be the replacement of one or more existing hot water boiler(s) or water heater(s) with one or more air source heat pump water heater systems."""
+      'eligibility_clause' : """In ESS F16 Eligibility Requirements Clause 1 it states that the existing End-User Equipment must be a gas or electric resistance hot water boiler(s) or water heater(s)."""
     }
-
 
 # class F16_gas_installation(Variable):
 #     value_type = bool
@@ -62,7 +61,7 @@ class F16_gas_engaged_ACP(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
-        'sorting' : 5,
+        'sorting' : 3,
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
@@ -76,8 +75,8 @@ class F16_gas_building_BCA_not_class_1_or_4(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User Equipment installed in a BCA Class 1 or 4 building?',
-      'sorting' : 6,
-      'eligibility_clause' : """In PDRS F16_gas Eligibility Requirements Clause 3 it states that the End-User Equipment must not be installed in a BCA Class 1 or 4 building."""
+      'sorting' : 4,
+      'eligibility_clause' : """In ESS F16 Eligibility Requirements Clause 4 it states that the End-User Equipment must not be installed in a BCA Class 1 or 4 building."""
     }
 
 
@@ -88,7 +87,7 @@ class F16_gas_scheme_admin_approved(Variable):
     definition_period = ETERNITY
     metadata = {  
       'display_question' : 'Has the installed end user equipment been accepted by the Scheme Administrator?',
-      'sorting' : 7,
+      'sorting' : 5,
       'eligibility_clause' : """In PDRS F16_gas Equipment Requirements Clause 4 it states that the installed End-User Equipment must be accepted in a manner determined by the Scheme Administrator."""
     }
 

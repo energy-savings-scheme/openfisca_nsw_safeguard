@@ -13,34 +13,33 @@ class F16_gas_equipment_replaced(Variable):
     metadata = {
       'display_question' : 'Is the activity the replacement of a gas hot water boiler or heater with a heat pump water heater?',
       'sorting' : 1,
-      'eligibility_clause' : """In PDRS F16 the activity definition states that the activity must be the replacement of one or more gas or electric resistance hot water boiler(s) or water heater(s)."""
+      'eligibility_clause' : """In ESS F16 the activity definition states that the activity must be the replacement of one or more existing hot water boiler(s) or water heater(s) with one or more air source heat pump water heater systems."""
     }
 
 
-class F16_gas_installation(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-      'display_question' : 'Is the activity the installation of a new heat pump water heater?',
-      'sorting' : 2,
-      'conditional' : 'True',
-      'eligibility_clause' : """This activity is not eligible for PRCs (only eligible for ESCs), in PDRS F16_gas the activity definition states that the activity must replace one or more existing hot water boilers or water heaters with one or more air source heat pump water heater systems."""
-    }
+# class F16_gas_installation(Variable):
+#     value_type = bool
+#     entity = Building
+#     default_value = True
+#     definition_period = ETERNITY
+#     metadata = {
+#       'display_question' : 'Is the activity the installation of a new heat pump water heater?',
+#       'sorting' : 2,
+#       'conditional' : 'True',
+#       'eligibility_clause' : """This activity is not eligible for PRCs (only eligible for ESCs), in PDRS F16_gas the activity definition states that the activity must replace one or more existing hot water boilers or water heaters with one or more air source heat pump water heater systems."""
+#     }
 
 
-class F16_gas_equipment_replaces_electric(Variable):
-    #replacement of an existing gas hot water heater or boiler is only eligible for ESCs (not PRCs)
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-      'display_question' : 'Is the equipment being replaced an electric hot water boiler or water heater?',
-      'sorting' : 3,
-      'eligibility_clause' : """The replacement of a gas hot water heater or boiler is only eligible for ESCs, in PDRS F16_gas Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
-    }
+# class F16_gas_equipment_replaces_electric(Variable):
+#     value_type = bool
+#     entity = Building
+#     default_value = True
+#     definition_period = ETERNITY
+#     metadata = {
+#       'display_question' : 'Is the equipment being replaced an electric hot water boiler or water heater?',
+#       'sorting' : 3,
+#       'eligibility_clause' : """The replacement of a gas hot water heater or boiler is only eligible for ESCs, in PDRS F16_gas Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
+#     }
 
 
 class F16_gas_equipment_removed(Variable):
@@ -51,8 +50,8 @@ class F16_gas_equipment_removed(Variable):
     label = 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?'
     metadata = {
         'display_question' : 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?',
-        'sorting' : 4,
-        'eligibility_clause' : """In PDRS F16_gas Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
+        'sorting' : 2,
+        'eligibility_clause' : """In ESS F16 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
 

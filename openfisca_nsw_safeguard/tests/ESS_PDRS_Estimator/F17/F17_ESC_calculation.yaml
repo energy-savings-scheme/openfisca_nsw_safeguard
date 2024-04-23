@@ -1,0 +1,89 @@
+- name: test F17 reference electricity
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F17_com_peak_load:
+      [
+        10,
+        85
+      ]
+  output:
+    F17_Ref_Elec:
+      [
+        3.4684125,
+        29.4815062
+      ]
+
+- name: test F17 deemed activity gas savings
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    F17_Ref_Elec:
+      [
+        50,
+        76
+      ]
+    F17_HP_gas:
+      [
+        8,
+        47
+      ]
+  output:
+    F17_deemed_activity_gas_savings:
+      [
+        169.411765,
+        141.372549
+      ]
+
+- name: test F17 deemed activity electricity savings
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    F17_HP_elec:
+      [
+        50,
+        89
+      ]
+  output:
+    F17_deemed_activity_electricity_savings:
+      [
+        -166.6666,
+        -296.666667
+      ]
+
+- name: test F17 electricity savings
+  period: 2024
+  absolute_error_margin: 1.0
+  input:
+    F17_deemed_activity_electricity_savings:
+      [
+        90
+      ]
+    F17_regional_network_factor:
+      [
+        1.0
+      ] 
+  output:
+    F17_deemed_activity_electricity_savings:
+      [
+        90
+      ]
+
+
+- name: test F17 ESC calculation
+  period: 2024
+  absolute_error_margin: 1.0
+  input:
+    F17_electricity_savings:
+      [
+        50
+      ]
+    F17_deemed_activity_gas_savings:
+      [
+        25
+      ] 
+  output:
+    F17_ESC_calculation:
+      [
+        64.75
+      ]

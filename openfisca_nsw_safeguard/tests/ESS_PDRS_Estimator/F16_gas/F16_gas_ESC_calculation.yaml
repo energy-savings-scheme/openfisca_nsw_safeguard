@@ -1,0 +1,167 @@
+- name: test F16_gas capacity factor
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F16_gas_HP_capacity_factor:
+      [
+        3.6,
+        2
+      ]
+    F16_gas_WH_capacity_factor:
+      [
+        2.4,
+        6
+      ]
+  output:
+    F16_gas_capacity_factor:
+      [
+        0.667,
+        1
+      ]
+
+- name: test F16_gas RefElec
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F16_gas_com_peak_load:
+      [
+        1,
+        4.5,
+        34,
+        0
+      ]
+  output:
+    F16_gas_Ref_Elec:
+      [
+        0.347,
+        1.561,
+        11.793,
+        0
+      ]
+
+- name: F16_gas deemed gas savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F16_gas_Ref_Elec:
+      [
+        10.3,
+        20,
+        0
+      ]
+    F16_gas_HP_gas:
+      [
+        2.3,
+        0,
+        10
+      ]
+    F16_gas_capacity_factor:
+      [
+        0.5,
+        5,
+        3
+      ]
+  output:
+    F16_gas_deemed_activity_gas_savings:
+      [
+        17.952,
+        423.012,
+        -99.999
+      ]
+
+- name: F16_gas deemed electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F16_gas_HP_elec:
+      [
+        2.3,
+        10.3
+      ]
+    F16_gas_capacity_factor:
+      [
+        0.5,
+        3.4
+      ]
+  output:
+    F16_gas_deemed_activity_electricity_savings:
+      [
+        -3.833,
+        -116.733
+      ]
+
+- name: F16_gas annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F16_gas_com_peak_load:
+      [
+        4.5, #RefElec 1.561
+        34,  #RefElec 11.793
+        24   #RefElec 8.32419
+      ]
+    F16_gas_HP_elec:
+      [
+        2.3,
+        10,
+        0.2
+      ]
+    F16_gas_HP_gas:
+      [
+        2.3,
+        30,
+        2
+      ]
+    F16_gas_HP_capacity_factor:
+      [ 
+        4,
+        2.3,
+        6
+      ]
+    F16_gas_WH_capacity_factor:
+      [
+        2,   #capacity factor 0.5
+        2.4, #capacity factor 1
+        4    #capacity factor 0.66
+      ]
+  output:
+    F16_gas_energy_savings:
+      [
+        0,      #deemed gas -0.532 + deemed electricity -3.833 = -4.365
+        0,      #deemed gas -50.114 + deemed electricity -33.333  = -80.447
+        18.586  #deemed gas 19.03 + deemed electricity -0.444 = 18.586
+      ]
+
+- name: F16_gas annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F16_gas_replacement_activity:
+      [
+        true,
+        false, #not eligible
+        true,
+        true
+      ]
+    F16_gas_electricity_savings:
+      [
+        -3.833,
+        -3.833,
+        2.4,
+        10
+      ]
+    F16_gas_deemed_activity_gas_savings:
+      [ 
+        -0.532,
+        -0.532,
+        0.46,
+        2
+      ]
+  output:
+    F16_gas_ESC_calculation:
+      [
+        0,   #-4.313 certificates
+        0,   #not eligible
+        2.76,
+        11.54 
+      ]

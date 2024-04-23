@@ -29,6 +29,20 @@ class F17_installed_by_qualified_person(Variable):
     }
     
 
+class F17_engaged_ACP(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
+        'sorting' : 3,
+        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
+                                  (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
+                                  (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
+    }
+
+
 class F17_minimum_payment(Variable):
     value_type = bool
     entity = Building
@@ -36,7 +50,7 @@ class F17_minimum_payment(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
-      'sorting' : 3,
+      'sorting' : 4,
       'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
     }
 
@@ -48,22 +62,8 @@ class F17_building_BCA_not_class_1_or_4(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User Equipment installed in a BCA Class 1 or 4 building?',
-      'sorting' : 4,
-      'eligibility_clause' : """In ESS F17 Eligibility Requirements clause 1 it states that the New End-User Equipment must not be installed in a BCA Class 1 or 4 building."""
-    }
-
-
-class F17_minimum_annual_energy_savings(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-      'display_question' : 'Has the model met the 60% minimum annual energy savings requirement?',
       'sorting' : 5,
-      'eligibility_clause' : """In ESS F17 Equipment Requirements clause 2 it states that the New End-User Equipment must achieve minimum annual energy savings, when determined as an air sourced heat pump in accordance with the modelling procedure Published by the Scheme Administrator, of:<br />
-                                  (a) 60% when modelled in AS/NZS 4234 climate zone HP3-AU <br />
-                                  (b) 60% when modelled in AS/NZS 4234 climate zone HP5-AU"""
+      'eligibility_clause' : """In ESS F17 Eligibility Requirements clause 1 it states that the New End-User Equipment must not be installed in a BCA Class 1 or 4 building."""
     }
 
 

@@ -16,32 +16,8 @@ class F16_gas_equipment_replaced(Variable):
       'eligibility_clause' : """In ESS F16 Eligibility Requirements Clause 1 it states that the existing End-User Equipment must be a gas or electric resistance hot water boiler(s) or water heater(s)."""
     }
 
-# class F16_gas_installation(Variable):
-#     value_type = bool
-#     entity = Building
-#     default_value = True
-#     definition_period = ETERNITY
-#     metadata = {
-#       'display_question' : 'Is the activity the installation of a new heat pump water heater?',
-#       'sorting' : 2,
-#       'conditional' : 'True',
-#       'eligibility_clause' : """This activity is not eligible for PRCs (only eligible for ESCs), in PDRS F16_gas the activity definition states that the activity must replace one or more existing hot water boilers or water heaters with one or more air source heat pump water heater systems."""
-#     }
 
-
-# class F16_gas_equipment_replaces_electric(Variable):
-#     value_type = bool
-#     entity = Building
-#     default_value = True
-#     definition_period = ETERNITY
-#     metadata = {
-#       'display_question' : 'Is the equipment being replaced an electric hot water boiler or water heater?',
-#       'sorting' : 3,
-#       'eligibility_clause' : """The replacement of a gas hot water heater or boiler is only eligible for ESCs, in PDRS F16_gas Eligibility Requirements Clause 1 it states the existing End-User Equipment must be an electric resistance hot water boiler(s) or water heater(s)."""
-#     }
-
-
-class F16_gas_equipment_removed(Variable):
+class F16_gas_installed_by_qualified_person(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -68,6 +44,18 @@ class F16_gas_engaged_ACP(Variable):
     }
 
 
+class F16_gas_minimum_payment(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+      'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
+      'sorting' : 4,
+      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
+    }
+
+
 class F16_gas_building_BCA_not_class_1_or_4(Variable):
     value_type = bool
     entity = Building
@@ -75,7 +63,7 @@ class F16_gas_building_BCA_not_class_1_or_4(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User Equipment installed in a BCA Class 1 or 4 building?',
-      'sorting' : 4,
+      'sorting' : 5,
       'eligibility_clause' : """In ESS F16 Eligibility Requirements Clause 4 it states that the End-User Equipment must not be installed in a BCA Class 1 or 4 building."""
     }
 
@@ -87,8 +75,8 @@ class F16_gas_scheme_admin_approved(Variable):
     definition_period = ETERNITY
     metadata = {  
       'display_question' : 'Has the installed end user equipment been accepted by the Scheme Administrator?',
-      'sorting' : 5,
-      'eligibility_clause' : """In PDRS F16_gas Equipment Requirements Clause 4 it states that the installed End-User Equipment must be accepted in a manner determined by the Scheme Administrator."""
+      'sorting' : 6,
+      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 4 it states that the installed End-User Equipment must be accepted in a manner determined by the Scheme Administrator."""
     }
 
 
@@ -105,7 +93,7 @@ class F16_gas_storage_volume(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
-      'sorting' : 8,
+      'sorting' : 7,
       'eligibility_clause' : """In PDRS F16_gas Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
 
@@ -138,7 +126,7 @@ class F16_gas_certified(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User equipment AS/NZ 2712 certified?',
-      'sorting' : 9,
+      'sorting' : 8,
       'conditional' : 'True',
       'eligibility_clause' : """In PDRS F16_gas Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }

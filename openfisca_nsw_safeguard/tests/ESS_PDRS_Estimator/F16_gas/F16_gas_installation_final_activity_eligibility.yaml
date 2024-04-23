@@ -2,14 +2,14 @@
   period: 2024
   absolute_error_margin: 0
   input:
-    F17_storage_volume:
+    F16_gas_storage_volume:
       [
         less_than_or_equal_to_700_L,
         less_than_or_equal_to_700_L,
         more_than_700_L,
         more_than_700_L
       ]
-    F17_certified:
+    F16_gas_certified:
       [
         true,
         false,
@@ -17,7 +17,7 @@
         false
       ]
   output:
-    F17_equipment_certified_by_storage_volume:
+    F16_gas_equipment_certified_by_storage_volume:
       [
         true,
         false,
@@ -25,23 +25,37 @@
         true
       ]
 
-- name: Test F17 final activity eligibility
+- name: Test F16 gas final activity eligibility
   period: 2024
   absolute_error_margin: 0
   input:
-    F17_equipment_installation:
+    F16_gas_equipment_replaced:
       [
         true, #all true
-        false, 
+        false,
         true,
         true,
         true,
         true,
         true,
-        false  #all false
+        true,
+        false #all false
       ]
-    F17_installed_by_qualified_person:
+    F16_gas_installed_by_qualified_person:
       [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ]
+    F16_gas_engaged_ACP:
+      [
+        true,
         true,
         true,
         false,
@@ -51,18 +65,7 @@
         true,
         false
       ]
-    F17_engaged_ACP:
-      [
-        true,
-        true,
-        true,
-        false,
-        true,
-        true,
-        true,
-        false
-      ]
-    F17_minimum_payment:
+    F16_gas_minimum_payment:
       [
         true,
         true,
@@ -71,21 +74,36 @@
         false,
         true,
         true,
-        false
-      ]
-    F17_building_BCA_not_class_1_or_4:
-      [ 
-        true,
-        true,
-        true,
-        true,
-        true,
-        false, #building is not eligible
         true,
         false
       ]
-    F17_equipment_certified_by_storage_volume:
+    F16_gas_building_BCA_not_class_1_or_4:
       [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false, #building is class 1 or 4 and is not eligible
+        true,
+        true,
+        false
+      ]
+    F16_gas_scheme_admin_approved:
+      [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false
+      ]
+    F16_gas_equipment_certified_by_storage_volume:
+      [
+        true,
         true,
         true,
         true,
@@ -96,9 +114,10 @@
         false
       ]
   output:
-    F17_installation_final_activity_eligibility:
+    F16_gas_installation_replacement_final_activity_eligibility:
       [
         true,
+        false,
         false,
         false,
         false,

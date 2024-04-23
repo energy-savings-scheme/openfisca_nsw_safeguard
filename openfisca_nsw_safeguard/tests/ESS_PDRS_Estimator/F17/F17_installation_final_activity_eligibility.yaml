@@ -82,16 +82,6 @@
         true,
         true
       ]
-    F17_certified:
-      [
-        true,
-        true,
-        false,
-        false,
-        true,
-        true,
-        true
-      ]
     F17_equipment_certified_by_storage_volume:
       [
         true,

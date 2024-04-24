@@ -19,12 +19,12 @@ class F17_installation_final_activity_eligibility(Variable):
     def formula(buildings, period, parameters):
         equipment = buildings('F17_equipment_installation', period)
         qualified_install = buildings('F17_installed_by_qualified_person', period)
+        ACP_engaged = buildings('F17_engaged_ACP', period)
         minimum_payment = buildings('F17_minimum_payment', period)
-        not_installed_class_1_or_4 = buildings('F17_building_BCA_not_class_1_or_4', period)
-        minimum_savings = buildings('F17_minimum_annual_energy_savings', period)
+        not_installed_class_1_or_4 = buildings('F17_building_BCA_not_class_1_or_4', period)        
         storage_volume_certified = buildings('F17_equipment_certified_by_storage_volume', period)
         
-        end_formula = ( equipment * qualified_install * minimum_payment * not_installed_class_1_or_4 * 
-                        minimum_savings * storage_volume_certified )
+        end_formula = ( equipment * qualified_install * ACP_engaged * minimum_payment * not_installed_class_1_or_4 * 
+                        storage_volume_certified )
 
         return end_formula

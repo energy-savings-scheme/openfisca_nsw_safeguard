@@ -34,7 +34,7 @@ class F17_deemed_activity_gas_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      ref_elec = buildings('F17_ref_elec', period)  
+      ref_elec = buildings('F17_Ref_Elec', period)  
       HP_gas = buildings('F17_HP_gas', period)
       lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
 

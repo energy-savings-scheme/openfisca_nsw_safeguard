@@ -26,7 +26,7 @@ class F16_gas_installation_replacement_final_activity_eligibility(Variable):
         storage_volume_certified = buildings('F16_gas_equipment_certified_by_storage_volume', period)
         
         end_formula = ( replacement * qualified_removal_install * ACP_engaged *
-                        minimum_payment * not_installed_class_1_or_4 * scheme_admin_approved 
+                        minimum_payment * np.logical_not(not_installed_class_1_or_4) * scheme_admin_approved 
                         * storage_volume_certified )
 
         return end_formula

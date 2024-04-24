@@ -108,25 +108,25 @@ class BESS1_PRC_calculation(Variable):
     def formula(buildings, period, parameters):
         peak_demand_reduction_capacity = buildings('BESS1_peak_demand_reduction_capacity', period)
         network_loss_factor = buildings('BESS1_get_network_loss_factor_by_postcode', period)
-        installation_eligibiity = buildings('BESS1_installation_activity', period)
+        installation_eligibility = buildings('BESS1_installation_activity', period)
 
         BESS1_eligible_PRCs = np.select(
-        [
-            installation_eligibiity,
-            np.logical_not(installation_eligibiity)
-        ],
-        [
-            (peak_demand_reduction_capacity * network_loss_factor * 10),
-            0
-        ])
+            [
+                installation_eligibility,
+                np.logical_not(installation_eligibility)
+            ],
+            [
+                (peak_demand_reduction_capacity * network_loss_factor * 10),
+                0
+            ])
 
         result_to_return = np.select(
-        [
-            BESS1_eligible_PRCs <= 0, 
-            BESS1_eligible_PRCs > 0
-        ],
-        [
-            0, 
-            BESS1_eligible_PRCs
-        ])
+            [
+                BESS1_eligible_PRCs <= 0, 
+                BESS1_eligible_PRCs > 0
+            ],
+            [
+                0, 
+                BESS1_eligible_PRCs
+            ])
         return result_to_return

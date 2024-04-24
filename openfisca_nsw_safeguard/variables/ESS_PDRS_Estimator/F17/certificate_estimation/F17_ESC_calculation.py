@@ -86,18 +86,30 @@ class F17_ESC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
+        installation_eligibility = buildings('F17_installation_activity', period)
         electricity_savings = buildings('F17_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('F17_deemed_activity_gas_savings', period) #gas savings and deemed activity gas savings are the same value
         gas_certificate_conversion_factor = 0.47
+        
+        F17_eligible_ESCs = np.select(
+            [
+                installation_eligibility,
+                np.logical_not(installation_eligibility)
+            ],
+            [
+                (electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor),
+                0
+            ])
 
-        result =(electricity_savings * electricity_certificate_conversion_factor + gas_savings * gas_certificate_conversion_factor)
 
         result_to_return = np.select(
             [
-                F17_eligible_ESCs <= 0, F17_eligible_ESCs > 0
+                F17_eligible_ESCs <= 0,
+                F17_eligible_ESCs > 0
             ],
             [
-                0, F17_eligible_ESCs
+                0,
+                F17_eligible_ESCs
             ])
         return result_to_return

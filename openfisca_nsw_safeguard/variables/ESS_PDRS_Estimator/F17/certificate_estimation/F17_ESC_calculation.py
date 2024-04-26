@@ -76,6 +76,32 @@ class F17_electricity_savings(Variable):
         return electricity_savings
 
 
+class F17_annual_energy_savings(Variable):
+    value_type = float  
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Deemed activity electricity savings'
+    metadata = {
+        "variable-type": "output"
+    }
+        
+    def formula(buildings, period, parameters):
+        deemed_activity_electricity_savings = buildings('F17_deemed_activity_electricity_savings', period)
+        deemed_gas_savings = buildings('F17_deemed_activity_gas_savings', period)
+
+        annual_energy_savings = deemed_activity_electricity_savings + deemed_gas_savings
+
+        annual_savings_return = np.select([
+                annual_energy_savings <= 0, annual_energy_savings > 0
+            ],
+            [
+                0, annual_energy_savings
+            ])
+        
+        return annual_savings_return
+
+
+
 class F17_ESC_calculation(Variable):
     value_type = float
     entity = Building

@@ -77,7 +77,7 @@ class F17_electricity_savings(Variable):
 
 
 class F17_annual_energy_savings(Variable):
-    value_type = float  
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'Deemed activity electricity savings'
@@ -86,20 +86,35 @@ class F17_annual_energy_savings(Variable):
     }
         
     def formula(buildings, period, parameters):
-        deemed_activity_electricity_savings = buildings('F17_deemed_activity_electricity_savings', period)
-        deemed_gas_savings = buildings('F17_deemed_activity_gas_savings', period)
+        HP_elec = buildings('F17_HP_elec', period)
+        lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
+        com_peak_load = buildings('F17_com_peak_load', period)
+        HP_gas = buildings('F17_HP_gas', period)
 
-        annual_energy_savings = deemed_activity_electricity_savings + deemed_gas_savings
+        #deemed electricity savings
+        deemed_electricity_savings = (- HP_elec) * lifetime / 3.6
 
-        annual_savings_return = np.select([
-                annual_energy_savings <= 0, annual_energy_savings > 0
-            ],
-            [
-                0, annual_energy_savings
-            ])
+        #ref elec
+        ref_elec = 365 * 0.905 * 1.05 * (com_peak_load / 1000)
+
+        #deemed gas savings
+        deemed_gas_savings = (ref_elec / 0.85 - HP_gas) * lifetime / 3.6
+
+        #annual energy savings
+        annual_energy_savings = deemed_electricity_savings + deemed_gas_savings
+
+        # annual_savings_return = np.select([
+        #         annual_energy_savings <= 0, 
+        #         annual_energy_savings > 0
+        #     ],
+        #     [
+        #         0, 
+        #         annual_energy_savings
+        #     ])
         
-        return annual_savings_return
+        # return annual_savings_return
 
+        return annual_energy_savings
 
 
 class F17_ESC_calculation(Variable):

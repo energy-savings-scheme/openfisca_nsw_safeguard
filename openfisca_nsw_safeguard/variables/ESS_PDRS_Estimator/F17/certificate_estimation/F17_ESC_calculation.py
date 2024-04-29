@@ -103,18 +103,16 @@ class F17_annual_energy_savings(Variable):
         #annual energy savings
         annual_energy_savings = deemed_electricity_savings + deemed_gas_savings
 
-        # annual_savings_return = np.select([
-        #         annual_energy_savings <= 0, 
-        #         annual_energy_savings > 0
-        #     ],
-        #     [
-        #         0, 
-        #         annual_energy_savings
-        #     ])
+        annual_savings_return = np.select([
+                annual_energy_savings <= 0, 
+                annual_energy_savings > 0
+            ],
+            [
+                0, 
+                annual_energy_savings
+            ])
         
-        # return annual_savings_return
-
-        return annual_energy_savings
+        return annual_savings_return
 
 
 class F17_ESC_calculation(Variable):

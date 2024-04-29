@@ -79,30 +79,45 @@
   period: 2024
   absolute_error_margin: 0.5
   input:
-    F17_deemed_activity_electricity_savings:   
+    F17_HP_elec:
       [
-        -30.86667,
-        -26.13333,
-        -41.50000
+        100,
+        85,
+        149
       ]
-    F17_deemed_activity_gas_savings:
+    F17_com_peak_load:
       [
-        104.73246,
-        99.29181,
-        146.89747
+        20, #RefElec 6.937
+        30, #RefElec 10.4052375
+        49, #RefElec 16.9952212
+      ]
+    F17_HP_gas:
+      [
+        50,
+        60,
+        83
       ]
   output:
     F17_annual_energy_savings:
       [
-        73.86579,
-        73.15848,
-        105.39747
+        0,   #deemed gas savings = -139.463 + deemed electricity savings -333.333 = -472.797
+        0, #deemed gas savings = -159.195147 + deemed electricity savings -283.333333 = -442.52848
+        0 #deemed gas savings = -210.01874 + deemed electricity savings-496.666667 = -706.685407
       ]
 
 - name: test F17 ESC calculation
   period: 2024
-  absolute_error_margin: 1.0
+  absolute_error_margin: 0.3
   input:
+    F17_installation_activity:
+      [
+        true,
+        true,
+        true,
+        true,
+        false, #not eligible
+        true
+      ]
     F17_electricity_savings:
       [
         50,
@@ -128,6 +143,6 @@
         4.7,
         90.625,
         16.50559,
-        18.13478,
+        0,
         23.73211
       ]

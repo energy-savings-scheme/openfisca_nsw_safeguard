@@ -13,11 +13,11 @@
   output:
     D17_ESSJun24_get_HP_zone_by_postcode:
       [
-        heat_pump_zone_3,
-        heat_pump_zone_3,
-        heat_pump_zone_3,
-        heat_pump_zone_5,
-        0
+        'heat_pump_zone_3',
+        'heat_pump_zone_3',
+        'heat_pump_zone_3',
+        'heat_pump_zone_5',
+        'heat_pump_zone_0'
       ]
 
 # - name: test D17 regional network factor

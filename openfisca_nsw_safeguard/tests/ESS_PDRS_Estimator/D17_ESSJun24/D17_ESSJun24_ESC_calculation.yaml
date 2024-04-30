@@ -1,0 +1,235 @@
+- name: test postcode to heat pump zone
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D17_ESSJun24_PDRS__postcode:
+      [
+        2324, #HP zone 3
+        2588, #HP zone 3
+        2328, #HP zone 3
+        2624, #HP zone 5
+        2363  #HP zone 0
+      ]
+  output:
+    D17_ESSJun24_get_HP_zone_by_postcode:
+      [
+        heat_pump_zone_3,
+        heat_pump_zone_3,
+        heat_pump_zone_3,
+        heat_pump_zone_5,
+        0
+      ]
+
+# - name: test D17 regional network factor
+#   period: 2023
+#   absolute_error_margin: 0.1
+#   input:
+#     D17_PDRS__postcode:
+#       [
+#         2352,
+#         2729,
+#         2801,
+#         2846
+#       ]
+#   output: 
+#     D17_regional_network_factor:
+#       [
+#         1.03,
+#         1.03,
+#         1.03,
+#         1
+#       ]
+
+# - name: test D17 Baseline A from system size
+#   period: 2023
+#   absolute_error_margin: 0
+#   input:
+#     D17_system_size_int:
+#       [
+#         small,
+#         medium
+#       ]
+#   output:
+#      D17_Baseline_A:
+#       [
+#         30.78,
+#         50.76
+#       ]
+
+# - name: test D17 deemed electricity savings
+#   period: 2023
+#   absolute_error_margin: 0.1
+#   input:
+#     D17_Baseline_A:
+#       [
+#         3.320,
+#         100,
+#         50.76
+#       ]
+#     D17_Bs:
+#       [
+#         2,
+#         5,
+#         5.29
+#       ]
+#     D17_Be:
+#       [
+#         2,
+#         3,
+#         0.05
+#       ]
+#   output:
+#     D17_deemed_activity_electricity_savings:
+#       [
+#         -5.96,
+#         81.44,
+#         38.37
+#       ]
+
+# - name: test D17 annual energy savings
+#   period: 2024
+#   absolute_error_margin: 0.5
+#   input:
+#     D17_system_size:
+#       [
+#         system_size_small,
+#         system_size_medium,
+#         system_size_small
+#       ]
+#     D17_Bs:   
+#       [
+#         5,
+#         10,
+#         2.5
+#       ]
+#     D17_Be:
+#       [
+#         7,
+#         20,
+#         4.3
+#       ]
+#     D17_PDRS__postcode:
+#       [
+#         2352, #rnf 1.03
+#         2729, #rnf 1.03
+#         2024  #rnf 1
+#       ]
+#   output:
+#     D17_annual_energy_savings:
+#       [
+#         3.0282,
+#         0,
+#         15.004
+#       ]
+
+# - name: test D17 electricity savings
+#   period: 2023
+#   absolute_error_margin: 0.1
+#   input:
+#     D17_deemed_activity_electricity_savings:
+#       [
+#         4,
+#         61.44,
+#         3,
+#         104,
+#         38.37
+#       ]
+#     D17_regional_network_factor:
+#       [
+#         1.03,
+#         1.03,
+#         1.03,
+#         1,
+#         1
+#       ]
+#   output:
+#     D17_electricity_savings:
+#       [
+#         4.12,
+#         63.283,
+#         3.09,
+#         104 ,
+#         38.37
+#       ]
+
+# - name: test D17 ESC calculation
+#   period: 2023
+#   absolute_error_margin: 0.1
+#   input:
+#     D17_electricity_savings:
+#       [
+#         4.12,
+#         63.283,
+#         3.09,
+#         104,
+#         38.37
+#       ]
+#     D17_replacement_activity:
+#       [
+#         true,
+#         true,
+#         false, #not eligible
+#         true,
+#         true
+#       ]
+#   output:
+#     D17_ESC_calculation:
+#       [
+#         4.367,
+#         67.079,
+#         0,
+#         110.24,
+#         40.67
+#       ]
+
+# - name: test D17 ESC full calculation Rinnai EHPA315VM
+#   period: 2023
+#   absolute_error_margin: 0.1
+#   input: 
+#     D17_PDRS__postcode:
+#       [
+#         2541
+#       ]
+#     D17_Baseline_A:
+#       [
+#         50.76
+#       ]
+#     D17_Bs:
+#       [
+#         5.29
+#       ]
+#     D17_Be:
+#       [
+#         0.05
+#       ]
+#   output:
+#     D17_ESC_calculation:
+#       [
+#         40.67
+#       ]
+
+# - name: test D17 ESC full calculation Quantum 200-08AC6-290
+#   period: 2023
+#   absolute_error_margin: 0.1
+#   input: 
+#     D17_PDRS__postcode:
+#       [
+#         2350
+#       ]
+#     D17_Baseline_A:
+#       [
+#         50.76
+#       ]
+#     D17_Bs:
+#       [
+#         6.21
+#       ]
+#     D17_Be:
+#       [
+#         0
+#       ]
+#   output:
+#     D17_ESC_calculation:
+#       [
+#         39.68
+#       ]

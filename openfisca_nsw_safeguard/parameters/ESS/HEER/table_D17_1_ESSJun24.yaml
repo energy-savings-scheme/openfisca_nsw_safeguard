@@ -1,0 +1,43 @@
+description: Baseline energy consumption by system size, table D17.1, Energy Savings Scheme Rule
+reference: Energy Savings Scheme Rule
+metadata:
+  unit: MWh/year
+baseline_energy_consumption:
+  heat_pump_zone_3:
+    small:
+      Baseline_A:
+        values:
+          2024-01-01:
+            value: 23.18
+      adjustment_coefficient:
+        values:
+          2024-01-01:
+            value: 2.291
+    medium:
+      Baseline_A:
+        values:
+          2024-01-01:
+            value: 35.14
+      adjustment_coefficient:
+        values:
+          2024-01-01:
+            value: 2.291
+  heat_pump_zone_5:
+    small:
+      Baseline_A:
+        values:
+          2024-01-01:
+            value: 25.43
+      adjustment_coefficient:
+        values:
+          2024-01-01:
+            value: 2.310
+    medium:
+      Baseline_A:
+        values:
+          2024-01-01:
+            value: 38.49
+      adjustment_coefficient:
+        values:
+          2024-01-01:
+            value: 2.310

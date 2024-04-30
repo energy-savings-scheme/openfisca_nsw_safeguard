@@ -37,7 +37,7 @@ class SYS1_replacement_activity(Variable):
         'label' : 'Replacement or new installation activity',
         'display_question' : 'Is the activity the replacement of existing equipment?',
         'sorting' : 3
-        }
+    }
 
 
 class SYS1_new_equipment_rated_output(Variable):

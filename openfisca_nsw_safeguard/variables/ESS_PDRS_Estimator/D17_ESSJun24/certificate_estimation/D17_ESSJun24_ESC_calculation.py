@@ -17,11 +17,24 @@ class D17_ESSJun24_deemed_activity_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         Baseline_A = buildings('D17_ESSJun24_Baseline_A', period)
-        a = 2.320
+        a = buildings('D17_ESSJun24_adjustment_coefficient', period)
         Bs = buildings('D17_ESSJun24_Bs', period)
         Be = buildings('D17_ESSJun24_Be', period)
 
-        electricity_savings = Baseline_A - (a * (Bs + Be))
+        #if Bs and Be values from the registry are 0, calculate 0 savings
+        electricity_savings = np.select(
+        [
+            (Bs <= 0) * (Be <= 0),
+            (Bs > 0) * (Be <= 0),
+            (Bs > 0) * (Be > 0),
+            (Bs <= 0) * (Be > 0)
+        ],
+        [
+            0,
+            Baseline_A - (a * (Bs + Be)),
+            Baseline_A - (a * (Bs + Be)),
+            Baseline_A - (a * (Bs + Be))
+        ])
         return electricity_savings
 
 
@@ -66,23 +79,52 @@ class D17_ESSJun24_annual_energy_savings(Variable):
                 'medium'
             ])
         
-        #Baseline A
-        Baseline_A = parameters(period).ESS.HEER.table_D17_1['baseline_energy_consumption'][system_size_int]
-        
-        #Deemed electricity savings
-        a = 2.320
-        Bs = buildings('D17_Bs', period)
-        Be = buildings('D17_Be', period)
+        #heat pump zone
+        postcode = buildings('D17_ESSJun24_PDRS__postcode', period)
+        heat_pump_zone = parameters(period).ESS.ESS_general.Postcode_zones_air_source_heat_pumps
+        heat_pump_zone_int = heat_pump_zone.calc(postcode)
 
-        deemed_activity_electricity_savings = Baseline_A - (a * (Bs + Be))
-    
+        heat_pump_zone_str = np.select(
+            [
+                heat_pump_zone_int == 3,
+                heat_pump_zone_int == 5
+            ],
+            [
+                'heat_pump_zone_3',
+                'heat_pump_zone_5'
+            ])
+        
+        #Baseline A
+        Baseline_A = parameters(period).ESS.HEER.table_D17_1_ESSJun24['baseline_energy_consumption'][heat_pump_zone_str][system_size_int]['Baseline_A']
+        
+        #adjustment coefficient
+        a = parameters(period).ESS.HEER.table_D17_1_ESSJun24['baseline_energy_consumption'][heat_pump_zone_str][system_size_int]['adjustment_coefficient']
+
+        #Deemed electricity savings
+        Bs = buildings('D17_ESSJun24_Bs', period)
+        Be = buildings('D17_ESSJun24_Be', period)
+
+        #if Bs and Be values from the registry are 0, calculate 0 savings
+        electricity_savings = np.select(
+        [
+            (Bs <= 0) * (Be <= 0),
+            (Bs > 0) * (Be <= 0),
+            (Bs > 0) * (Be > 0),
+            (Bs <= 0) * (Be > 0)
+        ],
+        [
+            0,
+            Baseline_A - (a * (Bs + Be)),
+            Baseline_A - (a * (Bs + Be)),
+            Baseline_A - (a * (Bs + Be))
+        ])
+
         #regional network factor
-        postcode = buildings('D17_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         regional_network_factor = rnf.calc(postcode)
 
         #electricity savings
-        annual_energy_savings = deemed_activity_electricity_savings * regional_network_factor
+        annual_energy_savings = electricity_savings * regional_network_factor
     
         annual_savings_return = np.select([
                 annual_energy_savings <= 0, annual_energy_savings > 0

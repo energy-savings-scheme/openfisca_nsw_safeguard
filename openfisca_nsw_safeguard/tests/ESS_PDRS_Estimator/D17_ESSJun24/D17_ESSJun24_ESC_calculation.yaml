@@ -1,0 +1,320 @@
+- name: test postcode to heat pump zone
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D17_ESSJun24_PDRS__postcode:
+      [
+        2324, #HP zone 3
+        2588, #HP zone 3
+        2328, #HP zone 3
+        2624, #HP zone 5
+        2363  #HP zone 0
+      ]
+  output:
+    D17_ESSJun24_get_HP_zone_by_postcode:
+      [
+        3,
+        3,
+        3,
+        5,
+        0
+      ]
+
+- name: test D17 regional network factor
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D17_ESSJun24_PDRS__postcode:
+      [
+        2352,
+        2729,
+        2801,
+        2846
+      ]
+  output: 
+    D17_ESSJun24_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1
+      ]
+
+- name: test D17 Baseline A from heat pump zone & system size
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D17_ESSJun24_system_size_int:
+      [
+        small,
+        medium,
+        small,
+        medium
+      ]
+    D17_ESSJun24_get_HP_zone_by_postcode:
+      [
+        3, #HP zone 3
+        3, #HP zone 3
+        5, #HP zone 5
+        5  #HP zone 5
+      ]
+  output:
+     D17_ESSJun24_Baseline_A:
+      [
+        23.18,
+        35.14,
+        25.43,
+        38.49
+      ]
+
+- name: test D17 adjustment coefficient 'a' from heat pump zone & system size
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D17_ESSJun24_system_size_int:
+      [
+        small,
+        medium,
+        small,
+        medium
+      ]
+    D17_ESSJun24_get_HP_zone_by_postcode:
+      [
+        3, #HP zone 3
+        3, #HP zone 3
+        5, #HP zone 5
+        5  #HP zone 5
+      ]
+  output:
+     D17_ESSJun24_adjustment_coefficient:
+      [
+        2.291,
+        2.291,
+        2.310,
+        2.310
+      ]
+
+- name: test D17 deemed activity electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D17_ESSJun24_Baseline_A:
+      [
+        3.320,
+        100,
+        50.76
+      ]
+    D17_ESSJun24_adjustment_coefficient:
+      [
+        1,
+        1,
+        3
+      ]
+    D17_ESSJun24_Bs:
+      [
+        2,
+        5,
+        5.29
+      ]
+    D17_ESSJun24_Be:
+      [
+        2,
+        3,
+        0.05
+      ]
+  output:
+    D17_ESSJun24_deemed_activity_electricity_savings:
+      [
+        -0.68,
+        92,
+        34.74
+      ]
+
+- name: test D17 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    D17_ESSJun24_system_size:
+      [
+        'small',  #Baseline A = 23.18, a = 2.291
+        'medium', #Baseline A = 38.49, a = 2.31
+        'small',  #Baseline A = 23.18, a = 2.291
+        'medium'  #Baseline A = 35.14, a = 2.291
+      ]
+    D17_ESSJun24_PDRS__postcode:
+      [
+        2352, #rnf 1.03 hpzone3
+        2729, #rnf 1.03 hpzone5
+        2024, #rnf 1 hpzone3
+        2352, #rnf 1.03 hpzone3
+      ]
+    D17_ESSJun24_Bs:   
+      [
+        5,
+        10,
+        2.5,
+        0
+      ]
+    D17_ESSJun24_Be:
+      [
+        7,
+        20,
+        4.3,
+        0
+      ]
+  output:
+    D17_ESSJun24_annual_energy_savings:
+      [
+        0, # -4.441
+        0, # -45.186
+        7.6012, 
+        0 #Bs and Be not valid
+      ]
+
+- name: test D17 electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D17_deemed_activity_electricity_savings:
+      [
+        4,
+        61.44,
+        3,
+        104,
+        38.37
+      ]
+    D17_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1,
+        1
+      ]
+  output:
+    D17_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104 ,
+        38.37
+      ]
+
+- name: test D17 ESC calculation
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D17_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104,
+        38.37
+      ]
+    D17_replacement_activity:
+      [
+        true,
+        true,
+        false, #not eligible
+        true,
+        true
+      ]
+  output:
+    D17_ESC_calculation:
+      [
+        4.367,
+        67.079,
+        0,
+        110.24,
+        40.67
+      ]
+
+- name: test D17 ESC full calculation Rinnai EHPA315VM
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    D17_PDRS__postcode:
+      [
+        2541
+      ]
+    D17_Baseline_A:
+      [
+        50.76
+      ]
+    D17_Bs:
+      [
+        5.29
+      ]
+    D17_Be:
+      [
+        0.05
+      ]
+  output:
+    D17_ESC_calculation:
+      [
+        40.67
+      ]
+
+- name: test D17 ESC full calculation Quantum 200-08AC6-290
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    D17_PDRS__postcode:
+      [
+        2350
+      ]
+    D17_Baseline_A:
+      [
+        50.76
+      ]
+    D17_Bs:
+      [
+        6.21
+      ]
+    D17_Be:
+      [
+        0
+      ]
+  output:
+    D17_ESC_calculation:
+      [
+        39.68
+      ]
+
+- name: test if Bs and Be are 0, return 0 savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    D17_ESSJun24_Baseline_A:
+      [
+        50.76,
+        100,
+        120
+      ]
+    D17_ESSJun24_adjustment_coefficient:
+      [
+        1,
+        1,
+        10
+      ]
+    D17_ESSJun24_Bs:
+      [
+        2,
+        5,
+        0
+      ]
+    D17_ESSJun24_Be:
+      [
+        2,
+        3,
+        0
+      ]
+  output:
+    D17_ESSJun24_deemed_activity_electricity_savings:
+      [
+        46.76,
+        92,
+        0 #Bs and Be not valid
+      ]

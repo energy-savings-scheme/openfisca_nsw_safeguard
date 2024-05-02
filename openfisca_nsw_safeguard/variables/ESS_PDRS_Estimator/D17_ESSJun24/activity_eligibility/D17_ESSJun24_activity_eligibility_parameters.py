@@ -18,19 +18,6 @@ class D17_ESSJun24_equipment_replaced(Variable):
     }
 
 
-class D17_ESSJun24_equipment_replaces_electric(Variable):
-    #replacement of an existing gas hot water heater or boiler is a different activity under the ESS (D19)
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-      'display_question' : 'Is the equipment that is being replaced an electric resistance storage or instantaneous water heater?',
-      'sorting' : 2,
-      'eligibility_clause' : """In ESS D17 Eligibility Requirements Clause 1 it states that the existing electric water heater must be an electric resistance storage or instantaneous water heater."""
-    }
-
-
 class D17_ESSJun24_engaged_ACP(Variable):
     value_type = bool
     entity = Building
@@ -38,10 +25,22 @@ class D17_ESSJun24_engaged_ACP(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
-        'sorting' : 3,
+        'sorting' : 2,
         'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
+    }
+
+
+class D17_ESSJun24_minimum_payment(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+      'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
+      'sorting' : 3,
+      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
     }
 
 

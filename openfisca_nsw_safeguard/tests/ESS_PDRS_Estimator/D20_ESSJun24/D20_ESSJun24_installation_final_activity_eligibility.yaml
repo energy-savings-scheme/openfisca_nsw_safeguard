@@ -1,8 +1,8 @@
-- name: Test D20 final formula installation eligibility
+- name: Test D20_ESSJun24_ final formula installation eligibility
   period: 2024
   absolute_error_margin: 0
   input:
-    D20_equipment_replaced:
+    D20_ESSJun24_equipment_replaced:
       [
         True,
         False, #not eligible
@@ -13,7 +13,7 @@
         True,
         True
       ]
-    D20_equipment_replaces_gas:
+    D20_ESSJun24_engaged_ACP:
       [
         True,
         True,
@@ -24,7 +24,7 @@
         True,
         True
       ]
-    D20_engaged_ACP:
+    D20_ESSJun24_minimum_payment:
       [
         True,
         True,
@@ -35,7 +35,7 @@
         True,
         True
       ]
-    D20_equipment_removed:
+    D20_ESSJun24_equipment_removed:
       [
         True,
         True,
@@ -46,7 +46,7 @@
         True,
         True
       ]
-    D20_equipment_installed:
+    D20_ESSJun24_equipment_installed:
       [
         True,
         True,
@@ -57,7 +57,7 @@
         True,
         True
       ]
-    D20_installed_by_qualified_person:
+    D20_ESSJun24_installed_by_qualified_person:
       [
         True,
         True,
@@ -68,7 +68,7 @@
         False, #not eligible
         True
       ]
-    D20_equipment_registered_IPART:
+    D20_ESSJun24_equipment_registered_IPART:
       [
         True,
         True,
@@ -80,7 +80,7 @@
         False #not eligible
       ]
   output:
-    D20_replacement_final_activity_eligibility:
+    D20_ESSJun24_replacement_final_activity_eligibility:
       [
         True,
         False,

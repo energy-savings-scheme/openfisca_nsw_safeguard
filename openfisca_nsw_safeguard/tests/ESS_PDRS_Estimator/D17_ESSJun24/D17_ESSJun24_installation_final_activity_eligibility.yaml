@@ -1,0 +1,94 @@
+- name:
+    Test D17 final formula installation eligibility
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D17_ESSJun24_equipment_replaced:
+      [
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    D17_ESSJun24_engaged_ACP:
+      [
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    D17_ESSJun24_minimum_payment:
+      [
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True
+      ]
+    D17_ESSJun24_equipment_removed:
+      [
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True
+      ]
+    D17_ESSJun24_equipment_installed:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True
+      ]
+    D17_ESSJun24_installed_by_qualified_person:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True
+      ]
+    D17_ESSJun24_equipment_registered_IPART:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False #not eligible
+      ]
+  output:
+    D17_ESSJun24_replacement_final_activity_eligibility:
+      [
+        True,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False
+      ]

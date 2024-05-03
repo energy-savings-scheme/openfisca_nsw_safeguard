@@ -14,7 +14,9 @@ class D17_ESSJun24_equipment_replaced(Variable):
     metadata = {
       'display_question' : 'Is the activity the replacement of an existing electric water heater with an (air source) heat pump water heater?',
       'sorting' : 1,
-      'eligibility_clause' : """A new installation is not eligible under ESS Activity D17. In ESS D17 the activity definition states that the activity must be the replacement of an existing electric water heater with an (air source) heat pump water heater."""
+      'eligibility_clause' : """A new installation is not eligible under ESS Activity D17. In ESS D17 the activity definition states that the activity must be the replacement of an existing electric water heater with an (air source) heat pump water heater. <br />
+                                ESS D17 Eligibility Requirements Clause 1 also states that the existing electric water heater must be an electric resistance storage or instantaneous water heater.
+      """
     }
 
 
@@ -40,7 +42,8 @@ class D17_ESSJun24_minimum_payment(Variable):
     metadata = {
       'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
       'sorting' : 3,
-      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
+      'eligibility_clause' : """In ESS Clause 9.8.1(F) it states that the Accredited Certificate Provider must have evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of:<br /> 
+                                i. at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions D5, D16, D17, D18, D19, D20 and D21;"""
     }
 
 
@@ -92,6 +95,6 @@ class D17_ESSJun24_equipment_registered_IPART(Variable):
                                   1. The installed End-User Equipment must be an air source heat pump water heater as defined by AS/NZS 4234;<br />
                                   2. The installed End-User Equipment must be certified to AS/NZS 2712; and <br />
                                   3. The installed End-User equipment must achieve minimum annual energy savings, when determined as an air sourced heat pump using a small or medium thermal peak load in accordance with AS/NZS 4232, of: <br />
-                                     o 60% when modelled in climate zone HP3-AU if the Site is in BCA Climate Zone 2, 3, 4, 5 or 6.<br />
-                                     o 60% when modelled in climate zone HP5-AU if the Site is in BCA Climate Zone 7 or 8."""
+                                     o 60% when modelled in AS/NZ 4234 climate zone HP3-AU<br />
+                                     o 60% when modelled in AS/NZ 4234 climate zone HP5-AU"""
     }

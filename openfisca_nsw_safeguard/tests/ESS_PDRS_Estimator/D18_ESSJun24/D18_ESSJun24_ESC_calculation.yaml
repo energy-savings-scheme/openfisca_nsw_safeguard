@@ -1,0 +1,273 @@
+- name: test zones by postcode
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D18_ESSJun24_PDRS__postcode:
+      [
+        2354,
+        2365,
+        2074
+      ]
+  output:
+    D18_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+        7,
+        7,
+        5
+      ]
+
+- name: test postcode to BCA climate zone to heat pump zone
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D18_ESSJun24_PDRS__postcode:
+      [
+        2324, #BCA climate zone 2 - HP zone 3
+        2588, #BCA climate zone 4 - HP zone 3
+        2328, #BCA climate zone 7 - HP zone 5
+        2624  #BCA climate zone 8 - HP zone 5
+      ]
+  output:
+    D18_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+        3,
+        3,
+        5,
+        5
+      ]
+
+- name: test BCA climate zone to heat pump zone
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D18_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+       2,
+       4,
+       7,
+       8
+      ]
+  output:
+    D18_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+       3,
+       3,
+       5,
+       5
+      ]
+
+- name: test D18_ESSJun24 regional network factor
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D18_ESSJun24_PDRS__postcode:
+      [
+        2352,
+        2729,
+        2801,
+        2846
+      ]
+  output: 
+    D18_ESSJun24_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1
+      ]
+
+- name: test D18_ESSJun24 Baseline A from system size
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D18_ESSJun24_system_size_int:
+      [
+        small,
+        medium
+      ]
+  output:
+     D18_ESSJun24_Baseline_A:
+      [
+        28.98,
+        43.93
+      ]
+
+- name: test D18_ESSJun24 deemed electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D18_ESSJun24_Baseline_A:
+      [
+        50,
+        200,
+        38.47,
+        63.45,
+        63.45 #Ecogenica EG-155FR
+      ]
+    D18_ESSJun24_Bs:
+      [
+        2,
+        5,
+        4.96,
+        7.54,
+        3.28640
+      ]
+    D18_ESSJun24_Be:
+      [
+        2,
+        3,
+        1.2,
+        0.6,
+        0
+      ]
+  output:
+    D18_ESSJun24_deemed_activity_electricity_savings:
+      [
+        40.76,
+        181.52,
+        24.24,
+        44.65,
+        55.86
+      ]
+
+- name: test D18_ESSJun24 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    D18_ESSJun24_system_size:
+      [
+        system_size_small, #Baseline A 28.98
+        system_size_medium, #Baseline A 43.93
+        system_size_small, #Baseline A 28.98
+        system_size_medium, #Baseline A 43.93
+        system_size_medium  #Baseline A 43.93 #Ecogenica EG-155FR
+      ]
+    D18_ESSJun24_Bs:   
+      [
+        10,
+        25,
+        18,
+        35,
+        3.28640
+      ]
+    D18_ESSJun24_Be:
+      [
+        20,
+        15,
+        24,
+        48,
+        0
+      ]
+    D18_ESSJun24_PDRS__postcode:
+      [
+        2352, #rnf 1.03
+        2729, #rnf 1.03
+        2076, #rnf 1
+        2824, #rnf 1
+        2801  #rnf 1.03
+      ]
+  output:
+    D18_ESSJun24_annual_energy_savings:
+      [
+        0, #negative value
+        0, #negative value
+        0, #negative value
+        0, #negative value
+        37.4286
+      ]
+
+- name: test D18_ESSJun24 electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D18_ESSJun24_deemed_activity_electricity_savings:
+      [
+        4,
+        61.44,
+        3,
+        104,
+        23.96,
+        44.28
+      ]
+    D18_ESSJun24_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1,
+        1.03,
+        1
+      ]
+  output:
+    D18_ESSJun24_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104,
+        24.68,
+        44.28
+      ]
+
+- name: test D18_ESSJun24 ESC calculation
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D18_ESSJun24_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104,
+        24.68,
+        44.28
+      ]
+    D18_ESSJun24_replacement_activity:
+      [
+        true,
+        true,
+        false, #not eligible
+        true,
+        true,
+        true
+      ]
+  output:
+    D18_ESSJun24_ESC_calculation:
+      [
+        4.367,
+        67.079,
+        0,
+        110.24,
+        26.16,
+        46.93
+      ]
+
+- name: test if Bs and Be are 0, return 0 savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    D18_ESSJun24_Baseline_A:
+      [
+        50.76,
+        100,
+        120
+      ]
+    D18_ESSJun24_Bs:
+      [
+        2,
+        5,
+        0
+      ]
+    D18_ESSJun24_Be:
+      [
+        2,
+        3,
+        0
+      ]
+  output:
+    D18_ESSJun24_deemed_activity_electricity_savings:
+      [
+        41.52,
+        81.52,
+        0 #Bs and Be not valid
+      ]

@@ -98,3 +98,15 @@ class F16_gas_regional_network_factor(Variable):
         postcode = buildings('F16_gas_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         return rnf.calc(postcode)
+    
+class F16_gas_PDRS__postcode(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+    metadata={
+        'variable-type' : 'user-input',
+        'alias' : 'ESS Postcode',
+        'display_question' : 'Postcode where the installation has taken place',
+        'sorting' : 1,
+        'label': 'Postcode'
+    }

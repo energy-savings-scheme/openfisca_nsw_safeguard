@@ -225,10 +225,10 @@
       ]
     D19_ESSJun24_Bs:   
       [
-        5,    #Baseline A 0.58 adjustment coefficient 2.31 2.31 Baseline B 31.65 
-        10,   #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 47.337
+        5,    #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 28.029 
+        10,   #Baseline A 0.58 adjustment coefficient 2.310 Baseline B 52.750
         2.5,  #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 28.029
-        4.39, #Baseline A 0.58 adjustment coefficient 2.31 Baseline B 47.337
+        4.39, #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 28.029
         0
       ]
     D19_ESSJun24_Be:

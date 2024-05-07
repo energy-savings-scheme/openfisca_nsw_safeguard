@@ -1,207 +1,207 @@
-# - name: test zones by postcode
-#   period: 2024
-#   absolute_error_margin: 0
-#   input:
-#     D19_ESSJun24_PDRS__postcode:
-#       [
-#         2354,
-#         2365,
-#         2074
-#       ]
-#   output:
-#     D19_ESSJun24_BCA_climate_zone_by_postcode_int:
-#       [
-#         7,
-#         7,
-#         5
-#       ]
+- name: test zones by postcode
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D19_ESSJun24_PDRS__postcode:
+      [
+        2354,
+        2365,
+        2074
+      ]
+  output:
+    D19_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+        7,
+        7,
+        5
+      ]
 
-# - name: test postcode to BCA climate zone to heat pump zone
-#   period: 2024
-#   absolute_error_margin: 0
-#   input:
-#     D19_ESSJun24_PDRS__postcode:
-#       [
-#         2324, #BCA climate zone 2 - HP zone 3
-#         2588, #BCA climate zone 4 - HP zone 3
-#         2328, #BCA climate zone 7 - HP zone 5
-#         2624  #BCA climate zone 8 - HP zone 5
-#       ]
-#   output:
-#     D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
-#       [
-#         3,
-#         3,
-#         5,
-#         5
-#       ]
+- name: test postcode to BCA climate zone to heat pump zone
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D19_ESSJun24_PDRS__postcode:
+      [
+        2324, #BCA climate zone 2 - HP zone 3
+        2588, #BCA climate zone 4 - HP zone 3
+        2328, #BCA climate zone 7 - HP zone 5
+        2624  #BCA climate zone 8 - HP zone 5
+      ]
+  output:
+    D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+        3,
+        3,
+        5,
+        5
+      ]
 
-# - name: test BCA climate zone to heat pump zone
-#   period: 2024
-#   absolute_error_margin: 0
-#   input:
-#     D19_ESSJun24_BCA_climate_zone_by_postcode_int:
-#       [
-#        2,
-#        4,
-#        7,
-#        8
-#       ]
-#   output:
-#     D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
-#       [
-#        3,
-#        3,
-#        5,
-#        5
-#       ]
+- name: test BCA climate zone to heat pump zone
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D19_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+       2,
+       4,
+       7,
+       8
+      ]
+  output:
+    D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+       3,
+       3,
+       5,
+       5
+      ]
 
-# - name: test D19 regional network factor
-#   period: 2024
-#   absolute_error_margin: 0.1
-#   input:
-#     D19_ESSJun24_PDRS__postcode:
-#       [
-#         2352,
-#         2729,
-#         2801,
-#         2846
-#       ]
-#   output: 
-#     D19_ESSJun24_regional_network_factor:
-#       [
-#         1.03,
-#         1.03,
-#         1.03,
-#         1
-#       ]
+- name: test D19 regional network factor
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D19_ESSJun24_PDRS__postcode:
+      [
+        2352,
+        2729,
+        2801,
+        2846
+      ]
+  output: 
+    D19_ESSJun24_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1
+      ]
 
-# - name: test D19 Baseline A from heat pump zone & system size
-#   period: 2024
-#   absolute_error_margin: 0
-#   input:
-#     D19_ESSJun24_system_size_int:
-#       [
-#         small,
-#         medium,
-#         small,
-#         medium
-#       ]
-#     D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
-#       [
-#         3, #HP zone 3
-#         3, #HP zone 3
-#         5, #HP zone 5
-#         5  #HP zone 5
-#       ]
-#   output:
-#      D19_ESSJun24_Baseline_A:
-#       [
-#         0.58,
-#         0.58,
-#         0.58,
-#         0.58
-#       ]
+- name: test D19 Baseline A from heat pump zone & system size
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D19_ESSJun24_system_size_int:
+      [
+        small,
+        medium,
+        small,
+        medium
+      ]
+    D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+        3, #HP zone 3
+        3, #HP zone 3
+        5, #HP zone 5
+        5  #HP zone 5
+      ]
+  output:
+     D19_ESSJun24_Baseline_A:
+      [
+        0.58,
+        0.58,
+        0.58,
+        0.58
+      ]
 
-# - name: test D19 adjustment coefficient 'a' from heat pump zone & system size
-#   period: 2024
-#   absolute_error_margin: 0
-#   input:
-#     D19_ESSJun24_system_size_int:
-#       [
-#         small,
-#         medium,
-#         small,
-#         medium
-#       ]
-#     D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
-#       [
-#         3, #HP zone 3
-#         3, #HP zone 3
-#         5, #HP zone 5
-#         5  #HP zone 5
-#       ]
-#   output:
-#      D19_ESSJun24_adjustment_coefficient:
-#       [
-#         2.291,
-#         2.291,
-#         2.310,
-#         2.310
-#       ]
+- name: test D19 adjustment coefficient 'a' from heat pump zone & system size
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D19_ESSJun24_system_size_int:
+      [
+        small,
+        medium,
+        small,
+        medium
+      ]
+    D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+        3, #HP zone 3
+        3, #HP zone 3
+        5, #HP zone 5
+        5  #HP zone 5
+      ]
+  output:
+     D19_ESSJun24_adjustment_coefficient:
+      [
+        2.291,
+        2.291,
+        2.310,
+        2.310
+      ]
 
-# - name: test D19 Baseline B (deemed gas savings)from heat pump zone & system size
-#   period: 2024
-#   absolute_error_margin: 0
-#   input:
-#     D19_ESSJun24_system_size_int:
-#       [
-#         small,
-#         medium,
-#         small,
-#         medium
-#       ]
-#     D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
-#       [
-#         3, #HP zone 3
-#         3, #HP zone 3
-#         5, #HP zone 5
-#         5  #HP zone 5
-#       ]
-#   output:
-#      D19_ESSJun24_Baseline_B:
-#       [
-#         28.029,
-#         47.337,
-#         31.65,
-#         52.75
-#       ]
+- name: test D19 Baseline B (deemed gas savings)from heat pump zone & system size
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D19_ESSJun24_system_size_int:
+      [
+        small,
+        medium,
+        small,
+        medium
+      ]
+    D19_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+        3, #HP zone 3
+        3, #HP zone 3
+        5, #HP zone 5
+        5  #HP zone 5
+      ]
+  output:
+     D19_ESSJun24_Baseline_B:
+      [
+        28.029,
+        47.337,
+        31.65,
+        52.75
+      ]
 
-# - name: test D19 deemed electricity savings
-#   period: 2024
-#   absolute_error_margin: 0.1
-#   input:
-#     D19_ESSJun24_Baseline_A:
-#       [
-#         3.320,
-#         10,
-#         0.58,
-#         0.58,
-#         0.58
-#       ]
-#     D19_ESSJun24_adjustment_coefficient:
-#       [
-#         2.310,
-#         2.310,
-#         2.310,
-#         2.310,
-#         2.310
-#       ]
-#     D19_ESSJun24_Bs:
-#       [
-#         2,
-#         5,
-#         7.43,
-#         5.82,
-#         3.28640
-#       ]
-#     D19_ESSJun24_Be:
-#       [
-#         2,
-#         3,
-#         0.4,
-#         0.03,
-#         0
-#       ]
-#   output:
-#     D19_ESSJun24_deemed_activity_electricity_savings:
-#       [
-#         -5.92,
-#         -8.48,
-#         -17.51,
-#         -12.93,
-#         -7.011
-#       ]
+- name: test D19 deemed electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D19_ESSJun24_Baseline_A:
+      [
+        3.320,
+        10,
+        0.58,
+        0.58,
+        0.58
+      ]
+    D19_ESSJun24_adjustment_coefficient:
+      [
+        2.310,
+        2.310,
+        2.310,
+        2.310,
+        2.310
+      ]
+    D19_ESSJun24_Bs:
+      [
+        2,
+        5,
+        7.43,
+        5.82,
+        3.28640
+      ]
+    D19_ESSJun24_Be:
+      [
+        2,
+        3,
+        0.4,
+        0.03,
+        0
+      ]
+  output:
+    D19_ESSJun24_deemed_activity_electricity_savings:
+      [
+        -5.92,
+        -8.48,
+        -17.51,
+        -12.93,
+        -7.011
+      ]
 
 - name: test D19 annual energy savings
   period: 2024

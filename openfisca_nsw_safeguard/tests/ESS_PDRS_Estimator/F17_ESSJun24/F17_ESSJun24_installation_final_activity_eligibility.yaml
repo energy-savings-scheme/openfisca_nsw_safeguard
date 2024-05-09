@@ -2,14 +2,14 @@
   period: 2024
   absolute_error_margin: 0
   input:
-    F17_storage_volume:
+    F17_ESSJun24_storage_volume:
       [
         less_than_or_equal_to_700_L,
         less_than_or_equal_to_700_L,
         more_than_700_L,
         more_than_700_L
       ]
-    F17_certified:
+    F17_ESSJun24_certified:
       [
         true,
         false,
@@ -17,7 +17,7 @@
         false
       ]
   output:
-    F17_equipment_certified_by_storage_volume:
+    F17_ESSJun24_equipment_certified_by_storage_volume:
       [
         true,
         false,
@@ -29,81 +29,100 @@
   period: 2024
   absolute_error_margin: 0
   input:
-    F17_equipment_installation:
+    F17_ESSJun24_equipment_new_installation:
       [
-        true, #all true
-        false, 
+        true, 
+        false, #not eligible
         true,
         true,
-        true,
-        true,
-        true,
-        false  #all false
-      ]
-    F17_installed_by_qualified_person:
-      [
-        true,
-        true,
-        false,
         true,
         true,
         true,
         true,
         false
       ]
-    F17_engaged_ACP:
+    F17_ESSJun24_4234_certified:
       [
+        true, 
+        true,
+        false, #not eligible
         true,
         true,
         true,
-        false,
         true,
         true,
-        true,
-        false
+        false  
       ]
-    F17_minimum_payment:
+    F17_ESSJun24_installed_by_qualified_person:
       [
+        true, 
+        true,
+        true,
+        false, #not eligible
         true,
         true,
         true,
         true,
-        false,
-        true,
-        true,
-        false
+        false 
       ]
-    F17_building_BCA_not_class_1_or_4:
+    F17_ESSJun24_engaged_ACP:
+      [
+        true, 
+        true,
+        true,
+        true,
+        false, #not eligible
+        true,
+        true,
+        true,
+        false  
+      ]
+    F17_ESSJun24_minimum_payment:
+      [
+        true, 
+        true,
+        true,
+        true,
+        true,
+        false, #not eligible
+        true,
+        true,
+        false  
+      ]
+    F17_ESSJun24_building_BCA_not_class_1_or_4:
       [ 
         false,
         false,
         false,
         false,
         false,
+        false, 
         true, #building is not eligible
         false,
         true
       ]
-    F17_equipment_certified_by_storage_volume:
+    F17_ESSJun24_equipment_certified_by_storage_volume:
       [
+        true, 
         true,
         true,
         true,
         true,
         true,
         true,
-        false,
-        false
+        false, #not eligible
+        false 
       ]
   output:
-    F17_installation_final_activity_eligibility:
+    F17_ESSJun24_installation_final_activity_eligibility:
       [
-        true,
+        true, #all true
         false,
         false,
         false,
         false,
         false,
         false,
-        false
+        false,
+        false  #all false
       ]

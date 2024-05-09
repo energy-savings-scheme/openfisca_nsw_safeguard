@@ -1,0 +1,47 @@
+name: Test & deploy to Azure VM via remote ssh command
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch: # Manual github trigger (by pressing "Run workflow" on Github "Actions" tab)
+
+jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Run test suite (includes pip install)
+#         run: openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
+
+  deploy:
+#     needs: test
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing remote ssh commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PRD_VM_HOST }}
+          username: ${{ secrets.PRD_VM_USER }}
+          key: ${{ secrets.PRD_VM_PRIVATE_KEY }}
+          port: 22
+          script_stop: true
+          script: |
+            source venv/bin/activate
+            cd openfisca_nsw_safeguard
+            git fetch --all
+            git reset --hard origin/master
+            pip install --editable .[dev] --upgrade
+            sudo supervisorctl restart all
+            exit
+
+  trigger-djangoapi-deployment:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch # Sends webhook to `openfisca-djangoapi` repo which triggers deployment
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DJANGO_API }}
+          repository: energy-savings-scheme/openfisca-djangoapi
+          event-type: prod-openfisca-ruleset-updated

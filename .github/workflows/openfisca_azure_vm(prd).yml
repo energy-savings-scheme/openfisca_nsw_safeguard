@@ -1,4 +1,4 @@
-name: Test & deploy to Azure VM via remote ssh command
+name: Deploy to PROD
 on:
   push:
     branches:

@@ -7,7 +7,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class WH1_baseline_input_power(Variable):
+class WH1_F16_electric_baseline_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -18,13 +18,13 @@ class WH1_baseline_input_power(Variable):
 
     def formula(buildings, period, parameters):
         # user input
-        com_peak_load = buildings('WH1_com_peak_load', period)
+        com_peak_load = buildings('WH1_F16_electric_com_peak_load', period)
 
         baseline_input_power = com_peak_load * 0.01
         return baseline_input_power
 
 
-class WH1_input_power(Variable):
+class WH1_F16_electric_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -34,14 +34,14 @@ class WH1_input_power(Variable):
     }
 
     def formula(buildings, period, parameters):
-        annual_energy_savings = buildings('WH1_annual_energy_savings', period)
-        baseline_input_power = buildings('WH1_baseline_input_power', period)
+        annual_energy_savings = buildings('WH1_F16_electric_annual_energy_savings', period)
+        baseline_input_power = buildings('WH1_F16_electric_baseline_input_power', period)
 
         input_power = (100 - annual_energy_savings) * (baseline_input_power / 100)
         return input_power
 
 
-class WH1_peak_demand_savings_capacity(Variable):
+class WH1_F16_electric_peak_demand_savings_capacity(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -51,9 +51,9 @@ class WH1_peak_demand_savings_capacity(Variable):
     }
 
     def formula(buildings, period, parameters):
-        baseline_input_power = buildings('WH1_baseline_input_power', period)
+        baseline_input_power = buildings('WH1_F16_electric_baseline_input_power', period)
         baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH1']
-        input_power = buildings('WH1_input_power', period)
+        input_power = buildings('WH1_F16_electric_input_power', period)
         peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH1']
         firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH1']
 
@@ -61,7 +61,7 @@ class WH1_peak_demand_savings_capacity(Variable):
         return peak_demand_savings_capacity
     
 
-class WH1_peak_demand_annual_savings(Variable):
+class WH1_F16_electric_peak_demand_annual_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -72,14 +72,14 @@ class WH1_peak_demand_annual_savings(Variable):
 
     def formula(buildings, period, parameters):
         #baseline input power
-        com_peak_load = buildings('WH1_com_peak_load', period)
+        com_peak_load = buildings('WH1_F16_electric_com_peak_load', period)
         baseline_input_power = com_peak_load * 0.01
 
         #baseline peak adjustment factor
         baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH1']
 
         #input power
-        annual_energy_savings = buildings('WH1_annual_energy_savings', period)
+        annual_energy_savings = buildings('WH1_F16_electric_annual_energy_savings', period)
         input_power = (100 - annual_energy_savings) * (baseline_input_power / 100)
 
         #peak adjustment factor
@@ -109,7 +109,7 @@ class WH1_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return
         
 
-class WH1_peak_demand_reduction_capacity(Variable):
+class WH1_F16_electric_peak_demand_reduction_capacity(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -119,7 +119,7 @@ class WH1_peak_demand_reduction_capacity(Variable):
     }
 
     def formula(buildings, period, parameters):
-        peak_demand_savings_capacity = buildings('WH1_peak_demand_savings_capacity', period)
+        peak_demand_savings_capacity = buildings('WH1_F16_electric_peak_demand_savings_capacity', period)
         summer_peak_reduction = parameters(period).PDRS.PDRS_wide_constants['daily_peak_window_hours']
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
@@ -127,7 +127,7 @@ class WH1_peak_demand_reduction_capacity(Variable):
         return peak_demand_reduction_capacity
 
 
-class WH1_PRC_calculation(Variable):
+class WH1_F16_electric_PRC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -137,12 +137,12 @@ class WH1_PRC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-        peak_demand_capacity = buildings('WH1_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('WH1_get_network_loss_factor_by_postcode', period)
+        peak_demand_capacity = buildings('WH1_F16_electric_peak_demand_reduction_capacity', period)
+        network_loss_factor = buildings('WH1_F16_electric_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
-        replacement_activity = buildings('WH1_replacement_activity', period)
+        replacement_activity = buildings('WH1_F16_electric_replacement_activity', period)
 
-        WH1_eligible_PRCs = np.select(
+        WH1_F16_electric_eligible_PRCs = np.select(
             [
                 replacement_activity,
                 np.logical_not(replacement_activity)
@@ -154,9 +154,9 @@ class WH1_PRC_calculation(Variable):
 
         result_to_return = np.select(
             [
-                WH1_eligible_PRCs <= 0, WH1_eligible_PRCs > 0
+                WH1_F16_electric_eligible_PRCs <= 0, WH1_F16_electric_eligible_PRCs > 0
             ],
             [
-                0, WH1_eligible_PRCs
+                0, WH1_F16_electric_eligible_PRCs
             ])
         return result_to_return

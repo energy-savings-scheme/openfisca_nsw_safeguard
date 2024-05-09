@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import Building
 
 import numpy as np
 
-class WH1_capacity_factor(Variable):
+class WH1_F16_electric_capacity_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -16,8 +16,8 @@ class WH1_capacity_factor(Variable):
     }
 
     def formula(buildings, period, parameters):
-      HP_cap = buildings('WH1_HP_capacity_factor', period)
-      WH_cap = buildings('WH1_WH_capacity_factor', period)
+      HP_cap = buildings('WH1_F16_electric_HP_capacity_factor', period)
+      WH_cap = buildings('WH1_F16_electric_WH_capacity_factor', period)
 
       capacity_factor = np.select(
                                  [
@@ -33,7 +33,7 @@ class WH1_capacity_factor(Variable):
       return capacity_factor
     
 
-class WH1_Ref_Elec(Variable):
+class WH1_F16_electric_Ref_Elec(Variable):
     """ Annual Electrical Energy used by a reference electric resistance water heater in a year
     """
     value_type = float
@@ -45,14 +45,14 @@ class WH1_Ref_Elec(Variable):
     }
 
     def formula(buildings, period, parameters):
-        com_peak_load = buildings('WH1_com_peak_load', period)
+        com_peak_load = buildings('WH1_F16_electric_com_peak_load', period)
 
         # we divide this by 1000 to convert MJ to GJ
         ref_elec = 365 * 0.905 * 1.05 * (com_peak_load / 1000)
         return ref_elec
     
 
-class WH1_deemed_activity_gas_savings(Variable):
+class WH1_F16_electric_deemed_activity_gas_savings(Variable):
     #this is the deemed gas savings for a replacing electric equipment
     value_type = float
     entity = Building
@@ -62,15 +62,15 @@ class WH1_deemed_activity_gas_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      HP_gas = buildings('WH1_HP_gas', period)
-      capacity_factor = buildings('WH1_capacity_factor', period)
+      HP_gas = buildings('WH1_F16_electric_HP_gas', period)
+      capacity_factor = buildings('WH1_F16_electric_capacity_factor', period)
       lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
 
       deemed_gas_savings = (-HP_gas) * capacity_factor * (lifetime / 3.6)
       return deemed_gas_savings
     
 
-class WH1_deemed_activity_electricity_savings(Variable):
+class WH1_F16_electric_deemed_activity_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -80,16 +80,16 @@ class WH1_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        ref_elec = buildings('WH1_Ref_Elec', period)
-        HP_elec = buildings('WH1_HP_elec', period)
-        capacity_factor = buildings('WH1_capacity_factor', period)
+        ref_elec = buildings('WH1_F16_electric_Ref_Elec', period)
+        HP_elec = buildings('WH1_F16_electric_HP_elec', period)
+        capacity_factor = buildings('WH1_F16_electric_capacity_factor', period)
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
         deemed_electricity_savings = (ref_elec - HP_elec) * capacity_factor * (lifetime / 3.6)
         return deemed_electricity_savings    
 
 
-class WH1_energy_savings(Variable):
+class WH1_F16_electric_energy_savings(Variable):
     value_type = float  
     entity = Building
     definition_period = ETERNITY
@@ -99,19 +99,19 @@ class WH1_energy_savings(Variable):
 
     def formula(buildings, period, parameters):
         #ref elec
-        com_peak_load = buildings('WH1_com_peak_load', period)
+        com_peak_load = buildings('WH1_F16_electric_com_peak_load', period)
         
         ref_elec = 365 * 0.905 * 1.05 * (com_peak_load / 1000)
 
         #HP elec
-        HP_elec = buildings('WH1_HP_elec', period)
+        HP_elec = buildings('WH1_F16_electric_HP_elec', period)
 
         #HP gas
-        HP_gas = buildings('WH1_HP_gas', period)
+        HP_gas = buildings('WH1_F16_electric_HP_gas', period)
 
         #capacity factor
-        HP_Cap = buildings('WH1_HP_capacity_factor', period)
-        WH_Cap = buildings('WH1_WH_capacity_factor', period)
+        HP_Cap = buildings('WH1_F16_electric_HP_capacity_factor', period)
+        WH_Cap = buildings('WH1_F16_electric_WH_capacity_factor', period)
 
         capacity_factor = np.select(
                                  [
@@ -145,7 +145,7 @@ class WH1_energy_savings(Variable):
         return annual_savings_return
 
 
-class WH1_electricity_savings(Variable):
+class WH1_F16_electric_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -155,14 +155,14 @@ class WH1_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        deemed_activity_electricity_savings = buildings('WH1_deemed_activity_electricity_savings', period)
-        regional_network_factor = buildings('WH1_regional_network_factor', period)
+        deemed_activity_electricity_savings = buildings('WH1_F16_electric_deemed_activity_electricity_savings', period)
+        regional_network_factor = buildings('WH1_F16_electric_regional_network_factor', period)
 
         electricity_savings = deemed_activity_electricity_savings * regional_network_factor
         return electricity_savings
 
 
-class WH1_ESC_calculation(Variable):
+class WH1_F16_electric_ESC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -172,13 +172,13 @@ class WH1_ESC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-        electricity_savings = buildings('WH1_electricity_savings', period)
+        electricity_savings = buildings('WH1_F16_electric_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
-        gas_savings = buildings('WH1_deemed_activity_gas_savings', period) #gas savings and deemed activity gas savings are the same value
+        gas_savings = buildings('WH1_F16_electric_deemed_activity_gas_savings', period) #gas savings and deemed activity gas savings are the same value
         gas_certificate_conversion_factor = 0.47
-        replacement_activity = buildings('WH1_replacement_activity', period)
+        replacement_activity = buildings('WH1_F16_electric_replacement_activity', period)
 
-        WH1_eligible_ESCs = np.select(
+        WH1_F16_electric_eligible_ESCs = np.select(
             [
                 replacement_activity,
                 np.logical_not(replacement_activity)
@@ -190,9 +190,9 @@ class WH1_ESC_calculation(Variable):
 
         result_to_return = np.select(
             [
-                WH1_eligible_ESCs <= 0, WH1_eligible_ESCs > 0
+                WH1_F16_electric_eligible_ESCs <= 0, WH1_F16_electric_eligible_ESCs > 0
             ],
             [
-                0, WH1_eligible_ESCs
+                0, WH1_F16_electric_eligible_ESCs
             ])
         return result_to_return

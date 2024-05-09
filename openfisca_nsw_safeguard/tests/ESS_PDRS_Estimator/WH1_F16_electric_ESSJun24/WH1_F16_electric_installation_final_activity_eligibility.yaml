@@ -2,20 +2,20 @@
   period: 2024
   absolute_error_margin: 0
   input:
-    WH1_ESSJun24_storage_volume:
+    WH1_F16_electric_storage_volume:
       [
         less_than_or_equal_to_700_L,
         less_than_or_equal_to_700_L,
         more_than_700_L
       ]
-    WH1_ESSJun24_certified:
+    WH1_F16_electric_certified:
       [
         true,
         false,
         true
       ]
   output:
-    WH1_ESSJun24_equipment_certified_by_storage_volume:
+    WH1_F16_electric_equipment_certified_by_storage_volume:
       [
         true,
         false,
@@ -26,7 +26,7 @@
   period: 2024
   absolute_error_margin: 0
   input:
-    WH1_ESSJun24_equipment_replaced:
+    WH1_F16_electric_equipment_replaced:
       [
         true,
         false, #not eligible
@@ -38,7 +38,7 @@
         true,
         false
       ]
-    WH1_ESSJun24_equipment_removed:
+    WH1_F16_electric_equipment_removed:
       [
         true,
         true,
@@ -50,7 +50,7 @@
         true,
         false
       ]
-    WH1_ESSJun24_engaged_ACP:
+    WH1_F16_electric_engaged_ACP:
       [
         true,
         true,
@@ -62,7 +62,7 @@
         true,
         false
       ]
-    WH1_ESSJun24_minimum_payment:
+    WH1_F16_electric_minimum_payment:
       [
         true,
         true,
@@ -74,7 +74,7 @@
         true,
         false
       ]
-    WH1_ESSJun24_building_BCA_not_class_1_or_4:
+    WH1_F16_electric_building_BCA_not_class_1_or_4:
       [
         false,
         false,
@@ -86,7 +86,7 @@
         false,
         true
       ]
-    WH1_ESSJun24_scheme_admin_approved:
+    WH1_F16_electric_scheme_admin_approved:
       [
         true,
         true,
@@ -98,7 +98,7 @@
         true,
         false
       ]
-    WH1_ESSJun24_equipment_certified_by_storage_volume:
+    WH1_F16_electric_equipment_certified_by_storage_volume:
       [
         true,
         true,
@@ -111,7 +111,7 @@
         false
       ]
   output:
-    WH1_ESSJun24_installation_replacement_final_activity_eligibility:
+    WH1_F16_electric_installation_replacement_final_activity_eligibility:
       [
         true,
         false,

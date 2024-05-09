@@ -9,14 +9,8 @@ from openfisca_nsw_base.entities import Building
 """ Parameters for WH1 PRC Calculation
 """
 
-""" Values shared with ESC variables WH1_ESC_variables 
-    WH1_com_peak_load
-"""
 
-""" These variables use VEU Registry data
-"""
-
-class WH1_annual_energy_savings(Variable):
+class WH1_F16_electric_annual_energy_savings(Variable):
     reference = 'Percentage'
     value_type = float
     entity = Building
@@ -31,7 +25,7 @@ class WH1_annual_energy_savings(Variable):
 
 """ These variables use Rule tables
 """
-class WH1_PDRS__postcode(Variable):
+class WH1_F16_electric_PDRS__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -45,7 +39,7 @@ class WH1_PDRS__postcode(Variable):
     }
 
 
-class WH1_BCA_climate_zone_by_postcode(Variable):
+class WH1_F16_electric_BCA_climate_zone_by_postcode(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -54,7 +48,7 @@ class WH1_BCA_climate_zone_by_postcode(Variable):
     }
 
     def formula(buildings, period, parameters):
-        postcode = buildings('WH1_PDRS__postcode', period)
+        postcode = buildings('WH1_F16_electric_PDRS__postcode', period)
         # Returns an integer
         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
         climate_zone_int = climate_zone.calc(postcode)
@@ -83,7 +77,7 @@ class WH1_BCA_climate_zone_by_postcode(Variable):
         return BCA_climate_zone_to_check
     
     
-class WH1_BCA_climate_zone_by_postcode_int(Variable):
+class WH1_F16_electric_BCA_climate_zone_by_postcode_int(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -92,7 +86,7 @@ class WH1_BCA_climate_zone_by_postcode_int(Variable):
     }
 
     def formula(buildings, period, parameters):
-        postcode = buildings('WH1_PDRS__postcode', period)
+        postcode = buildings('WH1_F16_electric_PDRS__postcode', period)
         # Returns an integer
         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
         climate_zone_int = climate_zone.calc(postcode)
@@ -100,20 +94,20 @@ class WH1_BCA_climate_zone_by_postcode_int(Variable):
         return climate_zone_int
     
 
-class WH1_get_HP_zone_by_BCA_climate_zone(Variable): 
+class WH1_F16_electric_get_HP_zone_by_BCA_climate_zone(Variable): 
     value_type = int
     entity = Building
     definition_period = ETERNITY
     
     def formula(building, period, parameters):
-        BCA_climate_zone = building('WH1_BCA_climate_zone_by_postcode_int', period)
+        BCA_climate_zone = building('WH1_F16_electric_BCA_climate_zone_by_postcode_int', period)
         heat_pump_zone = parameters(period).ESS.ESS_general.heat_pump_zone_by_BCA_climate_zone
         heat_pump_zone_int = heat_pump_zone.calc(BCA_climate_zone)
 
         return heat_pump_zone_int
 
 
-class WH1_get_network_loss_factor_by_postcode(Variable):
+class WH1_F16_electric_get_network_loss_factor_by_postcode(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -123,21 +117,21 @@ class WH1_get_network_loss_factor_by_postcode(Variable):
         'label' : 'Network loss factor is calculated automatically from your postcode. If you have a 0 here, please check your postcode is correct. If the postcode has more than one distribution network service provider, we have chosen the network factor loss with the lowest value.'
     }
     def formula(building, period, parameters):
-        postcode = building('WH1_PDRS__postcode', period)
+        postcode = building('WH1_F16_electric_PDRS__postcode', period)
         network_loss_factor = parameters(period).PDRS.table_network_loss_factor_by_postcode
 
         return network_loss_factor.calc(postcode)
 
 
-class WH1_annual_energy_savings_eligible(Variable):
+class WH1_F16_electric_annual_energy_savings_eligible(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     default_value = False
 
     def formula(buildings, period, parameters):
-        minimum_savings = buildings('WH1_annual_energy_savings', period)
-        heat_pump_zone = buildings('WH1_get_HP_zone_by_BCA_climate_zone', period)
+        minimum_savings = buildings('WH1_F16_electric_annual_energy_savings', period)
+        heat_pump_zone = buildings('WH1_F16_electric_get_HP_zone_by_BCA_climate_zone', period)
 
         minimum_savings_by_HP_zone_to_check = np.select([
                 (minimum_savings >= 60) * (heat_pump_zone == 3),

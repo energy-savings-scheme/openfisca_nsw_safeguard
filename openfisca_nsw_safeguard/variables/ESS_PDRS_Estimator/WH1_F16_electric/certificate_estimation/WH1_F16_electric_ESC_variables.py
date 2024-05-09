@@ -8,7 +8,7 @@ from openfisca_nsw_base.entities import Building
 """ Parameters for WH1 ESC Calculation
     These variables use VEU Registry data
 """
-class WH1_HP_capacity_factor(Variable):
+class WH1_F16_electric_HP_capacity_factor(Variable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -22,7 +22,7 @@ class WH1_HP_capacity_factor(Variable):
     }
 
 
-class WH1_WH_capacity_factor(Variable):
+class WH1_F16_electric_WH_capacity_factor(Variable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -36,7 +36,7 @@ class WH1_WH_capacity_factor(Variable):
     }
 
 
-class WH1_HP_gas(Variable):
+class WH1_F16_electric_HP_gas(Variable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -50,7 +50,7 @@ class WH1_HP_gas(Variable):
     }
 
 
-class WH1_com_peak_load(Variable):
+class WH1_F16_electric_com_peak_load(Variable):
     reference = 'MJ per day'
     value_type = float
     entity = Building
@@ -64,7 +64,7 @@ class WH1_com_peak_load(Variable):
     }
 
 
-class WH1_HP_elec(Variable):
+class WH1_F16_electric_HP_elec(Variable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -78,19 +78,19 @@ class WH1_HP_elec(Variable):
     }
 
 
-class WH1_regional_network_factor(Variable):
+class WH1_F16_electric_regional_network_factor(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'Regional Network Factor from ESS Table A24'
     
     def formula(buildings, period, parameters):
-        postcode = buildings('WH1_PDRS__postcode', period)
+        postcode = buildings('WH1_F16_electric_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         return rnf.calc(postcode)
 
 
-class WH1_replacement_activity(Variable):
+class WH1_F16_electric_replacement_activity(Variable):
     value_type = bool
     default_value = True
     entity = Building

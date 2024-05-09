@@ -63,7 +63,7 @@ class F17_building_BCA_not_class_1_or_4(Variable):
     metadata = {
       'display_question' : 'Is the End-User Equipment installed in a BCA Class 1 or 4 building?',
       'sorting' : 5,
-      'eligibility_clause' : """In ESS F17 Eligibility Requirements clause 1 it states that the New End-User Equipment must not be installed in a BCA Class 1 or 4 building."""
+      'eligibility_clause' : """In ESS F17 Eligibility Requirements Clause 1 it states that the New End-User Equipment must not be installed in a BCA Class 1 or 4 building."""
     }
 
 
@@ -81,7 +81,7 @@ class F17_storage_volume(Variable):
     metadata = {
       'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
       'sorting' : 6,
-      'eligibility_clause' : """In ESS F17 Equipment Requirements clause 3 it states that the New End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L"""
+      'eligibility_clause' : """In ESS F17 Equipment Requirements Clause 3 it states that the New End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L"""
     }
     
 

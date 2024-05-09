@@ -13,7 +13,8 @@ class F16_gas_equipment_replaced(Variable):
     metadata = {
       'display_question' : 'Is the activity the replacement of a gas hot water boiler or heater with a heat pump water heater?',
       'sorting' : 1,
-      'eligibility_clause' : """In ESS F16 Eligibility Requirements Clause 1 it states that the existing End-User Equipment must be a gas or electric resistance hot water boiler(s) or water heater(s)."""
+      'eligibility_clause' : """In ESS F16 Eligibility Requirements Clause 1 it states that the existing End-User Equipment must be a gas or electric resistance hot water boiler(s) or water heater(s).<br />
+                                ESS F16 Eligibility Requirements Clause 3 also states that the existing End-User Equipment must be a gas hot water boiler(s) or gas water heater(s) if the new End-User Equipment is a gas boosted air sourced heat pump."""
     }
 
 
@@ -22,7 +23,6 @@ class F16_gas_installed_by_qualified_person(Variable):
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    label = 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?'
     metadata = {
         'display_question' : 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?',
         'sorting' : 2,
@@ -68,15 +68,15 @@ class F16_gas_building_BCA_not_class_1_or_4(Variable):
     }
 
 
-class F16_gas_scheme_admin_approved(Variable):
+class F16_gas_4234_certified(Variable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {  
-      'display_question' : 'Has the installed end user equipment been accepted by the Scheme Administrator?',
+      'display_question' : 'Is the End-User equipment AS/NZ 4234 certified?',
       'sorting' : 6,
-      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 4 it states that the installed End-User Equipment must be accepted in a manner determined by the Scheme Administrator."""
+      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 1 it states that the installed End-User Equipment must be an air source heat pump water heater as defined by AS/NZS 4234"""
     }
 
 
@@ -94,7 +94,7 @@ class F16_gas_storage_volume(Variable):
     metadata = {
       'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
       'sorting' : 7,
-      'eligibility_clause' : """In PDRS F16_gas Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
+      'eligibility_clause' : """In PDRS F16 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
 
 
@@ -128,7 +128,7 @@ class F16_gas_certified(Variable):
       'display_question' : 'Is the End-User equipment AS/NZ 2712 certified?',
       'sorting' : 8,
       'conditional' : 'True',
-      'eligibility_clause' : """In PDRS F16_gas Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
+      'eligibility_clause' : """In PDRS F16 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
    
 

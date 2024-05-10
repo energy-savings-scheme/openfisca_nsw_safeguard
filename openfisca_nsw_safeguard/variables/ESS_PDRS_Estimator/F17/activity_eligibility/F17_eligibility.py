@@ -17,8 +17,8 @@ class F17_installation_final_activity_eligibility(Variable):
     }
 
     def formula(buildings, period, parameters):
-        new_installation = buildings('F17_ESSJun24_equipment_new_installation', period)
-        recognised_certification = buildings('F17_ESSJun24_4234_certified', period)
+        new_installation = buildings('F17_equipment_new_installation', period)
+        recognised_certification = buildings('F17_4234_certified', period)
         qualified_install = buildings('F17_installed_by_qualified_person', period)
         ACP_engaged = buildings('F17_engaged_ACP', period)
         minimum_payment = buildings('F17_minimum_payment', period)

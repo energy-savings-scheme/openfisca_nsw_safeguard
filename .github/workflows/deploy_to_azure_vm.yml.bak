@@ -1,8 +1,8 @@
-name: Deploy to UAT
+name: Test & deploy to Azure VM via remote ssh command
 on:
   push:
     branches:
-      - staging
+      - master
   workflow_dispatch: # Manual github trigger (by pressing "Run workflow" on Github "Actions" tab)
 
 jobs:
@@ -21,16 +21,16 @@ jobs:
       - name: Executing remote ssh commands
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.UAT_VM_HOST }}
-          username: ${{ secrets.UAT_VM_USER }}
-          key: ${{ secrets.UAT_VM_PRIVATE_KEY }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script_stop: true
           script: |
             source venv/bin/activate
             cd openfisca_nsw_safeguard
             git fetch --all
-            git reset --hard origin/staging
+            git reset --hard origin/master
             pip install --editable .[dev] --upgrade
             sudo supervisorctl restart all
             exit
@@ -44,4 +44,4 @@ jobs:
         with:
           token: ${{ secrets.DJANGO_API }}
           repository: energy-savings-scheme/openfisca-djangoapi
-          event-type: uat-openfisca-ruleset-updated
+          event-type: openfisca-ruleset-updated

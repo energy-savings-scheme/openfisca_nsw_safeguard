@@ -1,5 +1,5 @@
 - name: test WH1 baseline input power
-  period: 2022
+  period: 2024
   absolute_error_margin: 0
   input:
     WH1_F16_electric_ESSJun24_com_peak_load:
@@ -15,7 +15,7 @@
       ]
 
 - name: test WH1 input power
-  period: 2022
+  period: 2024
   absolute_error_margin: 0.5
   input:
     WH1_F16_electric_ESSJun24_annual_energy_savings:
@@ -36,7 +36,7 @@
       ]
 
 - name: test WH1 peak demand savings capacity
-  period: 2022
+  period: 2024
   absolute_error_margin: 0
   input:
     WH1_F16_electric_ESSJun24_baseline_input_power:
@@ -57,7 +57,7 @@
       ]
 
 - name: test zones by postcode
-  period: 2022
+  period: 2024
   absolute_error_margin: 0
   input:
     WH1_F16_electric_ESSJun24_PDRS__postcode:
@@ -140,7 +140,7 @@
       ]
       
 - name: test WH1 peak demand reduction capacity
-  period: 2022
+  period: 2024
   absolute_error_margin: 0
   input:
     WH1_F16_electric_ESSJun24_peak_demand_savings_capacity:
@@ -183,7 +183,7 @@
       ]
 
 - name: test WH1 PRC calculation
-  period: 2022
+  period: 2024
   absolute_error_margin: 0.5
   input:
     WH1_F16_electric_ESSJun24_HP_capacity_factor:
@@ -234,7 +234,7 @@
       ]
 
 - name: test WH1 PRC not eligible on new installation
-  period: 2022
+  period: 2024
   absolute_error_margin: 0.1
   input: 
     WH1_F16_electric_ESSJun24_peak_demand_reduction_capacity:

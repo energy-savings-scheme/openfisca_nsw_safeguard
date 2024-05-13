@@ -1,5 +1,5 @@
 - name: test WH1 cooling capacity HP Cap less than or equal to WH Cap
-  period: 2022
+  period: 2024
   absolute_error_margin: 0
   input:
     WH1_F16_electric_ESSJun24_HP_capacity_factor:
@@ -17,7 +17,7 @@
       ]
 
 - name: test WH1 cooling capacity HP Cap greater than WH Cap
-  period: 2022
+  period: 2024
   absolute_error_margin: 0
   input:
     WH1_F16_electric_ESSJun24_HP_capacity_factor:
@@ -35,7 +35,7 @@
       ]
 
 - name: test WH1 deemed activity gas savings
-  period: 2022
+  period: 2024
   absolute_error_margin: 0.1
   input:
     WH1_F16_electric_ESSJun24_HP_gas:
@@ -56,7 +56,7 @@
       ]
 
 - name: test WH1 reference electricity
-  period: 2022
+  period: 2024
   absolute_error_margin: 0.1
   input:
     WH1_F16_electric_ESSJun24_com_peak_load:
@@ -72,7 +72,7 @@
       ]
 
 - name: test WH1 deemed activity electricity savings
-  period: 2022
+  period: 2024
   absolute_error_margin: 0.5
   input:
     WH1_F16_electric_ESSJun24_Ref_Elec:
@@ -160,7 +160,7 @@
       ]
 
 - name: test WH1 ESC calculation
-  period: 2022
+  period: 2024
   absolute_error_margin: 0.5
   input:
     WH1_F16_electric_ESSJun24_Ref_Elec:
@@ -215,7 +215,7 @@
       ]
 
 - name: test WH1 ESC not eligible on new installation
-  period: 2022
+  period: 2024
   absolute_error_margin: 0.1
   input: 
     WH1_F16_electric_ESSJun24_electricity_savings:

@@ -2,13 +2,13 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_com_peak_load:
+    WH1_F16_electric_ESSJun24_com_peak_load:
       [
         200,
         95 #RNF1, Zone 3, Ecogenica EG215F
       ]
   output:
-    WH1_baseline_input_power:
+    WH1_F16_electric_ESSJun24_baseline_input_power:
       [
         2,
         0.95
@@ -18,18 +18,18 @@
   period: 2022
   absolute_error_margin: 0.5
   input:
-    WH1_annual_energy_savings:
+    WH1_F16_electric_ESSJun24_annual_energy_savings:
       [
         70,
         71.05 #RNF1, Zone 3, Ecogenica EG215F
       ]
-    WH1_baseline_input_power:
+    WH1_F16_electric_ESSJun24_baseline_input_power:
       [
         2,
         0.95
       ]
   output:
-    WH1_input_power:
+    WH1_F16_electric_ESSJun24_input_power:
       [
         0.6,
         0.275
@@ -39,18 +39,18 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_baseline_input_power:
+    WH1_F16_electric_ESSJun24_baseline_input_power:
       [
         2,
         0.95
       ]
-    WH1_input_power:
+    WH1_F16_electric_ESSJun24_input_power:
       [
         0.6,
         0.275
       ]
   output:
-    WH1_peak_demand_savings_capacity:
+    WH1_F16_electric_ESSJun24_peak_demand_savings_capacity:
       [
         1.538,
         0.73825
@@ -60,14 +60,14 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_PDRS__postcode:
+    WH1_F16_electric_ESSJun24_PDRS__postcode:
       [
         2354,
         2365,
         2074
       ]
   output:
-    WH1_BCA_climate_zone_by_postcode_int:
+    WH1_F16_electric_ESSJun24_BCA_climate_zone_by_postcode_int:
       [
         7,
         7,
@@ -78,7 +78,7 @@
   period: 2023
   absolute_error_margin: 0
   input:
-    WH1_PDRS__postcode:
+    WH1_F16_electric_ESSJun24_PDRS__postcode:
       [
         2324, #BCA climate zone 2 - HP zone 3
         2588, #BCA climate zone 4 - HP zone 3
@@ -87,7 +87,7 @@
         2000  #BCA climate zone 5 - HP zone 3
       ]
   output:
-    WH1_get_HP_zone_by_BCA_climate_zone:
+    WH1_F16_electric_ESSJun24_get_HP_zone_by_BCA_climate_zone:
       [
         3,
         3,
@@ -100,7 +100,7 @@
   period: 2023
   absolute_error_margin: 0
   input:
-    WH1_BCA_climate_zone_by_postcode_int:
+    WH1_F16_electric_ESSJun24_BCA_climate_zone_by_postcode_int:
       [
        2,
        4,
@@ -108,7 +108,7 @@
        8
       ]
   output:
-    WH1_get_HP_zone_by_BCA_climate_zone:
+    WH1_F16_electric_ESSJun24_get_HP_zone_by_BCA_climate_zone:
       [
        3,
        3,
@@ -119,7 +119,7 @@
 - name: test Postcode to DNSP to network loss factor
   period: 2021
   input:
-    WH1_PDRS__postcode:
+    WH1_F16_electric_ESSJun24_PDRS__postcode:
       [
         2006,
         2795,
@@ -129,7 +129,7 @@
         2074
       ]
   output:
-    WH1_get_network_loss_factor_by_postcode:
+    WH1_F16_electric_ESSJun24_get_network_loss_factor_by_postcode:
       [
         1.04,
         1.05,
@@ -143,13 +143,13 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    WH1_peak_demand_savings_capacity:
+    WH1_F16_electric_ESSJun24_peak_demand_savings_capacity:
       [
         2.78,
         0.73825
       ]
   output:
-    WH1_peak_demand_reduction_capacity:
+    WH1_F16_electric_ESSJun24_peak_demand_reduction_capacity:
       [
         200.16,
         53.154
@@ -159,14 +159,14 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    WH1_com_peak_load:
+    WH1_F16_electric_ESSJun24_com_peak_load:
       [
         20,
         10,
         77,
         81
       ]
-    WH1_annual_energy_savings:
+    WH1_F16_electric_ESSJun24_annual_energy_savings:
       [
         50,
         25,
@@ -174,7 +174,7 @@
         66
       ]
   output:
-    WH1_peak_demand_annual_savings:
+    WH1_F16_electric_ESSJun24_peak_demand_annual_savings:
       [
         8.856,
         3.042,
@@ -186,48 +186,48 @@
   period: 2022
   absolute_error_margin: 0.5
   input:
-    WH1_HP_capacity_factor:
+    WH1_F16_electric_ESSJun24_HP_capacity_factor:
       [
         5,
         3.6 #RNF1, Zone 3, Ecogenica EG215F
       ]
-    WH1_HP_elec:
+    WH1_F16_electric_ESSJun24_HP_elec:
       [
         3,
         9.54
       ]
-    WH1_HP_gas:
+    WH1_F16_electric_ESSJun24_HP_gas:
       [
         2,
         0
       ]
-    WH1_PDRS__postcode:
+    WH1_F16_electric_ESSJun24_PDRS__postcode:
       [
         2017,
         2074
       ]
-    WH1_get_network_loss_factor_by_postcode:
+    WH1_F16_electric_ESSJun24_get_network_loss_factor_by_postcode:
       [
         1.04,
         1.04
       ]
-    WH1_WH_capacity_factor: 
+    WH1_F16_electric_ESSJun24_WH_capacity_factor: 
       [
         8,
         1
       ]
-    WH1_annual_energy_savings:
+    WH1_F16_electric_ESSJun24_annual_energy_savings:
       [
         4,
         71.05
       ]
-    WH1_com_peak_load:
+    WH1_F16_electric_ESSJun24_com_peak_load:
       [
         3,
         95
       ]
   output:
-    WH1_PRC_calculation:
+    WH1_F16_electric_ESSJun24_PRC_calculation:
       [
         5.91,
         552.7 #RNF1, Zone 3, Ecogenica EG215F
@@ -237,23 +237,23 @@
   period: 2022
   absolute_error_margin: 0.1
   input: 
-    WH1_peak_demand_reduction_capacity:
+    WH1_F16_electric_ESSJun24_peak_demand_reduction_capacity:
       [
         120,
         120
       ]
-    WH1_get_network_loss_factor_by_postcode:
+    WH1_F16_electric_ESSJun24_get_network_loss_factor_by_postcode:
       [
         1.05,
         1.05
       ]
-    WH1_replacement_activity:
+    WH1_F16_electric_ESSJun24_replacement_activity:
       [
         False, #activity is a new installation
         True   #activity is a replacement
       ]
   output:
-    WH1_PRC_calculation:
+    WH1_F16_electric_ESSJun24_PRC_calculation:
       [
         0,
         1260
@@ -263,13 +263,13 @@
   period: 2023
   absolute_error_margin: 0
   input:
-    WH1_PDRS__postcode:
+    WH1_F16_electric_ESSJun24_PDRS__postcode:
       [
         2337, #BCA climate zone 7 - HP zone 5
         2000
       ]
   output:
-    WH1_get_HP_zone_by_BCA_climate_zone:
+    WH1_F16_electric_ESSJun24_get_HP_zone_by_BCA_climate_zone:
       [
         5,
         3

@@ -5,7 +5,7 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-class WH1_ESSJun24_equipment_replaced(Variable):
+class WH1_F16_electric_ESSJun24__equipment_replaced(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class WH1_ESSJun24_equipment_replaced(Variable):
     }
 
 
-class WH1_ESSJun24_equipment_removed(Variable):
+class WH1_F16_electric_ESSJun24__equipment_removed(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class WH1_ESSJun24_equipment_removed(Variable):
     }
 
 
-class WH1_ESSJun24_engaged_ACP(Variable):
+class WH1_F16_electric_ESSJun24__engaged_ACP(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -43,7 +43,7 @@ class WH1_ESSJun24_engaged_ACP(Variable):
     }
 
 
-class WH1_ESSJun24_minimum_payment(Variable):
+class WH1_F16_electric_ESSJun24__minimum_payment(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -55,7 +55,7 @@ class WH1_ESSJun24_minimum_payment(Variable):
     }
 
 
-class WH1_ESSJun24_building_BCA_not_class_1_or_4(Variable):
+class WH1_F16_electric_ESSJun24__building_BCA_not_class_1_or_4(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -67,7 +67,7 @@ class WH1_ESSJun24_building_BCA_not_class_1_or_4(Variable):
     }
 
 
-class WH1_ESSJun24_scheme_admin_approved(Variable):
+class WH1_F16_electric_ESSJun24__scheme_admin_approved(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -79,16 +79,16 @@ class WH1_ESSJun24_scheme_admin_approved(Variable):
     }
 
 
-class WH1_ESSJun24_StorageVolume(Enum):
+class WH1_F16_electric_ESSJun24__StorageVolume(Enum):
     less_than_or_equal_to_700_L = 'Less than or equal to 700 litres'
     more_than_700_L = 'More than 700 litres'
 
     
-class WH1_ESSJun24_storage_volume(Variable):
+class WH1_F16_electric_ESSJun24__storage_volume(Variable):
     value_type = Enum
     entity = Building
-    default_value = WH1_ESSJun24_StorageVolume.more_than_700_L
-    possible_values = WH1_ESSJun24_StorageVolume
+    default_value = WH1_F16_electric_ESSJun24__StorageVolume.more_than_700_L
+    possible_values = WH1_F16_electric_ESSJun24__StorageVolume
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
@@ -97,27 +97,27 @@ class WH1_ESSJun24_storage_volume(Variable):
     }
 
 
-class WH1_ESSJun24_storage_volume_int(Variable):
+class WH1_F16_electric_ESSJun24__storage_volume_int(Variable):
     value_type = int
     entity = Building 
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      storage_volume = buildings('WH1_ESSJun24_storage_volume', period)
+      storage_volume = buildings('WH1_F16_electric_ESSJun24__storage_volume', period)
 
       storage_volume_int = np.select([
           storage_volume == 'Less than or equal to 700 litres',
           storage_volume == 'More than 700 litres'
       ],
       [
-        WH1_ESSJun24_StorageVolume.less_than_or_equal_to_700_L,
-        WH1_ESSJun24_StorageVolume.more_than_700_L
+        WH1_F16_electric_ESSJun24__StorageVolume.less_than_or_equal_to_700_L,
+        WH1_F16_electric_ESSJun24__StorageVolume.more_than_700_L
       ])
 
       return storage_volume_int
 
 
-class WH1_ESSJun24_certified(Variable):
+class WH1_F16_electric_ESSJun24__certified(Variable):
     #only show this if the storage volume is 700L or less
     value_type = bool
     entity = Building
@@ -131,7 +131,7 @@ class WH1_ESSJun24_certified(Variable):
     }
    
 
-class WH1_ESSJun24_equipment_certified_by_storage_volume(Variable):
+class WH1_F16_electric_ESSJun24__equipment_certified_by_storage_volume(Variable):
     """Checks if storage volume is less than or equal to 700L, and if it is, that it is certified by AS/NZS 2712
     """
     value_type = bool
@@ -139,14 +139,14 @@ class WH1_ESSJun24_equipment_certified_by_storage_volume(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      storage_volume = buildings('WH1_ESSJun24_storage_volume', period)
-      certified_AS_NZ_2712 = buildings('WH1_ESSJun24_certified', period)
+      storage_volume = buildings('WH1_F16_electric_ESSJun24__storage_volume', period)
+      certified_AS_NZ_2712 = buildings('WH1_F16_electric_ESSJun24__certified', period)
 
       eligible_by_storage = np.select(
         [
-          (storage_volume == WH1_ESSJun24_StorageVolume.less_than_or_equal_to_700_L) * certified_AS_NZ_2712,
-          (storage_volume == WH1_ESSJun24_StorageVolume.less_than_or_equal_to_700_L) * np.logical_not(certified_AS_NZ_2712),
-          (storage_volume == WH1_ESSJun24_StorageVolume.more_than_700_L)
+          (storage_volume == WH1_F16_electric_ESSJun24__StorageVolume.less_than_or_equal_to_700_L) * certified_AS_NZ_2712,
+          (storage_volume == WH1_F16_electric_ESSJun24__StorageVolume.less_than_or_equal_to_700_L) * np.logical_not(certified_AS_NZ_2712),
+          (storage_volume == WH1_F16_electric_ESSJun24__StorageVolume.more_than_700_L)
         ],
         [
           True,

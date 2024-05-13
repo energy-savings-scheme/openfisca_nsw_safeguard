@@ -21,7 +21,20 @@ class D20_ESSJun24_deemed_activity_electricity_savings(Variable):
         Bs = buildings('D20_ESSJun24_Bs', period)
         Be = buildings('D20_ESSJun24_Be', period)
 
-        electricity_savings = Baseline_A - (a * (Bs + Be))
+        #if Bs and Be values from the registry are 0, calculate 0 savings
+        electricity_savings = np.select(
+        [
+            (Bs <= 0) * (Be <= 0),
+            (Bs > 0) * (Be <= 0),
+            (Bs > 0) * (Be > 0),
+            (Bs <= 0) * (Be > 0)
+        ],
+        [
+            0,
+            Baseline_A - (a * (Bs + Be)),
+            Baseline_A - (a * (Bs + Be)),
+            Baseline_A - (a * (Bs + Be))
+        ])
         return electricity_savings
     
 
@@ -77,6 +90,20 @@ class D20_ESSJun24_annual_energy_savings(Variable):
         #annual savings
         annual_energy_savings = electricity_savings + deemed_gas_savings
 
+        #if Bs and Be values from the registry are 0, calculate 0 savings
+        annual_energy_savings = np.select(
+            [
+                (Bs <= 0) * (Be <= 0),
+                (Bs > 0) * (Be <= 0),
+                (Bs > 0) * (Be > 0),
+                (Bs <= 0) * (Be > 0)
+            ],
+            [
+                0,
+                electricity_savings + deemed_gas_savings,
+                electricity_savings + deemed_gas_savings,
+                electricity_savings + deemed_gas_savings
+            ])
 
         annual_savings_return = np.select([
                 annual_energy_savings <= 0, annual_energy_savings > 0

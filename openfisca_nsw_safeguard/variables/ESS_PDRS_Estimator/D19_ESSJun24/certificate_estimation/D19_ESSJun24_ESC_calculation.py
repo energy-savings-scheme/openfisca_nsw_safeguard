@@ -22,7 +22,19 @@ class D19_ESSJun24_deemed_activity_electricity_savings(Variable):
         Be = buildings('D19_ESSJun24_Be', period)
 
         #if Bs and Be values from the registry are 0, calculate 0 savings
-        electricity_savings = Baseline_A - (a * (Bs + Be))
+        electricity_savings = np.select(
+        [
+            (Bs <= 0) * (Be <= 0),
+            (Bs > 0) * (Be <= 0),
+            (Bs > 0) * (Be > 0),
+            (Bs <= 0) * (Be > 0)
+        ],
+        [
+            0,
+            Baseline_A - (a * (Bs + Be)),
+            Baseline_A - (a * (Bs + Be)),
+            Baseline_A - (a * (Bs + Be))
+        ])
         return electricity_savings
     
 

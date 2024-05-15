@@ -5,7 +5,7 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_base.entities import Building
 
 
-class F16_gas_PDRS__postcode(Variable):
+class F16__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -108,6 +108,6 @@ class F16_gas_regional_network_factor(Variable):
     label = 'Regional Network Factor from ESS Table A24'
     
     def formula(buildings, period, parameters):
-        postcode = buildings('F16_gas_PDRS__postcode', period)
+        postcode = buildings('F16__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         return rnf.calc(postcode)

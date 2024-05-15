@@ -1,23 +1,59 @@
-- name: test postcode to heat pump zone
+- name: test BCA climate zone by postcode
   period: 2024
   absolute_error_margin: 0
   input:
     D17_ESSJun24_PDRS__postcode:
       [
-        2324, #HP zone 3
-        2588, #HP zone 3
-        2328, #HP zone 3
-        2624, #HP zone 5
-        2363  #HP zone 0
+        2354,
+        2365,
+        2074
       ]
   output:
-    D17_ESSJun24_get_HP_zone_by_postcode:
+    D17_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+       7,
+       7,
+       5
+      ]
+
+- name: test postcode to BCA climate zone to heat pump zone
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D17_ESSJun24_PDRS__postcode:
+      [
+        2324, #BCA climate zone 2 - HP zone 3
+        2588, #BCA climate zone 4 - HP zone 3
+        2328, #BCA climate zone 7 - HP zone 5
+        2624  #BCA climate zone 8 - HP zone 5
+      ]
+  output:
+    D17_ESSJun24_get_HP_zone_by_BCA_climate_zone:
       [
         3,
         3,
-        3,
         5,
-        0
+        5
+      ]
+
+- name: test BCA climate zone to heat pump zone
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    D17_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+       2,
+       4,
+       7,
+       8
+      ]
+  output:
+    D17_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+       3,
+       3,
+       5,
+       5
       ]
 
 - name: test D17 regional network factor
@@ -51,7 +87,7 @@
         small,
         medium
       ]
-    D17_ESSJun24_get_HP_zone_by_postcode:
+    D17_ESSJun24_get_HP_zone_by_BCA_climate_zone:
       [
         3, #HP zone 3
         3, #HP zone 3
@@ -78,7 +114,7 @@
         small,
         medium
       ]
-    D17_ESSJun24_get_HP_zone_by_postcode:
+    D17_ESSJun24_get_HP_zone_by_BCA_climate_zone:
       [
         3, #HP zone 3
         3, #HP zone 3

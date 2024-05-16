@@ -23,19 +23,7 @@ class RF2_F1_2_ESSJun24_total_energy_consumption(Variable):
   }
   
 
-class RF2_F1_2_ESSJun24_total_display_area(Variable):
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  metadata = {
-    "variable-type": "user-input",
-    "label": "Total display area",
-    "display_question": "Total display area",
-    "sorting": 7
-  }
-
-
-class RF2_F1_2_ESSJun24__af(Variable):
+class RF2_F1_2_ESSJun24_af(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -44,7 +32,6 @@ class RF2_F1_2_ESSJun24__af(Variable):
     def formula(buildings, period, parameters):
       product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
       duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
-      new_equipment = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
     
       product_class = np.select([
           product_class == 'Class 1',
@@ -81,29 +68,20 @@ class RF2_F1_2_ESSJun24__af(Variable):
           RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
         ])
       
-      af = np.select(
-        [ 
-          new_equipment, 
-          np.logical_not(new_equipment)
-        ],
-        [ 
-          parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
-          parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['adjustment_factor'][product_class][duty_type]
-        ]
-      )
+      af = parameters(period).ESS.HEAB.table_F1_2_1_af_ESSJun24['adjustment_factor'][product_class][duty_type]
       return af
     
     
-class RF2_F1_2_ESSJun24baseline_EEI(Variable):
+class RF2_F1_2_ESSJun24_baseline_EEI(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = "Baseline EEI"
   
     def formula(buildings, period, parameters):
-      product_class = buildings('RF2_F1_2_ESSJun24product_class', period)
-      duty_type = buildings('vduty_class', period)
-      replacement_activity = buildings('RF2_F1_2_ESSJun24replacement_activity', period)
+      product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
+      duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
+      # replacement_activity = buildings('RF2_F1_2_ESSJun24replacement_activity', period)
     
       product_class = np.select([
           product_class == 'Class 1',
@@ -140,20 +118,11 @@ class RF2_F1_2_ESSJun24baseline_EEI(Variable):
           RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
         ])
 
-      baseline_EEI = np.select(
-        [ 
-          replacement_activity,
-          np.logical_not(replacement_activity)
-        ],
-        [ 
-          parameters(period).PDRS.refrigerated_cabinets.table_RF2_1['baseline_EEI'][product_class][duty_type],
-          parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
-        ]
-      )    
+      baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1_baselineEEI_ESSJun24['baseline_EEI'][product_class][duty_type]  
       return baseline_EEI
 
 
-class RF2_F1_2_ESSJun24product_EEI(Variable):
+class RF2_F1_2_ESSJun24_product_EEI(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

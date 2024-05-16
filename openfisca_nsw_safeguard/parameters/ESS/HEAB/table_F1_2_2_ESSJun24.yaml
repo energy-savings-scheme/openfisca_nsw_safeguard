@@ -1,4 +1,4 @@
-description: Lifetimes for use in calculating electricity savings in Activity Definition F1.
+description: F1.2 new and existing equipment lifetimes for use in calculating electricity savings in Activity Definition F1.2
 reference: "PDRS Technical Manual."
 lifetime:
   product_class_one:

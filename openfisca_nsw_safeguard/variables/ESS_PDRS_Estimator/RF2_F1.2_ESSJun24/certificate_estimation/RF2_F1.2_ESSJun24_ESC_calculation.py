@@ -29,44 +29,15 @@ class RF2_F1_2_ESSJun24_lifetime_by_rc_class(Variable):
     definition_period = ETERNITY
  
     def formula(buildings, period, parameters):
-        product_class = buildings('RF2_F1_2_ESSJun24_product_class_int', period) # 3
-        display_area =  buildings('RF2_F1_2_ESSJun24_total_display_area', period)
-        
+        product_class = buildings('RF2_F1_2_ESSJun24_product_class_int', period)     
         lifetime_by_rc_class = np.select(
             [
-                (product_class == 1),
-                (product_class == 2),
-                (product_class == 3),
-                (product_class == 4),
-                (product_class == 5),
-                (product_class == 6),
-                (product_class == 9),
-                (product_class == 10),
-                np.logical_and(product_class == 7, display_area < 3.3),
-                np.logical_and(product_class == 8 , display_area < 3.3),
-                np.logical_and(product_class == 11, display_area < 3.3),
-                np.logical_and(product_class == 7, display_area >= 3.3),
-                np.logical_and(product_class == 8, display_area >= 3.3),
-                np.logical_and(product_class == 11, display_area >= 3.3),
-                (product_class >= 12) * (product_class <= 15),
+                (product_class >= 1) * (product_class <= 11),
+                (product_class >= 12) * (product_class <= 15)
             ],
             [
                 8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                12,
-                12,
-                12,
-                12,
-            
+                12
             ])
 
         return lifetime_by_rc_class
@@ -194,41 +165,20 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
         
         #duty class
         duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
-
-        #replacement activity
-        replacement_activity = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
     
         #af
-        af = np.select(
-            [
-                np.logical_not(replacement_activity), #new install
-                replacement_activity
-            ],
-            [
-                parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class_savings][duty_type],
-                parameters(period).PDRS.refrigerated_cabinets.table_RF2_F1_2_ESSJun24_1['adjustment_factor'][product_class_savings][duty_type]
-            ])
-        
+        af = parameters(period).ESS.HEAB.table_F1_2_1_af_ESSJun24['adjustment_factor'][product_class_savings][duty_type],
+
         #tec
         total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
 
         #baseline EEI
-        baseline_EEI = np.select(
-            [
-                replacement_activity,
-                np.logical_not(replacement_activity) #new install
-            ],
-            [
-                parameters(period).PDRS.refrigerated_cabinets.table_RF2_F1_2_ESSJun24_1['baseline_EEI'][product_class_savings][duty_type],
-                parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class_savings][duty_type]
-            ])
+        baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1_baselineEEI_ESSJun24['baseline_EEI'][product_class_savings][duty_type]
                 
         #product EEI
         product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
 
-        #lifetime_by_rc_class
-        display_area_savings =  buildings('RF2_F1_2_ESSJun24_total_display_area', period)
-        
+        #lifetime_by_rc_class        
         product_class_savings = np.select([
             product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_one,
             product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_two,
@@ -251,45 +201,14 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
         ]
         )
                 
+        product_class = buildings('RF2_F1_2_ESSJun24_product_class_int', period)     
         lifetime_by_rc_class = np.select(
             [
-                (product_class_savings == 1),
-                (product_class_savings == 2),
-                (product_class_savings == 3),
-                (product_class_savings == 4),
-                (product_class_savings == 5),
-                (product_class_savings == 6),
-                (product_class_savings == 9),
-                (product_class_savings == 10),
-                (product_class_savings == 7) * (display_area_savings < 3.3),
-                (product_class_savings == 8) * (display_area_savings < 3.3),
-                (product_class_savings == 11) * (display_area_savings < 3.3),
-                (product_class_savings == 7) * (display_area_savings >= 3.3),
-                (product_class_savings == 8) * (display_area_savings >= 3.3),
-                (product_class_savings == 11) * (display_area_savings >= 3.3),
-                (product_class_savings == 12),
-                (product_class_savings == 13),
-                (product_class_savings == 14),
-                (product_class_savings == 15)
+                (product_class >= 1) * (product_class <= 11),
+                (product_class >= 12) * (product_class <= 15)
             ],
             [
                 8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                12,
-                12,
-                12,
-                12,
-                12,
-                12,
                 12
             ])
       
@@ -312,6 +231,7 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
         ])
         return annual_savings_return
     
+
 class RF2_F1_2_ESSJun24_PDRS__regional_network_factor(Variable):
     value_type = float
     entity = Building
@@ -345,8 +265,8 @@ class RF2_F1_2_ESSJun24_electricity_savings(Variable):
         deemed_electricity_savings = buildings('RF2_F1_2_ESSJun24_deemed_activity_electricity_savings', period)   
         regional_network_factor = buildings('RF2_F1_2_ESSJun24_PDRS__regional_network_factor', period)
 
-        RF2_F1_2_ESSJun24_electricity_savings = deemed_electricity_savings * regional_network_factor
-        return RF2_F1_2_ESSJun24_electricity_savings
+        electricity_savings = deemed_electricity_savings * regional_network_factor
+        return electricity_savings
   
 
 class RF2_F1_2_ESSJun24_ESC_calculation(Variable):

@@ -167,17 +167,17 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
         duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
     
         #af
-        af = parameters(period).ESS.HEAB.table_F1_2_1_af_ESSJun24['adjustment_factor'][product_class_savings][duty_type],
+        af = parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['adjustment_factor'][product_class_savings][duty_type],
 
         #tec
         total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
 
         #baseline EEI
-        baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1_baselineEEI_ESSJun24['baseline_EEI'][product_class_savings][duty_type]
+        baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['baseline_EEI'][product_class_savings][duty_type]
                 
         #product EEI
         product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
-
+     
         #lifetime_by_rc_class        
         product_class_savings = np.select([
             product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_one,
@@ -198,9 +198,9 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
         ],
         [
             1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-        ]
-        )
-                
+        ])
+
+        #lifetime   
         product_class = buildings('RF2_F1_2_ESSJun24_product_class_int', period)     
         lifetime_by_rc_class = np.select(
             [
@@ -214,7 +214,7 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
       
         #deemed electricity savings
         deemed_electricity_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
-    
+   
         #regional network factor
         postcode = buildings('RF2_F1_2_ESSJun24_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
@@ -279,20 +279,19 @@ class RF2_F1_2_ESSJun24_ESC_calculation(Variable):
       electricity_savings = buildings('RF2_F1_2_ESSJun24_electricity_savings', period)
       electricity_certificate_conversion_factor = 1.06
       replacement_activity = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
-      EEI_eligible_replacement = buildings('RF2_F1_2_ESSJun24_product_EEI_ESC_replacement_eligibility', period)
-      EEI_eligible_install = buildings('RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility', period)
+      EEI_eligible_replacement = buildings('RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility', period)
 
       RF2_F1_2_ESSJun24_eligible_ESCs = np.select(
             [
                 replacement_activity * EEI_eligible_replacement,
                 replacement_activity * np.logical_not(EEI_eligible_replacement),
-                np.logical_not(replacement_activity) * EEI_eligible_install,
-                np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_install)
+                np.logical_not(replacement_activity) * EEI_eligible_replacement,
+                np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_replacement)
             ],
             [
                 (electricity_savings * electricity_certificate_conversion_factor),
                 0,
-                (electricity_savings * electricity_certificate_conversion_factor),
+                0,
                 0
             ])
 

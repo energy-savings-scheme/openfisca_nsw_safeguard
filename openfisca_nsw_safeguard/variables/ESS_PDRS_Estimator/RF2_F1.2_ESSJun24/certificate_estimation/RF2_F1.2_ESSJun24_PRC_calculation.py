@@ -134,28 +134,25 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        #product class
-        product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
-
-        #duty class
-        duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
+         #product class
+        product_class_savings = buildings('RF2_F1_2_ESSJun24_product_class', period)
         
-        product_class = np.select([
-            product_class == 'Class 1',
-            product_class == 'Class 2',
-            product_class == 'Class 3',
-            product_class == 'Class 4',
-            product_class == 'Class 5',
-            product_class == 'Class 6',
-            product_class == 'Class 7',
-            product_class == 'Class 8',
-            product_class == 'Class 9',
-            product_class == 'Class 10',
-            product_class == 'Class 11',
-            product_class == 'Class 12',
-            product_class == 'Class 13',
-            product_class == 'Class 14',
-            product_class == 'Class 15',
+        product_class_savings = np.select([
+            product_class_savings == 'Class 1',
+            product_class_savings == 'Class 2',
+            product_class_savings == 'Class 3',
+            product_class_savings == 'Class 4',
+            product_class_savings == 'Class 5',
+            product_class_savings == 'Class 6',
+            product_class_savings == 'Class 7',
+            product_class_savings == 'Class 8',
+            product_class_savings == 'Class 9',
+            product_class_savings == 'Class 10',
+            product_class_savings == 'Class 11',
+            product_class_savings == 'Class 12',
+            product_class_savings == 'Class 13',
+            product_class_savings == 'Class 14',
+            product_class_savings == 'Class 15',
         ], 
         [
             RF2_F1_2_ESSJun24ProductClass.product_class_one,
@@ -175,35 +172,38 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
             RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
       ])
         
+        #duty class
+        duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
+    
         #product type
         is_integral_RDC = (
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_one) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_two) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_seven) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_eight) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_eleven)
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_one) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_two) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_seven) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_eight) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_eleven)
                             )
 
         is_integral_ice_cream_freezer_cabinet = (
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_five)
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_five)
         )
 
         is_remote_RDC = (
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_twelve) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_thirteen) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_fourteen) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_fifteen)
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_twelve) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_thirteen) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_fourteen) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_fifteen)
         )
 
         is_gelato_or_icecream_scooping_cabinets = (
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_six)
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_six)
         )
 
         is_RSC = (
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_three) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_four) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_nine) +
-                            (product_class == RF2_F1_2_ESSJun24ProductClass.product_class_ten)
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_three) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_four) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_nine) +
+                            (product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_ten)
         )
 
         product_type = np.select(
@@ -224,38 +224,19 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
 
         #baseline peak adjustment factor
         usage_factor = 1
-        temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_F1_2_ESSJun24_2['temperature_factor'][product_type][duty_type]
+        temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2_ESSJun24['temperature_factor'][product_type][duty_type]
         
         baseline_peak_adjustment_factor = temperature_factor * usage_factor
 
-        #replacement activity
-        replacement_activity = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
-
         #af
-        af = np.select(
-            [
-                np.logical_not(replacement_activity), #new install
-                replacement_activity
-            ],
-            [
-                parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type],
-                parameters(period).PDRS.refrigerated_cabinets.table_RF2_F1_2_ESSJun24_1['adjustment_factor'][product_class][duty_type]
-            ])
-        
+        af = parameters(period).PDRS.refrigerated_cabinets.table_RF2_1_ESSJun24['adjustment_factor'][product_class_savings][duty_type]
+
         #tec
         total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
 
         #baseline EEI
-        baseline_EEI = np.select(
-            [
-                replacement_activity,
-                np.logical_not(replacement_activity) #new install
-            ],
-            [
-                parameters(period).PDRS.refrigerated_cabinets.table_RF2_F1_2_ESSJun24_1['baseline_EEI'][product_class][duty_type],
-                parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
-            ])
-
+        baseline_EEI = parameters(period).PDRS.refrigerated_cabinets.table_RF2_1_ESSJun24['baseline_EEI'][product_class_savings][duty_type],
+            
         #product EEI
         product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
 
@@ -277,70 +258,37 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
         #peak demand savings capacity
         peak_demand_savings_capacity = ((baseline_peak_adjustment_factor * baseline_input_power) - (input_power * baseline_peak_adjustment_factor )) * firmness_factor
 
-        #lifetime
-        display_area_savings =  buildings('RF2_F1_2_ESSJun24_total_display_area', period)
-        
-        product_class = np.select([
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_one,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_two,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_three,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_four,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_five,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_six,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_seven,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_eight,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_nine,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_ten,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_eleven,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_twelve,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_thirteen,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_fourteen,
-            product_class == RF2_F1_2_ESSJun24ProductClass.product_class_fifteen
+        #lifetime_by_rc_class        
+        product_class_savings = np.select([
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_one,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_two,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_three,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_four,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_five,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_six,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_seven,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_eight,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_nine,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_ten,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_eleven,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_twelve,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_thirteen,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_fourteen,
+            product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_fifteen
         ],
         [
             1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-        ]
-        )
+        ])
 
+        #lifetime
+        product_class = buildings('RF2_F1_2_ESSJun24_product_class_int', period)     
         lifetime_by_rc_class = np.select(
             [
-                (product_class == 1),
-                (product_class == 2),
-                (product_class == 3),
-                (product_class == 4),
-                (product_class == 5),
-                (product_class == 6),
-                (product_class == 9),
-                (product_class == 10),
-                (product_class == 7) * (display_area_savings < 3.3),
-                (product_class == 8) * (display_area_savings < 3.3),
-                (product_class == 11) * (display_area_savings < 3.3),
-                (product_class == 7) * (display_area_savings >= 3.3),
-                (product_class == 8) * (display_area_savings >= 3.3),
-                (product_class == 11) * (display_area_savings >= 3.3),
-                (product_class == 12),
-                (product_class == 13),
-                (product_class == 14),
-                (product_class == 15)
+                (product_class >= 1) * (product_class <= 11),
+                (product_class >= 12) * (product_class <= 15)
             ],
             [
                 8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                8,
-                12,
-                12,
-                12,
-                12,
-                12,
-                12,
                 12
             ])
 
@@ -390,7 +338,7 @@ class RF2_F1_2_ESSJun24_baseline_peak_adjustment_factor(Variable):
       duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
       usage_factor = 1
       
-      temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_F1_2_ESSJun24_2['temperature_factor'][product_type][duty_type]
+      temperature_factor = parameters(period).PDRS.refrigerated_cabinets.table_RF2_2_ESSJun24['temperature_factor'][product_type][duty_type]
       
       baseline_peak_adjustment_factor = temperature_factor * usage_factor
       return baseline_peak_adjustment_factor
@@ -410,14 +358,13 @@ class RF2_F1_2_ESSJun24_PRC_calculation(Variable):
         network_loss_factor = buildings('RF2_F1_2_ESSJun24_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
         replacement_activity = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
-        EEI_eligible_replacement = buildings('RF2_F1_2_ESSJun24_product_EEI_PRC_replacement_eligibility', period)
-        EEI_eligible_install = buildings('RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility', period)
+        EEI_eligible_replacement = buildings('RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility', period)
         RF2_F1_2_ESSJun24_eligible_PRCs = np.select(
             [
                 replacement_activity * EEI_eligible_replacement,
-                np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_replacement),
-                replacement_activity * EEI_eligible_install,
-                np.logical_not(replacement_activity) * EEI_eligible_install
+                replacement_activity * np.logical_not(EEI_eligible_replacement),
+                np.logical_not(replacement_activity) * EEI_eligible_replacement,
+                np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_replacement)
             ],
             [
                 (peak_demand_capacity * network_loss_factor * kw_to_0_1kw),

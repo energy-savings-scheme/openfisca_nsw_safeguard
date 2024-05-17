@@ -6,131 +6,21 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-""" Parameters for RF2 ESC Calculation
-"""
+''' Parameters for RF2 ESC Calculation
+'''
 
-class RF2_F1_2_ESSJun24_total_energy_consumption(Variable):
-  #Total energy consumption
-  reference = 'kWh per day'
-  value_type = float
-  entity = Building
-  definition_period = ETERNITY
-  metadata = {
-    "variable-type": "user-input",
-    "label": "Total Energy Consumption",
-    "display_question": "Total Energy Consumption",
-    "sorting": 6
-  }
-  
-
-class RF2_F1_2_ESSJun24_af(Variable):
-    value_type = float
+class RF2_F1_2_ESSJun24_PDRS__postcode(Variable):
+    # this variable is used as the first input on all estimator certificate calculation pages
+    value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "Adjustment factor"
-
-    def formula(buildings, period, parameters):
-      product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
-      duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
-    
-      product_class = np.select([
-          product_class == 'Class 1',
-          product_class == 'Class 2',
-          product_class == 'Class 3',
-          product_class == 'Class 4',
-          product_class == 'Class 5',
-          product_class == 'Class 6',
-          product_class == 'Class 7',
-          product_class == 'Class 8',
-          product_class == 'Class 9',
-          product_class == 'Class 10',
-          product_class == 'Class 11',
-          product_class == 'Class 12',
-          product_class == 'Class 13',
-          product_class == 'Class 14',
-          product_class == 'Class 15',
-        ], 
-        [
-          RF2_F1_2_ESSJun24ProductClass.product_class_one,
-          RF2_F1_2_ESSJun24ProductClass.product_class_two,
-          RF2_F1_2_ESSJun24ProductClass.product_class_three,
-          RF2_F1_2_ESSJun24ProductClass.product_class_four,
-          RF2_F1_2_ESSJun24ProductClass.product_class_five,
-          RF2_F1_2_ESSJun24ProductClass.product_class_six,
-          RF2_F1_2_ESSJun24ProductClass.product_class_seven,
-          RF2_F1_2_ESSJun24ProductClass.product_class_eight,
-          RF2_F1_2_ESSJun24ProductClass.product_class_nine,
-          RF2_F1_2_ESSJun24ProductClass.product_class_ten,
-          RF2_F1_2_ESSJun24ProductClass.product_class_eleven,
-          RF2_F1_2_ESSJun24ProductClass.product_class_twelve,
-          RF2_F1_2_ESSJun24ProductClass.product_class_thirteen,
-          RF2_F1_2_ESSJun24ProductClass.product_class_fourteen,
-          RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
-        ])
-      
-      af = parameters(period).ESS.HEAB.table_F1_2_1_af_ESSJun24['adjustment_factor'][product_class][duty_type]
-      return af
-    
-    
-class RF2_F1_2_ESSJun24_baseline_EEI(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
-    label = "Baseline EEI"
-  
-    def formula(buildings, period, parameters):
-      product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
-      duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
-      # replacement_activity = buildings('RF2_F1_2_ESSJun24replacement_activity', period)
-    
-      product_class = np.select([
-          product_class == 'Class 1',
-          product_class == 'Class 2',
-          product_class == 'Class 3',
-          product_class == 'Class 4',
-          product_class == 'Class 5',
-          product_class == 'Class 6',
-          product_class == 'Class 7',
-          product_class == 'Class 8',
-          product_class == 'Class 9',
-          product_class == 'Class 10',
-          product_class == 'Class 11',
-          product_class == 'Class 12',
-          product_class == 'Class 13',
-          product_class == 'Class 14',
-          product_class == 'Class 15',
-        ], 
-        [
-          RF2_F1_2_ESSJun24ProductClass.product_class_one,
-          RF2_F1_2_ESSJun24ProductClass.product_class_two,
-          RF2_F1_2_ESSJun24ProductClass.product_class_three,
-          RF2_F1_2_ESSJun24ProductClass.product_class_four,
-          RF2_F1_2_ESSJun24ProductClass.product_class_five,
-          RF2_F1_2_ESSJun24ProductClass.product_class_six,
-          RF2_F1_2_ESSJun24ProductClass.product_class_seven,
-          RF2_F1_2_ESSJun24ProductClass.product_class_eight,
-          RF2_F1_2_ESSJun24ProductClass.product_class_nine,
-          RF2_F1_2_ESSJun24ProductClass.product_class_ten,
-          RF2_F1_2_ESSJun24ProductClass.product_class_eleven,
-          RF2_F1_2_ESSJun24ProductClass.product_class_twelve,
-          RF2_F1_2_ESSJun24ProductClass.product_class_thirteen,
-          RF2_F1_2_ESSJun24ProductClass.product_class_fourteen,
-          RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
-        ])
-
-      baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1_baselineEEI_ESSJun24['baseline_EEI'][product_class][duty_type]  
-      return baseline_EEI
-
-
-class RF2_F1_2_ESSJun24_product_EEI(Variable):
-    value_type = float
-    entity = Building
-    definition_period = ETERNITY
+    label = 'What is the postcode for the building you are calculating PRCs for?'
     metadata = {
-      'variable-type' : 'user-input',
-      'label' : 'Product EEI',
-      'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
-      'sorting' : 8
+        'variable-type' : 'user-input',
+        'alias' : 'PDRS Postcode',
+        'display_question' : 'Postcode where the installation has taken place',
+        'sorting' : 1,
+        'label': 'Postcode'
     }
 
 
@@ -161,7 +51,7 @@ class RF2_F1_2_ESSJun24_product_class(Variable):
       'variable-type': 'user-input',
       'label': 'Product Class',
       'display_question': 'Refrigerated Cabinet Product Class (Product Characteristics Code)',
-      'sorting' : 6
+      'sorting' : 2
     }
 
 
@@ -226,12 +116,169 @@ class RF2_F1_2_ESSJun24_product_class_int(Variable):
       ],
       [
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-      ]
-      )
+      ])
       
       return product_class_int
+    
 
+class RF2_F1_2_ESSJun24_replacement_activity(Variable):  
+    value_type = bool
+    default_value = True
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'Replacement or new installation activity',
+        'display_question' : 'Is the activity the replacement of existing equipment?',
+        'sorting' : 3
+    }
+
+
+class RCDutyClass(Enum):
+    heavy_duty =  'Heavy duty'
+    normal_duty = 'Normal duty'
+    light_duty =  'Light duty'
+
+
+class RF2_F1_2_ESSJun24_duty_class(Variable):
+    value_type = Enum
+    entity = Building
+    possible_values = RCDutyClass
+    default_value = RCDutyClass.normal_duty
+    definition_period = ETERNITY
+    label = 'What is the duty class for the refrigerated cabinet?'
+    metadata = {
+      'variable-type' : 'user-input',
+      'label' : 'Duty Classification',
+      'display_question' : 'Duty Classification for refrigerated cabinet',
+      'sorting' : 4
+    }
+
+
+class RF2_F1_2_ESSJun24_total_energy_consumption(Variable):
+    #Total energy consumption
+    reference = 'kWh per day'
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+      'variable-type': 'user-input',
+      'label': 'Total Energy Consumption',
+      'display_question': 'Total Energy Consumption',
+      'sorting': 5
+    }
+
+
+class RF2_F1_2_ESSJun24_product_EEI(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+      'variable-type' : 'user-input',
+      'label' : 'Product EEI',
+      'display_question' : 'Energy Efficiency Index of the replacement refrigerated cabinet model as recorded in the GEMS Registry',
+      'sorting' : 6
+    }
+
+
+class RF2_F1_2_ESSJun24_af(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Adjustment factor'
+
+    def formula(buildings, period, parameters):
+      product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
+      duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
+    
+      product_class = np.select([
+          product_class == 'Class 1',
+          product_class == 'Class 2',
+          product_class == 'Class 3',
+          product_class == 'Class 4',
+          product_class == 'Class 5',
+          product_class == 'Class 6',
+          product_class == 'Class 7',
+          product_class == 'Class 8',
+          product_class == 'Class 9',
+          product_class == 'Class 10',
+          product_class == 'Class 11',
+          product_class == 'Class 12',
+          product_class == 'Class 13',
+          product_class == 'Class 14',
+          product_class == 'Class 15',
+        ], 
+        [
+          RF2_F1_2_ESSJun24ProductClass.product_class_one,
+          RF2_F1_2_ESSJun24ProductClass.product_class_two,
+          RF2_F1_2_ESSJun24ProductClass.product_class_three,
+          RF2_F1_2_ESSJun24ProductClass.product_class_four,
+          RF2_F1_2_ESSJun24ProductClass.product_class_five,
+          RF2_F1_2_ESSJun24ProductClass.product_class_six,
+          RF2_F1_2_ESSJun24ProductClass.product_class_seven,
+          RF2_F1_2_ESSJun24ProductClass.product_class_eight,
+          RF2_F1_2_ESSJun24ProductClass.product_class_nine,
+          RF2_F1_2_ESSJun24ProductClass.product_class_ten,
+          RF2_F1_2_ESSJun24ProductClass.product_class_eleven,
+          RF2_F1_2_ESSJun24ProductClass.product_class_twelve,
+          RF2_F1_2_ESSJun24ProductClass.product_class_thirteen,
+          RF2_F1_2_ESSJun24ProductClass.product_class_fourteen,
+          RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
+        ])
       
+      af = parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['adjustment_factor'][product_class][duty_type]
+      return af
+    
+    
+class RF2_F1_2_ESSJun24_baseline_EEI(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Baseline EEI'
+  
+    def formula(buildings, period, parameters):
+      product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
+      duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
+    
+      product_class = np.select([
+          product_class == 'Class 1',
+          product_class == 'Class 2',
+          product_class == 'Class 3',
+          product_class == 'Class 4',
+          product_class == 'Class 5',
+          product_class == 'Class 6',
+          product_class == 'Class 7',
+          product_class == 'Class 8',
+          product_class == 'Class 9',
+          product_class == 'Class 10',
+          product_class == 'Class 11',
+          product_class == 'Class 12',
+          product_class == 'Class 13',
+          product_class == 'Class 14',
+          product_class == 'Class 15',
+        ], 
+        [
+          RF2_F1_2_ESSJun24ProductClass.product_class_one,
+          RF2_F1_2_ESSJun24ProductClass.product_class_two,
+          RF2_F1_2_ESSJun24ProductClass.product_class_three,
+          RF2_F1_2_ESSJun24ProductClass.product_class_four,
+          RF2_F1_2_ESSJun24ProductClass.product_class_five,
+          RF2_F1_2_ESSJun24ProductClass.product_class_six,
+          RF2_F1_2_ESSJun24ProductClass.product_class_seven,
+          RF2_F1_2_ESSJun24ProductClass.product_class_eight,
+          RF2_F1_2_ESSJun24ProductClass.product_class_nine,
+          RF2_F1_2_ESSJun24ProductClass.product_class_ten,
+          RF2_F1_2_ESSJun24ProductClass.product_class_eleven,
+          RF2_F1_2_ESSJun24ProductClass.product_class_twelve,
+          RF2_F1_2_ESSJun24ProductClass.product_class_thirteen,
+          RF2_F1_2_ESSJun24ProductClass.product_class_fourteen,
+          RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
+        ])
+
+      baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['baseline_EEI'][product_class][duty_type]  
+      return baseline_EEI
+      
+
 class RCProductType(Enum):
     integral_RDC = 'Integral refrigerated display cabinet'
     integral_ice_cream_freezer_cabinet = 'Integral ice cream freezer cabinet'
@@ -247,10 +294,9 @@ class RF2_F1_2_ESSJun24_product_type(Variable):
     default_value = RCProductType.integral_RDC
     definition_period = ETERNITY    
     metadata = {
-      "label": 'Product Type for the refrigerated cabinet',
-      "variable-type": "output",
+      'label': 'Product Type for the refrigerated cabinet',
+      'variable-type': 'output',
     }
-    
     def formula(buildings, period, parameters):
       product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
 
@@ -320,146 +366,45 @@ class RF2_F1_2_ESSJun24_product_type(Variable):
       )
 
       product_type = np.select(
-                                  [
+                                [
                                   is_integral_RDC,
                                   is_integral_ice_cream_freezer_cabinet,
                                   is_remote_RDC,
                                   is_gelato_or_icecream_scooping_cabinets,
                                   is_RSC
-                                  ],
-                                  [
-                                      RCProductType.integral_RDC,
-                                      RCProductType.integral_ice_cream_freezer_cabinet,
-                                      RCProductType.remote_RDC,
-                                      RCProductType.gelato_ice_cream_scooping_cabinet,
-                                      RCProductType.RSC
-                                  ]
+                                ],
+                                [
+                                  RCProductType.integral_RDC,
+                                  RCProductType.integral_ice_cream_freezer_cabinet,
+                                  RCProductType.remote_RDC,
+                                  RCProductType.gelato_ice_cream_scooping_cabinet,
+                                  RCProductType.RSC
+                                ]
                               )
       return product_type
 
 
-class RCDutyClass(Enum):
-    heavy_duty = 'Heavy duty'
-    normal_duty = 'Normal duty'
-    light_duty = 'Light duty'
-
-
-class RF2_F1_2_ESSJun24_duty_class(Variable):
-    value_type = Enum
-    entity = Building
-    possible_values = RCDutyClass
-    default_value = RCDutyClass.normal_duty
-    definition_period = ETERNITY
-    label = 'What is the duty class for the refrigerated cabinet?'
-    metadata = {
-      'variable-type' : 'user-input',
-      'label' : 'Duty Classification',
-      'display_question' : 'Duty Classification for refrigerated cabinet',
-      'sorting' : 4
-    }
-
-
-class RF2_F1_2_ESSJun24_PDRS__postcode(Variable):
-    # this variable is used as the first input on all estimator certificate calculation pages
-    value_type = int
-    entity = Building
-    definition_period = ETERNITY
-    label = "What is the postcode for the building you are calculating PRCs for?"
-    metadata = {
-        'variable-type' : 'user-input',
-        'alias' : 'PDRS Postcode',
-        'display_question' : 'Postcode where the installation has taken place',
-        'sorting' : 1,
-        'label': 'Postcode'
-        }
-
-
-class RF2_F1_2_ESSJun24_replacement_activity(Variable):  
-    value_type = bool
-    default_value = True
-    entity = Building
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type' : 'user-input',
-        'label' : 'Replacement or new installation activity',
-        'display_question' : 'Is the activity the replacement of existing equipment?',
-        'sorting' : 3
-        }
-
-
-class RF2_F1_2_ESSJun24_product_EEI_ESC_replacement_eligibility(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-    def formula(building, period, parameters):
-      product_EEI = building('RF2_F1_2_ESSJun24_product_EEI', period)
-      product_class_5 = building('RF2_F1_2_ESSJun24_product_class', period)
-        
-      replace_product_EEI_to_check_ESC = np.select(
-           [
-              (product_EEI < 51),
-              (product_EEI >= 51) * (product_class_5 == 'Class 5'),
-              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != 'Class 5'),
-              (product_EEI >= 81)
-          ],
-          [
-              True,
-              False,
-              True,
-              False
-          ])
-
-      return replace_product_EEI_to_check_ESC
-
-
-class RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility(Variable):
+class RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
 
     def formula(building, period, parameters):
         product_EEI = building('RF2_F1_2_ESSJun24_product_EEI', period)
-        product_class_5 = building('RF2_F1_2_ESSJun24_product_class', period)
+        product_class = building('RF2_F1_2_ESSJun24_product_class', period)
           
-        install_product_EEI_to_check_ESC = np.select(
+        product_EEI_eligibility_check= np.select(
              [
               (product_EEI < 51),
-              (product_EEI >= 51) * (product_class_5 == 'Class 5'),
-              (product_EEI >= 51) * (product_EEI < 77) * (product_class_5 != 'Class 5'),
-              (product_EEI >= 77)
-          ],
-          [
-              True,
-              False,
-              True,
-              False
-          ])
-        
-        return install_product_EEI_to_check_ESC
-
-
-class RF2_F1_2_ESSJun24_product_EEI_PRC_replacement_eligibility(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-    def formula(building, period, parameters):
-        product_EEI = building('RF2_F1_2_ESSJun24_product_EEI', period)
-        product_class_5 = building('RF2_F1_2_ESSJun24_product_class', period)
-        
-        product_EEI_to_check_PRC = np.select(
-          [
-              (product_EEI < 51),
-              (product_EEI >= 51) * (product_class_5 == 'Class 5'),
-              (product_EEI >= 51) * (product_EEI < 81) * (product_class_5 != 'Class 5'),
+              (product_EEI >= 51) * (product_class == 'Class 5'),
+              (product_EEI >= 51) * (product_EEI < 81) * (product_class != 'Class 5'),
               (product_EEI >= 81)
-          ],
-          [
+            ],
+            [
               True,
               False,
               True,
               False
-          ])
+            ])
 
-        return product_EEI_to_check_PRC
+        return product_EEI_eligibility_check

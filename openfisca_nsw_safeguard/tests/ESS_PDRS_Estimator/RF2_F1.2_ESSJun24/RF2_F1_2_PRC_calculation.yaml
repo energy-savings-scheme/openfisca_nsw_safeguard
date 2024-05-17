@@ -389,3 +389,49 @@
         false,
         true
       ]
+
+- name: test PRCs
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    RF2_F1_2_ESSJun24_get_network_loss_factor_by_postcode: 
+      [
+        1.04,
+        1.04
+      ]
+    RF2_F1_2_ESSJun24_PDRS__postcode: 
+      [
+        2076, #nlf 1.04
+        2076
+      ]
+    RF2_F1_2_ESSJun24_duty_class:
+      [
+        normal_duty,
+        heavy_duty
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        80,
+        80
+      ]
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 10,
+        Class 10
+      ]
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        false #not eligible
+      ]
+    RF2_F1_2_ESSJun24_total_energy_consumption:
+      [
+        16.17,
+        16.17
+      ]
+  output: 
+    RF2_F1_2_ESSJun24_PRC_calculation: 
+      [
+        70.63,
+        0 #not eligible
+      ]

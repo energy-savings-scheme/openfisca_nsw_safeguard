@@ -44,4 +44,4 @@ jobs:
         with:
           token: ${{ secrets.DJANGO_API }}
           repository: energy-savings-scheme/openfisca-djangoapi
-          event-type: openfisca-ruleset-updated
+          event-type: dev-openfisca-ruleset-updated

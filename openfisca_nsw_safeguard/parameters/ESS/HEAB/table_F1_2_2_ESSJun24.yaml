@@ -1,0 +1,63 @@
+description: F1.2 new and existing equipment lifetimes for use in calculating electricity savings in Activity Definition F1.2
+reference: "PDRS Technical Manual."
+lifetime:
+  product_class_one:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_two:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_three:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_four:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_five:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_six:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_seven:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_eight:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_nine:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_ten:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_eleven:
+    values:
+      2024-01-01:
+        value: 8
+  product_class_twelve:
+    values:
+      2024-01-01:
+        value: 12
+  product_class_thirteen:
+    values:
+      2024-01-01:
+        value: 12
+  product_class_fourteen:
+    values:
+      2024-01-01:
+        value: 12
+  product_class_fifteen:
+    values:
+      2024-01-01:
+        value: 12

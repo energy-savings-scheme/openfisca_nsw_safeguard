@@ -22,11 +22,11 @@ class F16_gas_installation_replacement_final_activity_eligibility(Variable):
         ACP_engaged = buildings('F16_gas_engaged_ACP', period)
         minimum_payment = buildings('F16_gas_minimum_payment', period)
         not_installed_class_1_or_4 = buildings('F16_gas_building_BCA_not_class_1_or_4', period)
-        scheme_admin_approved = buildings('F16_gas_scheme_admin_approved', period)
+        recognised_certification = buildings('F16_gas_4234_certified', period)
         storage_volume_certified = buildings('F16_gas_equipment_certified_by_storage_volume', period)
         
         end_formula = ( replacement * qualified_removal_install * ACP_engaged *
-                        minimum_payment * np.logical_not(not_installed_class_1_or_4) * scheme_admin_approved 
+                        minimum_payment * np.logical_not(not_installed_class_1_or_4) * recognised_certification 
                         * storage_volume_certified )
 
         return end_formula

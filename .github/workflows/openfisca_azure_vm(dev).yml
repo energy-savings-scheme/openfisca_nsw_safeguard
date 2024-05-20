@@ -21,9 +21,9 @@ jobs:
       - name: Executing remote ssh commands
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.PRIVATE_KEY }}
+          host: ${{ secrets.DEV_VM_HOST }}
+          username: ${{ secrets.DEV_VM_USER }}
+          key: ${{ secrets.DEV_VM_PRIVATE_KEY }}
           port: 22
           script_stop: true
           script: |
@@ -44,4 +44,4 @@ jobs:
         with:
           token: ${{ secrets.DJANGO_API }}
           repository: energy-savings-scheme/openfisca-djangoapi
-          event-type: openfisca-ruleset-updated
+          event-type: dev-openfisca-ruleset-updated

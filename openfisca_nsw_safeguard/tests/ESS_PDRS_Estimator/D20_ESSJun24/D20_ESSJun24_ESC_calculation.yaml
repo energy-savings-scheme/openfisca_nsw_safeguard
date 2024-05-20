@@ -1,0 +1,291 @@
+- name: test zones by postcode
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D20_ESSJun24_PDRS__postcode:
+      [
+        2354,
+        2365,
+        2074
+      ]
+  output:
+    D20_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+        7,
+        7,
+        5
+      ]
+
+- name: test postcode to BCA climate zone to heat pump zone
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D20_ESSJun24_PDRS__postcode:
+      [
+        2324, #BCA climate zone 2 - HP zone 3
+        2588, #BCA climate zone 4 - HP zone 3
+        2328, #BCA climate zone 7 - HP zone 5
+        2624  #BCA climate zone 8 - HP zone 5
+      ]
+  output:
+    D20_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+        3,
+        3,
+        5,
+        5
+      ]
+
+- name: test BCA climate zone to heat pump zone
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D20_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+       2,
+       4,
+       7,
+       8
+      ]
+  output:
+    D20_ESSJun24_get_HP_zone_by_BCA_climate_zone:
+      [
+       3,
+       3,
+       5,
+       5
+      ]
+
+- name: test D20 regional network factor
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D20_ESSJun24_PDRS__postcode:
+      [
+        2352,
+        2729,
+        2801,
+        2846
+      ]
+  output: 
+    D20_ESSJun24_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1
+      ]
+
+- name: test D20 Baseline A from system size
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D20_ESSJun24_system_size_int:
+      [
+        small,
+        medium
+      ]
+  output:
+     D20_ESSJun24_Baseline_A:
+      [
+        0.73,
+        0.73
+      ]
+
+- name: test D20 Baseline B (deemed gas savings) from system size
+  period: 2023
+  absolute_error_margin: 0
+  input:
+    D20_ESSJun24_system_size_int:
+      [
+        small,
+        medium
+      ]
+  output:
+     D20_ESSJun24_Baseline_B:
+      [
+        35.036,
+        59.171
+      ]
+
+- name: test D20 deemed electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D20_ESSJun24_Baseline_A:
+      [
+        3.320,
+        10,
+        0.58,
+        0.58,
+        0.73,
+        0.73
+      ]
+    D20_ESSJun24_Bs:
+      [
+        2,
+        5,
+        9.53,
+        8.43,
+        3.18090,
+        0
+      ]
+    D20_ESSJun24_Be:
+      [
+        2,
+        3,
+        0.06,
+        0,
+        0.144,
+        0
+      ]
+  output:
+    D20_ESSJun24_deemed_activity_electricity_savings:
+      [
+        -5.92,
+        -8.48,
+        -21.5729,
+        -18.893,
+        -6.95,
+        0 #Bs and Be are zero and not eligible for savings
+      ]
+
+- name: test D20 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    D20_ESSJun24_system_size:
+      [
+        system_size_small,
+        system_size_medium,
+        system_size_small,
+        system_size_medium,  #Chromagen 9302TOBP1108
+        system_size_small,   #Rheem 511271/2CS0773-
+        system_size_medium,  #Dux D2M36F202
+        system_size_medium,  #Envirosun AS315/40/O/E24/E20HS-DM
+        system_size_small    #Apricus Australia AE-250-GL-BOT-30
+      ]
+    D20_ESSJun24_Bs:   
+      [
+        5,
+        10,
+        2.5,
+        4.231,
+        3.18090,
+        2.679,
+        2.5856,
+        0
+      ]
+    D20_ESSJun24_Be:
+      [
+        8,
+        20,
+        4.3,
+        0,
+        0.144,
+        0.0376,
+        0.3022,
+        0
+      ]
+    D20_ESSJun24_PDRS__postcode:
+      [
+        2352, #rnf 1.03
+        2729, #rnf 1.03
+        2801, #rnf 1.03
+        2024, #rnf 1
+        2729, #rnf 1.03
+        2024, #rnf 1
+        2148, #rnf 1
+        2800  #rnf 1.03
+      ]
+  output:
+    D20_ESSJun24_annual_energy_savings:
+      [
+        4.857,
+        0, #negative value -11.456
+        19.61,
+        50.127,
+        27.877,
+        53.626,
+        53.230,
+        0 #Bs and Be are zero and not eligible for savings
+      ]
+
+- name: test D20 electricity savings
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D20_ESSJun24_deemed_activity_electricity_savings:
+      [
+        4,
+        61.44,
+        3,
+        104,
+        -17,
+        -14.9
+      ]
+    D20_ESSJun24_regional_network_factor:
+      [
+        1.03,
+        1.03,
+        1.03,
+        1,
+        1,
+        1.03
+      ]
+  output:
+    D20_ESSJun24_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104,
+        -17,
+        -15.347
+      ]
+
+- name: test D20 ESC calculation
+  period: 2023
+  absolute_error_margin: 0.1
+  input:
+    D20_ESSJun24_electricity_savings:
+      [
+        4.12,
+        63.283,
+        3.09,
+        104,
+         -17,
+        -15.347,
+        -6.951
+      ]
+    D20_ESSJun24_Baseline_B:
+      [
+        1,
+        2,
+        0,
+        5.4,
+        86.3,
+        105.2,
+        35.036
+      ]
+    D20_ESSJun24_replacement_activity:
+      [
+        true,
+        true,
+        false, #not eligible
+        true,
+        true,
+        true,
+        true
+      ]
+  output:
+    D20_ESSJun24_ESC_calculation:
+      [
+        4.837,
+        68.02,
+        0,
+        112.78,
+        22.54,
+        33.18,
+        9.099
+      ]

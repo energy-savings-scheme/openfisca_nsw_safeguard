@@ -32,7 +32,8 @@ jobs:
             git fetch --all
             git reset --hard origin/develop
             pip install --editable .[dev] --upgrade
-            sudo supervisorctl restart all
+            sudo supervisorctl stop all
+            /home/$username/venv/bin/openfisca serve --workers=3 --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard --bind 0.0.0.0:8000
             exit
 
   trigger-djangoapi-deployment:

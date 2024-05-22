@@ -205,9 +205,9 @@
   output:
     D17_ESSJun24_annual_energy_savings:
       [
-        0, # -4.441
-        0, # -45.186
-        9.72199, 
+        0, 
+        0, 
+        7.6, 
         0, #Bs and Be not valid
         28.812
       ]

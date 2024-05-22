@@ -61,7 +61,7 @@ class RF2_F1_2_ESSJun24_product_class_int(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      product_class = buildings('RF2_product_class', period)
+      product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
       
       product_class = np.select([
         product_class == 'Class 1',

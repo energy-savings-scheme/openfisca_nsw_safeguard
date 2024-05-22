@@ -16,7 +16,95 @@
         false
       ]
 
-
+- name: Test RF2 EEI eligibility by product class
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    RF2_F1_2_ESSJun24_equipment_replaced:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_same_product_class:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_qualified_install_removal:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_legal_disposal:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_engaged_ACP:
+      [ 
+        true,
+        true,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_installed_on_site:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_display_sides_eligible:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_equipment_registered_in_GEMS:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_GEMS_product_class_5:
+      [
+        false,
+        false,
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_EEI_under_51:
+      [
+        true,  #eligible
+        false, #eligible
+        true,  #eligible
+        false  #not eligible
+      ]
+    RF2_F1_2_ESSJun24_EEI_under_81:
+      [
+        true,  #eligible
+        false, #not eligible,
+        false, #ignored
+        false  #ignored
+      ]
+  output:
+    RF2_F1_2_ESSJun24_installation_replacement_final_activity_eligibility:
+      [
+        true,
+        false,
+        true,
+        false
+      ] 
 
 - name: Test RF2 final formula installation eligibility
   period: 2024
@@ -24,7 +112,7 @@
   input:
     RF2_F1_2_ESSJun24_equipment_replaced:
       [
-        true,
+        true,  #all true
         false, #not eligible
         true,
         true,
@@ -34,6 +122,7 @@
         true,
         true,
         true,
+        false  #all false
       ]
     RF2_F1_2_ESSJun24_same_product_class:
       [
@@ -47,6 +136,7 @@
         true,
         true,
         true,
+        false
       ]
     RF2_F1_2_ESSJun24_qualified_install_removal:
       [
@@ -60,6 +150,7 @@
         true,
         true,
         true,
+        false
       ]
     RF2_F1_2_ESSJun24_legal_disposal:
       [
@@ -73,6 +164,7 @@
         true,
         true,
         true,
+        false
       ]
     RF2_F1_2_ESSJun24_engaged_ACP:
       [ 
@@ -86,6 +178,7 @@
         true,
         true,
         true,
+        false
       ]
     RF2_F1_2_ESSJun24_installed_on_site:
       [
@@ -99,6 +192,7 @@
         true,
         true,
         true,
+        false
       ]
     RF2_F1_2_ESSJun24_display_sides_eligible:
       [
@@ -112,6 +206,7 @@
         false, #not eligible
         true,
         true,
+        false
       ]
     RF2_F1_2_ESSJun24_equipment_registered_in_GEMS:
       [
@@ -125,9 +220,11 @@
         true,
         false, #not eligible
         true,
+        false
       ]
     RF2_F1_2_ESSJun24_GEMS_product_class_5:
       [
+        true, #class 5 must have an EEI under 51
         true,
         true,
         true,
@@ -136,7 +233,7 @@
         true,
         true,
         true,
-        true,
+        false,
         false 
       ]
     RF2_F1_2_ESSJun24_EEI_under_51:
@@ -151,6 +248,7 @@
         true,
         true,
         true,
+        false
       ]
     RF2_F1_2_ESSJun24_EEI_under_81:
       [
@@ -164,11 +262,13 @@
         true,
         true,
         false, #not eligible
+        false
       ]
   output:
     RF2_F1_2_ESSJun24_installation_replacement_final_activity_eligibility:
       [
         true,
+        false,
         false,
         false,
         false,

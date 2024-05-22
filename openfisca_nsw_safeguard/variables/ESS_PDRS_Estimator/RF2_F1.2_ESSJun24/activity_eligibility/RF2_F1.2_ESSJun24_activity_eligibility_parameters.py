@@ -17,18 +17,23 @@ class RF2_F1_2_ESSJun24_equipment_replaced(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_installation(Variable):
+class RF2_F1_2_ESSJun24_same_product_class(Variable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
-    metadata = {
-      'display_question' : 'Is the activity the installation of a new refrigerated cabinet?',
+    metadata = {  
+      'display_question' : 'Is the new End-User equipment the same product class as the old refrigerated display cabinet?',
       'sorting' : 2,
-      'conditional' : 'True',
-      'eligibility_clause' : """This activity is only eligible for ESCs, in PDRS RF2 Eligibility Requirements Clause 1 it states that this activity must be a replacement of an existing Refrigerated Cabinet (whether operational or not) with a high efficiency Refrigerated Cabinet."""
-    }
-
+      'eligibility_clause' : """ In ESS F1.2 Equipment Requirements Clause 5 it states that the existing End-User Equipment (that is, the End-User Equipment that is replaced as part of the Implementation) must be either: <br />
+                                 a) recorded on the GEMS Registry as being either or both of: <br />
+                                  i) the same Refrigerated Cabinet Product Class as the replacement End-User Equipment, as set out in the second column of Table F1.2.1; or <br />
+                                  ii) an AS 1731.14 Product Type, as set out in the third column of Table F1.2.1, that is in the same row of Table F1.2.1 as the Refrigerated
+                                  Cabinet Product Class of the replacement End-User-Equipment, as set out in the second column of Table F1.2.1; or <br />
+                                 b) in fact of an AS 1731.14 Product Type, as set out in the third column of Table F1.2.1, that is in the same row of Table F1.2.1 as the
+                                 Refrigerated Cabinet Product Class of the replacement End-User-Equipment, as set out in the second column of Table F1.2.1, with that fact to
+                                 be evidenced to the satisfaction of the Scheme Administrator."""
+    } 
 
 class RF2_F1_2_ESSJun24_qualified_install_removal(Variable):
     value_type = bool
@@ -68,6 +73,61 @@ class RF2_F1_2_ESSJun24_engaged_ACP(Variable):
     }
 
 
+class RF2_F1_2_ESSJun24_installed_on_site(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+      'display_question' : 'Is the replacement End-User equipment installed in it’s intended place of use and operating?',
+      'sorting' : 6,
+      'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 2 is states that the replacement End-User Equipment must be installed in its intended place of use and operating."""
+    }
+
+
+class RF2_F1_2_ESSJun24_DisplaySides(Enum):
+    less_than_four_sides = 'Less than four display sides'
+    four_sides = 'Four display sides'
+    more_than_four_sides = 'More than four display sides'
+
+
+class RF2_F1_2_ESSJun24_display_sides(Variable):
+    value_type = Enum
+    entity = Building
+    default_value = RF2_F1_2_ESSJun24_DisplaySides.less_than_four_sides
+    possible_values = RF2_F1_2_ESSJun24_DisplaySides
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'How many display sides does the new End-User equipment have?',
+        'sorting' : 7,
+        'eligibility_clause' : """In ESS F1.2 Equipment Requirements Clause 4 it states that the replacement End-User Equipment must not have 4 or more display sides."""
+    }
+
+
+class RF2_F1_2_ESSJun24_display_sides_eligible(Variable):
+    #Checks if the number of display sides is eligible (four or more display sides not eligible)
+    value_type = bool
+    entity = Building 
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+        display_sides = buildings('RF2_F1_2_ESSJun24_display_sides', period)
+
+        display_sides_eligible = np.select(
+        [
+            (display_sides == RF2_F1_2_ESSJun24_DisplaySides.less_than_four_sides),
+            (display_sides == RF2_F1_2_ESSJun24_DisplaySides.four_sides),
+            (display_sides == RF2_F1_2_ESSJun24_DisplaySides.more_than_four_sides)
+        ],
+        [
+            True,
+            False,
+            False
+        ])
+
+        return display_sides_eligible
+    
+    
 class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(Variable):
     value_type = bool
     entity = Building
@@ -75,7 +135,7 @@ class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the installed End-User equipment a registered product on the GEMS registry under GEMS (refrigerated cabinets) Determination 2020?',
-        'sorting' : 6,
+        'sorting' : 8,
         'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 1 it states that the End-User Equipment must be a Refrigerated Cabinet (RC) as defined within the terms of the Greenhouse and Energy Minimum Standards (Refrigerated Cabinets) Determination 2020."""
     }
 
@@ -87,7 +147,7 @@ class RF2_F1_2_ESSJun24_GEMS_product_class_5(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User equipment GEMS Product Class 5?',
-      'sorting' : 7,
+      'sorting' : 9,
       'conditional' : 'True',
       'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
     }
@@ -101,7 +161,7 @@ class RF2_F1_2_ESSJun24_EEI_under_51(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the product Energy Efficiency Index (EEI) as recorded in the GEMS Registry below 51?',
-      'sorting' : 8,
+      'sorting' : 10,
       'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
     }
 
@@ -114,6 +174,6 @@ class RF2_F1_2_ESSJun24_EEI_under_81(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the product Energy Efficiency Index (EEI) as recorded in the GEMS Registry below 81?',
-      'sorting' : 9,
+      'sorting' : 11,
       'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
     }

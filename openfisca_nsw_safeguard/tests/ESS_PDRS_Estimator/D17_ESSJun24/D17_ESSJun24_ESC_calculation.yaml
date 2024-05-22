@@ -172,10 +172,11 @@
   input:
     D17_ESSJun24_system_size:
       [
-        'small',  #Baseline A = 23.18, a = 2.291
-        'medium', #Baseline A = 38.49, a = 2.31
-        'small',  #Baseline A = 23.18, a = 2.291
-        'medium'  #Baseline A = 35.14, a = 2.291
+        system_size_small,  #Baseline A = 23.18, a = 2.291
+        system_size_medium, #Baseline A = 38.49, a = 2.31
+        system_size_small,  #Baseline A = 23.18, a = 2.291
+        system_size_medium, #Baseline A = 35.14, a = 2.291
+        system_size_medium
       ]
     D17_ESSJun24_PDRS__postcode:
       [
@@ -183,19 +184,22 @@
         2729, #rnf 1.03 hpzone5
         2024, #rnf 1 hpzone3
         2352, #rnf 1.03 hpzone3
+        2358  
       ]
     D17_ESSJun24_Bs:   
       [
         5,
         10,
         2.5,
-        0
+        0,
+        4.553
       ]
     D17_ESSJun24_Be:
       [
         7,
         20,
         4.3,
+        0,
         0
       ]
   output:
@@ -203,8 +207,9 @@
       [
         0, # -4.441
         0, # -45.186
-        7.6012, 
-        0 #Bs and Be not valid
+        9.72199, 
+        0, #Bs and Be not valid
+        28.812
       ]
 
 - name: test D17 electricity savings

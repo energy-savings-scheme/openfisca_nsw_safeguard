@@ -81,7 +81,7 @@ class D17_ESSJun24_annual_energy_savings(Variable):
         
         #heat pump zone
         postcode = buildings('D17_ESSJun24_PDRS__postcode', period)
-        heat_pump_zone = parameters(period).ESS.ESS_general.Postcode_zones_air_source_heat_pumps
+        heat_pump_zone = parameters(period).ESS.ESS_general.heat_pump_zone_by_BCA_climate_zone
         heat_pump_zone_int = heat_pump_zone.calc(postcode)
 
         heat_pump_zone_str = np.select(
@@ -93,7 +93,7 @@ class D17_ESSJun24_annual_energy_savings(Variable):
                 'heat_pump_zone_3',
                 'heat_pump_zone_5'
             ])
-        
+
         #Baseline A
         Baseline_A = parameters(period).ESS.HEER.table_D17_1_ESSJun24['baseline_energy_consumption'][heat_pump_zone_str][system_size_int]['Baseline_A']
         

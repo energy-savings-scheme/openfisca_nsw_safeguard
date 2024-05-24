@@ -1,4 +1,4 @@
-name: Test & deploy to Azure VM via remote ssh command
+name: Deploy to UAT
 on:
   push:
     branches:
@@ -30,7 +30,7 @@ jobs:
             source venv/bin/activate
             cd openfisca_nsw_safeguard
             git fetch --all
-            git reset --hard origin/master
+            git reset --hard origin/staging
             pip install --editable .[dev] --upgrade
             sudo supervisorctl restart all
             exit

@@ -1,0 +1,394 @@
+description: RF2 replacement activity adjustment factors and baseline EEI by Product Class and Duty Type
+reference: "PDRS Technical Manual."
+adjustment_factor:
+  product_class_one:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_two:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_three:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.2
+  product_class_four:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.1
+  product_class_five:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_six:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_seven:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_eight:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_nine:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.2
+  product_class_ten:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.1
+  product_class_eleven:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_twelve:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_thirteen:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_fourteen:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+  product_class_fifteen:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+    light_duty:
+      values:
+        2021-01-01:
+          value: 1.0
+baseline_EEI:
+  product_class_one:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 100
+    light_duty:
+      values:
+        2021-01-01:
+          value: 100
+  product_class_two:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 77
+    light_duty:
+      values:
+        2021-01-01:
+          value: 77
+  product_class_three:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 77
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 77
+    light_duty:
+      values:
+        2021-01-01:
+          value: 77
+  product_class_four:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 77
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 77
+    light_duty:
+      values:
+        2021-01-01:
+          value: 77
+  product_class_five:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 100
+    light_duty:
+      values:
+        2021-01-01:
+          value: 100
+  product_class_six:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 60
+    light_duty:
+      values:
+        2021-01-01:
+          value: 60
+  product_class_seven:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 60
+    light_duty:
+      values:
+        2021-01-01:
+          value: 60
+  product_class_eight:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 100
+    light_duty:
+      values:
+        2021-01-01:
+          value: 100
+  product_class_nine:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 100
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 100
+    light_duty:
+      values:
+        2021-01-01:
+          value: 100
+  product_class_ten:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 100
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 100
+    light_duty:
+      values:
+        2021-01-01:
+          value: 100
+  product_class_eleven:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 100
+    light_duty:
+      values:
+        2021-01-01:
+          value: 100
+  product_class_twelve:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 100
+    light_duty:
+      values:
+        2021-01-01:
+          value: 100
+  product_class_thirteen:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 77
+    light_duty:
+      values:
+        2021-01-01:
+          value: 77
+  product_class_fourteen:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 77
+    light_duty:
+      values:
+        2021-01-01:
+          value: 77
+  product_class_fifteen:
+    heavy_duty:
+      values:
+        2021-01-01:
+          value: 0
+    normal_duty:
+      values:
+        2021-01-01:
+          value: 100
+    light_duty:
+      values:
+        2021-01-01:
+          value: 100

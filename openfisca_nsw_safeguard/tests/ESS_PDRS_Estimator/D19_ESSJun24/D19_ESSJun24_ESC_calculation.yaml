@@ -167,10 +167,12 @@
         10,
         0.58,
         0.58,
+        0.58,
         0.58
       ]
     D19_ESSJun24_adjustment_coefficient:
       [
+        2.310,
         2.310,
         2.310,
         2.310,
@@ -183,7 +185,8 @@
         5,
         7.43,
         5.82,
-        3.28640
+        3.28640,
+        0
       ]
     D19_ESSJun24_Be:
       [
@@ -191,6 +194,7 @@
         3,
         0.4,
         0.03,
+        0,
         0
       ]
   output:
@@ -200,7 +204,8 @@
         -8.48,
         -17.51,
         -12.93,
-        -7.011
+        -7.011,
+        0 #Bs and Be are zero and not eligible for savings
       ]
 
 - name: test D19 annual energy savings

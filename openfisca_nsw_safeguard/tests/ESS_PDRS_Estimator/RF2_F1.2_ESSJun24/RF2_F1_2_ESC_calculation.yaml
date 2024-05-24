@@ -1,0 +1,328 @@
+- name: test Product EEI eligibility
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        83, #fail
+        79, #pass
+        53, #fail
+        49  #pass
+      ]
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 8,
+        Class 10,
+        Class 5,
+        Class 5
+      ]
+  output:
+    RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility:
+      [
+        false,
+        true,
+        false,
+        true
+      ]
+
+- name: test ESC calculation
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        true
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        10, #pass
+        51  #fail
+      ]
+    RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility:
+      [
+        true,
+        false
+      ]
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        product_class_five, 
+        product_class_five
+      ]
+    RF2_F1_2_ESSJun24_electricity_savings:
+      [
+        47.08,
+        47.08
+      ]
+  output:
+    RF2_F1_2_ESSJun24_ESC_calculation:
+      [
+        49.90,
+        0
+      ]
+
+- name: test ESC
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility:
+      [
+        true
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        51 #eligible
+      ]
+    RF2_F1_2_ESSJun24_electricity_savings:
+      [
+        47.08
+      ]
+  output:
+    RF2_F1_2_ESSJun24_ESC_calculation:
+      [
+        49.90
+      ]
+
+- name: test baseline peak adjustment factor
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    RF2_F1_2_ESSJun24_product_type:
+      [
+        integral_RDC,
+        integral_RDC, #De Rigo Clio 3P
+        integral_RDC,
+        integral_ice_cream_freezer_cabinet
+      ]
+    RF2_F1_2_ESSJun24_duty_class:
+      [
+        heavy_duty,
+        normal_duty,
+        normal_duty,
+        light_duty
+      ]
+  output:
+    RF2_F1_2_ESSJun24_baseline_peak_adjustment_factor:
+      [
+        1.14,
+        1.14,
+        1.14,
+        0.84
+      ]
+
+- name: test deemed activity electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_total_energy_consumption:
+      [
+        29.86, #De Rigo Clio 3P
+        9.7,   #EPTA Captur 100BT
+        16.17  #SKOPE TMF1000N-A
+      ]
+    RF2_F1_2_ESSJun24_baseline_EEI:
+      [
+        77,
+        77,
+        100
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        50,
+        57.3,
+        63.474
+      ]
+    RF2_F1_2_ESSJun24_af:
+      [
+        1,
+        1,
+        1
+      ]
+    RF2_F1_2_ESSJun24_lifetime_by_rc_class:
+      [
+        8,
+        8,
+        8
+      ]
+  output: 
+    RF2_F1_2_ESSJun24_deemed_activity_electricity_savings:
+      [
+        47.08,
+        9.74,
+        27.171
+      ]
+
+- name: test electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_deemed_activity_electricity_savings:
+      [
+        47.08,
+        47.08, #De Rigo Clio 3P
+        9.74,  #EPTA Captur 100BT
+        27.171 #SKOPE TMF1000N-A
+      ]
+    RF2_F1_2_ESSJun24_PDRS__regional_network_factor:
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+  output: 
+    RF2_F1_2_ESSJun24_electricity_savings:
+      [
+        47.08,
+        47.08,
+        9.74,
+        27.171
+      ]
+
+- name: test ESC calculation
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    RF2_F1_2_ESSJun24_electricity_savings:
+      [
+        47.08,
+        47.08,  #De Rigo Clio 3P
+        9.74,   #EPTA Captur 100BT
+        27.171  #SKOPE TMF1000N-A
+      ]
+  output:    
+    RF2_F1_2_ESSJun24_ESC_calculation:
+      [
+        50,
+        49.90,
+        10.32,
+        28.8
+      ]
+
+- name: test ESC full
+  period: 2024
+  absolute_error_margin: 1
+  input:
+    RF2_F1_2_ESSJun24_get_network_loss_factor_by_postcode:
+      [
+        1.05,
+      ]
+    RF2_F1_2_ESSJun24_PDRS__postcode:
+      [
+        2017
+      ]
+    RF2_F1_2_ESSJun24_duty_class: 
+      [
+        normal_duty
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        50.0469294717082
+      ]
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 8
+      ]
+    RF2_F1_2_ESSJun24_total_energy_consumption:
+      [
+        29.86
+      ]
+  output:
+    RF2_F1_2_ESSJun24_ESC_calculation:
+      [
+        92.249
+      ]
+
+- name: test ESC full CDScake cds1200cake
+  period: 2024
+  absolute_error_margin: 1
+  input:
+    RF2_F1_2_ESSJun24_get_network_loss_factor_by_postcode:
+      [
+        1.04
+      ]
+    RF2_F1_2_ESSJun24_PDRS__postcode:
+      [
+        2076
+      ]
+    RF2_F1_2_ESSJun24_duty_class: 
+      [
+        normal_duty
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        0
+      ]
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 8
+      ]
+    RF2_F1_2_ESSJun24_total_energy_consumption:
+      [
+        0
+      ]
+  output:
+    RF2_F1_2_ESSJun24_ESC_calculation:
+      [
+        0
+      ]
+
+- name: test annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 3
+      ]
+    RF2_F1_2_ESSJun24_duty_class:
+      [
+        heavy_duty
+      ]
+    RF2_F1_2_ESSJun24_total_energy_consumption:
+      [
+        32
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        200
+      ]
+    RF2_F1_2_ESSJun24_PDRS__postcode:
+      [
+        2024
+      ]
+  output:
+    RF2_F1_2_ESSJun24_annual_energy_savings:
+      [
+        0 #-57.466 negative value
+      ]
+
+- name: test annual energy savings 2
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 5
+      ]
+    RF2_F1_2_ESSJun24_duty_class:
+      [
+        normal_duty
+      ]
+    RF2_F1_2_ESSJun24_total_energy_consumption:
+      [
+        16.7
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        50
+      ]
+    RF2_F1_2_ESSJun24_PDRS__postcode:
+      [
+        2800 #nlf 1.03
+      ]
+  output:
+    RF2_F1_2_ESSJun24_annual_energy_savings:
+      [
+        50.227
+      ]

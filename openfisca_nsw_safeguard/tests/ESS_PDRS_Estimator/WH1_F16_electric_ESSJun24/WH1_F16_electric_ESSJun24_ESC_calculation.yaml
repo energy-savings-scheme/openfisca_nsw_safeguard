@@ -1,0 +1,241 @@
+- name: test WH1 cooling capacity HP Cap less than or equal to WH Cap
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    WH1_F16_electric_ESSJun24_HP_capacity_factor:
+      [
+        10,
+      ]
+    WH1_F16_electric_ESSJun24_WH_capacity_factor:
+      [
+        20
+      ]
+  output:
+    WH1_F16_electric_ESSJun24_capacity_factor: 
+      [
+        1
+      ]
+
+- name: test WH1 cooling capacity HP Cap greater than WH Cap
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    WH1_F16_electric_ESSJun24_HP_capacity_factor:
+      [
+        20,
+      ]
+    WH1_F16_electric_ESSJun24_WH_capacity_factor:
+      [
+        10
+      ]
+  output:
+    WH1_F16_electric_ESSJun24_capacity_factor: 
+      [
+        0.5
+      ]
+
+- name: test WH1 deemed activity gas savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    WH1_F16_electric_ESSJun24_HP_gas:
+      [
+        20,
+        0 #RNF1, Zone 3, Ecogenica EG215F
+      ]
+    WH1_F16_electric_ESSJun24_capacity_factor:
+      [
+        0.5,
+        1
+      ]
+  output:
+    WH1_F16_electric_ESSJun24_deemed_activity_gas_savings:
+      [
+        -33.33,
+        0
+      ]
+
+- name: test WH1 reference electricity
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    WH1_F16_electric_ESSJun24_com_peak_load:
+      [
+        300,
+        95 #RNF1, Zone 3, Ecogenica EG215F
+      ]
+  output:
+    WH1_F16_electric_ESSJun24_Ref_Elec:
+      [
+        104.05,
+        32.949
+      ]
+
+- name: test WH1 deemed activity electricity savings
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    WH1_F16_electric_ESSJun24_Ref_Elec:
+      [
+        500,
+        32.949, #RNF1, Zone 3, Ecogenica EG215F
+        26.71, 
+        63.472 #Emerald Energy EE-HWS-RCHPOU/EE-HWS-RCHP-200E-2
+      ]
+    WH1_F16_electric_ESSJun24_HP_elec:
+      [
+        400,
+        9.54,
+        9.62,
+        19.5
+      ]
+    WH1_F16_electric_ESSJun24_capacity_factor:
+      [
+        0.5,
+        1,
+        1,
+        1
+      ]
+  output:
+    WH1_F16_electric_ESSJun24_deemed_activity_electricity_savings:
+      [
+        166.66667,
+        78,
+        56.94,
+        146.57
+      ]
+
+- name: test WH1 annual ESS savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    WH1_F16_electric_ESSJun24_com_peak_load:
+      [
+        20,
+        100,
+        77,   #ECO ALLIANCE ECO-155LU
+        81,   #Quantum 150-08AC6-290
+        78    #Wulfe W200PW-1
+      ]
+    WH1_F16_electric_ESSJun24_HP_elec:
+      [
+        10,
+        3,
+        9.62,
+        9.54,
+        8.75
+      ]
+    WH1_F16_electric_ESSJun24_HP_capacity_factor:
+      [
+        20,
+        36,
+        3.65,
+        3.1,
+        2.3
+      ]
+    WH1_F16_electric_ESSJun24_WH_capacity_factor:
+      [
+        25,
+        6,
+        5,
+        6,
+        3.5
+      ]
+    WH1_F16_electric_ESSJun24_HP_gas:
+      [
+        20,
+        30,
+        0,
+        0,
+        0
+      ]
+  output:
+    WH1_F16_electric_ESSJun24_energy_savings:
+      [
+        0, #negative value
+        0.936,
+        56.956,
+        61.85,
+        61
+      ]
+
+- name: test WH1 ESC calculation
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    WH1_F16_electric_ESSJun24_Ref_Elec:
+      [
+        170.98,
+        32.949, #Ecogenica EG215F
+        26.71,  #EcoAlliance ECO-155LU
+        63.47   #Emerald Energy EE-HWS-RCHPOU/EE-HWS-RCHP-200E-2
+      ]
+    WH1_F16_electric_ESSJun24_HP_elec:
+     [
+        10.7,
+        9.54,
+        9.62,
+        19.5
+     ]
+    WH1_F16_electric_ESSJun24_HP_capacity_factor:
+      [
+        -33.33,
+        3.6,
+        3.65,
+        3.64
+      ]
+    WH1_F16_electric_ESSJun24_WH_capacity_factor:
+      [
+        -12.56,
+        3.6,
+        3.65,
+        3.6
+      ]
+    WH1_F16_electric_ESSJun24_PDRS__postcode:
+      [
+        2017,
+        2074, #RNF1
+        2000,
+        2000
+      ]
+    WH1_F16_electric_ESSJun24_HP_gas:
+      [
+        34,
+        0,
+        0,
+        0
+      ]
+  output:
+    WH1_F16_electric_ESSJun24_ESC_calculation:
+      [
+        513.06,
+        82.71179,
+        60.36,
+        153.66
+      ]
+
+- name: test WH1 ESC not eligible on new installation
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    WH1_F16_electric_ESSJun24_electricity_savings:
+      [
+        15,
+        15
+      ]
+    WH1_F16_electric_ESSJun24_deemed_activity_gas_savings:
+      [
+        35,
+        35
+      ]
+    WH1_F16_electric_ESSJun24_replacement_activity:
+      [
+        False, #activity is a new installation
+        True   #activity is a replacement
+      ]
+  output:
+    WH1_F16_electric_ESSJun24_ESC_calculation:
+      [
+        0,
+        32.35
+      ]

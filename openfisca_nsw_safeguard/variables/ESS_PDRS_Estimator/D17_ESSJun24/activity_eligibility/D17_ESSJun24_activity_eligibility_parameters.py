@@ -12,11 +12,10 @@ class D17_ESSJun24_equipment_replaced(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the activity the replacement of an existing electric water heater with an (air source) heat pump water heater?',
+      'display_question' : 'Is the activity the replacement of an existing electric resistance storage or instantaneous water heater with an (air source) heat pump water heater?',
       'sorting' : 1,
       'eligibility_clause' : """A new installation is not eligible under ESS Activity D17. In ESS D17 the activity definition states that the activity must be the replacement of an existing electric water heater with an (air source) heat pump water heater. <br />
-                                ESS D17 Eligibility Requirements Clause 1 also states that the existing electric water heater must be an electric resistance storage or instantaneous water heater.
-      """
+                                ESS D17 Eligibility Requirements Clause 1 also states that the existing electric water heater must be an electric resistance storage or instantaneous water heater."""
     }
 
 

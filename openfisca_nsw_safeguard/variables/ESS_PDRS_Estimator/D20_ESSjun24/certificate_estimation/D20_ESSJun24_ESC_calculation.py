@@ -142,11 +142,28 @@ class D20_ESSJun24_ESC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
+        Bs = buildings('D20_ESSJun24_Bs', period)
+        Be = buildings('D20_ESSJun24_Be', period)
         electricity_savings = buildings('D20_ESSJun24_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('D20_ESSJun24_Baseline_B', period)
         gas_certificate_conversion_factor = 0.47
         replacement_activity = buildings('D20_ESSJun24_replacement_activity', period)
+
+        #if Bs and Be values from the registry are 0, calculate 0 savings
+        has_registry_data = np.select(
+            [
+                (Bs <= 0) * (Be <= 0),
+                (Bs > 0) * (Be <= 0),
+                (Bs > 0) * (Be > 0),
+                (Bs <= 0) * (Be > 0)
+            ],
+            [
+                0,
+                ((electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor)),
+                ((electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor)),
+                ((electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor)),
+            ])
 
         D20_ESSJun24_eligible_ESCs = np.select(
             [
@@ -154,15 +171,17 @@ class D20_ESSJun24_ESC_calculation(Variable):
                 np.logical_not(replacement_activity)
             ],
             [
-                ((electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor)),
+                has_registry_data,
                 0
             ])
 
         result_to_return = np.select(
             [
-                D20_ESSJun24_eligible_ESCs <= 0, D20_ESSJun24_eligible_ESCs > 0
+                D20_ESSJun24_eligible_ESCs <= 0, 
+                D20_ESSJun24_eligible_ESCs > 0
             ],
             [
-                0, D20_ESSJun24_eligible_ESCs
+                0, 
+                D20_ESSJun24_eligible_ESCs
             ])
         return result_to_return

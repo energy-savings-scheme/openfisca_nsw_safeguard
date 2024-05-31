@@ -11,7 +11,7 @@ class WH1_ESSJun24_equipment_replaced(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the activity the replacement of an existing electric hot water boiler or water heater with an (air source) heat pump water heater?',
+      'display_question' : 'Is the activity the replacement of an existing resistance hot water boiler or heater with a heat pump water heater?',
       'sorting' : 1,
       'eligibility_clause' : """In PDRS WH1 the activity definition states that the activity must replace one or more existing hot water boilers or water heaters with one or more air source heat pump water heater systems."""
     }

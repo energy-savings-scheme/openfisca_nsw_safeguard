@@ -273,34 +273,28 @@
   input:
     RF2_F1_2_ESSJun24_product_class:
       [
-        Class 3,
-        Class 2
+        Class 3
       ]
     RF2_F1_2_ESSJun24_duty_class:
       [
-        heavy_duty,
-        normal_duty
+        heavy_duty
       ]
     RF2_F1_2_ESSJun24_total_energy_consumption:
       [
-        32,
-        3.5
+        32
       ]
     RF2_F1_2_ESSJun24_product_EEI:
       [
-        200,
-        13.736
+        200
       ]
     RF2_F1_2_ESSJun24_PDRS__postcode:
       [
-        2024,
-        2148
+        2024
       ]
   output:
     RF2_F1_2_ESSJun24_annual_energy_savings:
       [
-        0, #-57.466 negative value
-        47.01
+        0 #-57.466 negative value
       ]
 
 - name: test annual energy savings 2
@@ -331,4 +325,35 @@
     RF2_F1_2_ESSJun24_annual_energy_savings:
       [
         50.227
+      ]
+
+
+- name: test annual energy savings 3
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 2
+      ]
+    RF2_F1_2_ESSJun24_duty_class:
+      [
+        normal_duty
+      ]
+    RF2_F1_2_ESSJun24_total_energy_consumption:
+      [
+        3.5
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        13.736
+      ]
+    RF2_F1_2_ESSJun24_PDRS__postcode:
+      [
+        2148
+      ]
+  output:
+    RF2_F1_2_ESSJun24_annual_energy_savings:
+      [
+        47.01
       ]

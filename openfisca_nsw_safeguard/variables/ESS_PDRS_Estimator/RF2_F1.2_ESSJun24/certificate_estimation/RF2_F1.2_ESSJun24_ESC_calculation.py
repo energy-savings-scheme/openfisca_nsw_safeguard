@@ -162,10 +162,10 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
             RF2_F1_2_ESSJun24ProductClass.product_class_fourteen,
             RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
       ])
-        
+
         #duty class
         duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
-    
+
         #af
         af = parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['adjustment_factor'][product_class_savings][duty_type],
 
@@ -174,10 +174,10 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
 
         #baseline EEI
         baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['baseline_EEI'][product_class_savings][duty_type]
-                
+
         #product EEI
         product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
-     
+
         #lifetime_by_rc_class        
         product_class_savings = np.select([
             product_class_savings == RF2_F1_2_ESSJun24ProductClass.product_class_one,
@@ -214,7 +214,7 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(Variable):
       
         #deemed electricity savings
         deemed_electricity_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
-   
+
         #regional network factor
         postcode = buildings('RF2_F1_2_ESSJun24_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor

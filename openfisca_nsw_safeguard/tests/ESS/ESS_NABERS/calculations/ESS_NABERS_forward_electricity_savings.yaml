@@ -18,8 +18,9 @@
     ESS__NABERS_type_of_creation: forward_creation
   output:
     ESS__NABERS_forward_electricity_savings: 144
+
 - name: test NABERS electricity savings - forward created electricity savings within method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -76,29 +77,29 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2022-07-31,
-        2022-07-31,
-        2022-07-31,
-        2022-07-31,
-        2022-07-31,
-        2022-07-31,
-        2022-07-31,
-        2022-07-31,
-        2022-07-31,
-        2022-07-31,
+        2023-12-01,
+        2023-12-01,
+        2023-12-01,
+        2023-12-01,
+        2023-12-01,
+        2023-12-01,
+        2023-12-01,
+        2023-12-01,
+        2023-12-01,
+        2023-12-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -244,6 +245,7 @@
        4139.76,
        3839.76,
       ]
+
 - name: test NABERS electricity savings - forward created electricity savings within method 2
   period: 2021-01-01
   absolute_error_margin: 0.1

@@ -1,5 +1,5 @@
 - name: test ESS gas savings - from NABERS method
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_electricity: 1
@@ -12,7 +12,7 @@
     ESS__number_of_ESCs: 54
 
 - name: test ESS gas savings - not eligible (increase in energy consumption)
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__electricity_savings: -100
@@ -20,7 +20,7 @@
     ESS__number_of_ESCs: 0
 
 - name: test NABERS electricity savings - annual created ESCs within NABERS method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -77,29 +77,29 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
+        2018-05-01,
+        2018-05-01,
+        2018-05-01,
+        2018-05-01,
+        2018-05-01,
+        2018-05-01,
+        2018-05-01,
+        2018-05-01,
+        2018-05-01,
+        2018-05-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -247,7 +247,7 @@
       ]
 
 - name: test NABERS electricity savings - forward created ESCs within NABERS method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -317,16 +317,16 @@
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -526,7 +526,7 @@
       ]
 
 - name: test NABERS electricity savings - forward created ESCs within NABERS method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -551,7 +551,7 @@
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -620,7 +620,7 @@
       ]
 
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.15 - eligibility within method 1
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -653,7 +653,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -706,7 +706,7 @@
       ]
 
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.19 - eligibility within method 1
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -739,7 +739,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -792,7 +792,7 @@
       ]
 
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.3 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -813,7 +813,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
@@ -898,7 +898,7 @@
       ]
 
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.9 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -923,7 +923,7 @@
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -1004,7 +1004,7 @@
       ]
       
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.18 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -1025,11 +1025,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2022-05-01,
+        2023-05-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -1110,7 +1110,7 @@
       ]
 
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.21 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -1135,7 +1135,7 @@
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -1216,7 +1216,7 @@
       ]
 
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.23 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-05-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -1241,7 +1241,7 @@
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [

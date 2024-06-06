@@ -1,5 +1,5 @@
 - name: test ESS NABERS annual electricity savings calculation
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_electricity: 1
@@ -8,8 +8,9 @@
     ESS__NABERS_type_of_creation: annual_creation
   output:
     ESS__NABERS_electricity_savings: 48
+
 - name: test ESS NABERS annual electricity savings calculation
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_NABERS_electricity: 1
@@ -18,8 +19,9 @@
     ESS__NABERS_type_of_creation: forward_creation
   output:
     ESS__NABERS_electricity_savings: 144
+
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.15 - eligibility within method 1
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -52,7 +54,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-01-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -107,8 +109,9 @@
       [
         400,
       ]
+
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.19 - eligibility within method 1
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -141,7 +144,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-01-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -192,8 +195,9 @@
       [
         659,
       ]
+
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.3 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -214,11 +218,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2022-05-01,
+        2023-06-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -301,8 +305,9 @@
       [
        293,
       ]
+
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.9 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -323,11 +328,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2022-05-01,
+        2023-06-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -410,8 +415,9 @@
       [
        236,
       ]
+
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.18 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -432,11 +438,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2022-05-01,
+        2023-06-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -519,8 +525,9 @@
       [
        881,
       ]
+
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.21 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -541,11 +548,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2022-05-01,
+        2023-06-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -628,8 +635,9 @@
       [
        1586,
       ]
+
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.23 - ESC creation within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -650,11 +658,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2022-05-01,
+        2023-06-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [

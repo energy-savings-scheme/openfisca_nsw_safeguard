@@ -89,7 +89,7 @@ class RF2_F1_2_ESSJun24_installed_on_site(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the replacement End-User equipment installed in it’s intended place of use and operating?',
-      'sorting' : 6,
+      'sorting' : 7,
       'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 2 is states that the replacement End-User Equipment must be installed in its intended place of use and operating."""
     }
 
@@ -108,7 +108,7 @@ class RF2_F1_2_ESSJun24_display_sides(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'How many display sides does the new End-User equipment have?',
-        'sorting' : 7,
+        'sorting' : 8,
         'eligibility_clause' : """In ESS F1.2 Equipment Requirements Clause 4 it states that the replacement End-User Equipment must not have 4 or more display sides."""
     }
 
@@ -144,7 +144,7 @@ class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the installed End-User equipment a registered product on the GEMS registry under GEMS (refrigerated cabinets) Determination 2020?',
-        'sorting' : 8,
+        'sorting' : 9,
         'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 1 it states that the End-User Equipment must be a Refrigerated Cabinet (RC) as defined within the terms of the Greenhouse and Energy Minimum Standards (Refrigerated Cabinets) Determination 2020."""
     }
 
@@ -156,7 +156,7 @@ class RF2_F1_2_ESSJun24_GEMS_product_class_5(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User equipment GEMS Product Class 5?',
-      'sorting' : 9,
+      'sorting' : 10,
       'conditional' : 'True',
       'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
     }
@@ -170,7 +170,7 @@ class RF2_F1_2_ESSJun24_EEI_under_51(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the product Energy Efficiency Index (EEI) as recorded in the GEMS Registry below 51?',
-      'sorting' : 10,
+      'sorting' : 11,
       'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
     }
 
@@ -183,6 +183,6 @@ class RF2_F1_2_ESSJun24_EEI_under_81(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the product Energy Efficiency Index (EEI) as recorded in the GEMS Registry below 81?',
-      'sorting' : 11,
+      'sorting' : 12,
       'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
     }

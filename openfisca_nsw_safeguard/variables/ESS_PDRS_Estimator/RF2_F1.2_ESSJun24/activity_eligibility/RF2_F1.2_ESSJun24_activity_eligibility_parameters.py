@@ -26,9 +26,9 @@ class RF2_F1_2_ESSJun24_same_product_class(Variable):
       'display_question' : 'Is the new End-User equipment the same product class as the old refrigerated display cabinet?',
       'sorting' : 2,
       'eligibility_clause' : """ In ESS F1.2 Equipment Requirements Clause 5 it states that the existing End-User Equipment (that is, the End-User Equipment that is replaced as part of the Implementation) must be either: <br />
-                                a)recorded on the GEMS Registry as being either or both of: <br />
-                                  i) the same Refrigerated Cabinet Product Class as the replacement End-User Equipment, as set out in the second column of Table F1.2.1; or <br />
-                                  ii) an AS 1731.14 Product Type, as set out in the third column of Table F1.2.1, that is in the same row of Table F1.2.1 as the Refrigerated Cabinet Product Class of the replacement End-User-Equipment, as set out in the second column of Table F1.2.1; or<br />
+                                a) recorded on the GEMS Registry as being either or both of: <br />
+                                i) the same Refrigerated Cabinet Product Class as the replacement End-User Equipment, as set out in the second column of Table F1.2.1; or <br />
+                                ii) an AS 1731.14 Product Type, as set out in the third column of Table F1.2.1, that is in the same row of Table F1.2.1 as the Refrigerated Cabinet Product Class of the replacement End-User-Equipment, as set out in the second column of Table F1.2.1; or<br />
                                 b) in fact of an AS 1731.14 Product Type, as set out in the third column of Table F1.2.1, that is in the same row of Table F1.2.1 as the Refrigerated Cabinet Product Class of the replacement End-User-Equipment, as set out in the second column of Table F1.2.1, with that fact to be evidenced to the satisfaction of the Scheme Administrator."""
     } 
 

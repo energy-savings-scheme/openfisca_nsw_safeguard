@@ -329,7 +329,6 @@ class HVAC1_ESSJun24_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
         AC_TCSPF = buildings('HVAC1_ESSJun24_TCSPF_mixed', period)
         AC_AEER = buildings('HVAC1_ESSJun24_rated_AEER_input', period)
         product_class = buildings('HVAC1_ESSJun24_Air_Conditioner_type', period)
-        # AC_Class = (product_class.possible_values)
         new_AC_cooling_capacity = buildings('HVAC1_ESSJun24_cooling_capacity_input', period)
         cooling_capacity = np.select(
                                     [
@@ -416,7 +415,7 @@ class HVAC1_ESSJun24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                         "4kW_to_6kW",
                                         "6kW_to_10kW",
                                         "10kW_to_13kW",
-                                        "13kW_to_25kW", # this
+                                        "13kW_to_25kW",
                                         "25kW_to_65kW",
                                         "over_65kW"
                                     ]
@@ -425,14 +424,14 @@ class HVAC1_ESSJun24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
         climate_zone = buildings('HVAC1_ESSJun24_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        # average
 
         in_hot_zone = (climate_zone_str == 'hot_zone')
         in_average_zone = (climate_zone_str == 'average_zone')
         in_cold_zone = (climate_zone_str == 'cold_zone')
 
-        AC_HSPF = np.where(in_cold_zone, AC_HSPF_cold, AC_HSPF_mixed)
-        # AC_HSPF_mixed
+        AC_HSPF = np.where(in_cold_zone, 
+                           AC_HSPF_cold, 
+                           AC_HSPF_mixed)
                 
         # determines which HSPF value to use
         HSPF_is_zero = (

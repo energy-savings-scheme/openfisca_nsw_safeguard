@@ -222,7 +222,7 @@
         2.05
       ]
 
-- name: test minimum TCSFP AEER failing
+- name: test minimum TCSPF AEER failing
   period: 2022
   absolute_error_margin: 0.1
   input:
@@ -583,4 +583,114 @@
     HVAC2_ESC_calculation:
       [
         24
+      ]
+
+- name: test HSPF cold zone benchmark failing Samsung electronics AM080DXVGGH/SA
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    HVAC2_HSPF_mixed:
+      [
+        10 #ignored
+      ]
+    HVAC2_HSPF_cold:
+      [
+        3.2 #failing (<3.5) 
+      ] 
+    HVAC2_rated_ACOP_input:
+      [
+        8 #ignored
+      ]
+    HVAC2_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC2_cooling_capacity_input:
+      [
+        22.4
+      ]
+    HVAC2_certificate_climate_zone:
+      [
+        3 #cold
+      ]
+  output:
+    HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark:
+      [
+        false
+      ]
+
+- name: test ESC calculation Samsung electronics AM080DXVGGH/SA
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    HVAC2_electricity_savings:
+      [
+        50
+      ]
+    HVAC2_TCSPF_or_AEER_exceeds_benchmark:
+      [
+        true
+      ]
+    HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark:
+      [
+        false #product fails HSPF benchmark
+      ]
+    HVAC2_heating_capacity_input:
+      [
+        25.2
+      ]
+  output:
+    HVAC2_ESC_calculation:
+      [
+        0
+      ]
+
+- name: test ESS annual energy savings Samsung electronics AM080DXVGGH/SA
+  absolute_error_margin: 0.1
+  period: 2024
+  input:
+    HVAC2_cooling_capacity_input:
+      [
+        22.4
+      ]
+    HVAC2_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC2_Activity:
+      [
+        replacement_activity
+      ]
+    HVAC2_certificate_climate_zone:
+      [
+        3 #cold
+      ]
+    HVAC2_rated_AEER_input:
+      [
+        4.1857
+      ]
+    HVAC2_commercial_TCEC:
+      [
+        2566
+      ]
+    HVAC2_heating_capacity_input:
+      [
+        25.2
+      ]
+    HVAC2_rated_ACOP_input:
+      [
+        4.2556
+      ]
+    HVAC2_commercial_THEC:
+      [
+        3263
+      ]
+    HVAC2_PDRS__postcode:
+      [
+        2650
+      ]
+  output:
+    HVAC2_annual_energy_savings:
+      [
+        56.04
       ]

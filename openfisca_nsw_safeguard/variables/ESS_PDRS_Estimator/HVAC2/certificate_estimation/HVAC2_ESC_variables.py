@@ -428,7 +428,7 @@ class HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                         "over_65kW"
                                     ]
                                     )
-
+        
         climate_zone = buildings('HVAC2_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])

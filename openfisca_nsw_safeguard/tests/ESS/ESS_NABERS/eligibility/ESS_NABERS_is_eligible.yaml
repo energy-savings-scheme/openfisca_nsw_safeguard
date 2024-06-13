@@ -1,5 +1,5 @@
 - name: test ESS NABERS eligibility - NABERS UAT test cases 1.1 - 1.6 - eligibility within method 1
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -49,12 +49,12 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [
@@ -112,7 +112,7 @@
         False,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 2.1 - 2.5 - eligibility within method 1
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -168,7 +168,7 @@
         2022-01-01,
         2022-01-01,
         2022-01-01,
-        2023-05-01,
+        2024-05-01,
         2019-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
@@ -213,7 +213,7 @@
         False,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 3.1 - 3.5 - eligibility within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -298,11 +298,11 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
-        2021-01-01,
-        2021-01-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
         2019-01-01,
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -338,7 +338,7 @@
         True,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 4.1 - 4.4 - eligibility within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -392,10 +392,10 @@
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2019-12-31,
-        2019-12-31,
-        2019-12-31,
-        2022-12-31,
+        2021-12-31,
+        2021-12-31,
+        2021-12-31,
+        2023-12-31,
       ]
     ESS__NABERS_historical_rating_meets_similar_configuration_criteria:
       [
@@ -413,10 +413,10 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2021-01-01,
-        2021-01-01,
+        2024-01-01,
+        2024-01-01,
         2019-01-01,
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -462,7 +462,7 @@
         True,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 11.15 - eligibility within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -495,7 +495,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -515,7 +515,7 @@
         True,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 4.1 - 4.4 - eligibility within method 2 - test case 2021-07-08
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -560,7 +560,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_building_date:
       [
@@ -596,7 +596,7 @@
         True,
       ]
 - name: test ESS NABERS eligibility - NABERS UAT test cases 4.1 - 4.4 - eligibility within method 2 - test case 2021-07-12
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -641,7 +641,7 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
+        2024-05-01,
       ]
     ESS__NABERS_building_date:
       [

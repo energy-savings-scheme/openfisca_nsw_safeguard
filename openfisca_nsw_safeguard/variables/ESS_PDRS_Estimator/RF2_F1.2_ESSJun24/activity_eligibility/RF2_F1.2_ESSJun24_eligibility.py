@@ -22,6 +22,7 @@ class RF2_F1_2_ESSJun24_installation_replacement_final_activity_eligibility(Vari
         qualified_install_removal = buildings('RF2_F1_2_ESSJun24_qualified_install_removal', period)
         legal_disposal = buildings('RF2_F1_2_ESSJun24_legal_disposal', period)
         ACP_engaged = buildings('RF2_F1_2_ESSJun24_engaged_ACP', period)
+        minimum_payment = buildings('RF2_F1_2_ESSJun24_minimum_payment', period)
         installed_on_site = buildings('RF2_F1_2_ESSJun24_installed_on_site', period)
         eligible_display_sides = buildings('RF2_F1_2_ESSJun24_display_sides_eligible', period)
         registered_GEMS = buildings('RF2_F1_2_ESSJun24_equipment_registered_in_GEMS', period)
@@ -35,7 +36,7 @@ class RF2_F1_2_ESSJun24_installation_replacement_final_activity_eligibility(Vari
         EEI_eligible_by_product_class = (product_class_5 * EEI_under_51) + (np.logical_not(product_class_5) * EEI_under_81)
  
         end_formula = ( replacement * same_product_class * qualified_install_removal *
-                        legal_disposal * ACP_engaged * installed_on_site * eligible_display_sides * 
+                        legal_disposal * ACP_engaged * minimum_payment * installed_on_site * eligible_display_sides * 
                         registered_GEMS * EEI_eligible_by_product_class )
 
         return end_formula

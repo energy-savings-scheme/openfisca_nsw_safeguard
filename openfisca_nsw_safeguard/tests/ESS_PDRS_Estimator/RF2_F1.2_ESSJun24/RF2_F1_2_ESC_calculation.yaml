@@ -326,3 +326,34 @@
       [
         50.227
       ]
+
+
+- name: test annual energy savings 3
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 2
+      ]
+    RF2_F1_2_ESSJun24_duty_class:
+      [
+        normal_duty
+      ]
+    RF2_F1_2_ESSJun24_total_energy_consumption:
+      [
+        3.5
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        13.736
+      ]
+    RF2_F1_2_ESSJun24_PDRS__postcode:
+      [
+        2148
+      ]
+  output:
+    RF2_F1_2_ESSJun24_annual_energy_savings:
+      [
+        47.01
+      ]

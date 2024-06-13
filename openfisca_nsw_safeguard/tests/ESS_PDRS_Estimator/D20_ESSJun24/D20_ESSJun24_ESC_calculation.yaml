@@ -248,6 +248,26 @@
   period: 2023
   absolute_error_margin: 0.1
   input:
+    D20_ESSJun24_Bs:
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    D20_ESSJun24_Be:
+      [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ] 
     D20_ESSJun24_electricity_savings:
       [
         4.12,
@@ -287,5 +307,5 @@
         112.78,
         22.54,
         33.18,
-        9.099
+        0 #Bs and Be are zero and not eligible for savings
       ]

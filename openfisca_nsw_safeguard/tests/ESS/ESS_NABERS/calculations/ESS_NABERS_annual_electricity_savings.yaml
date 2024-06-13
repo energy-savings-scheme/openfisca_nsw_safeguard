@@ -8,6 +8,7 @@
     ESS__NABERS_type_of_creation: annual_creation
   output:
     ESS__NABERS_annual_electricity_savings: 48
+
 - name: test ESS NABERS annual electricity savings calculation
   period: 2021-01-01
   absolute_error_margin: 0.1
@@ -18,6 +19,7 @@
     ESS__NABERS_type_of_creation: forward_creation
   output:
     ESS__NABERS_annual_electricity_savings: 0
+
 - name: test ESS NABERS annual electricity savings calculation
   period: 2021-01-01
   absolute_error_margin: 0.1
@@ -88,8 +90,9 @@
        150.67,
        50.67,
       ]
+
 - name: test NABERS electricity savings - annual created electricity savings within method 2
-  period: 2021-01-01
+  period: 2024-01-01
   absolute_error_margin: 0.1
   input:
     ESS__NABERS_building_type:
@@ -146,29 +149,29 @@
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
       [
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
-        2023-05-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
+        2024-01-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
-        2016-07-31,
+        2023-01-01,
+        2023-01-01,
+        2023-01-01,
+        2023-01-01,
+        2023-01-01,
+        2023-01-01,
+        2023-01-01,
+        2023-01-01,
+        2023-01-01,
+        2023-01-01,
       ]
     ESS__NABERS_current_NABERS_star_rating:
       [

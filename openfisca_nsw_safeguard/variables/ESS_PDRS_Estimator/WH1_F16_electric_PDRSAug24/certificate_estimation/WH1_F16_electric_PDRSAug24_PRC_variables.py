@@ -16,7 +16,7 @@ class WH1_F16_electric_PDRSAug24_volumetric_capacity_over_425_litres(Variable):
     metadata = {
         'display_question': 'Is the total volume of water that can be held in the storage tank greater than 425 litres?',
         'variable-type': 'user-input',
-        'label': 'Volumetric capacity',
+        'label': 'Total system tank volume',
         'sorting' : 4
     }
 

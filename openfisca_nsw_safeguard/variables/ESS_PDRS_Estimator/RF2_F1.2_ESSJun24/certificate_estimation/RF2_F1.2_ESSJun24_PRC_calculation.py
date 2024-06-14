@@ -235,7 +235,7 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
         total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
 
         #baseline EEI
-        baseline_EEI = parameters(period).PDRS.refrigerated_cabinets.table_RF2_1_ESSJun24['baseline_EEI'][product_class_savings][duty_type],
+        baseline_EEI = parameters(period).PDRS.refrigerated_cabinets.table_RF2_1_ESSJun24['baseline_EEI'][product_class_savings][duty_type]
             
         #product EEI
         product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
@@ -292,7 +292,7 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
                 12
             ])
 
-        #peak demand reduction capacity
+       #peak demand reduction capacity
         summer_peak_demand_reduction_duration = 6
 
         peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime_by_rc_class
@@ -303,6 +303,8 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
 	        [
                 0, peak_demand_annual_savings
             ])
+        
+        print(peak_demand_annual_savings_return)
 
         return peak_demand_annual_savings_return
 

@@ -104,10 +104,14 @@
       [
         51.527
       ]
+    RF2_F1_2_ESSJun24_PDRS__postcode:
+      [
+        2817
+      ]
   output:
     RF2_F1_2_ESSJun24_peak_demand_annual_savings:
       [
-        21.019
+        21
       ]
 
 - name: test RF2 ESSJun24 peak demand reduction capacity

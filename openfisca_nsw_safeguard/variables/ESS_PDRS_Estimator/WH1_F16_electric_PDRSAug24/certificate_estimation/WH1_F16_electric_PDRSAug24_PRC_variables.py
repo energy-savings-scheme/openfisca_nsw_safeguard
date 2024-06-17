@@ -8,6 +8,18 @@ from openfisca_nsw_base.entities import Building
 
 """ Parameters for WH1 PRC Calculation
 """
+class WH1_F16_electric_PDRSAug24_volumetric_capacity_over_425_litres(Variable):
+    value_type = bool
+    default_value = True
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'display_question': 'Is the total volume of water that can be held in the storage tank greater than 425 litres?',
+        'variable-type': 'user-input',
+        'label': 'Total system tank volume',
+        'sorting' : 4
+    }
+
 
 class WH1_F16_electric_PDRSAug24_annual_energy_savings(Variable):
     reference = 'Percentage'
@@ -17,10 +29,11 @@ class WH1_F16_electric_PDRSAug24_annual_energy_savings(Variable):
     label = 'Annual energy savings (%/year)'
     metadata = {
         'display_question': 'Annual energy savings as a percentage per year',
-        'sorting' : 9,
+        'sorting' : 10,
         'variable-type': 'input',
         'label': 'Annual energy savings (%/year)'
     }
+
 
 class WH1_F16_electric_PDRSAug24_PDRS__postcode(Variable):
     value_type = int

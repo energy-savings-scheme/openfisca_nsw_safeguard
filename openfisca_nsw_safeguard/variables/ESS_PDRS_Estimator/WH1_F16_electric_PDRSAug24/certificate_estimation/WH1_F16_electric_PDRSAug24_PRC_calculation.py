@@ -142,22 +142,29 @@ class WH1_F16_electric_PDRSAug24_PRC_calculation(Variable):
         network_loss_factor = buildings('WH1_F16_electric_PDRSAug24_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
         replacement_activity = buildings('WH1_F16_electric_PDRSAug24_replacement_activity', period)
+        eligible_volume_over_425_litres = buildings('WH1_F16_electric_PDRSAug24_volumetric_capacity_over_425_litres', period)
 
         WH1_eligible_PRCs = np.select(
             [
-                replacement_activity,
-                np.logical_not(replacement_activity)
+                replacement_activity * eligible_volume_over_425_litres,
+                replacement_activity * np.logical_not(eligible_volume_over_425_litres),
+                np.logical_not(replacement_activity) * eligible_volume_over_425_litres,
+                np.logical_not(replacement_activity) * np.logical_not(eligible_volume_over_425_litres)
             ],
             [
                 (peak_demand_capacity * network_loss_factor * kw_to_0_1kw),
+                0,
+                0,
                 0
             ])
 
         result_to_return = np.select(
             [
-                WH1_eligible_PRCs <= 0, WH1_eligible_PRCs > 0
+                WH1_eligible_PRCs <= 0, 
+                WH1_eligible_PRCs > 0
             ],
             [
-                0, WH1_eligible_PRCs
+                0, 
+                WH1_eligible_PRCs
             ])
         return result_to_return

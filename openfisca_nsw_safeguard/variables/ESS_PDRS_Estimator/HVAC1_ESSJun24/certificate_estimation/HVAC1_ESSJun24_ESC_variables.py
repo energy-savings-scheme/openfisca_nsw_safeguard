@@ -329,7 +329,6 @@ class HVAC1_ESSJun24_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
         AC_TCSPF = buildings('HVAC1_ESSJun24_TCSPF_mixed', period)
         AC_AEER = buildings('HVAC1_ESSJun24_rated_AEER_input', period)
         product_class = buildings('HVAC1_ESSJun24_Air_Conditioner_type', period)
-        # AC_Class = (product_class.possible_values)
         new_AC_cooling_capacity = buildings('HVAC1_ESSJun24_cooling_capacity_input', period)
         cooling_capacity = np.select(
                                     [
@@ -416,7 +415,7 @@ class HVAC1_ESSJun24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                         "4kW_to_6kW",
                                         "6kW_to_10kW",
                                         "10kW_to_13kW",
-                                        "13kW_to_25kW", # this
+                                        "13kW_to_25kW",
                                         "25kW_to_65kW",
                                         "over_65kW"
                                     ]

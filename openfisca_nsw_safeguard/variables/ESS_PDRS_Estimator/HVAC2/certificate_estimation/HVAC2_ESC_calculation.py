@@ -256,10 +256,16 @@ class HVAC2_annual_energy_savings(Variable):
             ])
 
       aircon = np.select(
-            [air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system],
-
-                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
-            )
+            [   air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, 
+                air_conditioner_type == HVAC2_AC_Type.ducted_split_system, 
+                air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, 
+                air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system
+            ],
+            [   'non_ducted_split_system', 
+                'ducted_split_system', 
+                'non_ducted_unitary_system', 
+                'ducted_unitary_system'
+            ])
 
       baseline_AEER = np.select(
             [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
@@ -273,12 +279,46 @@ class HVAC2_annual_energy_savings(Variable):
       climate_zone = buildings('HVAC2_certificate_climate_zone', period)
       climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                     ['hot_zone', 'average_zone', 'cold_zone'])
+      
+      in_hot_zone = (climate_zone_str == 'hot_zone')
+      in_average_zone = (climate_zone_str == 'average_zone')
+      in_cold_zone = (climate_zone_str == 'cold_zone')
       equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[climate_zone_str]
 
       #rated AEER
       rated_AEER = buildings('HVAC2_rated_AEER_input', period)
 
-      #cooling annual energy use
+      #TCSPF
+      AC_TCSPF = buildings('HVAC2_TCSPF_mixed', period)
+      cooling_capacity_TCSPF = np.select(
+                                    [
+                                        (cooling_capacity < 4),
+                                        ((cooling_capacity >= 4) * (cooling_capacity < 6)),
+                                        ((cooling_capacity >= 6) * (cooling_capacity < 10)),
+                                        ((cooling_capacity >= 10) * (cooling_capacity < 13)),
+                                        ((cooling_capacity >= 13) * (cooling_capacity < 25)),
+                                        ((cooling_capacity >= 25) * (cooling_capacity <= 65)),
+                                        (cooling_capacity > 65)
+                                    ],
+                                    [
+                                        "less_than_4kW",
+                                        "4kW_to_6kW",
+                                        "6kW_to_10kW",
+                                        "10kW_to_13kW",
+                                        "13kW_to_25kW",
+                                        "25kW_to_65kW",
+                                        "over_65kW"
+                                    ])
+      
+      #check if TCSPF or AEER exceeds benchmark
+      TCSPF_is_zero = ((AC_TCSPF == 0) + (AC_TCSPF == None))
+      AC_exceeds_TCSPF_AEER_benchmark = np.where(
+            TCSPF_is_zero,
+            (rated_AEER >= parameters(period).PDRS.AC.table_HVAC_2_4[air_conditioner_type][cooling_capacity_TCSPF]),
+            (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_2_3[air_conditioner_type][cooling_capacity_TCSPF])
+        )
+  
+      #cooling annual energy use (this is only used if there is no TCEC)
       annual_cooling = np.select([
                     rated_AEER == 0,
                     (cooling_capacity * equivalent_cooling_hours) > 0, 
@@ -294,7 +334,7 @@ class HVAC2_annual_energy_savings(Variable):
 
       #TCEC or annual cooling
       tcec = buildings('HVAC2_commercial_TCEC',period)
-
+   
       tcec_or_annual_cooling = np.select([
                 tcec > 0, 
                 tcec <= 0 #if there is no TCEC use annual cooling energy formula
@@ -334,13 +374,7 @@ class HVAC2_annual_energy_savings(Variable):
                 "39kW_to_65kW",
                 "more_than_65kW"
             ])
-
-      aircon = np.select(
-            [air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system],
-
-                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
-            )
-
+      
       baseline_ACOP = np.select(
             [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity
@@ -354,25 +388,88 @@ class HVAC2_annual_energy_savings(Variable):
 
       #equivalent heating hours
       equivalent_heating_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_heating_hours[climate_zone_str]
-
+  
       #rated ACOP
       rated_ACOP = buildings('HVAC2_rated_ACOP_input', period)
 
-      aircon = np.select(
-            [air_conditioner_type == HVAC2_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_AC_Type.ducted_unitary_system],
+      #HSPF
+      AC_HSPF_mixed = buildings('HVAC2_HSPF_mixed', period)
+      AC_HSPF_cold = buildings('HVAC2_HSPF_cold', period)
+      cooling_capacity_HSPF = np.select(
+                                    [
+                                        (cooling_capacity < 4),
+                                        ((cooling_capacity >= 4) * (cooling_capacity < 6)),
+                                        ((cooling_capacity >= 6) * (cooling_capacity < 10)),
+                                        ((cooling_capacity >= 10) * (cooling_capacity < 13)),
+                                        ((cooling_capacity >= 13) * (cooling_capacity < 25)),
+                                        ((cooling_capacity >= 25) * (cooling_capacity <= 65)),
+                                        (cooling_capacity > 65)
+                                    ],
+                                    [
+                                        "less_than_4kW",
+                                        "4kW_to_6kW",
+                                        "6kW_to_10kW",
+                                        "10kW_to_13kW",
+                                        "13kW_to_25kW",
+                                        "25kW_to_65kW",
+                                        "over_65kW"
+                                    ])
+      #tells you if the relevant HSPF is zero or non-existent
+    #   HSPF_is_zero = ((AC_HSPF_mixed == 0) + (AC_HSPF_mixed == None) + (AC_HSPF_cold == 0) + (AC_HSPF_cold == None))
+    #   HSPF_to_use = np.where(
+    #             HSPF_is_zero,
+    #             np.logical_not(HSPF_is_zero) * in_cold_zone,
+    #             np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
+    #         )
 
-                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
-            )
+    #   AC_exceeds_HSPF_ACOP_benchmark = np.select(
+    #         [
+    #             HSPF_is_zero,
+    #             np.logical_not(HSPF_is_zero) * in_cold_zone,
+    #             np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
+    #         ],
+    #         [
+    #             (rated_ACOP >= parameters(period).ESS.HEAB.table_F4_5['ACOP'][air_conditioner_type][cooling_capacity_HSPF]),
+    #             (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][air_conditioner_type][cooling_capacity_HSPF]),
+    #             (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][air_conditioner_type][cooling_capacity_HSPF])
+    #         ])
+     
+      #check if HSPF or ACOP exceeds benchmark
+    #   AC_exceeds_HSPF_ACOP_benchmark = np.where(
+    #          (rated_ACOP >= parameters(period).ESS.HEAB.table_F4_5['ACOP'][air_conditioner_type][cooling_capacity_HSPF]),
+    #          (HSPF_to_use >= parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][air_conditioner_type][cooling_capacity_HSPF]),
+    #          (HSPF_to_use >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][air_conditioner_type][cooling_capacity_HSPF])
+    #   )
+
+      AC_HSPF = np.where(
+                        in_cold_zone,
+                        AC_HSPF_cold,
+                        AC_HSPF_mixed)
+      # determines which HSPF value to use
+      HSPF_is_zero = (
+                    (AC_HSPF == 0) + 
+                    (AC_HSPF == None)
+                    )
+      # tells you if the relevant HSPF is zero or non-existant
+      AC_exceeds_HSPF_ACOP_benchmark = np.select([
+                                        HSPF_is_zero,
+                                        np.logical_not(HSPF_is_zero) * in_cold_zone,
+                                        np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
+                                        ],
+                                        [
+      (rated_ACOP >= parameters(period).ESS.HEAB.table_F4_5['ACOP'][air_conditioner_type][cooling_capacity_HSPF]),
+      (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][air_conditioner_type][cooling_capacity_HSPF]),
+      (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][air_conditioner_type][cooling_capacity_HSPF])
+                                        ]
+        )
 
       baseline_ACOP = np.select(
             [new_or_replacement_activity == HVAC2_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_Activity_Type.replacement_activity],
-
                 [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check],
                     parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check]
-                    ]
-            )
-
+                    ])
+      
       #heating annual energy use
       annual_heating = np.select([  
                     rated_ACOP == 0,
@@ -398,7 +495,7 @@ class HVAC2_annual_energy_savings(Variable):
                 thec,
                 annual_heating
             ])
-
+  
       #reference heating annual energy use
       reference_heating = np.select([    
                             baseline_ACOP == 0,
@@ -424,14 +521,33 @@ class HVAC2_annual_energy_savings(Variable):
 
       #electricity savings
       annual_energy_savings = (deemed_electricity_savings * regional_network_factor)
-    
+      print('annual_energy_savings', annual_energy_savings)
       annual_savings_return = np.select([
-            annual_energy_savings <= 0, annual_energy_savings > 0
+            (annual_energy_savings <= 0 * AC_exceeds_HSPF_ACOP_benchmark * AC_exceeds_TCSPF_AEER_benchmark),
+            (annual_energy_savings <= 0 * np.logical_not(AC_exceeds_HSPF_ACOP_benchmark) * AC_exceeds_TCSPF_AEER_benchmark),
+            (annual_energy_savings <= 0 * np.logical_not(AC_exceeds_HSPF_ACOP_benchmark) * np.logical_not(AC_exceeds_TCSPF_AEER_benchmark)),
+            (annual_energy_savings <= 0 * AC_exceeds_HSPF_ACOP_benchmark * np.logical_not(AC_exceeds_TCSPF_AEER_benchmark)),
+            (annual_energy_savings > 0 * AC_exceeds_HSPF_ACOP_benchmark * AC_exceeds_TCSPF_AEER_benchmark),
+            (annual_energy_savings > 0 * np.logical_not(AC_exceeds_HSPF_ACOP_benchmark) * AC_exceeds_TCSPF_AEER_benchmark),
+            (annual_energy_savings > 0 * np.logical_not(AC_exceeds_HSPF_ACOP_benchmark) * np.logical_not(AC_exceeds_TCSPF_AEER_benchmark)),
+            (annual_energy_savings > 0 * AC_exceeds_HSPF_ACOP_benchmark * np.logical_not(AC_exceeds_TCSPF_AEER_benchmark))
         ],
 	    [
-            0, annual_energy_savings
+            0,
+            0,
+            0,
+            0,
+            annual_energy_savings,
+            0,
+            0,
+            0
         ])
-        
+      print('AC_HSPF_mixed', AC_HSPF_mixed)
+      print('AC_HSPF_cold', AC_HSPF_cold)
+      print('HSPF_is_zero', HSPF_is_zero)
+      print('AC_exceeds_HSPF_ACOP_benchmark', AC_exceeds_HSPF_ACOP_benchmark)
+      print('AC_exceeds_TCSPF_AEER_benchmark', AC_exceeds_TCSPF_AEER_benchmark)
+      print('annual_savings_return', annual_savings_return)
       return annual_savings_return
 
 

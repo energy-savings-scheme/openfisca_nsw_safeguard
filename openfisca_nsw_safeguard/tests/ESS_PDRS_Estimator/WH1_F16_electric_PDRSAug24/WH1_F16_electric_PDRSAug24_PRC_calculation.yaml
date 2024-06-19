@@ -234,6 +234,26 @@
         3
       ]
 
+- name: test WH1 volume check for eligibility
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    WH1_F16_electric_PDRSAug24_volumetric_capacity:
+      [
+        300,
+        500,
+        200,
+        700
+      ]
+  output:
+    WH1_F16_electric_PDRSAug24_volumetric_capacity_over_425_litres:
+      [
+        False,
+        True,
+        False,
+        True
+      ]
+
 - name: test WH1 PRC not eligible if volume under 425 litres
   period: 2024
   absolute_error_margin: 0.1

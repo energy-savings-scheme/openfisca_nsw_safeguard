@@ -32,21 +32,55 @@ class HVAC1_PDRSAug24_baseline_input_power(Variable):
                 ])
 
 
+class HVAC1_PDRSAug24_BCAClimateZone(Enum):
+     BCA_climate_zone_1 = 'BCA Climate Zone 1',
+     BCA_climate_zone_2 = 'BCA Climate Zone 2',
+     BCA_climate_zone_3 = 'BCA Climate Zone 3',
+     BCA_climate_zone_4 = 'BCA Climate Zone 4',
+     BCA_climate_zone_5 = 'BCA Climate Zone 5',
+     BCA_climate_zone_6 = 'BCA Climate Zone 6',
+     BCA_climate_zone_7 = 'BCA Climate Zone 7',
+     BCA_climate_zone_8 = 'BCA Climate Zone 8'
+
+
+class HVAC1_PDRSAug24_BCA_climate_zone(Variable):
+    value_type = Enum
+    entity = Building
+    default_value = HVAC1_PDRSAug24_BCAClimateZone.BCA_climate_zone_5
+    possible_values = HVAC1_PDRSAug24_BCAClimateZone
+    definition_period = ETERNITY
+    label = 'BCA Climate Zone'
+    metadata = {  
+      'display_question' : 'Check your BCA Climate Zone on the map, as certain postcodes can belong to multiple climate zones',
+      'sorting' : 2
+    }
+
+    def formula(buildings, period, parameters):
+        postcode = buildings('HVAC1_PDRSAug24_PDRS__postcode', period)
+        # Returns an integer
+        print('postcode', postcode)
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+
+        climate_zone_int = climate_zone.calc(postcode)
+        print('climate zone int', climate_zone_int)
+        return climate_zone_int
+
+
 class HVAC1_PDRSAug24_BCA_climate_zone_by_postcode(Variable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
     label = 'What BCA climate zone is the activity taking place in?'
     metadata={
-        "variable-type": "inter-interesting",
-        "alias": "HVAC1 BCA Climate Zone",
+        "variable-type": "inter-interesting"
     }
 
     def formula(buildings, period, parameters):
-        postcode = buildings('HVAC1_PDRSAug24_PDRS__postcode', period)
-        # Returns an integer
-        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
-        climate_zone_int = climate_zone.calc(postcode)
+        # postcode = buildings('HVAC1_PDRSAug24_PDRS__postcode', period)
+        # # Returns an integer
+        # climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        # climate_zone_int = climate_zone.calc(postcode)
+        climate_zone_int = buildings('HVAC1_PDRSAug24_BCA_climate_zone', period)
         cooling_capacity_to_check = np.select(
             [
                 climate_zone_int == 1,

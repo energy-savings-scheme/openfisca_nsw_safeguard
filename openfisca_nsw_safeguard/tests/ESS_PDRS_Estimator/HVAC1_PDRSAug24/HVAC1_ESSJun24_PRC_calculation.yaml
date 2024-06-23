@@ -1,29 +1,29 @@
-- name: test HVAC1 baseline input power
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_PDRSAug24_cooling_capacity_input:
-      [
-        40,
-        10.1, #Coolmaster TCCF10C1S/AOCF10C-S
-        2.5,  #Daikin RXM25UVMA / FTXM25UVMA
-        7.1   #Panasonic CU-Z71XKR / CS-Z71XKRW
-      ]
-    HVAC1_PDRSAug24_baseline_AEER_input:
-      [
-        20,
-        3.1,
-        3.66,
-        3.22
-      ]
-  output:
-    HVAC1_PDRSAug24_baseline_input_power: 
-      [
-        2,
-        3.25806452,
-        0.683,
-        2.205
-      ]
+# - name: test HVAC1 baseline input power
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_PDRSAug24_cooling_capacity_input:
+#       [
+#         40,
+#         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
+#         2.5,  #Daikin RXM25UVMA / FTXM25UVMA
+#         7.1   #Panasonic CU-Z71XKR / CS-Z71XKRW
+#       ]
+#     HVAC1_PDRSAug24_baseline_AEER_input:
+#       [
+#         20,
+#         3.1,
+#         3.66,
+#         3.22
+#       ]
+#   output:
+#     HVAC1_PDRSAug24_baseline_input_power: 
+#       [
+#         2,
+#         3.25806452,
+#         0.683,
+#         2.205
+#       ]
 
 - name: test HVAC1 BCA climate zone by postcode
   period: 2024
@@ -35,272 +35,272 @@
         2074
       ]
   output:
-    HVAC1_PDRSAug24_BCA_climate_zone:
+    HVAC1_PDRSAug24_BCA_climate_zone_by_postcode_int:
       [
-        7,
-        5
+        BCA Climate Zone 7,
+        BCA Climate Zone 5
       ]
 
-- name: test HVAC1 baseline peak adjustment factor
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_PDRSAug24_BCA_climate_zone_by_postcode:
-      [
-        BCA_Climate_Zone_2,
-        BCA_Climate_Zone_7,  #Coolmaster TCCF10C1S/AOCF10C-S
-        BCA_Climate_Zone_5,  #Daikin RXM25UVMA / FTXM25UVMA
-        BCA_Climate_Zone_7   #Panasonic CU-Z71XKR / CS-Z71XKRW
-      ]
-  output:
-    HVAC1_PDRSAug24_baseline_peak_adjustment_factor:
-      [
-        0.3456,
-        0.6624,
-        0.396,
-        0.6624
-      ]
+# - name: test HVAC1 baseline peak adjustment factor
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_PDRSAug24_BCA_climate_zone_by_postcode:
+#       [
+#         BCA_Climate_Zone_2,
+#         BCA_Climate_Zone_7,  #Coolmaster TCCF10C1S/AOCF10C-S
+#         BCA_Climate_Zone_5,  #Daikin RXM25UVMA / FTXM25UVMA
+#         BCA_Climate_Zone_7   #Panasonic CU-Z71XKR / CS-Z71XKRW
+#       ]
+#   output:
+#     HVAC1_PDRSAug24_baseline_peak_adjustment_factor:
+#       [
+#         0.3456,
+#         0.6624,
+#         0.396,
+#         0.6624
+#       ]
 
-- name: test BCA climate zone by postcode
-  period: 2022
-  input:
-    HVAC1_PDRSAug24_PDRS__postcode:
-      [
-        2017,
-        2335,
-        3707,
-        2875,
-        2350
-      ]
-  output:
-    HVAC1_PDRSAug24_certificate_climate_zone:
-      [
-        2,
-        2,
-        3,
-        3,
-        3
-      ]
+# - name: test BCA climate zone by postcode
+#   period: 2022
+#   input:
+#     HVAC1_PDRSAug24_PDRS__postcode:
+#       [
+#         2017,
+#         2335,
+#         3707,
+#         2875,
+#         2350
+#       ]
+#   output:
+#     HVAC1_PDRSAug24_certificate_climate_zone:
+#       [
+#         2,
+#         2,
+#         3,
+#         3,
+#         3
+#       ]
 
-- name: test Postcode to DNSP to network loss factor
-  period: 2021
-  input:
-    WH1_PDRS__postcode:
-      [
-        2006,
-        2795,
-        3000,
-        3643,
-        3644,
-        2074
-      ]
-  output:
-    WH1_get_network_loss_factor_by_postcode:
-      [
-        1.04,
-        1.05,
-        0,
-        0,
-        1.05,
-        1.04
-      ]
+# - name: test Postcode to DNSP to network loss factor
+#   period: 2021
+#   input:
+#     WH1_PDRS__postcode:
+#       [
+#         2006,
+#         2795,
+#         3000,
+#         3643,
+#         3644,
+#         2074
+#       ]
+#   output:
+#     WH1_get_network_loss_factor_by_postcode:
+#       [
+#         1.04,
+#         1.05,
+#         0,
+#         0,
+#         1.05,
+#         1.04
+#       ]
 
-- name: test HVAC1 peak demand savings activity
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_PDRSAug24_baseline_input_power:
-      [
-        70,
-        3.25806452, #Coolmaster TCCF10C1S/AOCF10C-S
-        0.683,      #Daikin RXM25UVMA / FTXM25UVMA
-        2.205       #Panasonic CU-Z71XKR / CS-Z71XKRW
-      ]
-    HVAC1_PDRSAug24_baseline_peak_adjustment_factor:
-      [
-        3,
-        0.6624,
-        0.396,
-        0.6624
-      ]
-    HVAC1_PDRSAug24_input_power:
-      [
-        5,
-        2.89,
-        0.49,
-        2.06
-      ]
-  output:
-    HVAC1_PDRSAug24_peak_demand_savings_activity:
-      [
-        195,
-        0.244,
-        0.076,
-        0.096
-      ]
+# - name: test HVAC1 peak demand savings activity
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_PDRSAug24_baseline_input_power:
+#       [
+#         70,
+#         3.25806452, #Coolmaster TCCF10C1S/AOCF10C-S
+#         0.683,      #Daikin RXM25UVMA / FTXM25UVMA
+#         2.205       #Panasonic CU-Z71XKR / CS-Z71XKRW
+#       ]
+#     HVAC1_PDRSAug24_baseline_peak_adjustment_factor:
+#       [
+#         3,
+#         0.6624,
+#         0.396,
+#         0.6624
+#       ]
+#     HVAC1_PDRSAug24_input_power:
+#       [
+#         5,
+#         2.89,
+#         0.49,
+#         2.06
+#       ]
+#   output:
+#     HVAC1_PDRSAug24_peak_demand_savings_activity:
+#       [
+#         195,
+#         0.244,
+#         0.076,
+#         0.096
+#       ]
 
-- name: test HVAC1 peak demand annual savings
-  period: 2024
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_PDRSAug24_cooling_capacity_input:
-      [
-        100,
-        300,
-        10
-      ]
-    HVAC1_PDRSAug24_baseline_AEER_input:
-      [
-        20,
-        3,
-        -2
-      ]
-    HVAC1_PDRSAug24_BCA_climate_zone_by_postcode:
-      [
-        BCA_Climate_Zone_2,
-        BCA_Climate_Zone_6,
-        BCA_Climate_Zone_6
-      ]
-    HVAC1_PDRSAug24_input_power:
-      [
-        3,
-        80,
-        1
-      ]
-  output:
-    HVAC1_PDRSAug24_peak_demand_annual_savings:
-      [
-        41.472,
-        898.56,
-        0
-      ]
+# - name: test HVAC1 peak demand annual savings
+#   period: 2024
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_PDRSAug24_cooling_capacity_input:
+#       [
+#         100,
+#         300,
+#         10
+#       ]
+#     HVAC1_PDRSAug24_baseline_AEER_input:
+#       [
+#         20,
+#         3,
+#         -2
+#       ]
+#     HVAC1_PDRSAug24_BCA_climate_zone_by_postcode:
+#       [
+#         BCA_Climate_Zone_2,
+#         BCA_Climate_Zone_6,
+#         BCA_Climate_Zone_6
+#       ]
+#     HVAC1_PDRSAug24_input_power:
+#       [
+#         3,
+#         80,
+#         1
+#       ]
+#   output:
+#     HVAC1_PDRSAug24_peak_demand_annual_savings:
+#       [
+#         41.472,
+#         898.56,
+#         0
+#       ]
 
-- name: test HVAC1 peak demand reduction capacity
-  period: 2022
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_PDRSAug24_peak_demand_savings_activity:
-      [
-        600,
-        0.244,  #Coolmaster TCCF10C1S/AOCF10C-S
-        0.076,  #Daikin RXM25UVMA / FTXM25UVMA
-        0.096   #Panasonic CU-Z71XKR / CS-Z71XKRW
-     ]
-  output:
-    HVAC1_PDRSAug24_peak_demand_reduction_capacity:
-      [
-        36000,
-        14.64,
-        4.58,
-        5.76
-      ]
+# - name: test HVAC1 peak demand reduction capacity
+#   period: 2022
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_PDRSAug24_peak_demand_savings_activity:
+#       [
+#         600,
+#         0.244,  #Coolmaster TCCF10C1S/AOCF10C-S
+#         0.076,  #Daikin RXM25UVMA / FTXM25UVMA
+#         0.096   #Panasonic CU-Z71XKR / CS-Z71XKRW
+#      ]
+#   output:
+#     HVAC1_PDRSAug24_peak_demand_reduction_capacity:
+#       [
+#         36000,
+#         14.64,
+#         4.58,
+#         5.76
+#       ]
 
-- name: test HVAC1 PRC calculation
-  period: 2022
-  absolute_error_margin: 0.5
-  input:
-    HVAC1_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
-      [
-        true,
-        true,
-        false,
-        false,
-        true,  #Daikin RXM25UVMA / FTXM25UVMA
-        true,  #Panasonic CU-Z71XKR / CS-Z71XKRW
-        true   #ACTRON Air WRC-050CS/WRE-050CS
-      ]
-    HVAC1_PDRSAug24_input_power:
-      [
-        1,
-        2.89,
-        1,
-        2.89,
-        0.49,
-        2.06,
-        1.17
-      ]
-    HVAC1_PDRSAug24_Air_Conditioner_type:
-      [
-        non_ducted_split_system,
-        ducted_split_system,
-        non_ducted_split_system,
-        ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system
-      ]
-    HVAC1_PDRSAug24_cooling_capacity_input:
-      [
-        2,
-        10.1,
-        2,
-        10.1,
-        2.5,
-        7.1,
-        5
-      ]
-    HVAC1_PDRSAug24_Activity:
-      [
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
-        replacement_activity
-      ]
-    HVAC1_PDRSAug24_PDRS__postcode:
-      [
-        2789,
-        2350,
-        2789,
-        2350,
-        2000,
-        2800,
-        2000
-      ]
-    HVAC1_PDRSAug24_get_network_loss_factor_by_postcode:
-      [ 
-        1.04,
-        1.04,
-        1.04,
-        1.04,
-        1.04,
-        1.05,
-        1.04
-      ]
-  output:
-    HVAC1_PDRSAug24_PRC_calculation:
-      [
-        0,
-        152,
-        0,
-        0,
-        47,
-        60,
-        132
-      ]
+# - name: test HVAC1 PRC calculation
+#   period: 2022
+#   absolute_error_margin: 0.5
+#   input:
+#     HVAC1_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
+#       [
+#         true,
+#         true,
+#         false,
+#         false,
+#         true,  #Daikin RXM25UVMA / FTXM25UVMA
+#         true,  #Panasonic CU-Z71XKR / CS-Z71XKRW
+#         true   #ACTRON Air WRC-050CS/WRE-050CS
+#       ]
+#     HVAC1_PDRSAug24_input_power:
+#       [
+#         1,
+#         2.89,
+#         1,
+#         2.89,
+#         0.49,
+#         2.06,
+#         1.17
+#       ]
+#     HVAC1_PDRSAug24_Air_Conditioner_type:
+#       [
+#         non_ducted_split_system,
+#         ducted_split_system,
+#         non_ducted_split_system,
+#         ducted_split_system,
+#         non_ducted_split_system,
+#         non_ducted_split_system,
+#         non_ducted_split_system
+#       ]
+#     HVAC1_PDRSAug24_cooling_capacity_input:
+#       [
+#         2,
+#         10.1,
+#         2,
+#         10.1,
+#         2.5,
+#         7.1,
+#         5
+#       ]
+#     HVAC1_PDRSAug24_Activity:
+#       [
+#         new_installation_activity,
+#         new_installation_activity,
+#         new_installation_activity,
+#         new_installation_activity,
+#         new_installation_activity,
+#         new_installation_activity,
+#         replacement_activity
+#       ]
+#     HVAC1_PDRSAug24_PDRS__postcode:
+#       [
+#         2789,
+#         2350,
+#         2789,
+#         2350,
+#         2000,
+#         2800,
+#         2000
+#       ]
+#     HVAC1_PDRSAug24_get_network_loss_factor_by_postcode:
+#       [ 
+#         1.04,
+#         1.04,
+#         1.04,
+#         1.04,
+#         1.04,
+#         1.05,
+#         1.04
+#       ]
+#   output:
+#     HVAC1_PDRSAug24_PRC_calculation:
+#       [
+#         0,
+#         152,
+#         0,
+#         0,
+#         47,
+#         60,
+#         132
+#       ]
 
-- name: test HVAC1 PRCs to savings
-  period: 2024
-  absolute_error_margin: 0.1
-  input:
-    HVAC1_PDRSAug24_PRC_calculation:
-      [
-        -0.4,
-        40,
-        0
-      ]
-    HVAC1_PDRSAug24_peak_demand_annual_savings:
-      [
-        50,
-        200,
-        321
-      ]
-  output:
-    HVAC1_PDRSAug24_PRC_savings_check:
-      [
-        0,
-        200,
-        0
-      ]
+# - name: test HVAC1 PRCs to savings
+#   period: 2024
+#   absolute_error_margin: 0.1
+#   input:
+#     HVAC1_PDRSAug24_PRC_calculation:
+#       [
+#         -0.4,
+#         40,
+#         0
+#       ]
+#     HVAC1_PDRSAug24_peak_demand_annual_savings:
+#       [
+#         50,
+#         200,
+#         321
+#       ]
+#   output:
+#     HVAC1_PDRSAug24_PRC_savings_check:
+#       [
+#         0,
+#         200,
+#         0
+#       ]

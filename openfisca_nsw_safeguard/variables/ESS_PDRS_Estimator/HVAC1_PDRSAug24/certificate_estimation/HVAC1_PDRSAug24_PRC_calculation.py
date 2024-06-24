@@ -7,8 +7,8 @@ import numpy as np
 
 
 class HVAC1_PDRSAug24_baseline_input_power(Variable):
-    """ Note that baseline input power is the same value as input power
-    """
+    ''' Note that baseline input power is the same value as input power
+    '''
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -32,46 +32,13 @@ class HVAC1_PDRSAug24_baseline_input_power(Variable):
                 ])
 
 
-class HVAC1_PDRSAug24_BCAClimateZone(Enum):
-     BCA_climate_zone_1 = 'BCA Climate Zone 1',
-     BCA_climate_zone_2 = 'BCA Climate Zone 2',
-     BCA_climate_zone_3 = 'BCA Climate Zone 3',
-     BCA_climate_zone_4 = 'BCA Climate Zone 4',
-     BCA_climate_zone_5 = 'BCA Climate Zone 5',
-     BCA_climate_zone_6 = 'BCA Climate Zone 6',
-     BCA_climate_zone_7 = 'BCA Climate Zone 7',
-     BCA_climate_zone_8 = 'BCA Climate Zone 8'
-
-
-class HVAC1_PDRSAug24_BCA_climate_zone_by_postcode_int(Variable):
-    value_type = Enum #does this need to be an integer?
-    entity = Building
-    default_value = HVAC1_PDRSAug24_BCAClimateZone.BCA_climate_zone_5
-    possible_values = HVAC1_PDRSAug24_BCAClimateZone
-    definition_period = ETERNITY
-    label = 'BCA Climate Zone'
-    metadata = {  
-      'variable-type': 'user-input',  
-      'display_question' : 'Check your BCA Climate Zone on the map, as certain postcodes can belong to multiple climate zones',
-      'sorting' : 2
-    }
-
-    def formula(buildings, period, parameters):
-        postcode = buildings('HVAC1_PDRSAug24_PDRS__postcode', period)
-        # Returns an integer
-        print('postcode', postcode)
-        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode      
-        climate_zone_int = climate_zone.calc(postcode)
-        print('climate zone int', climate_zone_int)
-        return climate_zone_int
-
-
 class HVAC1_PDRSAug24_BCA_climate_zone_by_postcode(Variable):
+    #this determines the expected BCA Climate Zone
     value_type = str
     entity = Building
     definition_period = ETERNITY
     metadata={
-        'variable-type': 'inter-interesting'
+        'variable-type': 'inter-interesting',
     }
 
     def formula(buildings, period, parameters):
@@ -79,46 +46,33 @@ class HVAC1_PDRSAug24_BCA_climate_zone_by_postcode(Variable):
         # Returns an integer
         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
         climate_zone_int = climate_zone.calc(postcode)
-        BCA_climate_zone_to_check = np.select(
-            [
-                climate_zone_int == 1,
-                climate_zone_int == 2,
-                climate_zone_int == 3,
-                climate_zone_int == 4,
-                climate_zone_int == 5,
-                climate_zone_int == 6,
-                climate_zone_int == 7,
-                climate_zone_int == 8
-            ],
-            [
-                "BCA_Climate_Zone_1",
-                "BCA_Climate_Zone_2",
-                "BCA_Climate_Zone_3",
-                "BCA_Climate_Zone_4",
-                "BCA_Climate_Zone_5",
-                "BCA_Climate_Zone_6",
-                "BCA_Climate_Zone_7",
-                "BCA_Climate_Zone_8"
-            ])
-
-        return BCA_climate_zone_to_check
+        return climate_zone_int
 
 
-# class HVAC1_PDRSAug24_BCA_climate_zone_by_postcode_int(Variable):
-#     value_type = int
-#     entity = Building
-#     definition_period = ETERNITY
-#     metadata={
-#         'variable-type' : 'inter-interesting'
-#     }
+class HVAC1_PDRSAug24_BCAClimateZone(Enum):
+     BCA_Climate_Zone_1 = 'BCA Climate Zone 1',
+     BCA_Climate_Zone_2 = 'BCA Climate Zone 2',
+     BCA_Climate_Zone_3 = 'BCA Climate Zone 3',
+     BCA_Climate_Zone_4 = 'BCA Climate Zone 4',
+     BCA_Climate_Zone_5 = 'BCA Climate Zone 5',
+     BCA_Climate_Zone_6 = 'BCA Climate Zone 6',
+     BCA_Climate_Zone_7 = 'BCA Climate Zone 7',
+     BCA_Climate_Zone_8 = 'BCA Climate Zone 8'
 
-#     def formula(buildings, period, parameters):
-#         postcode = buildings('HVAC1_PDRSAug24_PDRS__postcode', period)
-#         # Returns an integer
-#         climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
-#         climate_zone_int = climate_zone.calc(postcode)
 
-#         return climate_zone_int
+class HVAC1_PDRSAug24_BCA_Climate_Zone(Variable):
+    #this is where the user can change their BCA Climate Zone manually
+    value_type = Enum
+    entity = Building
+    default_value = HVAC1_PDRSAug24_BCAClimateZone.BCA_Climate_Zone_5 #this should equal HVAC1_PDRSAug24_BCA_climate_zone_by_postcode
+    possible_values = HVAC1_PDRSAug24_BCAClimateZone
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type' : 'user-input',
+        'label' : 'BCA Climate Zone',
+        'display_question' : 'Check your BCA Climate Zone on the map, as certain postcodes can belong to multiple climate zones',
+        'sorting' : 2
+    }
 
 
 class HVAC1_PDRSAug24_baseline_peak_adjustment_factor(Variable):
@@ -127,12 +81,12 @@ class HVAC1_PDRSAug24_baseline_peak_adjustment_factor(Variable):
     definition_period = ETERNITY
     label = 'HVAC1 baseline peak adjustment factor'
     metadata = {
-        "variable-type": "output"
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):
       usage_factor = 0.72
-      climate_zone = buildings('HVAC1_PDRSAug24_BCA_climate_zone_by_postcode', period)
+      climate_zone = buildings('HVAC1_PDRSAug24_BCA_Climate_Zone', period)
       temp_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
 
       baseline_adjustment_factor = usage_factor * temp_factor
@@ -145,7 +99,7 @@ class HVAC1_PDRSAug24_peak_demand_savings_activity(Variable):
     definition_period = ETERNITY
     label = 'Peak demand savings activity'
     metadata = {
-        "variable-type": "output"
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):
@@ -174,7 +128,7 @@ class HVAC1_PDRSAug24_peak_demand_annual_savings(Variable):
     definition_period = ETERNITY
     label = 'Peak demand annual savings'
     metadata = {
-        "variable-type": "output"
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):
@@ -197,7 +151,7 @@ class HVAC1_PDRSAug24_peak_demand_annual_savings(Variable):
 
         #baseline peak adjustment factor
         usage_factor = 0.72
-        climate_zone = buildings('HVAC1_PDRSAug24_BCA_climate_zone_by_postcode', period)
+        climate_zone = buildings('HVAC1_PDRSAug24_BCA_Climate_Zone', period)
         temp_factor = parameters(period).PDRS.table_A28_temperature_factor.temperature_factor[climate_zone]
 
         baseline_peak_adjustment = usage_factor * temp_factor
@@ -240,7 +194,7 @@ class HVAC1_PDRSAug24_peak_demand_reduction_capacity(Variable):
     definition_period = ETERNITY
     label = 'Peak demand reduction capacity'
     metadata = {
-        "variable-type": "output"
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):
@@ -258,14 +212,13 @@ class HVAC1_PDRSAug24_PRC_calculation(Variable):
     definition_period = ETERNITY
     label = 'The number of PRCs for HVAC1'
     metadata = {
-        "variable-type": "output"
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):
         peak_demand_capacity = buildings('HVAC1_PDRSAug24_peak_demand_reduction_capacity', period)
         network_loss_factor = buildings('HVAC1_PDRSAug24_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
-        
         
         HVAC1_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC1_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
 
@@ -293,7 +246,7 @@ class HVAC1_PDRSAug24_PRC_savings_check(Variable):
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        "variable-type": "output"
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):

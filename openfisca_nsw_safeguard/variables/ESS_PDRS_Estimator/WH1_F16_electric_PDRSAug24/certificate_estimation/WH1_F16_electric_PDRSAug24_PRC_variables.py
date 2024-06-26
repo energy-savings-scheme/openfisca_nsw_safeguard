@@ -14,7 +14,7 @@ class WH1_F16_electric_PDRSAug24_volumetric_capacity(Variable):
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        'display_question': 'What is the total system tank volume? (Total storage volume must be greater than 425 litres to be eligible for PRCs',
+        'display_question': 'What is the total system tank volume? (Total storage volume must be greater than 425 litres to be eligible for PRCs)',
         'variable-type': 'input',
         'label': 'Total system tank volume',
         'sorting' : 4

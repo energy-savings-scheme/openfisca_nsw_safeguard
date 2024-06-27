@@ -64,6 +64,22 @@ class SYS2_PDRSAug24_PDRS__regional_network_factor(Variable):
 #         return savings_factor
     
 
+class SYS2_PDRSAug24_deemed_activity_electricity_savings(Variable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, paremeters):
+        PAEC = buildings('SYS2_PDRSAug24_projected_annual_energy_consumption', period)
+        PAEC_baseline = buildings('SYS2_PDRSAug24_PAEC_baseline', period)
+        lifetime = 10
+
+        deemed_electricity_savings = (PAEC_baseline - PAEC) * (lifetime / 1000)
+        print('PAEC', PAEC)
+        print('PAEC_baseline', PAEC_baseline)
+        return deemed_electricity_savings
+
+
 class SYS2_PDRSAug24_energy_savings(Variable):
     value_type = float
     entity = Building
@@ -105,7 +121,7 @@ class SYS2_PDRSAug24_electricity_savings(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-        deemed_electricity_savings = buildings('SYS2_PDRSAug24_savings_factor', period)
+        deemed_electricity_savings = buildings('SYS2_PDRSAug24_deemed_activity_electricity_savings', period)
         regional_network_factor = buildings('SYS2_PDRSAug24_PDRS__regional_network_factor', period)
 
         electricity_savings = deemed_electricity_savings * regional_network_factor

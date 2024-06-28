@@ -26,46 +26,8 @@ class SYS2_PDRSAug24_PDRS__regional_network_factor(Variable):
         # is used to calculate a single value for regional network factor based on a zipcode provided
 
 
-# class SYS2StarRating(Enum):
-#     #New End-User Equipment must achieve a minimum 4.5 star rating to be eligible
-#     four_and_a_half_stars = '4.5'
-#     five_stars = '5'
-#     five_and_a_half_stars = '5.5'
-#     six_stars = '6'
-#     seven_stars = '7'
-#     eight_stars = '8'
-#     nine_stars = '9'
-#     ten_stars = '10'
-
-    
-# class SYS2_PDRSAug24_star_rating(Variable):
-#     value_type = Enum
-#     entity = Building
-#     default_value = SYS2StarRating.four_and_a_half_stars
-#     possible_values = SYS2StarRating
-#     definition_period = ETERNITY
-#     metadata = {
-#         'variable-type' : 'user-input',
-#         'label' : 'New equipment star rating',
-#         'display_question' : 'What is the star rating of your new equipment? (Equipment must achieve a 4.5 star rating or higher)',
-#         'sorting' : 5
-#     }
-
-
-# class SYS2_PDRSAug24_savings_factor(Variable):
-#     value_type = int
-#     entity = Building
-#     definition_period = ETERNITY
-
-#     def formula(buildings, period, parameters):
-#         star_rating = buildings('SYS2_PDRSAug24_star_rating', period)
-#         savings_factor = parameters(period).ESS.HEER.table_D5_1['electricity_savings_factor'][star_rating]
-
-#         return savings_factor
-    
-
 class SYS2_PDRSAug24_deemed_activity_electricity_savings(Variable):
-    value_type = int
+    value_type = float
     entity = Building
     definition_period = ETERNITY
 
@@ -75,8 +37,6 @@ class SYS2_PDRSAug24_deemed_activity_electricity_savings(Variable):
         lifetime = 10
 
         deemed_electricity_savings = (PAEC_baseline - PAEC) * (lifetime / 1000)
-        print('PAEC', PAEC)
-        print('PAEC_baseline', PAEC_baseline)
         return deemed_electricity_savings
 
 
@@ -90,33 +50,56 @@ class SYS2_PDRSAug24_energy_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        #deemed electricity savings equals the savings factor for this activity
-        star_rating = buildings('SYS2_PDRSAug24_star_rating', period)
-        savings_factor = parameters(period).ESS.HEER.table_D5_1['electricity_savings_factor'][star_rating]
+        #Nameplate input power
+        nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
+
+        #PAEC
+        PAEC = buildings('SYS2_PDRSAug24_projected_annual_energy_consumption', period)
+
+        #PAEC baseline
+        nameplate_input_power_to_check = np.select(
+            [
+                (nameplate_input_power <= 1000),
+                (nameplate_input_power > 1000) * (nameplate_input_power <= 1500),
+                (nameplate_input_power > 1500) * (nameplate_input_power <= 2000),
+                (nameplate_input_power > 2000),
+            ],
+            [
+                'less_than_or_equal_to_1000w',
+                '1001_to_1500w',
+                '1501_to_2000w',
+                'greater_than_2000w'
+            ])
+
+        PAEC_baseline = parameters(period).ESS.HEER.table_D5_1_PDRSAug24.baseline_PAEC[nameplate_input_power_to_check]
+
+        #deemed activity electricity savings
+        lifetime = 10
+
+        deemed_electricity_savings = (PAEC_baseline - PAEC) * (lifetime / 1000)
 
         #regional network factor
         postcode = buildings('SYS2_PDRSAug24_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         regional_network_factor = rnf.calc(postcode)
 
-        #deemed electricity savings
-        deemed_electricity_savings = savings_factor
-
         #annual energy savings
         annual_energy_savings = deemed_electricity_savings * regional_network_factor
         
         annual_savings_return = np.select([
-                annual_energy_savings <= 0, annual_energy_savings > 0
-            ], 
-            [
-                0, annual_energy_savings
+            annual_energy_savings <= 0, 
+            annual_energy_savings > 0
+        ],
+        [
+            0, 
+            annual_energy_savings
         ])
         
         return annual_savings_return
 
 
 class SYS2_PDRSAug24_electricity_savings(Variable):
-    value_type = int
+    value_type = float
     entity = Building
     definition_period = ETERNITY
 
@@ -140,24 +123,16 @@ class SYS2_PDRSAug24_ESC_calculation(Variable):
     def formula(buildings, period, parameters):
         electricity_savings = buildings('SYS2_PDRSAug24_electricity_savings', period) #15
         electricity_certificate_conversion_factor = 1.06
-        #there is no gas option for this activity
-        # replacement_activity = buildings('SYS2_PDRSAug24_replacement_activity', period)
 
-        SYS2_PDRSAug24_eligible_ESCs = np.select(
-            [
-                replacement_activity,
-                np.logical_not(replacement_activity)
-            ],
-            [
-                (electricity_savings * electricity_certificate_conversion_factor),
-                0
-            ])
-
-        result_to_return = np.select(
-            [
-                SYS2_PDRSAug24_eligible_ESCs <= 0, SYS2_PDRSAug24_eligible_ESCs > 0
-            ],
-            [
-                0, SYS2_PDRSAug24_eligible_ESCs
-            ])
+        result = (electricity_savings * electricity_certificate_conversion_factor)
+               
+        result_to_return = np.select([
+            result <= 0,
+            result > 0
+        ],
+        [
+            0,
+            result
+        ])
+        
         return result_to_return

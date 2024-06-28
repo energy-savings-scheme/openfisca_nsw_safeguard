@@ -23,19 +23,6 @@ class SYS2_PDRSAug24_PDRS__postcode(Variable):
     }
 
 
-# class SYS2_PDRSAug24_replacement_activity(Variable):
-#     value_type = bool
-#     default_value = True
-#     entity = Building
-#     definition_period = ETERNITY
-#     metadata = {
-#         'variable-type': 'user-input',
-#         'label': 'Replacement or new installation activity',
-#         'display_question': 'Is the activity the replacement of existing equipment?',
-#         'sorting' : 3
-#     }
-
-
 class SYS2_PDRSAug24_nameplate_input_power(Variable):
     value_type = float
     entity = Building

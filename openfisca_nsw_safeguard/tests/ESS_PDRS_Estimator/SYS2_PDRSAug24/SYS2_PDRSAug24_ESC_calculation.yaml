@@ -24,132 +24,131 @@
   input:
     SYS2_PDRSAug24_projected_annual_energy_consumption:
       [
-        50
+        50,
+        600,
+        400,
+        657,
+        789,
+        2000
       ]
     SYS2_PDRSAug24_PAEC_baseline:
       [
-        100
+        100,
+        1500,
+        1700,
+        2000,
+        1700,
+        1500
       ]
   output:
     SYS2_PDRSAug24_deemed_activity_electricity_savings:
       [
-        0.5
+        0.5,
+        9,
+        13,
+        13.43,
+        9.11,
+        -5
       ]
 
-# - name: test SYS2 annual energy savings
-#   period: 2022
-#   absolute_error_margin: 0.5
-#   input:
-#     SYS2_PDRSAug24_star_rating:
-#       [
-#         four_and_a_half_stars,
-#         five_stars,
-#         five_and_a_half_stars,
-#         six_stars,
-#         seven_stars,
-#         eight_stars,
-#         nine_stars,
-#         ten_stars
-#       ]
-#     SYS2_PDRSAug24_PDRS__postcode:
-#       [
-#         2024,
-#         2024,
-#         2024,
-#         2800, #rnf 1.03
-#         2800,
-#         2800,
-#         2024,
-#         2024
-#       ]
-#   output:
-#     SYS2_PDRSAug24_energy_savings:
-#       [
-#         1.3,
-#         2.5,
-#         3.5,
-#         4.635,
-#         6.283,
-#         7.622,
-#         8.4,
-#         9.2
-#       ]
+- name: test SYS2 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    SYS2_PDRSAug24_nameplate_input_power:
+      [
+        0,    #baseline PAEC 1300
+        1000, #baseline PAEC 1300
+        1567, #baseline PAEC 1700
+        1001, #baseline PAEC 1500
+        2000, #baseline PAEC 1700
+        2001, #baseline PAEC 2000
+        1999, #baseline PAEC 1700
+        1350  #baseline PAEC 1500
+      ]
+    SYS2_PDRSAug24_projected_annual_energy_consumption:
+      [
+        0,
+        10,
+        50,
+        600,
+        400,
+        657,
+        789,
+        2000
+      ]
+    SYS2_PDRSAug24_PDRS__postcode:
+      [
+        2024,
+        2024,
+        2024,
+        2800, #rnf 1.03
+        2800,
+        2800,
+        2024,
+        2024
+      ]
+  output:
+    SYS2_PDRSAug24_energy_savings:
+      [
+        13,
+        12.9,
+        16.5,
+        9.27,
+        13.39,
+        13.83,
+        9.11,
+        0
+      ]
 
-# - name: test SYS2 electricity savings
-#   period: 2022
-#   absolute_error_margin: 0.5
-#   input:
-#     SYS2_PDRSAug24_PDRS__postcode:
-#       [
-#         2043,
-#         2321
-#       ]
-#     SYS2_PDRSAug24_star_rating:
-#       [
-#         seven_stars,
-#         ten_stars
-#       ]
-#   output:
-#     SYS2_PDRSAug24_electricity_savings:
-#       [
-#         6.1,
-#         9.48
-#       ]
+- name: test SYS2 electricity savings
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    SYS2_PDRSAug24_deemed_activity_electricity_savings:
+      [
+        6,
+        24,
+        0
+      ]
+    SYS2_PDRSAug24_PDRS__postcode:
+      [
+        2043, #rnf 1
+        2321, #rnf 1.03
+        2074  #rnf 1
+      ]
+  output:
+    SYS2_PDRSAug24_electricity_savings:
+      [
+        6,
+        24.72,
+        0
+      ]
     
-# - name: test SYS2 ESC calculation simple version
-#   period: 2022
-#   absolute_error_margin: 1
-#   input: 
-#     SYS2_PDRSAug24_electricity_savings:
-#       [
-#         6.1,
-#         9.48
-#       ]
-#   output:
-#     SYS2_PDRSAug24_ESC_calculation:
-#       [
-#         6.466,
-#         10.0488
-#       ]
-
-# - name: test SYS2 ESC not eligible on new installation
-#   period: 2022
-#   absolute_error_margin: 0.1
-#   input: 
-#     SYS2_PDRSAug24_electricity_savings:
-#       [
-#         15,
-#         15
-#       ]
-#     SYS2_PDRSAug24_replacement_activity:
-#       [
-#         False, #activity is a new installation
-#         True   #activity is a replacement
-#       ]
-#   output:
-#     SYS2_PDRSAug24_ESC_calculation:
-#       [
-#         0,
-#         15.9
-#       ]
-
-# - name: test SYS2 ESC
-#   period: 2022
-#   absolute_error_margin: 0.1
-#   input: 
-#     SYS2_PDRSAug24_replacement_activity:
-#       [
-#         true,
-#         false
-#       ]
-#     SYS2_PDRSAug24_electricity_savings:
-#       [
-#         15,
-#         15
-#       ]
-#   output:
-#     SYS2_PDRSAug24_ESC_calculation:
-#       [
-#         15.9,
-#         0
-#       ]
+- name: test SYS2 ESC calculation
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_PDRSAug24_electricity_savings:
+      [
+        13,
+        12.9,
+        16.5,
+        9.27,
+        13.39,
+        13.83,
+        9.11,
+        -5
+      ]
+  output:
+    SYS2_PDRSAug24_ESC_calculation:
+      [
+        13.78,
+        13.67,
+        17.49,
+        9.83,
+        14.19,
+        14.66,
+        9.66,
+        0
+      ]

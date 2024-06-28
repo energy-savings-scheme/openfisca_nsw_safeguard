@@ -26,77 +26,6 @@ class SYS2_PDRSAug24_peak_demand_savings_capacity(Variable):
         return peak_demand_savings_capacity
     
 
-class SYS2PoolSize(Enum):
-    pool_under_20000_L = 'Less than 20,000 litres'
-    pool_20000_to_30000_L = '20,000 to 30,000 litres'
-    pool_30001_to_40000_L = '30,001 to 40,000 litres'
-    pool_40001_to_50000_L = '40,001 to 50,000 litres'
-    pool_50001_to_60000_L = '50,001 to 60,000 litres'
-    pool_60001_to_70000_L = '60,001 to 70,000 litres'
-    over_70001_L = 'More than 70,000 litres'
-
-
-class SYS2_PDRSAug24_pool_size_savings(Variable):
-    value_type = Enum
-    entity = Building
-    definition_period = ETERNITY
-    possible_values = SYS2PoolSize
-    default_value = SYS2PoolSize.pool_30001_to_40000_L
-    metadata = {
-        'variable-type' : 'user-input',
-        'label' : 'Pool size (litres)',
-        'display_question' : 'What is the volume of the pool?',
-        'sorting' : 3
-    }
-
-    
-class SYS2PoolPumpType(Enum):
-    single_speed_pool_pump = 'Single speed'
-    fixed_speed_pool_pump = 'Two speed'
-    variable_speed_pool_pump = 'Variable speed'
-    multiple_speed_pool_pump = 'Multi speed'
-
-
-class SYS2_PDRSAug24_pool_pump_type_savings(Variable):
-    value_type = Enum
-    entity = Building
-    default_value = SYS2PoolPumpType.variable_speed_pool_pump
-    possible_values = SYS2PoolPumpType
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type' : 'user-input',
-        'label' : 'Pool pump type',
-        'display_question' : 'What is the pool pump type?',
-        'sorting' : 5
-    }
-
-
-class SYS2StarRating(Enum):
-    #New End-User Equipment must achieve a minimum 4.5 star rating to be eligible
-    four_and_a_half_stars = '4.5'
-    five_stars = '5'
-    five_and_a_half_stars = '5.5'
-    six_stars = '6'
-    seven_stars = '7'
-    eight_stars = '8'
-    nine_stars = '9'
-    ten_stars = '10'
-
-    
-class SYS2_PDRSAug24_star_rating_peak_savings(Variable):
-    value_type = Enum
-    entity = Building
-    default_value = SYS2StarRating.four_and_a_half_stars
-    possible_values = SYS2StarRating
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type' : 'user-input',
-        'label' : 'New equipment star rating',
-        'display_question' : 'What is the star rating of your new equipment? (Equipment must achieve a 4.5 star rating or higher)',
-        'sorting' : 5
-    }
-
-
 class SYS2_PDRSAug24_peak_demand_annual_savings(Variable):
     value_type = float
     entity = Building
@@ -107,39 +36,38 @@ class SYS2_PDRSAug24_peak_demand_annual_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        #pool size
-        pool_size = buildings('SYS2_PDRSAug24_pool_size', period)
-        pool_size_int = np.select([
-            (pool_size == SYS2PoolSize.pool_under_20000_L),
-            (pool_size == SYS2PoolSize.pool_20000_to_30000_L),
-            (pool_size == SYS2PoolSize.pool_30001_to_40000_L ),
-            (pool_size == SYS2PoolSize.pool_40001_to_50000_L ),
-            (pool_size == SYS2PoolSize.pool_50001_to_60000_L ),
-            (pool_size == SYS2PoolSize.pool_60001_to_70000_L ),
-            (pool_size == SYS2PoolSize.over_70001_L)
-        ],
-        [
-            'under_20000_L',
-            '20000_to_30000_L',
-            '30001_to_40000_L',
-            '40001_to_50000_L',
-            '50001_to_60000_L',
-            '60001_to_70000_L',
-            'over_70000_L'
-        ])
+        #Projected annual energy consumption
+        PAEC = buildings('SYS2_PDRSAug24_projected_annual_energy_consumption', period)
+        
+        #Daily run time
+        DRT = buildings('SYS2_PDRSAug24_daily_run_time', period)
+
+        #input power
+        input_power = PAEC / (365 * DRT)
+
+        #nameplate input power
+        nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
+
+        nameplate_input_power_to_check = np.select(
+            [
+                (nameplate_input_power <= 1000),
+                (nameplate_input_power > 1000) * (nameplate_input_power <= 1500),
+                (nameplate_input_power > 1500) * (nameplate_input_power <= 2000),
+                (nameplate_input_power > 2000),
+            ],
+            [
+                'less_than_or_equal_to_1000w',
+                '1001_to_1500w',
+                '1501_to_2000w',
+                'greater_than_2000w'
+            ])
 
         #baseline input power
-        baseline_input_power = parameters(period).PDRS.pool_pumps.table_SYS2_PDRSAug24_1['baseline_input_power'][pool_size_int]
-        
+        baseline_input_power = parameters(period).PDRS.pool_pumps.table_sys2_1_PDRSAug24.baseline_input_power[nameplate_input_power_to_check]
+
         #baseline peak adjustment factor
         baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['SYS2']
 
-        #input power
-        pool_pump_type = buildings('SYS2_PDRSAug24_pool_pump_type', period)
-        star_rating = buildings('SYS2_PDRSAug24_star_rating', period)
-        
-        input_power = parameters(period).PDRS.pool_pumps.table_SYS2_PDRSAug24_2['input_power'][pool_size_int][star_rating][pool_pump_type]
-     
         #peak adjustment factor
         peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['SYS2']
 
@@ -151,13 +79,13 @@ class SYS2_PDRSAug24_peak_demand_annual_savings(Variable):
 
         #peak demand annual savings 
         summer_peak_demand_reduction_duration = 6   
-        lifetime = 12
+        lifetime = 10
 
-        peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration *lifetime
+        peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime
         
         peak_demand_annual_savings_return = np.select([
                 peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
-            ], 
+            ],
 	        [
                 0, peak_demand_annual_savings
             ])

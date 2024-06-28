@@ -52,9 +52,9 @@ class WH1_F16_electric_PDRSAug24_peak_demand_savings_capacity(Variable):
 
     def formula(buildings, period, parameters):
         baseline_input_power = buildings('WH1_F16_electric_PDRSAug24_baseline_input_power', period)
-        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH1']
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_PDRSAug24_adjustment_factors['baseline_peak_adjustment']['WH1']
         input_power = buildings('WH1_F16_electric_PDRSAug24_input_power', period)
-        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH1']
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_PDRSAug24_adjustment_factors['peak_adjustment']['WH1']
         capacity_factor = buildings('WH1_F16_electric_PDRSAug24_capacity_factor', period)
         firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH1']
 
@@ -77,14 +77,14 @@ class WH1_F16_electric_PDRSAug24_peak_demand_annual_savings(Variable):
         baseline_input_power = com_peak_load * 0.01
 
         #baseline peak adjustment factor
-        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['WH1']
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_PDRSAug24_adjustment_factors['baseline_peak_adjustment']['WH1']
 
         #input power
         annual_energy_savings = buildings('WH1_F16_electric_PDRSAug24_annual_energy_savings', period)
         input_power = (100 - annual_energy_savings) * (baseline_input_power / 100)
 
         #peak adjustment factor
-        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['WH1']
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_PDRSAug24_adjustment_factors['peak_adjustment']['WH1']
 
         #firmness factor
         firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['WH1']

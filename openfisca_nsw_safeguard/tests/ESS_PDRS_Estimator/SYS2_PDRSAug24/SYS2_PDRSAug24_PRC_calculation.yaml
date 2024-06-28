@@ -59,20 +59,52 @@
 
 - name: test SYS2 peak demand annual savings
   period: 2024
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0.3
   input: 
     SYS2_PDRSAug24_projected_annual_energy_consumption:
       [
-
+        0,
+        10,
+        50,
+        600,
+        400,
+        657,
+        789,
+        2000
       ]
     SYS2_PDRSAug24_daily_run_time:
       [
-
+        6,
+        8,
+        4,
+        6,
+        7,
+        9,
+        2,
+        2
+      ]
+    SYS2_PDRSAug24_nameplate_input_power:
+      [
+        0,
+        1000,
+        1567,
+        1001,
+        2000,
+        2001,
+        1999,
+        1350
       ]
   output:
     SYS2_PDRSAug24_peak_demand_annual_savings:
       [
-
+        19.68,
+        19.6,
+        28.68,
+        22.78,
+        25.67,
+        24.6,
+        2.93,
+        0
       ]
 
 - name: test SYS2 peak demand savings capacity

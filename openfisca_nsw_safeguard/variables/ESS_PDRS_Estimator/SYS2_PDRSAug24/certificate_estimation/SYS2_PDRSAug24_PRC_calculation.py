@@ -16,9 +16,9 @@ class SYS2_PDRSAug24_peak_demand_savings_capacity(Variable):
 
     def formula(buildings, period, parameters):
         baseline_input_power = buildings('SYS2_PDRSAug24_baseline_input_power', period)
-        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['SYS2']
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_PDRSAug24_adjustment_factors['baseline_peak_adjustment']['SYS2']
         input_power = buildings('SYS2_PDRSAug24_input_power', period)
-        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['SYS2']
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_PDRSAug24_adjustment_factors['peak_adjustment']['SYS2']
         firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['SYS2']
 
         peak_demand_savings_capacity = ((baseline_input_power * baseline_peak_adjustment_factor) - (input_power * peak_adjustment_factor)) * firmness_factor
@@ -38,7 +38,7 @@ class SYS2_PDRSAug24_peak_demand_annual_savings(Variable):
     def formula(buildings, period, parameters):
         #Projected annual energy consumption
         PAEC = buildings('SYS2_PDRSAug24_projected_annual_energy_consumption', period)
-        
+
         #Daily run time
         DRT = buildings('SYS2_PDRSAug24_daily_run_time', period)
 
@@ -63,13 +63,13 @@ class SYS2_PDRSAug24_peak_demand_annual_savings(Variable):
             ])
 
         #baseline input power
-        baseline_input_power = parameters(period).PDRS.pool_pumps.table_sys2_1_PDRSAug24.baseline_input_power[nameplate_input_power_to_check]
+        baseline_input_power = parameters(period).PDRS.pool_pumps.table_sys2_1_PDRSAug24['baseline_input_power'][nameplate_input_power_to_check]
 
         #baseline peak adjustment factor
-        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['baseline_peak_adjustment']['SYS2']
+        baseline_peak_adjustment_factor = parameters(period).PDRS.table_A4_PDRSAug24_adjustment_factors['baseline_peak_adjustment']['SYS2']
 
         #peak adjustment factor
-        peak_adjustment_factor = parameters(period).PDRS.table_A4_adjustment_factors['peak_adjustment']['SYS2']
+        peak_adjustment_factor = parameters(period).PDRS.table_A4_PDRSAug24_adjustment_factors['peak_adjustment']['SYS2']
 
         #firmness factor
         firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['SYS2']

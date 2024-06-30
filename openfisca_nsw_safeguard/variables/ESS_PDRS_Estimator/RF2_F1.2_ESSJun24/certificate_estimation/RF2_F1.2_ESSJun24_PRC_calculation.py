@@ -304,8 +304,6 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
                 0, peak_demand_annual_savings
             ])
         
-        print(peak_demand_annual_savings_return)
-
         return peak_demand_annual_savings_return
 
 

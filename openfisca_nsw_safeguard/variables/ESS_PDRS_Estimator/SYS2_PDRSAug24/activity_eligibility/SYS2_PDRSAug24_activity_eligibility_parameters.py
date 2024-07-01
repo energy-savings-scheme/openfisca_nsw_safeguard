@@ -128,6 +128,18 @@ class SYS2_PDRSAug24_engaged_ACP(Variable):
     }
 
 
+class SYS2_PDRSAug24_minimum_payment(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+      'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
+      'sorting' : 6,
+      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
+    }
+
+
 class SYS2_PDRSAug24_equipment_registered_in_GEMS(Variable):
     value_type = bool
     entity = Building
@@ -135,7 +147,7 @@ class SYS2_PDRSAug24_equipment_registered_in_GEMS(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the installed End-User equipment a registered product on the GEMS registry under GEMS (Swimming Pool Pump-units) Determination 2021?',
-        'sorting' : 6,
+        'sorting' : 7,
         'eligibility_clause' : """In ESS D5 Equipment Requirements Clause 1 it states that the new End-User Equipment must be listed as part of a labelling scheme determined in accordance with the Equipment Energy Efficiency (E3) Committee's Voluntary Energy Rating Labelling Program for Swimming Pool Pump-units: Rules for Participation, April 2010, or be a registered product in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Swimming Pool Pump-units) Determination 2021."""
     }
 
@@ -147,7 +159,7 @@ class SYS2_PDRSAug24_star_rating_minimum_four(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Does the new End-User equipment have a minimum star rating of 4?',
-      'sorting' : 7,
+      'sorting' : 8,
       'eligibility_clause' : """In ESS D5 Equipment Requirements Clause 2 it states that the new or replacement End-User Equipment must have a star rating, as recorded in the GEMS Registry, equal to or greater than 4."""
     }
 
@@ -159,6 +171,6 @@ class SYS2_PDRSAug24_warranty(Variable):
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Does the new End-User equipment have a warranty of at least 3 years?',
-      'sorting' : 8,
+      'sorting' : 9,
       'eligibility_clause' : """In ESS D5 Equipment Requirements Clause 3 it states that the new End-User Equipment must have a warranty of at least 3 years."""
     }

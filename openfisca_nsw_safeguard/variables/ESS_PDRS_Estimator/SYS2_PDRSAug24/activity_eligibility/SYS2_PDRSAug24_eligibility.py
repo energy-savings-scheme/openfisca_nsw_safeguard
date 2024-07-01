@@ -21,11 +21,12 @@ class SYS2_PDRSAug24_replacement_final_activity_eligibility(Variable):
         new_equipment_installed_on_site = buildings('SYS2_PDRSAug24_equipment_installed_on_site', period)
         qualified_install_removal = buildings('SYS2_PDRSAug24_qualified_install_removal', period)
         ACP_engaged = buildings('SYS2_PDRSAug24_engaged_ACP', period)
+        minimum_payment = buildings('SYS2_PDRSAug24_minimum_payment', period)
         registered_GEMS = buildings('SYS2_PDRSAug24_equipment_registered_in_GEMS', period)
         star_rating_minimum_four = buildings('SYS2_PDRSAug24_star_rating_minimum_four', period)
         warranty = buildings('SYS2_PDRSAug24_warranty', period)
 
         end_formula = ( replacement_existing_equipment_removed * new_equipment_installed_on_site * qualified_install_removal * ACP_engaged *
-                        registered_GEMS * star_rating_minimum_four * warranty )
+                        minimum_payment * registered_GEMS * star_rating_minimum_four * warranty )
 
         return end_formula

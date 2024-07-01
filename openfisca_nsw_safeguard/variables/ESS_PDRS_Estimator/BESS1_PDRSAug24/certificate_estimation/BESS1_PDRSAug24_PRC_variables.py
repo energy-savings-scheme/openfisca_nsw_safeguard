@@ -17,10 +17,9 @@ class BESS1_PDRSAug24_PDRS__postcode(Variable):
     definition_period = ETERNITY
     metadata={
         'variable-type' : 'user-input',
-        'alias' : 'PDRS Postcode',
+        'label': 'Postcode',
         'display_question' : 'Postcode where the installation has taken place',
-        'sorting' : 1,
-        'label': 'Postcode'
+        'sorting' : 1        
     }
 
 
@@ -43,10 +42,9 @@ class BESS1_PDRSAug24_usable_battery_capacity(Variable):
     definition_period = ETERNITY
     metadata={
         'variable-type' : 'user-input',
-        'alias' : 'battery capacity',
+        'label': 'Usable battery capacity',
         'display_question' : 'What is the battery capacity?',
-        'sorting' : 3,
-        'label': 'Usable battery capacity'
+        'sorting' : 3        
     }
 
 

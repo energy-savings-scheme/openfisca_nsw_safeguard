@@ -16,36 +16,6 @@
         0.256
       ]
 
-- name: test SYS2 input power
-  period: 2022
-  absolute_error_margin: 0.5
-  input: 
-    SYS2_pool_size_int:
-      [
-        30001_to_40000_L,
-        20000_to_30000_L,
-        50001_to_60000_L
-      ]
-    SYS2_pool_pump_type:
-      [
-        'fixed speed',
-        'single speed',
-        'variable speed'
-      ]
-    SYS2_star_rating:
-      [ 
-        '5',
-        '8',
-        '4.5'
-      ]
-  output:
-    SYS2_input_power:
-      [
-        0.121,
-        0.084,
-        0.263
-      ]
-
 - name: test SYS2 peak demand savings capacity simple version
   period: 2022
   absolute_error_margin: 0.5

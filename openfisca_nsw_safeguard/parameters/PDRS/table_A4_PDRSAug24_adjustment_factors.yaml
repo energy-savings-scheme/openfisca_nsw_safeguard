@@ -1,0 +1,19 @@
+description: Baseline Peak Adjustment and Peak Adjustment Factors for deemed activities.
+baseline_peak_adjustment:
+  WH1:
+    values:
+      2021-01-01:
+        value: 1
+  SYS2:
+    values:
+      2021-01-01:
+        value: 0.41
+peak_adjustment:
+  WH1:
+    values:
+      2021-01-01:
+        value: 0.77
+  SYS2:
+    values:
+      2021-01-01:
+        value: 0.41

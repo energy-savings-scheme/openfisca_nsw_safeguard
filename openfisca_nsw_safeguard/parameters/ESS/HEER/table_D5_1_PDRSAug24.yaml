@@ -1,0 +1,18 @@
+description: Table D5.1, Energy Savings Scheme Rule - Baseline PAEC, calculated by nameplate input power
+baseline_PAEC:
+  less_than_or_equal_to_1000w:
+    values: 
+      2024-01-01:
+        value: 1300
+  1001_to_1500w:
+    values: 
+      2024-01-01:
+        value: 1500
+  1501_to_2000w:
+    values: 
+      2024-01-01:
+        value: 1700
+  greater_than_2000w:
+    values: 
+      2024-01-01:
+        value: 2000

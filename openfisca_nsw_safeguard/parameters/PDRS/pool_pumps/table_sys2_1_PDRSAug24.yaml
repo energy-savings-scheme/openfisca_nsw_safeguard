@@ -1,0 +1,20 @@
+description: Baseline input for use in calculating baseline input power in Equation F1.1.
+metadata:
+  unit: kW
+baseline_input_power:
+  less_than_or_equal_to_1000w:
+    values: 
+      2024-01-01:
+        value: 0.8
+  1001_to_1500w:
+    values: 
+      2024-01-01:
+        value: 1.2
+  1501_to_2000w:
+    values: 
+      2024-01-01:
+        value: 1.2
+  greater_than_2000w:
+    values: 
+      2024-01-01:
+        value: 1.2

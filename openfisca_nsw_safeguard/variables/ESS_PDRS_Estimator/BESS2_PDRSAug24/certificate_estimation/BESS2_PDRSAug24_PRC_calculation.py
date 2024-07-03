@@ -40,7 +40,7 @@ class BESS2_PDRSAug24_peak_demand_response_capacity(Variable):
         return peak_demand_response_capacity
 
 
-class BESS2_peak_demand_annual_savings(Variable):
+class BESS2_PDRSAug24_peak_demand_annual_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class BESS2_peak_demand_annual_savings(Variable):
 
     def formula(buildings, period, parameters):
         #useable battery capacity
-        usable_battery_capacity = buildings('BESS2_usable_battery_capacity', period)
+        usable_battery_capacity = buildings('BESS2_PDRSAug24_usable_battery_capacity', period)
 
         #demand response component
         demand_reduction_factor = 0.0647
@@ -66,7 +66,11 @@ class BESS2_peak_demand_annual_savings(Variable):
         #peak demand annual savings
         summer_peak_demand_duration = 6
 
-        peak_demand_annual_savings = peak_demand_response_capacity * summer_peak_demand_duration
+        #lifetime
+        lifetime = 3
+
+        peak_demand_annual_savings = peak_demand_response_capacity * summer_peak_demand_duration * lifetime
+
         peak_demand_annual_savings_return = np.select([
                 peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
             ],
@@ -78,7 +82,7 @@ class BESS2_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return
 
 
-class BESS2_peak_demand_reduction_capacity(Variable):
+class BESS2_PDRSAug24_peak_demand_reduction_capacity(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -88,14 +92,15 @@ class BESS2_peak_demand_reduction_capacity(Variable):
     }
 
     def formula(buildings, period, parameters):
-       peak_demand_response_capacity = buildings('BESS2_peak_demand_response_capacity', period)
+       peak_demand_response_capacity = buildings('BESS2_PDRSAug24_peak_demand_response_capacity', period)
        summer_peak_demand_reduction_duration = 6
+       lifetime = 3
        
-       peak_demand_reduction_capacity = peak_demand_response_capacity * summer_peak_demand_reduction_duration
+       peak_demand_reduction_capacity = peak_demand_response_capacity * summer_peak_demand_reduction_duration * lifetime
        return peak_demand_reduction_capacity
 
 
-class BESS2_PRC_calculation(Variable):
+class BESS2_PDRSAug24_PRC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -105,9 +110,9 @@ class BESS2_PRC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-        peak_demand_reduction_capacity = buildings('BESS2_peak_demand_reduction_capacity', period)
-        network_loss_factor = buildings('BESS2_get_network_loss_factor_by_postcode', period)
-        installation_eligibility = buildings('BESS2_installation_activity', period)
+        peak_demand_reduction_capacity = buildings('BESS2_PDRSAug24_peak_demand_reduction_capacity', period)
+        network_loss_factor = buildings('BESS2_PDRSAug24_get_network_loss_factor_by_postcode', period)
+        installation_eligibility = buildings('BESS2_PDRSAug24_installation_activity', period)
 
         BESS2_eligible_PRCs = np.select(
         [

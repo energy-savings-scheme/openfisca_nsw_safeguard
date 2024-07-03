@@ -40,10 +40,10 @@ class BESS1_PDRSAug24_usable_battery_capacity(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    metadata={
+    metadata = {
         'variable-type' : 'user-input',
-        'label': 'Usable battery capacity',
-        'display_question' : 'What is the battery capacity?',
+        'label': 'Usable battery capacity (kWh)',
+        'display_question' : 'The actual amount of energy the user can use',
         'sorting' : 3        
     }
 

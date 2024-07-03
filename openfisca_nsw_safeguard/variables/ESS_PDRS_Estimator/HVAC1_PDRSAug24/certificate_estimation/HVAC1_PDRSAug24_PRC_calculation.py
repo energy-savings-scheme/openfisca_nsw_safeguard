@@ -61,11 +61,10 @@ class HVAC1_PDRSAug24_BCAClimateZone(Enum):
 
 
 class HVAC1_PDRSAug24_BCA_Climate_Zone(Variable):
+    # to convert to the right mapping
     #this is where the user can change their BCA Climate Zone manually
-    value_type = Enum
+    value_type = str
     entity = Building
-    default_value = HVAC1_PDRSAug24_BCAClimateZone.BCA_Climate_Zone_5 #this should equal HVAC1_PDRSAug24_BCA_climate_zone_by_postcode
-    possible_values = HVAC1_PDRSAug24_BCAClimateZone
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
@@ -73,6 +72,46 @@ class HVAC1_PDRSAug24_BCA_Climate_Zone(Variable):
         'display_question' : 'Certain postcodes can belong to multiple climate zones, check your <a href="https://www.abcb.gov.au/resources/climate-zone-map" target="_blank">BCA Climate Zone on the map</a>.',
         'sorting' : 2
     }
+    def formula(buildings, period, parameters):
+        bca_climate_zone = buildings('HVAC1_PDRSAug24_BCA_Climate_Zone', period)
+        climate_zone = np.select(
+            [
+                bca_climate_zone == "BCA_Climate_Zone_1",
+                bca_climate_zone == "BCA_Climate_Zone_2",
+                bca_climate_zone == "BCA_Climate_Zone_3",
+                bca_climate_zone == "BCA_Climate_Zone_4",
+                bca_climate_zone == "BCA_Climate_Zone_5",
+                bca_climate_zone == "BCA_Climate_Zone_6",
+                bca_climate_zone == "BCA_Climate_Zone_7",
+                bca_climate_zone == "BCA_Climate_Zone_8"
+            ],
+            [
+                'BCA Climate Zone 1',
+                "BCA Climate Zone 2",
+                "BCA Climate Zone 3",
+                "BCA Climate Zone 4",
+                "BCA Climate Zone 5",
+                "BCA Climate Zone 6",
+                "BCA Climate Zone 7",
+                "BCA Climate Zone 8"
+            ])
+
+        
+        return climate_zone
+    
+# class HVAC1_PDRSAug24_BCA_Climate_Zone(Variable):
+#     #this is where the user can change their BCA Climate Zone manually
+#     value_type = Enum
+#     entity = Building
+#     default_value = HVAC1_PDRSAug24_BCAClimateZone.BCA_Climate_Zone_5 #this should equal HVAC1_PDRSAug24_BCA_climate_zone_by_postcode
+#     possible_values = HVAC1_PDRSAug24_BCAClimateZone
+#     definition_period = ETERNITY
+#     metadata = {
+#         # 'variable-type' : 'user-input',
+#         'label' : 'BCA Climate Zone',
+#         'display_question' : 'Certain postcodes can belong to multiple climate zones, check your <a href="https://www.abcb.gov.au/resources/climate-zone-map" target="_blank">BCA Climate Zone on the map</a>.',
+#         'sorting' : 2
+#     }
 
 
 class HVAC1_PDRSAug24_baseline_peak_adjustment_factor(Variable):

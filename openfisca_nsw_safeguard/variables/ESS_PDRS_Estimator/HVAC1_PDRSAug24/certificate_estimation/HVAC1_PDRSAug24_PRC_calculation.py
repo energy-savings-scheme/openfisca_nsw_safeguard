@@ -70,8 +70,7 @@ class HVAC1_PDRSAug24_BCA_Climate_Zone(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label' : 'BCA Climate Zone',
-        'display_question' : 'Certain postcodes can belong to multiple climate zones, check your <a href="https://www.abcb.gov.au/resources/climate-zone-map" target="_blank">installation</a>BCA Climate Zone on the map.',
-        'sorting' : 2
+        'display_question' : 'Certain postcodes can belong to multiple climate zones, check your <a href="https://www.abcb.gov.au/resources/climate-zone-map" target="_blank">BCA Climate Zone on the map</a>.'        'sorting' : 2
     }
 
 

@@ -149,7 +149,7 @@ class WH1_F16_electric_PDRSAug24__storage_volume(Variable):
                                 In PDRS WH1 Equipment Requirements Clause 4 it states that Each replacement heat pump as defined by AS/NZS 4234 must have a volumetric capacity of greater than 425 litres, where volumetric capacity means the total volume of water in litres that can be held in the storage tank, as defined in clause 1.5.24 of AS/NZS 2712."""
     }
 
-# UP TO HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 class WH1_F16_electric_PDRSAug24__storage_volume_int(Variable):
     value_type = int
     entity = Building 
@@ -159,10 +159,14 @@ class WH1_F16_electric_PDRSAug24__storage_volume_int(Variable):
       storage_volume = buildings('WH1_F16_electric_PDRSAug24__storage_volume', period)
 
       storage_volume_int = np.select([
+          storage_volume == 'Less than 425 litres',
+          storage_volume == '425 - 700 litres'
           storage_volume == 'Less than or equal to 700 litres',
           storage_volume == 'More than 700 litres'
       ],
       [
+        WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L,
+        WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L,
         WH1_F16_electric_PDRSAug24__StorageVolume.less_than_or_equal_to_700_L,
         WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L
       ])
@@ -171,14 +175,14 @@ class WH1_F16_electric_PDRSAug24__storage_volume_int(Variable):
 
 
 class WH1_F16_electric_PDRSAug24__certified(Variable):
-    #only show this if the storage volume is 700L or less
+    #only show this if the storage volume is 425-700L and or ess than or equal to 700 litres
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the End-User equipment AS/NZ 2712 certified?',
-      'sorting' : 8,
+      'sorting' : 12,
       'conditional' : 'True',
       'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
@@ -197,11 +201,17 @@ class WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume(Variable
 
       eligible_by_storage = np.select(
         [
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L)
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * certified_AS_NZ_2712,
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * np.logical_not(certified_AS_NZ_2712),
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_or_equal_to_700_L) * certified_AS_NZ_2712,
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_or_equal_to_700_L) * np.logical_not(certified_AS_NZ_2712),
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L)
         ],
         [
+          True,
+          True,
+          False,
           True,
           False,
           True

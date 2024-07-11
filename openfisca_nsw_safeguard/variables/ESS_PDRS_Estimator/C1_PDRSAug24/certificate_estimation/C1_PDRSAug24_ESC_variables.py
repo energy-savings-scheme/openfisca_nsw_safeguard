@@ -14,7 +14,6 @@ class C1_PDRSAug24_PDRS__postcode(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
-    label = "What is the postcode for the building you are calculating PRCs for?"
     metadata={
         'variable-type' : 'user-input',
         'label': 'Postcode',
@@ -33,4 +32,4 @@ class C1_PDRSAug24_storage_volume(Variable):
         'label': 'Refrigerator or freezer storage capacity',
         'display_question' : 'Is the capacity of the non-primary refrigerator or freezer that is being removed 200 litres or greater?',
         'sorting' : 4
-        }
+    }

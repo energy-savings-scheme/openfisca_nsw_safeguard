@@ -26,6 +26,6 @@ class C1_PDRSAug24_removal_activity_eligibility(Variable):
         capacity_200_litres_or_more = buildings('C1_PDRSAug24_capacity_200_litres_or_more', period)
 
         end_formula = ( removal * ACP_engaged * primary_refrigeration * residential_building *
-                        working_order * classified_group *capacity_200_litres_or_more )
+                        working_order * classified_group * capacity_200_litres_or_more )
 
         return end_formula

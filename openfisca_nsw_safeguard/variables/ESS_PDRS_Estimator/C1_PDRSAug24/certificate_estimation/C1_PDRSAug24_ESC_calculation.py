@@ -114,20 +114,22 @@ class C1_PDRSAug24_ESC_calculation(Variable):
         storage_volume_eligibility = buildings('C1_PDRSAug24_storage_volume', period)
 
         C1_PDRSAug24_eligible_ESCs = np.select(
-        [
-            storage_volume_eligibility,
-            np.logical_not(storage_volume_eligibility)
-        ],
-        [
-            (C1_PDRSAug24_electricity_savings * electricity_certificate_conversion_factor),
-            0
-        ])
+            [
+                storage_volume_eligibility,
+                np.logical_not(storage_volume_eligibility)
+            ],
+            [
+                (C1_PDRSAug24_electricity_savings * electricity_certificate_conversion_factor),
+                0
+            ])
 
         result_to_return = np.select(
             [
-                C1_PDRSAug24_eligible_ESCs <= 0, C1_PDRSAug24_eligible_ESCs > 0
+                C1_PDRSAug24_eligible_ESCs <= 0, 
+                C1_PDRSAug24_eligible_ESCs > 0
             ],
             [
-                0, C1_PDRSAug24_eligible_ESCs
+                0, 
+                C1_PDRSAug24_eligible_ESCs
             ])
         return result_to_return

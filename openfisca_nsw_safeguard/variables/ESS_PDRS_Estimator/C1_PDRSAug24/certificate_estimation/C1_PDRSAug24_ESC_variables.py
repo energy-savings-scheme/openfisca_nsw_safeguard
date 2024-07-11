@@ -19,7 +19,7 @@ class C1_PDRSAug24_PDRS__postcode(Variable):
         'label': 'Postcode',
         'display_question' : 'Postcode where the installation has taken place',
         'sorting' : 1
-        }
+    }
 
 
 class C1_PDRSAug24_storage_volume(Variable):

@@ -1,26 +1,29 @@
-# - name: Test storage 700L or less is certified
-#   period: 2024
-#   absolute_error_margin: 0
-#   input:
-#     WH1_F16_electric_PDRSAug24__storage_volume:
-#       [
-#         less_than_or_equal_to_700_L,
-#         less_than_or_equal_to_700_L,
-#         more_than_700_L
-#       ]
-#     WH1_F16_electric_PDRSAug24__certified:
-#       [
-#         true,
-#         false,
-#         true
-#       ]
-#   output:
-#     WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
-#       [
-#         true,
-#         false,
-#         true
-#       ]
+- name: Test storage 700L or less is certified
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    WH1_F16_electric_PDRSAug24__storage_volume:
+      [
+        less_than_425_L,
+        equal_425_L_to_700_L,
+        equal_425_L_to_700_L,
+        more_than_700_L
+      ]
+    WH1_F16_electric_PDRSAug24__certified:
+      [
+        False, #ignored
+        True,
+        False,
+        False  #ignored
+      ]
+  output:
+    WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
+      [
+        True,
+        True,
+        False,
+        True
+      ]
 
 - name: Test WH1 final activity eligibility
   period: 2024
@@ -52,7 +55,7 @@
       ]
     WH1_F16_electric_PDRSAug24__building_BCA_not_class_1_or_4:
       [
-        False
+        True
       ]
     WH1_F16_electric_PDRSAug24__4234_certified:
       [

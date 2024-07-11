@@ -43,7 +43,7 @@ class BESS1_PDRSAug24_usable_battery_capacity(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'label': 'Usable battery capacity (kWh)',
-        'display_question' : 'The actual amount of energy the user can use',
+        'display_question' : 'The actual amount of energy you can use',
         'sorting' : 3        
     }
 

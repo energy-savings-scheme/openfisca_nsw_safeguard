@@ -4,22 +4,25 @@
   input:
     WH1_F16_electric_PDRSAug24__storage_volume:
       [
-        less_than_or_equal_to_700_L,
-        less_than_or_equal_to_700_L,
+        less_than_425_L,
+        equal_425_L_to_700_L,
+        equal_425_L_to_700_L,
         more_than_700_L
       ]
     WH1_F16_electric_PDRSAug24__certified:
       [
-        true,
-        false,
-        true
+        False, #ignored
+        True,
+        False,
+        False  #ignored
       ]
   output:
     WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
       [
-        true,
-        false,
-        true
+        True,
+        True,
+        False,
+        True
       ]
 
 - name: Test WH1 final activity eligibility
@@ -28,98 +31,170 @@
   input:
     WH1_F16_electric_PDRSAug24__equipment_replaced:
       [
-        true,
-        false, #not eligible
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        false
+        True,
+        False,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
       ]
-    WH1_F16_electric_PDRSAug24__equipment_removed:
+    WH1_F16_electric_PDRSAug24__existing_equipment_removed:
       [
-        true,
-        true,
-        false, #not eligible
-        true,
-        true,
-        true,
-        true,
-        true,
-        false
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
+    WH1_F16_electric_PDRSAug24__equipment_installed_on_site:
+      [
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+      ]
+    WH1_F16_electric_PDRSAug24__qualified_install_removal:
+      [
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
       ]
     WH1_F16_electric_PDRSAug24__engaged_ACP:
       [
-        true,
-        true,
-        true,
-        false, #not eligible
-        true,
-        true,
-        true,
-        true,
-        false
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True,
+        True,
       ]
     WH1_F16_electric_PDRSAug24__minimum_payment:
       [
-        true,
-        true,
-        true,
-        true,
-        false, #not eligible
-        true,
-        true,
-        true,
-        false
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True,
       ]
     WH1_F16_electric_PDRSAug24__building_BCA_not_class_1_or_4:
       [
-        false,
-        false,
-        false,
-        false,
-        false,
-        true, #not eligible
-        false,
-        false,
-        true
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
       ]
-    WH1_F16_electric_PDRSAug24__scheme_admin_approved:
+    WH1_F16_electric_PDRSAug24__4234_certified:
       [
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        false, #not eligible
-        true,
-        false
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+      ]
+    WH1_F16_electric_PDRSAug24__scheme_admin_approved:  
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
+        True,
+      ]
+    WH1_F16_electric_PDRSAug24__minimum_annual_energy:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
       ]
     WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
       [
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        false, #not eligible
-        false
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False,
       ]
   output:
     WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligibility:
       [
-        true,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false
+        True,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False
       ]

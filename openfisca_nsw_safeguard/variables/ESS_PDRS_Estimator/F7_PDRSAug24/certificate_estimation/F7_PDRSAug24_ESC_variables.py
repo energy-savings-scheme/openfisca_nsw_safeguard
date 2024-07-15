@@ -26,10 +26,8 @@ class F7_PDRSAug24_regional_network_factor(Variable):
             ' A corresponding to the postcode of the Address of the Site or' \
             ' Sites where the Implementation(s) took place.'
     metadata = {
-        "variable-type": "inter-interesting",
-        "alias":"PDRS Regional Network Factor",
-        "display_question": "PDRS regional network factor",
-        "variable-type": "inter-interesting"
+        'variable-type' : 'inter-interesting',
+        'display_question' : 'PDRS regional network factor'
     }
 
     def formula(buildings, period, parameters):

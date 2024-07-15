@@ -310,3 +310,58 @@
         0,
         49.076
       ]
+
+- name: test F7 ESC calculation new installation master tester
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    F7_PDRSAug24_new_equipment_rated_output:
+      [
+        22,
+        32,
+        160, #ABB M3BP/ GP/JP/KP 315SMC 4
+        110
+      ]
+    F7_PDRSAug24_new_equipment_baseline_efficiency:
+     [
+        10.7,
+        9.54,
+        94.9,
+        94.3
+     ]
+    F7_PDRSAug24_new_efficiency:
+      [
+        33.33,
+        3.6,
+        95.7,
+        85
+      ]
+    F7_PDRSAug24_load_utilisation_factor:
+      [
+        12.56,
+        3.6,
+        0.15,
+        0.27
+      ]
+    F7_PDRSAug24_asset_life:
+      [
+        20,
+        10,
+        25,
+        25
+      ]
+    F7_PDRSAug24_PDRS__postcode:
+      [
+        2321, #1.03
+        2313,
+        2753, #1
+        2024  #rnf 1
+      ]
+  output:
+    F7_PDRSAug24_ESC_calculation:
+      [
+        335393.7,
+        0,
+        49.076,
+        0 
+      ]

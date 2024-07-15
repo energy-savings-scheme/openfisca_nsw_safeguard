@@ -1,5 +1,5 @@
-- name: test SYS1 new equipment baseline efficiency
-  period: 2022
+- name: test F7 new equipment baseline efficiency
+  period: 2024
   absolute_error_margin: 0.5
   input:
     F7_PDRSAug24_new_equipment_rated_output:
@@ -28,8 +28,8 @@
         94.9
       ]
 
-- name: test SYS1 existing equipment baseline efficiency
-  period: 2022
+- name: test F7 existing equipment baseline efficiency
+  period: 2024
   absolute_error_margin: 0.5
   input:
     F7_PDRSAug24_existing_equipment_rated_output:
@@ -54,8 +54,8 @@
         90.25
       ]
 
-- name: test SYS1 load utilisation factor
-  period: 2022
+- name: test F7 load utilisation factor
+  period: 2024
   absolute_error_margin: 0.1
   input:
     F7_PDRSAug24_business_classification:
@@ -88,8 +88,8 @@
         0.15
       ]
 
-- name: test SYS1 deemed activity electricity savings 
-  period: 2022
+- name: test F7 deemed activity electricity savings 
+  period: 2024
   absolute_error_margin: 0.5
   input:
     F7_PDRSAug24_replacement_activity:
@@ -142,7 +142,7 @@
         46.2986
       ]
 
-- name: test SYS1 annual energy savings
+- name: test F7 annual energy savings
   period: 2024
   absolute_error_margin: 0.1
   input:
@@ -203,8 +203,8 @@
         41.501
       ]
 
-- name: test SYS1 electricity savings
-  period: 2022
+- name: test F7 electricity savings
+  period: 2024
   absolute_error_margin: 0.1
   input:
     F7_PDRSAug24_replacement_activity:
@@ -263,8 +263,8 @@
         46.2986
       ]
 
-- name: test SYS1 ESC calculation
-  period: 2022
+- name: test F7 ESC calculation
+  period: 2024
   absolute_error_margin: 0.5
   input:
     F7_PDRSAug24_new_equipment_rated_output:

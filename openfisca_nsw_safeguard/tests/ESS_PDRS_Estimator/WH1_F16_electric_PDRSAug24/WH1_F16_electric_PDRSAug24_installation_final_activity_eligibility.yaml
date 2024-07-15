@@ -5,23 +5,29 @@
     WH1_F16_electric_PDRSAug24__storage_volume:
       [
         less_than_425_L,
+        less_than_425_L,
         equal_425_L_to_700_L,
         equal_425_L_to_700_L,
+        more_than_700_L,
         more_than_700_L
       ]
     WH1_F16_electric_PDRSAug24__certified:
       [
         False, #ignored
         True,
+        True,
         False,
-        False  #ignored
+        False,  #ignored
+        True
       ]
   output:
     WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
       [
         True,
         True,
+        True,
         False,
+        True,
         True
       ]
 

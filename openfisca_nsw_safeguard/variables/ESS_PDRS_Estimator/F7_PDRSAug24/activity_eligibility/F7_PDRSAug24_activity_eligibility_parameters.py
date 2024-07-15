@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class SYS1_new_motor_for_ventilation_refrigeration(Variable):
+class F7_PDRSAug24_new_motor_for_ventilation_refrigeration(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class SYS1_new_motor_for_ventilation_refrigeration(Variable):
     }
 
 
-class SYS1_equipment_registered_in_GEMS(Variable):
+class F7_PDRSAug24_equipment_registered_in_GEMS(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class SYS1_equipment_registered_in_GEMS(Variable):
     }
 
 
-class SYS1_engaged_ACP(Variable):
+class F7_PDRSAug24_engaged_ACP(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -43,7 +43,7 @@ class SYS1_engaged_ACP(Variable):
     }
 
 
-class SYS1_high_efficiency(Variable):
+class F7_PDRSAug24_high_efficiency(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -55,7 +55,7 @@ class SYS1_high_efficiency(Variable):
     }   
 
 
-class SYS1_equipment_installed(Variable):
+class F7_PDRSAug24_equipment_installed(Variable):
     value_type = bool
     entity = Building
     default_value = True
@@ -67,7 +67,7 @@ class SYS1_equipment_installed(Variable):
     }
 
 
-class SYS1_rated_output_eligible(Variable):
+class F7_PDRSAug24_rated_output_eligible(Variable):
     value_type = bool
     entity = Building
     default_value = True

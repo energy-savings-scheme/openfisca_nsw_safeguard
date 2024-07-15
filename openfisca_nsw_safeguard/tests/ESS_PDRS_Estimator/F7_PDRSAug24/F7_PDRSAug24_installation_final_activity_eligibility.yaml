@@ -2,7 +2,7 @@
   period: 2022
   absolute_error_margin: 0
   input:
-    SYS1_new_motor_for_ventilation_refrigeration:
+    F7_PDRSAug24_new_motor_for_ventilation_refrigeration:
       [
         true,
         true,
@@ -10,7 +10,7 @@
         false,
         true
       ]
-    SYS1_equipment_registered_in_GEMS:
+    F7_PDRSAug24_equipment_registered_in_GEMS:
       [
         true,
         true,
@@ -18,7 +18,7 @@
         true,
         true
       ]
-    SYS1_high_efficiency:
+    F7_PDRSAug24_high_efficiency:
       [
         true,
         true,
@@ -26,7 +26,7 @@
         true,
         true
       ]
-    SYS1_equipment_installed:
+    F7_PDRSAug24_equipment_installed:
       [
         true,
         true,
@@ -34,7 +34,7 @@
         true,
         true
       ]
-    SYS1_engaged_ACP:
+    F7_PDRSAug24_engaged_ACP:
       [
         true,
         true,
@@ -42,7 +42,7 @@
         true,
         false #not eligible
       ]    
-    SYS1_rated_output_eligible:
+    F7_PDRSAug24_rated_output_eligible:
       [
         true,
         false,
@@ -51,7 +51,7 @@
         true
       ]
   output:
-    SYS1_installation_final_activity_eligibility:
+    F7_PDRSAug24_installation_final_activity_eligibility:
       [
         true,
         false,

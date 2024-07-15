@@ -7,7 +7,7 @@ from openfisca_nsw_base.entities import Building
 import numpy as np
 
 
-class SYS1_asset_life(Variable):
+class F7_PDRSAug24_asset_life(Variable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -18,7 +18,7 @@ class SYS1_asset_life(Variable):
     }
     
     def formula(buildings, period, parameters):
-        rated_output = buildings('SYS1_new_equipment_rated_output', period)
+        rated_output = buildings('F7_PDRSAug24_new_equipment_rated_output', period)
         rated_output_band = np.select([
             (rated_output < 0.73), 
             ((rated_output >= 0.73) * (rated_output < 2.6)),    
@@ -42,7 +42,7 @@ class SYS1_asset_life(Variable):
         return asset_life
 
 
-class SYS1_deemed_activity_electricity_savings(Variable):
+class F7_PDRSAug24_deemed_activity_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -51,13 +51,13 @@ class SYS1_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        replacement_activity = buildings('SYS1_replacement_activity', period)
-        new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
-        new_equipment_baseline_efficiency = buildings('SYS1_new_equipment_baseline_efficiency', period)
-        existing_equipment_baseline_efficiency = buildings('SYS1_existing_equipment_baseline_efficiency', period)
-        new_efficiency = buildings('SYS1_new_efficiency', period)
-        load_utilisation_factor = buildings('SYS1_load_utilisation_factor', period)
-        asset_life = buildings('SYS1_asset_life', period)
+        replacement_activity = buildings('F7_PDRSAug24_replacement_activity', period)
+        new_equipment_rated_output = buildings('F7_PDRSAug24_new_equipment_rated_output', period)
+        new_equipment_baseline_efficiency = buildings('F7_PDRSAug24_new_equipment_baseline_efficiency', period)
+        existing_equipment_baseline_efficiency = buildings('F7_PDRSAug24_existing_equipment_baseline_efficiency', period)
+        new_efficiency = buildings('F7_PDRSAug24_new_efficiency', period)
+        load_utilisation_factor = buildings('F7_PDRSAug24_load_utilisation_factor', period)
+        asset_life = buildings('F7_PDRSAug24_asset_life', period)
 
         new_vs_existing_equipment_baseline = np.select(
             [
@@ -76,16 +76,16 @@ class SYS1_deemed_activity_electricity_savings(Variable):
         return ((temp_calc_1 - temp_calc_2) * temp_calc_3)
 
 
-class SYS1_motor_frequency_Options(Enum):
+class F7_PDRSAug24_motor_frequency_Options(Enum):
     motor_50_hz = '50 Hz'
     motor_60_hz = '60 Hz'
 
 
-class SYS1_new_equipment_motor_frequency_savings(Variable):
+class F7_PDRSAug24_new_equipment_motor_frequency_savings(Variable):
     value_type = Enum
     entity = Building
-    possible_values = SYS1_motor_frequency_Options
-    default_value = SYS1_motor_frequency_Options.motor_50_hz
+    possible_values = F7_PDRSAug24_motor_frequency_Options
+    default_value = F7_PDRSAug24_motor_frequency_Options.motor_50_hz
     definition_period = ETERNITY
     label = "Motor frequency (Hz)"
     metadata = {
@@ -96,18 +96,18 @@ class SYS1_new_equipment_motor_frequency_savings(Variable):
     }
 
 
-class SYS1_no_of_poles_Options(Enum):
+class F7_PDRSAug24_no_of_poles_Options(Enum):
     poles_2 = '2 poles'
     poles_4 = '4 poles'
     poles_6 = '6 poles'
     poles_8 = '8 poles'
 
 
-class SYS1_new_equipment_no_of_poles_savings(Variable):
+class F7_PDRSAug24_new_equipment_no_of_poles_savings(Variable):
     value_type = Enum
     entity = Building
-    possible_values = SYS1_no_of_poles_Options
-    default_value = SYS1_no_of_poles_Options.poles_2
+    possible_values = F7_PDRSAug24_no_of_poles_Options
+    default_value = F7_PDRSAug24_no_of_poles_Options.poles_2
     definition_period = ETERNITY
     label = "Number of poles"
     metadata = {
@@ -118,11 +118,11 @@ class SYS1_new_equipment_no_of_poles_savings(Variable):
     }
 
 
-class SYS1_existing_equipment_no_of_poles_savings(Variable):
+class F7_PDRSAug24_existing_equipment_no_of_poles_savings(Variable):
     value_type = Enum
     entity = Building
-    possible_values = SYS1_no_of_poles_Options
-    default_value = SYS1_no_of_poles_Options.poles_2
+    possible_values = F7_PDRSAug24_no_of_poles_Options
+    default_value = F7_PDRSAug24_no_of_poles_Options.poles_2
     definition_period = ETERNITY
     label = "Number of poles"
     metadata = {
@@ -132,7 +132,7 @@ class SYS1_existing_equipment_no_of_poles_savings(Variable):
         'sorting' : 12
     }
 
-class SYS1_BusinessClassification_Options(Enum):
+class F7_PDRSAug24_BusinessClassification_Options(Enum):
     unknown = 'Unknown'
     division_A = 'Division A (Agricultural, Forestry and Fishing) business'
     division_B = 'Division B (Mining) business'
@@ -155,11 +155,11 @@ class SYS1_BusinessClassification_Options(Enum):
     division_S = 'Division S (Other Services) business'
 
 
-class SYS1_business_classification_savings(Variable):
+class F7_PDRSAug24_business_classification_savings(Variable):
     value_type = Enum
     entity = Building
-    possible_values = SYS1_BusinessClassification_Options
-    default_value = SYS1_BusinessClassification_Options.unknown
+    possible_values = F7_PDRSAug24_BusinessClassification_Options
+    default_value = F7_PDRSAug24_BusinessClassification_Options.unknown
     definition_period = ETERNITY
     metadata = {
         'variable-type': 'user-input',
@@ -169,7 +169,7 @@ class SYS1_business_classification_savings(Variable):
     }
     
     
-class SYS1_end_use_service_Options(Enum):
+class F7_PDRSAug24_end_use_service_Options(Enum):
     unknown = 'Unknown'
     air_compression = 'Air compression'
     air_handling = 'Air handling, fans or ventilation'
@@ -192,11 +192,11 @@ class SYS1_end_use_service_Options(Enum):
     water_heating = 'Water heating'
 
 
-class SYS1_end_use_service_savings(Variable):
+class F7_PDRSAug24_end_use_service_savings(Variable):
     value_type = Enum
     entity = Building
-    possible_values = SYS1_end_use_service_Options
-    default_value = SYS1_end_use_service_Options.unknown
+    possible_values = F7_PDRSAug24_end_use_service_Options
+    default_value = F7_PDRSAug24_end_use_service_Options.unknown
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
@@ -206,7 +206,7 @@ class SYS1_end_use_service_savings(Variable):
     }
 
 
-class SYS1_energy_savings(Variable):
+class F7_PDRSAug24_energy_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -217,18 +217,18 @@ class SYS1_energy_savings(Variable):
 
     def formula(buildings, period, parameters):
         #replacement activity
-        replacement_activity = buildings('SYS1_replacement_activity', period)
+        replacement_activity = buildings('F7_PDRSAug24_replacement_activity', period)
 
         #new equipment rated output
-        new_equipment_rated_output = buildings('SYS1_new_equipment_rated_output', period)
+        new_equipment_rated_output = buildings('F7_PDRSAug24_new_equipment_rated_output', period)
 
         #new equipment baseline efficiency
-        motor_frequency = buildings('SYS1_new_equipment_motor_frequency', period)
-        no_of_poles = buildings('SYS1_new_equipment_no_of_poles', period)
+        motor_frequency = buildings('F7_PDRSAug24_new_equipment_motor_frequency', period)
+        no_of_poles = buildings('F7_PDRSAug24_new_equipment_no_of_poles', period)
         
         frequency = np.select( [ 
-                         motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
-                         motor_frequency == SYS1_motor_frequency_Options.motor_60_hz
+                         motor_frequency == F7_PDRSAug24_motor_frequency_Options.motor_50_hz,
+                         motor_frequency == F7_PDRSAug24_motor_frequency_Options.motor_60_hz
             ],
             [ 
                 '50hz',
@@ -256,14 +256,14 @@ class SYS1_energy_savings(Variable):
             new_equipment_rated_output, interpolate=True)
         
         new_equipment_baseline_efficiency = np.select([
-                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_savings.possible_values.poles_2, frequency == '50hz'),
-                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_savings.possible_values.poles_4, frequency == '50hz'),
-                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_savings.possible_values.poles_6, frequency == '50hz'),
-                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_savings.possible_values.poles_8, frequency == '50hz'),
-                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_savings.possible_values.poles_2, frequency == '60hz'),
-                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_savings.possible_values.poles_4, frequency == '60hz'),
-                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_savings.possible_values.poles_6, frequency == '60hz'),
-                np.logical_and(no_of_poles == SYS1_new_equipment_no_of_poles_savings.possible_values.poles_8, frequency == '60hz')
+                np.logical_and(no_of_poles == F7_PDRSAug24_new_equipment_no_of_poles_savings.possible_values.poles_2, frequency == '50hz'),
+                np.logical_and(no_of_poles == F7_PDRSAug24_new_equipment_no_of_poles_savings.possible_values.poles_4, frequency == '50hz'),
+                np.logical_and(no_of_poles == F7_PDRSAug24_new_equipment_no_of_poles_savings.possible_values.poles_6, frequency == '50hz'),
+                np.logical_and(no_of_poles == F7_PDRSAug24_new_equipment_no_of_poles_savings.possible_values.poles_8, frequency == '50hz'),
+                np.logical_and(no_of_poles == F7_PDRSAug24_new_equipment_no_of_poles_savings.possible_values.poles_2, frequency == '60hz'),
+                np.logical_and(no_of_poles == F7_PDRSAug24_new_equipment_no_of_poles_savings.possible_values.poles_4, frequency == '60hz'),
+                np.logical_and(no_of_poles == F7_PDRSAug24_new_equipment_no_of_poles_savings.possible_values.poles_6, frequency == '60hz'),
+                np.logical_and(no_of_poles == F7_PDRSAug24_new_equipment_no_of_poles_savings.possible_values.poles_8, frequency == '60hz')
             ],
             [
                 poles_2_value_50hz, 
@@ -277,12 +277,12 @@ class SYS1_energy_savings(Variable):
             ])
 
         #existing equipment baseline efficiency
-        existing_equipment_rated_output = buildings('SYS1_existing_equipment_rated_output', period)
-        no_of_poles = buildings('SYS1_existing_equipment_no_of_poles', period)
+        existing_equipment_rated_output = buildings('F7_PDRSAug24_existing_equipment_rated_output', period)
+        no_of_poles = buildings('F7_PDRSAug24_existing_equipment_no_of_poles', period)
         
         frequency = np.select( [ 
-                         motor_frequency == SYS1_motor_frequency_Options.motor_50_hz,
-                         motor_frequency == SYS1_motor_frequency_Options.motor_60_hz
+                         motor_frequency == F7_PDRSAug24_motor_frequency_Options.motor_50_hz,
+                         motor_frequency == F7_PDRSAug24_motor_frequency_Options.motor_60_hz
             ],
             [ 
                 '50hz',
@@ -310,14 +310,14 @@ class SYS1_energy_savings(Variable):
             existing_equipment_rated_output, interpolate=True)
         
         existing_equipment_baseline_efficiency = np.select([
-                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles_savings.possible_values.poles_2, frequency == '50hz'),
-                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles_savings.possible_values.poles_4, frequency == '50hz'),
-                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles_savings.possible_values.poles_6, frequency == '50hz'),
-                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles_savings.possible_values.poles_8, frequency == '50hz'),
-                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles_savings.possible_values.poles_2, frequency == '60hz'),
-                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles_savings.possible_values.poles_4, frequency == '60hz'),
-                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles_savings.possible_values.poles_6, frequency == '60hz'),
-                                                    np.logical_and(no_of_poles == SYS1_existing_equipment_no_of_poles_savings.possible_values.poles_8, frequency == '60hz')
+                                                    np.logical_and(no_of_poles == F7_PDRSAug24_existing_equipment_no_of_poles_savings.possible_values.poles_2, frequency == '50hz'),
+                                                    np.logical_and(no_of_poles == F7_PDRSAug24_existing_equipment_no_of_poles_savings.possible_values.poles_4, frequency == '50hz'),
+                                                    np.logical_and(no_of_poles == F7_PDRSAug24_existing_equipment_no_of_poles_savings.possible_values.poles_6, frequency == '50hz'),
+                                                    np.logical_and(no_of_poles == F7_PDRSAug24_existing_equipment_no_of_poles_savings.possible_values.poles_8, frequency == '50hz'),
+                                                    np.logical_and(no_of_poles == F7_PDRSAug24_existing_equipment_no_of_poles_savings.possible_values.poles_2, frequency == '60hz'),
+                                                    np.logical_and(no_of_poles == F7_PDRSAug24_existing_equipment_no_of_poles_savings.possible_values.poles_4, frequency == '60hz'),
+                                                    np.logical_and(no_of_poles == F7_PDRSAug24_existing_equipment_no_of_poles_savings.possible_values.poles_6, frequency == '60hz'),
+                                                    np.logical_and(no_of_poles == F7_PDRSAug24_existing_equipment_no_of_poles_savings.possible_values.poles_8, frequency == '60hz')
                                                 ],
                                                 [
                                                     poles_2_value_50hz, 
@@ -331,11 +331,11 @@ class SYS1_energy_savings(Variable):
                                                 ], 0)
 
         #new efficiency
-        new_efficiency = buildings('SYS1_new_efficiency', period)
+        new_efficiency = buildings('F7_PDRSAug24_new_efficiency', period)
 
         #luf
-        business_classification = buildings('SYS1_business_classification', period)
-        end_use_service = buildings('SYS1_end_use_service', period)
+        business_classification = buildings('F7_PDRSAug24_business_classification', period)
+        end_use_service = buildings('F7_PDRSAug24_end_use_service', period)
         
         rated_output = np.select(
             [
@@ -359,10 +359,10 @@ class SYS1_energy_savings(Variable):
 
         load_utilisation_factor = np.select(
             [
-                (business_classification != SYS1_BusinessClassification_Options.unknown) * (end_use_service != SYS1_end_use_service_Options.unknown),
-                (business_classification != SYS1_BusinessClassification_Options.unknown) * (end_use_service == SYS1_end_use_service_Options.unknown),
-                (business_classification == SYS1_BusinessClassification_Options.unknown) * (end_use_service != SYS1_end_use_service_Options.unknown),
-                (business_classification == SYS1_BusinessClassification_Options.unknown) * (end_use_service == SYS1_end_use_service_Options.unknown)
+                (business_classification != F7_PDRSAug24_BusinessClassification_Options.unknown) * (end_use_service != F7_PDRSAug24_end_use_service_Options.unknown),
+                (business_classification != F7_PDRSAug24_BusinessClassification_Options.unknown) * (end_use_service == F7_PDRSAug24_end_use_service_Options.unknown),
+                (business_classification == F7_PDRSAug24_BusinessClassification_Options.unknown) * (end_use_service != F7_PDRSAug24_end_use_service_Options.unknown),
+                (business_classification == F7_PDRSAug24_BusinessClassification_Options.unknown) * (end_use_service == F7_PDRSAug24_end_use_service_Options.unknown)
             ],
             [
                 parameters(period).ESS.HEAB.table_F7_1['load_utilisation_factor'][business_classification][end_use_service],
@@ -411,7 +411,7 @@ class SYS1_energy_savings(Variable):
         deemed_electricity_savings = ((temp_calc_1 - temp_calc_2) * temp_calc_3)
         
         #regional network factor
-        postcode = buildings('SYS1_PDRS__postcode', period)
+        postcode = buildings('F7_PDRSAug24_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         regional_network_factor = rnf.calc(postcode)
 
@@ -428,7 +428,7 @@ class SYS1_energy_savings(Variable):
         return annual_savings_return
       
 
-class SYS1_electricity_savings(Variable):
+class F7_PDRSAug24_electricity_savings(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -437,12 +437,12 @@ class SYS1_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        deemed_electricity_savings = buildings('SYS1_deemed_activity_electricity_savings', period)
-        regional_network_factor = buildings('SYS1_regional_network_factor', period)
+        deemed_electricity_savings = buildings('F7_PDRSAug24_deemed_activity_electricity_savings', period)
+        regional_network_factor = buildings('F7_PDRSAug24_regional_network_factor', period)
         return deemed_electricity_savings * regional_network_factor
 
 
-class SYS1_ESC_calculation(Variable):
+class F7_PDRSAug24_ESC_calculation(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -452,7 +452,7 @@ class SYS1_ESC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-        electricity_savings = buildings('SYS1_electricity_savings', period)
+        electricity_savings = buildings('F7_PDRSAug24_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
 
         result = (electricity_savings * electricity_certificate_conversion_factor)

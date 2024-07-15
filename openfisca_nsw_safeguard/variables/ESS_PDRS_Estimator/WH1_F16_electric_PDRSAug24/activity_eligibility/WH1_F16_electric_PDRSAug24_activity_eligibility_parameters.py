@@ -144,10 +144,8 @@ class WH1_F16_electric_PDRSAug24__storage_volume(Variable):
     possible_values = WH1_F16_electric_PDRSAug24__StorageVolume
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
+      'display_question' : 'What is the storage volume of the End-User equipment (litres)? (Only storage volume of 425 litres or greater is eligible for PRCs)',
       'sorting' : 11,
-      'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 3 it states that the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L.<br />
-                                In PDRS WH1 Equipment Requirements Clause 4 it states that Each replacement heat pump as defined by AS/NZS 4234 must have a volumetric capacity of greater than 425 litres, where volumetric capacity means the total volume of water in litres that can be held in the storage tank, as defined in clause 1.5.24 of AS/NZS 2712."""
     }
 
 

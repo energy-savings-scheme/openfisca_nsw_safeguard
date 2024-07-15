@@ -128,6 +128,8 @@ class WH1_F16_electric_PDRSAug24__minimum_annual_energy(Variable):
                                   (b) 60% when modelled in AS/NZS 4234 climate zone HP5-AU if the Site is in BCA Climate Zone 7 or 8."""
     }
 
+#we want to ask the user if their volume is less than 425 litres, and if it is show them the not eligible for PRCs clauses.
+
 
 class WH1_F16_electric_PDRSAug24__StorageVolume(Enum):
     less_than_425_L = 'Less than 425 litres'
@@ -172,7 +174,7 @@ class WH1_F16_electric_PDRSAug24__storage_volume_int(Variable):
 
 
 class WH1_F16_electric_PDRSAug24__certified(Variable):
-    #only show this if the storage volume is 425-700L
+    #only show this if the storage volume is 700L or less
     value_type = bool
     entity = Building
     default_value = True
@@ -198,13 +200,15 @@ class WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume(Variable
 
       eligible_by_storage = np.select(
         [
-          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L),
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * certified_AS_NZ_2712,
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * np.logical_not(certified_AS_NZ_2712),
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * certified_AS_NZ_2712,
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * np.logical_not(certified_AS_NZ_2712),
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L)
         ],
         [
           True,
+          False,
           True,
           False,
           True

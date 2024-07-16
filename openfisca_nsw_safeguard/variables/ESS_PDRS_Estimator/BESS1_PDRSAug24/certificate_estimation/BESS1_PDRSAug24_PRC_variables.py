@@ -37,7 +37,7 @@ class BESS1_PDRSAug24_installation_activity(Variable):
 
 
 class BESS1_PDRSAug24_usable_battery_capacity(Variable):
-    value_type = int
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {

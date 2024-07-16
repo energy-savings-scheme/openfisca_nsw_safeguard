@@ -1,0 +1,112 @@
+- name: test C1 deemed activity electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    C1_PDRSAug24_number_of_refrigerator_freezers_removal:
+      [
+        0,
+        5,
+        127
+      ]
+  output:
+    C1_PDRSAug24_deemed_activity_electricity_savings:
+      [
+        0,
+        28.5,
+        723.9
+      ]
+
+- name: test C1 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    C1_PDRSAug24_number_of_refrigerator_freezers_removal:
+      [
+        3,
+        6,
+        2
+      ]
+    C1_PDRSAug24_PDRS__postcode:
+      [
+        2024, #rnf 1
+        2800,  #rnf 1.03
+        2076  #rnf 1
+      ]
+  output:
+    C1_PDRSAug24_energy_savings:
+      [
+        17.1,
+        35.226,
+        11.4
+      ]
+
+- name: test C1 electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    C1_PDRSAug24_deemed_activity_electricity_savings:
+      [
+        28.5
+      ]
+    C1_PDRSAug24_PDRS__postcode:
+      [
+        2536 #rnf of 1.03
+      ]
+  output:
+    C1_PDRSAug24_electricity_savings:
+      [
+        29.355
+      ]
+
+- name: test C1 ESC calculation simple version
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    C1_PDRSAug24_electricity_savings:
+      [
+        28.5,
+        14.789,
+        28.5,
+        28.5
+      ]
+    C1_PDRSAug24_storage_volume:
+      [
+        True,
+        True,
+        False,
+        True
+      ]
+  output:
+    C1_PDRSAug24_ESC_calculation:
+      [
+        30.21,
+        15.67634,
+        0,
+        30.21
+      ]
+
+- name: test C1 ESC calculation more complicated version
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    C1_PDRSAug24_number_of_refrigerator_freezers_removal:
+      [
+        5, #deemed activity electricity savings 28.5
+        74 #deemed activity electricity savings 421.8
+      ]
+    C1_PDRSAug24_PDRS__postcode:
+      [
+        2536, #rnf of 1.03
+        2787  #rnf of 1.03
+      ]
+    C1_PDRSAug24_storage_volume:
+      [
+        True,
+        True
+      ]
+  output:
+    C1_PDRSAug24_ESC_calculation:
+      [
+        31.1163,
+        460.5212
+      ]

@@ -1,0 +1,367 @@
+- name: test F7 new equipment baseline efficiency
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    F7_PDRSAug24_new_equipment_rated_output:
+      [
+        3,
+        11,
+        160 #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    F7_PDRSAug24_new_equipment_motor_frequency:
+      [
+        motor_50_hz,
+        motor_60_hz,
+        motor_50_hz
+      ]
+    F7_PDRSAug24_new_equipment_no_of_poles:
+      [
+        poles_6,
+        poles_2,
+        poles_4
+      ]
+  output:
+    F7_PDRSAug24_new_equipment_baseline_efficiency:
+      [
+        83.3,
+        90.2,
+        94.9
+      ]
+
+- name: test F7 existing equipment baseline efficiency
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    F7_PDRSAug24_existing_equipment_rated_output:
+      [
+        0.73,
+        26 #interpolation of 22 and 30 on table F7.3
+      ]
+    F7_PDRSAug24_existing_equipment_motor_frequency:
+      [
+        motor_60_hz,
+        motor_60_hz
+      ]
+    F7_PDRSAug24_existing_equipment_no_of_poles:
+      [
+        poles_4,
+        poles_8
+      ]
+  output:
+    F7_PDRSAug24_existing_equipment_baseline_efficiency:
+      [
+        78,
+        90.25
+      ]
+
+- name: test F7 load utilisation factor
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F7_PDRSAug24_business_classification:
+      [
+        division_B,
+        division_N,
+        unknown,
+        division_E
+      ]
+    F7_PDRSAug24_end_use_service:
+      [
+        air_compression,
+        refrigeration,
+        communications,
+        unknown
+      ]
+    F7_PDRSAug24_new_equipment_rated_output:
+      [
+        7,
+        5,
+        9.2,
+        120
+      ]
+  output:
+    F7_PDRSAug24_load_utilisation_factor:
+      [ 
+        0.32,
+        0.11,
+        0.10,
+        0.15
+      ]
+
+- name: test F7 deemed activity electricity savings 
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    F7_PDRSAug24_replacement_activity:
+      [
+        false, #new install
+        true,  #replacement
+        false  #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    F7_PDRSAug24_new_equipment_rated_output:
+      [
+        110,
+        110,
+        160
+      ]
+    F7_PDRSAug24_new_equipment_baseline_efficiency:
+      [
+        300,
+        0,
+        94.9
+      ]
+    F7_PDRSAug24_existing_equipment_baseline_efficiency:
+      [
+        100,
+        300,
+        0
+      ]
+    F7_PDRSAug24_new_efficiency:
+      [
+        90,
+        90,
+        95.7
+      ]
+    F7_PDRSAug24_load_utilisation_factor:
+      [
+        20,
+        20,
+        0.15
+      ]
+    F7_PDRSAug24_asset_life:
+      [
+        25,
+        25,
+        25
+      ]
+  output:
+    F7_PDRSAug24_deemed_activity_electricity_savings:
+      [
+        -374733.328,
+        -374733.328,
+        46.2986
+      ]
+
+- name: test F7 annual energy savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F7_PDRSAug24_PDRS__postcode:
+      [
+        2024,
+        2753
+      ]
+    F7_PDRSAug24_replacement_activity:
+      [
+        false, #new install
+        true
+      ]
+    F7_PDRSAug24_new_equipment_rated_output:
+      [
+        110,
+        37
+      ]
+    F7_PDRSAug24_new_equipment_motor_frequency:
+      [
+        motor_50_hz,
+        motor_60_hz
+      ]
+    F7_PDRSAug24_new_equipment_no_of_poles:
+      [
+        poles_6,
+        poles_4
+      ]
+    F7_PDRSAug24_existing_equipment_rated_output:
+      [
+        10,
+        75
+      ]
+    F7_PDRSAug24_existing_equipment_no_of_poles:
+      [
+        poles_4,
+        poles_4
+      ]
+    F7_PDRSAug24_new_efficiency:
+      [
+        20,
+        100
+      ]
+    F7_PDRSAug24_business_classification:
+      [
+        division_B,
+        division_D
+      ]
+    F7_PDRSAug24_end_use_service:
+      [
+        air_compression,
+        refrigeration
+      ]
+  output:  
+    F7_PDRSAug24_energy_savings:
+      [
+        0,
+        41.501
+      ]
+
+- name: test F7 electricity savings
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    F7_PDRSAug24_replacement_activity:
+      [
+        false, #new install
+        true,  #replacement
+        false  #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    F7_PDRSAug24_new_equipment_rated_output:
+      [
+        110,
+        600,
+        160
+      ]
+    F7_PDRSAug24_new_equipment_baseline_efficiency:
+      [
+        300,
+        5,
+        94.9
+      ]
+    F7_PDRSAug24_existing_equipment_baseline_efficiency:
+      [
+        100,
+        300,
+        0
+      ]
+    F7_PDRSAug24_new_efficiency:
+      [
+        90,
+        2000,
+        95.7
+      ]
+    F7_PDRSAug24_load_utilisation_factor:
+      [
+        20,
+        20,
+        0.15
+      ]
+    F7_PDRSAug24_asset_life:
+      [
+        25,
+        25,
+        25
+      ]
+    F7_PDRSAug24_PDRS__postcode:
+      [
+        2321,  #1.03
+        2313,  #1
+        2753
+      ]
+  output:
+    F7_PDRSAug24_electricity_savings:
+      [
+        -385975.328,
+        744600,
+        46.2986
+      ]
+
+- name: test F7 ESC calculation
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    F7_PDRSAug24_new_equipment_rated_output:
+      [
+        22,
+        32,
+        160 #ABB M3BP/ GP/JP/KP 315SMC 4
+      ]
+    F7_PDRSAug24_new_equipment_baseline_efficiency:
+     [
+       10.7,
+       9.54,
+       94.9
+     ]
+    F7_PDRSAug24_new_efficiency:
+      [
+        33.33,
+        3.6,
+        95.7
+      ]
+    F7_PDRSAug24_load_utilisation_factor:
+      [
+        12.56,
+        3.6,
+        0.15
+      ]
+    F7_PDRSAug24_asset_life:
+      [
+        20,
+        10,
+        25
+      ]
+    F7_PDRSAug24_PDRS__postcode:
+      [
+        2321, #1.03
+        2313,
+        2753  #1
+      ]
+  output:
+    F7_PDRSAug24_ESC_calculation:
+      [
+        335393.7,
+        0,
+        49.076
+      ]
+
+- name: test F7 ESC calculation new installation master tester
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    F7_PDRSAug24_new_equipment_rated_output:
+      [
+        22,
+        32,
+        160, #ABB M3BP/ GP/JP/KP 315SMC 4
+        110
+      ]
+    F7_PDRSAug24_new_equipment_baseline_efficiency:
+     [
+        10.7,
+        9.54,
+        94.9,
+        94.3
+     ]
+    F7_PDRSAug24_new_efficiency:
+      [
+        33.33,
+        3.6,
+        95.7,
+        85
+      ]
+    F7_PDRSAug24_load_utilisation_factor:
+      [
+        12.56,
+        3.6,
+        0.15,
+        0.27
+      ]
+    F7_PDRSAug24_asset_life:
+      [
+        20,
+        10,
+        25,
+        25
+      ]
+    F7_PDRSAug24_PDRS__postcode:
+      [
+        2321, #1.03
+        2313,
+        2753, #1
+        2024  #rnf 1
+      ]
+  output:
+    F7_PDRSAug24_ESC_calculation:
+      [
+        335393.7,
+        0,
+        49.076,
+        0 
+      ]

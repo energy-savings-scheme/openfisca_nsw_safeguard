@@ -490,7 +490,7 @@ class HVAC2_PDRSAug24_ESC_calculation(Variable):
       HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark = buildings('HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
       electricity_certificate_conversion_factor = 1.06
       heating_capacity = buildings('HVAC2_PDRSAug24_heating_capacity_input', period) 
-      zero_heating_capacity = ( heating_capacity == 0)
+      zero_heating_capacity = ( heating_capacity == 0 )
       
       result = np.floor(HVAC2_electricity_savings * electricity_certificate_conversion_factor)
       result_meet_elig = np.select([

@@ -178,7 +178,7 @@
       [
         13.78,
         13.67,
-        0,  #fails because there is zero product data
+        0,     #fails because there is zero product data
         9.83,
         14.19,
         14.66,

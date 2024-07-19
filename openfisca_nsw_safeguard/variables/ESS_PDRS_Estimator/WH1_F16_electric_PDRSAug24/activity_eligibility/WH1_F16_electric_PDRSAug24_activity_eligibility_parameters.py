@@ -149,28 +149,6 @@ class WH1_F16_electric_PDRSAug24__storage_volume(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__storage_volume_int(Variable):
-    value_type = int
-    entity = Building 
-    definition_period = ETERNITY
-
-    def formula(buildings, period, parameters):
-      storage_volume = buildings('WH1_F16_electric_PDRSAug24__storage_volume', period)
-
-      storage_volume_int = np.select([
-          storage_volume == 'Less than 425 litres',
-          storage_volume == '425 - 700 litres',
-          storage_volume == 'More than 700 litres'
-      ],
-      [
-          WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L,
-          WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L,
-          WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L
-      ])
-
-      return storage_volume_int
-
-
 class WH1_F16_electric_PDRSAug24__certified(Variable):
     #only show this if the storage volume is 700L or less
     value_type = bool
@@ -194,8 +172,9 @@ class WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume(Variable
 
     def formula(buildings, period, parameters):
       storage_volume = buildings('WH1_F16_electric_PDRSAug24__storage_volume', period)
+      print("storage_volume",storage_volume)
       certified_AS_NZ_2712 = buildings('WH1_F16_electric_PDRSAug24__certified', period)
-
+      print("certified_AS_NZ_2712",certified_AS_NZ_2712)
       eligible_by_storage = np.select(
         [
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * certified_AS_NZ_2712,
@@ -211,4 +190,5 @@ class WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume(Variable
           False,
           True
         ])
+      
       return eligible_by_storage

@@ -174,7 +174,6 @@ class WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume(Variable
       storage_volume = buildings('WH1_F16_electric_PDRSAug24__storage_volume', period)
       print("storage_volume",storage_volume)
       certified_AS_NZ_2712 = buildings('WH1_F16_electric_PDRSAug24__certified', period)
-      print("certified_AS_NZ_2712",certified_AS_NZ_2712)
       eligible_by_storage = np.select(
         [
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * certified_AS_NZ_2712,

@@ -330,7 +330,7 @@
     WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligibility:
       [
         true,
-        False,
+        false,
         true,
         false,
         true,

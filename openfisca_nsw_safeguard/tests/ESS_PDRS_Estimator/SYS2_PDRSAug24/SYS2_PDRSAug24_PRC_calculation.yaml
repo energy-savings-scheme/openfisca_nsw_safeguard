@@ -2,6 +2,20 @@
   period: 2024
   absolute_error_margin: 0.1
   input: 
+    SYS2_PDRSAug24_PDRS__postcode:
+      [
+        2148
+      ]
+  output:
+    SYS2_PDRSAug24_get_network_loss_factor_by_postcode:
+      [
+        1.05
+      ]
+
+- name: test SYS2 input power
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
     SYS2_PDRSAug24_projected_annual_energy_consumption:
       [
         0,
@@ -141,9 +155,9 @@
   output:
     SYS2_PDRSAug24_peak_demand_reduction_capacity:
       [
-        43200,
-        14400,
-        3.47
+        36000,
+        12000,
+        2.88
       ]
 
 - name: test SYS2 PRC calculation
@@ -171,4 +185,69 @@
         36,
         0,
         0 #-472.5
+      ]
+
+- name: test SYS2 PRC calculation master tester
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    SYS2_PDRSAug24_peak_demand_reduction_capacity:
+      [
+        15.33,
+        24.60,
+        22.58
+      ]
+    SYS2_PDRSAug24_get_network_loss_factor_by_postcode:
+      [
+        1.05,
+        1.05,
+        1.05
+      ]
+  output:
+    SYS2_PDRSAug24_PRC_calculation:
+      [
+        160.94,
+        258.31,
+        237.12
+      ]
+
+- name: test SYS2 PRC calculation master tester all values
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    SYS2_PDRSAug24_PDRS__postcode:
+      [
+        2476,
+        2148,
+        2372,
+        2800
+      ]
+    SYS2_PDRSAug24_nameplate_input_power:
+      [
+        1990,
+        750,
+        1500,
+        975
+      ]
+    SYS2_PDRSAug24_projected_annual_energy_consumption:
+      [
+        452.4,
+        403,
+        587.9,
+        384.68
+      ]
+    SYS2_PDRSAug24_daily_run_time:
+      [
+        6.1982,
+        6.25,
+        5.71,
+        6.13
+      ]
+  output:
+    SYS2_PDRSAug24_PRC_calculation:
+      [
+        258.31,
+        160.94,
+        237.12,
+        162.21
       ]

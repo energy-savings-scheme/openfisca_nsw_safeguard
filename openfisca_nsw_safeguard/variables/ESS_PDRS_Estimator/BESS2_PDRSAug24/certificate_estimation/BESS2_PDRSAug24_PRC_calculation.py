@@ -50,7 +50,7 @@ class BESS2_PDRSAug24_peak_demand_annual_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-        #useable battery capacity
+        #usable battery capacity
         usable_battery_capacity = buildings('BESS2_PDRSAug24_usable_battery_capacity', period)
 
         #demand response component

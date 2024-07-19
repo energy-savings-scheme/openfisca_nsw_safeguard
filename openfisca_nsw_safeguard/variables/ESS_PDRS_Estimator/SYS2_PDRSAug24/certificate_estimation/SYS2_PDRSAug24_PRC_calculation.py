@@ -105,7 +105,7 @@ class SYS2_PDRSAug24_peak_demand_reduction_capacity(Variable):
     def formula(buildings, period, parameters):
         peak_demand_savings = buildings('SYS2_PDRSAug24_peak_demand_savings_capacity', period)
         summer_peak_demand_duration = 6
-        lifetime = 12
+        lifetime = 10
 
         peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
         return peak_demand_reduction_capacity

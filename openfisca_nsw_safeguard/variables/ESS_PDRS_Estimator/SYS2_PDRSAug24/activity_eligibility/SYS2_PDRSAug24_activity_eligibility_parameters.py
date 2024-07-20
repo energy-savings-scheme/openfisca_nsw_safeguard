@@ -21,7 +21,8 @@ class SYS2_PDRSAug24_new_installation_or_replacement(Variable):
     metadata = {
         'variable-type' : 'user-input',
         'display_question' : 'Which one of the following activities are you implementing?',
-        'sorting' : 1
+        'sorting' : 1,
+        'eligibility_clause' : """The SYS2 activity is defined as the replacement of an existing pool pump with a high-efficiency pool pump."""
     }
 
 

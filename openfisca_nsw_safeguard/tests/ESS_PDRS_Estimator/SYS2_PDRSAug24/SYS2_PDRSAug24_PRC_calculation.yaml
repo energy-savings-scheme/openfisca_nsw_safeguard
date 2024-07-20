@@ -169,14 +169,40 @@
         120,
         3.47,
         0,
-        -45
+        -45,
+        120
       ]
     SYS2_PDRSAug24_get_network_loss_factor_by_postcode:
       [
         1.05,
         1.05,  #Essential
         1.05,
+        1.05,
         1.05
+      ]
+    SYS2_PDRSAug24_nameplate_input_power:
+      [
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    SYS2_PDRSAug24_daily_run_time:
+      [
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    SYS2_PDRSAug24_PAEC_baseline:
+      [
+        1,
+        1,
+        1,
+        1,
+        0
       ]
   output:
     SYS2_PDRSAug24_PRC_calculation:
@@ -184,7 +210,8 @@
         1260,
         36,
         0,
-        0 #-472.5
+        0, #-472.5
+        0  #fails because there is zero product data
       ]
 
 - name: test SYS2 PRC calculation master tester

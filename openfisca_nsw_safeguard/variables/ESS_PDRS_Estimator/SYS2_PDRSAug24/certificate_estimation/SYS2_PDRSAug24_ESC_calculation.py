@@ -121,18 +121,34 @@ class SYS2_PDRSAug24_ESC_calculation(Variable):
     }
 
     def formula(buildings, period, parameters):
-        electricity_savings = buildings('SYS2_PDRSAug24_electricity_savings', period) #15
+        electricity_savings = buildings('SYS2_PDRSAug24_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
+        nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
+        daily_run_time = buildings('SYS2_PDRSAug24_daily_run_time', period)
+        PAEC_baseline = buildings('SYS2_PDRSAug24_PAEC_baseline', period)
+
+        #check if all three values are zero, and if they are, return zero certificates
+        zero_product_data = (nameplate_input_power == 0) * (daily_run_time == 0) * (PAEC_baseline == 0)
 
         result = (electricity_savings * electricity_certificate_conversion_factor)
-               
-        result_to_return = np.select([
-            result <= 0,
-            result > 0
-        ],
-        [
-            0,
-            result
-        ])
+        result_has_data = np.select(
+            [
+                zero_product_data,
+                np.logical_not(zero_product_data) 
+            ],
+            [
+                0,
+                result
+            ])
+
+        result_to_return = np.select(
+            [
+                result_has_data <= 0,
+                result_has_data > 0
+            ],
+            [
+                0,
+                result_has_data
+            ])
         
         return result_to_return

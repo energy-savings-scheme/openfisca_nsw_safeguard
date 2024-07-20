@@ -16,7 +16,7 @@ class SYS2_PDRSAug24_new_installation_or_replacement(Variable):
     value_type = Enum
     entity = Building
     possible_values = SYS2_PDRSAug24_NewInstallationReplacement
-    default_value = SYS2_PDRSAug24_NewInstallationReplacement.replacement_activity
+    default_value = SYS2_PDRSAug24_NewInstallationReplacement.new_installation_activity
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',

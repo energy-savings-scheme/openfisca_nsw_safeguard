@@ -32,6 +32,6 @@ class WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligib
         print('storage volume', storage_volume_certified)
         end_formula = ( replacement * existing_equipment_removed * equipment_installed_on_site * qualified_install_removal
                         * engaged_ACP * minimum_payment * certified_4234 * scheme_admin_approved * minimum_annual_energy
-                        * not_installed_class_1_or_4 * storage_volume_certified )
+                        * np.logical_not(not_installed_class_1_or_4) * storage_volume_certified )
 
         return end_formula

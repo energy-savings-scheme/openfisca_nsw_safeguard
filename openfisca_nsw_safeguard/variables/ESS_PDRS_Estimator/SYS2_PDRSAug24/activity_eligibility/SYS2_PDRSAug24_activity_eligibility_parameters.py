@@ -42,7 +42,7 @@ class SYS2_PDRSAug24_new_installation_or_replacement_eligible(Variable):
           (activity_type == SYS2_PDRSAug24_NewInstallationReplacement.replacement_activity)
         ],
         [
-          False,
+          True,
           True
         ])
 

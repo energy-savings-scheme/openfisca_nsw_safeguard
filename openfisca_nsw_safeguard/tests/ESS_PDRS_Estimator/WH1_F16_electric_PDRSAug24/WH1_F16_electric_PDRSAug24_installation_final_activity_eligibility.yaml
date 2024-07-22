@@ -45,6 +45,7 @@
         True,
         True,
         True,
+        True
       ]
     WH1_F16_electric_PDRSAug24__existing_equipment_removed:
       [
@@ -59,6 +60,7 @@
         True,
         True,
         True,
+        True
       ]
     WH1_F16_electric_PDRSAug24__equipment_installed_on_site:
       [
@@ -73,6 +75,7 @@
         True,
         True,
         True,
+        True
       ]
     WH1_F16_electric_PDRSAug24__qualified_install_removal:
       [
@@ -87,6 +90,7 @@
         True,
         True,
         True,
+        True
       ]
     WH1_F16_electric_PDRSAug24__engaged_ACP:
       [
@@ -101,6 +105,7 @@
         True,
         True,
         True,
+        True
       ]
     WH1_F16_electric_PDRSAug24__minimum_payment:
       [
@@ -115,6 +120,7 @@
         True,
         True,
         True,
+        True
       ]
     WH1_F16_electric_PDRSAug24__building_BCA_not_class_1_or_4:
       [
@@ -129,6 +135,7 @@
         True,
         True,
         True,
+        False
       ]
     WH1_F16_electric_PDRSAug24__4234_certified:
       [
@@ -143,6 +150,7 @@
         False,
         True,
         True,
+        True
       ]
     WH1_F16_electric_PDRSAug24__scheme_admin_approved:  
       [
@@ -157,6 +165,7 @@
         True,
         False,
         True,
+        True
       ]
     WH1_F16_electric_PDRSAug24__minimum_annual_energy:
       [
@@ -171,6 +180,7 @@
         True,
         True,
         False,
+        True
       ]
     WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
       [
@@ -185,6 +195,7 @@
         True,
         True,
         False,
+        True
       ]
   output:
     WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligibility:
@@ -199,5 +210,129 @@
         False,
         False,
         False,
+        False,
         False
+      ]
+
+- name: Test WH1 final activity eligibility 2
+  period: 2024
+  absolute_error_margin: 0
+  input:  
+    WH1_F16_electric_PDRSAug24__equipment_replaced:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__existing_equipment_removed:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__equipment_installed_on_site:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__qualified_install_removal:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__engaged_ACP:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__minimum_payment:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__building_BCA_not_class_1_or_4:
+      [ 
+        true,
+        false,
+        true,
+        false,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__4234_certified:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__scheme_admin_approved:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__minimum_annual_energy:
+      [ 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    WH1_F16_electric_PDRSAug24__storage_volume:
+      [ 
+        less_than_425_L,
+        less_than_425_L,
+        425 - 700 litres,
+        425 - 700 litres,
+        More than 700 litres,
+        More than 700 litres
+      ]
+    WH1_F16_electric_PDRSAug24__certified:
+      [ 
+        true,
+        false,
+        true,
+        false,
+        true,
+        true
+      ]
+  output:
+    WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligibility:
+      [
+        true,
+        false,
+        true,
+        false,
+        true,
+        true
       ]

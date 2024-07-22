@@ -28,8 +28,8 @@ class WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligib
         scheme_admin_approved = buildings('WH1_F16_electric_PDRSAug24__scheme_admin_approved', period)
         minimum_annual_energy = buildings('WH1_F16_electric_PDRSAug24__minimum_annual_energy', period)
         storage_volume_certified = buildings('WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume', period)
-        
 
+        print('storage volume', storage_volume_certified)
         end_formula = ( replacement * existing_equipment_removed * equipment_installed_on_site * qualified_install_removal
                         * engaged_ACP * minimum_payment * certified_4234 * scheme_admin_approved * minimum_annual_energy
                         * not_installed_class_1_or_4 * storage_volume_certified )

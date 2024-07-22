@@ -84,7 +84,7 @@ class SYS2_PDRSAug24_replacement_existing_equipment_removed(Variable):
         [
           True,
           False,
-          False,
+          True,
           False
         ])
 

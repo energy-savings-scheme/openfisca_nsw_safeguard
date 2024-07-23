@@ -162,37 +162,6 @@ class WH1_F16_electric_PDRSAug24__certified(Variable):
     }
    
 
-# class WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume(Variable):
-#     """Checks if storage volume is less than or equal to 700L, and if it is, that it is certified by AS/NZS 2712
-#     """
-#     value_type = bool
-#     entity = Building
-#     definition_period = ETERNITY
-
-#     def formula(buildings, period, parameters):
-#       storage_volume = buildings('WH1_F16_electric_PDRSAug24__storage_volume', period)
-#       certified_AS_NZ_2712 = buildings('WH1_F16_electric_PDRSAug24__certified', period)
-
-#       eligible_by_storage = np.select(
-#         [
-#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * certified_AS_NZ_2712,
-#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * np.logical_not(certified_AS_NZ_2712),
-#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * certified_AS_NZ_2712,
-#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * np.logical_not(certified_AS_NZ_2712),
-#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L) * certified_AS_NZ_2712,
-#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L) * np.logical_not(certified_AS_NZ_2712)
-#         ],
-#         [
-#           False,
-#           False,
-#           True,
-#           False,
-#           True,
-#           True
-#         ])
-#       return eligible_by_storage
-
-
 class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_ESCs(Variable):
     value_type = bool
     entity = Building
@@ -227,7 +196,7 @@ class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_PRCs(Variable):
         [
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L), 
           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L), 
-          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L), 
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L) 
         ],
         [
           False,

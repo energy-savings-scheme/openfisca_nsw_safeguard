@@ -75,5 +75,5 @@ class SYS1_rated_output_eligible(Variable):
     metadata = {
       'display_question' : 'Is the electric motors rated output between 0.73kW and 185kW?',
       'sorting' : 6,
-      'eligibility_clause' : """The electric motor must have a rated output from 0.73kW to <185kW."""
+      'eligibility_clause' : """In PDRS SYS1 Implementation Requirements Clause 2 it states that the electric motor must have a rated output from 0.73kW to <185kW."""
     }

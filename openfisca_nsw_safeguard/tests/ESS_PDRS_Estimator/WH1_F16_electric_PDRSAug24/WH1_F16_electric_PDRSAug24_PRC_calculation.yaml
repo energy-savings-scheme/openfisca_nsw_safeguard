@@ -206,6 +206,11 @@
         False, #activity is a new installation
         True   #activity is a replacement
       ]
+    WH1_F16_electric_PDRSAug24_volumetric_capacity_over_425_litres:
+      [
+        True,
+        True
+      ]
   output:
     WH1_F16_electric_PDRSAug24_PRC_calculation:
       [
@@ -227,4 +232,55 @@
       [
         5,
         3
+      ]
+
+- name: test WH1 volume check for eligibility
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    WH1_F16_electric_PDRSAug24_volumetric_capacity:
+      [
+        300,
+        500,
+        200,
+        700
+      ]
+  output:
+    WH1_F16_electric_PDRSAug24_volumetric_capacity_over_425_litres:
+      [
+        False,
+        True,
+        False,
+        True
+      ]
+
+- name: test WH1 PRC not eligible if volume under 425 litres
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    WH1_F16_electric_PDRSAug24_peak_demand_reduction_capacity:
+      [
+        120,
+        120
+      ]
+    WH1_F16_electric_PDRSAug24_get_network_loss_factor_by_postcode:
+      [
+        1.05,
+        1.05
+      ]
+    WH1_F16_electric_PDRSAug24_replacement_activity:
+      [
+        True, 
+        True
+      ]
+    WH1_F16_electric_PDRSAug24_volumetric_capacity_over_425_litres:
+      [
+        False, #not eligible under 425 litres
+        True   #eligible over 425 litres
+      ]
+  output:
+    WH1_F16_electric_PDRSAug24_PRC_calculation:
+      [
+        0,
+        1260
       ]

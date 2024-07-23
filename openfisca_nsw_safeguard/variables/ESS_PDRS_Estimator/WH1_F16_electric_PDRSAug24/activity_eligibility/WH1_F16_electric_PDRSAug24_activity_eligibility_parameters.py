@@ -79,7 +79,7 @@ class WH1_F16_electric_PDRSAug24__minimum_payment(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__building_BCA_not_class_1_or_4(Variable):
+class WH1_F16_electric_PDRSAug24__building_BCA_class_1_or_4(Variable):
     value_type = bool
     entity = Building
     default_value = False
@@ -128,8 +128,6 @@ class WH1_F16_electric_PDRSAug24__minimum_annual_energy(Variable):
                                   (b) 60% when modelled in AS/NZS 4234 climate zone HP5-AU if the Site is in BCA Climate Zone 7 or 8."""
     }
 
-#we want to ask the user if their volume is less than 425 litres, and if it is show them the not eligible for PRCs clauses.
-
 
 class WH1_F16_electric_PDRSAug24__StorageVolume(Enum):
     less_than_425_L = 'Less than 425 litres'
@@ -164,32 +162,110 @@ class WH1_F16_electric_PDRSAug24__certified(Variable):
     }
    
 
-class WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume(Variable):
-    """Checks if storage volume is less than or equal to 700L, and if it is, that it is certified by AS/NZS 2712
-    """
+# class WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume(Variable):
+#     """Checks if storage volume is less than or equal to 700L, and if it is, that it is certified by AS/NZS 2712
+#     """
+#     value_type = bool
+#     entity = Building
+#     definition_period = ETERNITY
+
+#     def formula(buildings, period, parameters):
+#       storage_volume = buildings('WH1_F16_electric_PDRSAug24__storage_volume', period)
+#       certified_AS_NZ_2712 = buildings('WH1_F16_electric_PDRSAug24__certified', period)
+
+#       eligible_by_storage = np.select(
+#         [
+#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * certified_AS_NZ_2712,
+#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * np.logical_not(certified_AS_NZ_2712),
+#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * certified_AS_NZ_2712,
+#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * np.logical_not(certified_AS_NZ_2712),
+#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L) * certified_AS_NZ_2712,
+#           (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L) * np.logical_not(certified_AS_NZ_2712)
+#         ],
+#         [
+#           False,
+#           False,
+#           True,
+#           False,
+#           True,
+#           True
+#         ])
+#       return eligible_by_storage
+
+
+class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_ESCs(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
       storage_volume = buildings('WH1_F16_electric_PDRSAug24__storage_volume', period)
-      certified_AS_NZ_2712 = buildings('WH1_F16_electric_PDRSAug24__certified', period)
 
-      eligible_by_storage = np.select(
+      eligible_by_storage_for_ESCs = np.select(
         [
-          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * certified_AS_NZ_2712,
-          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L) * np.logical_not(certified_AS_NZ_2712),
-          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * certified_AS_NZ_2712,
-          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L) * np.logical_not(certified_AS_NZ_2712),
-          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L) * certified_AS_NZ_2712,
-          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L) * np.logical_not(certified_AS_NZ_2712)
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L),
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L), 
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L), 
         ],
         [
-          False,
-          False,
           True,
+          True,
+          True
+        ])
+      return eligible_by_storage_for_ESCs
+    
+
+class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_PRCs(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      storage_volume = buildings('WH1_F16_electric_PDRSAug24__storage_volume', period)
+
+      eligible_by_storage_for_PRCs = np.select(
+        [
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.less_than_425_L), 
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.equal_425_L_to_700_L), 
+          (storage_volume == WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L), 
+        ],
+        [
           False,
           True,
           True
         ])
-      return eligible_by_storage
+      return eligible_by_storage_for_PRCs
+    
+
+class WH1_F16_electric_PDRSAug24__certified_and_eligible(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      eligible_by_storage_for_ESCs = buildings('WH1_F16_electric_PDRSAug24__eligible_by_storage_for_ESCs', period)
+      eligible_by_storage_for_PRCs = buildings('WH1_F16_electric_PDRSAug24__eligible_by_storage_for_PRCs', period)
+      certified_AS_NZ_2712 = buildings('WH1_F16_electric_PDRSAug24__certified', period)
+
+      eligible_storage_and_certified = np.select(
+        [
+          eligible_by_storage_for_ESCs * eligible_by_storage_for_PRCs * certified_AS_NZ_2712,
+          eligible_by_storage_for_ESCs * eligible_by_storage_for_PRCs * np.logical_not(certified_AS_NZ_2712),
+          eligible_by_storage_for_ESCs * np.logical_not(eligible_by_storage_for_PRCs) * certified_AS_NZ_2712,
+          eligible_by_storage_for_ESCs * np.logical_not(eligible_by_storage_for_PRCs) * np.logical_not(certified_AS_NZ_2712),
+          np.logical_not(eligible_by_storage_for_ESCs) * eligible_by_storage_for_PRCs * certified_AS_NZ_2712,
+          np.logical_not(eligible_by_storage_for_ESCs) * eligible_by_storage_for_PRCs * np.logical_not(certified_AS_NZ_2712),
+          np.logical_not(eligible_by_storage_for_ESCs) * np.logical_not(eligible_by_storage_for_PRCs) * certified_AS_NZ_2712,
+          np.logical_not(eligible_by_storage_for_ESCs) * np.logical_not(eligible_by_storage_for_PRCs) * np.logical_not(certified_AS_NZ_2712),
+        ],
+        [
+          True,
+          False,
+          True,
+          False,
+          True,
+          False,
+          False,
+          False
+        ])
+      return eligible_storage_and_certified

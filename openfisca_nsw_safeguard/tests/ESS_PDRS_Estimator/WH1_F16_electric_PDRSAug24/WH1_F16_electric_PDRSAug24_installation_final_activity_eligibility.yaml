@@ -1,15 +1,64 @@
-- name: Test storage 700L or less is certified
+- name: Test WH1 eligible by storage ESCs
   period: 2024
   absolute_error_margin: 0
   input:
     WH1_F16_electric_PDRSAug24__storage_volume:
       [
         less_than_425_L,
+        equal_425_L_to_700_L,
+        more_than_700_L
+      ]
+  output:
+    WH1_F16_electric_PDRSAug24__eligible_by_storage_for_ESCs:
+      [
+        True,
+        True,
+        True
+      ]
+
+- name: Test WH1 eligible by storage PRCs
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    WH1_F16_electric_PDRSAug24__storage_volume:
+      [
         less_than_425_L,
         equal_425_L_to_700_L,
-        equal_425_L_to_700_L,
-        more_than_700_L,
         more_than_700_L
+      ]
+  output:
+    WH1_F16_electric_PDRSAug24__eligible_by_storage_for_PRCs:
+      [
+        False,
+        True,
+        True
+      ]
+
+- name: Test WH1 certified and eligible
+  period: 2024
+  absolute_error_margin: 0
+  input:
+    WH1_F16_electric_PDRSAug24__eligible_by_storage_for_ESCs:
+      [
+        True,
+        True,
+        True,
+        True,
+        False,
+        False,
+        False,
+        False
+      ]
+    WH1_F16_electric_PDRSAug24__eligible_by_storage_for_PRCs:
+      [
+        True,
+        True,
+        False,
+        False,
+        True,
+        True,
+        False,
+        False
       ]
     WH1_F16_electric_PDRSAug24__certified:
       [
@@ -18,19 +67,23 @@
         True,
         False,
         True,
+        False,
+        True,
         False
       ]
   output:
-    WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
+    WH1_F16_electric_PDRSAug24__certified_and_eligible:
       [
-        True,
+        True,  #all true
         False,
         True,
         False,
         True,
-        False
+        False,
+        False,
+        False  #all false
       ]
-
+  
 - name: Test WH1 final activity eligibility
   period: 2024
   absolute_error_margin: 0
@@ -119,19 +172,19 @@
         True,
         True,
       ]
-    WH1_F16_electric_PDRSAug24__building_BCA_not_class_1_or_4:
+    WH1_F16_electric_PDRSAug24__building_BCA_class_1_or_4:
       [
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
         False,
-        True,
-        True,
-        True,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        True,  #not eligible
+        False,
+        False,
+        False,
       ]
     WH1_F16_electric_PDRSAug24__4234_certified:
       [
@@ -175,7 +228,7 @@
         True,
         False,
       ]
-    WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
+    WH1_F16_electric_PDRSAug24__certified_and_eligible:
       [
         True,
         True,

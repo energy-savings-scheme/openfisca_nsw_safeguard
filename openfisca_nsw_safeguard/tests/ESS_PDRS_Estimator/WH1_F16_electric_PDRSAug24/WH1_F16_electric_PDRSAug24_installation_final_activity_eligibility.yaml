@@ -1,4 +1,3 @@
-
 - name: Test WH1 eligible by storage ESCs
   period: 2024
   absolute_error_margin: 0

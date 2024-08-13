@@ -23,12 +23,12 @@
   output:
     WH1_F16_electric_PDRSAug24__equipment_certified_by_storage_volume:
       [
-        True,
+        False,
         False,
         True,
         False,
         True,
-        False
+        True
       ]
 
 - name: Test WH1 final activity eligibility
@@ -192,14 +192,14 @@
   output:
     WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligibility:
       [
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
         True,
-        False,
-        False,
-        False,
-        False,
-        False,
-        False,
-        False,
         False,
         False,
         False

@@ -127,8 +127,6 @@ class SYS2_PDRSAug24_PRC_calculation(Variable):
         nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
         daily_run_time = buildings('SYS2_PDRSAug24_daily_run_time', period)
         PAEC = buildings('SYS2_PDRSAug24_projected_annual_energy_consumption', period)
-        
-        print(nameplate_input_power, daily_run_time, PAEC)
 
         #check if all three values are zero, and if they are, return zero certificates
         zero_product_data = (nameplate_input_power == 0) * (daily_run_time == 0) * (PAEC == 0)

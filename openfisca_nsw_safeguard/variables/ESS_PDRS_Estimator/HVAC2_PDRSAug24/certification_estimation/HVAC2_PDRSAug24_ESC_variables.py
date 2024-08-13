@@ -433,18 +433,12 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
 
         AC_HSPF = np.where(in_cold_zone, AC_HSPF_cold, AC_HSPF_mixed)
         # AC_HSPF_mixed
-        print("AC hsp", AC_HSPF)
                 
         # determines which HSPF value to use
         HSPF_is_zero = (
                         (AC_HSPF == 0) + 
                         (AC_HSPF == None)
                         )
-        
-        print("HSPF zero", HSPF_is_zero)
-        print("product_class", product_class)
-        print("cooling_capacity", cooling_capacity)
-        print(parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][product_class][cooling_capacity])
         
         # tells you if the relevant HSPF is zero or non-existant
         AC_exceeds_benchmark = np.select([
@@ -458,6 +452,4 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
             (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][product_class][cooling_capacity])
                                             ]
             )
-        print("ac exceeds", AC_exceeds_benchmark)
-
         return AC_exceeds_benchmark

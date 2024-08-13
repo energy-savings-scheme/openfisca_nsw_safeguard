@@ -88,8 +88,8 @@ class HVAC2_PDRSAug24_baseline_AEER_input(Variable):
             [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
             
-                [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
+                [parameters(period).ESS.HEAB.table_F4_2.AEER[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEAB.table_F4_3.AEER[aircon][cooling_capacity_to_check]
                     ]
             )
 
@@ -181,7 +181,7 @@ class HVAC2_PDRSAug24_equivalent_heating_hours_input(Variable):
         climate_zone = building('HVAC2_PDRSAug24_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
+        heating_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_heating_hours[climate_zone_str]
         return heating_hours
 
 
@@ -210,7 +210,7 @@ class HVAC2_PDRSAug24_equivalent_cooling_hours_input(Variable):
         climate_zone = building('HVAC2_PDRSAug24_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone_str]
+        cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[climate_zone_str]
         return cooling_hours
 
 
@@ -252,8 +252,8 @@ class HVAC2_PDRSAug24_baseline_ACOP_input(Variable):
             [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
             
-                 [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check], 
-                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check] 
+                 [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check], 
+                    parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check] 
                     ]
             )
 
@@ -433,12 +433,18 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
 
         AC_HSPF = np.where(in_cold_zone, AC_HSPF_cold, AC_HSPF_mixed)
         # AC_HSPF_mixed
+        print("AC hsp", AC_HSPF)
                 
         # determines which HSPF value to use
         HSPF_is_zero = (
                         (AC_HSPF == 0) + 
                         (AC_HSPF == None)
                         )
+        
+        print("HSPF zero", HSPF_is_zero)
+        print("product_class", product_class)
+        print("cooling_capacity", cooling_capacity)
+        print(parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][product_class][cooling_capacity])
         
         # tells you if the relevant HSPF is zero or non-existant
         AC_exceeds_benchmark = np.select([
@@ -447,10 +453,11 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                             np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
                                             ],
                                             [
-            (AC_ACOP >= parameters(period).ESS.HEER.table_D16_5['ACOP'][product_class][cooling_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_cold'][product_class][cooling_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_mixed'][product_class][cooling_capacity])
+            (AC_ACOP >= parameters(period).ESS.HEAB.table_F4_5['ACOP'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][product_class][cooling_capacity])
                                             ]
             )
+        print("ac exceeds", AC_exceeds_benchmark)
 
         return AC_exceeds_benchmark

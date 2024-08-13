@@ -493,6 +493,8 @@ class HVAC2_PDRSAug24_ESC_calculation(Variable):
       zero_heating_capacity = ( heating_capacity == 0 )
       
       result = np.floor(HVAC2_electricity_savings * electricity_certificate_conversion_factor)
+      print(HVAC2_TCSPF_or_AEER_exceeds_ESS_benchmark, HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark)
+      print(zero_heating_capacity)
       result_meet_elig = np.select([
                          np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark, 
                          np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_ESS_benchmark) * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark,

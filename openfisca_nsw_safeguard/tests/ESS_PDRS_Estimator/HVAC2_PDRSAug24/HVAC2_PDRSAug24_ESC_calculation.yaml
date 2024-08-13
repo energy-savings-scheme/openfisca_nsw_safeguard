@@ -611,7 +611,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        41,
+        16,
         0
       ]
 
@@ -654,7 +654,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        12
+        7
       ]
 
 - name: test ESC calculation case 3
@@ -758,7 +758,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        18
+        13
       ]
 
 - name: test ESC calculation Daikin RXM25UVMA/FTXM25UVMA
@@ -824,7 +824,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        7
+        4
       ]
 
 - name: test ESC calculation Fujitsu General AOTA45LCTL/SUTA45LCLU
@@ -890,7 +890,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        7
+        4
       ]
 
 - name: test ESC calculation Carrier 42SHDV140-1 / 38SHDV140-1
@@ -956,7 +956,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        30
+        16
       ]
 
 - name: test ESC calculation
@@ -1037,5 +1037,66 @@
     HVAC2_PDRSAug24_ESC_calculation:
       [
         0,
+        0
+      ]
+- name: test ESC calculation Samsung electronics
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_PDRSAug24_Air_Conditioner_type:
+      [
+        non_ducted_split_system,
+      ]
+    HVAC2_PDRSAug24_HSPF_cold:
+      [
+        3.432, #not used
+      ]
+    HVAC2_PDRSAug24_HSPF_mixed:
+      [
+        3.716, #not used
+      ]
+    HVAC2_PDRSAug24_PDRS__postcode: 
+      [
+        2650, #cold zone
+      ]
+    HVAC2_PDRSAug24_TCSPF_mixed:
+      [
+        5.945, #not used
+      ]
+    HVAC2_PDRSAug24_cooling_capacity_input: 
+      [
+        22.4,
+      ]
+    HVAC2_PDRSAug24_heating_capacity_input: 
+      [
+        25.2,
+      ]
+    HVAC2_PDRSAug24_input_power: 
+      [
+        5.31,
+      ]
+    HVAC2_PDRSAug24_Activity:
+      [
+        replacement_activity,
+      ]
+    HVAC2_PDRSAug24_rated_AEER_input:
+      [
+        4.1857, #does not meet minimum
+      ]
+    HVAC2_PDRSAug24_rated_ACOP_input:
+      [
+        4.2556, #does not meet minimum
+      ]
+    HVAC2_PDRSAug24_residential_TCEC: 
+      [
+        2566,
+      ]
+    HVAC2_PDRSAug24_residential_THEC:
+      [
+        3263,
+      ] 
+  output:
+    HVAC2_PDRSAug24_ESC_calculation:
+      [
         0
       ]

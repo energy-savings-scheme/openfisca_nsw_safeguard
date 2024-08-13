@@ -149,7 +149,7 @@ class SYS2_PDRSAug24_equipment_registered_in_GEMS(Variable):
     metadata = {
         'display_question' : 'Is the installed End-User equipment a registered product on the GEMS registry under GEMS (Swimming Pool Pump-units) Determination 2021?',
         'sorting' : 7,
-        'eligibility_clause' : """In ESS D5 Equipment Requirements Clause 1 it states that the new End-User Equipment must be listed as part of a labelling scheme determined in accordance with the Equipment Energy Efficiency (E3) Committee's Voluntary Energy Rating Labelling Program for Swimming Pool Pump-units: Rules for Participation, April 2010, or be a registered product in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Swimming Pool Pump-units) Determination 2021."""
+        'eligibility_clause' : """In ESS D5 Equipment Requirements Clause 1 it states that the new or replacement End-User Equipment must be registered in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Swimming Pool Pump-units) Determination 2021."""
     }
 
 

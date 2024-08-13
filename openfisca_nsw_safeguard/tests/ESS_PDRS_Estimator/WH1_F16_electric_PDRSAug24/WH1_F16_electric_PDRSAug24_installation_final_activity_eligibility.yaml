@@ -62,13 +62,13 @@
       ]
     WH1_F16_electric_PDRSAug24__certified:
       [
-        True,
+        False,
         False,
         True,
         False,
         True,
-        False,
         True,
+        False,
         False
       ]
   output:
@@ -245,14 +245,14 @@
   output:
     WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligibility:
       [
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
+        False,
         True,
-        False,
-        False,
-        False,
-        False,
-        False,
-        False,
-        False,
         False,
         False,
         False

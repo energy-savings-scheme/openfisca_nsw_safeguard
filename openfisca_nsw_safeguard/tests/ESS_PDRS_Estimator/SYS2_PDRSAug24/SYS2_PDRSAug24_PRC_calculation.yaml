@@ -230,6 +230,24 @@
         1.05,
         1.05
       ]
+    SYS2_PDRSAug24_nameplate_input_power:
+      [
+        1990,
+        750,
+        1500
+      ]
+    SYS2_PDRSAug24_projected_annual_energy_consumption:
+      [
+        452.4,
+        403,
+        587.9
+      ]
+    SYS2_PDRSAug24_daily_run_time:
+      [
+        6.1982,
+        6.25,
+        5.71
+      ]
   output:
     SYS2_PDRSAug24_PRC_calculation:
       [

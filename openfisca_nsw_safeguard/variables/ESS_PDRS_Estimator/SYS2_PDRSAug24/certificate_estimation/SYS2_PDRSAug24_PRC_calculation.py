@@ -126,10 +126,10 @@ class SYS2_PDRSAug24_PRC_calculation(Variable):
         kw_to_0_1kw = 10
         nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
         daily_run_time = buildings('SYS2_PDRSAug24_daily_run_time', period)
-        PAEC_baseline = buildings('SYS2_PDRSAug24_PAEC_baseline', period)
+        PAEC = buildings('SYS2_PDRSAug24_projected_annual_energy_consumption', period)
 
         #check if all three values are zero, and if they are, return zero certificates
-        zero_product_data = (nameplate_input_power == 0) * (daily_run_time == 0) * (PAEC_baseline == 0)
+        zero_product_data = (nameplate_input_power == 0) * (daily_run_time == 0) * (PAEC == 0)
 
         result = (peak_demand_capacity * network_loss_factor * kw_to_0_1kw)
         result_has_data = np.select(

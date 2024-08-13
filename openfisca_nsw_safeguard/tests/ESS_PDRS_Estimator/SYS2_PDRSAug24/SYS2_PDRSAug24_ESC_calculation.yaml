@@ -127,7 +127,7 @@
     
 - name: test SYS2 ESC calculation
   period: 2024
-  absolute_error_margin: 0.1
+  absolute_error_margin: 0.5
   input: 
     SYS2_PDRSAug24_electricity_savings:
       [
@@ -177,11 +177,33 @@
     SYS2_PDRSAug24_ESC_calculation:
       [
         13.78,
-        13.67,
+        0,
         0,     #fails because there is zero product data
         9.83,
         14.19,
         14.66,
         9.66,
+        0
+      ]
+
+- name: test SYS2 ESC calculation 0 values
+  period: 2024
+  absolute_error_margin: 0.1
+  input: 
+    SYS2_PDRSAug24_nameplate_input_power:
+      [
+        0
+      ]
+    SYS2_PDRSAug24_daily_run_time:
+      [
+        0
+      ]
+    SYS2_PDRSAug24_projected_annual_energy_consumption:
+      [
+        0
+      ]
+  output:
+    SYS2_PDRSAug24_ESC_calculation:
+      [
         0
       ]

@@ -174,7 +174,7 @@
       ]
     WH1_F16_electric_PDRSAug24__building_BCA_class_1_or_4:
       [
-        False,
+        False, #eligible
         False,
         False,
         False,
@@ -245,7 +245,7 @@
   output:
     WH1_F16_electric_PDRSAug24__installation_replacement_final_activity_eligibility:
       [
-        False,
+        True,
         False,
         False,
         False,

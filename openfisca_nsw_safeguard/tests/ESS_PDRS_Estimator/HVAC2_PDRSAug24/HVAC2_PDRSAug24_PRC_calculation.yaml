@@ -55,10 +55,10 @@
   output:
     HVAC2_PDRSAug24_baseline_peak_adjustment_factor:
       [
-        0.3456,
-        0.6624,
-        0.396,
-        0.6624
+        0.288,
+        0.552,
+        0.33,
+        0.552
       ]
 
 - name: test BCA climate zone by postcode
@@ -273,12 +273,12 @@
     HVAC2_PDRSAug24_PRC_calculation:
       [
         0,
-        152,
+        126,
         0,
         0,
-        47,
-        60,
-        132
+        39,
+        50,
+        110
       ]
 
 - name: test HVAC2 PRCs to savings
@@ -303,4 +303,66 @@
         0,
         200,
         0
+      ]
+
+- name: test HVAC2 PRC calculation
+  period: 2024
+  absolute_error_margin: 0.5
+  input:
+    HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
+      [
+        true, #Samsung Electronics AM080DXVGGH/SA
+        true, #Emerald Energy ACSS25
+        true, #Brivis AONSR13B1/AINHU11B1
+        true  #Daikin REYQ16BYM
+      ]
+    HVAC2_PDRSAug24_input_power:
+      [
+        5.31,
+        0.52,
+        2.7,
+        13.316
+      ]
+    HVAC2_PDRSAug24_Air_Conditioner_type:
+      [
+        non_ducted_split_system,
+        non_ducted_split_system,
+        non_ducted_split_system,
+        non_ducted_split_system
+      ]
+    HVAC2_PDRSAug24_cooling_capacity_input:
+      [
+        22.4,
+        2.5,
+        10.3,
+        45
+      ]
+    HVAC2_PDRSAug24_Activity:
+      [
+        replacement_activity,
+        replacement_activity,
+        new_installation_activity,
+        new_installation_activity
+      ]
+    HVAC2_PDRSAug24_BCA_Climate_Zone:
+      [
+        BCA_Climate_Zone_4,
+        BCA_Climate_Zone_2,
+        BCA_Climate_Zone_4,
+        BCA_Climate_Zone_4
+      ]
+    HVAC2_PDRSAug24_get_network_loss_factor_by_postcode:
+      [ 
+        1.05,
+        1.05,
+        1.05,
+        1.05
+      ]
+  output:
+    HVAC2_PDRSAug24_PRC_calculation:
+      [
+        1047,
+        41,
+        242,
+        857
       ]

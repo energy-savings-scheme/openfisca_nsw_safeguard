@@ -74,7 +74,7 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_PDRSAug24_residential_TCEC:
+    HVAC2_PDRSAug24_commercial_TCEC:
       [
         0,
         25
@@ -95,7 +95,7 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
-    HVAC2_PDRSAug24_residential_THEC:
+    HVAC2_PDRSAug24_commercial_THEC:
       [
         0,
         25,
@@ -369,8 +369,8 @@
       [
         824.619,
         170625,
-        643,  #TCEC residential mixed
-        1817, #TCEC residential
+        643,  #TCEC commercial mixed
+        1817, #TCEC commercial
         656.7
       ]
     HVAC2_PDRSAug24_reference_heating_annual_energy_use:
@@ -385,8 +385,8 @@
       [
         0,
         0,
-        1071,  #THEC residential mixed
-        12094, #THEC residential
+        1071,  #THEC commercial mixed
+        12094, #THEC commercial
         4002.3
       ]
   output:
@@ -405,92 +405,70 @@
   input:
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
-        8,
-        8.2,   #Bonaire 6920082/6920020/6920027
-        20,    #Samsung AC200JXAFNH/ AC200JNHFKH
-        3,      #annual savings between 0 and 1
-        1
+        2.5, #Emerald Energy ACSS25
+        2.8, #SPT AW028C-1/AW028E
+        20   #Samsung AC200JXAFNH/ AC200JNHFKH
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
         non_ducted_split_system,
-        non_ducted_split_system,
         ducted_unitary_system,
-        non_ducted_split_system,
-        new_installation_activity
+        ducted_unitary_system
       ]
     HVAC2_PDRSAug24_Activity:
       [
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
-        new_installation_activity,
+        replacement_activity,
+        replacement_activity,
         new_installation_activity
       ]
     HVAC2_PDRSAug24_certificate_climate_zone:
       [
         2,
         3,
-        2,
-        2,
         2
       ]
     HVAC2_PDRSAug24_rated_AEER_input:
       [
-        10,
-        3.5589,
-        3.246,
-        3.1,
-        5
+        4.7582,
+        5.454,
+        3.246
       ]
-    HVAC2_PDRSAug24_residential_TCEC:
+    HVAC2_PDRSAug24_commercial_TCEC:
       [
-        0,
-        0,
-        2292,
-        850,
-        -2
+        272,
+        107,
+        4152
       ]
     HVAC2_PDRSAug24_heating_capacity_input:
       [
-        4,
-        9.6,
-        22.5,
-        5,
-        -10
+        3.2,
+        2.85,
+        22.5
       ]
     HVAC2_PDRSAug24_rated_ACOP_input:
       [
-        5,
-        3.6795,
-        3.64,
-        10,
-        -10
+        4.7379,
+        5.5514,
+        3.64
       ]
-    HVAC2_PDRSAug24_residential_THEC:
+    HVAC2_PDRSAug24_commercial_THEC:
       [
-        0,
-        0,
-        3662,
-        850,
-        0
+        163,
+        232,
+        1701
       ]
     HVAC2_PDRSAug24_PDRS__postcode:
       [
-        2791,  #regional network factor 1.03
-        2791,  #regional network factor 1.03
-        2222,  #regional network factor 1
-        2024,
-        2024
+        2423,
+        2800,
+        2222
       ]
   output:
     HVAC2_PDRSAug24_annual_energy_savings:
       [
-        14.757,
-        31.3755,
-        39.26,
-        0.422,
-        0
+        6.32,
+        10.16,
+        26.40
       ]
 
 - name: test electricity savings
@@ -747,11 +725,11 @@
       [
         3.5824 # is greater than minimum 3.5
       ]
-    HVAC2_PDRSAug24_residential_TCEC: 
+    HVAC2_PDRSAug24_commercial_TCEC: 
       [
         643
       ]
-    HVAC2_PDRSAug24_residential_THEC:
+    HVAC2_PDRSAug24_commercial_THEC:
       [
         1071
       ] 
@@ -813,11 +791,11 @@
       [
         5.0463
       ]
-    HVAC2_PDRSAug24_residential_TCEC: 
+    HVAC2_PDRSAug24_commercial_TCEC: 
       [
         145
       ]
-    HVAC2_PDRSAug24_residential_THEC:
+    HVAC2_PDRSAug24_commercial_THEC:
       [
         362
       ] 
@@ -879,11 +857,11 @@
       [
         5.0463
       ]
-    HVAC2_PDRSAug24_residential_TCEC: 
+    HVAC2_PDRSAug24_commercial_TCEC: 
       [
         145
       ]
-    HVAC2_PDRSAug24_residential_THEC:
+    HVAC2_PDRSAug24_commercial_THEC:
       [
         362
       ] 
@@ -945,11 +923,11 @@
       [
         3.3906
       ]
-    HVAC2_PDRSAug24_residential_TCEC: 
+    HVAC2_PDRSAug24_commercial_TCEC: 
       [
         0
       ]
-    HVAC2_PDRSAug24_residential_THEC:
+    HVAC2_PDRSAug24_commercial_THEC:
       [
         0
       ] 
@@ -1023,12 +1001,12 @@
         3.1552, #does not meet minimum
         3.5589
       ]
-    HVAC2_PDRSAug24_residential_TCEC: 
+    HVAC2_PDRSAug24_commercial_TCEC: 
       [
         1817,
         0
       ]
-    HVAC2_PDRSAug24_residential_THEC:
+    HVAC2_PDRSAug24_commercial_THEC:
       [
         12094,
         0
@@ -1087,11 +1065,11 @@
       [
         4.2556, #does not meet minimum
       ]
-    HVAC2_PDRSAug24_residential_TCEC: 
+    HVAC2_PDRSAug24_commercial_TCEC: 
       [
         2566,
       ]
-    HVAC2_PDRSAug24_residential_THEC:
+    HVAC2_PDRSAug24_commercial_THEC:
       [
         3263,
       ] 

@@ -153,10 +153,10 @@ class HVAC2_PDRSAug24_PDRS__postcode(Variable):
         'display_question' : 'Postcode where the installation has taken place',
         'sorting' : 1,
         'label': 'Postcode'
-        }
+    }
 
 
-class HVAC2_PDRSAug24_residential_THEC(Variable):
+class HVAC2_PDRSAug24_commercial_THEC(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -185,7 +185,7 @@ class HVAC2_PDRSAug24_equivalent_heating_hours_input(Variable):
         return heating_hours
 
 
-class HVAC2_PDRSAug24_residential_TCEC(Variable):
+class HVAC2_PDRSAug24_commercial_TCEC(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -318,9 +318,6 @@ class HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the Air Conditioner have a TCSPF mixed equal or greater than the minimum' \
-            ' TCSPF mixed listed in Table D16.3? If the TCPSF is not available, is the Rated' \
-            ' AEER equal or greater than the Minimum Rated AEER listed in Table D16.5?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty'
     }
@@ -388,9 +385,6 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the Air Conditioner have a HSPF mixed equal or greater than the minimum' \
-            ' HSPF mixed listed in Table D16.3? If the HSPF is not available, is the Rated' \
-            ' ACOP equal or greater than the Minimum Rated ACOP listed in Table D16.5?'
     metadata = {
         'alias':  'ESS - HSPF or ACOP exceeds benchmark'
     }

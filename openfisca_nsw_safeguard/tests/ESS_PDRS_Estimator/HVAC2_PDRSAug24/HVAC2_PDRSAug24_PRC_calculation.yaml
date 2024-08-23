@@ -147,33 +147,39 @@
       [
         100,
         300,
-        10
+        10,
+        2.5
       ]
     HVAC2_PDRSAug24_baseline_AEER_input:
       [
         20,
         3,
-        -2
+        -2,
+        4.7582
       ]
     HVAC2_PDRSAug24_BCA_Climate_Zone:
       [
         BCA_Climate_Zone_2,
         BCA_Climate_Zone_6,
-        BCA_Climate_Zone_6
+        BCA_Climate_Zone_6,
+        BCA_Climate_Zone_2
       ]
     HVAC2_PDRSAug24_input_power:
       [
         3,
         80,
-        1
+        1,
+        0.751
       ]
   output:
     HVAC2_PDRSAug24_peak_demand_annual_savings:
       [
-        41.472,
-        898.56,
-        0
+        34.56,
+        748.80,
+        0, #expected -224.64
+        0  #expected -3.90
       ]
+      
 
 - name: test HVAC2 peak demand reduction capacity
   period: 2022

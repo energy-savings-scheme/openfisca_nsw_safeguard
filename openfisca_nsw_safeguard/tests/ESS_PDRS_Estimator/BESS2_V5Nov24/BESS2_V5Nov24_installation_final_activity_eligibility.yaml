@@ -1,6 +1,5 @@
-- name:
-    Test BESS2 final formula installation eligibility
-  period: 2022
+- name: Test BESS2 final formula installation eligibility
+  period: 2024
   absolute_error_margin: 0
   input:
     BESS2_V5Nov24_demand_response_contract:
@@ -14,7 +13,11 @@
         True,
         True,
         True,
-        True
+        True,
+        True,
+        True,
+        True,
+        False
       ]
     BESS2_V5Nov24_existing_solar_battery:
       [
@@ -27,7 +30,11 @@
         True,
         True,
         True,
-        True
+        True,
+        True,
+        True,
+        True,
+        False
       ]
     BESS2_V5Nov24_solar_panels_existing_address:
       [
@@ -40,7 +47,11 @@
         True,
         True,
         True,
-        True
+        True,
+        True,
+        True,
+        True,
+        False
       ]
     BESS2_V5Nov24_life_support_equipment:
       [
@@ -53,7 +64,28 @@
         True,
         True,
         True,
-        True
+        True,
+        True,
+        True,
+        True,
+        False
+      ]
+    BESS2_V5Nov24_engaged_ACP:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False
       ]
     BESS2_V5Nov24_battery_capacity:
       [
@@ -62,13 +94,17 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
         True,
-        True
+        True,
+        True,
+        True,
+        False
       ]
-    BESS2_V5Nov24_implementation_date:
+    BESS2_V5Nov24_length_battery_warranty:
       [
         True,
         True,
@@ -76,10 +112,48 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
-        True
+        True,
+        True,
+        True,
+        False
+      ]
+    BESS2_V5Nov24_temperature_range_warranty:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        False
+      ]
+    BESS2_V5Nov24_minimum_throughput_warranty_before_April_2026:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        False
       ]
     BESS2_V5Nov24_internet_connectable:
       [
@@ -90,9 +164,13 @@
         True,
         True,
         True,
+        True,
+        True,
+        True,
         False, #not eligible
         True,
-        True
+        True,
+        False
       ]
     BESS2_V5Nov24_battery_controllable_third_party:
       [
@@ -103,27 +181,35 @@
         True,
         True,
         True,
+        True,
+        True,
+        True,
+        True,
         False, #not eligible
         True,
-        True
+        False
       ]
     BESS2_V5Nov24_approved_battery_list:
       [
         True,
         True,
         True,
+        True, 
+        True,
+        True,
+        True,
         True,
         True,
         True,
         True,
         True,
         False, #not eligible
-        True
+        False
       ]
   output:
     BESS2_V5Nov24_installation_final_activity_eligibility:
       [
-        True,
+        True,  #all true
         False,
         False,
         False,
@@ -132,5 +218,9 @@
         False,
         False,
         False,
-        True
+        False,
+        False,
+        False,
+        False,
+        False  #all false
       ]

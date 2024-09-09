@@ -23,15 +23,17 @@ class BESS2_V5Nov24_installation_final_activity_eligibility(Variable):
         existing_solar_battery = buildings('BESS2_V5Nov24_existing_solar_battery', period)
         solar_panels_existing_address = buildings('BESS2_V5Nov24_solar_panels_existing_address', period)
         life_support_equipment = buildings('BESS2_V5Nov24_life_support_equipment', period)
+        ACP_engaged = buildings('BESS2_V5Nov24_engaged_ACP', period)
         battery_capacity = buildings('BESS2_V5Nov24_battery_capacity', period)
-        implementation_date = buildings('BESS2_V5Nov24_implementation_date', period)
+        battery_warranty_length = buildings('BESS2_V5Nov24_length_battery_warranty', period)
+        battery_warranty_temperature_range = buildings('BESS2_V5Nov24_temperature_range_warranty', period)
+        battery_warranty_throughput_before_April_2026 = buildings ('BESS2_V5Nov24_minimum_throughput_warranty_before_April_2026', period)
         battery_internet_connectable = buildings('BESS2_V5Nov24_internet_connectable', period)
         battery_controllable_third_party = buildings('BESS2_V5Nov24_battery_controllable_third_party', period)
         approved_battery_list = buildings('BESS2_V5Nov24_approved_battery_list', period)
 
-
-
         end_formula = (demand_response_contract * existing_solar_battery * solar_panels_existing_address * life_support_equipment *
-                       battery_capacity * implementation_date * battery_internet_connectable * battery_controllable_third_party * approved_battery_list)
+                       ACP_engaged * battery_capacity * battery_warranty_length * battery_warranty_temperature_range * 
+                       battery_warranty_throughput_before_April_2026 * battery_internet_connectable * battery_controllable_third_party * approved_battery_list)
 
         return end_formula

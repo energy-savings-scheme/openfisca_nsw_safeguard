@@ -63,7 +63,7 @@ class BESS1_V5Nov24_minimum_payment(Variable):
     metadata = {
         'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
         'sorting' : 5,
-        'eligibility_clause' : """In PDRS Clause 8.3.1 it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using Activity Definition BESS1"""
+        'eligibility_clause' : """In PDRS Clause 8.3.1 it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using Activity Definition BESS1."""
     }
 
 
@@ -111,7 +111,7 @@ class BESS1_V5Nov24_temperature_range_warranty(Variable):
     metadata = {
         'display_question' : 'Does the warranty define the normal use conditions of the battery as a minimum ambient temperature range of -10°C to 50°C?',
         'sorting' : 9,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than a minimum ambient temperature range of -10°C to 50°C"""
+        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than a minimum ambient temperature range of -10°C to 50°C."""
     }
 
 
@@ -123,7 +123,7 @@ class BESS1_V5Nov24_minimum_throughput_warranty_before_April_2026(Variable):
     metadata = {
         'display_question' : 'Does the warranty include a minimum throughput of 2.8MWh per kWh of usable capacity?',
         'sorting' : 10,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than a minimum warranted cumulative energy throughput equivalent to 2.8 MWh per kWh of Usable Battery Capacity where the Implementation Date is before 1 April 2026"""
+        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than a minimum warranted cumulative energy throughput equivalent to 2.8 MWh per kWh of Usable Battery Capacity where the Implementation Date is before 1 April 2026."""
     }
 
 

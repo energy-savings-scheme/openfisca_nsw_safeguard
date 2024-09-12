@@ -41,7 +41,7 @@ class BESS1_V5Nov24_usable_battery_capacity(Variable):
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        'variable-type' : 'user-input',
+        'variable-type' : 'input',
         'label': 'Usable battery capacity (kWh)',
         'display_question' : 'The actual amount of energy you can use',
         'sorting' : 3        

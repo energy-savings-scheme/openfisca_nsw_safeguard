@@ -46,7 +46,7 @@ class BESS1_V5Nov24_peak_demand_annual_savings(Variable):
     definition_period = ETERNITY
     label = 'Peak demand annual savings'
     metadata = {
-        "variable-type": "output"
+        'variable-type': 'output'
     }
 
     def formula(buildings, period, parameters):    

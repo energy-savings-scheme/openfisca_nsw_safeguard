@@ -3,18 +3,32 @@ on:
   push:
     branches:
       - develop
+  # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
+  pull_request:
   workflow_dispatch: # Manual github trigger (by pressing "Run workflow" on Github "Actions" tab)
 
 jobs:
-#   test:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Run test suite (includes pip install)
-#         run: openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
+      - name: Setup Python
+        run: |
+          uv python install 3.8 && \
+          uv venv --python=3.8 && \
+          uv pip install --editable .[dev] --upgrade && \
+          uv pip install --upgrade Jinja2==3.0.1 itsdangerous==2.0.1 pytest
+      - name: Run test suite
+        run: |
+          export PYTHONPATH="$(pwd):$PYTHONPATH"
+          source .venv/bin/activate
+          openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
 
   deploy:
-#     needs: test
+    needs: test
     name: Build
     runs-on: ubuntu-latest
     steps:

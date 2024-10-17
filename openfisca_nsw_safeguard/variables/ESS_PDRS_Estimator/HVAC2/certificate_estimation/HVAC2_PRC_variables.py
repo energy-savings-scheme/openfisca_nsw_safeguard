@@ -8,11 +8,6 @@ import numpy as np
 """ Parameters for HVAC2 PRC Calculation
 """
 
-""" Values shared with ESC variables HVAC2_ESC_variables 
-    HVAC2_cooling_capacity_input
-    HVAC2_baseline_AEER_input
-"""
-
 """ These variables use GEMS Registry data
 """
 class HVAC2_input_power(Variable):

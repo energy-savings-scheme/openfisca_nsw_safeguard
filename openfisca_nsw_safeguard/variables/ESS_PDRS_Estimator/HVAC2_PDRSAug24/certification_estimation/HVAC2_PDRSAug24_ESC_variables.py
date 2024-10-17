@@ -88,8 +88,8 @@ class HVAC2_PDRSAug24_baseline_AEER_input(Variable):
             [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
             
-                [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
+                [parameters(period).ESS.HEAB.table_F4_2.AEER[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEAB.table_F4_3.AEER[aircon][cooling_capacity_to_check]
                     ]
             )
 
@@ -153,10 +153,10 @@ class HVAC2_PDRSAug24_PDRS__postcode(Variable):
         'display_question' : 'Postcode where the installation has taken place',
         'sorting' : 1,
         'label': 'Postcode'
-        }
+    }
 
 
-class HVAC2_PDRSAug24_residential_THEC(Variable):
+class HVAC2_PDRSAug24_commercial_THEC(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -181,11 +181,11 @@ class HVAC2_PDRSAug24_equivalent_heating_hours_input(Variable):
         climate_zone = building('HVAC2_PDRSAug24_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
+        heating_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_heating_hours[climate_zone_str]
         return heating_hours
 
 
-class HVAC2_PDRSAug24_residential_TCEC(Variable):
+class HVAC2_PDRSAug24_commercial_TCEC(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -210,7 +210,7 @@ class HVAC2_PDRSAug24_equivalent_cooling_hours_input(Variable):
         climate_zone = building('HVAC2_PDRSAug24_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
-        cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone_str]
+        cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[climate_zone_str]
         return cooling_hours
 
 
@@ -252,8 +252,8 @@ class HVAC2_PDRSAug24_baseline_ACOP_input(Variable):
             [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
             
-                 [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check], 
-                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check] 
+                 [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check], 
+                    parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check] 
                     ]
             )
 
@@ -318,9 +318,6 @@ class HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the Air Conditioner have a TCSPF mixed equal or greater than the minimum' \
-            ' TCSPF mixed listed in Table D16.3? If the TCPSF is not available, is the Rated' \
-            ' AEER equal or greater than the Minimum Rated AEER listed in Table D16.5?'
     metadata = {
         'alias':  'Air Conditioner has at least 5 years of Warranty'
     }
@@ -388,9 +385,6 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
-    label = 'Does the Air Conditioner have a HSPF mixed equal or greater than the minimum' \
-            ' HSPF mixed listed in Table D16.3? If the HSPF is not available, is the Rated' \
-            ' ACOP equal or greater than the Minimum Rated ACOP listed in Table D16.5?'
     metadata = {
         'alias':  'ESS - HSPF or ACOP exceeds benchmark'
     }
@@ -447,10 +441,9 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
                                             np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
                                             ],
                                             [
-            (AC_ACOP >= parameters(period).ESS.HEER.table_D16_5['ACOP'][product_class][cooling_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_cold'][product_class][cooling_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEER.table_D16_4['HSPF_mixed'][product_class][cooling_capacity])
+            (AC_ACOP >= parameters(period).ESS.HEAB.table_F4_5['ACOP'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][product_class][cooling_capacity]),
+            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][product_class][cooling_capacity])
                                             ]
             )
-
         return AC_exceeds_benchmark

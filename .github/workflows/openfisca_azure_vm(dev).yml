@@ -3,20 +3,44 @@ on:
   push:
     branches:
       - develop
-  workflow_dispatch: # Manual github trigger (by pressing "Run workflow" on Github "Actions" tab)
-
+  # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
+  pull_request:
+    branches:
+      - develop
+  # Manual github trigger (by pressing "Run workflow" on Github "Actions" tab)
+  workflow_dispatch:
+# Ensure previous run with the same workflow/PR/branch will be cancelled
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
-#   test:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Run test suite (includes pip install)
-#         run: openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    # Ensure just run when there is PR or commit push to branch
+    if: github.event_name == 'pull_request' || github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
+      - name: Setup Python
+        run: |
+          uv python install 3.8 && \
+          uv venv --python=3.8 && \
+          uv pip install --editable .[dev] --upgrade && \
+          uv pip install --upgrade Jinja2==3.0.1 itsdangerous==2.0.1 pytest
+      - name: Run test suite
+        run: |
+          export PYTHONPATH="$(pwd):$PYTHONPATH"
+          source .venv/bin/activate
+          openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
 
   deploy:
-#     needs: test
+    needs: test
     name: Build
     runs-on: ubuntu-latest
+    # Ensure just run when there is commit push to branch
+    if: github.event_name == 'push'
     steps:
       - name: Executing remote ssh commands
         uses: appleboy/ssh-action@master

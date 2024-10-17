@@ -62,26 +62,26 @@
       ]
     WH1_F16_electric_PDRSAug24__certified:
       [
-        True,
+        True, 
         False,
         True,
         False,
         True,
         False,
-        True,
-        False
+        False,
+        False 
       ]
   output:
     WH1_F16_electric_PDRSAug24__certified_and_eligible:
       [
-        True,  #all true
+        True, #all true
         False,
         True,
         False,
         True,
         False,
         False,
-        False  #all false
+        False #all false
       ]
   
 - name: Test WH1 final activity eligibility
@@ -174,7 +174,7 @@
       ]
     WH1_F16_electric_PDRSAug24__building_BCA_class_1_or_4:
       [
-        False,
+        False, #eligible
         False,
         False,
         False,

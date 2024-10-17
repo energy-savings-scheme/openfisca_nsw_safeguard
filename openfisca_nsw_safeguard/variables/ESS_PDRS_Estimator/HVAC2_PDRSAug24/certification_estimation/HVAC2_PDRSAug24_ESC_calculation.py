@@ -101,7 +101,7 @@ class HVAC2_PDRSAug24_THEC_or_annual_heating(Variable):
     definition_period = ETERNITY
    
     def formula(buildings, period, parameters):
-        thec = buildings('HVAC2_PDRSAug24_residential_THEC',period)
+        thec = buildings('HVAC2_PDRSAug24_commercial_THEC',period)
         refheat = buildings('HVAC2_PDRSAug24_heating_annual_energy_use',period)
 
         result_to_return = np.select([
@@ -150,7 +150,7 @@ class HVAC2_PDRSAug24_TCEC_or_annual_cooling(Variable):
     definition_period = ETERNITY
    
     def formula(buildings, period, parameters):
-        tcec = buildings('HVAC2_PDRSAug24_residential_TCEC',period)
+        tcec = buildings('HVAC2_PDRSAug24_commercial_TCEC',period)
         refcool = buildings('HVAC2_PDRSAug24_cooling_annual_energy_use',period)
 
         result_to_return = np.select([
@@ -267,8 +267,8 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
             [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
             
-                [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
+                [parameters(period).ESS.HEAB.table_F4_2.AEER[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEAB.table_F4_3.AEER[aircon][cooling_capacity_to_check]
                     ]
             )
 
@@ -276,7 +276,7 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
       climate_zone = buildings('HVAC2_PDRSAug24_certificate_climate_zone', period)
       climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                     ['hot_zone', 'average_zone', 'cold_zone'])
-      equivalent_cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone_str]
+      equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[climate_zone_str]
 
       #rated AEER
       rated_AEER = buildings('HVAC2_PDRSAug24_rated_AEER_input', period)
@@ -296,7 +296,7 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
                 ])
 
       #TCEC or annual cooling
-      tcec = buildings('HVAC2_PDRSAug24_residential_TCEC',period)
+      tcec = buildings('HVAC2_PDRSAug24_commercial_TCEC',period)
 
       tcec_or_annual_cooling = np.select([
             tcec > 0, 
@@ -348,8 +348,8 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
             [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
             
-                [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
+                [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check]
                     ]
             )
 
@@ -357,7 +357,7 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
       heating_capacity = buildings('HVAC2_PDRSAug24_heating_capacity_input', period)
 
       #equivalent heating hours
-      equivalent_heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
+      equivalent_heating_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_heating_hours[climate_zone_str]
 
       #rated ACOP
       rated_ACOP = buildings('HVAC2_PDRSAug24_rated_ACOP_input', period)
@@ -372,8 +372,8 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
             [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
             
-                [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
+                [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check],
+                    parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check]
                     ]
             )
 
@@ -392,7 +392,7 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
                 ])
 
       #THEC or annual heating
-      thec = buildings('HVAC2_PDRSAug24_residential_THEC',period)
+      thec = buildings('HVAC2_PDRSAug24_commercial_THEC',period)
 
       thec_or_annual_heating = np.select([
                 thec > 0, 

@@ -97,7 +97,7 @@ class BESS1_V5Nov24_retainable_battery_capacity_warranty(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Does the warranty guarantee that at least seventy percent (70%) of the batterys usable capacity is retained 10 years from the installation date?',
+        'display_question' : "Does the warranty guarantee that at least seventy percent (70%) of the battery's usable capacity is retained 10 years from the installation date?",
         'sorting' : 8,
         'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 4 it states that each item of End-User Equipment must have a warranty of at least 10 years and guarantee that at least seventy percent (70%) of Usable Capacity is retained 10 years from the date the End-User Equipment is installed at the site."""
     }

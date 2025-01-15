@@ -49,7 +49,8 @@
         True,
         True,
         True,
-        False
+        True,
+        True
       ]
     BESS1_PDRSDec24_new_solar_battery:
       [
@@ -71,7 +72,8 @@
         True,
         True,
         True,
-        False
+        True,
+        True
       ]
     BESS1_PDRSDec24_solar_panels:
       [
@@ -93,7 +95,8 @@
         True,
         True,
         True,
-        False
+        True,
+        True
       ]
     BESS1_PDRSDec24_engaged_ACP:
       [
@@ -115,7 +118,8 @@
         True,
         True,
         True,
-        False
+        True,
+        True
       ]
     BESS1_PDRSDec24_minimum_payment:
       [
@@ -137,7 +141,8 @@
         True,
         True,
         True,
-        False
+        True,
+        True
       ]
     BESS1_PDRSDec24_battery_capacity:
       [
@@ -159,7 +164,8 @@
         True,
         True,
         True,
-        False
+        True,
+        True
       ]
     BESS1_PDRSDec24_length_battery_warranty:
       [
@@ -181,7 +187,8 @@
         True,
         True,
         True,
-        False
+        True,
+        True
       ]
     BESS1_PDRSDec24_retainable_battery_capacity_warranty:
       [
@@ -203,9 +210,10 @@
         True,
         True,
         True,
-        False
+        True,
+        True
       ]
-    BESS1_PDRSDec24_temperature_range_warranty:
+    BESS1_PDRSDec24_inverter_installed:
       [
         True,
         True,
@@ -225,7 +233,54 @@
         True,
         True,
         True,
-        False
+        True,
+        True
+      ]  
+    BESS1_PDRSDec24_inverter_warranty:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    BESS1_PDRSDec24_temperature_range_warranty:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
       ]
     BESS1_PDRSDec24_minimum_throughput_warranty_before_April_2026:
       [
@@ -239,6 +294,8 @@
         True,
         True,
         True,
+        True,
+        True,
         False, #not eligible
         True,
         True,
@@ -246,8 +303,7 @@
         True,
         True,
         True,
-        True,
-        False
+        True
       ]
     BESS1_PDRSDec24_installation_location_eligible:
       [
@@ -262,14 +318,15 @@
         True,
         True,
         True,
+        True,
+        True,
         False, #not eligible
         True,
         True,
         True,
         True,
         True,
-        True,
-        False
+        True
       ]
     BESS1_PDRSDec24_installed_indoors_has_smoke_alarm:
       [
@@ -285,13 +342,14 @@
         True,
         True,
         True,
+        True,
+        True,
         False, #not eligible
         True,
         True,
         True,
         True,
-        True,
-        False
+        True
       ]
     BESS1_PDRSDec24_battery_internet_connectable:
       [
@@ -308,12 +366,13 @@
         True,
         True,
         True,
+        True,
+        True,
         False, #not eligible
         True,
         True,
         True,
-        True,
-        False
+        True
       ]
     BESS1_PDRSDec24_battery_controllable_third_party:
       [
@@ -331,11 +390,12 @@
         True,
         True,
         True,
+        True,
+        True,
         False, #not eligible
         True,
         True,
-        True,
-        False
+        True
       ]
     BESS1_PDRSDec24_approved_product_list:
       [
@@ -354,10 +414,11 @@
         True,
         True,
         True,
+        True,
+        True,
         False, #not eligible
         True,
-        True,
-        False
+        True
       ]
     BESS1_PDRSDec24_approved_installer:
       [
@@ -377,9 +438,10 @@
         True,
         True,
         True,
-        False, #not eligible
         True,
-        False
+        True,
+        False, #not eligible
+        True
       ]
     BESS1_PDRSDec24_DER_register:
       [
@@ -400,13 +462,15 @@
         True,
         True,
         True,
-        False, #not eligible
-        False 
+        True,
+        True,
+        False #not eligible
       ]
   output:
     BESS1_PDRSDec24_installation_final_activity_eligibility:
       [
         True, #all true
+        False,
         False,
         False,
         False,

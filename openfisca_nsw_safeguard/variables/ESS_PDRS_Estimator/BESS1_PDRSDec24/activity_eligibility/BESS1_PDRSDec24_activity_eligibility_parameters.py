@@ -87,7 +87,7 @@ class BESS1_PDRSDec24_length_battery_warranty(Variable):
     metadata = {
         'display_question' : 'Does the battery have a warranty of at least 10 years?',
         'sorting' : 7,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 4 it states that each item of End-User Equipment must have a warranty of at least 10 years and guarantee that at least seventy percent (70%) of Usable Capacity is retained 10 years from the date the End-User Equipment is installed at the site."""
+        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 4 it states that each item of End-User Equipment, excluding inverters installed prior to the Implementation Date, must have a warranty of at least 10 years and guarantee that at least seventy percent (70%) of Usable Battery Capacity is retained 10 years from the date the End-User Equipment is installed at the site."""
     }
 
 
@@ -293,7 +293,7 @@ class BESS1_PDRSDec24_DER_register(Variable):
     metadata = {
         'display_question' : 'Has an application been made to register the installation on the AEMO Distributed Energy Resource (DER) Register?',
         'sorting' : 19,
-        'eligibility_clause' : """Transitional arrangement arising from the commencement of Implementation Requirement 4 of Activity Definition BESS1 11.6 Implementation Requirement 4 of Activity Definition BESS1 does not apply to any Implementation for which an Accredited Certificate Provider applies to register the creation of certificates on or before:<br />
+        'eligibility_clause' : """The transitional arrangement in BESS1 Clause 11.6 states that BESS1 Implementation Requirement 4 does not apply to any Implementation for which an Accredited Certificate Provider applies to register the creation of certificates on or before:<br />
                                     (a) 19 June 2025 <br />
                                     (b) or where the Scheme Administrator has specified another date by notice Published under this clause - that other date.<br />
                                   <br /> 

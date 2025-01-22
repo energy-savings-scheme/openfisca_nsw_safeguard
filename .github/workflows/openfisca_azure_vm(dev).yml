@@ -18,7 +18,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     # Ensure just run when there is PR or commit push to branch
-    if: github.event_name == 'pull_request' || github.event_name == 'push'
+    if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v2
       - name: Install uv
@@ -40,7 +40,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     # Ensure just run when there is commit push to branch
-    if: github.event_name == 'push'
+    # Because when creating a new PR, we dont want to auto deploy this
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
       - name: Executing remote ssh commands
         uses: appleboy/ssh-action@master

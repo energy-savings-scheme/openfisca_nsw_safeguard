@@ -304,3 +304,67 @@
         200,
         0
       ]
+
+- name: test HVAC1 PRC calculation LG UU150WR3L U30-UHN150M3S N30
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
+      [
+        true
+      ]
+    HVAC1_PDRSAug24_input_power:
+      [
+        4.6
+      ]
+    HVAC1_PDRSAug24_Air_Conditioner_type:
+      [
+        non_ducted_split_system
+      ]
+    HVAC1_PDRSAug24_cooling_capacity_input:
+      [
+        15.2
+      ]
+    HVAC1_PDRSAug24_Activity:
+      [
+        new_installation_activity
+      ]
+    HVAC1_PDRSAug24_BCA_Climate_Zone:
+      [
+        BCA_Climate_Zone_5
+      ]
+    HVAC1_PDRSAug24_get_network_loss_factor_by_postcode:
+      [ 
+        1.04
+      ]
+  output:
+    HVAC1_PDRSAug24_PRC_calculation:
+      [
+       74
+      ]
+
+- name: test HVAC1 peak demand annual savings LG UU150WR3L U30-UHN150M3S N30
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_PDRSAug24_cooling_capacity_input:
+      [
+        15.2
+      ]
+    HVAC1_PDRSAug24_baseline_AEER_input:
+      [
+        3.1
+      ]
+    HVAC1_PDRSAug24_BCA_Climate_Zone:
+      [
+        BCA_Climate_Zone_5
+      ]
+    HVAC1_PDRSAug24_input_power:
+      [
+        2.88
+      ]
+  output:
+    HVAC1_PDRSAug24_peak_demand_annual_savings:
+      [
+        48
+      ]

@@ -184,7 +184,6 @@ class HVAC1_PDRSAug24_peak_demand_annual_savings(Variable):
 	        [
                 0, peak_demand_annual_savings
             ])
-        
         return peak_demand_annual_savings_return
     
 

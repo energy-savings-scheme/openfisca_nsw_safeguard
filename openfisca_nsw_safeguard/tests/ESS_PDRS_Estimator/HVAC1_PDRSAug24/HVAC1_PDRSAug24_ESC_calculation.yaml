@@ -966,76 +966,157 @@
     HVAC1_PDRSAug24_Air_Conditioner_type:
       [
         non_ducted_split_system,
-        non_ducted_split_system   #Bonaire 6920082/6920020/6920027
+        non_ducted_split_system,   #Bonaire 6920082/6920020/6920027
+        non_ducted_split_system    #LG UU150WR3L U30-UHN150M3S N30
       ]
     HVAC1_PDRSAug24_get_network_loss_factor_by_postcode:
       [
         1.045,
-        1.045
+        1.045,
+        1.04
       ]
     HVAC1_PDRSAug24_HSPF_cold:
       [
         0, #not used
-        0
+        0,
+        2.801
       ]
     HVAC1_PDRSAug24_HSPF_mixed:
       [
         0, #not used
-        0
+        0,
+        3.21
       ]
     HVAC1_PDRSAug24_PDRS__postcode: 
       [
         2795, #cold zone
-        2795
+        2795,
+        2000
       ]
     HVAC1_PDRSAug24_TCSPF_mixed:
       [
         0, #not used
-        0
+        0,
+        4.11
       ]
     HVAC1_PDRSAug24_cooling_capacity_input: 
       [
         20.96,
-        8.2
+        8.2,
+        15.2
       ]
     HVAC1_PDRSAug24_heating_capacity_input: 
       [
         23.39,
-        9.6
+        9.6,
+        18
       ]
     HVAC1_PDRSAug24_input_power: 
       [
         6.626,
-        2.25
+        2.25,
+        4.6
       ]
     HVAC1_PDRSAug24_Activity:
       [
+        new_installation_activity,
         new_installation_activity,
         new_installation_activity
       ]
     HVAC1_PDRSAug24_rated_ACOP_input:
       [
-        3.2143, #does not meet minimum
-        3.6795  #does not meet minimum
+        3.2143,  #does not meet minimum
+        3.6795,  #does not meet minimum
+        3.6383   
       ]
     HVAC1_PDRSAug24_rated_AEER_input:
       [
         3.1552, #does not meet minimum
-        3.5589
+        3.5589,
+        3.2707  
       ]
     HVAC1_PDRSAug24_residential_TCEC: 
       [
         1817,
-        0
+        0,
+        1525
       ]
     HVAC1_PDRSAug24_residential_THEC:
       [
         12094,
-        0
+        0,
+        3082
       ] 
   output:
     HVAC1_PDRSAug24_ESC_calculation:
       [
         0,
+        0,
+        0
+      ]
+
+- name: test ESC calculation LG UU150WR3L U30-UHN150M3S N30
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    HVAC1_PDRSAug24_Air_Conditioner_type:
+      [
+        non_ducted_split_system  
+      ]
+    HVAC1_PDRSAug24_get_network_loss_factor_by_postcode:
+      [
+        1.04
+      ]
+    HVAC1_PDRSAug24_HSPF_cold:
+      [
+        2.801
+      ]
+    HVAC1_PDRSAug24_HSPF_mixed:
+      [
+        3.21
+      ]
+    HVAC1_PDRSAug24_PDRS__postcode: 
+      [
+        2000
+      ]
+    HVAC1_PDRSAug24_TCSPF_mixed:
+      [
+        4.11
+      ]
+    HVAC1_PDRSAug24_cooling_capacity_input: 
+      [
+        15.2
+      ]
+    HVAC1_PDRSAug24_heating_capacity_input: 
+      [
+        18
+      ]
+    HVAC1_PDRSAug24_input_power: 
+      [
+        4.6
+      ]
+    HVAC1_PDRSAug24_Activity:
+      [
+        new_installation_activity
+      ]
+    HVAC1_PDRSAug24_rated_ACOP_input:
+      [
+        3.6383   
+      ]
+    HVAC1_PDRSAug24_rated_AEER_input:
+      [
+        3.2707  
+      ]
+    HVAC1_PDRSAug24_residential_TCEC: 
+      [
+        1525
+      ]
+    HVAC1_PDRSAug24_residential_THEC:
+      [
+        3082
+      ] 
+  output:
+    HVAC1_PDRSAug24_ESC_calculation:
+      [
         0
       ]

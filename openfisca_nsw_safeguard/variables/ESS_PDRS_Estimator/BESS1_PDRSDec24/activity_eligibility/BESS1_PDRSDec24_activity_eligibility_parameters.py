@@ -115,16 +115,54 @@ class BESS1_PDRSDec24_inverter_installed(Variable):
     }
 
 
-class BESS1_PDRSDec24_inverter_warranty(Variable):
-    value_type = bool
+class BESS1_PDRSDec24_InverterWarrantyLength(Enum):
+    inverter_warranty_less_than_ten_years = 'Less than ten years'
+    inverter_warranty_ten_years_or_more = 'Ten years or more'
+
+
+class BESS1_PDRSDec24_inverter_warranty_length(Variable):
+    #only show this question if they have an inverter
+    value_type = Enum
     entity = Building
-    default_value = True
+    possible_values = BESS1_PDRSDec24_InverterWarrantyLength
+    default_value = BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_ten_years_or_more
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Does your inverter have a warranty of at least 10 years?',
+        'variable-type' : 'user-input',
+        'display_question' : 'How long is the warranty on your inverter?',
         'sorting' : 10,
+        'conditional' : 'True',
         'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each item of End-Equipment that is a inverter installed prior to the Implementation Date must have a warranty of at least 10 years from the date that it was installed."""
     }
+
+
+class BESS1_has_inverter_and_warranty_length_eligible(Variable):
+    """Checks if there is an inverter, and if there is, that the inverter warranty length is eligible
+    """
+    value_type = bool
+    entity = Building 
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      inverter_installed = buildings('BESS1_PDRSDec24_inverter_installed', period)
+      warranty_length = buildings('BESS1_PDRSDec24_inverter_warranty_length', period)
+
+
+      activity_type_eligible = np.select(
+        [
+          inverter_installed * (warranty_length == BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_less_than_ten_years),
+          inverter_installed * (warranty_length == BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_ten_years_or_more),
+          np.logical_not(inverter_installed) * (warranty_length == BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_less_than_ten_years),
+          np.logical_not(inverter_installed) * (warranty_length == BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_ten_years_or_more),
+        ],
+        [
+          False,
+          True,
+          True,
+          True
+        ])
+
+      return activity_type_eligible
 
     
 class BESS1_PDRSDec24_temperature_range_warranty(Variable):

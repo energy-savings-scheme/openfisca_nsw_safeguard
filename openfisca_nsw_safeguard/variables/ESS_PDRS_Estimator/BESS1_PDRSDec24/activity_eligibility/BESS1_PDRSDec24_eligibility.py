@@ -27,8 +27,7 @@ class BESS1_PDRSDec24_installation_final_activity_eligibility(Variable):
        battery_capacity = buildings('BESS1_PDRSDec24_battery_capacity', period)
        battery_warranty_length = buildings('BESS1_PDRSDec24_length_battery_warranty', period)
        battery_warranty_retainable_capacity = buildings('BESS1_PDRSDec24_retainable_battery_capacity_warranty', period)
-       inverter_installed = buildings('BESS1_PDRSDec24_inverter_installed', period) 
-       inverter_warranty = buildings('BESS1_PDRSDec24_inverter_warranty', period) 
+       has_inverter_and_warranty_length_eligible = buildings('BESS1_has_inverter_and_warranty_length_eligible', period) 
        battery_warranty_temperature_range = buildings('BESS1_PDRSDec24_temperature_range_warranty', period)
        battery_warranty_throughput_before_April_2026 = buildings ('BESS1_PDRSDec24_minimum_throughput_warranty_before_April_2026', period)
        installation_location_eligible = buildings('BESS1_PDRSDec24_installation_location_eligible', period)
@@ -40,7 +39,7 @@ class BESS1_PDRSDec24_installation_final_activity_eligibility(Variable):
        DER_Register = buildings('BESS1_PDRSDec24_DER_register', period)
 
        end_formula = ( equipment_installation * new_solar_battery * solar_panels * ACP_engaged * minimum_payment * battery_capacity * 
-                       battery_warranty_length * battery_warranty_retainable_capacity * inverter_installed * inverter_warranty * battery_warranty_temperature_range * battery_warranty_throughput_before_April_2026 *
+                       battery_warranty_length * battery_warranty_retainable_capacity * has_inverter_and_warranty_length_eligible * battery_warranty_temperature_range * battery_warranty_throughput_before_April_2026 *
                        installation_location_eligible * installed_indoors_has_smoke_alarm * battery_internet_connectable * battery_controllable_third_party * 
                        approved_product_list * approved_installer * DER_Register)
 

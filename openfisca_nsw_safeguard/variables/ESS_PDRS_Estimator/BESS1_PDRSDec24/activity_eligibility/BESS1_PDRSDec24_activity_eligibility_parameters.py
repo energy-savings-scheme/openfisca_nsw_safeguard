@@ -103,68 +103,6 @@ class BESS1_PDRSDec24_retainable_battery_capacity_warranty(Variable):
     }
     
 
-class BESS1_PDRSDec24_inverter_installed(Variable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Do you already have an inverter installed?',
-        'sorting' : 9,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each item of End-Equipment that is a inverter installed prior to the Implementation Date must have a warranty of at least 10 years from the date that it was installed."""
-    }
-
-
-class BESS1_PDRSDec24_InverterWarrantyLength(Enum):
-    inverter_warranty_less_than_ten_years = 'Less than ten years'
-    inverter_warranty_ten_years_or_more = 'Ten years or more'
-
-
-class BESS1_PDRSDec24_inverter_warranty_length(Variable):
-    #only show this question if they have an inverter
-    value_type = Enum
-    entity = Building
-    possible_values = BESS1_PDRSDec24_InverterWarrantyLength
-    default_value = BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_ten_years_or_more
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type' : 'user-input',
-        'display_question' : 'How long is the warranty on your inverter?',
-        'sorting' : 10,
-        'conditional' : 'True',
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each item of End-Equipment that is a inverter installed prior to the Implementation Date must have a warranty of at least 10 years from the date that it was installed."""
-    }
-
-
-class BESS1_has_inverter_and_warranty_length_eligible(Variable):
-    """Checks if there is an inverter, and if there is, that the inverter warranty length is eligible
-    """
-    value_type = bool
-    entity = Building 
-    definition_period = ETERNITY
-
-    def formula(buildings, period, parameters):
-      inverter_installed = buildings('BESS1_PDRSDec24_inverter_installed', period)
-      warranty_length = buildings('BESS1_PDRSDec24_inverter_warranty_length', period)
-
-
-      activity_type_eligible = np.select(
-        [
-          inverter_installed * (warranty_length == BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_less_than_ten_years),
-          inverter_installed * (warranty_length == BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_ten_years_or_more),
-          np.logical_not(inverter_installed) * (warranty_length == BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_less_than_ten_years),
-          np.logical_not(inverter_installed) * (warranty_length == BESS1_PDRSDec24_InverterWarrantyLength.inverter_warranty_ten_years_or_more),
-        ],
-        [
-          False,
-          True,
-          True,
-          True
-        ])
-
-      return activity_type_eligible
-
-    
 class BESS1_PDRSDec24_temperature_range_warranty(Variable):
     value_type = bool
     entity = Building
@@ -172,7 +110,7 @@ class BESS1_PDRSDec24_temperature_range_warranty(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Does the warranty define the normal use conditions of the battery as a minimum ambient temperature range of -10°C to 50°C?',
-        'sorting' : 11,
+        'sorting' : 9,
         'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 6 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than:<br />
                                     (a) A minimum ambient temperature range of -10 °C to 50 °C"""
     }
@@ -185,7 +123,7 @@ class BESS1_PDRSDec24_minimum_throughput_warranty_before_April_2026(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Does the warranty include a minimum throughput of 2.8MWh per kWh of usable capacity?',
-        'sorting' : 12,
+        'sorting' : 10,
         'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 6 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than:<br />
                                     (b) A minimum warranted cumulative energy throughput equivalent to 2.8 MWh per kWh of Usable Battery Capacity where the Implementation Date is before 1 April 2026"""
     }
@@ -204,7 +142,7 @@ class BESS1_PDRSDec24_installation_location(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Where is your Battery Energy Storage System installed?',
-        'sorting' : 13
+        'sorting' : 11
     }
 
 
@@ -239,7 +177,7 @@ class BESS1_PDRSDec24_smoke_alarm(Variable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is a working smoke alarm installed in the immediate vicinity of the battery?',
-        'sorting' : 14,
+        'sorting' : 12,
         'conditional' : 'True',
         'eligibility_clause' : """In PDRS BESS1 Implementation Requirements Clause 5 it states that where the Battery Energy Storage system is installed indoors, a working smoke alarm that meets AS 3786 must be installed in the immediate vicinity."""
     }
@@ -271,6 +209,58 @@ class BESS1_PDRSDec24_installed_indoors_has_smoke_alarm(Variable):
         ])
 
       return installed_indoors_has_smoke_alarm
+
+
+class BESS1_PDRSDec24_inverter_installed(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Do you already have an inverter installed?',
+        'sorting' : 13,
+        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each item of End-Equipment that is a inverter installed prior to the Implementation Date must have a warranty of at least 10 years from the date that it was installed."""
+    }
+
+
+class BESS1_PDRSDec24_inverter_warranty_length_eligible(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Does the inverter have a warranty of at least 10 years?',
+        'sorting' : 14,
+        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each item of End-Equipment that is a inverter installed prior to the Implementation Date must have a warranty of at least 10 years from the date that it was installed."""
+    }
+
+
+class BESS1_has_inverter_and_warranty_length_eligible(Variable):
+    """Checks if there is an inverter, and if there is, that the inverter warranty length is eligible
+    """
+    value_type = bool
+    entity = Building 
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      inverter_installed = buildings('BESS1_PDRSDec24_inverter_installed', period)
+      warranty_length_eligible = buildings('BESS1_PDRSDec24_inverter_warranty_length_eligible', period)
+
+      activity_type_eligible = np.select(
+        [
+          inverter_installed * warranty_length_eligible,
+          inverter_installed * np.logical_not(warranty_length_eligible),
+          np.logical_not(inverter_installed) * warranty_length_eligible,
+          np.logical_not(inverter_installed) * np.logical_not(warranty_length_eligible),
+        ],
+        [
+          True,
+          False,
+          True,
+          True
+        ])
+
+      return activity_type_eligible
 
 
 class BESS1_PDRSDec24_battery_internet_connectable(Variable):

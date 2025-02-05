@@ -479,18 +479,18 @@
         False,
         False
       ]
-    BESS1_PDRSDec24_inverter_warranty_length:
+    BESS1_PDRSDec24_inverter_warranty_length_eligible:
       [
-        inverter_warranty_less_than_ten_years,
-        inverter_warranty_ten_years_or_more,
-        inverter_warranty_less_than_ten_years, #ignored if there is no inverter
-        inverter_warranty_ten_years_or_more    #ignored if there is no inverter
+        True,
+        False,
+        True, #ignored if there is no inverter
+        False #ignored if there is no inverter
       ]
   output:
     BESS1_has_inverter_and_warranty_length_eligible:
       [
-        False,
         True,
+        False,
         True,
         True
       ]

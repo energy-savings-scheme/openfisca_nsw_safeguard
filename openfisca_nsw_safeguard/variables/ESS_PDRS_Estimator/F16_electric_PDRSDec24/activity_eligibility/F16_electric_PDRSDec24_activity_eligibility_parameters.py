@@ -132,6 +132,7 @@ class F16_electric_PDRSDec24__minimum_annual_energy(Variable):
 class F16_electric_PDRSDec24__storage_volume(Variable):
     value_type = bool
     entity = Building
+    default_value = True
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the storage volume of the End-User equipment 700 litres or less?',
@@ -141,7 +142,7 @@ class F16_electric_PDRSDec24__storage_volume(Variable):
 
 
 class F16_electric_PDRSDec24__certified(Variable):
-    #only show this if question 11 is true and the storage volume is 700L or less
+    #don't show this if Q11 is false and the storage volume is more than 700L
     value_type = bool
     entity = Building
     default_value = True

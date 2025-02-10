@@ -305,7 +305,7 @@ class BESS1_PDRSDec24_approved_installer(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Has the installation of the End-User equipment been performed by an approved installer that is on the Solar Accreditation Australia installer list?',
+        'display_question' : 'Has the installation of the End-User equipment been performed by an approved installer who is on the Solar Accreditation Australia installer list?',
         'sorting' : 18,
         'eligibility_clause' : """In PDRS BESS1 Implementation Requirements Clause 1 it states that the End-User Equipment must be installed in accordance with AS/NZS 5139.<br />
                                   In PDRS BESS1 Implementation Requirements Clause 2 it states that the End-User Equipment must be installed by an installer on an approved installer list specified by the Scheme Administrator.<br />

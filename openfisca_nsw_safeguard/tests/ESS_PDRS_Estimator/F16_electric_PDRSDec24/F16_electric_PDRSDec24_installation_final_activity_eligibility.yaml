@@ -40,8 +40,7 @@
         True,
         True,
         True,
-        True,
-        True,
+        True
       ]
     F16_electric_PDRSDec24__existing_equipment_removed:
       [
@@ -54,8 +53,7 @@
         True,
         True,
         True,
-        True,
-        True,
+        True
       ]
     F16_electric_PDRSDec24__equipment_installed_on_site:
       [
@@ -68,8 +66,7 @@
         True,
         True,
         True,
-        True,
-        True,
+        True
       ]
     F16_electric_PDRSDec24__qualified_install_removal:
       [
@@ -82,8 +79,7 @@
         True,
         True,
         True,
-        True,
-        True,
+        True
       ]
     F16_electric_PDRSDec24__engaged_ACP:
       [
@@ -96,8 +92,7 @@
         True,
         True,
         True,
-        True,
-        True,
+        True
       ]
     F16_electric_PDRSDec24__minimum_payment:
       [
@@ -110,8 +105,7 @@
         False,
         True,
         True,
-        True,
-        True,
+        True
       ]
     F16_electric_PDRSDec24__building_BCA_class_1_or_4:
       [
@@ -124,8 +118,7 @@
         False,
         True,  #not eligible
         False,
-        False,
-        False,
+        False
       ]
     F16_electric_PDRSDec24__4234_certified:
       [
@@ -136,24 +129,9 @@
         True,
         True,
         True,
-        True,
         False,
         True,
-        True,
-      ]
-    F16_electric_PDRSDec24__scheme_admin_approved:  
-      [
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        False,
-        True,
+        True
       ]
     F16_electric_PDRSDec24__minimum_annual_energy:
       [
@@ -165,9 +143,8 @@
         True,
         True,
         True,
-        True,
-        True,
         False,
+        True
       ]
     F16_electric_PDRSDec24__certified_and_eligible:
       [
@@ -180,14 +157,12 @@
         True,
         True,
         True,
-        True,
-        False,
+        False
       ]
   output:
     F16_electric_PDRSDec24__installation_replacement_final_activity_eligibility:
       [
         True,
-        False,
         False,
         False,
         False,

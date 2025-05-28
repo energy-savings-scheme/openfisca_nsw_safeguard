@@ -87,7 +87,7 @@ class BESS2_V5Nov24_length_battery_warranty(Variable):
     metadata = {
         'display_question' : 'Does the battery have a remaining warranty of at least 6 years?',
         'sorting' : 7,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 3 it states that each item of End-User Equipment must have a minimum 6 years remaining on the warranty."""
+        'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 3 it states that each item of End-User Equipment must have a minimum 6 years remaining on the warranty."""
     }
 
 

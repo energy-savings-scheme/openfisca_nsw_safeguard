@@ -101,3 +101,106 @@
         52,
         0
       ]
+
+# PERIOD JULY 2025
+- name: Test BESS2 demand response component
+  period: 2025-07
+  absolute_error_margin: 0.1
+  input:
+    BESS2_V5Nov24_usable_battery_capacity:
+      [
+        27,
+        12,
+        8
+      ]
+  output:
+    BESS2_V5Nov24_demand_response_component:
+      [
+        2.0061,
+        0.8916,
+        0.5944
+      ]
+
+- name: Test BESS2 peak demand response capacity
+  period: 2025-07
+  absolute_error_margin: 0.1
+  input:
+    BESS2_V5Nov24_demand_response_component:
+      [
+        2.0061,
+        0.8916,
+        0.5944
+      ]
+  output:
+    BESS2_V5Nov24_peak_demand_response_capacity:
+      [
+        1.60488,
+        0.71328,
+        0.47552
+      ]
+
+- name: Test BESS2 peak demand annual savings
+  period: 2025-07
+  absolute_error_margin: 0.1
+  input:
+    BESS2_V5Nov24_usable_battery_capacity:
+      [
+        27,
+        12,
+        8
+      ]
+  output:
+    BESS2_V5Nov24_peak_demand_annual_savings:
+      [
+        57.77568,
+        25.67808,
+        17.11872
+      ]
+
+- name: Test BESS2 peak demand reduction capacity
+  period: 2025-07
+  absolute_error_margin: 0.1
+  input:
+    BESS2_V5Nov24_peak_demand_response_capacity:
+      [
+        1.60488,
+        0.71328,
+        0.47552
+      ]
+  output:
+    BESS2_V5Nov24_peak_demand_reduction_capacity:
+      [
+        57.77568,
+        25.67808,
+        17.11872
+      ]
+
+- name: Test BESS2 PRC calculation
+  period: 2025-07
+  absolute_error_margin: 0.1
+  input:
+    BESS2_V5Nov24_peak_demand_reduction_capacity:
+      [
+        57.77568,
+        25.67808,
+        17.11872
+      ]
+    BESS2_V5Nov24_get_network_loss_factor_by_postcode:
+      [
+        1.04,
+        1.04,
+        1.04
+      ]
+    BESS2_V5Nov24_installation_activity:
+      [
+        true,
+        true,
+        False
+      ]
+  output:
+    BESS2_V5Nov24_PRC_calculation:
+      [
+        600.8671,
+        267.0520,
+        0
+      ]

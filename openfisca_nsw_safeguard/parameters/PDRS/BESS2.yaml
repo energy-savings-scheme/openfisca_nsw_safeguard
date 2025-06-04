@@ -3,12 +3,12 @@ lifetime:
     values:
         2021-01-01:
             value: 3
-        2025-07-01:
+        2025-06-04:
             value: 6
 
 demand_reduction_factor:
     values:
         2021-01-01:
             value: 0.0647
-        2025-07-01:
+        2025-06-04:
             value: 0.0743

@@ -12,9 +12,9 @@ class BESS2_V5Nov24_demand_response_contract(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Are you aware that you need to sign a demand response contract for your solar battery?',
+        'display_question' : 'Have you connected a solar battery to a virtual power plant?',
         'sorting' : 1,
-        'eligibility_clause' : """The PDRS BESS2 activity is to sign a behind the meter Battery Energy Storage System up to a demand response contract."""
+        'eligibility_clause' : """The PDRS BESS2 activity is onboard a behind the meter residential battery energy storage system with a demand response aggregator."""
     }
 
 

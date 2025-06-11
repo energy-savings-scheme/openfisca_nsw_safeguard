@@ -7,8 +7,6 @@ firmness_factor:
   BESS2:
     values:
       2021-01-01:
-        value: 1
-      2025-06-04:
         value: 0.8
   HVAC1:
     values:

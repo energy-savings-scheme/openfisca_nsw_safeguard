@@ -17,7 +17,7 @@ class BESS2_PDRSAug24_demand_response_component(Variable):
 
     def formula(buildings, period, parameters):
         usable_battery_capacity = buildings('BESS2_PDRSAug24_usable_battery_capacity', period)
-        demand_reduction_factor = 0.0647
+        demand_reduction_factor = parameters(period).PDRS.BESS2.demand_reduction_factor
 
         demand_response_component = usable_battery_capacity * demand_reduction_factor
         return demand_response_component
@@ -54,7 +54,7 @@ class BESS2_PDRSAug24_peak_demand_annual_savings(Variable):
         usable_battery_capacity = buildings('BESS2_PDRSAug24_usable_battery_capacity', period)
 
         #demand response component
-        demand_reduction_factor = 0.0647
+        demand_reduction_factor = parameters(period).PDRS.BESS2.demand_reduction_factor
 
         demand_response_component = usable_battery_capacity * demand_reduction_factor
 
@@ -67,7 +67,7 @@ class BESS2_PDRSAug24_peak_demand_annual_savings(Variable):
         summer_peak_demand_duration = 6
 
         #lifetime
-        lifetime = 3
+        lifetime = parameters(period).PDRS.BESS2.lifetime
 
         peak_demand_annual_savings = peak_demand_response_capacity * summer_peak_demand_duration * lifetime
 
@@ -94,7 +94,7 @@ class BESS2_PDRSAug24_peak_demand_reduction_capacity(Variable):
     def formula(buildings, period, parameters):
        peak_demand_response_capacity = buildings('BESS2_PDRSAug24_peak_demand_response_capacity', period)
        summer_peak_demand_reduction_duration = 6
-       lifetime = 3
+       lifetime = parameters(period).PDRS.BESS2.lifetime
        
        peak_demand_reduction_capacity = peak_demand_response_capacity * summer_peak_demand_reduction_duration * lifetime
        return peak_demand_reduction_capacity

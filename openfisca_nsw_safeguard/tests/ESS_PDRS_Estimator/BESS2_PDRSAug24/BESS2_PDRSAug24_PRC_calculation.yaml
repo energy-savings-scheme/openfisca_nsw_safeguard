@@ -1,86 +1,84 @@
 - name: Test BESS2 demand response component
-  period: 2024
-  absolute_error_margin: 0.1
-  input:
-    BESS2_PDRSAug24_usable_battery_capacity:
-      [
-        1,
-        5,
-        0.1
-      ]
-  output:
-    BESS2_PDRSAug24_demand_response_component:
-      [
-        0.0647,
-        0.3235,
-        0.00647
-      ]
-
-- name: Test BESS2 peak demand response capacity
-  period: 2024
-  absolute_error_margin: 0.1
-  input:   
-    BESS2_PDRSAug24_demand_response_component:
-      [
-        1,
-        6.5,
-        0.5
-      ]
-  output:
-    BESS2_PDRSAug24_peak_demand_response_capacity:
-      [
-        1,
-        6.5,
-        0.5
-      ]
-
-- name: Test BESS2 peak demand annual savings
-  period: 2024
+  period: 2025-07
   absolute_error_margin: 0.1
   input:
     BESS2_PDRSAug24_usable_battery_capacity:
       [
         27,
-        17,
-        49,
+        12,
+        8
+      ]
+  output:
+    BESS2_PDRSAug24_demand_response_component:
+      [
+        2.0061,
+        0.8916,
+        0.5944
+      ]
+
+- name: Test BESS2 peak demand response capacity
+  period: 2025-07
+  absolute_error_margin: 0.1
+  input:
+    BESS2_PDRSAug24_demand_response_component:
+      [
+        2.0061,
+        0.8916,
+        0.5944
+      ]
+  output:
+    BESS2_PDRSAug24_peak_demand_response_capacity:
+      [
+        1.60488,
+        0.71328,
+        0.47552
+      ]
+
+- name: Test BESS2 peak demand annual savings
+  period: 2025-07
+  absolute_error_margin: 0.1
+  input:
+    BESS2_PDRSAug24_usable_battery_capacity:
+      [
+        27,
+        12,
         8
       ]
   output:
     BESS2_PDRSAug24_peak_demand_annual_savings:
       [
-        31.4442,
-        19.7982,
-        57.0654,
-        9.3168
+        57.77568,
+        25.67808,
+        17.11872
       ]
 
 - name: Test BESS2 peak demand reduction capacity
-  period: 2024
+  period: 2025-07
   absolute_error_margin: 0.1
-  input:   
+  input:
     BESS2_PDRSAug24_peak_demand_response_capacity:
       [
-        15,
-        7.5,
-        19.8
+        1.60488,
+        0.71328,
+        0.47552
       ]
   output:
     BESS2_PDRSAug24_peak_demand_reduction_capacity:
       [
-        270,
-        135,
-        356.4
+        57.77568,
+        25.67808,
+        17.11872
       ]
 
 - name: Test BESS2 PRC calculation
-  period: 2024
+  period: 2025-07
   absolute_error_margin: 0.1
   input:
     BESS2_PDRSAug24_peak_demand_reduction_capacity:
       [
-        1,
-        5,
-        9
+        57.77568,
+        25.67808,
+        17.11872
       ]
     BESS2_PDRSAug24_get_network_loss_factor_by_postcode:
       [
@@ -97,7 +95,7 @@
   output:
     BESS2_PDRSAug24_PRC_calculation:
       [
-        10.4,
-        52,
+        600.8671,
+        267.0520,
         0
       ]

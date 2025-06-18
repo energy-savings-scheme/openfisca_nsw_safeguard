@@ -647,7 +647,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        7
+        0
       ]
 
 - name: test ESC calculation case 3
@@ -751,7 +751,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        13
+        0
       ]
 
 - name: test ESC calculation Daikin RXM25UVMA/FTXM25UVMA

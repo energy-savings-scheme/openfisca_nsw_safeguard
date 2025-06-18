@@ -267,35 +267,50 @@
         1.9
       ]
 
-- name: test minimum TCSFP AEER 
+- name: test minimum TCSPF AEER
   period: 2022
   absolute_error_margin: 0.1
   input:
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
-        non_ducted_split_system
+        non_ducted_split_system, # brand: MITSUBISHI HEAVY INDUSTRIES, model: DXC28ZRA-W - DXK28ZRA-W
+        non_ducted_split_system, # brand: ACTRON AIR, model: CRC-100CS - CRE-100CS
+        non_ducted_split_system, # brand: BRAEMAR, model: ACHV25D1S-ASHV25D1S
+        ducted_split_system, # brand: MAMMOTH, model: MSR-J100
+        ducted_split_system, # brand: AIRO, model: APC20RW
       ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
-        8,  #expected AEER 3.5
-        8   #expected TCSPF 4.5
+        8,
+        10.95,
+        2.7,
+        27,
+        2.05,
       ]
     HVAC2_PDRSAug24_TCSPF_mixed:
       [
-        0,  #use AEER
-        20  #use TCSPF instead of AEER, > expected 4.5
+        5.801, # Ignore AEER
+        9.933, # Ignore AEER
+        6.896, # Ignore AEER
+        0, # use AEER
+        0, # use AEER
       ]
     HVAC2_PDRSAug24_rated_AEER_input:
       [
-         0,  #AEER < expected 3.5
-        50  
+        3.5872,
+        4.1893,
+        3.7271,
+        3.8382,
+        2.6115,
       ]
   output:
     HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
       [
         false,
-        true
+        true,
+        false,
+        true,
+        false,
       ]
 
 - name: test minimum HSPF ACOP 

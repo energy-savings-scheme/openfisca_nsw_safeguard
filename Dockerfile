@@ -1,5 +1,5 @@
 FROM python:3.8
-# COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 
 # Setup environment for python
 WORKDIR /app

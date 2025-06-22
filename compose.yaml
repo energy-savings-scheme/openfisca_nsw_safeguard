@@ -2,8 +2,23 @@ services:
   app:
     build: .
     platform: "linux/amd64"
-    ports:
-      - "8080:8080"
+    hostname: "app-openfisca-ess.local.ro2.dev"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app-openfisca-ess.rule=Host(`app-openfisca-ess.local.ro2.dev`)"
+      - "traefik.http.routers.app-openfisca-ess.entrypoints=https"
+      - "traefik.http.routers.app-openfisca-ess.tls=true"
+      - "traefik.http.services.app-openfisca-ess.loadbalancer.server.port=8080"
+    networks:
+      - "default"
+      - "ess"
+      - "ro2dev"
     volumes:
       - ".:/app/"
       - "/app/.venv"
+networks:
+  default:
+  ess:
+    external: true
+  ro2dev:
+    external: true

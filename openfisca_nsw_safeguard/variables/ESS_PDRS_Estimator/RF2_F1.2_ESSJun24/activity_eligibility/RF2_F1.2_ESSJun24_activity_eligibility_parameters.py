@@ -88,7 +88,7 @@ class RF2_F1_2_ESSJun24_installed_on_site(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the replacement End-User equipment operating in its intended place of use?',
+      'display_question' : 'Is the replacement End-User equipment installed in it’s intended place of use and operating?',
       'sorting' : 7,
       'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 2 is states that the replacement End-User Equipment must be installed in its intended place of use and operating."""
     }

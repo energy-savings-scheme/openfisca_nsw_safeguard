@@ -88,6 +88,19 @@
         2024-05-01,
         2024-05-01,
       ]
+    ESS__NABERS_ESC_creation_date:
+      [
+        2025-05-01,
+        2025-05-01,
+        2024-06-01,
+        2024-07-01,
+        2024-08-01,
+        2024-09-01,
+        2024-10-01,
+        2024-11-01,
+        2024-12-01,
+        2025-01-01,
+      ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
         2018-05-01,
@@ -314,6 +327,19 @@
         2024-05-01,
         2024-05-01,
         2024-05-01,
+      ]
+    ESS__NABERS_ESC_creation_date:
+      [
+        2024-06-01,
+        2024-07-01,
+        2024-08-01,
+        2024-09-01,
+        2024-10-01,
+        2024-11-01,
+        2024-12-01,
+        2025-01-01,
+        2025-02-01,
+        2025-03-01,
       ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
@@ -549,6 +575,10 @@
       [
         2024-05-01,
       ]
+    ESS__NABERS_ESC_creation_date:
+      [
+        2025-05-01,
+      ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
         2024-05-01,
@@ -655,6 +685,10 @@
       [
         2024-05-01,
       ]
+    ESS__NABERS_ESC_creation_date:
+      [
+        2025-05-01,
+      ]
     ESS__NABERS_building_date:
       [
         built_after_nov_2006,
@@ -741,6 +775,10 @@
       [
         2024-05-01,
       ]
+    ESS__NABERS_ESC_creation_date:
+      [
+        2025-05-01,
+      ]
     ESS__NABERS_building_date:
       [
         built_after_nov_2006,
@@ -812,6 +850,10 @@
         True,
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2024-05-01,
+      ]
+    ESS__NABERS_ESC_creation_date:
       [
         2024-05-01,
       ]
@@ -921,6 +963,10 @@
       [
         2024-05-01,
       ]
+    ESS__NABERS_ESC_creation_date:
+      [
+        2024-05-01,
+      ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
         2024-05-01,
@@ -1002,7 +1048,7 @@
       [
        235,
       ]
-      
+
 - name: test ESS NABERS ESC creation - NABERS UAT test cases 12.18 - ESC creation within method 2
   period: 2024-05-01
   absolute_error_margin: 0.1
@@ -1024,6 +1070,10 @@
         True,
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2024-05-01,
+      ]
+    ESS__NABERS_ESC_creation_date:
       [
         2024-05-01,
       ]
@@ -1133,6 +1183,10 @@
       [
         2024-05-01,
       ]
+    ESS__NABERS_ESC_creation_date:
+      [
+        2024-05-01,
+      ]
     ESS__NABERS_end_date_of_historical_NABERS_rating_period:
       [
         2024-05-01,
@@ -1236,6 +1290,10 @@
         True,
       ]
     ESS__NABERS_end_date_of_current_NABERS_rating_period:
+      [
+        2024-05-01,
+      ]
+    ESS__NABERS_ESC_creation_date:
       [
         2024-05-01,
       ]

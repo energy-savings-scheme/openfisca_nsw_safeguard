@@ -17,7 +17,7 @@ class BESS2_demand_response_component(Variable):
 
     def formula(buildings, period, parameters):
         usable_battery_capacity = buildings('BESS2_usable_battery_capacity', period)
-        demand_reduction_factor = 0.0647
+        demand_reduction_factor = parameters(period).PDRS.BESS2.demand_reduction_factor
 
         demand_response_component = usable_battery_capacity * demand_reduction_factor
         return demand_response_component
@@ -54,7 +54,7 @@ class BESS2_peak_demand_annual_savings(Variable):
         usable_battery_capacity = buildings('BESS2_usable_battery_capacity', period)
 
         #demand response component
-        demand_reduction_factor = 0.0647
+        demand_reduction_factor = parameters(period).PDRS.BESS2.demand_reduction_factor
 
         demand_response_component = usable_battery_capacity * demand_reduction_factor
 
@@ -66,14 +66,16 @@ class BESS2_peak_demand_annual_savings(Variable):
         #peak demand annual savings
         summer_peak_demand_duration = 6
 
-        peak_demand_annual_savings = peak_demand_response_capacity * summer_peak_demand_duration
+        # lifetime
+        lifetime = parameters(period).PDRS.BESS2.lifetime
+
+        peak_demand_annual_savings = peak_demand_response_capacity * summer_peak_demand_duration * lifetime
         peak_demand_annual_savings_return = np.select([
                 peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
             ],
             [
                 0, peak_demand_annual_savings
             ])
-        
         
         return peak_demand_annual_savings_return
 

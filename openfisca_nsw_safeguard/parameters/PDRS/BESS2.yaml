@@ -1,0 +1,10 @@
+description: BESS2 parameters
+lifetime:
+    values:
+        2021-01-01:
+            value: 6
+
+demand_reduction_factor:
+    values:
+        2021-01-01:
+            value: 0.0743

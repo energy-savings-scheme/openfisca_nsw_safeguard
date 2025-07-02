@@ -81,7 +81,7 @@ class D17_ESSJun24_annual_energy_savings(Variable):
         
         #climate zone
         postcode = buildings('D17_ESSJun24_PDRS__postcode', period)
-        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_May25_BCA_climate_zone_by_postcode
         climate_zone_int = climate_zone.calc(postcode)
 
         #heat pump zone

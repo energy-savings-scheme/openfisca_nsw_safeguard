@@ -222,18 +222,18 @@
       ]
     D19_ESSJun24_PDRS__postcode:
       [
-        2352, #rnf 1.03 hpzone5 
-        2729, #rnf 1.03 hpzone3
+        2352, #rnf 1.03 hpzone3
+        2729, #rnf 1.03 hpzone5
         2024, #rnf 1    hpzone3
-        2352, #rnf 1.03 hpzone5
+        2352, #rnf 1.03 hpzone3
         2024, #rnf 1    hpzone3
       ]
     D19_ESSJun24_Bs:   
       [
-        5,    #Baseline A 0.58 adjustment coefficient 2.310 Baseline B 28.029 
+        5,    #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 28.029
         10,   #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 52.750
         2.5,  #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 28.029
-        4.39, #Baseline A 0.58 adjustment coefficient 2.310 Baseline B 28.029
+        4.39, #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 28.029
         0
       ]
     D19_ESSJun24_Be:
@@ -247,10 +247,10 @@
   output:
     D19_ESSJun24_annual_energy_savings:
       [
-        3.6958,  #electricity savings -27.9542 + gas savings 31.65
-        0,       #electricity savings -42 + gas savings 47.337 
-        13.0302, #electricity savings -14.9988 + gas savings 28.029
-        21.8023, #electricity savings -9.848 + gas savings 47.337
+        0.309640,  #electricity savings -27.9542
+        0,       #electricity savings -42
+        13.0302, #electricity savings -14.9988
+        18.267815, #electricity savings -9.7618
         0        #Bs and Be not valid
       ]
 
@@ -264,15 +264,19 @@
         system_size_medium,
         system_size_small,  
         system_size_medium,
-        system_size_medium 
+        system_size_medium,
+        system_size_medium,
+        system_size_small,
       ]
     D19_ESSJun24_PDRS__postcode:
       [
         2024, #rnf 1    hpzone3
         2024, #rnf 1    hpzone3
+        2352, #rnf 1.03 hpzone3
+        2352, #rnf 1.03 hpzone3
         2352, #rnf 1.03 hpzone5
-        2352, #rnf 1.03 hpzone5
-        2352, #rnf 1.03 hpzone5
+        2341,
+        2341,
       ]
     D19_ESSJun24_Bs:   
       [
@@ -280,7 +284,9 @@
         10,   #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 52.750
         2.5,  #Baseline A 0.58 adjustment coefficient 2.291 Baseline B 28.029
         4.39, #Baseline A 0.58 adjustment coefficient 2.310 Baseline B 28.029
-        0
+        0,
+        5.21,
+        5.21,
       ]
     D19_ESSJun24_Be:
       [
@@ -288,16 +294,20 @@
         20,
         4.3,
         0,
-        0   
+        0,
+        0,
+        0,
       ]
   output:
     D19_ESSJun24_annual_energy_savings:
       [
         1.117,   #electricity savings -26.912 + gas savings 28.029
-        0,       #-20.813 electricity savings -68.15  + gas savings 47.337 
-        16.068,  #electricity savings -15.58  + gas savings 31.645
-        42.902,  #electricity savings -9.848  + gas savings 52.75
-        0        #Bs and Be not valid
+        0,       #-20.813 electricity savings -68.15  + gas savings 47.337
+        12.580236,  #electricity savings -15.58  + gas savings 31.645
+        37.575185,  #electricity savings -9.848  + gas savings 52.75
+        0, #Bs and Be not valid
+        35.634307,
+        16.326307,
       ]
 
 - name: test D19 electricity savings

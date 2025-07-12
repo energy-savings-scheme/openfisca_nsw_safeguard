@@ -1,0 +1,28 @@
+version: "3"
+env:
+  NOW:
+    sh: "date +%Y%m%d-%H%M%S"
+tasks:
+  default:
+    cmds:
+      - task docker-up
+      - task docker-logs
+  docker-up:
+    cmds:
+      - docker compose up --build --remove-orphans --detach
+  docker-down:
+    cmds:
+      - docker compose down -v --rmi all --remove-orphans
+  docker-logs:
+    cmds:
+      - docker compose logs -f
+  docker-stop:
+    cmds:
+      - docker compose stop
+  docker-build-push:
+    cmds:
+      - docker build -t kororo/ess-openfisca:latest .
+      - docker push kororo/ess-openfisca:latest
+  ssh:
+    cmds:
+      - docker compose exec app bash

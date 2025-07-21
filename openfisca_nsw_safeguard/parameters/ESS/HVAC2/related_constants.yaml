@@ -1,0 +1,7 @@
+lifetime:
+  description: used in calculating how many years to deemed electricity savings for in F4
+  metadata:
+    unit: years
+  values:
+    2021-01-01:
+      value: 12

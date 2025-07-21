@@ -179,7 +179,7 @@ class HVAC2_PDRSAug24_deemed_activity_electricity_savings(Variable):
       annual_cooling = buildings('HVAC2_PDRSAug24_TCEC_or_annual_cooling', period)
       reference_annual_heating = buildings('HVAC2_PDRSAug24_reference_heating_annual_energy_use', period)
       annual_heating = buildings('HVAC2_PDRSAug24_THEC_or_annual_heating', period)
-      lifetime = parameters(period).PDRS.AC.AC_related_constants.lifetime
+      lifetime = parameters(period).ESS.HVAC2.related_constants.lifetime
       
       deemed_electricity_savings = np.multiply(((reference_annual_cooling - annual_cooling) + (reference_annual_heating - annual_heating)), (lifetime / 1000))
       return deemed_electricity_savings
@@ -418,7 +418,7 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
                         ])
       
       #deemed electricity savings
-      lifetime = parameters(period).PDRS.AC.AC_related_constants.lifetime
+      lifetime = parameters(period).ESS.HVAC2.related_constants.lifetime
       deemed_electricity_savings = np.multiply(((reference_cooling - tcec_or_annual_cooling) + (reference_heating - thec_or_annual_heating)), (lifetime / 1000))
       
       #regional network factor

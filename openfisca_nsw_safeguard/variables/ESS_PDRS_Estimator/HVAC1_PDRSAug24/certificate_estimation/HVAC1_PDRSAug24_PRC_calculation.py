@@ -175,7 +175,7 @@ class HVAC1_PDRSAug24_peak_demand_annual_savings(Variable):
 
         #peak demand reduction capacity
         summer_peak_demand_duration = 6
-        lifetime = 10
+        lifetime = parameters(period).PDRS.AC.AC_related_constants.lifetime
 
         peak_demand_annual_savings = (peak_demand_savings_activity * summer_peak_demand_duration * lifetime)
         peak_demand_annual_savings_return = np.select([
@@ -199,7 +199,7 @@ class HVAC1_PDRSAug24_peak_demand_reduction_capacity(Variable):
     def formula(buildings, period, parameters):
         peak_demand_savings = buildings('HVAC1_PDRSAug24_peak_demand_savings_activity', period)
         summer_peak_demand_duration = 6
-        lifetime = 10
+        lifetime = parameters(period).PDRS.AC.AC_related_constants.lifetime
 
         peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
         return peak_demand_reduction_capacity

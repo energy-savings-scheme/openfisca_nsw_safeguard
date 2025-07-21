@@ -191,11 +191,11 @@
   output:
     HVAC2_PDRSAug24_peak_demand_annual_savings:
       [
-        34.56,
-        748.80,
+        41.472,
+        898.56,
         0, #expected -224.64
         0, #expected -3.90
-        14.30570
+        17.16685
       ]
       
 
@@ -214,11 +214,11 @@
   output:
     HVAC2_PDRSAug24_peak_demand_reduction_capacity:
       [
-        36000,
-        14.64,
-        4.58,
-        5.76,
-        14.3057
+        43200,
+        17.568,
+        5.4719996,
+        6.9119997,
+        17.166958
       ]
 
 - name: test HVAC2 PRC calculation
@@ -299,12 +299,12 @@
     HVAC2_PDRSAug24_PRC_calculation:
       [
         0,
-        126,
+        152,
         0,
         0,
-        39,
-        50,
-        110
+        47,
+        60,
+        132
       ]
 
 - name: test HVAC2 PRCs to savings
@@ -394,9 +394,9 @@
   output:
     HVAC2_PDRSAug24_PRC_calculation:
       [
-        1047,
-        41,
-        242,
-        857,
-        150
+        1256,
+        50,
+        290,
+        1028,
+        180
       ]

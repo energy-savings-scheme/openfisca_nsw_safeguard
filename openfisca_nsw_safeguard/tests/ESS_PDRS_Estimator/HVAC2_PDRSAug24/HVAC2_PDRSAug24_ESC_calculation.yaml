@@ -407,11 +407,11 @@
   output:
     HVAC2_PDRSAug24_deemed_activity_electricity_savings:
       [
-        1.03929,
-        2798.25,
-        16.89,
-        55.19,
-        30.462
+        1.2471474,
+        3357.9001,
+        20.265625,
+        66.22241,
+        36.55334
       ]
 
 - name: test ESS annual energy savings
@@ -481,9 +481,9 @@
   output:
     HVAC2_PDRSAug24_annual_energy_savings:
       [
-        6.32,
-        10.16,
-        26.40
+        7.5788016,
+        12.186959,
+        31.68422
       ]
 
 - name: test electricity savings
@@ -604,7 +604,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        16,
+        19,
         0
       ]
 
@@ -817,7 +817,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        4
+        5
       ]
 
 - name: test ESC calculation Fujitsu General AOTA45LCTL/SUTA45LCLU
@@ -883,7 +883,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        4
+        5
       ]
 
 - name: test ESC calculation Carrier 42SHDV140-1 / 38SHDV140-1
@@ -949,7 +949,7 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        16
+        20
       ]
 
 - name: test ESC calculation

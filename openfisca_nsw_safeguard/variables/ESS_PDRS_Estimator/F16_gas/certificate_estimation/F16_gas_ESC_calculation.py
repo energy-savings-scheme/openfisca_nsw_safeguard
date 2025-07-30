@@ -52,6 +52,61 @@ class F16_gas_Ref_Elec(Variable):
         return ref_elec
     
 
+class F16_gas_individual_heat_pump_thermal_capacity(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Individual Heat Pump Thermal Capacity (kW)'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        total_heat_pump_thermal_capacity = buildings('F16_gas_total_heat_pump_thermal_capacity', period)
+        number_of_heat_pumps = buildings('F16_gas_number_of_heat_pumps', period)
+        individual_heat_pump_thermal_capacity = total_heat_pump_thermal_capacity / number_of_heat_pumps
+
+        return individual_heat_pump_thermal_capacity
+    
+
+class F16_gas_confidence_factor(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Confidence Factor'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        """
+        Confidence Factor value is calculated as follows:
+        if individual heat pump thermal capacity greater than or equal to 10 then confidence_factor value is 1
+        otherwise check the value of calculated com peak load
+        if the calculated com peak load value is greater than or equal to 1 then confidence_factor value is 1
+        otherwise use calculated com peak load value
+        """
+        individual_heat_pump_thermal_capacity = buildings('F16_gas_individual_heat_pump_thermal_capacity', period)
+        com_peak_load = buildings('F16_gas_com_peak_load', period)
+        calculated_com_peak_load = 42 / com_peak_load
+
+        confidence_factor = np.select(
+            [
+                individual_heat_pump_thermal_capacity >= 10,
+                individual_heat_pump_thermal_capacity < 10
+            ],
+            [
+                1,
+                np.select(
+                    [calculated_com_peak_load >= 1],
+                    [1],
+                    calculated_com_peak_load
+                )
+            ])
+
+        return confidence_factor
+    
+
 class F16_gas_deemed_activity_gas_savings(Variable):
     #this is the deemed gas savings for replacing equipment
     value_type = float
@@ -65,9 +120,10 @@ class F16_gas_deemed_activity_gas_savings(Variable):
       ref_elec = buildings('F16_gas_Ref_Elec', period)
       HP_gas = buildings('F16_gas_HP_gas', period)
       capacity_factor = buildings('F16_gas_capacity_factor', period)
+      confidence_factor = buildings('F16_gas_confidence_factor', period)
       lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
 
-      deemed_gas_savings = (ref_elec/0.788 - HP_gas) * capacity_factor * (lifetime / 3.6)
+      deemed_gas_savings = (ref_elec/0.788 - HP_gas) * capacity_factor * confidence_factor * (lifetime / 3.6)
       return deemed_gas_savings
     
 
@@ -83,9 +139,10 @@ class F16_gas_deemed_activity_electricity_savings(Variable):
     def formula(buildings, period, parameters):
         HP_elec = buildings('F16_gas_HP_elec', period)
         capacity_factor = buildings('F16_gas_capacity_factor', period)
+        confidence_factor = buildings('F16_gas_confidence_factor', period)
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
-        deemed_electricity_savings = (- HP_elec) * capacity_factor * (lifetime / 3.6)
+        deemed_electricity_savings = (- HP_elec) * capacity_factor * confidence_factor * (lifetime / 3.6)
         return deemed_electricity_savings    
 
 

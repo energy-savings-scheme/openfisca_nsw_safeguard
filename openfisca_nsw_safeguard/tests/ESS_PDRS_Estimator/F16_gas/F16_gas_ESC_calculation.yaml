@@ -61,12 +61,18 @@
         5,
         3
       ]
+    F16_gas_confidence_factor:
+      [
+        0.5,
+        0.4,
+        1
+      ]
   output:
     F16_gas_deemed_activity_gas_savings:
       [
-        17.952,
-        423.012,
-        -99.999
+        8.975888,
+        169.20473,
+        -100
       ]
 
 - name: F16_gas deemed electricity savings
@@ -83,10 +89,15 @@
         0.5,
         3.4
       ]
+    F16_gas_confidence_factor:
+      [
+        0.5,
+        1
+      ]
   output:
     F16_gas_deemed_activity_electricity_savings:
       [
-        -3.833,
+        -1.9166666,
         -116.733
       ]
 
@@ -132,7 +143,7 @@
         18.586  #deemed gas 19.03 + deemed electricity -0.444 = 18.586
       ]
 
-- name: F16_gas annual energy savings
+- name: F16_gas esc calculation
   period: 2024
   absolute_error_margin: 0.1
   input:
@@ -141,6 +152,8 @@
         true,
         false, #not eligible
         true,
+        true,
+        true,
         true
       ]
     F16_gas_electricity_savings:
@@ -148,14 +161,18 @@
         -3.833,
         -3.833,
         2.4,
-        10
+        10,
+        -10.22851,
+        -13.29844
       ]
     F16_gas_deemed_activity_gas_savings:
       [ 
         -0.532,
         -0.532,
         0.46,
-        2
+        2,
+        59.49666,
+        61.62154
       ]
   output:
     F16_gas_ESC_calculation:
@@ -163,5 +180,7 @@
         0,   #-4.313 certificates
         0,   #not eligible
         2.76,
-        11.54 
+        11.54,
+        17.12121,
+        14.86577
       ]

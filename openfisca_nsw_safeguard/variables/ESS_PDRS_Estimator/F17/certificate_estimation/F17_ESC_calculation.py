@@ -6,6 +6,62 @@ from openfisca_nsw_base.entities import Building
 
 import numpy as np
 
+
+class F17_individual_heat_pump_thermal_capacity(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Individual Heat Pump Thermal Capacity (kW)'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        total_heat_pump_thermal_capacity = buildings('F17_total_heat_pump_thermal_capacity', period)
+        number_of_heat_pumps = buildings('F17_number_of_heat_pumps', period)
+        individual_heat_pump_thermal_capacity = total_heat_pump_thermal_capacity / number_of_heat_pumps
+
+        return individual_heat_pump_thermal_capacity
+    
+
+class F17_confidence_factor(Variable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Confidence Factor'
+    metadata = {
+        "variable-type": "output"
+    }
+
+    def formula(buildings, period, parameters):
+        """
+        Confidence Factor value is calculated as follows:
+        if individual heat pump thermal capacity greater than or equal to 10 then confidence_factor value is 1
+        otherwise check the value of calculated com peak load
+        if the calculated com peak load value is greater than or equal to 1 then confidence_factor value is 1
+        otherwise use calculated com peak load value
+        """
+        individual_heat_pump_thermal_capacity = buildings('F17_individual_heat_pump_thermal_capacity', period)
+        com_peak_load = buildings('F17_com_peak_load', period)
+        calculated_com_peak_load = 42 / com_peak_load
+
+        confidence_factor = np.select(
+            [
+                individual_heat_pump_thermal_capacity >= 10,
+                individual_heat_pump_thermal_capacity < 10
+            ],
+            [
+                1,
+                np.select(
+                    [calculated_com_peak_load >= 1],
+                    [1],
+                    calculated_com_peak_load
+                )
+            ])
+
+        return confidence_factor
+
+
 class F17_Ref_Elec(Variable):
     """ Annual Electrical Energy used by a reference electric resistance water heater in a year
     """
@@ -36,9 +92,10 @@ class F17_deemed_activity_gas_savings(Variable):
     def formula(buildings, period, parameters):
       ref_elec = buildings('F17_Ref_Elec', period)  
       HP_gas = buildings('F17_HP_gas', period)
+      confidence_factor = buildings('F17_confidence_factor', period)
       lifetime = parameters(period).ESS.HEAB.table_F16_1.lifetime
 
-      deemed_gas_savings = (ref_elec / 0.85 -HP_gas) * lifetime / 3.6
+      deemed_gas_savings = (ref_elec / 0.85 -HP_gas) * confidence_factor * lifetime / 3.6
       return deemed_gas_savings
 
 
@@ -53,9 +110,10 @@ class F17_deemed_activity_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         HP_elec = buildings('F17_HP_elec', period)
+        confidence_factor = buildings('F17_confidence_factor', period)
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
-        deemed_electricity_savings = (- HP_elec) * lifetime / 3.6
+        deemed_electricity_savings = (- HP_elec) * confidence_factor * lifetime / 3.6
         return deemed_electricity_savings
 
 

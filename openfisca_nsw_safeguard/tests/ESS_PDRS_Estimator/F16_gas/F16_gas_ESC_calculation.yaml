@@ -39,6 +39,64 @@
         0
       ]
 
+- name: test individual heat pump thermal capacity
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    F16_gas_total_heat_pump_thermal_capacity:
+      [
+        3, # brand midea, model 170HPM2
+        4.6, # brand RHEEM, model 551270
+        103.2 # brand MITSUBISHI HEAVY INDUSTRIES, model 120Q-5-1000
+      ]
+    F16_gas_number_of_heat_pumps:
+      [
+        2,
+        1,
+        4
+      ]
+  output:
+    F16_gas_individual_heat_pump_thermal_capacity:
+      [
+        1.5,
+        4.6,
+        25.8
+      ]
+
+- name: test calculation of confidence factor
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    F16_gas_total_heat_pump_thermal_capacity:
+      [
+        3, # brand midea, model 170HPM2
+        4.6, # brand RHEEM, model 551270
+        103.2, # brand MITSUBISHI HEAVY INDUSTRIES, model 120Q-5-1000,
+        3.65
+      ]
+    F16_gas_number_of_heat_pumps:
+      [
+        2,
+        1,
+        4,
+        1
+      ]
+    F16_gas_com_peak_load:
+      [
+        108,
+        136,
+        4818,
+        77
+      ]
+  output:
+    F16_gas_confidence_factor:
+      [
+        0.3889,
+        0.3088,
+        1,
+        0.54545
+      ]
+
 - name: F16_gas deemed gas savings
   period: 2024
   absolute_error_margin: 0.1

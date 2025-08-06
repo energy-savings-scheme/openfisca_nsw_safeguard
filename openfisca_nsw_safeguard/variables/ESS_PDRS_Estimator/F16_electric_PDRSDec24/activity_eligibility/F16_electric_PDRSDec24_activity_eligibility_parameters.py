@@ -75,7 +75,7 @@ class F16_electric_PDRSDec24__minimum_payment(Variable):
     metadata = {  
       'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
       'sorting' : 6,
-      'eligibility_clause' : """In ESS Clause 9.8.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
+      'eligibility_clause' : """In ESS Clause 9.8.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $1000 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
     }
 
 

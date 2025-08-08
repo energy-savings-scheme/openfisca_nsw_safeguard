@@ -185,7 +185,26 @@
         100,
         77,   #ECO ALLIANCE ECO-155LU
         81,   #Quantum 150-08AC6-290
-        78    #Wulfe W200PW-1
+        78,    #Wulfe W200PW-1
+        77
+      ]
+    F16_electric_PDRSDec24_total_heat_pump_thermal_capacity:
+      [
+        3,
+        4.6,
+        10.2,
+        3.65,
+        3.65,
+        3.65
+      ]
+    F16_electric_PDRSDec24_number_of_heat_pumps:
+      [
+        2,
+        1,
+        4,
+        1,
+        1,
+        1
       ]
     F16_electric_PDRSDec24_HP_elec:
       [
@@ -193,7 +212,8 @@
         3,
         9.62,
         9.54,
-        8.75
+        8.75,
+        9.62
       ]
     F16_electric_PDRSDec24_HP_capacity_factor:
       [
@@ -201,7 +221,8 @@
         36,
         3.65,
         3.1,
-        2.3
+        2.3,
+        3.65
       ]
     F16_electric_PDRSDec24_WH_capacity_factor:
       [
@@ -209,12 +230,14 @@
         6,
         5,
         6,
-        3.5
+        3.5,
+        3.65
       ]
     F16_electric_PDRSDec24_HP_gas:
       [
         20,
         30,
+        0,
         0,
         0,
         0
@@ -223,10 +246,11 @@
     F16_electric_PDRSDec24_energy_savings:
       [
         0, #negative value
-        0.936,
-        56.956,
-        61.85,
-        61
+        0.39296246,
+        31.066868,
+        32.068886,
+        32.85265,
+        31.066868
       ]
 
 - name: test F16 ESC calculation

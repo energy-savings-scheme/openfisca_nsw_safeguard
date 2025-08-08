@@ -118,6 +118,9 @@ class F16_gas_total_heat_pump_thermal_capacity(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Total Heat Pump Thermal Capacity (kW)'
+    metadata = {
+        "variable-type": "input"
+    }
  
 
 class F16_gas_number_of_heat_pumps(Variable):
@@ -125,3 +128,6 @@ class F16_gas_number_of_heat_pumps(Variable):
     entity = Building
     definition_period = ETERNITY
     label = 'Number of Heat Pumps'
+    metadata = {
+        "variable-type": "input"
+    }

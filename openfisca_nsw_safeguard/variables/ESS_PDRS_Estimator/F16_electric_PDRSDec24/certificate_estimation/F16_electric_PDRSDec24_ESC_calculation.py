@@ -194,14 +194,16 @@ class F16_electric_PDRSDec24_energy_savings(Variable):
                                     WH_Cap / HP_Cap
                                  ])
         
+        confidence_factor = buildings('F16_electric_PDRSDec24_confidence_factor', period)
+        
         #lifetime
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
 
         #gas savings for replacing electric
-        deemed_gas_savings = (-HP_gas) * capacity_factor * (lifetime / 3.6)
+        deemed_gas_savings = (-HP_gas) * capacity_factor * confidence_factor * (lifetime / 3.6)
 
         #electricity savings for replacing electric
-        deemed_electricity_savings = (ref_elec - HP_elec) * capacity_factor * (lifetime / 3.6)
+        deemed_electricity_savings = (ref_elec - HP_elec) * capacity_factor * confidence_factor * (lifetime / 3.6)
        
         #annual energy savings
         annual_energy_savings = deemed_electricity_savings + deemed_gas_savings

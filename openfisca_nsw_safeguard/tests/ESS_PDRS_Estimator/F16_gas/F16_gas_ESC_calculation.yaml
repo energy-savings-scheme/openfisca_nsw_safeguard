@@ -167,38 +167,58 @@
       [
         4.5, #RefElec 1.561
         34,  #RefElec 11.793
-        24   #RefElec 8.32419
+        24,   #RefElec 8.32419
+        77
+      ]
+    F16_gas_total_heat_pump_thermal_capacity:
+      [
+        3, 
+        4.6, 
+        13.2,
+        3.65
+      ]
+    F16_gas_number_of_heat_pumps:
+      [
+        2,
+        1,
+        1,
+        1
       ]
     F16_gas_HP_elec:
       [
         2.3,
         10,
-        0.2
+        0.2,
+        9.62
       ]
     F16_gas_HP_gas:
       [
         2.3,
         30,
-        2
+        2,
+        0
       ]
     F16_gas_HP_capacity_factor:
       [ 
         4,
         2.3,
-        6
+        6,
+        3.65
       ]
     F16_gas_WH_capacity_factor:
       [
         2,   #capacity factor 0.5
         2.4, #capacity factor 1
-        4    #capacity factor 0.66
+        4,    #capacity factor 0.66
+        3.65
       ]
   output:
     F16_gas_energy_savings:
       [
         0,      #deemed gas -0.532 + deemed electricity -3.833 = -4.365
         0,      #deemed gas -50.114 + deemed electricity -33.333  = -80.447
-        18.586  #deemed gas 19.03 + deemed electricity -0.444 = 18.586
+        18.586,  #deemed gas 19.03 + deemed electricity -0.444 = 18.586
+        44.13
       ]
 
 - name: F16_gas esc calculation

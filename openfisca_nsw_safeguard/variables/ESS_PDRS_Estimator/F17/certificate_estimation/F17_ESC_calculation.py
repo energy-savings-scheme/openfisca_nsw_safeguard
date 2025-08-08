@@ -148,15 +148,16 @@ class F17_annual_energy_savings(Variable):
         lifetime = parameters(period).ESS.HEAB.table_F16_1['lifetime']
         com_peak_load = buildings('F17_com_peak_load', period)
         HP_gas = buildings('F17_HP_gas', period)
+        confidence_factor = buildings('F17_confidence_factor', period)
 
         #deemed electricity savings
-        deemed_electricity_savings = (- HP_elec) * lifetime / 3.6
+        deemed_electricity_savings = (- HP_elec) * confidence_factor * lifetime / 3.6
 
         #ref elec
         ref_elec = 365 * 0.905 * 1.05 * (com_peak_load / 1000)
 
         #deemed gas savings
-        deemed_gas_savings = (ref_elec / 0.85 - HP_gas) * lifetime / 3.6
+        deemed_gas_savings = (ref_elec / 0.85 - HP_gas) * confidence_factor * lifetime / 3.6
 
         #annual energy savings
         annual_energy_savings = deemed_electricity_savings + deemed_gas_savings

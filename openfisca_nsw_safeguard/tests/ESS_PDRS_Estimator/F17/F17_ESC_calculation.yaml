@@ -1,3 +1,61 @@
+- name: test individual heat pump thermal capacity
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    F17_total_heat_pump_thermal_capacity:
+      [
+        3, # brand midea, model 170HPM2
+        4.6, # brand RHEEM, model 551270
+        103.2 # brand MITSUBISHI HEAVY INDUSTRIES, model 120Q-5-1000
+      ]
+    F17_number_of_heat_pumps:
+      [
+        2,
+        1,
+        4
+      ]
+  output:
+    F17_individual_heat_pump_thermal_capacity:
+      [
+        1.5,
+        4.6,
+        25.8
+      ]
+
+- name: test calculation of confidence factor
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    F17_total_heat_pump_thermal_capacity:
+      [
+        3, # brand midea, model 170HPM2
+        4.6, # brand RHEEM, model 551270
+        103.2, # brand MITSUBISHI HEAVY INDUSTRIES, model 120Q-5-1000,
+        3.65
+      ]
+    F17_number_of_heat_pumps:
+      [
+        2,
+        1,
+        4,
+        1
+      ]
+    F17_com_peak_load:
+      [
+        108,
+        136,
+        4818,
+        77
+      ]
+  output:
+    F17_confidence_factor:
+      [
+        0.3889,
+        0.3088,
+        1,
+        0.54545
+      ]
+
 - name: test F17 reference electricity
   period: 2024
   absolute_error_margin: 0.1
@@ -28,11 +86,16 @@
         8,
         47
       ]
+    F17_confidence_factor:
+      [
+        0.44,
+        0.38
+      ]
   output:
     F17_deemed_activity_gas_savings:
       [
-        169.411765,
-        141.372549
+        74.5412,
+        53.7216
       ]
 
 - name: test F17 deemed activity electricity savings
@@ -44,11 +107,16 @@
         50,
         89
       ]
+    F17_confidence_factor:
+      [
+        0.44,
+        0.38
+      ]
   output:
     F17_deemed_activity_electricity_savings:
       [
-        -166.6666,
-        -296.666667
+        -73.3333,
+        -112.7333
       ]
 
 - name: test F17 electricity savings
@@ -83,26 +151,44 @@
       [
         100,
         85,
-        149
+        149,
+        10.66
       ]
     F17_com_peak_load:
       [
         20, #RefElec 6.937
         30, #RefElec 10.4052375
         49, #RefElec 16.9952212
+        101
       ]
     F17_HP_gas:
       [
         50,
         60,
-        83
+        83,
+        0
+      ]
+    F17_number_of_heat_pumps:
+      [
+        1,
+        1,
+        2,
+        1
+      ]
+    F17_total_heat_pump_thermal_capacity:
+      [
+        1.5,
+        4.6,
+        25.8,
+        3.1
       ]
   output:
     F17_annual_energy_savings:
       [
         0,   #deemed gas savings = -139.463 + deemed electricity savings -333.333 = -472.797
         0, #deemed gas savings = -159.195147 + deemed electricity savings -283.333333 = -442.52848
-        0 #deemed gas savings = -210.01874 + deemed electricity savings-496.666667 = -706.685407
+        0, #deemed gas savings = -210.01874 + deemed electricity savings-496.666667 = -706.685407
+        42.35
       ]
 
 - name: test F17 ESC calculation
@@ -116,6 +202,8 @@
         true,
         true,
         false, #not eligible
+        true,
+        true,
         true
       ]
     F17_electricity_savings:
@@ -125,7 +213,9 @@
         83.5,
         -30.86667,
         -26.91733,
-        -42.74500
+        -42.74500,
+        -16.62306,
+        -343.3333
       ]
     F17_deemed_activity_gas_savings:
       [
@@ -134,7 +224,9 @@
         4.5,
         104.73246,
         99.29181,
-        146.89747
+        146.89747,
+        57.12679,
+        -139.46343
       ] 
   output:
     F17_ESC_calculation:
@@ -144,5 +236,7 @@
         90.625,
         16.50559,
         0,
-        23.73211
+        23.73211,
+        9.22915,
+        0
       ]

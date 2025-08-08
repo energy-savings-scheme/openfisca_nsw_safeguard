@@ -124,7 +124,8 @@
         3.25806452, #Coolmaster TCCF10C1S/AOCF10C-S
         0.683,      #Daikin RXM25UVMA / FTXM25UVMA
         2.205,      #Panasonic CU-Z71XKR / CS-Z71XKRW
-        3.226       #Mitsubishi Heavy Industries FDCA100VNP-W - FDT100VH
+        3.226,       #Mitsubishi Heavy Industries FDCA100VNP-W - FDT100VH
+        0.751
       ]
     HVAC2_PDRSAug24_baseline_peak_adjustment_factor:
       [
@@ -132,7 +133,8 @@
         0.6624,
         0.396,
         0.6624,
-        0.618
+        0.618,
+        0.288
       ]
     HVAC2_PDRSAug24_input_power:
       [
@@ -140,7 +142,8 @@
         2.89,
         0.49,
         2.06,
-        2.84
+        2.84,
+        0.52
       ]
   output:
     HVAC2_PDRSAug24_peak_demand_savings_activity:
@@ -149,7 +152,8 @@
         0.244,
         0.076,
         0.096,
-        0.23843
+        0.23843,
+        0.0664
       ]
 
 - name: test HVAC2 peak demand annual savings
@@ -209,7 +213,8 @@
         0.244,  #Coolmaster TCCF10C1S/AOCF10C-S
         0.076,  #Daikin RXM25UVMA / FTXM25UVMA
         0.096,  #Panasonic CU-Z71XKR / CS-Z71XKRW
-        0.23843 #Mitsubishi Heavy Industries FDCA100VNP-W - FDT100VH
+        0.23843, #Mitsubishi Heavy Industries FDCA100VNP-W - FDT100VH
+        0.0664
      ]
   output:
     HVAC2_PDRSAug24_peak_demand_reduction_capacity:
@@ -218,7 +223,8 @@
         17.568,
         5.4719996,
         6.9119997,
-        17.166958
+        17.166958,
+        4.784
       ]
 
 - name: test HVAC2 PRC calculation
@@ -233,7 +239,8 @@
         false,
         true,  #Daikin RXM25UVMA / FTXM25UVMA
         true,  #Panasonic CU-Z71XKR / CS-Z71XKRW
-        true   #ACTRON Air WRC-050CS/WRE-050CS
+        true,   #ACTRON Air WRC-050CS/WRE-050CS
+        true
       ]
     HVAC2_PDRSAug24_input_power:
       [
@@ -243,7 +250,8 @@
         2.89,
         0.49,
         2.06,
-        1.17
+        1.17,
+        2.7
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
@@ -251,6 +259,7 @@
         ducted_split_system,
         non_ducted_split_system,
         ducted_split_system,
+        non_ducted_split_system,
         non_ducted_split_system,
         non_ducted_split_system,
         non_ducted_split_system
@@ -263,7 +272,8 @@
         10.1,
         2.5,
         7.1,
-        5
+        5,
+        10.3
       ]
     HVAC2_PDRSAug24_Activity:
       [
@@ -273,7 +283,8 @@
         new_installation_activity,
         new_installation_activity,
         new_installation_activity,
-        replacement_activity
+        replacement_activity,
+        new_installation_activity
       ]
     HVAC2_PDRSAug24_BCA_Climate_Zone:
       [
@@ -283,7 +294,8 @@
         BCA_Climate_Zone_7,
         BCA_Climate_Zone_5,
         BCA_Climate_Zone_7,
-        BCA_Climate_Zone_5
+        BCA_Climate_Zone_5,
+        BCA_Climate_Zone_4
       ]
     HVAC2_PDRSAug24_get_network_loss_factor_by_postcode:
       [ 
@@ -293,7 +305,8 @@
         1.04,
         1.04,
         1.05,
-        1.04
+        1.04,
+        1.05
       ]
   output:
     HVAC2_PDRSAug24_PRC_calculation:
@@ -304,7 +317,8 @@
         0,
         47,
         60,
-        132
+        132,
+        290
       ]
 
 - name: test HVAC2 PRCs to savings

@@ -249,9 +249,11 @@ class F16_gas_ESC_calculation(Variable):
 
         result_to_return = np.select(
             [
-                F16_gas_eligible_ESCs <= 0, F16_gas_eligible_ESCs > 0
+                F16_gas_eligible_ESCs <= 0, 
+                ((F16_gas_eligible_ESCs > 0) * (F16_gas_eligible_ESCs <= 5000)),
+                F16_gas_eligible_ESCs > 5000
             ],
             [
-                0, F16_gas_eligible_ESCs
+                0, F16_gas_eligible_ESCs, 5000
             ])
         return result_to_return

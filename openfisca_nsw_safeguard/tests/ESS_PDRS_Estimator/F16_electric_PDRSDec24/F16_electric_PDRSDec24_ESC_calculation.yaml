@@ -263,7 +263,8 @@
         32.949, #Ecogenica EG215F
         26.71,  #EcoAlliance ECO-155LU
         63.47195,   #Emerald Energy EE-HWS-RCHPOU/EE-HWS-RCHP-200E-2
-        19.42311 # Wulfe W250PW-1
+        19.42311, # Wulfe W250PW-1
+        2589.51677
       ]
     F16_electric_PDRSDec24_HP_elec:
      [
@@ -271,7 +272,8 @@
         9.54,
         9.62,
         19.5,
-        6.87
+        6.87,
+        909.66
      ]
     F16_electric_PDRSDec24_HP_capacity_factor:
       [
@@ -279,7 +281,8 @@
         3.6,
         3.65,
         3.64,
-        3.9
+        3.9,
+        112.8
       ]
     F16_electric_PDRSDec24_WH_capacity_factor:
       [
@@ -287,7 +290,8 @@
         3.6,
         3.65,
         3.6,
-        2.4
+        2.4,
+        99
       ]
     F16_electric_PDRSDec24_total_heat_pump_thermal_capacity:
       [
@@ -295,7 +299,8 @@
         3.6,
         3.65,
         3.64,
-        2.4
+        2.4,
+        112.8
       ]
     F16_electric_PDRSDec24_number_of_heat_pumps:
       [
@@ -303,7 +308,8 @@
         1,
         1,
         1,
-        1
+        1,
+        2
       ]
     F16_electric_PDRSDec24_com_peak_load:
       [
@@ -311,7 +317,8 @@
         95,
         77,
         183,
-        56
+        56,
+        7466
       ]
     F16_electric_PDRSDec24_PDRS__postcode:
       [
@@ -319,11 +326,13 @@
         2074, #RNF1
         2000,
         2000,
-        2627
+        2627,
+        2022
       ]
     F16_electric_PDRSDec24_HP_gas:
       [
         34,
+        0,
         0,
         0,
         0,
@@ -336,7 +345,8 @@
         36.56732,
         32.93088,
         35.26627,
-        21.08536
+        21.08536,
+        5000
       ]
 
 - name: test F16 ESC not eligible on new installation

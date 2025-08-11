@@ -263,9 +263,11 @@ class F16_electric_PDRSDec24_ESC_calculation(Variable):
 
         result_to_return = np.select(
             [
-                WH1_eligible_ESCs <= 0, WH1_eligible_ESCs > 0
+                WH1_eligible_ESCs <= 0, 
+                ((WH1_eligible_ESCs > 0) * (WH1_eligible_ESCs <= 5000)),
+                WH1_eligible_ESCs > 5000
             ],
             [
-                0, WH1_eligible_ESCs
+                0, WH1_eligible_ESCs, 5000
             ])
         return result_to_return

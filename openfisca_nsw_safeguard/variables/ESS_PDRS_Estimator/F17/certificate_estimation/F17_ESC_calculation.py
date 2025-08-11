@@ -204,10 +204,12 @@ class F17_ESC_calculation(Variable):
         result_to_return = np.select(
             [
                 F17_eligible_ESCs <= 0,
-                F17_eligible_ESCs > 0
+                ((F17_eligible_ESCs > 0) * (F17_eligible_ESCs <= 5000)),
+                F17_eligible_ESCs > 5000
             ],
             [
                 0,
-                F17_eligible_ESCs
+                F17_eligible_ESCs,
+                5000
             ])
         return result_to_return

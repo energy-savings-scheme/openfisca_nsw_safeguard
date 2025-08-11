@@ -77,31 +77,6 @@ class F16_electric_PDRSDec24__safety_requirement(Variable):
     }
 
 
-class F16_electric_PDRSDec24__system_and_requirement(Variable):
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-    def formula(buildings, period, parameters):
-      equipment_split_system = buildings('F16_electric_PDRSDec24__split_system', period)
-      safety_requirement_5149 = buildings('F16_electric_PDRSDec24__safety_requirement', period)
-
-      system_and_requirement = np.select(
-        [
-          equipment_split_system  * safety_requirement_5149,
-          equipment_split_system * np.logical_not(safety_requirement_5149),
-          np.logical_not(equipment_split_system) * (safety_requirement_5149),
-          np.logical_not(equipment_split_system) * np.logical_not(safety_requirement_5149)
-        ],
-        [
-          False,
-          True,
-          False,
-          False
-        ])
-      return system_and_requirement
-
-
 class F16_electric_PDRSDec24__engaged_ACP(Variable):
     value_type = bool
     entity = Building
@@ -181,7 +156,7 @@ class F16_electric_PDRSDec24__minimum_annual_energy(Variable):
 class F16_electric_PDRSDec24__storage_volume(Variable):
     value_type = bool
     entity = Building
-    default_value = True
+    default_value = False
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the storage volume of the End-User equipment 700 litres or less?',

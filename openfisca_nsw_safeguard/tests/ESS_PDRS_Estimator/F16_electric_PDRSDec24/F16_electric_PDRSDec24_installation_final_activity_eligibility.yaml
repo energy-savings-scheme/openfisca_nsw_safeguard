@@ -159,6 +159,19 @@
         True,
         False
       ]
+    F16_electric_PDRSDec24__safety_requirement:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
   output:
     F16_electric_PDRSDec24__installation_replacement_final_activity_eligibility:
       [

@@ -190,6 +190,7 @@ class RF2_F1_2_ESSJun24_af(Variable):
     def formula(buildings, period, parameters):
       product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
       duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
+      is_replacement_activity = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
     
       product_class = np.select([
           product_class == 'Class 1',
@@ -226,7 +227,14 @@ class RF2_F1_2_ESSJun24_af(Variable):
           RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
         ])
       
-      af = parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['adjustment_factor'][product_class][duty_type]
+      af = np.select([
+          is_replacement_activity,
+          np.logical_not(is_replacement_activity)
+        ], 
+        [
+          parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['adjustment_factor'][product_class][duty_type],
+          parameters(period).ESS.HEAB.table_F1_1_1['adjustment_factor'][product_class][duty_type]
+      ])
       return af
     
     
@@ -239,6 +247,7 @@ class RF2_F1_2_ESSJun24_baseline_EEI(Variable):
     def formula(buildings, period, parameters):
       product_class = buildings('RF2_F1_2_ESSJun24_product_class', period)
       duty_type = buildings('RF2_F1_2_ESSJun24_duty_class', period)
+      is_replacement_activity = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
     
       product_class = np.select([
           product_class == 'Class 1',
@@ -275,7 +284,14 @@ class RF2_F1_2_ESSJun24_baseline_EEI(Variable):
           RF2_F1_2_ESSJun24ProductClass.product_class_fifteen         
         ])
 
-      baseline_EEI = parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['baseline_EEI'][product_class][duty_type]  
+      baseline_EEI = np.select([
+        is_replacement_activity,
+        np.logical_not(is_replacement_activity)
+      ],
+      [
+        parameters(period).ESS.HEAB.table_F1_2_1_ESSJun24['baseline_EEI'][product_class][duty_type],
+        parameters(period).ESS.HEAB.table_F1_1_1['baseline_EEI'][product_class][duty_type]
+      ])  
       return baseline_EEI
       
 
@@ -408,3 +424,29 @@ class RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility(Variable):
             ])
 
         return product_EEI_eligibility_check
+
+
+class RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility(Variable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+      product_EEI = building('RF2_F1_2_ESSJun24_product_EEI', period)
+      product_class_5 = building('RF2_F1_2_ESSJun24_product_class', period)
+
+      install_product_EEI_to_check_ESC = np.select(
+          [
+            (product_EEI < 51),
+            (product_EEI >= 51) * (product_class_5 == 'Class 5'),
+            (product_EEI >= 51) * (product_EEI < 77) * (product_class_5 != 'Class 5'),
+            (product_EEI >= 77)
+        ],
+        [
+            True,
+            False,
+            True,
+            False
+        ])
+
+      return install_product_EEI_to_check_ESC

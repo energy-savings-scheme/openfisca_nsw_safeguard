@@ -113,6 +113,18 @@
         false,
         false
       ]
+      F16_gas_safety_requirement:
+      [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
   output:
     F16_gas_installation_replacement_final_activity_eligibility:
       [

@@ -1,7 +1,82 @@
+- name: test adjustment factor
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        false,
+        true,
+        false
+      ]
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 12,
+        Class 13,
+        Class 14,
+        Class 15
+      ]
+    RF2_F1_2_ESSJun24_duty_class:
+      [
+        normal_duty,
+        light_duty,
+        normal_duty,
+        heavy_duty
+      ]
+  output:
+    RF2_F1_2_ESSJun24_af:
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+
+- name: test baseline EEI
+  period: 2025
+  absolute_error_margin: 0
+  input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        false,
+        true,
+        false
+      ]
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 12,
+        Class 13,
+        Class 14,
+        Class 15
+      ]
+    RF2_F1_2_ESSJun24_duty_class:
+      [
+        normal_duty,
+        light_duty,
+        normal_duty,
+        heavy_duty
+      ]
+  output:
+    RF2_F1_2_ESSJun24_baseline_EEI:
+      [
+        100,
+        60,
+        77,
+        0
+      ]
+
 - name: test Product EEI eligibility
   period: 2024
   absolute_error_margin: 0.1
   input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
     RF2_F1_2_ESSJun24_product_EEI:
       [
         83, #fail
@@ -25,6 +100,40 @@
         true
       ]
 
+- name: test Product EEI eligibility for installation
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        false,
+        false,
+        false,
+        false
+      ]
+    RF2_F1_2_ESSJun24_product_EEI:
+      [
+        83, #fail
+        74, #pass
+        53, #fail
+        49  #pass
+      ]
+    RF2_F1_2_ESSJun24_product_class:
+      [
+        Class 8,
+        Class 10,
+        Class 5,
+        Class 5
+      ]
+  output:
+    RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility:
+      [
+        false,
+        true,
+        false,
+        true
+      ]
+
 - name: test ESC calculation
   period: 2024
   absolute_error_margin: 0.1
@@ -32,61 +141,94 @@
     RF2_F1_2_ESSJun24_replacement_activity:
       [
         true,
-        true
+        true,
+        false
       ]
     RF2_F1_2_ESSJun24_product_EEI:
       [
         10, #pass
-        51  #fail
+        51,  #fail
+        49.75
       ]
     RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility:
       [
         true,
+        false,
         false
+      ]
+    RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility:
+      [
+        false,
+        false,
+        true
       ]
     RF2_F1_2_ESSJun24_product_class:
       [
         product_class_five, 
-        product_class_five
+        product_class_five,
+        product_class_fifteen
       ]
     RF2_F1_2_ESSJun24_electricity_savings:
       [
         47.08,
-        47.08
+        47.08,
+        93.32
       ]
   output:
     RF2_F1_2_ESSJun24_ESC_calculation:
       [
         49.90,
-        0
+        0,
+        98.92
       ]
 
 - name: test ESC
   period: 2024
   absolute_error_margin: 0.5
   input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        false
+      ]
     RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility:
       [
+        true,
+        false
+      ]
+    RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility:
+      [
+        false,
         true
       ]
     RF2_F1_2_ESSJun24_product_EEI:
       [
-        51 #eligible
+        51, #eligible
+        49.75
       ]
     RF2_F1_2_ESSJun24_electricity_savings:
       [
-        47.08
+        47.08,
+        93.32
       ]
   output:
     RF2_F1_2_ESSJun24_ESC_calculation:
       [
-        49.90
+        49.90,
+        98.92
       ]
 
-- name: test baseline peak adjustment factor
+- name: test baseline peak adjustment factor for replacement
   period: 2024
   absolute_error_margin: 0
   input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        true,
+        true,
+        true
+      ]
     RF2_F1_2_ESSJun24_product_type:
       [
         integral_RDC,
@@ -118,22 +260,26 @@
       [
         29.86, #De Rigo Clio 3P
         9.7,   #EPTA Captur 100BT
-        16.17  #SKOPE TMF1000N-A
+        16.17,  #SKOPE TMF1000N-A
+        38.90
       ]
     RF2_F1_2_ESSJun24_baseline_EEI:
       [
         77,
         77,
-        100
+        100,
+        77
       ]
     RF2_F1_2_ESSJun24_product_EEI:
       [
         50,
         57.3,
-        63.474
+        63.474,
+        49.75
       ]
     RF2_F1_2_ESSJun24_af:
       [
+        1,
         1,
         1,
         1
@@ -142,14 +288,16 @@
       [
         8,
         8,
-        8
+        8,
+        12
       ]
   output: 
     RF2_F1_2_ESSJun24_deemed_activity_electricity_savings:
       [
         47.08,
         9.74,
-        27.171
+        27.171,
+        93.32
       ]
 
 - name: test electricity savings
@@ -203,34 +351,54 @@
   period: 2024
   absolute_error_margin: 1
   input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        false,
+        false
+      ]
     RF2_F1_2_ESSJun24_get_network_loss_factor_by_postcode:
       [
         1.05,
+        1.04,
+        1.04
       ]
     RF2_F1_2_ESSJun24_PDRS__postcode:
       [
-        2017
+        2017,
+        2010,
+        2010
       ]
     RF2_F1_2_ESSJun24_duty_class: 
       [
-        normal_duty
+        normal_duty,
+        normal_duty,
+        light_duty
       ]
     RF2_F1_2_ESSJun24_product_EEI:
       [
-        50.0469294717082
+        50.0469294717082,
+        49.7499625083918,
+        89.7499625083918
       ]
     RF2_F1_2_ESSJun24_product_class:
       [
-        Class 8
+        Class 8,
+        Class 15,
+        Class 15
       ]
     RF2_F1_2_ESSJun24_total_energy_consumption:
       [
-        29.86
+        29.86,
+        38.9,
+        38.9
       ]
   output:
     RF2_F1_2_ESSJun24_ESC_calculation:
       [
-        92.249
+        92.249,
+        98.92,
+        0
       ]
 
 - name: test ESC full CDScake cds1200cake
@@ -271,36 +439,51 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true,
+        false
+      ]
     RF2_F1_2_ESSJun24_product_class:
       [
-        Class 3
+        Class 3,
+        Class 15
       ]
     RF2_F1_2_ESSJun24_duty_class:
       [
-        heavy_duty
+        heavy_duty,
+        normal_duty
       ]
     RF2_F1_2_ESSJun24_total_energy_consumption:
       [
-        32
+        32,
+        38.9
       ]
     RF2_F1_2_ESSJun24_product_EEI:
       [
-        200
+        200,
+        49.75
       ]
     RF2_F1_2_ESSJun24_PDRS__postcode:
       [
-        2024
+        2024,
+        2010
       ]
   output:
     RF2_F1_2_ESSJun24_annual_energy_savings:
       [
-        0 #-57.466 negative value
+        0, #-57.466 negative value
+        93.32
       ]
 
 - name: test annual energy savings 2
   period: 2024
   absolute_error_margin: 0.1
   input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true
+      ]
     RF2_F1_2_ESSJun24_product_class:
       [
         Class 5
@@ -332,6 +515,10 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
+    RF2_F1_2_ESSJun24_replacement_activity:
+      [
+        true
+      ]
     RF2_F1_2_ESSJun24_product_class:
       [
         Class 2

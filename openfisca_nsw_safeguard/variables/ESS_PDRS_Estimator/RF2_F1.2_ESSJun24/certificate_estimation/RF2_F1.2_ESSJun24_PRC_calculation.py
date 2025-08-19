@@ -240,10 +240,6 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
             
         #product EEI
         product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
-        print(f'product_EEI: {product_EEI}')
-        print(f'baseline_EEI: {baseline_EEI}')
-        print(f'af: {af}')
-        print(f'total_energy_consumption: {total_energy_consumption}')
 
         #baseline input power
         baseline_input_power = np.select(

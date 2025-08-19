@@ -82,36 +82,44 @@
   input:
     RF2_F1_2_ESSJun24_product_class:
       [
-        Class 11
+        Class 11,
+        Class 15
       ]
     RF2_F1_2_ESSJun24_duty_class:
       [
+        normal_duty,
         normal_duty
       ]
     RF2_F1_2_ESSJun24_product_type:
       [
-        integral_RDC
+        integral_RDC,
+        remote_RDC
       ]
     RF2_F1_2_ESSJun24_replacement_activity:
       [
-        true
+        true,
+        false
       ]
     RF2_F1_2_ESSJun24_total_energy_consumption:
       [
-        9.8
+        9.8,
+        38.9
       ]
     RF2_F1_2_ESSJun24_product_EEI:
       [
-        51.527
+        51.527,
+        49.75
       ]
     RF2_F1_2_ESSJun24_PDRS__postcode:
       [
-        2817
+        2817,
+        2010
       ]
   output:
     RF2_F1_2_ESSJun24_peak_demand_annual_savings:
       [
-        21
+        21,
+        0
       ]
 
 - name: test RF2 ESSJun24 peak demand reduction capacity

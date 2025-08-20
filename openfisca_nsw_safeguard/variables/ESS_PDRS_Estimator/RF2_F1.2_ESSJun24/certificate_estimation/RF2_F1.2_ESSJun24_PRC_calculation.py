@@ -136,6 +136,7 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
     def formula(buildings, period, parameters):
          #product class
         product_class_savings = buildings('RF2_F1_2_ESSJun24_product_class', period)
+        is_replacement_activity = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
         
         product_class_savings = np.select([
             product_class_savings == 'Class 1',
@@ -292,16 +293,18 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
                 12
             ])
 
-       #peak demand reduction capacity
+        #peak demand reduction capacity
         summer_peak_demand_reduction_duration = 6
 
         peak_demand_annual_savings = peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime_by_rc_class
 
         peak_demand_annual_savings_return = np.select([
-                peak_demand_annual_savings <= 0, peak_demand_annual_savings > 0
+                np.logical_or(np.logical_not(is_replacement_activity), peak_demand_annual_savings <= 0), 
+                np.logical_and(is_replacement_activity, peak_demand_annual_savings > 0)
             ], 
 	        [
-                0, peak_demand_annual_savings
+                0, 
+                peak_demand_annual_savings
             ])
         
         return peak_demand_annual_savings_return

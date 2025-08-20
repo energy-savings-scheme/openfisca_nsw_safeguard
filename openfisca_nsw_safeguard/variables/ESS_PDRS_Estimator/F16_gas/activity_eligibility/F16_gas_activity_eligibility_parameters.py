@@ -103,42 +103,17 @@ class F16_gas_4234_certified(Variable):
       'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 1 it states that the installed End-User Equipment must be an air source heat pump water heater as defined by AS/NZS 4234"""
     }
 
-class F16_gasStorageVolume(Enum):
-    less_than_or_equal_to_700_L = 'Less than or equal to 700 litres'
-    more_than_700_L = 'More than 700 litres'
-
     
 class F16_gas_storage_volume(Variable):
-    value_type = Enum
+    value_type = bool
     entity = Building
-    default_value = F16_gasStorageVolume.more_than_700_L
-    possible_values = F16_gasStorageVolume
+    default_value = False
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
+      'display_question' : 'Is the storage volume of the End-User equipment 700 litres or less?',
       'sorting' : 9,
       'eligibility_clause' : """In ESS F16 gas Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
-
-
-class F16_gas_storage_volume_int(Variable):
-    value_type = int
-    entity = Building 
-    definition_period = ETERNITY
-
-    def formula(buildings, period, parameters):
-      storage_volume = buildings('F16_gas_storage_volume', period)
-
-      storage_volume_int = np.select([
-          storage_volume == 'Less than or equal to 700 litres',
-          storage_volume == 'More than 700 litres'
-      ],
-      [
-        F16_gasStorageVolume.less_than_or_equal_to_700_L,
-        F16_gasStorageVolume.more_than_700_L
-      ])
-
-      return storage_volume_int
 
 
 class F16_gas_certified(Variable):
@@ -168,13 +143,15 @@ class F16_gas_equipment_certified_by_storage_volume(Variable):
 
       eligible_by_storage = np.select(
         [
-          (storage_volume == F16_gasStorageVolume.less_than_or_equal_to_700_L) * certified_AS_NZ_2712,
-          (storage_volume == F16_gasStorageVolume.less_than_or_equal_to_700_L) * np.logical_not(certified_AS_NZ_2712),
-          (storage_volume == F16_gasStorageVolume.more_than_700_L)
+          storage_volume * certified_AS_NZ_2712,
+          storage_volume * np.logical_not(certified_AS_NZ_2712),
+          np.logical_not(storage_volume) * (certified_AS_NZ_2712),
+          np.logical_not(storage_volume) * np.logical_not(certified_AS_NZ_2712)
         ],
         [
           True,
           False,
+          True,
           True
         ])
       return eligible_by_storage

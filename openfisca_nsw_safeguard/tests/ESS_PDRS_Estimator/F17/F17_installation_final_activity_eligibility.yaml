@@ -4,10 +4,10 @@
   input:
     F17_storage_volume:
       [
-        less_than_or_equal_to_700_L,
-        less_than_or_equal_to_700_L,
-        more_than_700_L,
-        more_than_700_L
+        true,
+        true,
+        false,
+        true
       ]
     F17_certified:
       [
@@ -113,6 +113,18 @@
         false, #not eligible
         false 
       ]
+    F17_safety_requirement:
+      [
+        true, 
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true, #not eligible
+        true 
+      ]  
   output:
     F17_installation_final_activity_eligibility:
       [

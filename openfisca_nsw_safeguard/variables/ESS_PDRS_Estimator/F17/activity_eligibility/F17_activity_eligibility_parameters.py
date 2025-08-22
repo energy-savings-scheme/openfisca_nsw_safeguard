@@ -109,7 +109,7 @@ class F17_storage_volume(Variable):
     default_value = False
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'What is the storage volume of the End-User equipment (litres)?',
+      'display_question' : 'Is the storage volume of the End-User equipment 700 litres or less?',
       'sorting' : 9,
       'eligibility_clause' : """In ESS F17 Equipment Requirements Clause 3 it states that the New End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L"""
     }

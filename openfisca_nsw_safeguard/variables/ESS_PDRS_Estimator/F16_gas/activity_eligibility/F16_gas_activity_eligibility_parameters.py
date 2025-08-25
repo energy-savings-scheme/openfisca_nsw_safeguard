@@ -126,7 +126,7 @@ class F16_gas_certified(Variable):
       'display_question' : 'Is the End-User equipment AS/NZ 2712 certified?',
       'sorting' : 10,
       'conditional' : 'True',
-      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
+      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 3 it states that the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
    
 

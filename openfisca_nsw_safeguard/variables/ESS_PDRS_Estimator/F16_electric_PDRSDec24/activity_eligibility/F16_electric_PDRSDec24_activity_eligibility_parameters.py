@@ -73,7 +73,7 @@ class F16_electric_PDRSDec24__safety_requirement(Variable):
     metadata = {
       'display_question' : 'Have safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations been followed for the installation?',
       'sorting' : 6,
-      'eligibility_clause' : """In ESS F16 Implementation Requirements Clause 4 it states that the where the replacement End-User Equipment is a split system with refrigerant flows between the evaporator and tank, safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations must be followed."""
+      'eligibility_clause' : """In ESS F16 Implementation Requirements Clause 4 it states that where the replacement End-User Equipment is a split system with refrigerant flows between the evaporator and tank, safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations must be followed."""
     }
 
 

@@ -161,7 +161,7 @@ class F16_electric_PDRSDec24__storage_volume(Variable):
     metadata = {
       'display_question' : 'Is the storage volume of the End-User equipment 700 litres or less?',
       'sorting' : 13,
-      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
+      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 3 it states that the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
 
 
@@ -175,7 +175,7 @@ class F16_electric_PDRSDec24__certified(Variable):
       'display_question' : 'Is the End-User equipment AS/NZ 2712 certified?',
       'sorting' : 14,
       'conditional' : 'True',
-      'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
+      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 3 it states that the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
    
 

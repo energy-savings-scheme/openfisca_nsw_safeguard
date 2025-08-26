@@ -61,7 +61,7 @@ class F16_electric_PDRSDec24__split_system(Variable):
     metadata = {
       'display_question' : 'Is the End-User equipment a split system?',
       'sorting' : 5,
-      'eligibility_clause' : """In ESS F16 Implementation Requirements Clause 4 it states that the where the replacement End-User Equipment is a split system with refrigerant flows between the evaporator and tank, safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations must be followed."""
+      'eligibility_clause' : """In ESS F16 Implementation Requirements Clause 4 it states that where the replacement End-User Equipment is a split system with refrigerant flows between the evaporator and tank, safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations must be followed."""
     }
 
 
@@ -73,7 +73,7 @@ class F16_electric_PDRSDec24__safety_requirement(Variable):
     metadata = {
       'display_question' : 'Have safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations been followed for the installation?',
       'sorting' : 6,
-      'eligibility_clause' : """In ESS F16 Implementation Requirements Clause 4 it states that the where the replacement End-User Equipment is a split system with refrigerant flows between the evaporator and tank, safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations must be followed."""
+      'eligibility_clause' : """In ESS F16 Implementation Requirements Clause 4 it states that where the replacement End-User Equipment is a split system with refrigerant flows between the evaporator and tank, safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations must be followed."""
     }
 
 
@@ -99,7 +99,7 @@ class F16_electric_PDRSDec24__minimum_payment(Variable):
     metadata = {  
       'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
       'sorting' : 8,
-      'eligibility_clause' : """In ESS Clause 9.8.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $1000 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
+      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $1000 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
     }
 
 
@@ -161,7 +161,7 @@ class F16_electric_PDRSDec24__storage_volume(Variable):
     metadata = {
       'display_question' : 'Is the storage volume of the End-User equipment 700 litres or less?',
       'sorting' : 13,
-      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
+      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 3 it states that the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
 
 
@@ -175,7 +175,7 @@ class F16_electric_PDRSDec24__certified(Variable):
       'display_question' : 'Is the End-User equipment AS/NZ 2712 certified?',
       'sorting' : 14,
       'conditional' : 'True',
-      'eligibility_clause' : """In PDRS WH1 Equipment Requirements Clause 3 it states the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
+      'eligibility_clause' : """In ESS F16 Equipment Requirements Clause 3 it states that the installed End-User Equipment must be certified to comply with AS/NZS 2712 if it has a storage volume less than or equal to 700L."""
     }
    
 

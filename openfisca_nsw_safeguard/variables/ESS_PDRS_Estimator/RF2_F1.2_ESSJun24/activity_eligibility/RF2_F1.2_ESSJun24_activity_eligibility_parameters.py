@@ -52,7 +52,7 @@ class RF2_F1_2_ESSJun24_legal_disposal(Variable):
     metadata = {
       'display_question' : 'Will the existing End-User equipment be removed and disposed of in accordance with legislation?',
       'sorting' : 4,
-      'eligibility_clause' : """In and PDRS RF2 Implementation Requirements Clause 1 it states that the existing End-User Equipment must be removed and disposed of in accordance with legislation."""
+      'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 1 it states that the existing End-User Equipment must be removed and disposed of in accordance with legislation."""
     }
 
 

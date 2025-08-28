@@ -27,14 +27,14 @@ class SYS2_PDRSAug24_baseline_input_power(Variable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-        nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
+        maximum_tested_input_power = buildings('SYS2_PDRSAug24_maximum_tested_input_power', period)
 
-        nameplate_input_power_to_check = np.select(
+        maximum_tested_input_power_to_check = np.select(
             [
-                (nameplate_input_power <= 1000),
-                (nameplate_input_power > 1000) * (nameplate_input_power <= 1500),
-                (nameplate_input_power > 1500) * (nameplate_input_power <= 2000),
-                (nameplate_input_power > 2000),
+                (maximum_tested_input_power <= 1000),
+                (maximum_tested_input_power > 1000) * (maximum_tested_input_power <= 1500),
+                (maximum_tested_input_power > 1500) * (maximum_tested_input_power <= 2000),
+                (maximum_tested_input_power > 2000),
             ],
             [
                 'less_than_or_equal_to_1000w',
@@ -43,7 +43,7 @@ class SYS2_PDRSAug24_baseline_input_power(Variable):
                 'greater_than_2000w'
             ])
 
-        baseline_input_power = parameters(period).PDRS.pool_pumps.table_sys2_1_PDRSAug24.baseline_input_power[nameplate_input_power_to_check]
+        baseline_input_power = parameters(period).PDRS.pool_pumps.table_sys2_1_PDRSAug24.baseline_input_power[maximum_tested_input_power_to_check]
         return baseline_input_power
 
 

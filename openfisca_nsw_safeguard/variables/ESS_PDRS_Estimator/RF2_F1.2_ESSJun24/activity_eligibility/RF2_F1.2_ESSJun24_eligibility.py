@@ -26,7 +26,7 @@ class RF2_F1_2_ESSJun24_installation_replacement_final_activity_eligibility(Vari
         installed_on_site = buildings('RF2_F1_2_ESSJun24_installed_on_site', period)
         eligible_display_sides = buildings('RF2_F1_2_ESSJun24_display_sides_eligible', period)
         registered_GEMS = buildings('RF2_F1_2_ESSJun24_equipment_registered_in_GEMS', period)
-        product_class_5 = buildings('RF2_F1_2_ESSJun24_GEMS_product_class_5', period)
+        product_class_12 = buildings('RF2_F1_2_ESSJun24_GEMS_product_class_12', period)
 
       
         #if product class is 5 then EEI must be below 51 otherwise for all other product classes EEI must be below 81

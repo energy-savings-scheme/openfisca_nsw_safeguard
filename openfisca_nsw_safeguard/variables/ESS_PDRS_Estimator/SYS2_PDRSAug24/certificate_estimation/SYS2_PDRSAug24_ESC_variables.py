@@ -22,15 +22,14 @@ class SYS2_PDRSAug24_PDRS__postcode(Variable):
         'sorting' : 1
     }
 
-
-class SYS2_PDRSAug24_nameplate_input_power(Variable):
+class SYS2_PDRSAug24_maximum_tested_input_power(Variable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'input',
-        'label': 'Nameplate Input Power (w)',
-        'display_question' : 'The input power of the new or replacement pool pump as recorded in the GEMS Registry',
+        'label': 'Maximum Tested Input Power (w)',
+        'display_question' : 'The input power of the new or replacement pool pump as recorded in the GEMS Registry, also known as “High” in the Registry',
         'sorting' : 2
     }
 
@@ -68,14 +67,14 @@ class SYS2_PDRSAug24_PAEC_baseline(Variable):
     }
 
     def formula(buildings, period, parameters):
-        nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
+        maximum_tested_input_power = buildings('SYS2_PDRSAug24_maximum_tested_input_power', period)
 
-        nameplate_input_power_to_check = np.select(
+        maximum_tested_input_power_to_check = np.select(
             [
-                (nameplate_input_power <= 1000),
-                (nameplate_input_power > 1000) * (nameplate_input_power <= 1500),
-                (nameplate_input_power > 1500) * (nameplate_input_power <= 2000),
-                (nameplate_input_power > 2000),
+                (maximum_tested_input_power <= 1000),
+                (maximum_tested_input_power > 1000) * (maximum_tested_input_power <= 1500),
+                (maximum_tested_input_power > 1500) * (maximum_tested_input_power <= 2000),
+                (maximum_tested_input_power > 2000),
             ],
             [
                 'less_than_or_equal_to_1000w',
@@ -84,5 +83,5 @@ class SYS2_PDRSAug24_PAEC_baseline(Variable):
                 'greater_than_2000w'
             ])
 
-        PAEC_baseline = parameters(period).ESS.HEER.table_D5_1_PDRSAug24.baseline_PAEC[nameplate_input_power_to_check]
+        PAEC_baseline = parameters(period).ESS.HEER.table_D5_1_PDRSAug24.baseline_PAEC[maximum_tested_input_power_to_check]
         return PAEC_baseline

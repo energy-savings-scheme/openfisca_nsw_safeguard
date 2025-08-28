@@ -40,7 +40,7 @@ class RF2_F1_2_ESSJun24_qualified_install_removal(Variable):
     metadata = {
       'display_question' : 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?',
       'sorting' : 3,
-      'eligibility_clause' : """In ESS F1.2 and PDRS RF2 Implementation Requirements Clause 3 it states that the activity, including the removal of the existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
+      'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 3 it states that the activity, including the removal of the existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
 
@@ -52,7 +52,7 @@ class RF2_F1_2_ESSJun24_legal_disposal(Variable):
     metadata = {
       'display_question' : 'Will the existing End-User equipment be removed and disposed of in accordance with legislation?',
       'sorting' : 4,
-      'eligibility_clause' : """In ESS F1.2 and PDRS RF2 Implementation Requirements Clause 1 it states that the existing End-User Equipment must be removed and disposed of in accordance with legislation."""
+      'eligibility_clause' : """In and PDRS RF2 Implementation Requirements Clause 1 it states that the existing End-User Equipment must be removed and disposed of in accordance with legislation."""
     }
 
 
@@ -78,7 +78,7 @@ class RF2_F1_2_ESSJun24_minimum_payment(Variable):
     metadata = {
       'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
       'sorting' : 6,
-      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $1000 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
+      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
     }
 
 

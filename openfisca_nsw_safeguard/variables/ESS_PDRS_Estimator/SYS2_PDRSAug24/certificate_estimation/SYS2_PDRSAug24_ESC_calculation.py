@@ -51,18 +51,18 @@ class SYS2_PDRSAug24_energy_savings(Variable):
 
     def formula(buildings, period, parameters):
         #Nameplate input power
-        nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
+        maximum_tested_input_power = buildings('SYS2_PDRSAug24_maximum_tested_input_power', period)
 
         #PAEC
         PAEC = buildings('SYS2_PDRSAug24_projected_annual_energy_consumption', period)
 
         #PAEC baseline
-        nameplate_input_power_to_check = np.select(
+        maximum_tested_input_power_to_check = np.select(
             [
-                (nameplate_input_power <= 1000),
-                (nameplate_input_power > 1000) * (nameplate_input_power <= 1500),
-                (nameplate_input_power > 1500) * (nameplate_input_power <= 2000),
-                (nameplate_input_power > 2000),
+                (maximum_tested_input_power <= 1000),
+                (maximum_tested_input_power > 1000) * (maximum_tested_input_power <= 1500),
+                (maximum_tested_input_power > 1500) * (maximum_tested_input_power <= 2000),
+                (maximum_tested_input_power > 2000),
             ],
             [
                 'less_than_or_equal_to_1000w',
@@ -71,7 +71,7 @@ class SYS2_PDRSAug24_energy_savings(Variable):
                 'greater_than_2000w'
             ])
 
-        PAEC_baseline = parameters(period).ESS.HEER.table_D5_1_PDRSAug24.baseline_PAEC[nameplate_input_power_to_check]
+        PAEC_baseline = parameters(period).ESS.HEER.table_D5_1_PDRSAug24.baseline_PAEC[maximum_tested_input_power_to_check]
 
         #deemed activity electricity savings
         lifetime = 10
@@ -123,12 +123,12 @@ class SYS2_PDRSAug24_ESC_calculation(Variable):
     def formula(buildings, period, parameters):
         electricity_savings = buildings('SYS2_PDRSAug24_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
-        nameplate_input_power = buildings('SYS2_PDRSAug24_nameplate_input_power', period)
+        maximum_tested_input_power = buildings('SYS2_PDRSAug24_maximum_tested_input_power', period)
         daily_run_time = buildings('SYS2_PDRSAug24_daily_run_time', period)
         PAEC = buildings('SYS2_PDRSAug24_projected_annual_energy_consumption', period)
 
         #check if all three values are zero, and if they are, return zero certificates
-        zero_product_data = (nameplate_input_power == 0) * (daily_run_time == 0) * (PAEC == 0)
+        zero_product_data = (maximum_tested_input_power == 0) * (daily_run_time == 0) * (PAEC == 0)
 
         result = (electricity_savings * electricity_certificate_conversion_factor)
         result_has_data = np.select(

@@ -24,7 +24,7 @@ class RF2_F1_2_ESSJun24_installation_replacement_final_activity_eligibility(Vari
         ACP_engaged = buildings('RF2_F1_2_ESSJun24_engaged_ACP', period)
         minimum_payment = buildings('RF2_F1_2_ESSJun24_minimum_payment', period)
         installed_on_site = buildings('RF2_F1_2_ESSJun24_installed_on_site', period)
-        eligible_display_sides = buildings('RF2_F1_2_ESSJun24_display_sides_eligible', period)
+        eligible_display_sides = buildings('RF2_F1_2_ESSJun24_display_sides', period)
         registered_GEMS = buildings('RF2_F1_2_ESSJun24_equipment_registered_in_GEMS', period)
         product_class_12 = buildings('RF2_F1_2_ESSJun24_GEMS_product_class_12', period)
         EEI_under_77 = buildings('RF2_F1_2_ESSJun24_EEI_under_77', period)

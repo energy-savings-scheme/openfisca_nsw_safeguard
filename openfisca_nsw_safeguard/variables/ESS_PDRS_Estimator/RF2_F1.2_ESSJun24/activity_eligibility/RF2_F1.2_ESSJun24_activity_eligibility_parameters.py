@@ -121,7 +121,7 @@ class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(Variable):
 class RF2_F1_2_ESSJun24_GEMS_product_class_12(Variable):
     value_type = bool
     entity = Building
-    default_value = False
+    default_value = True
     definition_period = ETERNITY
     metadata = {
       'display_question' : 'Is the GEMS Product Class of the new End-User equipment 12 or above?',

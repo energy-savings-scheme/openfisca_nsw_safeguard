@@ -24,8 +24,10 @@ class F17_installation_final_activity_eligibility(Variable):
         minimum_payment = buildings('F17_minimum_payment', period)
         not_installed_class_1_or_4 = buildings('F17_building_BCA_not_class_1_or_4', period)        
         storage_volume_certified = buildings('F17_equipment_certified_by_storage_volume', period)
+        split_system = buildings('F17_split_system', period)
+        safety_requirement = buildings('F17_safety_requirement', period)
         
         end_formula = ( new_installation * recognised_certification * qualified_install * ACP_engaged * minimum_payment * np.logical_not(not_installed_class_1_or_4) * 
-                        storage_volume_certified )
+                        storage_volume_certified * safety_requirement)
 
         return end_formula

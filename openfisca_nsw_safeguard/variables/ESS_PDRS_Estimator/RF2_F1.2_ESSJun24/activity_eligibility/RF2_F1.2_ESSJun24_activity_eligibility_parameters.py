@@ -40,7 +40,7 @@ class RF2_F1_2_ESSJun24_qualified_install_removal(Variable):
     metadata = {
       'display_question' : 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably licensed person?',
       'sorting' : 3,
-      'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 3 it states that the activity, including the removal of the existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
+      'eligibility_clause' : """In ESS F1.2 and PDRS RF2 Implementation Requirements Clause 3 it states that the activity, including the removal of the existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
 
@@ -52,7 +52,7 @@ class RF2_F1_2_ESSJun24_legal_disposal(Variable):
     metadata = {
       'display_question' : 'Will the existing End-User equipment be removed and disposed of in accordance with legislation?',
       'sorting' : 4,
-      'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 1 it states that the existing End-User Equipment must be removed and disposed of in accordance with legislation."""
+      'eligibility_clause' : """In ESS F1.2 and PDRS RF2 Implementation Requirements Clause 1 it states that the existing End-User Equipment must be removed and disposed of in accordance with legislation."""
     }
 
 
@@ -78,7 +78,7 @@ class RF2_F1_2_ESSJun24_minimum_payment(Variable):
     metadata = {
       'display_question' : 'Are you aware that you are required to make a minimum payment towards the cost of your upgrade?',
       'sorting' : 6,
-      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $200 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
+      'eligibility_clause' : """In ESS Clause 9.9.1E it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $1000 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using any of Activity Definitions F1.1, F1.2, F16 or F17."""
     }
 
 
@@ -88,101 +88,70 @@ class RF2_F1_2_ESSJun24_installed_on_site(Variable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the replacement End-User equipment installed in it’s intended place of use and operating?',
+      'display_question' : 'Is the new End-User equipment operating in its intended place of use?',
       'sorting' : 7,
-      'eligibility_clause' : """In PDRS RF2 Implementation Requirements Clause 2 is states that the replacement End-User Equipment must be installed in its intended place of use and operating."""
+      'eligibility_clause' : """In ESS F1.1, ESS F1.2 and and PDRS RF2 Implementation Requirements Clause 2 is states that the replacement End-User Equipment must be installed in its intended place of use and operating."""
     }
-
-
-class RF2_F1_2_ESSJun24_DisplaySides(Enum):
-    less_than_four_sides = 'Less than four display sides'
-    four_sides = 'Four display sides'
-    more_than_four_sides = 'More than four display sides'
 
 
 class RF2_F1_2_ESSJun24_display_sides(Variable):
-    value_type = Enum
+    value_type = bool
     entity = Building
-    default_value = RF2_F1_2_ESSJun24_DisplaySides.less_than_four_sides
-    possible_values = RF2_F1_2_ESSJun24_DisplaySides
+    default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'How many display sides does the new End-User equipment have?',
+        'display_question' : 'Does the new End-User equipment have only one display side?',
         'sorting' : 8,
-        'eligibility_clause' : """In ESS F1.2 Equipment Requirements Clause 4 it states that the replacement End-User Equipment must not have 4 or more display sides."""
+        'eligibility_clause' : """In ESS F1.1, ESS F1.2 and and PDRS RF2 Equipment Requirements Clause 4 it states that the new End-User Equipment must not have 2 or more display sides."""
     }
 
 
-class RF2_F1_2_ESSJun24_display_sides_eligible(Variable):
-    #Checks if the number of display sides is eligible (four or more display sides not eligible)
-    value_type = bool
-    entity = Building 
-    definition_period = ETERNITY
-
-    def formula(buildings, period, parameters):
-        display_sides = buildings('RF2_F1_2_ESSJun24_display_sides', period)
-
-        display_sides_eligible = np.select(
-        [
-            (display_sides == RF2_F1_2_ESSJun24_DisplaySides.less_than_four_sides),
-            (display_sides == RF2_F1_2_ESSJun24_DisplaySides.four_sides),
-            (display_sides == RF2_F1_2_ESSJun24_DisplaySides.more_than_four_sides)
-        ],
-        [
-            True,
-            False,
-            False
-        ])
-
-        return display_sides_eligible
-    
-    
 class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(Variable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is the installed End-User equipment a registered product on the GEMS registry under GEMS (refrigerated cabinets) Determination 2020?',
+        'display_question' : 'Is the new End-User equipment a registered product on the GEMS registry under GEMS (refrigerated cabinets) Determination 2024?',
         'sorting' : 9,
-        'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 1 it states that the End-User Equipment must be a Refrigerated Cabinet (RC) as defined within the terms of the Greenhouse and Energy Minimum Standards (Refrigerated Cabinets) Determination 2020."""
+        'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 1 it states that the End-User Equipment must be a Refrigerated Cabinet (RC) as defined within the terms of the Greenhouse and Energy Minimum Standards (Refrigerated Cabinets) Determination 2024."""
     }
 
 
-class RF2_F1_2_ESSJun24_GEMS_product_class_5(Variable):
-    value_type = bool
-    entity = Building
-    default_value = False
-    definition_period = ETERNITY
-    metadata = {
-      'display_question' : 'Is the End-User equipment GEMS Product Class 5?',
-      'sorting' : 10,
-      'conditional' : 'True',
-      'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
-    }
-
-
-class RF2_F1_2_ESSJun24_EEI_under_51(Variable):
-    #if the equipment is Product Class 5, the EEI must be below 51 to be eligible
+class RF2_F1_2_ESSJun24_GEMS_product_class_12(Variable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the product Energy Efficiency Index (EEI) as recorded in the GEMS Registry below 51?',
+      'display_question' : 'Is the GEMS Product Class of the new End-User equipment 12 or above?',
+      'sorting' : 10,
+      'conditional' : 'True',
+      'eligibility_clause' : """In ESS clauses 6.12A and 6.12B and PDRS clause 6.9.2B it states that an activity that involves the installation of End-User Equipment that is of Refrigerated Cabinet Product Classes 1-11 is suspended."""
+    }
+
+
+class RF2_F1_2_ESSJun24_EEI_under_77(Variable):
+    #if Q1 is New Installation
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+      'display_question' : 'Is the Energy Efficiency Index (EEI) of the new End-User equipment below 77, as recorded in the GEMS Registry?',
       'sorting' : 11,
-      'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
+      'eligibility_clause' : """In ESS F1.1 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 77, as recorded in the GEMS Registry."""
     }
 
 
 class RF2_F1_2_ESSJun24_EEI_under_81(Variable):
-    #if the equipment is anything other than Product Class 5, the EEI must be below 81 to be eligible
+    #if Q1 is Replacement 
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-      'display_question' : 'Is the product Energy Efficiency Index (EEI) as recorded in the GEMS Registry below 81?',
+      'display_question' : 'Is the Energy Efficiency Index (EEI) of the new End-User equipment below 81, as recorded in the GEMS Registry?',
       'sorting' : 12,
-      'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry, with the exception of Integral Ice Cream Freezer Cabinets (class 5) which must have an EEI below 51, as recorded in the GEMS Registry."""
+      'eligibility_clause' : """In ESS F1.2 and PDRS RF2 Equipment Requirements Clause 2 it states that the refrigerated cabinet must have an Energy Efficiency Index (EEI) below 81, as recorded in the GEMS Registry."""
     }

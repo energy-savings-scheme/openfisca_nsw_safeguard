@@ -102,7 +102,7 @@ class RF2_F1_2_ESSJun24_display_sides(Variable):
     metadata = {
         'display_question' : 'Does the new End-User equipment have only one display side?',
         'sorting' : 8,
-        'eligibility_clause' : """In ESS F1.1, ESS F1.2 and and PDRS RF2 Equipment Requirements Clause 4 it states that the new End-User Equipment must not have 2 or more display sides."""
+        'eligibility_clause' : """In ESS F1.1, ESS F1.2 and PDRS RF2 Equipment Requirements Clause 4 it states that the new End-User Equipment must not have 2 or more display sides."""
     }
 
 
@@ -114,7 +114,7 @@ class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(Variable):
     metadata = {
         'display_question' : 'Is the new End-User equipment a registered product on the GEMS registry under GEMS (refrigerated cabinets) Determination 2024?',
         'sorting' : 9,
-        'eligibility_clause' : """In PDRS RF2 Equipment Requirements Clause 1 it states that the End-User Equipment must be a Refrigerated Cabinet (RC) as defined within the terms of the Greenhouse and Energy Minimum Standards (Refrigerated Cabinets) Determination 2024."""
+        'eligibility_clause' : """In ESS F1.1, ESS F1.2 and PDRS RF2 Equipment Requirements Clause 1 it states that the End-User Equipment must be a Refrigerated Cabinet (RC) as defined within the terms of the Greenhouse and Energy Minimum Standards (Refrigerated Cabinets) Determination 2024."""
     }
 
 

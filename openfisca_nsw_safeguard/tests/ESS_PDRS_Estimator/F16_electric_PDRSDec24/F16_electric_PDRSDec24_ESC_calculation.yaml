@@ -34,6 +34,64 @@
         0.5
       ]
 
+- name: test individual heat pump thermal capacity
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    F16_electric_PDRSDec24_total_heat_pump_thermal_capacity:
+      [
+        3, # brand midea, model 170HPM2
+        4.6, # brand RHEEM, model 551270
+        103.2 # brand MITSUBISHI HEAVY INDUSTRIES, model 120Q-5-1000
+      ]
+    F16_electric_PDRSDec24_number_of_heat_pumps:
+      [
+        2,
+        1,
+        4
+      ]
+  output:
+    F16_electric_PDRSDec24_individual_heat_pump_thermal_capacity:
+      [
+        1.5,
+        4.6,
+        25.8
+      ]
+
+- name: test calculation of confidence factor
+  period: 2025
+  absolute_error_margin: 0.1
+  input:
+    F16_electric_PDRSDec24_total_heat_pump_thermal_capacity:
+      [
+        3, # brand midea, model 170HPM2
+        4.6, # brand RHEEM, model 551270
+        103.2, # brand MITSUBISHI HEAVY INDUSTRIES, model 120Q-5-1000,
+        3.65
+      ]
+    F16_electric_PDRSDec24_number_of_heat_pumps:
+      [
+        2,
+        1,
+        4,
+        1
+      ]
+    F16_electric_PDRSDec24_com_peak_load:
+      [
+        108,
+        136,
+        4818,
+        77
+      ]
+  output:
+    F16_electric_PDRSDec24_confidence_factor:
+      [
+        0.3889,
+        0.3088,
+        1,
+        0.54545
+      ]
+
 - name: test F16 deemed activity gas savings
   period: 2025
   absolute_error_margin: 0.1
@@ -47,6 +105,11 @@
       [
         0.5,
         1
+      ]
+    F16_electric_PDRSDec24_confidence_factor:
+      [
+        1,
+        0.7
       ]
   output:
     F16_electric_PDRSDec24_deemed_activity_gas_savings:
@@ -96,11 +159,18 @@
         1,
         1
       ]
+    F16_electric_PDRSDec24_confidence_factor:
+      [
+        1,
+        0.8,
+        1,
+        1
+      ]
   output:
     F16_electric_PDRSDec24_deemed_activity_electricity_savings:
       [
         166.66667,
-        78,
+        62.424004,
         56.94,
         146.57
       ]
@@ -115,7 +185,26 @@
         100,
         77,   #ECO ALLIANCE ECO-155LU
         81,   #Quantum 150-08AC6-290
-        78    #Wulfe W200PW-1
+        78,    #Wulfe W200PW-1
+        77
+      ]
+    F16_electric_PDRSDec24_total_heat_pump_thermal_capacity:
+      [
+        3,
+        4.6,
+        10.2,
+        3.65,
+        3.65,
+        3.65
+      ]
+    F16_electric_PDRSDec24_number_of_heat_pumps:
+      [
+        2,
+        1,
+        4,
+        1,
+        1,
+        1
       ]
     F16_electric_PDRSDec24_HP_elec:
       [
@@ -123,7 +212,8 @@
         3,
         9.62,
         9.54,
-        8.75
+        8.75,
+        9.62
       ]
     F16_electric_PDRSDec24_HP_capacity_factor:
       [
@@ -131,7 +221,8 @@
         36,
         3.65,
         3.1,
-        2.3
+        2.3,
+        3.65
       ]
     F16_electric_PDRSDec24_WH_capacity_factor:
       [
@@ -139,12 +230,14 @@
         6,
         5,
         6,
-        3.5
+        3.5,
+        3.65
       ]
     F16_electric_PDRSDec24_HP_gas:
       [
         20,
         30,
+        0,
         0,
         0,
         0
@@ -153,10 +246,11 @@
     F16_electric_PDRSDec24_energy_savings:
       [
         0, #negative value
-        0.936,
-        56.956,
-        61.85,
-        61
+        0.39296246,
+        31.066868,
+        32.068886,
+        32.85265,
+        31.066868
       ]
 
 - name: test F16 ESC calculation
@@ -168,39 +262,78 @@
         170.98,
         32.949, #Ecogenica EG215F
         26.71,  #EcoAlliance ECO-155LU
-        63.47   #Emerald Energy EE-HWS-RCHPOU/EE-HWS-RCHP-200E-2
+        63.47195,   #Emerald Energy EE-HWS-RCHPOU/EE-HWS-RCHP-200E-2
+        19.42311, # Wulfe W250PW-1
+        2589.51677
       ]
     F16_electric_PDRSDec24_HP_elec:
      [
         10.7,
         9.54,
         9.62,
-        19.5
+        19.5,
+        6.87,
+        909.66
      ]
     F16_electric_PDRSDec24_HP_capacity_factor:
       [
         -33.33,
         3.6,
         3.65,
-        3.64
+        3.64,
+        3.9,
+        112.8
       ]
     F16_electric_PDRSDec24_WH_capacity_factor:
       [
         -12.56,
         3.6,
         3.65,
-        3.6
+        3.6,
+        2.4,
+        99
+      ]
+    F16_electric_PDRSDec24_total_heat_pump_thermal_capacity:
+      [
+        3,
+        3.6,
+        3.65,
+        3.64,
+        2.4,
+        112.8
+      ]
+    F16_electric_PDRSDec24_number_of_heat_pumps:
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        2
+      ]
+    F16_electric_PDRSDec24_com_peak_load:
+      [
+        108,
+        95,
+        77,
+        183,
+        56,
+        7466
       ]
     F16_electric_PDRSDec24_PDRS__postcode:
       [
         2017,
         2074, #RNF1
         2000,
-        2000
+        2000,
+        2627,
+        2022
       ]
     F16_electric_PDRSDec24_HP_gas:
       [
         34,
+        0,
+        0,
         0,
         0,
         0
@@ -208,10 +341,12 @@
   output:
     F16_electric_PDRSDec24_ESC_calculation:
       [
-        513.06,
-        82.71179,
-        60.36,
-        153.66
+        199.52177,
+        36.56732,
+        32.93088,
+        35.26627,
+        21.08536,
+        5000
       ]
 
 - name: test F16 ESC not eligible on new installation

@@ -1,7 +1,15 @@
 FORWARD_CREATION_PERIOD:
-    description: "10 years"
-    metadata:
-        unit: years
-    values:
-        2021-01-01:
-            value: 10
+  description: "10 years"
+  metadata:
+    unit: years
+  values:
+    2021-01-01:
+      value: 10
+
+lifetime:
+  description: use to calculate peak demand reduction capacity
+  metadata:
+    unit: years
+  values:
+    2021-01-01:
+      value: 12

@@ -11,8 +11,8 @@
   output:
     D20_ESSJun24_BCA_climate_zone_by_postcode_int:
       [
-        7,
-        7,
+        6,
+        8,
         5
       ]
 
@@ -24,7 +24,7 @@
       [
         2324, #BCA climate zone 2 - HP zone 3
         2588, #BCA climate zone 4 - HP zone 3
-        2328, #BCA climate zone 7 - HP zone 5
+        2328, #BCA climate zone 6 - HP zone 5
         2624  #BCA climate zone 8 - HP zone 5
       ]
   output:
@@ -32,7 +32,7 @@
       [
         3,
         3,
-        5,
+        3,
         5
       ]
 
@@ -308,4 +308,23 @@
         22.54,
         33.18,
         0 #Bs and Be are zero and not eligible for savings
+      ]
+
+
+- name: test BCA climate zone by postcode corrected
+  period: 2025
+  absolute_error_margin: 0
+  input:
+    D20_ESSJun24_PDRS__postcode:
+      [
+        2115,
+        2123,
+        2128
+      ]
+  output:
+    D20_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+        6,
+        5,
+        6
       ]

@@ -2,7 +2,7 @@
   period: 2024
   absolute_error_margin: 0
   input:
-    SYS2_PDRSAug24_nameplate_input_power:
+    SYS2_PDRSAug24_maximum_tested_input_power:
       [
         900,
         1400,
@@ -55,7 +55,7 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
-    SYS2_PDRSAug24_nameplate_input_power:
+    SYS2_PDRSAug24_maximum_tested_input_power:
       [
         0,    #baseline PAEC 1300
         1000, #baseline PAEC 1300
@@ -140,7 +140,7 @@
         9.11,
         -5
       ]
-    SYS2_PDRSAug24_nameplate_input_power:
+    SYS2_PDRSAug24_maximum_tested_input_power:
       [
         0,
         0,
@@ -190,7 +190,7 @@
   period: 2024
   absolute_error_margin: 0.1
   input: 
-    SYS2_PDRSAug24_nameplate_input_power:
+    SYS2_PDRSAug24_maximum_tested_input_power:
       [
         0
       ]

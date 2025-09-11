@@ -210,7 +210,7 @@ class SYS1_peak_demand_annual_savings(Variable):
 
         #BCA climate zozne  
         postcode = buildings('SYS1_PDRS__postcode', period)
-        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_May25_BCA_climate_zone_by_postcode
         climate_zone_int = climate_zone.calc(postcode)
         climate_zone_savings = np.select(
             [

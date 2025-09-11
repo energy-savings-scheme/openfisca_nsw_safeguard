@@ -44,7 +44,7 @@ class HVAC2_PDRSAug24_BCA_climate_zone_by_postcode(Variable):
     def formula(buildings, period, parameters):
         postcode = buildings('HVAC2_PDRSAug24_PDRS__postcode', period)
         # Returns an integer
-        climate_zone = parameters(period).ESS.ESS_general.table_A26_BCA_climate_zone_by_postcode       
+        climate_zone = parameters(period).ESS.ESS_general.table_A26_May25_BCA_climate_zone_by_postcode
         climate_zone_int = climate_zone.calc(postcode)
         return climate_zone_int
 
@@ -175,7 +175,7 @@ class HVAC2_PDRSAug24_peak_demand_annual_savings(Variable):
 
         #peak demand reduction capacity
         summer_peak_demand_duration = 6
-        lifetime = 10
+        lifetime = parameters(period).PDRS.AC.AC_related_constants.lifetime
 
         peak_demand_annual_savings = (peak_demand_savings_activity * summer_peak_demand_duration * lifetime)
         peak_demand_annual_savings_return = np.select([
@@ -200,7 +200,7 @@ class HVAC2_PDRSAug24_peak_demand_reduction_capacity(Variable):
     def formula(buildings, period, parameters):
         peak_demand_savings = buildings('HVAC2_PDRSAug24_peak_demand_savings_activity', period)
         summer_peak_demand_duration = 6
-        lifetime = 10
+        lifetime = parameters(period).PDRS.AC.AC_related_constants.lifetime
 
         peak_demand_reduction_capacity = (peak_demand_savings * summer_peak_demand_duration * lifetime)
         return peak_demand_reduction_capacity

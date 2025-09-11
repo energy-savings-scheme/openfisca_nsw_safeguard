@@ -74,8 +74,8 @@
   output:
     WH1_F16_electric_PDRSAug24_BCA_climate_zone_by_postcode_int:
       [
-        7,
-        7,
+        6,
+        8,
         5
       ]
 
@@ -96,7 +96,7 @@
       [
         3,
         3,
-        5,
+        3,
         5,
         3
       ]
@@ -230,7 +230,7 @@
   output:
     WH1_F16_electric_PDRSAug24_get_HP_zone_by_BCA_climate_zone:
       [
-        5,
+        3,
         3
       ]
 

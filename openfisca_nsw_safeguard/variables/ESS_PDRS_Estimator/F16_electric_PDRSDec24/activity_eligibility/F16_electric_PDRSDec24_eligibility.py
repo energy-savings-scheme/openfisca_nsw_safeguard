@@ -27,9 +27,11 @@ class F16_electric_PDRSDec24__installation_replacement_final_activity_eligibilit
         certified_4234 = buildings('F16_electric_PDRSDec24__4234_certified', period)
         minimum_annual_energy = buildings('F16_electric_PDRSDec24__minimum_annual_energy', period)
         storage_volume_certified = buildings('F16_electric_PDRSDec24__certified_and_eligible', period)
-        
+        split_system = buildings('F16_electric_PDRSDec24__split_system', period)
+        safety_requirement = buildings('F16_electric_PDRSDec24__safety_requirement', period)
+
         end_formula = ( replacement * existing_equipment_removed * equipment_installed_on_site * qualified_install_removal
                         * engaged_ACP * minimum_payment * certified_4234 * minimum_annual_energy
-                        * np.logical_not(building_class_1_or_4) * storage_volume_certified )
+                        * np.logical_not(building_class_1_or_4) * storage_volume_certified *  safety_requirement)
 
         return end_formula

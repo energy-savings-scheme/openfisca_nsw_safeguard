@@ -6,14 +6,16 @@
       [
         2354,
         2365,
-        2074
+        2074,
+        2793
       ]
   output:
     D17_ESSJun24_BCA_climate_zone_by_postcode_int:
       [
-       7,
-       7,
-       5
+        6,
+        8,
+        5,
+        4
       ]
 
 - name: test postcode to BCA climate zone to heat pump zone
@@ -22,9 +24,9 @@
   input:
     D17_ESSJun24_PDRS__postcode:
       [
-        2324, #BCA climate zone 2 - HP zone 3
+        2324, #BCA climate zone 5 - HP zone 3
         2588, #BCA climate zone 4 - HP zone 3
-        2328, #BCA climate zone 7 - HP zone 5
+        2328, #BCA climate zone 6 - HP zone 3
         2624  #BCA climate zone 8 - HP zone 5
       ]
   output:
@@ -32,7 +34,7 @@
       [
         3,
         3,
-        5,
+        3,
         5
       ]
 
@@ -67,7 +69,7 @@
         2801,
         2846
       ]
-  output: 
+  output:
     D17_ESSJun24_regional_network_factor:
       [
         1.03,
@@ -168,48 +170,43 @@
 
 - name: test D17 annual energy savings
   period: 2024
-  absolute_error_margin: 0.5
+  absolute_error_margin: 0.1
   input:
     D17_ESSJun24_system_size:
       [
-        system_size_small,  #Baseline A = 23.18, a = 2.291
-        system_size_medium, #Baseline A = 38.49, a = 2.31
-        system_size_small,  #Baseline A = 23.18, a = 2.291
-        system_size_medium, #Baseline A = 35.14, a = 2.291
-        system_size_medium
+        system_size_medium,  # brand: Dux, model: 200DHA20
+        system_size_medium, # brand: ECONOVA, model: ECON-260RVW
+        system_size_small, # brand: Rheem, model: 551180
+        system_size_medium, # brand: Soltaro, model: HPWSTR002
       ]
     D17_ESSJun24_PDRS__postcode:
       [
-        2352, #rnf 1.03 hpzone3
-        2729, #rnf 1.03 hpzone5
-        2024, #rnf 1 hpzone3
-        2352, #rnf 1.03 hpzone3
-        2358  
+        2352,
+        2024,
+        2372,
+        2476,
       ]
     D17_ESSJun24_Bs:   
       [
-        5,
-        10,
-        2.5,
-        0,
-        4.553
+        4.3622,
+        3.2773,
+        2.8913,
+        4.2221,
       ]
     D17_ESSJun24_Be:
       [
-        7,
-        20,
-        4.3,
+        0.0236,
+        0.1285,
         0,
-        0
+        0,
       ]
   output:
     D17_ESSJun24_annual_energy_savings:
       [
-        0, 
-        0, 
-        7.6, 
-        0, #Bs and Be not valid
-        28.812
+        25.84,
+        27.34,
+        17.05,
+        26.23,
       ]
 
 - name: test D17 electricity savings
@@ -275,7 +272,7 @@
 - name: test D17 ESC full calculation Rinnai EHPA315VM
   period: 2024
   absolute_error_margin: 0.1
-  input: 
+  input:
     D17_PDRS__postcode:
       [
         2541
@@ -301,7 +298,7 @@
 - name: test D17 ESC full calculation Quantum 200-08AC6-290
   period: 2024
   absolute_error_margin: 0.1
-  input: 
+  input:
     D17_PDRS__postcode:
       [
         2350
@@ -327,7 +324,7 @@
 - name: test if Bs and Be are 0, return 0 savings
   period: 2024
   absolute_error_margin: 0.1
-  input: 
+  input:
     D17_ESSJun24_Baseline_A:
       [
         50.76,
@@ -358,4 +355,22 @@
         46.76,
         92,
         0 #Bs and Be not valid
+      ]
+
+- name: test BCA climate zone by postcode corrected
+  period: 2025
+  absolute_error_margin: 0
+  input:
+    D17_ESSJun24_PDRS__postcode:
+      [
+        2793,
+        2786,
+        2873
+      ]
+  output:
+    D17_ESSJun24_BCA_climate_zone_by_postcode_int:
+      [
+        4,
+        6,
+        4
       ]

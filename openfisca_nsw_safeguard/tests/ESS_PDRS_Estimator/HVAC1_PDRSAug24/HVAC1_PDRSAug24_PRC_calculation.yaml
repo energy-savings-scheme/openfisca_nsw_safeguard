@@ -170,8 +170,8 @@
   output:
     HVAC1_PDRSAug24_peak_demand_annual_savings:
       [
-        41.472,
-        898.56,
+        49.7664,
+        1078.272,
         0
       ]
 
@@ -189,10 +189,10 @@
   output:
     HVAC1_PDRSAug24_peak_demand_reduction_capacity:
       [
-        36000,
-        14.64,
-        4.58,
-        5.76
+        43200,
+        17.568,
+        5.4719996,
+        6.9119997
       ]
 
 - name: test HVAC1 PRC calculation
@@ -273,12 +273,12 @@
     HVAC1_PDRSAug24_PRC_calculation:
       [
         0,
-        152,
+        182,
         0,
         0,
-        47,
-        60,
-        132
+        57,
+        72,
+        159
       ]
 
 - name: test HVAC1 PRCs to savings
@@ -340,7 +340,7 @@
   output:
     HVAC1_PDRSAug24_PRC_calculation:
       [
-       74
+       89
       ]
 
 - name: test HVAC1 peak demand annual savings LG UU150WR3L U30-UHN150M3S N30
@@ -366,5 +366,5 @@
   output:
     HVAC1_PDRSAug24_peak_demand_annual_savings:
       [
-        48
+        57.686214
       ]

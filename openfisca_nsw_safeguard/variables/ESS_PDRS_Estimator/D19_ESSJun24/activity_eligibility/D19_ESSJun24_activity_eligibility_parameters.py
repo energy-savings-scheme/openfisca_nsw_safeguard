@@ -97,3 +97,27 @@ class D19_ESSJun24_equipment_registered_IPART(Variable):
                                     • 60% when modelled in climate zone HP3-AU<br />
                                     • 60% when modelled in climate zone HP5-AU"""
     }
+
+
+class D19_ESSJun24_split_system(Variable):
+    value_type = bool
+    entity = Building
+    default_value = False
+    definition_period = ETERNITY
+    metadata = {
+      'display_question' : 'Is the replacement air source heat pump water heater a split system?',
+      'sorting' : 8,
+      'eligibility_clause' : """In ESS D19 Implementation Requirements Clause 4 it states that where the replacement End-User Equipment is a split system with refrigerant flows between the evaporator and tank, safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations must be followed."""
+    }
+
+
+class D19_ESSJun24_safety_requirement(Variable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+      'display_question' : 'Have safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations been followed for the installation?',
+      'sorting' : 9,
+      'eligibility_clause' : """In ESS D19 Implementation Requirements Clause 4 it states that where the replacement End-User Equipment is a split system with refrigerant flows between the evaporator and tank, safety requirements of AS/NZS 5149.3:2016 and manufacturer installation recommendations must be followed."""
+    }    

@@ -24,19 +24,14 @@ class RF2_F1_2_ESSJun24_installation_replacement_final_activity_eligibility(Vari
         ACP_engaged = buildings('RF2_F1_2_ESSJun24_engaged_ACP', period)
         minimum_payment = buildings('RF2_F1_2_ESSJun24_minimum_payment', period)
         installed_on_site = buildings('RF2_F1_2_ESSJun24_installed_on_site', period)
-        eligible_display_sides = buildings('RF2_F1_2_ESSJun24_display_sides_eligible', period)
+        eligible_display_sides = buildings('RF2_F1_2_ESSJun24_display_sides', period)
         registered_GEMS = buildings('RF2_F1_2_ESSJun24_equipment_registered_in_GEMS', period)
-        product_class_5 = buildings('RF2_F1_2_ESSJun24_GEMS_product_class_5', period)
-
-      
-        #if product class is 5 then EEI must be below 51 otherwise for all other product classes EEI must be below 81
-        EEI_under_51 = buildings('RF2_F1_2_ESSJun24_EEI_under_51', period)
+        product_class_12 = buildings('RF2_F1_2_ESSJun24_GEMS_product_class_12', period)
+        EEI_under_77 = buildings('RF2_F1_2_ESSJun24_EEI_under_77', period)
         EEI_under_81 = buildings('RF2_F1_2_ESSJun24_EEI_under_81', period)
-
-        EEI_eligible_by_product_class = (product_class_5 * EEI_under_51) + (np.logical_not(product_class_5) * EEI_under_81)
- 
-        end_formula = ( replacement * same_product_class * qualified_install_removal *
+        # We didnt include replacement variable because both installation and replacement are now eligibile.
+        end_formula = ( same_product_class * qualified_install_removal *
                         legal_disposal * ACP_engaged * minimum_payment * installed_on_site * eligible_display_sides * 
-                        registered_GEMS * EEI_eligible_by_product_class )
+                        registered_GEMS * product_class_12 * EEI_under_77 * EEI_under_81 )
 
         return end_formula

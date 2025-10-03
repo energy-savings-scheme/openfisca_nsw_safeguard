@@ -80,6 +80,17 @@
         True,
         False #not eligible
       ]
+    D19_ESSJun24_safety_requirement:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
   output:
     D19_ESSJun24_replacement_final_activity_eligibility:
       [

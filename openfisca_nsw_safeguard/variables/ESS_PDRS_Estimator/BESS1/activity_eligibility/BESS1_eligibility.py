@@ -37,5 +37,5 @@ class BESS1_installation_final_activity_eligibility(Variable):
        end_formula = ( equipment_installation * new_solar_battery * solar_panels * ACP_engaged * 
                        minimum_payment * battery_capacity * battery_warranty * battery_internet_connectable *
                        battery_controllable_third_party * approved_list * qualified_install * DER_Register)
-
+#selvatesting
        return end_formula

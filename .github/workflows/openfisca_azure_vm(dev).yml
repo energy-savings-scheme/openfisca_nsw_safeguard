@@ -61,7 +61,7 @@ jobs:
             cd openfisca_nsw_safeguard
             git fetch --all
             git reset --hard origin/develop
-            docker-compose up --build -d
+            docker compose up --build -d
             docker compose exec app make install
             exit
 

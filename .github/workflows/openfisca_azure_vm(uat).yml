@@ -62,7 +62,6 @@ jobs:
             git fetch --all
             git reset --hard origin/staging
             docker compose up --build -d
-            docker compose exec app make install
             exit
 
   trigger-djangoapi-deployment:

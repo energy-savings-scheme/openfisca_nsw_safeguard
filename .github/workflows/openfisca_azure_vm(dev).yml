@@ -21,19 +21,25 @@ jobs:
     if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v2
-      - name: Install uv
-        uses: astral-sh/setup-uv@v2
-      - name: Setup Python
+      # - name: Install uv
+      #   uses: astral-sh/setup-uv@v2
+      # - name: Setup Python
+      #   run: |
+      #     uv python install 3.8 && \
+      #     uv venv --python=3.8 && \
+      #     uv pip install --editable .[dev] --upgrade && \
+      #     uv pip install --upgrade Jinja2==3.0.1 itsdangerous==2.0.1 pytest
+      - name: Build docker
         run: |
-          uv python install 3.8 && \
-          uv venv --python=3.8 && \
-          uv pip install --editable .[dev] --upgrade && \
-          uv pip install --upgrade Jinja2==3.0.1 itsdangerous==2.0.1 pytest
+          docker compose up --build -d
       - name: Run test suite
         run: |
-          export PYTHONPATH="$(pwd):$PYTHONPATH"
-          source .venv/bin/activate
-          openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
+          docker compose exec app make test
+      # - name: Run test suite
+      #   run: |
+      #     export PYTHONPATH="$(pwd):$PYTHONPATH"
+      #     source .venv/bin/activate
+      #     openfisca test openfisca_nsw_safeguard/tests/ --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard
 
   deploy:
     needs: test
@@ -52,12 +58,11 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            source venv/bin/activate
             cd openfisca_nsw_safeguard
             git fetch --all
             git reset --hard origin/develop
-            pip install --editable .[dev] --upgrade
-            sudo supervisorctl restart all
+            docker-compose up --build -d
+            docker compose exec app make install
             exit
 
   trigger-djangoapi-deployment:

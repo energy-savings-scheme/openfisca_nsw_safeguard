@@ -1,9 +1,11 @@
 services:
   app:
-    build: .
-    platform: "linux/amd64"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      platforms:
+        - 'linux/amd64'
+    container_name: app
     ports:
       - "8080:8080"
-    volumes:
-      - ".:/app/"
-      - "/app/.venv"
+    restart: unless-stopped

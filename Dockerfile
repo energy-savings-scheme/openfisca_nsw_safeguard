@@ -1,5 +1,5 @@
-FROM python:3.8
-# COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
+FROM python:3.9
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 
 # Setup environment for python
 WORKDIR /app
@@ -10,8 +10,8 @@ RUN echo "source /app/.venv/bin/activate" >> ~/.bashrc
 # Start install deps
 ADD setup.py /app/
 RUN uv venv && \
-    uv pip install --editable .[dev] --upgrade && \
-    uv pip install Jinja2==3.0.1 itsdangerous==2.0.1
+   uv pip install --editable .[dev] --upgrade && \
+   uv pip install Jinja2==3.0.1 itsdangerous==2.0.1
 
 # Setup entrypoints
 ADD . /app/

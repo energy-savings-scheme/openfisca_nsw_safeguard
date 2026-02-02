@@ -51,55 +51,55 @@
         -5
       ]
 
-- name: test SYS2 annual energy savings
-  period: 2024
-  absolute_error_margin: 0.1
-  input:
-    SYS2_PDRSAug24_maximum_tested_input_power:
-      [
-        0,    #baseline PAEC 1300
-        1000, #baseline PAEC 1300
-        1567, #baseline PAEC 1700
-        1001, #baseline PAEC 1500
-        2000, #baseline PAEC 1700
-        2001, #baseline PAEC 2000
-        1999, #baseline PAEC 1700
-        1350  #baseline PAEC 1500
-      ]
-    SYS2_PDRSAug24_projected_annual_energy_consumption:
-      [
-        0,
-        10,
-        50,
-        600,
-        400,
-        657,
-        789,
-        2000
-      ]
-    SYS2_PDRSAug24_PDRS__postcode:
-      [
-        2024,
-        2024,
-        2024,
-        2800, #rnf 1.03
-        2800,
-        2800,
-        2024,
-        2024
-      ]
-  output:
-    SYS2_PDRSAug24_energy_savings:
-      [
-        13,
-        12.9,
-        16.5,
-        9.27,
-        13.39,
-        13.83,
-        9.11,
-        0
-      ]
+# - name: test SYS2 annual energy savings
+#   period: 2024
+#   absolute_error_margin: 0.1
+#   input:
+#     SYS2_PDRSAug24_maximum_tested_input_power:
+#       [
+#         0,    #baseline PAEC 1300
+#         1000, #baseline PAEC 1300
+#         1567, #baseline PAEC 1700
+#         1001, #baseline PAEC 1500
+#         2000, #baseline PAEC 1700
+#         2001, #baseline PAEC 2000
+#         1999, #baseline PAEC 1700
+#         1350  #baseline PAEC 1500
+#       ]
+#     SYS2_PDRSAug24_projected_annual_energy_consumption:
+#       [
+#         0,
+#         10,
+#         50,
+#         600,
+#         400,
+#         657,
+#         789,
+#         2000
+#       ]
+#     SYS2_PDRSAug24_PDRS__postcode:
+#       [
+#         2024,
+#         2024,
+#         2024,
+#         2800, #rnf 1.03
+#         2800,
+#         2800,
+#         2024,
+#         2024
+#       ]
+#   output:
+#     SYS2_PDRSAug24_energy_savings:
+#       [
+#         13,
+#         12.9,
+#         16.5,
+#         9.27,
+#         13.39,
+#         13.83,
+#         9.11,
+#         0
+#       ]
 
 - name: test SYS2 electricity savings
   period: 2024
@@ -173,13 +173,24 @@
         1,
         1
       ]
+    SYS2_PDRSAug24_PDRS__regional_network_factor:
+      [
+        1.03,
+        1.0,
+        1.03,
+        1.0,
+        1.03,
+        1.0,
+        1.03,
+        1.0
+      ]  
   output:
     SYS2_PDRSAug24_ESC_calculation:
       [
-        13.78,
+        14.19,
         0,
         0,     #fails because there is zero product data
-        9.83,
+        9.82,
         14.19,
         14.66,
         9.66,

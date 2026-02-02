@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_lighting_replace_PAR_lamp_existing_lamp_is_240V_PAR(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_existing_lamp_is_240V_PAR(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +21,7 @@ class ESS_HEER_lighting_replace_PAR_lamp_existing_lamp_is_240V_PAR(Variable):
         return is_240V_PAR
 
 
-class ESS_HEER_lighting_replace_PAR_lamp_existing_lamp_rating_more_than_80W_less_than_160W(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_existing_lamp_rating_more_than_80W_less_than_160W(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -32,7 +32,7 @@ class ESS_HEER_lighting_replace_PAR_lamp_existing_lamp_rating_more_than_80W_less
         return ((existing_lamp_rating > 80) * (existing_lamp_rating < 160))
 
 
-class ESS_HEER_lighting_replace_PAR_lamp_is_in_working_order(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_is_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -41,7 +41,7 @@ class ESS_HEER_lighting_replace_PAR_lamp_is_in_working_order(Variable):
             ' E1.'  # insert definition requirements
 
 
-class ESS_HEER_lighting_replace_PAR_lamp_meets_eligibility_requirements(Variable):
+class ESS_HEER_lighting_replace_PAR_lamp_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

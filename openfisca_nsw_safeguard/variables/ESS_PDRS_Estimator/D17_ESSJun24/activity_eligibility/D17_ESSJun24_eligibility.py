@@ -1,12 +1,12 @@
 from distutils.command.build import build
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class D17_ESSJun24_replacement_final_activity_eligibility(Variable):
+class D17_ESSJun24_replacement_final_activity_eligibility(BaseVariable):
     """
         Formula to calculate the D17 replacement activity eligibility
     """

@@ -1,13 +1,13 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
-class PDRS_WH1_peak_demand_savings(Variable):
+class PDRS_WH1_peak_demand_savings(BaseVariable):
     value_type = float
     entity = Building
     default_value = False
@@ -29,14 +29,14 @@ class PDRS_WH1_peak_demand_savings(Variable):
            firmness_factor
         )
 
-class ComPkLoad(Variable):
+class ComPkLoad(BaseVariable):
     value_type = float
     entity = Building
     default_value = False
     definition_period = ETERNITY
     label = "Peak daily load in winter"
 
-class Baseline_Input_Power(Variable):
+class Baseline_Input_Power(BaseVariable):
     value_type = float
     entity = Building
     default_value = False
@@ -47,7 +47,7 @@ class Baseline_Input_Power(Variable):
         ComPkLoad = building('ComPkLoad', period)
         return 0.01 * ComPkLoad
 
-class Baseline_Peak_Adjustment_Factor(Variable):
+class Baseline_Peak_Adjustment_Factor(BaseVariable):
     value_type = float
     entity = Building
     default_value = False
@@ -60,7 +60,7 @@ class Baseline_Peak_Adjustment_Factor(Variable):
         baseline_adjustment_factor
       )
 
-class Peak_Adjustment_Factor(Variable):
+class Peak_Adjustment_Factor(BaseVariable):
     value_type = float
     entity = Building
     default_value = False
@@ -73,14 +73,14 @@ class Peak_Adjustment_Factor(Variable):
         peak_adjustment_factor
     )
 
-class Annual_energy_savings(Variable):
+class Annual_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     default_value = False
     definition_period = ETERNITY
     label = "Annual energy savings"
 
-class Input_Power(Variable):
+class Input_Power(BaseVariable):
     value_type = float
     entity = Building
     default_value = False

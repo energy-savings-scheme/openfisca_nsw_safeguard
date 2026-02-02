@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 
-class ESS_HEAB_install_new_liquid_chilling_package_is_registered_in_GEMS(Variable):
+class ESS_HEAB_install_new_liquid_chilling_package_is_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class ESS_HEAB_install_new_liquid_chilling_package_is_registered_in_GEMS(Variabl
     # dropdown from said Registry in the form of an Enum?
 
 
-class ESS_HEAB_install_new_liquid_chilling_package_complies_with_GEMS_2012_LCP(Variable):
+class ESS_HEAB_install_new_liquid_chilling_package_complies_with_GEMS_2012_LCP(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -26,7 +26,7 @@ class ESS_HEAB_install_new_liquid_chilling_package_complies_with_GEMS_2012_LCP(V
     # what does complying with this Determination mean?
 
 
-class ESS_HEAB_install_new_liquid_chilling_package_IPLV_10_percent_higher_than_baseline(Variable):
+class ESS_HEAB_install_new_liquid_chilling_package_IPLV_10_percent_higher_than_baseline(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -57,7 +57,7 @@ class ESS_HEAB_install_new_liquid_chilling_package_IPLV_10_percent_higher_than_b
         return percentage_increase > 10
 
 
-class ESS_HEAB_install_new_liquid_chilling_package_meets_equipment_requirements(Variable):
+class ESS_HEAB_install_new_liquid_chilling_package_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

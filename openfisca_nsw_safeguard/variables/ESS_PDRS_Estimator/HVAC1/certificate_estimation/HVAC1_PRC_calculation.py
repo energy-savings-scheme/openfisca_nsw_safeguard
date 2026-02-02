@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class HVAC1_baseline_input_power(Variable):
+class HVAC1_baseline_input_power(BaseVariable):
     """ Note that baseline input power is the same value as input power
     """
     value_type = float
@@ -32,7 +32,7 @@ class HVAC1_baseline_input_power(Variable):
                 ])
 
 
-class HVAC1_BCA_climate_zone_by_postcode(Variable):
+class HVAC1_BCA_climate_zone_by_postcode(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -72,7 +72,7 @@ class HVAC1_BCA_climate_zone_by_postcode(Variable):
         return cooling_capacity_to_check
 
 
-class HVAC1_baseline_peak_adjustment_factor(Variable):
+class HVAC1_baseline_peak_adjustment_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -90,7 +90,7 @@ class HVAC1_baseline_peak_adjustment_factor(Variable):
       return baseline_adjustment_factor
 
 
-class HVAC1_peak_demand_savings_activity(Variable):
+class HVAC1_peak_demand_savings_activity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -119,7 +119,7 @@ class HVAC1_peak_demand_savings_activity(Variable):
             )
 
 
-class HVAC1_peak_demand_annual_savings(Variable):
+class HVAC1_peak_demand_annual_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -185,7 +185,7 @@ class HVAC1_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return
     
 
-class HVAC1_peak_demand_reduction_capacity(Variable):
+class HVAC1_peak_demand_reduction_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -203,7 +203,7 @@ class HVAC1_peak_demand_reduction_capacity(Variable):
         return peak_demand_reduction_capacity
 
 
-class HVAC1_PRC_calculation(Variable):
+class HVAC1_PRC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -238,7 +238,7 @@ class HVAC1_PRC_calculation(Variable):
         return result_to_return
     
 
-class HVAC1_PRC_savings_check(Variable):
+class HVAC1_PRC_savings_check(BaseVariable):
     #this variable checks if PRCs are zero, and if they are returns zero peak savings
     value_type = float
     entity = Building

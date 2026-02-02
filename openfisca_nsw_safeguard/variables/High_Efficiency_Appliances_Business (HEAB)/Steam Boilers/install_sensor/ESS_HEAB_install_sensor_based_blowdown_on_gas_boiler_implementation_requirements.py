@@ -1,19 +1,19 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 
-class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_manufacturer_guidelines(Variable):
+class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_manufacturer_guidelines(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the equipment installed in accordance with manufacturer guidelines?'
 
 
-class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_relevant_standards_and_legislation(Variable):
+class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_relevant_standards_and_legislation(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +21,7 @@ class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordan
             ' and legislation?'
 
 
-class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_scheme_administrator_requirements(Variable):
+class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordance_with_scheme_administrator_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -29,7 +29,7 @@ class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_installed_in_accordan
             ' Administrator Requirements?'
 
 
-class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_meets_implementation_requirements(Variable):
+class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

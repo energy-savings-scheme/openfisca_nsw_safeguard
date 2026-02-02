@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class RF2_equipment_replaced(Variable):
+class RF2_equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class RF2_equipment_replaced(Variable):
     }
 
 
-class RF2_installation(Variable):
+class RF2_installation(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -30,7 +30,7 @@ class RF2_installation(Variable):
     }
 
 
-class RF2_qualified_install_removal(Variable):
+class RF2_qualified_install_removal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -42,7 +42,7 @@ class RF2_qualified_install_removal(Variable):
     }
 
 
-class RF2_legal_disposal(Variable):
+class RF2_legal_disposal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -54,7 +54,7 @@ class RF2_legal_disposal(Variable):
     }
 
 
-class RF2_engaged_ACP(Variable):
+class RF2_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -68,7 +68,7 @@ class RF2_engaged_ACP(Variable):
     }
 
 
-class RF2_equipment_registered_in_GEMS(Variable):
+class RF2_equipment_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -80,7 +80,7 @@ class RF2_equipment_registered_in_GEMS(Variable):
     }
 
 
-class RF2_GEMS_product_class_5(Variable):
+class RF2_GEMS_product_class_5(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -93,7 +93,7 @@ class RF2_GEMS_product_class_5(Variable):
     }
 
 
-class RF2_EEI_under_51(Variable):
+class RF2_EEI_under_51(BaseVariable):
     #if the equipment is Product Class 5, the EEI must be below 51 to be eligible
     value_type = bool
     entity = Building
@@ -106,7 +106,7 @@ class RF2_EEI_under_51(Variable):
     }
 
 
-class RF2_EEI_under_81(Variable):
+class RF2_EEI_under_81(BaseVariable):
     #if the equipment is anything other than Product Class 5, the EEI must be below 81 to be eligible
     value_type = bool
     entity = Building

@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class RF2_baseline_input_power(Variable):
+class RF2_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -32,7 +32,7 @@ class RF2_baseline_input_power(Variable):
       return baseline_input_power
   
   
-class RF2_peak_demand_savings_capacity(Variable):
+class RF2_peak_demand_savings_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -70,7 +70,7 @@ class RF2ProductClass(Enum):
     product_class_fifteen = 'Class 15'
 
 
-class RF2_product_class_peak_savings(Variable):
+class RF2_product_class_peak_savings(BaseVariable):
     value_type = Enum
     entity = Building
     definition_period = ETERNITY
@@ -90,7 +90,7 @@ class RCDutyClass_peak_savings(Enum):
     light_duty = 'Light duty'
 
 
-class RF2_duty_class_peak_savings(Variable):
+class RF2_duty_class_peak_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCDutyClass_peak_savings
@@ -112,7 +112,7 @@ class RCProductType(Enum):
     RSC = 'Refrigerated storage cabinet'
 
 
-class RF2_product_type_savings(Variable):
+class RF2_product_type_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCProductType
@@ -124,7 +124,7 @@ class RF2_product_type_savings(Variable):
     }
 
 
-class RF2_peak_demand_annual_savings(Variable):
+class RF2_peak_demand_annual_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -359,7 +359,7 @@ class RF2_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return
 
 
-class RF2_peak_demand_reduction_capacity(Variable):
+class RF2_peak_demand_reduction_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -376,7 +376,7 @@ class RF2_peak_demand_reduction_capacity(Variable):
       return peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime
 
 
-class RF2_baseline_peak_adjustment_factor(Variable):
+class RF2_baseline_peak_adjustment_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -396,7 +396,7 @@ class RF2_baseline_peak_adjustment_factor(Variable):
       return baseline_peak_adjustment_factor
   
   
-class RF2_PRC_calculation(Variable):
+class RF2_PRC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

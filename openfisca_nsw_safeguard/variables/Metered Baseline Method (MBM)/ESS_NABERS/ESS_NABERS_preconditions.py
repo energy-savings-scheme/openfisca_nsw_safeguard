@@ -1,13 +1,15 @@
-from openfisca_core.variables import *
-from openfisca_core.periods import YEAR, ETERNITY
-from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
 import numpy as np
 import datetime
 import time
 from datetime import datetime as py_datetime
 from datetime import date
 
+from openfisca_core.variables import *
+from openfisca_core.periods import YEAR, ETERNITY
+from openfisca_core.indexed_enums import Enum
+
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 # epoch used to ensure current_rating year, used in A20, is calculated correctly
@@ -66,7 +68,7 @@ def count_months(sdate, edate):
 # end NSW legal month calculation functions
 
 
-class ESS__NABERS_rating_calculated_using_NABERS_rating_tools(Variable):
+class ESS__NABERS_rating_calculated_using_NABERS_rating_tools(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -95,7 +97,7 @@ class ESS__NABERS_rating_calculated_using_NABERS_rating_tools(Variable):
                 )
 
 
-class ESS__NABERS_building_has_GreenPower(Variable):
+class ESS__NABERS_building_has_GreenPower(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -110,7 +112,7 @@ class ESS__NABERS_building_has_GreenPower(Variable):
     }
 
 
-class ESS__NABERS_all_sources_of_on_site_electricity_generation_identified(Variable):
+class ESS__NABERS_all_sources_of_on_site_electricity_generation_identified(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -125,7 +127,7 @@ class ESS__NABERS_all_sources_of_on_site_electricity_generation_identified(Varia
     }
 
 
-class ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded(Variable):
+class ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -141,7 +143,7 @@ class ESS__NABERS_on_site_unaccounted_electricity_metered_and_recorded(Variable)
     }
 
 
-class ESS__NABERS_current_NABERS_star_rating(Variable):
+class ESS__NABERS_current_NABERS_star_rating(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -156,7 +158,7 @@ class ESS__NABERS_current_NABERS_star_rating(Variable):
     }
 
 
-class ESS__NABERS_start_date_of_current_NABERS_rating_period(Variable):
+class ESS__NABERS_start_date_of_current_NABERS_rating_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -172,7 +174,7 @@ class ESS__NABERS_start_date_of_current_NABERS_rating_period(Variable):
     }
 
 
-class ESS__NABERS_end_date_of_current_NABERS_rating_period(Variable):
+class ESS__NABERS_end_date_of_current_NABERS_rating_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -188,7 +190,7 @@ class ESS__NABERS_end_date_of_current_NABERS_rating_period(Variable):
     }
 
 
-class ESS__NABERS_current_rating_year(Variable):
+class ESS__NABERS_current_rating_year(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -209,7 +211,7 @@ class ESS__NABERS_current_rating_year(Variable):
         return current_rating_year
 
 
-class ESS__NABERS_historical_NABERS_star_rating(Variable):
+class ESS__NABERS_historical_NABERS_star_rating(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -224,7 +226,7 @@ class ESS__NABERS_historical_NABERS_star_rating(Variable):
     }
 
 
-class ESS__NABERS_start_date_of_historical_NABERS_rating_period(Variable):
+class ESS__NABERS_start_date_of_historical_NABERS_rating_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -240,7 +242,7 @@ class ESS__NABERS_start_date_of_historical_NABERS_rating_period(Variable):
     }
 
 
-class ESS__NABERS_end_date_of_historical_NABERS_rating_period(Variable):
+class ESS__NABERS_end_date_of_historical_NABERS_rating_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -256,7 +258,7 @@ class ESS__NABERS_end_date_of_historical_NABERS_rating_period(Variable):
     }
 
 
-class ESS__NABERS_historical_rating_year(Variable):
+class ESS__NABERS_historical_rating_year(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -277,7 +279,7 @@ class ESS__NABERS_historical_rating_year(Variable):
         return historical_rating_year
 
 
-class ESS__NABERS_age_of_historical_rating(Variable):
+class ESS__NABERS_age_of_historical_rating(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -307,7 +309,7 @@ class ESS__NABERS_BuildingDate(Enum):
     # need to check if this is appropriate name for Enum.
 
 
-class ESS__NABERS_building_date(Variable):
+class ESS__NABERS_building_date(BaseVariable):
     value_type = Enum
     possible_values = ESS__NABERS_BuildingDate
     default_value = ESS__NABERS_BuildingDate.built_before_nov_2006
@@ -324,7 +326,7 @@ class ESS__NABERS_building_date(Variable):
     }
 
 
-class ESS__NABERS_exceeds_A20_benchmark_rating_by_half_star(Variable):
+class ESS__NABERS_exceeds_A20_benchmark_rating_by_half_star(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -366,7 +368,7 @@ class ESS__NABERS_exceeds_A20_benchmark_rating_by_half_star(Variable):
         return (current_NABERS_rating - benchmark_rating >= 0.5)
 
 
-class ESS__NABERS_first_NABERS_rating(Variable):
+class ESS__NABERS_first_NABERS_rating(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -381,7 +383,7 @@ class ESS__NABERS_first_NABERS_rating(Variable):
     }
 
 
-class ESS__NABERS_rating_obtained_for_legal_requirements(Variable):
+class ESS__NABERS_rating_obtained_for_legal_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -398,7 +400,7 @@ class ESS__NABERS_rating_obtained_for_legal_requirements(Variable):
     }
 
 
-class ESS__NABERS_is_eligible_for_method_one(Variable):
+class ESS__NABERS_is_eligible_for_method_one(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -424,7 +426,7 @@ class ESS__NABERS_is_eligible_for_method_one(Variable):
                 * (exceeds_benchmark))
 
 
-class ESS__NABERS_current_star_rating_exceeds_method_two_historical_star_rating(Variable):
+class ESS__NABERS_current_star_rating_exceeds_method_two_historical_star_rating(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -446,7 +448,7 @@ class ESS__NABERS_current_star_rating_exceeds_method_two_historical_star_rating(
         return (cur_rating - hist_rating) >= 0.5
 
 
-class ESS__NABERS_benchmark_star_rating(Variable):
+class ESS__NABERS_benchmark_star_rating(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -529,7 +531,7 @@ class ESS__NABERS_benchmark_star_rating(Variable):
         # note the need to implement logic gate if NABERS decide to implement
         # incremental star ratings
 
-class ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date(Variable):
+class ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_rating_date(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -561,7 +563,7 @@ class ESS__NABERS_no_more_than_7_years_between_current_year_and_historical_ratin
         return number_of_years_between_historical_end_date_and_end_of_current_year <= maximum_number_of_years_between_historical_and_current
 
 
-class ESS__NABERS_historical_rating_meets_similar_configuration_criteria(Variable):
+class ESS__NABERS_historical_rating_meets_similar_configuration_criteria(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -577,7 +579,7 @@ class ESS__NABERS_historical_rating_meets_similar_configuration_criteria(Variabl
     }
 
 
-class ESS__NABERS_is_eligible_for_method_two(Variable):
+class ESS__NABERS_is_eligible_for_method_two(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -604,7 +606,7 @@ class ESS__NABERS_is_eligible_for_method_two(Variable):
                 * no_more_than_7_years_between_ratings * meets_similar_configuration_criteria)
 
 
-class ESS__NABERS_implementation_date(Variable):
+class ESS__NABERS_implementation_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -626,7 +628,7 @@ class ESS__NABERS_implementation_date(Variable):
         return current_rating_end_date
 
 
-class ESS__NABERS_name_of_energy_saver(Variable):
+class ESS__NABERS_name_of_energy_saver(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -644,7 +646,7 @@ class ESS__NABERS_name_of_energy_saver(Variable):
     }
 
 
-class ESS__NABERS_energy_savings_date(Variable):
+class ESS__NABERS_energy_savings_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -666,7 +668,7 @@ class ESS__NABERS_energy_savings_date(Variable):
         return current_rating_end_date
 
 
-class ESS__NABERS_ESC_creation_date(Variable):
+class ESS__NABERS_ESC_creation_date(BaseVariable):
     value_type = date
     entity = Building
     default_value = date.today() # we should assume the date of creation is the
@@ -686,7 +688,7 @@ class ESS__NABERS_ESC_creation_date(Variable):
     }
 
 
-class ESS__NABERS_ESC_creation_within_12_months(Variable):
+class ESS__NABERS_ESC_creation_within_12_months(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -719,7 +721,7 @@ class ESS__NABERS_TypeOfCreation(Enum):
     forward_creation = 'The ESCS will be forward created.'
 
 
-class ESS__NABERS_type_of_creation(Variable):
+class ESS__NABERS_type_of_creation(BaseVariable):
     value_type = Enum
     possible_values = ESS__NABERS_TypeOfCreation
     default_value = ESS__NABERS_TypeOfCreation.annual_creation
@@ -736,7 +738,7 @@ class ESS__NABERS_type_of_creation(Variable):
     }
 
 
-class ESS__NABERS_forward_creation_within_15_months(Variable):
+class ESS__NABERS_forward_creation_within_15_months(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -763,7 +765,7 @@ class ESS__NABERS_forward_creation_within_15_months(Variable):
         return rating_period_length <= 15
 
 
-class ESS__NABERS_historical_rating_previously_used_to_set_baseline(Variable):
+class ESS__NABERS_historical_rating_previously_used_to_set_baseline(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -780,7 +782,7 @@ class ESS__NABERS_historical_rating_previously_used_to_set_baseline(Variable):
     }
 
 
-class ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date(Variable):
+class ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -804,7 +806,7 @@ class ESS__NABERS_ESC_creation_less_than_7_years_after_historical_rating_date(Va
         return distance_between_in_years <= 7
 
 
-class ESS__NABERS_is_eligible_for_forward_creation(Variable):
+class ESS__NABERS_is_eligible_for_forward_creation(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -834,7 +836,7 @@ class ESS__NABERS_is_eligible_for_forward_creation(Variable):
                    * forward_creation_within_15_months * ESCs_within_7_years))
 
 
-class ESS__NABERS_is_eligible(Variable):
+class ESS__NABERS_is_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

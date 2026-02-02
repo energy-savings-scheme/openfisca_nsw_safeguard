@@ -1,18 +1,18 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class ESS_HEAB_steam_boiler_current_equipment_capacity(Variable):
+class ESS_HEAB_steam_boiler_current_equipment_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the nameplate capacity for the existing equipment, in kW?'
 
 
-class ESS_HEAB_existing_end_user_equipment_installed_on_gas_fired_steam_boiler(Variable):
+class ESS_HEAB_existing_end_user_equipment_installed_on_gas_fired_steam_boiler(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -20,21 +20,21 @@ class ESS_HEAB_existing_end_user_equipment_installed_on_gas_fired_steam_boiler(V
             ' steam boiler?'
 
 
-class ESS_HEAB_existing_end_user_equipment_installed_on_hot_water_boiler(Variable):
+class ESS_HEAB_existing_end_user_equipment_installed_on_hot_water_boiler(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing end user equipment installed on a hot water boiler?'
 
 
-class ESS_HEAB_existing_end_user_equipment_is_gas_fired_burner(Variable):
+class ESS_HEAB_existing_end_user_equipment_is_gas_fired_burner(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing end user equipment a gas fired burner?'
 
 
-class ESS_HEAB_steam_boiler_new_equipment_operating_pressure(Variable):
+class ESS_HEAB_steam_boiler_new_equipment_operating_pressure(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -42,7 +42,7 @@ class ESS_HEAB_steam_boiler_new_equipment_operating_pressure(Variable):
             ' in AS3814, in bars of pressure?'
 
 
-class ESS_HEAB_new_equipment_installed_on_single_boiler(Variable):
+class ESS_HEAB_new_equipment_installed_on_single_boiler(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -50,7 +50,7 @@ class ESS_HEAB_new_equipment_installed_on_single_boiler(Variable):
             ' steam boiler?'
 
 
-class ESS_HEAB_new_equipment_installed_on_multiple_boiler(Variable):
+class ESS_HEAB_new_equipment_installed_on_multiple_boiler(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -58,14 +58,14 @@ class ESS_HEAB_new_equipment_installed_on_multiple_boiler(Variable):
             ' steam boilers?'
 
 
-class ESS_HEAB_steam_boiler_replaces_existing_equipment(Variable):
+class ESS_HEAB_steam_boiler_replaces_existing_equipment(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Does the equipment replace existing End User Equipment?'
 
 
-class ESS_HEAB_steam_boiler_existing_equipment_has_sensor_based_blowdown_control(Variable):
+class ESS_HEAB_steam_boiler_existing_equipment_has_sensor_based_blowdown_control(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -73,7 +73,7 @@ class ESS_HEAB_steam_boiler_existing_equipment_has_sensor_based_blowdown_control
             ' at the time of commissioning the End User Equipment?'
 
 
-class ESS_HEAB_sensor_based_blowdown_control_installed_at_commissioning(Variable):
+class ESS_HEAB_sensor_based_blowdown_control_installed_at_commissioning(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -88,7 +88,7 @@ class SteamBoilerEquipmentType(Enum):
     condensing_steam_boiler = 'Trim system is installed on a condensing steam boiler.'
 
 
-class ESS_HEAB_install_trim_system_steam_boiler_existing_equipment_type(Variable):
+class ESS_HEAB_install_trim_system_steam_boiler_existing_equipment_type(BaseVariable):
     value_type = Enum
     possible_values = SteamBoilerEquipmentType
     default_value = SteamBoilerEquipmentType.steam_boiler
@@ -103,7 +103,7 @@ class HeaterEquipmentType(Enum):
     water_heater = 'Existing equipment is a water heater.'
 
 
-class ESS_HEAB_existing_heater_equipment_type(Variable):
+class ESS_HEAB_existing_heater_equipment_type(BaseVariable):
     value_type = Enum
     possible_values = HeaterEquipmentType
     default_value = HeaterEquipmentType.gas_fired_steam_boiler
@@ -112,7 +112,7 @@ class ESS_HEAB_existing_heater_equipment_type(Variable):
     label = 'What is the type of existing equipment used for heating purposes?'
 
 
-class ESS_HEAB_steam_boiler_exhaust_temperature(Variable):
+class ESS_HEAB_steam_boiler_exhaust_temperature(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

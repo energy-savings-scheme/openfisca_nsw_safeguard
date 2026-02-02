@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_gas_savings(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_gas_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -71,7 +71,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_gas_savings(V
 
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_electricity_savings(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -134,7 +134,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_electricity_s
         return deemed_electricity_savings
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_RefElec(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_RefElec(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -144,7 +144,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_RefElec(Varia
     }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_HPElec(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_HPElec(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -154,7 +154,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_HPElec(Variab
     }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_HPGas(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_HPGas(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -164,7 +164,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_HPGas(Variabl
     }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_rated_capacity(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_rated_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -174,7 +174,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment
     }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equipment_rated_capacity(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equipment_rated_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -184,7 +184,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equi
     }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_capacity_factor(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_capacity_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

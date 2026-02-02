@@ -1,15 +1,15 @@
 from email.mime import base
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 np.set_printoptions(suppress=True)
 
 
-class HVAC2_PDRSAug24_heating_annual_energy_use(Variable):
+class HVAC2_PDRSAug24_heating_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class HVAC2_PDRSAug24_heating_annual_energy_use(Variable):
                             (heating_capacity * equivalent_heating_hours) / rated_ACOP
                         ])
 
-class HVAC2_PDRSAug24_cooling_annual_energy_use(Variable):
+class HVAC2_PDRSAug24_cooling_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -66,7 +66,7 @@ class HVAC2_PDRSAug24_cooling_annual_energy_use(Variable):
                 ])
 
 
-class HVAC2_PDRSAug24_reference_heating_annual_energy_use(Variable):
+class HVAC2_PDRSAug24_reference_heating_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -94,7 +94,7 @@ class HVAC2_PDRSAug24_reference_heating_annual_energy_use(Variable):
                     ])
 
 
-class HVAC2_PDRSAug24_THEC_or_annual_heating(Variable):
+class HVAC2_PDRSAug24_THEC_or_annual_heating(BaseVariable):
     #Check if there is a THEC and if not, use the annual heating energy use formula
     value_type = float
     entity = Building
@@ -115,7 +115,7 @@ class HVAC2_PDRSAug24_THEC_or_annual_heating(Variable):
         return result_to_return
   
 
-class HVAC2_PDRSAug24_reference_cooling_annual_energy_use(Variable):
+class HVAC2_PDRSAug24_reference_cooling_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -143,7 +143,7 @@ class HVAC2_PDRSAug24_reference_cooling_annual_energy_use(Variable):
                 ])
 
 
-class HVAC2_PDRSAug24_TCEC_or_annual_cooling(Variable):
+class HVAC2_PDRSAug24_TCEC_or_annual_cooling(BaseVariable):
     #Check if there is a TCEC and if not, use the annual cooling energy use formula
     value_type = float
     entity = Building
@@ -164,7 +164,7 @@ class HVAC2_PDRSAug24_TCEC_or_annual_cooling(Variable):
         return result_to_return
 
 
-class HVAC2_PDRSAug24_deemed_activity_electricity_savings(Variable):
+class HVAC2_PDRSAug24_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -192,7 +192,7 @@ class HVAC2_PDRSAug24_AC_Type(Enum):
     ducted_unitary_system = 'Ducted unitary system'
 
 
-class HVAC2_PDRSAug24_Air_Conditioner_type_savings(Variable):
+class HVAC2_PDRSAug24_Air_Conditioner_type_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = HVAC2_PDRSAug24_AC_Type
@@ -211,7 +211,7 @@ class HVAC2_PDRSAug24_Activity_Type(Enum):
     replacement_activity = 'Replacement of an existing air conditioner'
 
 
-class HVAC2_PDRSAug24_Activity_savings(Variable):
+class HVAC2_PDRSAug24_Activity_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = HVAC2_PDRSAug24_Activity_Type
@@ -225,7 +225,7 @@ class HVAC2_PDRSAug24_Activity_savings(Variable):
     }
     
 
-class HVAC2_PDRSAug24_annual_energy_savings(Variable):
+class HVAC2_PDRSAug24_annual_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -437,7 +437,7 @@ class HVAC2_PDRSAug24_annual_energy_savings(Variable):
       return annual_savings_return
       
 
-class HVAC2_PDRSAug24_PDRS__regional_network_factor(Variable):
+class HVAC2_PDRSAug24_PDRS__regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -457,7 +457,7 @@ class HVAC2_PDRSAug24_PDRS__regional_network_factor(Variable):
         # is used to calculate a single value for regional network factor based on a zipcode provided
 
 
-class HVAC2_PDRSAug24_electricity_savings(Variable):
+class HVAC2_PDRSAug24_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -475,7 +475,7 @@ class HVAC2_PDRSAug24_electricity_savings(Variable):
         return electricity_savings
 
 
-class HVAC2_PDRSAug24_ESC_calculation(Variable):
+class HVAC2_PDRSAug24_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

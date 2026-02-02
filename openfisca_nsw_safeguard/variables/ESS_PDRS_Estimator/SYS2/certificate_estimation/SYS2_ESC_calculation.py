@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class SYS2_PDRS__regional_network_factor(Variable):
+class SYS2_PDRS__regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -38,7 +38,7 @@ class SYS2StarRating(Enum):
     ten_stars = '10'
 
     
-class SYS2_star_rating(Variable):
+class SYS2_star_rating(BaseVariable):
     value_type = Enum
     entity = Building
     default_value = SYS2StarRating.four_and_a_half_stars
@@ -52,7 +52,7 @@ class SYS2_star_rating(Variable):
     }
 
 
-class SYS2_savings_factor(Variable):
+class SYS2_savings_factor(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -64,7 +64,7 @@ class SYS2_savings_factor(Variable):
         return savings_factor
     
 
-class SYS2_energy_savings(Variable):
+class SYS2_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -98,7 +98,7 @@ class SYS2_energy_savings(Variable):
         
         return annual_savings_return
 
-class SYS2_electricity_savings(Variable):
+class SYS2_electricity_savings(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -111,7 +111,7 @@ class SYS2_electricity_savings(Variable):
         return electricity_savings
 
 
-class SYS2_ESC_calculation(Variable):
+class SYS2_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS__SONA_end_user_equipment_is_dishwasher(Variable):
+class ESS__SONA_end_user_equipment_is_dishwasher(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +21,7 @@ class ESS__SONA_end_user_equipment_is_dishwasher(Variable):
         return is_dishwasher
 
 
-class ESS__SONA_end_user_equipment_has_registered_place_settings(Variable):
+class ESS__SONA_end_user_equipment_has_registered_place_settings(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +30,7 @@ class ESS__SONA_end_user_equipment_has_registered_place_settings(Variable):
                 ' Schedule B, Activity Definition B3, Equipment Requirement 1.'
 
 
-class ESS__SONA_dishwasher_is_eligible(Variable):
+class ESS__SONA_dishwasher_is_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

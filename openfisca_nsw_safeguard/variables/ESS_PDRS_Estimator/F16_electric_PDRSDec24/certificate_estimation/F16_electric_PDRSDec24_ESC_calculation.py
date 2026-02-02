@@ -1,13 +1,13 @@
 from xml.etree import ElementInclude
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class F16_electric_PDRSDec24_PDRS__postcode(Variable):
+class F16_electric_PDRSDec24_PDRS__postcode(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -20,7 +20,7 @@ class F16_electric_PDRSDec24_PDRS__postcode(Variable):
     }
 
 
-class F16_electric_PDRSDec24_capacity_factor(Variable):
+class F16_electric_PDRSDec24_capacity_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -47,7 +47,7 @@ class F16_electric_PDRSDec24_capacity_factor(Variable):
       return capacity_factor
     
 
-class F16_electric_PDRSDec24_individual_heat_pump_thermal_capacity(Variable):
+class F16_electric_PDRSDec24_individual_heat_pump_thermal_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -64,7 +64,7 @@ class F16_electric_PDRSDec24_individual_heat_pump_thermal_capacity(Variable):
         return individual_heat_pump_thermal_capacity
     
 
-class F16_electric_PDRSDec24_confidence_factor(Variable):
+class F16_electric_PDRSDec24_confidence_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -102,7 +102,7 @@ class F16_electric_PDRSDec24_confidence_factor(Variable):
         return confidence_factor
     
 
-class F16_electric_PDRSDec24_Ref_Elec(Variable):
+class F16_electric_PDRSDec24_Ref_Elec(BaseVariable):
     """ Annual Electrical Energy used by a reference electric resistance water heater in a year
     """
     value_type = float
@@ -121,7 +121,7 @@ class F16_electric_PDRSDec24_Ref_Elec(Variable):
         return ref_elec
     
 
-class F16_electric_PDRSDec24_deemed_activity_gas_savings(Variable):
+class F16_electric_PDRSDec24_deemed_activity_gas_savings(BaseVariable):
     #this is the deemed gas savings for a replacing electric equipment
     value_type = float
     entity = Building
@@ -140,7 +140,7 @@ class F16_electric_PDRSDec24_deemed_activity_gas_savings(Variable):
       return deemed_gas_savings
     
 
-class F16_electric_PDRSDec24_deemed_activity_electricity_savings(Variable):
+class F16_electric_PDRSDec24_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -160,7 +160,7 @@ class F16_electric_PDRSDec24_deemed_activity_electricity_savings(Variable):
         return deemed_electricity_savings
 
 
-class F16_electric_PDRSDec24_energy_savings(Variable):
+class F16_electric_PDRSDec24_energy_savings(BaseVariable):
     value_type = float  
     entity = Building
     definition_period = ETERNITY
@@ -218,7 +218,7 @@ class F16_electric_PDRSDec24_energy_savings(Variable):
         return annual_savings_return
 
 
-class F16_electric_PDRSDec24_electricity_savings(Variable):
+class F16_electric_PDRSDec24_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -235,7 +235,7 @@ class F16_electric_PDRSDec24_electricity_savings(Variable):
         return electricity_savings
 
 
-class F16_electric_PDRSDec24_ESC_calculation(Variable):
+class F16_electric_PDRSDec24_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

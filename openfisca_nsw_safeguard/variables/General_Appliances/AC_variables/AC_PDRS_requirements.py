@@ -1,14 +1,14 @@
 from openfisca_core.entities import entity
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 import numpy as np
 
-class No_Existing_AC(Variable):
+class No_Existing_AC(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -19,7 +19,7 @@ class No_Existing_AC(Variable):
     }
 
 
-class AC_TCSPF_or_AEER_exceeds_PDRS_benchmark(Variable):
+class AC_TCSPF_or_AEER_exceeds_PDRS_benchmark(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

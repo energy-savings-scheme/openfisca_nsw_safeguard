@@ -1,14 +1,14 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 from openfisca_nsw_safeguard.variables.ESS_general.ESS_BCA_climate_zone import BCA_climate_zone
 
 import numpy as np
 
-class PDRS_WH1_meets_equipment_requirements_air_source_heat_pump(Variable):
+class PDRS_WH1_meets_equipment_requirements_air_source_heat_pump(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -19,7 +19,7 @@ class PDRS_WH1_meets_equipment_requirements_air_source_heat_pump(Variable):
       }
 
 # THIS VARIABLE IS NOT COMPLETED (Section 2): Need to define the HP3 / 5 etc zones that are used for modelling
-class PDRS_WH1_meets_equipment_requirements_of_climate_zone(Variable):
+class PDRS_WH1_meets_equipment_requirements_of_climate_zone(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -43,7 +43,7 @@ class PDRS_WH1_meets_equipment_requirements_of_climate_zone(Variable):
         )
         return is_ESS_BCA_climate_zone
 
-class PDRS_WH1_meets_equipment_requirements_hot_water_pump_storage_volume(Variable):
+class PDRS_WH1_meets_equipment_requirements_hot_water_pump_storage_volume(BaseVariable):
     value_type = int
     entity = Building
     default_value = False
@@ -53,7 +53,7 @@ class PDRS_WH1_meets_equipment_requirements_hot_water_pump_storage_volume(Variab
           'alias':  'Storage volume',
       }
 
-class PDRS_WH1_meets_equipment_requirements_hot_water_pump_ASNZ_2712_certified(Variable):
+class PDRS_WH1_meets_equipment_requirements_hot_water_pump_ASNZ_2712_certified(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -63,7 +63,7 @@ class PDRS_WH1_meets_equipment_requirements_hot_water_pump_ASNZ_2712_certified(V
           'alias':  'AS/NZ 2712 certified'
       }
 
-class PDRS_WH1_meets_equipment_requirements_storage_certified(Variable):
+class PDRS_WH1_meets_equipment_requirements_storage_certified(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -83,7 +83,7 @@ class PDRS_WH1_meets_equipment_requirements_storage_certified(Variable):
             is_ASNZ_2712_certified
         )
 
-class PDRS_WH1_meets_equipment_requirements_administrator_approval(Variable):
+class PDRS_WH1_meets_equipment_requirements_administrator_approval(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -93,7 +93,7 @@ class PDRS_WH1_meets_equipment_requirements_administrator_approval(Variable):
         'alias' : 'Scheme Administrator approval'
     }
     
-class PDRS_WH1_meets_equipment_requirements(Variable):
+class PDRS_WH1_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

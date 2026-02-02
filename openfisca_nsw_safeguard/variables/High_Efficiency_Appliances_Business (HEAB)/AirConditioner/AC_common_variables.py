@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class new_AC_reference_cooling_annual_energy_use(Variable):
+class new_AC_reference_cooling_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -19,21 +19,21 @@ class new_AC_reference_cooling_annual_energy_use(Variable):
         return cooling_capacity * cooling_hours / baseline_cooling_AEER
 
 
-class new_AC_cooling_capacity(Variable):
+class new_AC_cooling_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the cooling capacity for the new Air Conditioner?'
 
 
-class new_AC_heating_capacity(Variable):
+class new_AC_heating_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the heating capacity for the new Air Conditioner?'
 
 
-class new_AC_EER(Variable):
+class new_AC_EER(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

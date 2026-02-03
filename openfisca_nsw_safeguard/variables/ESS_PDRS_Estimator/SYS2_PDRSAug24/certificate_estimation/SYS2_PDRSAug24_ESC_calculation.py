@@ -78,8 +78,13 @@ class SYS2_PDRSAug24_energy_savings(Variable):
 
         deemed_electricity_savings = (PAEC_baseline - PAEC) * (lifetime / 1000)
 
+        #regional network factor
+        postcode = buildings('SYS2_PDRSAug24_PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        regional_network_factor = rnf.calc(postcode)
+
         #annual energy savings
-        annual_energy_savings = deemed_electricity_savings
+        annual_energy_savings = deemed_electricity_savings * regional_network_factor
         
         annual_savings_return = np.select([
             annual_energy_savings <= 0, 
@@ -100,8 +105,9 @@ class SYS2_PDRSAug24_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         deemed_electricity_savings = buildings('SYS2_PDRSAug24_deemed_activity_electricity_savings', period)
+        regional_network_factor = buildings('SYS2_PDRSAug24_PDRS__regional_network_factor', period)
 
-        electricity_savings = deemed_electricity_savings
+        electricity_savings = deemed_electricity_savings * regional_network_factor
         return electricity_savings
 
 
@@ -116,7 +122,6 @@ class SYS2_PDRSAug24_ESC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         electricity_savings = buildings('SYS2_PDRSAug24_electricity_savings', period)
-        regional_network_factor = buildings('SYS2_PDRSAug24_PDRS__regional_network_factor', period)
         electricity_certificate_conversion_factor = 1.06
         maximum_tested_input_power = buildings('SYS2_PDRSAug24_maximum_tested_input_power', period)
         daily_run_time = buildings('SYS2_PDRSAug24_daily_run_time', period)
@@ -125,7 +130,7 @@ class SYS2_PDRSAug24_ESC_calculation(Variable):
         #check if all three values are zero, and if they are, return zero certificates
         zero_product_data = (maximum_tested_input_power == 0) * (daily_run_time == 0) * (PAEC == 0)
 
-        result = (electricity_savings * regional_network_factor * electricity_certificate_conversion_factor)
+        result = (electricity_savings * electricity_certificate_conversion_factor)
         result_has_data = np.select(
             [
                 zero_product_data,

@@ -4,6 +4,10 @@ from openfisca_core.indexed_enums import Enum
 from openfisca_core.variables import config, helpers
 
 
+# This BaseVariable class constructor is based on Openfisca Core
+# We currently using constructor from class Variable
+# specifically openfisca core 40.0.1
+# and add the metadata block code for our needs right now.
 class BaseVariable(Variable):
     def __init__(self, baseline_variable):
         self.name = self.__class__.__name__
@@ -62,6 +66,7 @@ class BaseVariable(Variable):
             allowed_type=bool,
             default=config.VALUE_TYPES[self.value_type]["is_period_size_independent"],
         )
+        # our custom code
         self.metadata = self.set(attr, 'metadata', allowed_type = dict, setter = self.set_metadata, default = {})
 
         formulas_attr, unexpected_attrs = helpers._partition(
@@ -78,6 +83,7 @@ class BaseVariable(Variable):
 
         self.is_neutralized = False
 
+    # our custom code
     def set_metadata(self, metadata):
         if metadata:
             return metadata

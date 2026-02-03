@@ -5,7 +5,10 @@ services:
       dockerfile: Dockerfile
       platforms:
         - 'linux/amd64'
-    container_name: app
+    container_name: openfisca-app
     ports:
       - "8080:8080"
+    volumes:
+      - "./openfisca_nsw_safeguard/:/app/openfisca_nsw_safeguard/"
+      - "./Makefile:/app/Makefile"
     restart: unless-stopped

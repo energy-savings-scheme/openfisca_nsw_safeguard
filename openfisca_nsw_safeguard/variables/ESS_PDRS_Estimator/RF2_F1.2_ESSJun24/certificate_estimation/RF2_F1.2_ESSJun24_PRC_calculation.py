@@ -16,20 +16,24 @@ class RF2_F1_2_ESSJun24_baseline_input_power(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
-      total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
-      af = buildings('RF2_F1_2_ESSJun24_af', period)
-      baseline_EEI = buildings('RF2_F1_2_ESSJun24_baseline_EEI', period)
-      product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
-      
-      baseline_input_power = np.select(
-          [
-            product_EEI == 0, product_EEI != 0
-          ], 
-         [
-              0, np.multiply((total_energy_consumption * af), (baseline_EEI / product_EEI) / 24)
-          ])
-      
-      return baseline_input_power
+        total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
+        af = buildings('RF2_F1_2_ESSJun24_af', period)
+        baseline_EEI = buildings('RF2_F1_2_ESSJun24_baseline_EEI', period)
+        product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
+        
+        baseline_input_power = (
+            total_energy_consumption
+            * af
+            * np.divide(
+                baseline_EEI,
+                product_EEI,
+                out=np.zeros_like(baseline_EEI, dtype=float),
+                where=product_EEI != 0,
+            )
+            / 24
+        )
+        
+        return baseline_input_power
   
   
 class RF2_F1_2_ESSJun24_peak_demand_savings_capacity(BaseVariable):

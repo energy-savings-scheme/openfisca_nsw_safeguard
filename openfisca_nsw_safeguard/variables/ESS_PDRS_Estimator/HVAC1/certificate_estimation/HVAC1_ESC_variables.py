@@ -77,8 +77,6 @@ class HVAC1_baseline_AEER_input(BaseVariable):
             ])
         
         air_conditioner_type = building('HVAC1_Air_Conditioner_type', period)
-        print(f"Air Conditioner Type: {air_conditioner_type}")
-        print(f"{HVAC1_AC_Type.non_ducted_split_system}")
         aircon = np.select(
             [air_conditioner_type == HVAC1_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC1_AC_Type.ducted_split_system, air_conditioner_type == HVAC1_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC1_AC_Type.ducted_unitary_system],
             
@@ -86,12 +84,6 @@ class HVAC1_baseline_AEER_input(BaseVariable):
             )
        
         new_or_replacement_activity = building('HVAC1_Activity', period)
-
-        print(f"period: {period}")
-        print(f"AIRCON: {aircon}")
-        print(f"cooling_capacity_to_check: {cooling_capacity_to_check}")
-        baseline_aeer_new_installation = parameters(period).ESS.HEER.table_D16_2.AEER[aircon[0]][cooling_capacity_to_check[0]]
-        baseline_aeer_replacement = parameters(period).ESS.HEER.table_D16_3.AEER[aircon[0]][cooling_capacity_to_check[0]]
         
         baseline_aeer = np.select(
             [
@@ -99,8 +91,8 @@ class HVAC1_baseline_AEER_input(BaseVariable):
                 new_or_replacement_activity == HVAC1_Activity_Type.replacement_activity
             ],
             [
-                float(baseline_aeer_new_installation) if baseline_aeer_new_installation is not None else 0.0,
-                float(baseline_aeer_replacement) if baseline_aeer_replacement is not None else 0.0
+                parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
+                parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
             ]
         )
 
@@ -132,7 +124,6 @@ class HVAC1_certificate_climate_zone(BaseVariable):
         postcode = building('HVAC1_PDRS__postcode', period)
         rnf = parameters(period).ESS.ESS_general.table_A27_4_climate_zone_by_postcode
         zone_int = rnf.calc(postcode)
-        print(f'POSTCODE: {postcode}, ZONE: {zone_int}')
         return zone_int
 
 
@@ -194,7 +185,6 @@ class HVAC1_equivalent_heating_hours_input(BaseVariable):
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
                                      ['hot_zone', 'average_zone', 'cold_zone'])
         heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
-        print(f'HEATING HOUS: {heating_hours}')
         return heating_hours
 
 
@@ -253,26 +243,22 @@ class HVAC1_baseline_ACOP_input(BaseVariable):
             ])
         
         air_conditioner_type = building('HVAC1_Air_Conditioner_type', period)
-        print(f"Aircon_data_type: {type(air_conditioner_type)}")
         aircon = np.select(
             [air_conditioner_type == HVAC1_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC1_AC_Type.ducted_split_system, air_conditioner_type == HVAC1_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC1_AC_Type.ducted_unitary_system],
             
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
-        print(f"AIRCON[0]: {aircon[0]}")
-        print(f"COOLING CAPACITY CHECK: {cooling_capacity_to_check[0]}")
         new_or_replacement_activity = building('HVAC1_Activity', period)
         
         baseline_acop = np.select(
             [new_or_replacement_activity == HVAC1_Activity_Type.new_installation_activity,
                 new_or_replacement_activity == HVAC1_Activity_Type.replacement_activity],
             
-                 [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon[0]][cooling_capacity_to_check[0]], 
-                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon[0]][cooling_capacity_to_check[0]] 
+                 [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check], 
+                    parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check] 
                     ]
             )
 
-        print(f"BASELINE ACOP: {baseline_acop}")
         return baseline_acop
 
 

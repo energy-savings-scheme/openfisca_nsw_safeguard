@@ -20,22 +20,18 @@ class HVAC2_PDRSAug24_heating_annual_energy_use(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
-      heating_capacity = buildings('HVAC2_PDRSAug24_heating_capacity_input', period)
-      equivalent_heating_hours = buildings('HVAC2_PDRSAug24_equivalent_heating_hours_input', period)
-      rated_ACOP = buildings('HVAC2_PDRSAug24_rated_ACOP_input', period)
-      
-      return np.select([    
-                            rated_ACOP == 0,
-                            (heating_capacity * equivalent_heating_hours) > 0, 
-                            (heating_capacity * equivalent_heating_hours) == 0,
-                            (heating_capacity * equivalent_heating_hours) < 0
-                        ],
-                        [
-                            0,
-                            (heating_capacity * equivalent_heating_hours) / rated_ACOP,
-                            0,
-                            (heating_capacity * equivalent_heating_hours) / rated_ACOP
-                        ])
+        heating_capacity = buildings('HVAC2_PDRSAug24_heating_capacity_input', period)
+        equivalent_heating_hours = buildings('HVAC2_PDRSAug24_equivalent_heating_hours_input', period)
+        rated_ACOP = buildings('HVAC2_PDRSAug24_rated_ACOP_input', period)
+        numerator = heating_capacity * equivalent_heating_hours
+
+        return np.divide(
+            numerator,
+            rated_ACOP,
+            out=np.zeros_like(rated_ACOP, dtype=float),
+            where=rated_ACOP != 0
+        )
+
 
 class HVAC2_PDRSAug24_cooling_annual_energy_use(BaseVariable):
     value_type = float
@@ -48,22 +44,17 @@ class HVAC2_PDRSAug24_cooling_annual_energy_use(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
-      cooling_capacity = buildings('HVAC2_PDRSAug24_cooling_capacity_input', period)
-      equivalent_cooling_hours = buildings('HVAC2_PDRSAug24_equivalent_cooling_hours_input', period)
-      rated_AEER = buildings('HVAC2_PDRSAug24_rated_AEER_input', period)
+        cooling_capacity = buildings('HVAC2_PDRSAug24_cooling_capacity_input', period)
+        equivalent_cooling_hours = buildings('HVAC2_PDRSAug24_equivalent_cooling_hours_input', period)
+        rated_AEER = buildings('HVAC2_PDRSAug24_rated_AEER_input', period)
+        numerator = cooling_capacity * equivalent_cooling_hours
 
-      return np.select([    
-                    rated_AEER == 0,
-                    (cooling_capacity * equivalent_cooling_hours) > 0, 
-                    (cooling_capacity * equivalent_cooling_hours) == 0,
-                    (cooling_capacity * equivalent_cooling_hours) < 0
-                ],
-                [
-                    0,
-                    (cooling_capacity * equivalent_cooling_hours) / rated_AEER, 
-                    0,
-                    (cooling_capacity * equivalent_cooling_hours) / rated_AEER
-                ])
+        return np.divide(
+            numerator,
+            rated_AEER,
+            out=np.zeros_like(rated_AEER, dtype=float),
+            where=rated_AEER != 0
+        )
 
 
 class HVAC2_PDRSAug24_reference_heating_annual_energy_use(BaseVariable):
@@ -76,22 +67,17 @@ class HVAC2_PDRSAug24_reference_heating_annual_energy_use(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
-      heating_capacity = buildings('HVAC2_PDRSAug24_heating_capacity_input', period)
-      equivalent_heating_hours = buildings('HVAC2_PDRSAug24_equivalent_heating_hours_input', period)
-      baseline_ACOP = buildings('HVAC2_PDRSAug24_baseline_ACOP_input', period)
-      
-      return np.select([    
-                        baseline_ACOP == 0,
-                        (heating_capacity * equivalent_heating_hours) > 0, 
-                        (heating_capacity * equivalent_heating_hours) == 0,
-                        (heating_capacity * equivalent_heating_hours) < 0
-                    ],
-                    [
-                        0,
-                        (heating_capacity * equivalent_heating_hours) / baseline_ACOP,
-                        0,
-                        (heating_capacity * equivalent_heating_hours) / baseline_ACOP
-                    ])
+        heating_capacity = buildings('HVAC2_PDRSAug24_heating_capacity_input', period)
+        equivalent_heating_hours = buildings('HVAC2_PDRSAug24_equivalent_heating_hours_input', period)
+        baseline_ACOP = buildings('HVAC2_PDRSAug24_baseline_ACOP_input', period)
+        numerator = heating_capacity * equivalent_heating_hours
+
+        return np.divide(
+            numerator,
+            baseline_ACOP,
+            out=np.zeros_like(baseline_ACOP, dtype=float),
+            where=baseline_ACOP != 0
+        )
 
 
 class HVAC2_PDRSAug24_THEC_or_annual_heating(BaseVariable):
@@ -125,22 +111,17 @@ class HVAC2_PDRSAug24_reference_cooling_annual_energy_use(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
-      cooling_capacity = buildings('HVAC2_PDRSAug24_cooling_capacity_input', period)
-      equivalent_cooling_hours = buildings('HVAC2_PDRSAug24_equivalent_cooling_hours_input', period)
-      baseline_AEER = buildings('HVAC2_PDRSAug24_baseline_AEER_input', period)
-      
-      return np.select([  
-                    baseline_AEER == 0,  
-                    (cooling_capacity * equivalent_cooling_hours) > 0, 
-                    (cooling_capacity * equivalent_cooling_hours) == 0,
-                    (cooling_capacity * equivalent_cooling_hours) < 0
-                ],
-                [
-                    0,
-                    (cooling_capacity * equivalent_cooling_hours) / baseline_AEER, 
-                    0,
-                    (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
-                ])
+        cooling_capacity = buildings('HVAC2_PDRSAug24_cooling_capacity_input', period)
+        equivalent_cooling_hours = buildings('HVAC2_PDRSAug24_equivalent_cooling_hours_input', period)
+        baseline_AEER = buildings('HVAC2_PDRSAug24_baseline_AEER_input', period)
+        numerator = cooling_capacity * equivalent_cooling_hours
+
+        return np.divide(
+            numerator,
+            baseline_AEER,
+            out=np.zeros_like(baseline_AEER, dtype=float),
+            where=baseline_AEER != 0
+        )
 
 
 class HVAC2_PDRSAug24_TCEC_or_annual_cooling(BaseVariable):

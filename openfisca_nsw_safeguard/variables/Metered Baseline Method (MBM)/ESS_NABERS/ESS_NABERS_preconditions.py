@@ -851,6 +851,12 @@ class ESS__NABERS_is_eligible(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
+        # If this variable suddenly failed in test, usually because of variable ESS__NABERS_ESC_creation_within_12_months
+        # because that variable check if ESS__NABERS_end_date_of_current_NABERS_rating_period
+        # and ESS__NABERS_ESC_creation_date is within 12 months
+        # we do have a static value for ESS__NABERS_end_date_of_current_NABERS_rating_period
+        # which is defined in test file, but not with ESS__NABERS_ESC_creation_date
+        # which is by default it has value today.
         uses_NABERS_rating_tool = buildings(
             'ESS__NABERS_rating_calculated_using_NABERS_rating_tools', period)
         has_GreenPower = buildings(

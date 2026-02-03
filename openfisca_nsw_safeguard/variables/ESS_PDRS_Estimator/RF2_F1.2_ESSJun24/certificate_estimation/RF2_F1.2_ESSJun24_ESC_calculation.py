@@ -53,15 +53,21 @@ class RF2_F1_2_ESSJun24_deemed_activity_electricity_savings(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
-      total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
-      baseline_EEI = buildings('RF2_F1_2_ESSJun24_baseline_EEI', period)
-      product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
-      af = buildings('RF2_F1_2_ESSJun24_af', period)
-      lifetime_by_rc_class = buildings('RF2_F1_2_ESSJun24_lifetime_by_rc_class', period)
+        total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
+        baseline_EEI = buildings('RF2_F1_2_ESSJun24_baseline_EEI', period)
+        product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
+        af = buildings('RF2_F1_2_ESSJun24_af', period)
+        lifetime_by_rc_class = buildings('RF2_F1_2_ESSJun24_lifetime_by_rc_class', period)
+        ratio = np.divide(
+            baseline_EEI,
+            product_EEI,
+            out=np.zeros_like(product_EEI),
+            where=product_EEI != 0
+        )
       
-      deemed_electricity_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
-      return deemed_electricity_savings
-    
+        deemed_electricity_savings = np.multiply(total_energy_consumption * (ratio - 1) * af * 365, (lifetime_by_rc_class / 1000))
+        return deemed_electricity_savings
+        
 
 class RF2_F1_2_ESSJun24ProductClass(Enum):
     product_class_one = 'Class 1'

@@ -5,6 +5,7 @@ import typing
 
 from openfisca_core.taxscales import SingleAmountTaxScale
 from openfisca_core.taxbenefitsystems import TaxBenefitSystem
+from openfisca_web_api.loader import variables
 
 from openfisca_nsw_safeguard.entities import entities
 
@@ -40,11 +41,21 @@ def custom_calc(self,
 
             return guarded_amounts[bracket_indices - 1]
 
+
+_original_build_variable = variables.build_variable
+def custom_build_variable(variable, country_package_metadata, tax_benefit_system):
+    result = _original_build_variable(variable, country_package_metadata, tax_benefit_system)
+    result["metadata"] = variable.metadata
+    return result
+
 # We did monkey patch here in order to implement our own logic
 # to replace cacl method in class SingleAmountTaxScale
-# this custom_calc method is extend from calc method of openfisca core
+# the custom_calc function is modified version from calc method of openfisca core
+# the custom_build_variable function is extended version from function build_variable
 # specifically openfisca core 40.0.1
 SingleAmountTaxScale.calc = custom_calc
+variables.build_variable = custom_build_variable
+
 
 # Our country tax and benefit class inherits from the general TaxBenefitSystem class.
 # The name CountryTaxBenefitSystem must not be changed, as all tools of the OpenFisca

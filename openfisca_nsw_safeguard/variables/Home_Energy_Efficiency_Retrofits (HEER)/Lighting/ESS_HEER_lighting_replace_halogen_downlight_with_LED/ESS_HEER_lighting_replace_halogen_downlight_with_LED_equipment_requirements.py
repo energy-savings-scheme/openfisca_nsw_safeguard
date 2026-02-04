@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS_HEER_lighting_replace_halogen_downlight_existing_end_user_equipment_is_eligible(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_existing_end_user_equipment_is_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -25,7 +25,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_existing_end_user_equipment_is
         + is_LED_luminaire_recessed + LED_lamp_only_240V_self_ballasted
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_outputs_minimum_downward_light_output(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_outputs_minimum_downward_light_output(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -39,7 +39,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_outputs_minimum_downward_light
         return condition_minimum_light_output
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_light_beam_angles_are_consistent(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_light_beam_angles_are_consistent(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -54,7 +54,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_light_beam_angles_are_consiste
         return light_beam_angles_are_consistent
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_is_compatible_with_circuit_dimmers(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_is_compatible_with_circuit_dimmers(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -62,7 +62,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_is_compatible_with_circuit_dim
             ' on the same circuit as the new lamp.'
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_meets_equipment_requirements(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

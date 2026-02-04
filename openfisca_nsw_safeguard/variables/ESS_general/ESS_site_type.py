@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 class ESS_SiteType(Enum):
@@ -11,7 +11,7 @@ class ESS_SiteType(Enum):
     # list is likely incomplete
 
 
-class ESS_site_type(Variable):
+class ESS_site_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = ESS_SiteType

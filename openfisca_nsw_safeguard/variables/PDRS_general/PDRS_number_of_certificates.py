@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class PDRS_number_of_peak_demand_reduction_certificates(Variable):
+class PDRS_number_of_peak_demand_reduction_certificates(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -35,7 +35,7 @@ class PDRS_number_of_peak_demand_reduction_certificates(Variable):
         # check w. Steve/Rod if we round down
 
 
-class PDRS__postcode(Variable):
+class PDRS__postcode(BaseVariable):
     # this variable is used as the first input on all estimator certificate calculation pages
     value_type = int
     entity = Building
@@ -59,7 +59,7 @@ class PDRSActivity(Enum):
     replace_water_heater = 'The implementation uses the replace water heater activity definition.'
 
 
-class PDRS_activity_type(Variable):
+class PDRS_activity_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = PDRSActivity
@@ -73,7 +73,7 @@ class PDRS_activity_type(Variable):
     # "monor-cat":'Peak Demand Reduction Scheme - General'
     }
 
-class PDRS__regional_network_factor(Variable):
+class PDRS__regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

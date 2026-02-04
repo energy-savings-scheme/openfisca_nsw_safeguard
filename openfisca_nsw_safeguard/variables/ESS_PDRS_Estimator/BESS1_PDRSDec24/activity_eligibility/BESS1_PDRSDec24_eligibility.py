@@ -1,12 +1,12 @@
 from distutils.command.build import build
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class BESS1_PDRSDec24_installation_final_activity_eligibility(Variable):
+class BESS1_PDRSDec24_installation_final_activity_eligibility(BaseVariable):
     """
         Formula to calculate the BESS1 installation activity eligibility
     """

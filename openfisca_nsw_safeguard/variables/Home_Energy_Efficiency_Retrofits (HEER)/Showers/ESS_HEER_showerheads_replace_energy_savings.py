@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS_HEER_showerheads_replace_with_low_flow_showerhead_electricity_savings_factor(Variable):
+class ESS_HEER_showerheads_replace_with_low_flow_showerhead_electricity_savings_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class ESS_HEER_showerheads_replace_with_low_flow_showerhead_electricity_savings_
         return electricity_savings_factor
 
 
-class ESS_HEER_showerheads_replace_with_low_flow_showerhead_gas_savings_factor(Variable):
+class ESS_HEER_showerheads_replace_with_low_flow_showerhead_gas_savings_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

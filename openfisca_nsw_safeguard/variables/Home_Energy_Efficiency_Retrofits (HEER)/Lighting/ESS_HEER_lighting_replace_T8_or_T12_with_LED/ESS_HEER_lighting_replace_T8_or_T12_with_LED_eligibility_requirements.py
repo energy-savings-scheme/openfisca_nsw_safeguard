@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class E5_existing_lamp_is_T8_or_T12_fluoro_luminaire(Variable):
+class E5_existing_lamp_is_T8_or_T12_fluoro_luminaire(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class E5_existing_lamp_is_T8_or_T12_fluoro_luminaire(Variable):
         return is_T12_linear + is_T8_linear  # note addition is used to define "or" with booleans
 
 
-class E5_is_in_working_order(Variable):
+class E5_is_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -32,7 +32,7 @@ class E5_is_in_working_order(Variable):
             ' E1.'  # insert definition requirements
 
 
-class E5_is_not_modified_with_T5_adaptor_kit(Variable):
+class E5_is_not_modified_with_T5_adaptor_kit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -41,14 +41,14 @@ class E5_is_not_modified_with_T5_adaptor_kit(Variable):
             ' in Activity Definition E4 and defined in Table A9.1.'  # this light type is not defined anywhere in the rule (and probably should be!)
 
 
-class E5_existing_lamp_length(Variable):
+class E5_existing_lamp_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'Asks for the length of the existing lamp in feet.'  # need to check if there's set lengths for these, and if so, redefine as an enum
 
 
-class E5_eligible_existing_lamp_length(Variable):
+class E5_eligible_existing_lamp_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -63,7 +63,7 @@ class E5_eligible_existing_lamp_length(Variable):
         return condition_eligible_length
 
 
-class E5_number_of_existing_lamps(Variable):
+class E5_number_of_existing_lamps(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY

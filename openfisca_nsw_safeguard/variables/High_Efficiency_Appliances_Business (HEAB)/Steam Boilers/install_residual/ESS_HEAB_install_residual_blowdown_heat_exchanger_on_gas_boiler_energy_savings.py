@@ -1,13 +1,13 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 import numpy as np 
 
-class ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_gas_savings(Variable):
+class ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_gas_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -49,7 +49,7 @@ class ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_gas_saving
                 )
 
 
-class ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_operating_pressure(Variable):
+class ESS_HEAB_install_residual_blowdown_heat_exchanger_on_gas_boiler_operating_pressure(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -1,10 +1,12 @@
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
 import time
 import numpy as np
 import datetime
+
+# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
+from openfisca_core.model_api import *
+# Import the Entities specifically defined for this tax and benefit system
+from openfisca_nsw_safeguard.entities import *
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 
 # note because this activity definition requires calculation based off years, \
 # you need to import the above libraries to make it work
@@ -16,21 +18,21 @@ today = today_date_and_time.astype('datetime64[D]')
 # variables used to calculate age of equipment.
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_end_user_equipment_installed_on_water_heater(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_end_user_equipment_installed_on_water_heater(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing end user equipment installed on a water heater?'
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_in_working_order(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing end use equipment in working order?'
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_more_than_10_years_old(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_more_than_10_years_old(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -41,7 +43,7 @@ class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equip
         return (existing_equipment_age > 10)
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_has_air_fuel_ratio(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_has_air_fuel_ratio(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -49,14 +51,14 @@ class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equip
             ' controlled by a mechanical link?'
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_in_working_order(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_existing_equipment_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing End User Equipment in working order?'
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_meets_eligibility_requirements(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

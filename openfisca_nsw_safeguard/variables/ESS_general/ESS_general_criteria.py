@@ -1,14 +1,16 @@
-from openfisca_core.variables import *
-from openfisca_core.periods import YEAR, ETERNITY
-from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
 import numpy as np
-
 from datetime import datetime as py_datetime
 from datetime import date
 
+from openfisca_core.variables import *
+from openfisca_core.periods import YEAR, ETERNITY
+from openfisca_core.indexed_enums import Enum
 
-class ESS__meets_overall_eligibility_requirements(Variable):
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.base_variables import BaseVariable
+
+
+class ESS__meets_overall_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -37,14 +39,14 @@ class ESS__meets_overall_eligibility_requirements(Variable):
             )
 
 
-class ESS__is_unlawful_activity(Variable):
+class ESS__is_unlawful_activity(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the ESS activity an unlawful activity?'
 
 
-class ESS__equipment_is_not_resold_reused_or_refurbished(Variable):
+class ESS__equipment_is_not_resold_reused_or_refurbished(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -65,28 +67,28 @@ class ESS__equipment_is_not_resold_reused_or_refurbished(Variable):
         )
 
 
-class ESS__equipment_is_resold(Variable):
+class ESS__equipment_is_resold(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Will or has the ACP resold the equipment replaced or removed as part of the activity?'
 
 
-class ESS__equipment_is_reused(Variable):
+class ESS__equipment_is_reused(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Will or has the ACP reused the equipment replaced or removed as part of the activity?'
 
 
-class ESS__equipment_is_refurbished(Variable):
+class ESS__equipment_is_refurbished(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Will or has the ACP refurbished the equipment replaced or removed as part of the activity?'
 
 
-class ESS__not_resold_reused_or_refurbished(Variable):
+class ESS__not_resold_reused_or_refurbished(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -94,7 +96,7 @@ class ESS__not_resold_reused_or_refurbished(Variable):
     label = 'Is the removed End-User equipment re-sold, refurbished or re-used?'
 
 
-class ESS__implementation_date(Variable):
+class ESS__implementation_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -103,7 +105,7 @@ class ESS__implementation_date(Variable):
     # method enum
 
 
-class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
+class ESS__appropriate_disposal_of_equipment_after_15_April_2016(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -139,7 +141,7 @@ class ESS__appropriate_disposal_of_equipment_after_15_April_2016(Variable):
             )
         )
 
-class ESS__activity_occurred_in_Metro_Levy_Area(Variable):
+class ESS__activity_occurred_in_Metro_Levy_Area(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -152,7 +154,7 @@ class ESS__activity_occurred_in_Metro_Levy_Area(Variable):
         return metro_levy_areas.calc(postcode)
 
 
-class ESS__lighting_mercury_disposed_appropriately(Variable):
+class ESS__lighting_mercury_disposed_appropriately(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -160,14 +162,14 @@ class ESS__lighting_mercury_disposed_appropriately(Variable):
 
 
 
-class ESS__recycling_evidence_for_refrigerants_is_obtained(Variable):
+class ESS__recycling_evidence_for_refrigerants_is_obtained(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Has recycling evidence been obtained for any refrigerants disposed of as part of the activity?'
 
 
-class ESS__reduces_energy_consumption(Variable):
+class ESS__reduces_energy_consumption(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

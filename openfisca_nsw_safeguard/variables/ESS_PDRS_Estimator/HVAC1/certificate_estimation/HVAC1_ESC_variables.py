@@ -1,14 +1,14 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 """ Parameters for HVAC1 ESC Calculation
     These variables use GEMS Registry data
 """
-class HVAC1_heating_capacity_input(Variable):
+class HVAC1_heating_capacity_input(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -21,7 +21,7 @@ class HVAC1_heating_capacity_input(Variable):
     }
 
 
-class HVAC1_cooling_capacity_input(Variable):
+class HVAC1_cooling_capacity_input(BaseVariable):
     reference = 'unit in kw'
     value_type = float
     entity = Building
@@ -34,7 +34,7 @@ class HVAC1_cooling_capacity_input(Variable):
     }
 
 
-class HVAC1_rated_ACOP_input(Variable):
+class HVAC1_rated_ACOP_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -46,7 +46,7 @@ class HVAC1_rated_ACOP_input(Variable):
     }
 
 
-class HVAC1_baseline_AEER_input(Variable):
+class HVAC1_baseline_AEER_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -86,18 +86,20 @@ class HVAC1_baseline_AEER_input(Variable):
         new_or_replacement_activity = building('HVAC1_Activity', period)
         
         baseline_aeer = np.select(
-            [new_or_replacement_activity == HVAC1_Activity_Type.new_installation_activity,
-                new_or_replacement_activity == HVAC1_Activity_Type.replacement_activity],
-            
-                [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
-                    ]
-            )
+            [
+                new_or_replacement_activity == HVAC1_Activity_Type.new_installation_activity,
+                new_or_replacement_activity == HVAC1_Activity_Type.replacement_activity
+            ],
+            [
+                parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
+                parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
+            ]
+        )
 
         return baseline_aeer
 
 
-class HVAC1_rated_AEER_input(Variable):
+class HVAC1_rated_AEER_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -109,7 +111,7 @@ class HVAC1_rated_AEER_input(Variable):
     }
     
     
-class HVAC1_certificate_climate_zone(Variable):
+class HVAC1_certificate_climate_zone(BaseVariable):
     value_type = int
     entity = Building
     label = "Which climate zone is the End-User equipment installed in, as defined in ESS Table A27?"
@@ -125,7 +127,7 @@ class HVAC1_certificate_climate_zone(Variable):
         return zone_int
 
 
-class HVAC1_get_climate_zone_by_postcode(Variable):
+class HVAC1_get_climate_zone_by_postcode(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -143,7 +145,7 @@ class HVAC1_get_climate_zone_by_postcode(Variable):
         return climate_zone_str
 
 
-class HVAC1_PDRS__postcode(Variable):
+class HVAC1_PDRS__postcode(BaseVariable):
     # using to get the climate zone
     value_type = int
     entity = Building
@@ -157,7 +159,7 @@ class HVAC1_PDRS__postcode(Variable):
         }
 
 
-class HVAC1_residential_THEC(Variable):
+class HVAC1_residential_THEC(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -169,7 +171,7 @@ class HVAC1_residential_THEC(Variable):
     }
 
 
-class HVAC1_equivalent_heating_hours_input(Variable):
+class HVAC1_equivalent_heating_hours_input(BaseVariable):
     reference = 'unit in hours per year'
     value_type = float
     entity = Building
@@ -186,7 +188,7 @@ class HVAC1_equivalent_heating_hours_input(Variable):
         return heating_hours
 
 
-class HVAC1_residential_TCEC(Variable):
+class HVAC1_residential_TCEC(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY 
@@ -198,7 +200,7 @@ class HVAC1_residential_TCEC(Variable):
     }
 
 
-class HVAC1_equivalent_cooling_hours_input(Variable):
+class HVAC1_equivalent_cooling_hours_input(BaseVariable):
     reference = 'unit in hours per year'
     value_type = float
     entity = Building
@@ -215,7 +217,7 @@ class HVAC1_equivalent_cooling_hours_input(Variable):
         return cooling_hours
 
 
-class HVAC1_baseline_ACOP_input(Variable):
+class HVAC1_baseline_ACOP_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -246,7 +248,6 @@ class HVAC1_baseline_ACOP_input(Variable):
             
                 ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
             )
-        
         new_or_replacement_activity = building('HVAC1_Activity', period)
         
         baseline_acop = np.select(
@@ -268,7 +269,7 @@ class HVAC1_AC_Type(Enum):
     ducted_unitary_system = 'Ducted unitary system'
 
 
-class HVAC1_Air_Conditioner_type(Variable):
+class HVAC1_Air_Conditioner_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = HVAC1_AC_Type
@@ -288,7 +289,7 @@ class HVAC1_Activity_Type(Enum):
 
 
 
-class HVAC1_Activity(Variable):
+class HVAC1_Activity(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = HVAC1_Activity_Type
@@ -302,7 +303,7 @@ class HVAC1_Activity(Variable):
     }
 
 
-class HVAC1_TCSPF_mixed(Variable):
+class HVAC1_TCSPF_mixed(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -315,7 +316,7 @@ class HVAC1_TCSPF_mixed(Variable):
     }
 
 
-class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
+class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -362,7 +363,7 @@ class HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
         return AC_exceeds_cooling_benchmark
 
 
-class HVAC1_HSPF_mixed(Variable):
+class HVAC1_HSPF_mixed(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -373,7 +374,7 @@ class HVAC1_HSPF_mixed(Variable):
     }
 
 
-class HVAC1_HSPF_cold(Variable):
+class HVAC1_HSPF_cold(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -383,7 +384,7 @@ class HVAC1_HSPF_cold(Variable):
         'display_question': 'Heating seasonal performance factor in a cold climate zone'
     }
 
-class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
+class HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark(BaseVariable):
     """ This variable is used if the AC climate zone is hot or average and there is a GEMS heating capacity
     """
     value_type = bool

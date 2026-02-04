@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_linear_halogen_floodlight(Variable):
+class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_linear_halogen_floodlight(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -19,7 +19,7 @@ class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_linear_halog
         return is_tungsten_halogen_240V
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_rating_is_more_than_100W(Variable):
+class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_rating_is_more_than_100W(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -31,7 +31,7 @@ class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_rating_is_more_
         return condition_lamp_rating
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_in_working_order(Variable):
+class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -40,7 +40,7 @@ class ESS_HEER_lighting_replace_halogen_floodlight_existing_lamp_is_in_working_o
             ' E2.'  # insert definition requirements
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_eligibility_requirements(Variable):
+class ESS_HEER_lighting_replace_halogen_floodlight_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class RF2_F1_2_ESSJun24_baseline_input_power(Variable):
+class RF2_F1_2_ESSJun24_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -16,23 +16,27 @@ class RF2_F1_2_ESSJun24_baseline_input_power(Variable):
     }
 
     def formula(buildings, period, parameters):
-      total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
-      af = buildings('RF2_F1_2_ESSJun24_af', period)
-      baseline_EEI = buildings('RF2_F1_2_ESSJun24_baseline_EEI', period)
-      product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
-      
-      baseline_input_power = np.select(
-          [
-            product_EEI == 0, product_EEI != 0
-          ], 
-         [
-              0, np.multiply((total_energy_consumption * af), (baseline_EEI / product_EEI) / 24)
-          ])
-      
-      return baseline_input_power
+        total_energy_consumption = buildings('RF2_F1_2_ESSJun24_total_energy_consumption', period)
+        af = buildings('RF2_F1_2_ESSJun24_af', period)
+        baseline_EEI = buildings('RF2_F1_2_ESSJun24_baseline_EEI', period)
+        product_EEI = buildings('RF2_F1_2_ESSJun24_product_EEI', period)
+        
+        baseline_input_power = (
+            total_energy_consumption
+            * af
+            * np.divide(
+                baseline_EEI,
+                product_EEI,
+                out=np.zeros_like(baseline_EEI, dtype=float),
+                where=product_EEI != 0,
+            )
+            / 24
+        )
+        
+        return baseline_input_power
   
   
-class RF2_F1_2_ESSJun24_peak_demand_savings_capacity(Variable):
+class RF2_F1_2_ESSJun24_peak_demand_savings_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -70,7 +74,7 @@ class RF2_F1_2_ESSJun24ProductClass(Enum):
     product_class_fifteen = 'Class 15'
 
 
-class RF2_F1_2_ESSJun24_product_class_peak_savings(Variable):
+class RF2_F1_2_ESSJun24_product_class_peak_savings(BaseVariable):
     value_type = Enum
     entity = Building
     definition_period = ETERNITY
@@ -90,7 +94,7 @@ class RCDutyClass_peak_savings(Enum):
     light_duty = 'Light duty'
 
 
-class RF2_F1_2_ESSJun24_duty_class_peak_savings(Variable):
+class RF2_F1_2_ESSJun24_duty_class_peak_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCDutyClass_peak_savings
@@ -112,7 +116,7 @@ class RCProductType(Enum):
     RSC = 'Refrigerated storage cabinet'
 
 
-class RF2_F1_2_ESSJun24_product_type_savings(Variable):
+class RF2_F1_2_ESSJun24_product_type_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCProductType
@@ -124,7 +128,7 @@ class RF2_F1_2_ESSJun24_product_type_savings(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
+class RF2_F1_2_ESSJun24_peak_demand_annual_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -310,7 +314,7 @@ class RF2_F1_2_ESSJun24_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return
 
 
-class RF2_F1_2_ESSJun24_peak_demand_reduction_capacity(Variable):
+class RF2_F1_2_ESSJun24_peak_demand_reduction_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -327,7 +331,7 @@ class RF2_F1_2_ESSJun24_peak_demand_reduction_capacity(Variable):
       return peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime
 
 
-class RF2_F1_2_ESSJun24_baseline_peak_adjustment_factor(Variable):
+class RF2_F1_2_ESSJun24_baseline_peak_adjustment_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -347,7 +351,7 @@ class RF2_F1_2_ESSJun24_baseline_peak_adjustment_factor(Variable):
       return baseline_peak_adjustment_factor
   
   
-class RF2_F1_2_ESSJun24_PRC_calculation(Variable):
+class RF2_F1_2_ESSJun24_PRC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

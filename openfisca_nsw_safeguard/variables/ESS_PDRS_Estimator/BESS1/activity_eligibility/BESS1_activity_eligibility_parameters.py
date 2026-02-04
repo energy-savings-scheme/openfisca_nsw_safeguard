@@ -1,12 +1,12 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 
-class BESS1_new_installation(Variable):
+class BESS1_new_installation(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -18,7 +18,7 @@ class BESS1_new_installation(Variable):
     }
     
 
-class BESS1_new_solar_battery(Variable):
+class BESS1_new_solar_battery(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -30,7 +30,7 @@ class BESS1_new_solar_battery(Variable):
     }
 
 
-class BESS1_solar_panels(Variable):
+class BESS1_solar_panels(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -42,7 +42,7 @@ class BESS1_solar_panels(Variable):
     }
 
 
-class BESS1_engaged_ACP(Variable):
+class BESS1_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -55,7 +55,7 @@ class BESS1_engaged_ACP(Variable):
     }
 
 
-class BESS1_minimum_payment(Variable):
+class BESS1_minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -67,7 +67,7 @@ class BESS1_minimum_payment(Variable):
     }
 
 
-class BESS1_battery_capacity(Variable):
+class BESS1_battery_capacity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -79,7 +79,7 @@ class BESS1_battery_capacity(Variable):
     }
     
 
-class BESS1_battery_warranty(Variable):
+class BESS1_battery_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -91,7 +91,7 @@ class BESS1_battery_warranty(Variable):
     }
 
 
-class BESS1_battery_internet_connectable(Variable):
+class BESS1_battery_internet_connectable(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -103,7 +103,7 @@ class BESS1_battery_internet_connectable(Variable):
     }
 
 
-class BESS1_battery_controllable_third_party(Variable):
+class BESS1_battery_controllable_third_party(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -115,7 +115,7 @@ class BESS1_battery_controllable_third_party(Variable):
     }
 
 
-class BESS1_approved_list(Variable):
+class BESS1_approved_list(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -127,7 +127,7 @@ class BESS1_approved_list(Variable):
     }
 
 
-class BESS1_equipment_installation(Variable):
+class BESS1_equipment_installation(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -140,7 +140,7 @@ class BESS1_equipment_installation(Variable):
     }
 
 
-class BESS1_DER_register(Variable):
+class BESS1_DER_register(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

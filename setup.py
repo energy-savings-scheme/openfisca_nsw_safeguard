@@ -20,8 +20,8 @@ setup(
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [],
     install_requires = [
-        'OpenFisca-Core[web-api] @ git+https://github.com/energy-savings-scheme/openfisca-core.git@develop',
-        'openfisca_nsw_base @ git+https://github.com/Openfisca-NSW/openfisca_nsw_base.git'
+        'numpy>=1.26.0,<2.0.0',
+        'OpenFisca-Core[web-api]>=36.0.0,<40.1.0',
     ],
     extras_require = {
         "dev": [

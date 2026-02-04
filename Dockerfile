@@ -1,20 +1,41 @@
-FROM python:3.9
+FROM python:3.12-slim AS build
+
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
 
-# Setup environment for python
+# Install system dependencies required for building certain Python packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    make \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
-ENV PATH="/app/.venv/bin:$PATH"
-ENV PYTHONPATH="/app:$PYTHONPATH"
-RUN echo "source /app/.venv/bin/activate" >> ~/.bashrc
 
-# Start install deps
-ADD setup.py /app/
-RUN uv venv && \
-   uv pip install --editable .[dev] --upgrade && \
-   uv pip install Jinja2==3.0.1 itsdangerous==2.0.1
+COPY . .
 
-# Setup entrypoints
-ADD . /app/
+RUN uv venv
+RUN uv pip install --editable .[dev] --upgrade
+
+FROM python:3.12-slim AS runtime
+
+COPY --from=build /app/.venv/ /app/.venv/
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    nano \
+    git \
+    make \
+    && rm -rf /var/lib/apt/lists/*
+
+# # Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+RUN ln -sf /bin/bash /bin/sh
+
+WORKDIR /app
+
+COPY . .
+
 ENTRYPOINT ["/app/entrypoint.sh"]
-# CMD ["sleep", "infinity"]
-CMD ["bash", "-c", "openfisca serve --reload --workers=3 --country-package openfisca_nsw_base --extensions openfisca_nsw_safeguard --bind 0.0.0.0:8080"]
+
+CMD ["bash", "-c", "openfisca serve --reload --country-package openfisca_nsw_safeguard --bind 0.0.0.0:8080"]

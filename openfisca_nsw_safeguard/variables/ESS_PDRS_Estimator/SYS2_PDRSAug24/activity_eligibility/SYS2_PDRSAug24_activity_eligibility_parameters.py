@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
@@ -12,7 +12,7 @@ class SYS2_PDRSAug24_NewInstallationReplacement(Enum):
 
 
 
-class SYS2_PDRSAug24_new_installation_or_replacement(Variable):
+class SYS2_PDRSAug24_new_installation_or_replacement(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS2_PDRSAug24_NewInstallationReplacement
@@ -26,7 +26,7 @@ class SYS2_PDRSAug24_new_installation_or_replacement(Variable):
     }
 
 
-class SYS2_PDRSAug24_new_installation_or_replacement_eligible(Variable):
+class SYS2_PDRSAug24_new_installation_or_replacement_eligible(BaseVariable):
     """Checks if the type of activity is eligible
     """
     value_type = bool
@@ -49,7 +49,7 @@ class SYS2_PDRSAug24_new_installation_or_replacement_eligible(Variable):
       return activity_type_eligible
 
 
-class SYS2_PDRSAug24_existing_equipment_removed(Variable):
+class SYS2_PDRSAug24_existing_equipment_removed(BaseVariable):
     #only show this question if the activity is a replacement
     value_type = bool
     entity = Building
@@ -63,7 +63,7 @@ class SYS2_PDRSAug24_existing_equipment_removed(Variable):
     }
 
 
-class SYS2_PDRSAug24_replacement_existing_equipment_removed(Variable):
+class SYS2_PDRSAug24_replacement_existing_equipment_removed(BaseVariable):
     """Checks if it's a replacement, and if it is, that the existing equipment has been removed  
     """
     value_type = bool
@@ -91,7 +91,7 @@ class SYS2_PDRSAug24_replacement_existing_equipment_removed(Variable):
       return activity_type_existing_equipment_removed
 
 
-class SYS2_PDRSAug24_equipment_installed_on_site(Variable):
+class SYS2_PDRSAug24_equipment_installed_on_site(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -103,7 +103,7 @@ class SYS2_PDRSAug24_equipment_installed_on_site(Variable):
     }
 
 
-class SYS2_PDRSAug24_qualified_install_removal(Variable):
+class SYS2_PDRSAug24_qualified_install_removal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -115,7 +115,7 @@ class SYS2_PDRSAug24_qualified_install_removal(Variable):
     }
 
 
-class SYS2_PDRSAug24_engaged_ACP(Variable):
+class SYS2_PDRSAug24_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -129,7 +129,7 @@ class SYS2_PDRSAug24_engaged_ACP(Variable):
     }
 
 
-class SYS2_PDRSAug24_minimum_payment(Variable):
+class SYS2_PDRSAug24_minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -141,7 +141,7 @@ class SYS2_PDRSAug24_minimum_payment(Variable):
     }
 
 
-class SYS2_PDRSAug24_equipment_registered_in_GEMS(Variable):
+class SYS2_PDRSAug24_equipment_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -153,7 +153,7 @@ class SYS2_PDRSAug24_equipment_registered_in_GEMS(Variable):
     }
 
 
-class SYS2_PDRSAug24_star_rating_minimum_four(Variable):
+class SYS2_PDRSAug24_star_rating_minimum_four(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -165,7 +165,7 @@ class SYS2_PDRSAug24_star_rating_minimum_four(Variable):
     }
 
 
-class SYS2_PDRSAug24_warranty(Variable):
+class SYS2_PDRSAug24_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

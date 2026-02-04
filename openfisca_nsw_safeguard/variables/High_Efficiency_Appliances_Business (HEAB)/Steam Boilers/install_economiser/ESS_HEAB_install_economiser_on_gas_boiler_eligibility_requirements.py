@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_gas_fired_steam_boiler(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_gas_fired_steam_boiler(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -14,49 +14,49 @@ class ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_inst
             ' steam boiler?'
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_hot_water_boiler(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_hot_water_boiler(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing end user equipment installed on a hot water boiler?'
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_water_heater(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_existing_end_user_equipment_installed_on_water_heater(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing end user equipment installed on a water heater?'
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_existing_steam_boiler_is_condensing_boiler(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_existing_steam_boiler_is_condensing_boiler(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing steam boiler a condenser boiler?'
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_existing_hot_water_boiler_is_condensing_boiler(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_existing_hot_water_boiler_is_condensing_boiler(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing hot water boiler a condenser boiler?'
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_existing_water_heater_is_condensing_heater(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_existing_water_heater_is_condensing_heater(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing water heater a condenser heater?'
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_is_heating_feedwater_stream(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_is_heating_feedwater_stream(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the End Use Equipment pre-heating a feedwater stream?'
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_has_heat_rejection_stream(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_has_heat_rejection_stream(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -65,7 +65,7 @@ class ESS_HEAB_install_economiser_on_gas_boiler_has_heat_rejection_stream(Variab
             ' hot water boiler or water heater?'
 
 
-class ESS_HEAB_install_economiser_on_gas_boiler_meets_eligibility_requirements(Variable):
+class ESS_HEAB_install_economiser_on_gas_boiler_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

@@ -1,11 +1,12 @@
 import numpy as np
-from openfisca_core.variables import Variable
+
 from openfisca_core.periods import ETERNITY
-from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 
 
-class ESS_HEAB_install_or_replace_AC_meets_equipment_requirements(Variable):
+class ESS_HEAB_install_or_replace_AC_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False

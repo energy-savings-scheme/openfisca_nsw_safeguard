@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 import numpy as np
 
-class PDRS_replace_existing_pool_pump_new_product_is_for_domestic_use(Variable):
+class PDRS_replace_existing_pool_pump_new_product_is_for_domestic_use(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -25,7 +25,7 @@ class PoolPumpType(Enum):
     not_eligible_pool_pump = 'Product is not a heat pump, or is not any of the above types of heat pump.'
 
 
-class ESS_and_PDRS_new_pool_pump_type(Variable):
+class ESS_and_PDRS_new_pool_pump_type(BaseVariable):
     value_type = Enum
     default_value = PoolPumpType.single_speed_pool_pump
     possible_values = PoolPumpType
@@ -38,7 +38,7 @@ class ESS_and_PDRS_new_pool_pump_type(Variable):
     }
 
 
-class PDRS_replace_existing_pool_pump_new_pump_is_eligible_type(Variable):
+class PDRS_replace_existing_pool_pump_new_pump_is_eligible_type(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class PDRS_replace_existing_pool_pump_new_pump_is_eligible_type(Variable):
         return np.logical_not(not_eligible_pool_pump_type)
 
 
-class PDRS_replace_existing_pool_pump_pool_pump_has_eligible_input_power(Variable):
+class PDRS_replace_existing_pool_pump_pool_pump_has_eligible_input_power(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -68,7 +68,7 @@ class PDRS_replace_existing_pool_pump_pool_pump_has_eligible_input_power(Variabl
         )
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_is_part_of_eligible_labelling_scheme(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_is_part_of_eligible_labelling_scheme(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -79,7 +79,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_is_part_of_eligi
     }
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_new_pump_has_minimum_star_rating(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_new_pump_has_minimum_star_rating(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -110,7 +110,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_new_pump_has_min
         return has_minimum_star_rating
 
 
-class PDRS_new_pump_warranty_length(Variable):
+class PDRS_new_pump_warranty_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -121,7 +121,7 @@ class PDRS_new_pump_warranty_length(Variable):
     }
 
 
-class PDRS_replace_existing_pool_pump_new_pump_has_minimum_warranty_length(Variable):
+class PDRS_replace_existing_pool_pump_new_pump_has_minimum_warranty_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -136,7 +136,7 @@ class PDRS_replace_existing_pool_pump_new_pump_has_minimum_warranty_length(Varia
         return (new_warranty_length >= 3)
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_equipment_requirements(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

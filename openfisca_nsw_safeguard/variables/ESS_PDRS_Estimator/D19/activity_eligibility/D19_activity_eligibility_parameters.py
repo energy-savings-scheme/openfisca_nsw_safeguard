@@ -1,12 +1,12 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 
-class D19_equipment_replaced(Variable):
+class D19_equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -18,7 +18,7 @@ class D19_equipment_replaced(Variable):
     }
 
 
-class D19_equipment_replaces_gas(Variable):
+class D19_equipment_replaces_gas(BaseVariable):
     #replacement of an electric hot water heater or boiler is a different activity under the ESS (D17)
     value_type = bool
     entity = Building
@@ -31,7 +31,7 @@ class D19_equipment_replaces_gas(Variable):
     }
 
 
-class D19_engaged_ACP(Variable):
+class D19_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -45,7 +45,7 @@ class D19_engaged_ACP(Variable):
     }
 
 
-class D19_equipment_removed(Variable):
+class D19_equipment_removed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -57,7 +57,7 @@ class D19_equipment_removed(Variable):
     }
 
 
-class D19_equipment_installed(Variable):
+class D19_equipment_installed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -69,7 +69,7 @@ class D19_equipment_installed(Variable):
     }
 
 
-class D19_installed_by_qualified_person(Variable):
+class D19_installed_by_qualified_person(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -81,7 +81,7 @@ class D19_installed_by_qualified_person(Variable):
     }
 
 
-class D19_equipment_registered_IPART(Variable):
+class D19_equipment_registered_IPART(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
@@ -9,7 +9,7 @@ import numpy as np
 """ Parameters for RF1 ESC Calculation
     These variables use Rule tables
 """
-class RF1_PDRS__postcode(Variable):
+class RF1_PDRS__postcode(BaseVariable):
     # this variable is used as the first input on all estimator certificate calculation pages
     value_type = int
     entity = Building
@@ -23,7 +23,7 @@ class RF1_PDRS__postcode(Variable):
         }
 
 
-class RF1_storage_volume(Variable):
+class RF1_storage_volume(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

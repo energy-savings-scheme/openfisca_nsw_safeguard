@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
@@ -16,7 +16,7 @@ class NABERS_BuildingType(Enum):
     shopping_centre = 'Building is a shopping centre.'
 
 
-class ESS__NABERS_building_type(Variable):
+class ESS__NABERS_building_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = NABERS_BuildingType
@@ -32,7 +32,7 @@ class ESS__NABERS_building_type(Variable):
         }
 
 
-class ESS__postcode(Variable):
+class ESS__postcode(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY

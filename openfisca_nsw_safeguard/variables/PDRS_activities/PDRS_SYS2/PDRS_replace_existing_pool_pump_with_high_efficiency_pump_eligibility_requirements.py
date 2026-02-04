@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_existing_pool_pump_is_installed(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_existing_pool_pump_is_installed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -15,7 +15,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_existing_pool_pu
     }
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_eligibility_requirements(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

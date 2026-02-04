@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class SYS2_PDRSAug24_PDRS__regional_network_factor(Variable):
+class SYS2_PDRSAug24_PDRS__regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -26,7 +26,7 @@ class SYS2_PDRSAug24_PDRS__regional_network_factor(Variable):
         # is used to calculate a single value for regional network factor based on a zipcode provided
 
 
-class SYS2_PDRSAug24_deemed_activity_electricity_savings(Variable):
+class SYS2_PDRSAug24_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -40,7 +40,7 @@ class SYS2_PDRSAug24_deemed_activity_electricity_savings(Variable):
         return deemed_electricity_savings
 
 
-class SYS2_PDRSAug24_energy_savings(Variable):
+class SYS2_PDRSAug24_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -94,7 +94,7 @@ class SYS2_PDRSAug24_energy_savings(Variable):
     
 
 
-class SYS2_PDRSAug24_electricity_savings(Variable):
+class SYS2_PDRSAug24_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -106,7 +106,7 @@ class SYS2_PDRSAug24_electricity_savings(Variable):
         return electricity_savings
 
 
-class SYS2_PDRSAug24_ESC_calculation(Variable):
+class SYS2_PDRSAug24_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

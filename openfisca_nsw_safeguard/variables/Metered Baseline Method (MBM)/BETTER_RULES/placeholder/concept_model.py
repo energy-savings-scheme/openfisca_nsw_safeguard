@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY, YEAR
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
@@ -10,63 +10,63 @@ from datetime import date
 
 
 
-class start_date_of_measurement_period(Variable):
+class start_date_of_measurement_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'Start date of measurement period'
 
 
-class end_date_of_measurement_period(Variable):
+class end_date_of_measurement_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'End date of measurement period'
 
 
-class measurement_period(Variable):
+class measurement_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'Length of measurement period.'
 
 
-class start_date_of_operating_period(Variable):
+class start_date_of_operating_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'Start date of measurement period'
 
 
-class end_date_of_operating_period(Variable):
+class end_date_of_operating_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'End date of measurement period'
 
 
-class operating_period(Variable):
+class operating_period(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'Length of measurement period.'
 
 
-class operating_period_is_valid(Variable):
+class operating_period_is_valid(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Length of measurement period.'
 
 
-class implementation_date(Variable):
+class implementation_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'What is the implementation date of the implementation?'
 
 
-class implementation_date_is_within_measurement_period(Variable):
+class implementation_date_is_within_measurement_period(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

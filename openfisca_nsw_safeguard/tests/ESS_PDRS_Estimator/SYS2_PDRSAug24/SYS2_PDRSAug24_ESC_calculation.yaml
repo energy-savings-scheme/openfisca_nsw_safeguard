@@ -64,7 +64,8 @@
         2000, #baseline PAEC 1700
         2001, #baseline PAEC 2000
         1999, #baseline PAEC 1700
-        1350  #baseline PAEC 1500
+        1350,  #baseline PAEC 1500
+        1261.71
       ]
     SYS2_PDRSAug24_projected_annual_energy_consumption:
       [
@@ -75,7 +76,8 @@
         400,
         657,
         789,
-        2000
+        2000,
+        627.25
       ]
   output:
     SYS2_PDRSAug24_energy_savings:
@@ -87,7 +89,8 @@
         13,
         13.42,
         9.11,
-        0
+        0,
+        8.73
       ]
 
 - name: test SYS2 electricity savings
@@ -98,14 +101,16 @@
       [
         6,
         24,
-        0
+        0,
+        12.90
       ]
   output:
     SYS2_PDRSAug24_electricity_savings:
       [
         6,
         24,
-        0
+        0,
+        12.90  
       ]
     
 - name: test SYS2 ESC calculation
@@ -130,16 +135,8 @@
       ]
     SYS2_PDRSAug24_daily_run_time:
       [
-        1,
+        6,
         0,
-        0,
-        1,
-        1
-      ]
-    SYS2_PDRSAug24_PAEC_baseline:
-      [
-        1,
-        1,
         0,
         1,
         1
@@ -155,7 +152,7 @@
   output:
     SYS2_PDRSAug24_ESC_calculation:
       [
-        14.19,
+        13.78,
         0,
         0,     #fails because there is zero product data
         9.82,

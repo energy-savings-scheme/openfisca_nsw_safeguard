@@ -77,26 +77,15 @@
         789,
         2000
       ]
-    SYS2_PDRSAug24_PDRS__postcode:
-      [
-        2024,
-        2024,
-        2024,
-        2800, #rnf 1.03
-        2800,
-        2800,
-        2024,
-        2024
-      ]
   output:
     SYS2_PDRSAug24_energy_savings:
       [
         13,
         12.9,
         16.5,
-        9.27,
-        13.39,
-        13.83,
+        9,
+        13,
+        13.42,
         9.11,
         0
       ]
@@ -111,17 +100,11 @@
         24,
         0
       ]
-    SYS2_PDRSAug24_PDRS__regional_network_factor:
-      [
-        1.0, #rnf 1
-        1.03, #rnf 1.03
-        1  #rnf 1
-      ]
   output:
     SYS2_PDRSAug24_electricity_savings:
       [
         6,
-        24.72,
+        24,
         0
       ]
     

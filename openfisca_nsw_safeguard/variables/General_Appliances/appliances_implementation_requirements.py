@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
-class Equipment_is_removed(Variable):
+class Equipment_is_removed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class Equipment_is_removed(Variable):
     }
 
 
-class Appliance_follows_removal_requirements(Variable):
+class Appliance_follows_removal_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -27,7 +27,7 @@ class Appliance_follows_removal_requirements(Variable):
     }
 
 
-class Implementation_is_performed_by_qualified_person(Variable):
+class Implementation_is_performed_by_qualified_person(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS_SONA_television_equipment_is_television(Variable):
+class ESS_SONA_television_equipment_is_television(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -14,7 +14,7 @@ class ESS_SONA_television_equipment_is_television(Variable):
                 ' Schedule B, Activity Definition B5, Equipment Requirement 1.'
 
 
-class ESS_SONA_television_end_user_equipment_is_labelled_for_energy_labelling(Variable):
+class ESS_SONA_television_end_user_equipment_is_labelled_for_energy_labelling(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -41,7 +41,7 @@ class TelevisionStarRating(Enum):
     nine_stars = 'Television is rated at nine stars.'
     ten_stars = 'Television is rated at ten stars.'
 
-class television_star_rating(Variable):
+class television_star_rating(BaseVariable):
     value_type = Enum
     possible_values = TelevisionStarRating
     default_value = TelevisionStarRating.zero_stars
@@ -52,7 +52,7 @@ class television_star_rating(Variable):
     # for use in Activity Definition B3.
 
 
-class television_screen_size(Variable):
+class television_screen_size(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -60,7 +60,7 @@ class television_screen_size(Variable):
             ' rated in GEMS?'
 
 
-class ESS_SONA_television_end_user_equipment_has_registered_screen_size(Variable):
+class ESS_SONA_television_end_user_equipment_has_registered_screen_size(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -76,7 +76,7 @@ class ESS_SONA_television_end_user_equipment_has_registered_screen_size(Variable
         return condition_screen_size_is_not_zero
 
 
-class ESS_SONA_television_meets_all_equipment_requirements(Variable):
+class ESS_SONA_television_meets_all_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

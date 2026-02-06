@@ -1,13 +1,13 @@
 from xml.etree import ElementInclude
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class SYS1_asset_life(Variable):
+class SYS1_asset_life(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -42,7 +42,7 @@ class SYS1_asset_life(Variable):
         return asset_life
 
 
-class SYS1_deemed_activity_electricity_savings(Variable):
+class SYS1_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -81,7 +81,7 @@ class SYS1_motor_frequency_Options(Enum):
     motor_60_hz = '60 Hz'
 
 
-class SYS1_new_equipment_motor_frequency_savings(Variable):
+class SYS1_new_equipment_motor_frequency_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_motor_frequency_Options
@@ -103,7 +103,7 @@ class SYS1_no_of_poles_Options(Enum):
     poles_8 = '8 poles'
 
 
-class SYS1_new_equipment_no_of_poles_savings(Variable):
+class SYS1_new_equipment_no_of_poles_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_no_of_poles_Options
@@ -118,7 +118,7 @@ class SYS1_new_equipment_no_of_poles_savings(Variable):
     }
 
 
-class SYS1_existing_equipment_no_of_poles_savings(Variable):
+class SYS1_existing_equipment_no_of_poles_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_no_of_poles_Options
@@ -155,7 +155,7 @@ class SYS1_BusinessClassification_Options(Enum):
     division_S = 'Division S (Other Services) business'
 
 
-class SYS1_business_classification_savings(Variable):
+class SYS1_business_classification_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_BusinessClassification_Options
@@ -192,7 +192,7 @@ class SYS1_end_use_service_Options(Enum):
     water_heating = 'Water heating'
 
 
-class SYS1_end_use_service_savings(Variable):
+class SYS1_end_use_service_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_end_use_service_Options
@@ -206,7 +206,7 @@ class SYS1_end_use_service_savings(Variable):
     }
 
 
-class SYS1_energy_savings(Variable):
+class SYS1_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -428,7 +428,7 @@ class SYS1_energy_savings(Variable):
         return annual_savings_return
       
 
-class SYS1_electricity_savings(Variable):
+class SYS1_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -442,7 +442,7 @@ class SYS1_electricity_savings(Variable):
         return deemed_electricity_savings * regional_network_factor
 
 
-class SYS1_ESC_calculation(Variable):
+class SYS1_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

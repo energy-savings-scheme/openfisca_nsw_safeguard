@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class RF2_F1_2_ESSJun24_equipment_replaced(Variable):
+class RF2_F1_2_ESSJun24_equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class RF2_F1_2_ESSJun24_equipment_replaced(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_same_product_class(Variable):
+class RF2_F1_2_ESSJun24_same_product_class(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -32,7 +32,7 @@ class RF2_F1_2_ESSJun24_same_product_class(Variable):
                                 b) in fact of an AS 1731.14 Product Type, as set out in the third column of Table F1.2.1, that is in the same row of Table F1.2.1 as the Refrigerated Cabinet Product Class of the replacement End-User-Equipment, as set out in the second column of Table F1.2.1, with that fact to be evidenced to the satisfaction of the Scheme Administrator."""
     } 
 
-class RF2_F1_2_ESSJun24_qualified_install_removal(Variable):
+class RF2_F1_2_ESSJun24_qualified_install_removal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -44,7 +44,7 @@ class RF2_F1_2_ESSJun24_qualified_install_removal(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_legal_disposal(Variable):
+class RF2_F1_2_ESSJun24_legal_disposal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -56,7 +56,7 @@ class RF2_F1_2_ESSJun24_legal_disposal(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_engaged_ACP(Variable):
+class RF2_F1_2_ESSJun24_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -70,7 +70,7 @@ class RF2_F1_2_ESSJun24_engaged_ACP(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_minimum_payment(Variable):
+class RF2_F1_2_ESSJun24_minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -82,7 +82,7 @@ class RF2_F1_2_ESSJun24_minimum_payment(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_installed_on_site(Variable):
+class RF2_F1_2_ESSJun24_installed_on_site(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -94,7 +94,7 @@ class RF2_F1_2_ESSJun24_installed_on_site(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_display_sides(Variable):
+class RF2_F1_2_ESSJun24_display_sides(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -106,7 +106,7 @@ class RF2_F1_2_ESSJun24_display_sides(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(Variable):
+class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -118,7 +118,7 @@ class RF2_F1_2_ESSJun24_equipment_registered_in_GEMS(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_GEMS_product_class_12(Variable):
+class RF2_F1_2_ESSJun24_GEMS_product_class_12(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -131,7 +131,7 @@ class RF2_F1_2_ESSJun24_GEMS_product_class_12(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_EEI_under_77(Variable):
+class RF2_F1_2_ESSJun24_EEI_under_77(BaseVariable):
     #if Q1 is New Installation
     value_type = bool
     entity = Building
@@ -144,7 +144,7 @@ class RF2_F1_2_ESSJun24_EEI_under_77(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_EEI_under_81(Variable):
+class RF2_F1_2_ESSJun24_EEI_under_81(BaseVariable):
     #if Q1 is Replacement 
     value_type = bool
     entity = Building

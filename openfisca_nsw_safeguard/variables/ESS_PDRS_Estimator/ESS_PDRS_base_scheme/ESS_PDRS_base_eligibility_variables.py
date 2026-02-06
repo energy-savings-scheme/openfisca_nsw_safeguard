@@ -1,12 +1,12 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from datetime import date
 
 
-class Base_reduces_energy_consumption(Variable):
+class Base_reduces_energy_consumption(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -26,7 +26,7 @@ class Base_reduces_energy_consumption(Variable):
     }
 
 
-class Base_provides_capacity_to_reduce_demand(Variable):
+class Base_provides_capacity_to_reduce_demand(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -46,7 +46,7 @@ class implementation_date_options(Enum):
     april_1_2022_or_later   = '1 April 2022 or later'   #eligible 
 
 
-class Implementation_date(Variable):
+class Implementation_date(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = implementation_date_options
@@ -59,7 +59,7 @@ class Implementation_date(Variable):
     }
 
 
-class Implementation_date_eligibility(Variable):
+class Implementation_date_eligibility(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -80,7 +80,7 @@ class Implementation_date_eligibility(Variable):
             ])
 
 
-class Base_engaged_ACP(Variable):
+class Base_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -95,7 +95,7 @@ class Base_engaged_ACP(Variable):
     }
 
 
-class Base_lawful_activity(Variable):
+class Base_lawful_activity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -110,7 +110,7 @@ class Base_lawful_activity(Variable):
 
 
 
-class Base_removing_or_replacing(Variable):
+class Base_removing_or_replacing(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -130,7 +130,7 @@ class Base_removing_or_replacing(Variable):
     }
 
 
-class Base_disposal_of_equipment(Variable):
+class Base_disposal_of_equipment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -143,7 +143,7 @@ class Base_disposal_of_equipment(Variable):
     }
 
 
-class Base_resold_reused_or_refurbished(Variable):
+class Base_resold_reused_or_refurbished(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -156,7 +156,7 @@ class Base_resold_reused_or_refurbished(Variable):
     }
 
 
-class Base_reduces_safety_levels(Variable):
+class Base_reduces_safety_levels(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -169,7 +169,7 @@ class Base_reduces_safety_levels(Variable):
     }
 
 
-class Base_greenhouse_emissions_increase(Variable):
+class Base_greenhouse_emissions_increase(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -181,7 +181,7 @@ class Base_greenhouse_emissions_increase(Variable):
     }
 
 
-class Base_meets_mandatory_requirement(Variable):
+class Base_meets_mandatory_requirement(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -193,7 +193,7 @@ class Base_meets_mandatory_requirement(Variable):
     }
 
 
-class Base_basix_affected_development(Variable):
+class Base_basix_affected_development(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -206,7 +206,7 @@ class Base_basix_affected_development(Variable):
     }
 
 
-class Base_prescribed_transmission_service(Variable):
+class Base_prescribed_transmission_service(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -218,7 +218,7 @@ class Base_prescribed_transmission_service(Variable):
     }
 
 
-class Base_tradeable_certificates(Variable):
+class Base_tradeable_certificates(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -230,7 +230,7 @@ class Base_tradeable_certificates(Variable):
     }
 
 
-class Base_replacement_water_heater_certificates(Variable):
+class Base_replacement_water_heater_certificates(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -243,7 +243,7 @@ class Base_replacement_water_heater_certificates(Variable):
     }
 
 
-class Base_replacement_solar_water_heater_certificates(Variable):
+class Base_replacement_solar_water_heater_certificates(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

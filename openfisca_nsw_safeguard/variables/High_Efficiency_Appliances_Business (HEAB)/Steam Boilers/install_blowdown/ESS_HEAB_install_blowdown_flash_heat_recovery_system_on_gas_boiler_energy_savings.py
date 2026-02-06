@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
-class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_bars_of_pressure(Variable):
+class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_bars_of_pressure(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -32,7 +32,7 @@ class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_bars_of
         return (bars_of_pressure)
 
 
-class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_gas_savings(Variable):
+class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_gas_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

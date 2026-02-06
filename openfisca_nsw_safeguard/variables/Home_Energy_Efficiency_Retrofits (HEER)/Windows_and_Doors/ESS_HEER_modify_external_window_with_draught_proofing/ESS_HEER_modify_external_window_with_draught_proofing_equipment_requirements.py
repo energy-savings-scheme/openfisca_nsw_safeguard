@@ -1,23 +1,23 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_window_sealing_product(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_window_sealing_product(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Asks whether the new product is a retail window sealing product.'
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_weather_stripping_product(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_weather_stripping_product(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Asks whether the new product is a weather stripping product.'
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_eligible_product(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_eligible_product(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -31,7 +31,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_eli
         return window_sealing_product + window_weather_sealing_product
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_fit_for_purpose(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_fit_for_purpose(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -39,7 +39,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_is_fit
             ' Equipment Requirement 2.'  # IPART to define what this means
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_sealing_surface_material_is_eligible(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_sealing_surface_material_is_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -49,7 +49,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_sealing_surface_mate
             ' seal or similar. As prescribed by Equipment Requirement 3.'
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_does_not_impair_window_operation(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_does_not_impair_window_operation(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -57,7 +57,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_new_equipment_does_n
             ' relevant window.'  # IPART to define what this means
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_minimum_warranty_length(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_minimum_warranty_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -69,7 +69,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_minimum_warranty_len
         return warranty_length >= 2 # need to eventually rewrite as parameter
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_meets_equipment_requirements(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

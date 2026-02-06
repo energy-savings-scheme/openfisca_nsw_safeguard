@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
-class ESS_HEER_pool_pump_replace_meets_implementation_requirements(Variable):
+class ESS_HEER_pool_pump_replace_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_HEER_pool_pump_replace_meets_implementation_requirements(Variable):
         )
 
 
-class ESS_HEER__replace_existing_pool_pump_new_product_is_for_domestic_use(Variable):
+class ESS_HEER__replace_existing_pool_pump_new_product_is_for_domestic_use(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

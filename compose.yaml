@@ -8,4 +8,7 @@ services:
     container_name: app
     ports:
       - "8080:8080"
+    volumes:
+      - "./openfisca_nsw_safeguard/:/app/openfisca_nsw_safeguard/"
+      - "./Makefile:/app/Makefile"
     restart: unless-stopped

@@ -1,12 +1,12 @@
 from xml.etree import ElementInclude
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class WH1_capacity_factor(Variable):
+class WH1_capacity_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -33,7 +33,7 @@ class WH1_capacity_factor(Variable):
       return capacity_factor
     
 
-class WH1_Ref_Elec(Variable):
+class WH1_Ref_Elec(BaseVariable):
     """ Annual Electrical Energy used by a reference electric resistance water heater in a year
     """
     value_type = float
@@ -52,7 +52,7 @@ class WH1_Ref_Elec(Variable):
         return ref_elec
     
 
-class WH1_deemed_activity_gas_savings(Variable):
+class WH1_deemed_activity_gas_savings(BaseVariable):
     #this is the deemed gas savings for a replacing electric equipment
     value_type = float
     entity = Building
@@ -70,7 +70,7 @@ class WH1_deemed_activity_gas_savings(Variable):
       return deemed_gas_savings
     
 
-class WH1_deemed_activity_electricity_savings(Variable):
+class WH1_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -89,7 +89,7 @@ class WH1_deemed_activity_electricity_savings(Variable):
         return deemed_electricity_savings    
 
 
-class WH1_energy_savings(Variable):
+class WH1_energy_savings(BaseVariable):
     value_type = float  
     entity = Building
     definition_period = ETERNITY
@@ -145,7 +145,7 @@ class WH1_energy_savings(Variable):
         return annual_savings_return
 
 
-class WH1_electricity_savings(Variable):
+class WH1_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -162,7 +162,7 @@ class WH1_electricity_savings(Variable):
         return electricity_savings
 
 
-class WH1_ESC_calculation(Variable):
+class WH1_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -46,14 +46,9 @@ class C1_PDRSAug24_energy_savings(BaseVariable):
 
       #deemed electricity savings
       deemed_electricity_savings = number_fridges_freezers * 5.7
-      
-      #regional network factor
-      postcode = buildings('C1_PDRSAug24_PDRS__postcode', period)
-      rnf = parameters(period).PDRS.table_A24_regional_network_factor
-      regional_network_factor = rnf.calc(postcode) 
    
       #electricity savings
-      annual_energy_savings = deemed_electricity_savings * regional_network_factor
+      annual_energy_savings = deemed_electricity_savings
 
       annual_savings_return = np.select([
             annual_energy_savings <= 0, annual_energy_savings > 0
@@ -96,9 +91,8 @@ class C1_PDRSAug24_electricity_savings(BaseVariable):
 
     def formula(buildings, period, parameters):
         deemed_electricity_savings = buildings('C1_PDRSAug24_deemed_activity_electricity_savings', period)   
-        regional_network_factor = buildings('C1_PDRSAug24_PDRS__regional_network_factor', period)
 
-        RF2_electricity_savings = deemed_electricity_savings * regional_network_factor
+        RF2_electricity_savings = deemed_electricity_savings
         return RF2_electricity_savings
 
 
@@ -110,6 +104,7 @@ class C1_PDRSAug24_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
         C1_PDRSAug24_electricity_savings = buildings('C1_PDRSAug24_electricity_savings', period)
+        regional_network_factor = buildings('SYS2_PDRSAug24_PDRS__regional_network_factor', period)
         electricity_certificate_conversion_factor = 1.06
         storage_volume_eligibility = buildings('C1_PDRSAug24_storage_volume', period)
 
@@ -119,7 +114,7 @@ class C1_PDRSAug24_ESC_calculation(BaseVariable):
                 np.logical_not(storage_volume_eligibility)
             ],
             [
-                (C1_PDRSAug24_electricity_savings * electricity_certificate_conversion_factor),
+                (C1_PDRSAug24_electricity_savings * regional_network_factor * electricity_certificate_conversion_factor),
                 0
             ])
 

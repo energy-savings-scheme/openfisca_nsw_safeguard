@@ -9,8 +9,8 @@ from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 class AC_Type(Enum):
     non_ducted_split_system = 'The AC is a non-ducted split system.'
     ducted_split_system = 'The AC is a ducted split system.'
-    non_ducted_unitary_system = 'The AC is a non-ducted split system.'
-    ducted_unitary_system = 'The AC is a ducted split system.'
+    non_ducted_unitary_system = 'The AC is a non-ducted unitary system.'
+    ducted_unitary_system = 'The AC is a ducted unitary system.'
 
 
 class Air_Conditioner_type(BaseVariable):

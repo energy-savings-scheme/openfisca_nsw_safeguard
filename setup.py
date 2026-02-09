@@ -20,8 +20,7 @@ setup(
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [],
     install_requires = [
-        'numpy>=1.26.0,<2.0.0',
-        'OpenFisca-Core[web-api]>=36.0.0,<40.1.0',
+        'OpenFisca-Core[web-api]~=43.3.7',
     ],
     extras_require = {
         "dev": [

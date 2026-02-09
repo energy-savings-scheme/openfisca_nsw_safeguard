@@ -39,7 +39,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -108,7 +108,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -177,7 +177,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -246,7 +246,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -315,7 +315,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -384,7 +384,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -453,7 +453,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -522,7 +522,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -591,7 +591,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -660,7 +660,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -729,7 +729,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -798,7 +798,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -884,7 +884,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -953,7 +953,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -1022,7 +1022,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -1091,7 +1091,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -1160,7 +1160,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -1229,7 +1229,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -1298,7 +1298,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -1367,7 +1367,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -1436,7 +1436,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -1505,7 +1505,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -1574,7 +1574,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -1643,7 +1643,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -1724,7 +1724,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -1793,7 +1793,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -1862,7 +1862,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -1931,7 +1931,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -2000,7 +2000,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -2069,7 +2069,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -2138,7 +2138,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -2207,7 +2207,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -2276,7 +2276,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -2296,12 +2296,12 @@
                       ]
   output:
     AC_HSPF_or_ACOP_exceeds_ESS_benchmark: [
-                                            False,
-                                            False,
-                                            False,
-                                            False,
-                                            False,
-                                            False,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
                                             True,
                                             ]
 - name: Test AC exceeding heating benchmarks defined in Tables D16.4 and D16.5 - testing various capacities
@@ -2345,7 +2345,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -2414,7 +2414,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -2483,7 +2483,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -2503,12 +2503,12 @@
                       ]
   output:
     AC_HSPF_or_ACOP_exceeds_ESS_benchmark: [
-                                            False,
-                                            False,
-                                            False,
-                                            False,
-                                            False,
-                                            False,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
+                                            True,
                                             True,
                                             ]
 
@@ -2554,7 +2554,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -2623,7 +2623,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -2692,7 +2692,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_split_system,
                     non_ducted_split_system,
                     non_ducted_split_system,
@@ -2761,7 +2761,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -2830,7 +2830,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -2899,7 +2899,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_split_system,
                     ducted_split_system,
                     ducted_split_system,
@@ -2968,7 +2968,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -3037,7 +3037,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -3106,7 +3106,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
                     non_ducted_unitary_system,
@@ -3175,7 +3175,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -3244,7 +3244,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,
@@ -3313,7 +3313,7 @@
                               30.5,
                               70
                               ]
-    product_class: [
+    Air_Conditioner_type: [
                     ducted_unitary_system,
                     ducted_unitary_system,
                     ducted_unitary_system,

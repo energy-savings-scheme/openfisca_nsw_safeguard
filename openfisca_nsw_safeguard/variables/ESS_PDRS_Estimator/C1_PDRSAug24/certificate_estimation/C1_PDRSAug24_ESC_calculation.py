@@ -104,7 +104,7 @@ class C1_PDRSAug24_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
         C1_PDRSAug24_electricity_savings = buildings('C1_PDRSAug24_electricity_savings', period)
-        regional_network_factor = buildings('SYS2_PDRSAug24_PDRS__regional_network_factor', period)
+        regional_network_factor = buildings('C1_PDRSAug24_PDRS__regional_network_factor', period)
         electricity_certificate_conversion_factor = 1.06
         storage_volume_eligibility = buildings('C1_PDRSAug24_storage_volume', period)
 

@@ -163,7 +163,7 @@ class D17_ESSJun24_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
         electricity_savings = buildings('D17_ESSJun24_electricity_savings', period)
-        regional_network_factor = buildings('SYS2_PDRSAug24_PDRS__regional_network_factor', period)
+        regional_network_factor = buildings('D17_ESSJun24_regional_network_factor', period)
         electricity_certificate_conversion_factor = 1.06
         replacement_activity = buildings('D17_ESSJun24_replacement_activity', period)
 

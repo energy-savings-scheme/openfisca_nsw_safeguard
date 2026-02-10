@@ -39,7 +39,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.0
-    one_and_a_half_stars:
+    one_and_a_half_star:
       single_speed_pool_pump:
         values:
           2021-01-01:
@@ -380,7 +380,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.0
-    one_and_a_half_stars:
+    one_and_a_half_star:
       single_speed_pool_pump:
         values:
           2021-01-01:
@@ -721,7 +721,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.0
-    one_and_a_half_stars:
+    one_and_a_half_star:
       single_speed_pool_pump:
         values:
           2021-01-01:
@@ -1062,7 +1062,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.0
-    one_and_a_half_stars:
+    one_and_a_half_star:
       single_speed_pool_pump:
         values:
           2021-01-01:
@@ -1403,7 +1403,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.0
-    one_and_a_half_stars:
+    one_and_a_half_star:
       single_speed_pool_pump:
         values:
           2021-01-01:
@@ -1744,7 +1744,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.0
-    one_and_a_half_stars:
+    one_and_a_half_star:
       single_speed_pool_pump:
         values:
           2021-01-01:
@@ -2085,7 +2085,7 @@ input_power:
         values:
           2021-01-01:
             value: 0.0
-    one_and_a_half_stars:
+    one_and_a_half_star:
       single_speed_pool_pump:
         values:
           2021-01-01:

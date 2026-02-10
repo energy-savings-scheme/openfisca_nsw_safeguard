@@ -43,8 +43,8 @@ def custom_calc(self,
 
 
 _original_build_variable = variables.build_variable
-def custom_build_variable(variable, country_package_metadata, tax_benefit_system):
-    result = _original_build_variable(variable, country_package_metadata, tax_benefit_system)
+def custom_build_variable(variable, country_package_metadata):
+    result = _original_build_variable(variable, country_package_metadata)
     result["metadata"] = variable.metadata
     return result
 

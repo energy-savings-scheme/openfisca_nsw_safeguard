@@ -47,11 +47,16 @@ class AC_TCSPF_or_AEER_exceeds_ESS_benchmark(BaseVariable):
                                     ]
                                     )
         TCSPF_is_zero = ((AC_TCSPF == 0) + (AC_TCSPF == None))
-        AC_exceeds_benchmark = np.where(
+        AC_exceeds_benchmark = np.select(
+        [
             TCSPF_is_zero,
+            np.logical_not(TCSPF_is_zero)
+        ],
+        [
             (AC_AEER >= parameters(period).PDRS.AC.table_D16_5[product_class][cooling_capacity]),
             (AC_TCSPF >= parameters(period).PDRS.AC.table_D16_4[product_class][cooling_capacity])
-            )
+        ])
+
         return AC_exceeds_benchmark
 
 

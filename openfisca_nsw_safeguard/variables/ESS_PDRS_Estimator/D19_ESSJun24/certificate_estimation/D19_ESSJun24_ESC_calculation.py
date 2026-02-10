@@ -161,7 +161,7 @@ class D19_ESSJun24_ESC_calculation(BaseVariable):
         Bs = buildings('D19_ESSJun24_Bs', period)
         Be = buildings('D19_ESSJun24_Be', period)
         electricity_savings = buildings('D19_ESSJun24_electricity_savings', period)
-        regional_network_factor = buildings('SYS2_PDRSAug24_PDRS__regional_network_factor', period)
+        regional_network_factor = buildings('D19_ESSJun24_regional_network_factor', period)
         electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('D19_ESSJun24_Baseline_B', period)
         gas_certificate_conversion_factor = 0.47

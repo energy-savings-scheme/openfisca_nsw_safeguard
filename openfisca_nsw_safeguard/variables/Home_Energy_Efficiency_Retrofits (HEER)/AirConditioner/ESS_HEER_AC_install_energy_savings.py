@@ -83,12 +83,8 @@ class ESS_HEER_AC_install_reference_cooling_annual_energy_use(BaseVariable):
             parameters(period).ESS.HEER.table_D16_1['equivalent_cooling_hours'][climate_zone])
         baseline_cooling_AEER = (
             parameters(period).ESS.HEER.table_D16_2['AEER'][product_type][cooling_capacity])
-        return(
-            (
-                AC_cooling_capacity *
-                equivalent_cooling_hours) /
-                baseline_cooling_AEER
-                )
+        
+        return (AC_cooling_capacity * equivalent_cooling_hours) / baseline_cooling_AEER
 
 
 class ESS_HEER_AC_install_cooling_annual_energy_use(BaseVariable):
@@ -155,12 +151,8 @@ class ESS_HEER_AC_install_reference_heating_annual_energy_use(BaseVariable):
             parameters(period).ESS.HEER.table_D16_1['equivalent_heating_hours'][climate_zone])
         baseline_heating_ACOP = (
             parameters(period).ESS.HEER.table_D16_2['ACOP'][product_type][heating_capacity])
-        return(
-            (
-                AC_heating_capacity *
-                equivalent_heating_hours) /
-                baseline_heating_ACOP
-                )
+        
+        return (AC_heating_capacity * equivalent_heating_hours) / baseline_heating_ACOP
 
 
 class ESS_HEER_AC_install_heating_annual_energy_use(BaseVariable):

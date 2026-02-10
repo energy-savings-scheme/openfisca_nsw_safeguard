@@ -120,7 +120,6 @@ class ESS_HEAB_install_or_replace_AC_reference_cooling_annual_energy_use(BaseVar
         ActivityType = activity_type.possible_values
 
         product_class = buildings('Air_Conditioner_type', period)
-        AC_Class = (product_class.possible_values)
 
         equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[AC_climate_zone]
 

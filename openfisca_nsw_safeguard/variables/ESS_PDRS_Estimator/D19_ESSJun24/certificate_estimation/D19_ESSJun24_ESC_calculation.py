@@ -100,9 +100,6 @@ class D19_ESSJun24_annual_energy_savings(BaseVariable):
         electricity_savings = Baseline_A - (a * (Bs + Be))
     
         deemed_gas_savings = Baseline_B
-
-        #electricity savings
-        electricity_savings = electricity_savings
         
         #annual savings
         annual_energy_savings = electricity_savings + deemed_gas_savings

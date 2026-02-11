@@ -73,9 +73,6 @@ class D18_ESSJun24_annual_energy_savings(BaseVariable):
         Be = buildings('D18_ESSJun24_Be', period)
 
         deemed_activity_electricity_savings = Baseline_A - (a * (Bs + Be)) 
-    
-        #regional network factor
-        postcode = buildings('D18_ESSJun24_PDRS__postcode', period)
 
         #electricity savings
         annual_energy_savings = deemed_activity_electricity_savings

@@ -12,11 +12,7 @@ WORKDIR /app
 
 COPY . .
 
-# RUN uv venv
 RUN pip install --editable .[dev] --upgrade
-
-# prioritize this gunicorn version to have compatibility with python 3.12
-RUN pip install gunicorn~=21.0
 
 FROM python:3.12-slim AS runtime
 

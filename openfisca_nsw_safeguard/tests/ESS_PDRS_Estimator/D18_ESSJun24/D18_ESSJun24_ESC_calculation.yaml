@@ -173,7 +173,7 @@
         0, #negative value
         0, #negative value
         0, #negative value
-        37.4286
+        36.338
       ]
 
 - name: test D18_ESSJun24 electricity savings
@@ -189,23 +189,14 @@
         23.96,
         44.28
       ]
-    D18_ESSJun24_regional_network_factor:
-      [
-        1.03,
-        1.03,
-        1.03,
-        1,
-        1.03,
-        1
-      ]
   output:
     D18_ESSJun24_electricity_savings:
       [
-        4.12,
-        63.283,
-        3.09,
+        4,
+        61.44,
+        3,
         104,
-        24.68,
+        23.96,
         44.28
       ]
 

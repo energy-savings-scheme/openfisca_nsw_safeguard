@@ -446,7 +446,6 @@ class HVAC1_PDRSAug24_electricity_savings(BaseVariable):
 
     def formula(buildings, period, parameters):
         deemed_electricity_savings = buildings('HVAC1_PDRSAug24_deemed_activity_electricity_savings', period)  # 2798.25 
-
         electricity_savings = (deemed_electricity_savings)
         return electricity_savings
 
@@ -462,7 +461,7 @@ class HVAC1_PDRSAug24_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
       HVAC1_electricity_savings = buildings('HVAC1_PDRSAug24_electricity_savings', period)
-      regional_network_factor = buildings('SYS2_PDRSAug24_PDRS__regional_network_factor', period)
+      regional_network_factor = buildings('HVAC1_PDRSAug24_PDRS__regional_network_factor', period)
       HVAC1_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC1_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
       HVAC1_HSPF_or_ACOP_exceeds_ESS_benchmark = buildings('HVAC1_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
       electricity_certificate_conversion_factor = 1.06
@@ -482,8 +481,8 @@ class HVAC1_PDRSAug24_ESC_calculation(BaseVariable):
                         [
                             result, 0, 0, 0, 0, 0, 0
                         ],
-                        result
-      )
+                        result) 
+      
       
       result_to_return = np.select([
                 result_meet_elig <= 0, result_meet_elig > 0

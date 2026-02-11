@@ -73,14 +73,9 @@ class D18_ESSJun24_annual_energy_savings(BaseVariable):
         Be = buildings('D18_ESSJun24_Be', period)
 
         deemed_activity_electricity_savings = Baseline_A - (a * (Bs + Be)) 
-    
-        #regional network factor
-        postcode = buildings('D18_ESSJun24_PDRS__postcode', period)
-        rnf = parameters(period).PDRS.table_A24_regional_network_factor
-        regional_network_factor = rnf.calc(postcode)
 
         #electricity savings
-        annual_energy_savings = deemed_activity_electricity_savings * regional_network_factor
+        annual_energy_savings = deemed_activity_electricity_savings
     
         annual_savings_return = np.select([
                 annual_energy_savings <= 0, annual_energy_savings > 0
@@ -103,9 +98,8 @@ class D18_ESSJun24_electricity_savings(BaseVariable):
 
     def formula(buildings, period, parameters):
         deemed_activity_electricity_savings = buildings('D18_ESSJun24_deemed_activity_electricity_savings', period)
-        regional_network_factor = buildings('D18_ESSJun24_regional_network_factor', period)
 
-        electricity_savings = deemed_activity_electricity_savings * regional_network_factor
+        electricity_savings = deemed_activity_electricity_savings
         return electricity_savings
 
 
@@ -120,6 +114,7 @@ class D18_ESSJun24_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
         electricity_savings = buildings('D18_ESSJun24_electricity_savings', period)
+        regional_network_factor = buildings('D18_ESSJun24_regional_network_factor', period)
         electricity_certificate_conversion_factor = 1.06
         replacement_activity = buildings('D18_ESSJun24_replacement_activity', period)
 
@@ -129,7 +124,7 @@ class D18_ESSJun24_ESC_calculation(BaseVariable):
                 np.logical_not(replacement_activity)
             ],
             [
-                (electricity_savings * electricity_certificate_conversion_factor),
+                (electricity_savings * regional_network_factor * electricity_certificate_conversion_factor),
                 0
             ])
 

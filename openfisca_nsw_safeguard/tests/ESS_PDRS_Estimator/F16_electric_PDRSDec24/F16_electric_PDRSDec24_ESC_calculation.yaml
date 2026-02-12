@@ -245,7 +245,7 @@
   output:
     F16_electric_PDRSDec24_energy_savings:
       [
-        0, #negative value
+        0, #negative value 0
         0.39296246,
         31.066868,
         32.068886,

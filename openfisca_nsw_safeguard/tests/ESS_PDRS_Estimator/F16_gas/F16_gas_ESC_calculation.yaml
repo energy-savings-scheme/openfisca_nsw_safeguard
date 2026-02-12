@@ -232,6 +232,7 @@
         true,
         true,
         true,
+        true,
         true
       ]
     F16_gas_electricity_savings:
@@ -241,7 +242,8 @@
         2.4,
         10,
         -10.22851,
-        -13.29844
+        -13.29844,
+        -12.911
       ]
     F16_gas_deemed_activity_gas_savings:
       [ 
@@ -250,15 +252,17 @@
         0.46,
         2,
         59.49666,
-        61.62154
+        61.62154,
+        -12.911
       ]
   output:
     F16_gas_ESC_calculation:
       [
         0,   #-4.313 certificates
         0,   #not eligible
-        2.76,
+        2.8, 
         11.54,
         17.12121,
-        14.86577
+        14.86577,
+        0
       ]

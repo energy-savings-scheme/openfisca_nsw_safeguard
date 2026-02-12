@@ -481,8 +481,8 @@
   output:
     HVAC2_PDRSAug24_annual_energy_savings:
       [
-        7.5788016,
-        12.186959,
+        7.35805,
+        11.832,
         31.68422
       ]
 
@@ -498,21 +498,13 @@
         30.462,  #Bonaire 6920082/6920020/6920027
         0.422    #annual savings between 0 and 1
       ]
-    HVAC2_PDRSAug24_PDRS__regional_network_factor:
-      [
-        1.03,
-        1.03,
-        1.03,
-        1.03,  #postcode 2795
-        1
-      ]
   output:
     HVAC2_PDRSAug24_electricity_savings:
       [
-        1.070,
-        2882.1975,
-        17.397,
-        31.376,
+        1.03929,
+        2798.25,
+        16.89,
+        30.462,
         0.422
       ]
 

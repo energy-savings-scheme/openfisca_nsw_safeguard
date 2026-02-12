@@ -401,14 +401,9 @@ class HVAC2_PDRSAug24_annual_energy_savings(BaseVariable):
       #deemed electricity savings
       lifetime = parameters(period).ESS.ESS_D16.related_constants.lifetime
       deemed_electricity_savings = np.multiply(((reference_cooling - tcec_or_annual_cooling) + (reference_heating - thec_or_annual_heating)), (lifetime / 1000))
-      
-      #regional network factor
-      postcode = buildings('HVAC2_PDRSAug24_PDRS__postcode', period)
-      rnf = parameters(period).PDRS.table_A24_regional_network_factor
-      regional_network_factor = rnf.calc(postcode)
 
       #electricity savings
-      annual_savings = (deemed_electricity_savings * regional_network_factor)
+      annual_savings = (deemed_electricity_savings)
       annual_savings_return = np.select([
             annual_savings <= 0, annual_savings > 0
         ],
@@ -450,9 +445,8 @@ class HVAC2_PDRSAug24_electricity_savings(BaseVariable):
 
     def formula(buildings, period, parameters):
         deemed_electricity_savings = buildings('HVAC2_PDRSAug24_deemed_activity_electricity_savings', period)  # 2798.25 
-        regional_network_factor = buildings('HVAC2_PDRSAug24_PDRS__regional_network_factor', period)
-
-        electricity_savings = (deemed_electricity_savings * regional_network_factor)
+        
+        electricity_savings = (deemed_electricity_savings)
         return electricity_savings
 
 
@@ -467,13 +461,14 @@ class HVAC2_PDRSAug24_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
       HVAC2_electricity_savings = buildings('HVAC2_PDRSAug24_electricity_savings', period)
+      regional_network_factor = buildings('HVAC2_PDRSAug24_PDRS__regional_network_factor', period)
       HVAC2_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
       HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark = buildings('HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark', period)
       electricity_certificate_conversion_factor = 1.06
       heating_capacity = buildings('HVAC2_PDRSAug24_heating_capacity_input', period) 
       zero_heating_capacity = ( heating_capacity == 0 )
       
-      result = np.floor(HVAC2_electricity_savings * electricity_certificate_conversion_factor)
+      result = np.floor(HVAC2_electricity_savings * regional_network_factor * electricity_certificate_conversion_factor)
       result_meet_elig = np.select([
                          np.logical_not(zero_heating_capacity) * HVAC2_TCSPF_or_AEER_exceeds_ESS_benchmark * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark, 
                          np.logical_not(zero_heating_capacity) * np.logical_not(HVAC2_TCSPF_or_AEER_exceeds_ESS_benchmark) * HVAC2_HSPF_or_ACOP_exceeds_ESS_benchmark,

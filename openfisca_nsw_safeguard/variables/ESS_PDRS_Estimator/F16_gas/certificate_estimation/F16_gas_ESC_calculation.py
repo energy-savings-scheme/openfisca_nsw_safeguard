@@ -215,9 +215,8 @@ class F16_gas_electricity_savings(BaseVariable):
 
     def formula(buildings, period, parameters):
         deemed_activity_electricity_savings = buildings('F16_gas_deemed_activity_electricity_savings', period)
-        regional_network_factor = buildings('F16_gas_regional_network_factor', period)
-
-        electricity_savings = deemed_activity_electricity_savings * regional_network_factor
+        
+        electricity_savings = deemed_activity_electricity_savings
         return electricity_savings
 
 
@@ -232,6 +231,7 @@ class F16_gas_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
         replacement_activity = buildings('F16_gas_replacement_activity', period)
+        regional_network_factor = buildings('F16_gas_regional_network_factor', period)
         electricity_savings = buildings('F16_gas_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('F16_gas_deemed_activity_gas_savings', period) #gas savings and deemed activity gas savings are the same value
@@ -243,7 +243,7 @@ class F16_gas_ESC_calculation(BaseVariable):
                 np.logical_not(replacement_activity)
             ],
             [
-                (electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor),
+                (electricity_savings * regional_network_factor * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor),
                 0
             ])
 

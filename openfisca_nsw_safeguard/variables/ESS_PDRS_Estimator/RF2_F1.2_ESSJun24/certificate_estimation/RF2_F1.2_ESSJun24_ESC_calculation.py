@@ -229,13 +229,9 @@ class RF2_F1_2_ESSJun24_annual_energy_savings(BaseVariable):
                 12
             ])
         deemed_electricity_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
-        #regional network factor
-        postcode = buildings('RF2_F1_2_ESSJun24_PDRS__postcode', period)
-        rnf = parameters(period).PDRS.table_A24_regional_network_factor
-        regional_network_factor = rnf.calc(postcode) 
 
         #electricity savings
-        annual_energy_savings = deemed_electricity_savings * regional_network_factor
+        annual_energy_savings = deemed_electricity_savings
 
         annual_savings_return = np.select([
             annual_energy_savings <= 0, annual_energy_savings > 0
@@ -275,10 +271,9 @@ class RF2_F1_2_ESSJun24_electricity_savings(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
-        deemed_electricity_savings = buildings('RF2_F1_2_ESSJun24_deemed_activity_electricity_savings', period)   
-        regional_network_factor = buildings('RF2_F1_2_ESSJun24_PDRS__regional_network_factor', period)
+        deemed_electricity_savings = buildings('RF2_F1_2_ESSJun24_deemed_activity_electricity_savings', period)    
 
-        electricity_savings = deemed_electricity_savings * regional_network_factor
+        electricity_savings = deemed_electricity_savings
         return electricity_savings
   
 
@@ -290,6 +285,7 @@ class RF2_F1_2_ESSJun24_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
       electricity_savings = buildings('RF2_F1_2_ESSJun24_electricity_savings', period)
+      regional_network_factor = buildings('RF2_F1_2_ESSJun24_PDRS__regional_network_factor', period)
       electricity_certificate_conversion_factor = 1.06
       replacement_activity = buildings('RF2_F1_2_ESSJun24_replacement_activity', period)
       EEI_eligible_replacement = buildings('RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility', period)
@@ -303,9 +299,9 @@ class RF2_F1_2_ESSJun24_ESC_calculation(BaseVariable):
                 np.logical_not(replacement_activity) * np.logical_not(EEI_eligible_new_installation)
             ],
             [
-                (electricity_savings * electricity_certificate_conversion_factor),
+                (electricity_savings * regional_network_factor * electricity_certificate_conversion_factor),
                 0,
-                (electricity_savings * electricity_certificate_conversion_factor),
+                (electricity_savings * regional_network_factor * electricity_certificate_conversion_factor),
                 0
             ])
 

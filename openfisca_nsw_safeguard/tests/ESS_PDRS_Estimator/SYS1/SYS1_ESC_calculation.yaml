@@ -258,9 +258,9 @@
   output:
     SYS1_electricity_savings:
       [
-        -385975.328,
+        -374733.34,
         744600,
-        46.2986
+        46.298
       ]
 
 - name: test SYS1 ESC calculation
@@ -271,42 +271,49 @@
       [
         22,
         32,
-        160 #ABB M3BP/ GP/JP/KP 315SMC 4
+        160, #ABB M3BP/ GP/JP/KP 315SMC 4
+        110
       ]
     SYS1_new_equipment_baseline_efficiency:
      [
        10.7,
        9.54,
-       94.9
+       94.9,
+       91.9
      ]
     SYS1_new_efficiency:
       [
         33.33,
         3.6,
-        95.7
+        95.7,
+        96
       ]
     SYS1_load_utilisation_factor:
       [
         12.56,
         3.6,
-        0.15
+        0.15,
+        0.32
       ]
     SYS1_asset_life:
       [
         20,
         10,
+        25,
         25
       ]
     SYS1_PDRS__postcode:
       [
         2321, #1.03
         2313,
-        2753  #1
+        2753,  #1
+        2800  #1.03
       ]
   output:
     SYS1_ESC_calculation:
       [
         335393.7,
         0,
-        49.076
+        49.076,
+        391.13527 #391.13527
       ]

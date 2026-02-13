@@ -409,10 +409,15 @@ class SYS1_energy_savings(BaseVariable):
 
         #deemed electricity savings
         deemed_electricity_savings = ((temp_calc_1 - temp_calc_2) * temp_calc_3)
+                
+        #regional network factor
+        postcode = buildings('SYS1_PDRS__postcode', period)
+        rnf = parameters(period).PDRS.table_A24_regional_network_factor
+        regional_network_factor = rnf.calc(postcode)
     
 
         #electricity savings
-        annual_energy_savings = (deemed_electricity_savings)
+        annual_energy_savings = (deemed_electricity_savings * regional_network_factor)
         
         annual_savings_return = np.select([
             annual_energy_savings <= 0, annual_energy_savings > 0
@@ -434,7 +439,8 @@ class SYS1_electricity_savings(BaseVariable):
 
     def formula(buildings, period, parameters):
         deemed_electricity_savings = buildings('SYS1_deemed_activity_electricity_savings', period)
-        return deemed_electricity_savings
+        regional_network_factor = buildings('SYS1_regional_network_factor', period)
+        return deemed_electricity_savings * regional_network_factor
 
 
 class SYS1_ESC_calculation(BaseVariable):
@@ -448,10 +454,9 @@ class SYS1_ESC_calculation(BaseVariable):
 
     def formula(buildings, period, parameters):
         electricity_savings = buildings('SYS1_electricity_savings', period)
-        regional_network_factor = buildings('SYS1_regional_network_factor', period)
         electricity_certificate_conversion_factor = 1.06
 
-        result = (electricity_savings * regional_network_factor * electricity_certificate_conversion_factor)
+        result = (electricity_savings * electricity_certificate_conversion_factor)
         result_to_return = np.select([
                 result < 0, result > 0
             ], [

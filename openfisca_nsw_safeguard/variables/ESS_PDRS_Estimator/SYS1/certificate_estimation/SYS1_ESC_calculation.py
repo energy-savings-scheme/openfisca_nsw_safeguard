@@ -409,11 +409,12 @@ class SYS1_energy_savings(BaseVariable):
 
         #deemed electricity savings
         deemed_electricity_savings = ((temp_calc_1 - temp_calc_2) * temp_calc_3)
-        
+                
         #regional network factor
         postcode = buildings('SYS1_PDRS__postcode', period)
         rnf = parameters(period).PDRS.table_A24_regional_network_factor
         regional_network_factor = rnf.calc(postcode)
+    
 
         #electricity savings
         annual_energy_savings = (deemed_electricity_savings * regional_network_factor)

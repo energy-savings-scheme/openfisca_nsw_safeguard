@@ -1,13 +1,13 @@
 from xml.etree import ElementInclude
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class WH2_test_baseline_input_power(Variable):
+class WH2_test_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class WH2_test_baseline_input_power(Variable):
         return baseline_input_power
 
 
-class WH2_test_input_power(Variable):
+class WH2_test_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -41,7 +41,7 @@ class WH2_test_input_power(Variable):
         return input_power
 
 
-class WH2_test_peak_demand_savings_capacity(Variable):
+class WH2_test_peak_demand_savings_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -61,7 +61,7 @@ class WH2_test_peak_demand_savings_capacity(Variable):
         return peak_demand_savings_capacity
     
 
-class WH2_test_peak_demand_annual_savings(Variable):
+class WH2_test_peak_demand_annual_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -109,7 +109,7 @@ class WH2_test_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return
 
 
-class WH2_test_peak_demand_reduction_capacity(Variable):
+class WH2_test_peak_demand_reduction_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -127,7 +127,7 @@ class WH2_test_peak_demand_reduction_capacity(Variable):
         return peak_demand_reduction_capacity
 
 
-class WH2_test_PRC_calculation(Variable):
+class WH2_test_PRC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

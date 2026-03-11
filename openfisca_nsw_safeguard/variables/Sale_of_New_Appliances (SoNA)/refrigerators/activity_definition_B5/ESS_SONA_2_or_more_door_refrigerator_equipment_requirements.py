@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS_SONA_2_or_more_door_refrigerator_refrigerator_is_in_eligible_group(Variable):
+class ESS_SONA_2_or_more_door_refrigerator_refrigerator_is_in_eligible_group(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_SONA_2_or_more_door_refrigerator_refrigerator_is_in_eligible_group(Var
         return in_group_4 + in_group_5B + in_group_5S + in_group_5T
 
 
-class ESS_SONA_2_or_more_door_refrigerator_refrigerator_has_more_than_one_door(Variable):
+class ESS_SONA_2_or_more_door_refrigerator_refrigerator_has_more_than_one_door(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -36,7 +36,7 @@ class ESS_SONA_2_or_more_door_refrigerator_refrigerator_has_more_than_one_door(V
         return (number_of_refrigerator_doors >= 2)
 
 
-class ESS_SONA_2_or_more_door_refrigerator_refrigerator_in_eligible_group_with_more_than_one_door(Variable):
+class ESS_SONA_2_or_more_door_refrigerator_refrigerator_in_eligible_group_with_more_than_one_door(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class ESS_SONA_2_or_more_door_refrigerator_refrigerator_in_eligible_group_with_m
         return in_eligible_group * has_more_than_one_door
 
 
-class ESS_SONA_2_or_more_door_refrigerator_end_user_equipment_is_labelled_for_energy_labelling(Variable):
+class ESS_SONA_2_or_more_door_refrigerator_end_user_equipment_is_labelled_for_energy_labelling(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -60,7 +60,7 @@ class ESS_SONA_2_or_more_door_refrigerator_end_user_equipment_is_labelled_for_en
                 ' Schedule B, Activity Definition B3, Equipment Requirement 2.'
 
 
-class ESS_SONA_2_or_more_door_refrigerator_end_user_equipment_has_registered_volume(Variable):
+class ESS_SONA_2_or_more_door_refrigerator_end_user_equipment_has_registered_volume(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -76,7 +76,7 @@ class ESS_SONA_2_or_more_door_refrigerator_end_user_equipment_has_registered_vol
         return condition_volume_is_not_zero
 
 
-class ESS_SONA_2_or_more_door_refrigerator_meets_all_equipment_requirements(Variable):
+class ESS_SONA_2_or_more_door_refrigerator_meets_all_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

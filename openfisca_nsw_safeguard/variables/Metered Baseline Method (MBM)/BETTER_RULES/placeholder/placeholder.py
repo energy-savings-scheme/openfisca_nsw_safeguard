@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY, YEAR
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
@@ -9,7 +9,7 @@ import numpy as np
 from datetime import date
 
 
-class ESS__PIAMV_NRE_is_submetered(Variable):
+class ESS__PIAMV_NRE_is_submetered(BaseVariable):
     value_type = bool
     default_value = False
     entity = Building
@@ -21,7 +21,7 @@ class ESS__PIAMV_NRE_is_submetered(Variable):
         }
 
 
-class ESS__PIAMV_NRE_caused_by_other_implementations(Variable):
+class ESS__PIAMV_NRE_caused_by_other_implementations(BaseVariable):
     value_type = bool
     default_value = False
     entity = Building
@@ -32,7 +32,7 @@ class ESS__PIAMV_NRE_caused_by_other_implementations(Variable):
         "alias":"ESS PIAMV NRE Is Caused By Other Implementations",
         }
 
-class ESS__PIAMV_NRE_is_permanent(Variable):
+class ESS__PIAMV_NRE_is_permanent(BaseVariable):
     value_type = bool
     default_value = False
     entity = Building
@@ -44,7 +44,7 @@ class ESS__PIAMV_NRE_is_permanent(Variable):
         }
 
 
-class ESS__PIAMV_NRE_happens_in_first_25_percent_of_measurement_period(Variable):
+class ESS__PIAMV_NRE_happens_in_first_25_percent_of_measurement_period(BaseVariable):
     value_type = bool
     default_value = False
     entity = Building
@@ -56,7 +56,7 @@ class ESS__PIAMV_NRE_happens_in_first_25_percent_of_measurement_period(Variable)
         }
 
 
-class ESS__PIAMV_measurement_period_length(Variable):
+class ESS__PIAMV_measurement_period_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -67,7 +67,7 @@ class ESS__PIAMV_measurement_period_length(Variable):
         }
 
 
-class ESS__PIAMV_NRE_period_length(Variable):
+class ESS__PIAMV_NRE_period_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -78,7 +78,7 @@ class ESS__PIAMV_NRE_period_length(Variable):
         }
 
 
-class ESS__PIAMV_NRE_is_less_than_25_percent(Variable):
+class ESS__PIAMV_NRE_is_less_than_25_percent(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

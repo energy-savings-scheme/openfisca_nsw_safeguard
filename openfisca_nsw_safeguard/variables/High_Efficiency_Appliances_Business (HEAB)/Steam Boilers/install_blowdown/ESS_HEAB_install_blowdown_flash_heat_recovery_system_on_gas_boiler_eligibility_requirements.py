@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_meets_eligibility_requirements(Variable):
+class ESS_HEAB_install_blowdown_flash_heat_recovery_system_on_gas_boiler_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

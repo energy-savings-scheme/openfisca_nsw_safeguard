@@ -1,14 +1,14 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 """ Parameters for SYS2 ESC Calculation
     These variables use Rule tables
 """
-class SYS2_PDRSAug24_PDRS__postcode(Variable):
+class SYS2_PDRSAug24_PDRS__postcode(BaseVariable):
     # using to get the regional network factor and network loss factor
     # this variable is used as the first input on all estimator certificate calculation pages
     value_type = int
@@ -22,7 +22,7 @@ class SYS2_PDRSAug24_PDRS__postcode(Variable):
         'sorting' : 1
     }
 
-class SYS2_PDRSAug24_maximum_tested_input_power(Variable):
+class SYS2_PDRSAug24_maximum_tested_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -34,7 +34,7 @@ class SYS2_PDRSAug24_maximum_tested_input_power(Variable):
     }
 
 
-class SYS2_PDRSAug24_projected_annual_energy_consumption(Variable):
+class SYS2_PDRSAug24_projected_annual_energy_consumption(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -46,7 +46,7 @@ class SYS2_PDRSAug24_projected_annual_energy_consumption(Variable):
     }
 
 
-class SYS2_PDRSAug24_daily_run_time(Variable):
+class SYS2_PDRSAug24_daily_run_time(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -58,7 +58,7 @@ class SYS2_PDRSAug24_daily_run_time(Variable):
     }
 
 
-class SYS2_PDRSAug24_PAEC_baseline(Variable):
+class SYS2_PDRSAug24_PAEC_baseline(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

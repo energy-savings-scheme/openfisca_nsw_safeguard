@@ -1,10 +1,11 @@
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
+from openfisca_nsw_safeguard.entities import *
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_gas_savings(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_gas_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

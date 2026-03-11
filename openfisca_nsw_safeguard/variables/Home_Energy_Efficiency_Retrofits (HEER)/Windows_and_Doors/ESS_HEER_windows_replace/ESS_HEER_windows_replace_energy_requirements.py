@@ -1,45 +1,45 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class existing_window_is_single_glazed(Variable):
+class existing_window_is_single_glazed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing window single glazed?'
 
 
-class existing_door_is_fully_single_glazed_framed_unit(Variable):
+class existing_door_is_fully_single_glazed_framed_unit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing door a fully single glazed framed unit?'
 
 
-class existing_door_is_fully_single_glazed_framed_unit(Variable):
+class existing_door_is_fully_single_glazed_framed_unit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing door a fully single glazed framed unit?'
 
 
-class existing_window_is_external(Variable):
+class existing_window_is_external(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing window external?'
 
 
-class existing_door_is_external(Variable):
+class existing_door_is_external(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the existing door external?'
 
 
-class is_residential_or_small_business_site(Variable):
+class is_residential_or_small_business_site(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -54,7 +54,7 @@ class is_residential_or_small_business_site(Variable):
 
 
 
-class D1_all_eligibility_requirements_are_true(Variable):
+class D1_all_eligibility_requirements_are_true(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -75,7 +75,7 @@ class D1_all_eligibility_requirements_are_true(Variable):
         # either a window OR a door - is intended to achieve
 
 
-class new_end_user_equipment_is_WERS_rated_window(Variable):
+class new_end_user_equipment_is_WERS_rated_window(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -83,7 +83,7 @@ class new_end_user_equipment_is_WERS_rated_window(Variable):
             ' that is rated by WERS?'
 
 
-class new_end_user_equipment_is_WERS_rated_door(Variable):
+class new_end_user_equipment_is_WERS_rated_door(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -91,7 +91,7 @@ class new_end_user_equipment_is_WERS_rated_door(Variable):
             ' that is rated by WERS?'
 
 
-class new_end_user_equipment_is_WERS_rated_window_or_door(Variable):
+class new_end_user_equipment_is_WERS_rated_window_or_door(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -104,28 +104,28 @@ class new_end_user_equipment_is_WERS_rated_window_or_door(Variable):
         return WERS_rated_window + WERS_rated_door
 
 
-class new_end_user_equipment_is_single_glazed_insulating_glass_unit(Variable):
+class new_end_user_equipment_is_single_glazed_insulating_glass_unit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the New End-User Equipment a single glazed insulating glass unit?'
 
 
-class new_end_user_equipment_is_double_glazed_insulating_glass_unit(Variable):
+class new_end_user_equipment_is_double_glazed_insulating_glass_unit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the New End-User Equipment a double glazed insulating glass unit?'
 
 
-class new_end_user_equipment_is_triple_glazed_insulating_glass_unit(Variable):
+class new_end_user_equipment_is_triple_glazed_insulating_glass_unit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the New End-User Equipment a triple glazed insulating glass unit?'
 
 
-class new_end_user_equipment_is_single_double_or_triple_glazed(Variable):
+class new_end_user_equipment_is_single_double_or_triple_glazed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -139,14 +139,14 @@ class new_end_user_equipment_is_single_double_or_triple_glazed(Variable):
         return is_single_glazed + is_double_glazed + is_triple_glazed
 
 
-class complies_with_AS_2047_requirements(Variable):
+class complies_with_AS_2047_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Does the new End-User Equipment comply with AS 2047?'
     # note we probably need to figure out exactly WHICH requirements
 
-class complies_with_AS_1288_requirements(Variable):
+class complies_with_AS_1288_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -154,7 +154,7 @@ class complies_with_AS_1288_requirements(Variable):
     # note we probably need to figure out exactly WHICH requirements
 
 
-class complies_with_AS_2047_and_AS_1288(Variable):
+class complies_with_AS_2047_and_AS_1288(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -185,7 +185,7 @@ class WERSHeatingStarRating(Enum):
     #  need to check if these are the appropriate divisions for HERS Star Ratings
 
 
-class WERS_heating_star_rating(Variable):
+class WERS_heating_star_rating(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = WERSHeatingStarRating
@@ -213,7 +213,7 @@ class WERSCoolingStarRating(Enum):
     #  need to check if these are the appropriate divisions for HERS Star Ratings
 
 
-class WERS_cooling_star_rating(Variable):
+class WERS_cooling_star_rating(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = WERSCoolingStarRating
@@ -222,7 +222,7 @@ class WERS_cooling_star_rating(Variable):
     label = "What is the WERS rating in cooling mode?"
 
 
-class above_minimum_WERS_heating_rating(Variable):
+class above_minimum_WERS_heating_rating(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -239,21 +239,21 @@ class above_minimum_WERS_heating_rating(Variable):
         return six_stars + seven_stars + eight_stars + nine_stars + ten_stars
 
 
-class D1_window_warranty_length(Variable):
+class D1_window_warranty_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'What is the warranty length of the new window, in years?'
 
 
-class D1_door_warranty_length(Variable):
+class D1_door_warranty_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'What is the warranty length of the new door, in years?'
 
 
-class door_or_window_has_minimum_warranty_length(Variable):
+class door_or_window_has_minimum_warranty_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -270,7 +270,7 @@ class door_or_window_has_minimum_warranty_length(Variable):
         + ((door_warranty_length >= minimum_warranty_length) * new_end_user_equipment_is_WERS_rated_door))
 
 
-class D1_meets_equipment_requirements(Variable):
+class D1_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -287,7 +287,7 @@ class D1_meets_equipment_requirements(Variable):
         * above_minimum_WERS_heating_rating * has_minimum_warranty_length)
 
 
-class ESS_HEER_windows_replace_meets_all_requirements(Variable):
+class ESS_HEER_windows_replace_meets_all_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

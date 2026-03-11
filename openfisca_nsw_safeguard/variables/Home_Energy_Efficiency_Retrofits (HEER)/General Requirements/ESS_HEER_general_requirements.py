@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from datetime import date
 import numpy as np
 
-class ESS__HEER_electricity_savings(Variable):
+class ESS__HEER_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -50,7 +50,7 @@ class ESS__HEER_electricity_savings(Variable):
             electricity_savings
         )
 
-class ESS__HEER_gas_savings(Variable):
+class ESS__HEER_gas_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -61,7 +61,7 @@ class ESS__HEER_gas_savings(Variable):
     }
 
 
-class ESS__HEER_meets_all_general_requirements(Variable):
+class ESS__HEER_meets_all_general_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -95,7 +95,7 @@ class ESS__HEER_meets_all_general_requirements(Variable):
         return is_eligible
 
 
-class ESS__HEER_site_is_residential_or_small_business(Variable):
+class ESS__HEER_site_is_residential_or_small_business(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -116,7 +116,7 @@ class ESS__HEER_site_is_residential_or_small_business(Variable):
         )
 
 
-class ESS__HEER_site_assessment_conducted_before_implementation_date(Variable):
+class ESS__HEER_site_assessment_conducted_before_implementation_date(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -131,7 +131,7 @@ class ESS__HEER_site_assessment_conducted_before_implementation_date(Variable):
         return site_assessment_date < implementation_date
 
 
-class ESS__HEER_site_assessment_date(Variable):
+class ESS__HEER_site_assessment_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -142,7 +142,7 @@ class ESS__HEER_site_assessment_date(Variable):
     }
 
 
-class ESS__HEER_site_implementation_date(Variable):
+class ESS__HEER_site_implementation_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -153,7 +153,7 @@ class ESS__HEER_site_implementation_date(Variable):
     }
 
 
-class ESS__HEER_activity_eligibiity_requirements_are_met(Variable):
+class ESS__HEER_activity_eligibiity_requirements_are_met(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -167,7 +167,7 @@ class ESS__HEER_activity_eligibiity_requirements_are_met(Variable):
     }
 
 
-class ESS__HEER_installed_equipment_or_modified_products_meet_equipment_requirements(Variable):
+class ESS__HEER_installed_equipment_or_modified_products_meet_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -182,7 +182,7 @@ class ESS__HEER_installed_equipment_or_modified_products_meet_equipment_requirem
     }
 
 
-class ESS__HEER_implementation_meets_implementation_requirements(Variable):
+class ESS__HEER_implementation_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -194,7 +194,7 @@ class ESS__HEER_implementation_meets_implementation_requirements(Variable):
     }
 
 
-class ESS__HEER_purchaser_has_paid_minimum_contribution_or_is_exempt(Variable):
+class ESS__HEER_purchaser_has_paid_minimum_contribution_or_is_exempt(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -212,7 +212,7 @@ class ESS__HEER_purchaser_has_paid_minimum_contribution_or_is_exempt(Variable):
         return paid_minimum_contribution + low_income_program + exempt_energy_program
 
 
-class ESS__HEER_purchaser_paid_minimum_contribution(Variable):
+class ESS__HEER_purchaser_paid_minimum_contribution(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -224,7 +224,7 @@ class ESS__HEER_purchaser_paid_minimum_contribution(Variable):
     }
 
 
-class ESS__HEER_activity_delivered_through_low_income_program(Variable):
+class ESS__HEER_activity_delivered_through_low_income_program(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -235,7 +235,7 @@ class ESS__HEER_activity_delivered_through_low_income_program(Variable):
     }
 
 
-class ESS__HEER_activity_delivered_through_exempt_energy_program(Variable):
+class ESS__HEER_activity_delivered_through_exempt_energy_program(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -246,7 +246,7 @@ class ESS__HEER_activity_delivered_through_exempt_energy_program(Variable):
     }
 
 
-class ESS__HEER_energy_saver(Variable):
+class ESS__HEER_energy_saver(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -262,7 +262,7 @@ class ESS__HEER_energy_saver(Variable):
         return purchaser
 
 
-class ESS__HEER_purchaser(Variable):
+class ESS__HEER_purchaser(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY

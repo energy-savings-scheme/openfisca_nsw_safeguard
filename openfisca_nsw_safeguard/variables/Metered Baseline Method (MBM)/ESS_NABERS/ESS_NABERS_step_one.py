@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY, YEAR
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
-class ESS__NABERS_measured_electricity_consumption(Variable):
+class ESS__NABERS_measured_electricity_consumption(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS__NABERS_measured_electricity_consumption(Variable):
         + buildings('ESS__NABERS_onsite_unaccounted_electricity', period))
 
 
-class ESS__NABERS_NABERS_electricity(Variable):
+class ESS__NABERS_NABERS_electricity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -40,7 +40,7 @@ class ESS__NABERS_NABERS_electricity(Variable):
         }
 
 
-class ESS__NABERS_onsite_unaccounted_electricity(Variable):
+class ESS__NABERS_onsite_unaccounted_electricity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -56,7 +56,7 @@ class ESS__NABERS_onsite_unaccounted_electricity(Variable):
         }
 
 
-class ESS__NABERS_NABERS_gas(Variable):
+class ESS__NABERS_NABERS_gas(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

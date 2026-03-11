@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY, YEAR
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
@@ -10,7 +10,7 @@ from datetime import date
 
 from openfisca_nsw_safeguard.variables.ESS_lighting_common_variables import LightingEquipmentClass
 
-class ESS_CL_is_eligible_for_commercial_lighting(Variable):
+class ESS_CL_is_eligible_for_commercial_lighting(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -38,7 +38,7 @@ class ESS_CL_is_eligible_for_commercial_lighting(Variable):
             is_eligible_equipment_type
         )
 
-class ESS_CL_is_eligible_activity_type(Variable):
+class ESS_CL_is_eligible_activity_type(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -53,28 +53,28 @@ class ESS_CL_is_eligible_activity_type(Variable):
             buildings('ESS_CL_is_building_lighting', period))
 
 
-class ESS_CL_is_lighting_for_roads_and_public_spaces(Variable):
+class ESS_CL_is_lighting_for_roads_and_public_spaces(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the activity a lighting upgrade for Roads and Public Spaces?'
 
 
-class ESS_CL_is_traffic_signals(Variable):
+class ESS_CL_is_traffic_signals(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the activity a lighting upgrade for Traffic Lighting?'
 
 
-class ESS_CL_is_building_lighting(Variable):
+class ESS_CL_is_building_lighting(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the activity a lighting upgrade for Building Lighting?'
 
 
-class ESS_CL_meets_or_exceeds_relevant_lighting_standards(Variable):
+class ESS_CL_meets_or_exceeds_relevant_lighting_standards(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -82,7 +82,7 @@ class ESS_CL_meets_or_exceeds_relevant_lighting_standards(Variable):
             ' each upgrade, as determined by the Scheme Administrator?'
 
 
-class ESS_CL_building_lighting_upgrade_meets_requirements(Variable):
+class ESS_CL_building_lighting_upgrade_meets_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -107,21 +107,21 @@ class ESS_CL_building_lighting_upgrade_meets_requirements(Variable):
         )
 
 
-class ESS_CL_building_upgrade_meets_relevant_AS1680_requirements(Variable):
+class ESS_CL_building_upgrade_meets_relevant_AS1680_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'If the lighting upgrade is a building upgrade, does it meet the relevant requirements in AS 1680?'
 
 
-class ESS_CL_building_upgrade_meets_relevant_BCA_requirements(Variable):
+class ESS_CL_building_upgrade_meets_relevant_BCA_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'If the lighting upgrade is a building upgrade, does it meet the relevant requirements in BCA section F4.4?'
 
 
-class ESS_CL_building_upgrade_has_IPD_under_maximum_allowable_IPD(Variable):
+class ESS_CL_building_upgrade_has_IPD_under_maximum_allowable_IPD(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -129,14 +129,14 @@ class ESS_CL_building_upgrade_has_IPD_under_maximum_allowable_IPD(Variable):
             ' or equal to the maximum IPD for each space, as defined in the Part J6 of the BCA?'
 
 
-class ESS_CL_building_upgrade_meets_other_adminstrative_requirements(Variable):
+class ESS_CL_building_upgrade_meets_other_adminstrative_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'If the lighting upgrade is a building upgrade, does it meet other requirements as defined by the Scheme Administrator?'
 
 
-class ESS_CL_minimum_copayment_amount_has_been_paid(Variable):
+class ESS_CL_minimum_copayment_amount_has_been_paid(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -153,7 +153,7 @@ class ESS_CL_minimum_copayment_amount_has_been_paid(Variable):
         )
 
 
-class ESS_CL_lighting_new_lamp_type(Variable):
+class ESS_CL_lighting_new_lamp_type(BaseVariable):
     value_type = Enum
     possible_values = LightingEquipmentClass
     default_value = LightingEquipmentClass.T12_linear
@@ -163,7 +163,7 @@ class ESS_CL_lighting_new_lamp_type(Variable):
             ' in Schedule A.'
 
 
-class ESS_CL_is_eligible_end_user_equipment_type(Variable):
+class ESS_CL_is_eligible_end_user_equipment_type(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -175,7 +175,7 @@ class ESS_CL_is_eligible_end_user_equipment_type(Variable):
         is_not_eligible = (new_lamp_type == LightingEquipmentClass.is_not_eligible)
         return np.logical_not(is_not_eligible)
 
-class ESS_CL_road_and_public_spaces_lighting_upgrade_meets_requirements(Variable):
+class ESS_CL_road_and_public_spaces_lighting_upgrade_meets_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -196,7 +196,7 @@ class ESS_CL_road_and_public_spaces_lighting_upgrade_meets_requirements(Variable
         )        
 
 
-class ESS_CL_roads_and_public_spaces_upgrade_meets_AS_1158_requirements(Variable):
+class ESS_CL_roads_and_public_spaces_upgrade_meets_AS_1158_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -204,7 +204,7 @@ class ESS_CL_roads_and_public_spaces_upgrade_meets_AS_1158_requirements(Variable
             ' meet the relevant requirements of AS 1158?'
 
 
-class ESS_CL_roads_and_public_spaces_upgrade_meets_scheme_administrator_requirements(Variable):
+class ESS_CL_roads_and_public_spaces_upgrade_meets_scheme_administrator_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -212,7 +212,7 @@ class ESS_CL_roads_and_public_spaces_upgrade_meets_scheme_administrator_requirem
             ' other standards or benchmarks, specified by the Scheme Administrator?'
 
 
-class ESS_CL_traffic_signals_lighting_upgrade_meets_requirements(Variable):
+class ESS_CL_traffic_signals_lighting_upgrade_meets_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -233,7 +233,7 @@ class ESS_CL_traffic_signals_lighting_upgrade_meets_requirements(Variable):
         )        
 
 
-class ESS_CL_traffic_signals_upgrade_meets_AS_2144_requirements(Variable):
+class ESS_CL_traffic_signals_upgrade_meets_AS_2144_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -241,7 +241,7 @@ class ESS_CL_traffic_signals_upgrade_meets_AS_2144_requirements(Variable):
             ' meet the relevant requirements of AS 2144?'
 
 
-class ESS_CL_traffic_signals_upgrade_meets_scheme_administrator_requirements(Variable):
+class ESS_CL_traffic_signals_upgrade_meets_scheme_administrator_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -249,7 +249,7 @@ class ESS_CL_traffic_signals_upgrade_meets_scheme_administrator_requirements(Var
             ' other standards or benchmarks, specified by the Scheme Administrator?'
 
 
-class ESS_CL_(Variable):
+class ESS_CL_(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

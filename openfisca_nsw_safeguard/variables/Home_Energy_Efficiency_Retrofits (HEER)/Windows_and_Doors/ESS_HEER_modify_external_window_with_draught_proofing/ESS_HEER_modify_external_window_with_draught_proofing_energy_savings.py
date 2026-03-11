@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS_HEER_modify_external_window_with_draught_proofing_residential_electricity_savings_factor(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_residential_electricity_savings_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_residential_electric
         return residential_electricity_savings_factor * window_length
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_residential_gas_savings_factor(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_residential_gas_savings_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

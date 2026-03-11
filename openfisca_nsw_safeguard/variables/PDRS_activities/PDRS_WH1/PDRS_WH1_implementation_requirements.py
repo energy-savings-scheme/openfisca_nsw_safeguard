@@ -1,14 +1,14 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 from openfisca_nsw_safeguard.variables.ESS_general.ESS_BCA_climate_zone import BCA_climate_zone
 
 import numpy as np
 
-class PDRS_WH1_implementation_requirements_existing_hot_water_pump_is_removed(Variable):
+class PDRS_WH1_implementation_requirements_existing_hot_water_pump_is_removed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -17,7 +17,7 @@ class PDRS_WH1_implementation_requirements_existing_hot_water_pump_is_removed(Va
         'alias':  'The existing hot water pump has been removed'
     }
 
-class PDRS_WH1_implementation_requirements_replacement_hot_water_pump_is_installed(Variable):
+class PDRS_WH1_implementation_requirements_replacement_hot_water_pump_is_installed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -26,7 +26,7 @@ class PDRS_WH1_implementation_requirements_replacement_hot_water_pump_is_install
         'alias':  'The replacement hot water pump is installed'
     }
 
-class PDRS_WH1_implementation_requirements_install_or_removal_hot_water_pump_is_installed_by_certified(Variable):
+class PDRS_WH1_implementation_requirements_install_or_removal_hot_water_pump_is_installed_by_certified(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -35,7 +35,7 @@ class PDRS_WH1_implementation_requirements_install_or_removal_hot_water_pump_is_
         'alias':  'The installation and removal has been supervised or performed by suitably licensed person' 
     }
 
-class PDRS_WH1_meets_implementation_requirements(Variable):
+class PDRS_WH1_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

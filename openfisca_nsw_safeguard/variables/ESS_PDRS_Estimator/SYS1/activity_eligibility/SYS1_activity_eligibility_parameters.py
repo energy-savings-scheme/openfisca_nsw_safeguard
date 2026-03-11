@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class SYS1_new_motor_for_ventilation_refrigeration(Variable):
+class SYS1_new_motor_for_ventilation_refrigeration(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class SYS1_new_motor_for_ventilation_refrigeration(Variable):
     }
 
 
-class SYS1_equipment_registered_in_GEMS(Variable):
+class SYS1_equipment_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class SYS1_equipment_registered_in_GEMS(Variable):
     }
 
 
-class SYS1_engaged_ACP(Variable):
+class SYS1_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -43,7 +43,7 @@ class SYS1_engaged_ACP(Variable):
     }
 
 
-class SYS1_high_efficiency(Variable):
+class SYS1_high_efficiency(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -55,7 +55,7 @@ class SYS1_high_efficiency(Variable):
     }   
 
 
-class SYS1_equipment_installed(Variable):
+class SYS1_equipment_installed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -67,7 +67,7 @@ class SYS1_equipment_installed(Variable):
     }
 
 
-class SYS1_rated_output_eligible(Variable):
+class SYS1_rated_output_eligible(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

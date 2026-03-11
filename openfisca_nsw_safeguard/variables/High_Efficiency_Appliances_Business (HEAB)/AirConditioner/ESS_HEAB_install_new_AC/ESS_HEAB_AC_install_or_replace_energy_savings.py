@@ -1,15 +1,13 @@
-from openfisca_core.entities import entity
-from openfisca_core.variables import Variable
-from openfisca_core.periods import ETERNITY
-from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
-
-from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
-
 import numpy as np
 
+from openfisca_core.periods import ETERNITY
+from openfisca_nsw_safeguard.entities import Building
 
-class ESS_HEAB_install_or_replace_AC_energy_savings(Variable):
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+from openfisca_nsw_safeguard.base_variables import BaseVariable
+
+
+class ESS_HEAB_install_or_replace_AC_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -26,7 +24,7 @@ class ESS_HEAB_install_or_replace_AC_energy_savings(Variable):
         return electricity_savings * meets_all_requirements
 
 
-class ESS_HEAB_install_or_replace_AC_meets_all_requirements(Variable):
+class ESS_HEAB_install_or_replace_AC_meets_all_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -52,7 +50,7 @@ class ESS_HEAB_install_or_replace_AC_meets_all_requirements(Variable):
                 )
 
 
-class ESS_HEAB_install_or_replace_AC_electricity_savings(Variable):
+class ESS_HEAB_install_or_replace_AC_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -89,7 +87,7 @@ class ESS_HEAB_install_or_replace_AC_electricity_savings(Variable):
         return electricity_savings
 
 
-class ESS_HEAB_install_or_replace_AC_reference_cooling_annual_energy_use(Variable):
+class ESS_HEAB_install_or_replace_AC_reference_cooling_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -122,7 +120,6 @@ class ESS_HEAB_install_or_replace_AC_reference_cooling_annual_energy_use(Variabl
         ActivityType = activity_type.possible_values
 
         product_class = buildings('Air_Conditioner_type', period)
-        AC_Class = (product_class.possible_values)
 
         equivalent_cooling_hours = parameters(period).ESS.HEAB.table_F4_1.equivalent_cooling_hours[AC_climate_zone]
 
@@ -148,7 +145,7 @@ class ESS_HEAB_install_or_replace_AC_reference_cooling_annual_energy_use(Variabl
         )
 
 
-class ESS_HEAB_install_or_replace_AC_reference_heating_annual_energy_use(Variable):
+class ESS_HEAB_install_or_replace_AC_reference_heating_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -207,7 +204,7 @@ class ESS_HEAB_install_or_replace_AC_reference_heating_annual_energy_use(Variabl
         )
 
 
-class ESS_HEAB_install_or_replace_AC_cooling_annual_energy_use(Variable):
+class ESS_HEAB_install_or_replace_AC_cooling_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -227,7 +224,7 @@ class ESS_HEAB_install_or_replace_AC_cooling_annual_energy_use(Variable):
             new_rated_AEER
         )
 
-class ESS_HEAB_install_or_replace_AC_heating_annual_energy_use(Variable):
+class ESS_HEAB_install_or_replace_AC_heating_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

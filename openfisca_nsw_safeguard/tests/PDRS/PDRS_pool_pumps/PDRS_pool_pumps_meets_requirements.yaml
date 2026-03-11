@@ -50,7 +50,12 @@
     PDRS_new_pump_warranty_length: [2, 6, 9, 20]
     PDRS_replace_existing_pool_pump_with_high_efficiency_pump_is_part_of_eligible_labelling_scheme:
       [True, True, False, True]
-    ESS_and_PDRS_new_pump_star_rating: [5, 5.5, 6, 4]
+    ESS_and_PDRS_new_pump_star_rating: [
+        'five_stars', 
+        'five_and_a_half_stars', 
+        'six_stars', 
+        'four_stars'
+      ]
   output:
     PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_equipment_requirements:
       [False, False, False, False]

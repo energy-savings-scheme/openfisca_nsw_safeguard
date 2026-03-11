@@ -129,18 +129,12 @@
         61.44,
         77
       ]
-    F17_regional_network_factor:
-      [
-        1.0,
-        1.03,
-        1.03
-      ] 
   output:
     F17_electricity_savings:
       [
         90,
-        63.283,
-        79.31
+        61.44,
+        77
       ]
 
 - name: test F17 annual energy savings
@@ -204,6 +198,7 @@
         false, #not eligible
         true,
         true,
+        true,
         true
       ]
     F17_electricity_savings:
@@ -215,7 +210,8 @@
         -26.91733,
         -42.74500,
         -16.62306,
-        -343.3333
+        -343.3333,
+        -13.07004
       ]
     F17_deemed_activity_gas_savings:
       [
@@ -226,7 +222,8 @@
         99.29181,
         146.89747,
         57.12679,
-        -139.46343
+        -139.46343,
+        57.12679
       ] 
   output:
     F17_ESC_calculation:
@@ -238,5 +235,6 @@
         0,
         23.73211,
         9.22915,
-        0
+        0,
+        12.99535
       ]

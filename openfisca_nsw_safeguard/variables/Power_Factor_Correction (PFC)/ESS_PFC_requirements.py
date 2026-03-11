@@ -1,14 +1,14 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from datetime import date
 import numpy as np
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
-class ESS__PFC_electricity_from_network_less_than_50kV(Variable):
+class ESS__PFC_electricity_from_network_less_than_50kV(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +30,7 @@ class ESS__PFC_electricity_from_network_less_than_50kV(Variable):
         # and link to a parameter file here
 
 
-class ESS__PFC_network_voltage(Variable):
+class ESS__PFC_network_voltage(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -46,7 +46,7 @@ class ESS__PFC_network_voltage(Variable):
     }
 
 
-class ESS__PFC_lagging_factor(Variable):
+class ESS__PFC_lagging_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -60,7 +60,7 @@ class ESS__PFC_lagging_factor(Variable):
     }
 
 
-class ESS__PFC_minimum_lagging_factor(Variable):
+class ESS__PFC_minimum_lagging_factor(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -78,7 +78,7 @@ class ESS__PFC_minimum_lagging_factor(Variable):
         return lagging_factor > 0.9
 
 
-class ESS__PFC_capacitors_are_installed_as_part_of_mandatory_program(Variable):
+class ESS__PFC_capacitors_are_installed_as_part_of_mandatory_program(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -93,7 +93,7 @@ class ESS__PFC_capacitors_are_installed_as_part_of_mandatory_program(Variable):
     # reminder that capacitors cannot be installed as part of a mandatory installation program
 
 
-class ESS__PFC_capacitors_installed_at_main_switchboard(Variable):
+class ESS__PFC_capacitors_installed_at_main_switchboard(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -107,7 +107,7 @@ class ESS__PFC_capacitors_installed_at_main_switchboard(Variable):
     }
 
 
-class ESS__PFC_site_is_connected_to_electricity_network(Variable):
+class ESS__PFC_site_is_connected_to_electricity_network(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -123,7 +123,7 @@ class ESS__PFC_site_is_connected_to_electricity_network(Variable):
     # Network to conduct this activity.
 
 
-class ESS__PFC_installed_capacitors_are_new(Variable):
+class ESS__PFC_installed_capacitors_are_new(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -137,7 +137,7 @@ class ESS__PFC_installed_capacitors_are_new(Variable):
     }
 
 
-class ESS__PFC_date_of_capacitor_installation(Variable):
+class ESS__PFC_date_of_capacitor_installation(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -151,7 +151,7 @@ class ESS__PFC_date_of_capacitor_installation(Variable):
     }
 
 
-class ESS__PFC_implementation_date(Variable):
+class ESS__PFC_implementation_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -170,7 +170,7 @@ class ESS__PFC_implementation_date(Variable):
         return capacitor_installation_date
 
 
-class ESS__PFC_purchaser(Variable):
+class ESS__PFC_purchaser(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -185,7 +185,7 @@ class ESS__PFC_purchaser(Variable):
     }
 
 
-class ESS__PFC_energy_saver(Variable):
+class ESS__PFC_energy_saver(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -205,7 +205,7 @@ class ESS__PFC_energy_saver(Variable):
         return purchaser
 
 
-class ESS__PFC_power_factor_correction_meets_eligibility_requirements(Variable):
+class ESS__PFC_power_factor_correction_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

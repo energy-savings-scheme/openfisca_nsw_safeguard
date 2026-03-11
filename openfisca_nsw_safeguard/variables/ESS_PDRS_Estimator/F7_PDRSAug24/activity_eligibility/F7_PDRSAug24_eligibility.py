@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class F7_PDRSAug24_installation_final_activity_eligibility(Variable):
+class F7_PDRSAug24_installation_final_activity_eligibility(BaseVariable):
     """
         Formula to calculate the SYS1 installation activity eligibility
     """

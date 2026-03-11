@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5_new_end_user_equipment_is_T5_linear(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5_new_end_user_equipment_is_T5_linear(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -22,7 +22,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5_new_end_user_equipment_is_T5_line
         return is_T5_linear
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5_not_T5_adaptor_kit(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5_not_T5_adaptor_kit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5_not_T5_adaptor_kit(Variable):
         return not(is_T5_adaptor_kit)
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5__minimum_lamp_life(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5__minimum_lamp_life(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5__minimum_lamp_life(Variable):
         return condition_new_lamp_life
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5_new_lamp_length_consistent_with_existing_length(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5_new_lamp_length_consistent_with_existing_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -66,7 +66,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5_new_lamp_length_consistent_with_e
         return condition_same_length
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5_meets_equipment_requirements(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

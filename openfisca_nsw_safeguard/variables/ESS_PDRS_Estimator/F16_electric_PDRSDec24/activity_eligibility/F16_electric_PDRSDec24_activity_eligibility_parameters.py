@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class F16_electric_PDRSDec24__equipment_replaced(Variable):
+class F16_electric_PDRSDec24__equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class F16_electric_PDRSDec24__equipment_replaced(Variable):
     }
 
 
-class F16_electric_PDRSDec24__existing_equipment_removed(Variable):
+class F16_electric_PDRSDec24__existing_equipment_removed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class F16_electric_PDRSDec24__existing_equipment_removed(Variable):
     }
 
 
-class F16_electric_PDRSDec24__equipment_installed_on_site(Variable):
+class F16_electric_PDRSDec24__equipment_installed_on_site(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -41,7 +41,7 @@ class F16_electric_PDRSDec24__equipment_installed_on_site(Variable):
     }
 
 
-class F16_electric_PDRSDec24__qualified_install_removal(Variable):
+class F16_electric_PDRSDec24__qualified_install_removal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -53,7 +53,7 @@ class F16_electric_PDRSDec24__qualified_install_removal(Variable):
     }
 
 
-class F16_electric_PDRSDec24__split_system(Variable):
+class F16_electric_PDRSDec24__split_system(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -65,7 +65,7 @@ class F16_electric_PDRSDec24__split_system(Variable):
     }
 
 
-class F16_electric_PDRSDec24__safety_requirement(Variable):
+class F16_electric_PDRSDec24__safety_requirement(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -77,7 +77,7 @@ class F16_electric_PDRSDec24__safety_requirement(Variable):
     }
 
 
-class F16_electric_PDRSDec24__engaged_ACP(Variable):
+class F16_electric_PDRSDec24__engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -91,7 +91,7 @@ class F16_electric_PDRSDec24__engaged_ACP(Variable):
     }
 
 
-class F16_electric_PDRSDec24__minimum_payment(Variable):
+class F16_electric_PDRSDec24__minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -103,7 +103,7 @@ class F16_electric_PDRSDec24__minimum_payment(Variable):
     }
 
 
-class F16_electric_PDRSDec24__building_BCA_class_1_or_4(Variable):
+class F16_electric_PDRSDec24__building_BCA_class_1_or_4(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -115,7 +115,7 @@ class F16_electric_PDRSDec24__building_BCA_class_1_or_4(Variable):
     }
 
 
-class F16_electric_PDRSDec24__4234_certified(Variable):
+class F16_electric_PDRSDec24__4234_certified(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -127,7 +127,7 @@ class F16_electric_PDRSDec24__4234_certified(Variable):
     }
 
 
-class F16_electric_PDRSDec24__scheme_admin_approved(Variable):
+class F16_electric_PDRSDec24__scheme_admin_approved(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -139,7 +139,7 @@ class F16_electric_PDRSDec24__scheme_admin_approved(Variable):
     }
 
 
-class F16_electric_PDRSDec24__minimum_annual_energy(Variable):
+class F16_electric_PDRSDec24__minimum_annual_energy(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -153,7 +153,7 @@ class F16_electric_PDRSDec24__minimum_annual_energy(Variable):
     }
 
 
-class F16_electric_PDRSDec24__storage_volume(Variable):
+class F16_electric_PDRSDec24__storage_volume(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -165,7 +165,7 @@ class F16_electric_PDRSDec24__storage_volume(Variable):
     }
 
 
-class F16_electric_PDRSDec24__certified(Variable):
+class F16_electric_PDRSDec24__certified(BaseVariable):
     #don't show this if Q11 is false and the storage volume is more than 700L
     value_type = bool
     entity = Building
@@ -179,7 +179,7 @@ class F16_electric_PDRSDec24__certified(Variable):
     }
    
 
-class F16_electric_PDRSDec24__certified_and_eligible(Variable):
+class F16_electric_PDRSDec24__certified_and_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

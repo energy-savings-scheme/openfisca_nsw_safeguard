@@ -1,12 +1,12 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 
-class SYS1_regional_network_factor(Variable):
+class SYS1_regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -27,7 +27,7 @@ class SYS1_regional_network_factor(Variable):
         # is used to calculate a single value for regional network factor based on a zipcode provided
     
 
-class SYS1_replacement_activity(Variable):
+class SYS1_replacement_activity(BaseVariable):
     value_type = bool
     default_value = False
     entity = Building
@@ -40,7 +40,7 @@ class SYS1_replacement_activity(Variable):
     }
 
 
-class SYS1_new_equipment_rated_output(Variable):
+class SYS1_new_equipment_rated_output(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -54,7 +54,7 @@ class SYS1_new_equipment_rated_output(Variable):
     }
 
 
-class SYS1_existing_equipment_rated_output(Variable):
+class SYS1_existing_equipment_rated_output(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -68,7 +68,7 @@ class SYS1_existing_equipment_rated_output(Variable):
     }
 
     
-class SYS1_new_efficiency(Variable):
+class SYS1_new_efficiency(BaseVariable):
     reference = 'percent'
     value_type = float
     entity = Building
@@ -81,7 +81,7 @@ class SYS1_new_efficiency(Variable):
     }
 
 
-class SYS1_new_equipment_baseline_efficiency(Variable):
+class SYS1_new_equipment_baseline_efficiency(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -148,7 +148,7 @@ class SYS1_new_equipment_baseline_efficiency(Variable):
         return new_equipment_baseline_efficiency
 
 
-class SYS1_existing_equipment_baseline_efficiency(Variable):
+class SYS1_existing_equipment_baseline_efficiency(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -220,7 +220,7 @@ class SYS1_motor_frequency_Options(Enum):
     motor_60_hz = '60 Hz'
 
 
-class SYS1_new_equipment_motor_frequency(Variable):
+class SYS1_new_equipment_motor_frequency(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_motor_frequency_Options
@@ -235,7 +235,7 @@ class SYS1_new_equipment_motor_frequency(Variable):
     }
 
 
-class SYS1_existing_equipment_motor_frequency(Variable):
+class SYS1_existing_equipment_motor_frequency(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_motor_frequency_Options
@@ -257,7 +257,7 @@ class SYS1_no_of_poles_Options(Enum):
     poles_8 = '8 poles'
 
 
-class SYS1_new_equipment_no_of_poles(Variable):
+class SYS1_new_equipment_no_of_poles(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_no_of_poles_Options
@@ -272,7 +272,7 @@ class SYS1_new_equipment_no_of_poles(Variable):
     }
 
 
-class SYS1_existing_equipment_no_of_poles(Variable):
+class SYS1_existing_equipment_no_of_poles(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_no_of_poles_Options
@@ -310,7 +310,7 @@ class SYS1_BusinessClassification_Options(Enum):
     division_S = 'Division S (Other Services) business'
 
 
-class SYS1_business_classification(Variable):
+class SYS1_business_classification(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_BusinessClassification_Options
@@ -347,7 +347,7 @@ class SYS1_end_use_service_Options(Enum):
     water_heating = 'Water heating'
 
 
-class SYS1_end_use_service(Variable):
+class SYS1_end_use_service(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_end_use_service_Options
@@ -361,7 +361,7 @@ class SYS1_end_use_service(Variable):
     }
 
 
-class SYS1_load_utilisation_factor(Variable):
+class SYS1_load_utilisation_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

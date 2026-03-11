@@ -1,14 +1,14 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 ## detailed in PDRS activity XX
 
-class PDRS_HVAC_2_install_meets_eligibility_requirements(Variable):
+class PDRS_HVAC_2_install_meets_eligibility_requirements(BaseVariable):
     """ ESS_PDRS_is_residential is found in appliances_eligibility_requirements
     """
     value_type = bool
@@ -31,7 +31,7 @@ class PDRS_HVAC_2_install_meets_eligibility_requirements(Variable):
         return np.logical_not(is_residential) * no_existing_AC
 
 
-class PDRS_HVAC_2_install_meets_equipment_requirements(Variable):
+class PDRS_HVAC_2_install_meets_equipment_requirements(BaseVariable):
     """ HVAC2_appliance_is_registered_in_GEMS is found in appliances_equipment_requirements
     """
     value_type = bool
@@ -56,7 +56,7 @@ class PDRS_HVAC_2_install_meets_equipment_requirements(Variable):
         return is_in_GEM * has_warranty * demand_response
 
 
-class PDRS_HVAC_2_install_meets_implementation_requirements(Variable):
+class PDRS_HVAC_2_install_meets_implementation_requirements(BaseVariable):
     """ Equipment_is_installed is found in appliances_implementation_requirements
         Implementation_is_performed_by_qualified_person is found in appliances_implementation_requirements
     """ 
@@ -80,7 +80,7 @@ class PDRS_HVAC_2_install_meets_implementation_requirements(Variable):
         return is_installed * performed_by_qualified_person
 
 
-class PDRS_HVAC_2_install_meets_all_requirements(Variable):
+class PDRS_HVAC_2_install_meets_all_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False

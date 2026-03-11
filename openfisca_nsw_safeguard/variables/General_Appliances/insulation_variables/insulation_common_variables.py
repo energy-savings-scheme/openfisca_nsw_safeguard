@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
@@ -13,7 +13,7 @@ class ESS__HEER_TypeOfInsulation(Enum):
   wall_insulation = 'Insulation installed is wall insulation.'
 
 
-class ESS__HEER_type_of_insulation(Variable):
+class ESS__HEER_type_of_insulation(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = ESS__HEER_TypeOfInsulation
@@ -26,7 +26,7 @@ class ESS__HEER_type_of_insulation(Variable):
     }
 
 
-class ESS__HEER_insulation_existing_insulation(Variable):
+class ESS__HEER_insulation_existing_insulation(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -38,7 +38,7 @@ class ESS__HEER_insulation_existing_insulation(Variable):
     }
 
 
-class ESS__HEER_insulation_meets_AS4859_performance_requirements(Variable):
+class ESS__HEER_insulation_meets_AS4859_performance_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -50,7 +50,7 @@ class ESS__HEER_insulation_meets_AS4859_performance_requirements(Variable):
    }
 
 
-class ESS__HEER_insulation_warranty_length(Variable):
+class ESS__HEER_insulation_warranty_length(BaseVariable):
     value_type = int
     entity = Building
     default_value = False
@@ -61,7 +61,7 @@ class ESS__HEER_insulation_warranty_length(Variable):
         "regulation_reference": ESS_2021["8", "8.8"]
 }
 
-class ESS__HEER_insulation_is_foil(Variable):
+class ESS__HEER_insulation_is_foil(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -73,7 +73,7 @@ class ESS__HEER_insulation_is_foil(Variable):
     }
 
 
-class ESS__HEER_insulation_R_value(Variable):
+class ESS__HEER_insulation_R_value(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -85,7 +85,7 @@ class ESS__HEER_insulation_R_value(Variable):
     }
 
 
-class ESS__HEER_insulation_meets_minimum_R_value(Variable):
+class ESS__HEER_insulation_meets_minimum_R_value(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False

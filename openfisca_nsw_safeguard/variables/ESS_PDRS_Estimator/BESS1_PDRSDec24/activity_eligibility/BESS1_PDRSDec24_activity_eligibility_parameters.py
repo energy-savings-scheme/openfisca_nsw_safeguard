@@ -1,12 +1,12 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 
-class BESS1_PDRSDec24_new_installation(Variable):
+class BESS1_PDRSDec24_new_installation(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -18,7 +18,7 @@ class BESS1_PDRSDec24_new_installation(Variable):
     }
     
 
-class BESS1_PDRSDec24_new_solar_battery(Variable):
+class BESS1_PDRSDec24_new_solar_battery(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -30,7 +30,7 @@ class BESS1_PDRSDec24_new_solar_battery(Variable):
     }
 
 
-class BESS1_PDRSDec24_solar_panels(Variable):
+class BESS1_PDRSDec24_solar_panels(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -42,7 +42,7 @@ class BESS1_PDRSDec24_solar_panels(Variable):
     }
 
 
-class BESS1_PDRSDec24_engaged_ACP(Variable):
+class BESS1_PDRSDec24_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -55,7 +55,7 @@ class BESS1_PDRSDec24_engaged_ACP(Variable):
     }
 
 
-class BESS1_PDRSDec24_minimum_payment(Variable):
+class BESS1_PDRSDec24_minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -67,7 +67,7 @@ class BESS1_PDRSDec24_minimum_payment(Variable):
     }
 
 
-class BESS1_PDRSDec24_battery_capacity(Variable):
+class BESS1_PDRSDec24_battery_capacity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -79,7 +79,7 @@ class BESS1_PDRSDec24_battery_capacity(Variable):
     }
 
 
-class BESS1_PDRSDec24_length_battery_warranty(Variable):
+class BESS1_PDRSDec24_length_battery_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -91,7 +91,7 @@ class BESS1_PDRSDec24_length_battery_warranty(Variable):
     }
 
 
-class BESS1_PDRSDec24_retainable_battery_capacity_warranty(Variable):
+class BESS1_PDRSDec24_retainable_battery_capacity_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -103,7 +103,7 @@ class BESS1_PDRSDec24_retainable_battery_capacity_warranty(Variable):
     }
     
 
-class BESS1_PDRSDec24_temperature_range_warranty(Variable):
+class BESS1_PDRSDec24_temperature_range_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -116,7 +116,7 @@ class BESS1_PDRSDec24_temperature_range_warranty(Variable):
     }
 
 
-class BESS1_PDRSDec24_minimum_throughput_warranty_before_April_2026(Variable):
+class BESS1_PDRSDec24_minimum_throughput_warranty_before_April_2026(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -134,7 +134,7 @@ class BESS1_PDRSDec24_InstallationLocation(Enum):
     installed_indoors = 'Installed indoors'
 
 
-class BESS1_PDRSDec24_installation_location(Variable):
+class BESS1_PDRSDec24_installation_location(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = BESS1_PDRSDec24_InstallationLocation
@@ -146,7 +146,7 @@ class BESS1_PDRSDec24_installation_location(Variable):
     }
 
 
-class BESS1_PDRSDec24_installation_location_eligible(Variable):
+class BESS1_PDRSDec24_installation_location_eligible(BaseVariable):
     """Checks if the location type is eligible
     """
     value_type = bool
@@ -169,7 +169,7 @@ class BESS1_PDRSDec24_installation_location_eligible(Variable):
       return location_type_eligible
     
 
-class BESS1_PDRSDec24_smoke_alarm(Variable):
+class BESS1_PDRSDec24_smoke_alarm(BaseVariable):
     #only show this question if the battery is installed indoors
     value_type = bool
     entity = Building
@@ -183,7 +183,7 @@ class BESS1_PDRSDec24_smoke_alarm(Variable):
     }
 
 
-class BESS1_PDRSDec24_installed_indoors_has_smoke_alarm(Variable):
+class BESS1_PDRSDec24_installed_indoors_has_smoke_alarm(BaseVariable):
     """Checks if it's installed outdoors, and if it is, that a smoke alarm has been installed 
     """
     value_type = bool
@@ -211,7 +211,7 @@ class BESS1_PDRSDec24_installed_indoors_has_smoke_alarm(Variable):
       return installed_indoors_has_smoke_alarm
 
 
-class BESS1_PDRSDec24_inverter_installed(Variable):
+class BESS1_PDRSDec24_inverter_installed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -223,7 +223,7 @@ class BESS1_PDRSDec24_inverter_installed(Variable):
     }
 
 
-class BESS1_PDRSDec24_inverter_warranty_length_eligible(Variable):
+class BESS1_PDRSDec24_inverter_warranty_length_eligible(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -235,7 +235,7 @@ class BESS1_PDRSDec24_inverter_warranty_length_eligible(Variable):
     }
 
 
-class BESS1_has_inverter_and_warranty_length_eligible(Variable):
+class BESS1_has_inverter_and_warranty_length_eligible(BaseVariable):
     """Checks if there is an inverter, and if there is, that the inverter warranty length is eligible
     """
     value_type = bool
@@ -263,7 +263,7 @@ class BESS1_has_inverter_and_warranty_length_eligible(Variable):
       return activity_type_eligible
 
 
-class BESS1_PDRSDec24_battery_internet_connectable(Variable):
+class BESS1_PDRSDec24_battery_internet_connectable(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -275,7 +275,7 @@ class BESS1_PDRSDec24_battery_internet_connectable(Variable):
     }
 
 
-class BESS1_PDRSDec24_battery_controllable_third_party(Variable):
+class BESS1_PDRSDec24_battery_controllable_third_party(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -287,7 +287,7 @@ class BESS1_PDRSDec24_battery_controllable_third_party(Variable):
     }
 
 
-class BESS1_PDRSDec24_approved_product_list(Variable):
+class BESS1_PDRSDec24_approved_product_list(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -299,7 +299,7 @@ class BESS1_PDRSDec24_approved_product_list(Variable):
     }
 
 
-class BESS1_PDRSDec24_approved_installer(Variable):
+class BESS1_PDRSDec24_approved_installer(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -313,7 +313,7 @@ class BESS1_PDRSDec24_approved_installer(Variable):
     }
 
 
-class BESS1_PDRSDec24_DER_register(Variable):
+class BESS1_PDRSDec24_DER_register(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

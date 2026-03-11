@@ -1,10 +1,12 @@
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
 import time
 import numpy as np
 import datetime
+
+# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
+from openfisca_core.model_api import *
+# Import the Entities specifically defined for this tax and benefit system
+from openfisca_nsw_safeguard.entities import *
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 
 # note because this activity definition requires calculation based off years, \
 # you need to import the above libraries to make it work
@@ -16,14 +18,14 @@ today = today_date_and_time.astype('datetime64[D]')
 # variables used to calculate age of equipment.
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_end_user_equipment_is_gas_fired_burner(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_end_user_equipment_is_gas_fired_burner(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the replacement end user equipment a gas fired burner?'
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_is_linkageless(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_is_linkageless(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -31,7 +33,7 @@ class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_is
             ' in a two service or stepper motor type?'
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_has_minimum_4_1_turn_down_ratio(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_has_minimum_4_1_turn_down_ratio(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -39,7 +41,7 @@ class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_ha
             ' 4:1?'
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_can_receive_flue_gas_sensor_signal(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_can_receive_flue_gas_sensor_signal(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -47,7 +49,7 @@ class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_replacement_ca
             ' flue glass sensor, for oxygen trim purposes?'
 
 
-class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_meets_equipment_requirements(Variable):
+class ESS_HEAB_replace_burner_on_gas_water_boiler_or_water_heater_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

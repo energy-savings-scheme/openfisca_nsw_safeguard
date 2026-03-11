@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from datetime import date
 
-class ESS__SONA_activity_is_eligible(Variable):
+class ESS__SONA_activity_is_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -46,7 +46,7 @@ class ESS__SONA_activity_is_eligible(Variable):
         return is_eligible
 
 
-class ESS__SONA_meets_all_equipment_requirements(Variable):
+class ESS__SONA_meets_all_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -57,7 +57,7 @@ class ESS__SONA_meets_all_equipment_requirements(Variable):
     #  need to build in logic for pulling the relevant activity definitions
 
 
-class ESS__SONA_equipment_is_sold_by_appliance_retailer(Variable):
+class ESS__SONA_equipment_is_sold_by_appliance_retailer(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -66,7 +66,7 @@ class ESS__SONA_equipment_is_sold_by_appliance_retailer(Variable):
                 ' clause 9.3.1 (b) - Sale of New Appliances.'
 
 
-class ESS__SONA_equipment_retailer(Variable):
+class ESS__SONA_equipment_retailer(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -75,7 +75,7 @@ class ESS__SONA_equipment_retailer(Variable):
                 ' clause 9.3.1 (b) - Sale of New Appliances.'
 
 
-class ESS__SONA_equipment_new_at_time_of_sale(Variable):
+class ESS__SONA_equipment_new_at_time_of_sale(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -85,7 +85,7 @@ class ESS__SONA_equipment_new_at_time_of_sale(Variable):
                 ' clause 9.3.1 (c) - Sale of New Appliances.'
 
 
-class ESS__SONA_equipment_is_delivered_to_address(Variable):
+class ESS__SONA_equipment_is_delivered_to_address(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -94,7 +94,7 @@ class ESS__SONA_equipment_is_delivered_to_address(Variable):
                 ' clause 9.3.1 (d) - Sale of New Appliances.'
 
 
-class ESS__SONA_equipment_sold_with_recorded_address(Variable):
+class ESS__SONA_equipment_sold_with_recorded_address(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -103,7 +103,7 @@ class ESS__SONA_equipment_sold_with_recorded_address(Variable):
                 ' clause 9.3.1 (d) - Sale of New Appliances.'
 
 
-class ESS__SONA_delivery_or_sold_address_recorded(Variable):
+class ESS__SONA_delivery_or_sold_address_recorded(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -120,7 +120,7 @@ class ESS__SONA_delivery_or_sold_address_recorded(Variable):
         return delivered_to_address + sold_with_recorded_address
 
 
-class ESS__SONA_delivery_or_purchaser_address(Variable):
+class ESS__SONA_delivery_or_purchaser_address(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -134,7 +134,7 @@ class ESS__SONA_delivery_or_purchaser_address(Variable):
     #  recorded if it's delivered.
 
 
-class ESS__SONA_has_acceptable_evidence(Variable):
+class ESS__SONA_has_acceptable_evidence(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -147,7 +147,7 @@ class ESS__SONA_has_acceptable_evidence(Variable):
         return retailer
 
 
-class ESS__SONA_date_of_sale(Variable):
+class ESS__SONA_date_of_sale(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -156,7 +156,7 @@ class ESS__SONA_date_of_sale(Variable):
                 ' clause 9.3.2 - Sale of New Appliances.'
 
 
-class ESS__SONA_implementation_site(Variable):
+class ESS__SONA_implementation_site(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -169,7 +169,7 @@ class ESS__SONA_implementation_site(Variable):
         return delivery_or_purchaser_address
 
 
-class ESS__SONA_installation_date(Variable):
+class ESS__SONA_installation_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
@@ -182,7 +182,7 @@ class ESS__SONA_installation_date(Variable):
         return date_of_sale
 
 
-class ESS__SONA_energy_saver(Variable):
+class ESS__SONA_energy_saver(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -203,7 +203,7 @@ class ESS__SONA_EquipmentType(Enum):
     television = 'Equipment is a TV.'
 
 
-class ESS__SONA_equipment_type(Variable):
+class ESS__SONA_equipment_type(BaseVariable):
     value_type = Enum
     possible_values = ESS__SONA_EquipmentType
     default_value = ESS__SONA_EquipmentType.washing_machine
@@ -231,7 +231,7 @@ class ESS__SONA_StarRating(Enum):
     ten_stars = 'Equipment is rated at ten stars.'
 
 
-class ESS__SONA_star_rating(Variable):
+class ESS__SONA_star_rating(BaseVariable):
     value_type = Enum
     possible_values = ESS__SONA_StarRating
     default_value = ESS__SONA_StarRating.zero_stars
@@ -240,7 +240,7 @@ class ESS__SONA_star_rating(Variable):
     label = 'What is the star rating of the equipment being sold?'
 
 
-class ESS__SONA_equipment_labelled_for_energy_labelling(Variable):
+class ESS__SONA_equipment_labelled_for_energy_labelling(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

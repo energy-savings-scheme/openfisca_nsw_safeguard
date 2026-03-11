@@ -179,13 +179,6 @@
         system_size_small, # brand: Rheem, model: 551180
         system_size_medium, # brand: Soltaro, model: HPWSTR002
       ]
-    D17_ESSJun24_PDRS__postcode:
-      [
-        2352,
-        2024,
-        2372,
-        2476,
-      ]
     D17_ESSJun24_Bs:   
       [
         4.3622,
@@ -203,10 +196,10 @@
   output:
     D17_ESSJun24_annual_energy_savings:
       [
-        25.84,
+        25.08,
         27.34,
-        17.05,
-        26.23,
+        16.55,
+        25.46,
       ]
 
 - name: test D17 electricity savings

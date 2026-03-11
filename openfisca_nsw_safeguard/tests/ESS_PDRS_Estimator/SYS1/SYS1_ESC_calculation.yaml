@@ -271,7 +271,7 @@
       [
         22,
         32,
-        160 #ABB M3BP/ GP/JP/KP 315SMC 4
+        160, #ABB M3BP/ GP/JP/KP 315SMC 4
       ]
     SYS1_new_equipment_baseline_efficiency:
      [
@@ -284,7 +284,7 @@
         33.33,
         3.6,
         95.7
-      ]
+        ]
     SYS1_load_utilisation_factor:
       [
         12.56,

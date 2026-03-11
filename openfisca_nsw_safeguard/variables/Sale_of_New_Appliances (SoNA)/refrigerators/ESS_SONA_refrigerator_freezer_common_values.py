@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
@@ -18,7 +18,7 @@ class RefrigeratorGroup(Enum):
     group_7 = u"Refrigerator is in Group 7."
     #  need to put in what activities this is relevant for
 
-class refrigerator_or_freezer_group(Variable):
+class refrigerator_or_freezer_group(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RefrigeratorGroup
@@ -27,7 +27,7 @@ class refrigerator_or_freezer_group(Variable):
     label = "What is the refrigerator group for the new End User Equipment?"
     #  need to put in what activities this is relevant for
 
-class refrigerator_or_freezer_capacity(Variable):
+class refrigerator_or_freezer_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class refrigerator_or_freezer_capacity(Variable):
     #  need to put in what activities this is relevant for
 
 
-class number_of_refrigerator_doors(Variable):
+class number_of_refrigerator_doors(BaseVariable):
     value_type = int  # note need to recode as Enum once reading AS2040
     entity = Building
     definition_period = ETERNITY

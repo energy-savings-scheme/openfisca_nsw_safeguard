@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_showerheads_replace_is_installed_by_licensed_plumber(Variable):
+class ESS_HEER_showerheads_replace_is_installed_by_licensed_plumber(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -15,7 +15,7 @@ class ESS_HEER_showerheads_replace_is_installed_by_licensed_plumber(Variable):
             ' Plumbing Code of Australia.'
 
 
-class ESS_HEER_showerheads_replace_only_one_showerhead_is_replaced(Variable):
+class ESS_HEER_showerheads_replace_only_one_showerhead_is_replaced(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_HEER_showerheads_replace_only_one_showerhead_is_replaced(Variable):
             ' prescribed by Implementation Requirement 2.'
 
 
-class ESS_HEER_showerheads_replace_showerhead_is_compatible_with_heating_system(Variable):
+class ESS_HEER_showerheads_replace_showerhead_is_compatible_with_heating_system(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -31,7 +31,7 @@ class ESS_HEER_showerheads_replace_showerhead_is_compatible_with_heating_system(
             ' water heating system.'
 
 
-class ESS_HEER_showerheads_replace_meets_implementation_requirements(Variable):
+class ESS_HEER_showerheads_replace_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

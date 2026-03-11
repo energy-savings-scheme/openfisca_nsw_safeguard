@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS_SONA_1_door_refrigerator_refrigerator_is_in_eligible_group(Variable):
+class ESS_SONA_1_door_refrigerator_refrigerator_is_in_eligible_group(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -22,7 +22,7 @@ class ESS_SONA_1_door_refrigerator_refrigerator_is_in_eligible_group(Variable):
         return in_group_1 + in_group_2 + in_group_3
 
 
-class ESS_SONA_1_door_refrigerator_refrigerator_has_one_door(Variable):
+class ESS_SONA_1_door_refrigerator_refrigerator_has_one_door(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -35,7 +35,7 @@ class ESS_SONA_1_door_refrigerator_refrigerator_has_one_door(Variable):
         return (number_of_refrigerator_doors == 1)
 
 
-class ESS_SONA_1_door_refrigerator_refrigerator_in_eligible_group_with_one_door(Variable):
+class ESS_SONA_1_door_refrigerator_refrigerator_in_eligible_group_with_one_door(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -50,7 +50,7 @@ class ESS_SONA_1_door_refrigerator_refrigerator_in_eligible_group_with_one_door(
         return in_eligible_group * has_one_door
 
 
-class ESS_SONA_1_door_refrigerator_end_user_equipment_is_labelled_for_energy_labelling(Variable):
+class ESS_SONA_1_door_refrigerator_end_user_equipment_is_labelled_for_energy_labelling(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -77,7 +77,7 @@ class RefrigeratorStarRating(Enum):
     nine_stars = 'Refrigerator is rated at nine stars.'
     ten_stars = 'Refrigerator is rated at ten stars.'
 
-class refrigerator_star_rating(Variable):
+class refrigerator_star_rating(BaseVariable):
     value_type = Enum
     possible_values = RefrigeratorStarRating
     default_value = RefrigeratorStarRating.zero_stars
@@ -88,7 +88,7 @@ class refrigerator_star_rating(Variable):
     # for use in Activity Definition B3.
 
 
-class ESS_SONA_1_door_refrigerator_end_user_equipment_has_registered_volume(Variable):
+class ESS_SONA_1_door_refrigerator_end_user_equipment_has_registered_volume(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -104,7 +104,7 @@ class ESS_SONA_1_door_refrigerator_end_user_equipment_has_registered_volume(Vari
         return condition_volume_is_not_zero
 
 
-class ESS_SONA_1_door_refrigerator_meets_all_equipment_requirements(Variable):
+class ESS_SONA_1_door_refrigerator_meets_all_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

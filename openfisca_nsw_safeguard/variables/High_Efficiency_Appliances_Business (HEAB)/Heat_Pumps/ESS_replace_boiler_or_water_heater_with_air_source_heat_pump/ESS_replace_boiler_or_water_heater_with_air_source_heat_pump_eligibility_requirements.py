@@ -1,13 +1,13 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.variables.PDRS_activities.PDRS_WH1.PDRS_WH1_eligibility_requirements import GasHeaterEquipmentTypes
 
 import numpy as np
 
-class ESS_replace_boiler_with_heat_pump_existing_equipment_type(Variable):
+class ESS_replace_boiler_with_heat_pump_existing_equipment_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = GasHeaterEquipmentTypes
@@ -20,7 +20,7 @@ class ESS_replace_boiler_with_heat_pump_existing_equipment_type(Variable):
         }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equipment_is_eligible_type(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equipment_is_eligible_type(BaseVariable):
   value_type = bool
   entity = Building
   default_value = False
@@ -39,7 +39,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_equi
     return is_eligible_equipment_type
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_gas_boosted_air_sourced_heat_pump(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_gas_boosted_air_sourced_heat_pump(BaseVariable):
   value_type = bool
   entity = Building
   default_value = False
@@ -47,7 +47,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment
   label = 'Is the new equipment an eligible type of equipment for Activity Definition F16?'
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_eligible_type_for_old_equipment(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_eligible_type_for_old_equipment(BaseVariable):
   value_type = bool
   entity = Building
   default_value = False
@@ -74,7 +74,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment
                 )
         )
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_not_residential(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment_is_not_residential(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -99,7 +99,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_new_equipment
 
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_eligibility_requirements(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False

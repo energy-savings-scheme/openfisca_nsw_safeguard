@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_install_external_blind_product_applied_externally_to_outside_of_door_or_window(Variable):
+class ESS_HEER_install_external_blind_product_applied_externally_to_outside_of_door_or_window(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -14,7 +14,7 @@ class ESS_HEER_install_external_blind_product_applied_externally_to_outside_of_d
             ' As prescribed by Implementation Requirement 1.'
 
 
-class ESS_HEER_install_external_blind_installer_complies_with_SafeWorkNSW_installation_standards(Variable):
+class ESS_HEER_install_external_blind_installer_complies_with_SafeWorkNSW_installation_standards(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_HEER_install_external_blind_installer_complies_with_SafeWorkNSW_instal
             ' SafeWorkNSW, as prescribed by Implementation Requirement 2.'
 
 
-class ESS_HEER_install_external_blind_product_installed_according_to_instructions(Variable):
+class ESS_HEER_install_external_blind_product_installed_according_to_instructions(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -32,7 +32,7 @@ class ESS_HEER_install_external_blind_product_installed_according_to_instruction
             ' Implementation Requirement 3.'
 
 
-class ESS_HEER_install_external_blind_implementation_requirements(Variable):
+class ESS_HEER_install_external_blind_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

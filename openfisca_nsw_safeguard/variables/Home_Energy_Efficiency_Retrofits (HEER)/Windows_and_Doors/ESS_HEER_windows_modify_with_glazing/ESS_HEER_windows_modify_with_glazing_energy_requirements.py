@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class D2_new_equipment_is_secondary_glazing_product(Variable):
+class D2_new_equipment_is_secondary_glazing_product(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -12,21 +12,21 @@ class D2_new_equipment_is_secondary_glazing_product(Variable):
     # need to check if the material the product is made is a condition - i.e. does it matter
 
 
-class D2_new_equipment_is_fitted_to_existing_single_glazed_window(Variable):
+class D2_new_equipment_is_fitted_to_existing_single_glazed_window(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the new equipment fitted to an existing single glazed window?'
 
 
-class D2_new_product_forms_still_air_gap(Variable):
+class D2_new_product_forms_still_air_gap(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Does the new equipment form a still air gap?'
 
 
-class new_product_is_secondary_glazing_which_creates_still_air_gap(Variable):
+class new_product_is_secondary_glazing_which_creates_still_air_gap(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -59,7 +59,7 @@ class NewProductWERSCoolingStarRating(Enum):
     ten_stars = u'Equipment has a WERS Cooling Star Rating of 10 stars, following installation of glazing'
 
 
-class new_product_WERS_cooling_star_rating(Variable):
+class new_product_WERS_cooling_star_rating(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = NewProductWERSCoolingStarRating
@@ -86,7 +86,7 @@ class NewProductWERSHeatingStarRating(Enum):
     ten_stars = u'Equipment has a WERS Heating Star Rating of 10 stars, following installation of glazing'
 
 
-class new_product_WERS_heating_star_rating(Variable):
+class new_product_WERS_heating_star_rating(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = NewProductWERSHeatingStarRating
@@ -95,7 +95,7 @@ class new_product_WERS_heating_star_rating(Variable):
     label = "What is the WERS rating in heating mode, following installation of the new glazing product?"
 
 
-class D2_above_minimum_WERS_heating_rating(Variable):
+class D2_above_minimum_WERS_heating_rating(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -112,21 +112,21 @@ class D2_above_minimum_WERS_heating_rating(Variable):
         return six_stars + seven_stars + eight_stars + nine_stars + ten_stars
 
 
-class D2_window_warranty_length(Variable):
+class D2_window_warranty_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'What is the warranty length of the new window, in years?'
 
 
-class D2_door_warranty_length(Variable):
+class D2_door_warranty_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'What is the warranty length of the new door, in years?'
 
 
-class D2_door_or_window_has_minimum_warranty_length(Variable):
+class D2_door_or_window_has_minimum_warranty_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

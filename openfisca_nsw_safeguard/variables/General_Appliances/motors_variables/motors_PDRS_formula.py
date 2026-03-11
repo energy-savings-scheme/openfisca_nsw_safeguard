@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 import numpy as np
 
-class PDRS__motors__old_efficiency(Variable):
+class PDRS__motors__old_efficiency(BaseVariable):
     entity = Building
     value_type = float
     default_value = -999
@@ -19,7 +19,7 @@ class PDRS__motors__old_efficiency(Variable):
     }
 
 
-class PDRS__motors__existing_motor_efficiency(Variable):
+class PDRS__motors__existing_motor_efficiency(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -43,7 +43,7 @@ class PDRS__motors__existing_motor_efficiency(Variable):
         return np.where(install_or_replace == 0, baseline_efficiency, replace_baseline)
 
 
-class PDRS__motors__new_efficiency(Variable):
+class PDRS__motors__new_efficiency(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -56,7 +56,7 @@ class PDRS__motors__new_efficiency(Variable):
     }
 
 
-class PDRS_motors_peak_demand_savings(Variable):
+class PDRS_motors_peak_demand_savings(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -96,7 +96,7 @@ class PDRS_motors_peak_demand_savings(Variable):
                 firmness_factor
         )
 
-class PDRS_install_motors_baseline_input_power(Variable):
+class PDRS_install_motors_baseline_input_power(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -113,7 +113,7 @@ class PDRS_install_motors_baseline_input_power(Variable):
         return (rated_output / baseline_efficiency)
 
 
-class PDRS_install_motors_power_input(Variable):
+class PDRS_install_motors_power_input(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY

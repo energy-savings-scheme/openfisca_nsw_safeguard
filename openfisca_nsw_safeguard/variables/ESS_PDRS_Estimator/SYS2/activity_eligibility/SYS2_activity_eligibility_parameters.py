@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class SYS2_equipment_replaced(Variable):
+class SYS2_equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class SYS2_equipment_replaced(Variable):
     }
 
 
-class SYS2_old_equipment_installed_on_site(Variable):
+class SYS2_old_equipment_installed_on_site(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class SYS2_old_equipment_installed_on_site(Variable):
     }
 
 
-class SYS2_qualified_install_removal(Variable):
+class SYS2_qualified_install_removal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -41,7 +41,7 @@ class SYS2_qualified_install_removal(Variable):
     }
 
 
-class SYS2_engaged_ACP(Variable):
+class SYS2_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -54,7 +54,7 @@ class SYS2_engaged_ACP(Variable):
                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
     }
 
-class SYS2_legal_disposal(Variable):
+class SYS2_legal_disposal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -66,7 +66,7 @@ class SYS2_legal_disposal(Variable):
     }
 
     
-class SYS2_equipment_registered_in_GEMS(Variable):
+class SYS2_equipment_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -78,7 +78,7 @@ class SYS2_equipment_registered_in_GEMS(Variable):
     }
 
 
-class SYS2_voluntary_labelling_scheme(Variable):
+class SYS2_voluntary_labelling_scheme(BaseVariable):
     #only show this question if SYS2_equipment_registered_in_GEMS is false
     value_type = bool
     entity = Building
@@ -92,7 +92,7 @@ class SYS2_voluntary_labelling_scheme(Variable):
     }
 
 
-class SYS2_star_rating_minimum_four_and_a_half(Variable):
+class SYS2_star_rating_minimum_four_and_a_half(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -104,7 +104,7 @@ class SYS2_star_rating_minimum_four_and_a_half(Variable):
     }
 
 
-class SYS2_warranty(Variable):
+class SYS2_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -116,7 +116,7 @@ class SYS2_warranty(Variable):
     }
 
 
-class SYS2_single_phase(Variable):
+class SYS2_single_phase(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -128,7 +128,7 @@ class SYS2_single_phase(Variable):
     }
 
 
-class SYS2_multiple_speed(Variable):
+class SYS2_multiple_speed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -140,7 +140,7 @@ class SYS2_multiple_speed(Variable):
     }
 
 
-class SYS2_multiple_speeds_input_power(Variable):
+class SYS2_multiple_speeds_input_power(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -152,7 +152,7 @@ class SYS2_multiple_speeds_input_power(Variable):
     }
 
 
-class SYS2_single_speed_input_power(Variable):
+class SYS2_single_speed_input_power(BaseVariable):
     #only display this question if SYS2_multiple_speed is false
     value_type = bool
     entity = Building

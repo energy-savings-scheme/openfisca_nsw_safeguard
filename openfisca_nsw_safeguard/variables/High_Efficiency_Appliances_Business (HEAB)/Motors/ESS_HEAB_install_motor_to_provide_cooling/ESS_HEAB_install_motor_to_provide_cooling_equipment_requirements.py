@@ -1,16 +1,16 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_is_electronically_communtated_motor(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_is_electronically_communtated_motor(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the product an electronically communtated (brushless DC) motor?'
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_nominal_input_power_less_than_500W(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_nominal_input_power_less_than_500W(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_nominal_input_power_less_than_50
         return condition_less_than_500W
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_output_power_greater_than_existing_fan(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_output_power_greater_than_existing_fan(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_output_power_greater_than_existi
         return condition_new_power_higher_than_existing
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_airflow_volume_greater_than_existing_fan(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_airflow_volume_greater_than_existing_fan(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_airflow_volume_greater_than_exis
         return condition_new_airflow_volume_higher_than_existing
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_output_power_or_airflow_greater_than_existing_fan(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_output_power_or_airflow_greater_than_existing_fan(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -64,7 +64,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_output_power_or_airflow_greater_
         return output_power_greater + airflow_greater
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_meets_other_scheme_administrator_requirements(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_meets_other_scheme_administrator_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -74,7 +74,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_meets_other_scheme_administrator
     # what does complying with this Determination mean?
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_meets_equipment_requirements(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

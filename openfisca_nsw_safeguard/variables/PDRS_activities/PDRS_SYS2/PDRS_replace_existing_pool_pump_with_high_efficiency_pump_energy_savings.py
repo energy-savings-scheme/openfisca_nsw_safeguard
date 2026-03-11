@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 import numpy as np
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_peak_demand_savings(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_peak_demand_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -46,7 +46,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_peak_demand_savi
         return peak_demand_reduction_savings
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_baseline_input_power(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -96,7 +96,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_baseline_input_p
         return baseline_input_power
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -148,7 +148,7 @@ class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_input_power(Vari
             [pool_volume][star_rating][pump_type])
         return input_power
 
-class PDRS_new_pump_pool_volume(Variable):
+class PDRS_new_pump_pool_volume(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -181,7 +181,7 @@ class ESS_PDRS_NewPumpStarRating(Enum):
     ten_stars = u'Pump has a star rating of 10 stars.'
 
 
-class ESS_and_PDRS_new_pump_star_rating(Variable):
+class ESS_and_PDRS_new_pump_star_rating(BaseVariable):
     value_type = Enum
     possible_values = ESS_PDRS_NewPumpStarRating
     default_value = ESS_PDRS_NewPumpStarRating.zero_stars
@@ -194,7 +194,7 @@ class ESS_and_PDRS_new_pump_star_rating(Variable):
     }
 
 
-class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_all_requirements(Variable):
+class PDRS_replace_existing_pool_pump_with_high_efficiency_pump_meets_all_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

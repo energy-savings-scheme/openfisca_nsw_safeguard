@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class SYS2_PDRSAug24_peak_demand_savings_capacity(Variable):
+class SYS2_PDRSAug24_peak_demand_savings_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -26,7 +26,7 @@ class SYS2_PDRSAug24_peak_demand_savings_capacity(Variable):
         return peak_demand_savings_capacity
     
 
-class SYS2_PDRSAug24_peak_demand_annual_savings(Variable):
+class SYS2_PDRSAug24_peak_demand_annual_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -93,7 +93,7 @@ class SYS2_PDRSAug24_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return        
 
 
-class SYS2_PDRSAug24_peak_demand_reduction_capacity(Variable):
+class SYS2_PDRSAug24_peak_demand_reduction_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -111,7 +111,7 @@ class SYS2_PDRSAug24_peak_demand_reduction_capacity(Variable):
         return peak_demand_reduction_capacity
 
 
-class SYS2_PDRSAug24_PRC_calculation(Variable):
+class SYS2_PDRSAug24_PRC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

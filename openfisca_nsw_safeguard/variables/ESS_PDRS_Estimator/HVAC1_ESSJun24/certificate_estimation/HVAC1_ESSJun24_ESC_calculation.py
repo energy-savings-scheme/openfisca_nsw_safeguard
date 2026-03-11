@@ -1,15 +1,15 @@
 from email.mime import base
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 np.set_printoptions(suppress=True)
 
 
-class HVAC1_ESSJun24_heating_annual_energy_use(Variable):
+class HVAC1_ESSJun24_heating_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -20,24 +20,20 @@ class HVAC1_ESSJun24_heating_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      heating_capacity = buildings('HVAC1_ESSJun24_heating_capacity_input', period)
-      equivalent_heating_hours = buildings('HVAC1_ESSJun24_equivalent_heating_hours_input', period)
-      rated_ACOP = buildings('HVAC1_ESSJun24_rated_ACOP_input', period)
-      
-      return np.select([    
-                            rated_ACOP == 0,
-                            (heating_capacity * equivalent_heating_hours) > 0, 
-                            (heating_capacity * equivalent_heating_hours) == 0,
-                            (heating_capacity * equivalent_heating_hours) < 0
-                        ],
-                        [
-                            0,
-                            (heating_capacity * equivalent_heating_hours) / rated_ACOP,
-                            0,
-                            (heating_capacity * equivalent_heating_hours) / rated_ACOP
-                        ])
+        heating_capacity = buildings('HVAC1_ESSJun24_heating_capacity_input', period)
+        equivalent_heating_hours = buildings('HVAC1_ESSJun24_equivalent_heating_hours_input', period)
+        rated_ACOP = buildings('HVAC1_ESSJun24_rated_ACOP_input', period)
+        numerator = heating_capacity * equivalent_heating_hours
 
-class HVAC1_ESSJun24_cooling_annual_energy_use(Variable):
+        return np.divide(
+            numerator,
+            rated_ACOP,
+            out=np.zeros_like(rated_ACOP, dtype=float),
+            where=rated_ACOP != 0
+        )
+
+
+class HVAC1_ESSJun24_cooling_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -48,25 +44,20 @@ class HVAC1_ESSJun24_cooling_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      cooling_capacity = buildings('HVAC1_ESSJun24_cooling_capacity_input', period)
-      equivalent_cooling_hours = buildings('HVAC1_ESSJun24_equivalent_cooling_hours_input', period)
-      rated_AEER = buildings('HVAC1_ESSJun24_rated_AEER_input', period)
+        cooling_capacity = buildings('HVAC1_ESSJun24_cooling_capacity_input', period)
+        equivalent_cooling_hours = buildings('HVAC1_ESSJun24_equivalent_cooling_hours_input', period)
+        rated_AEER = buildings('HVAC1_ESSJun24_rated_AEER_input', period)
+        numerator = cooling_capacity * equivalent_cooling_hours
 
-      return np.select([    
-                    rated_AEER == 0,
-                    (cooling_capacity * equivalent_cooling_hours) > 0, 
-                    (cooling_capacity * equivalent_cooling_hours) == 0,
-                    (cooling_capacity * equivalent_cooling_hours) < 0
-                ],
-                [
-                    0,
-                    (cooling_capacity * equivalent_cooling_hours) / rated_AEER, 
-                    0,
-                    (cooling_capacity * equivalent_cooling_hours) / rated_AEER
-                ])
+        return np.divide(
+            numerator,
+            rated_AEER,
+            out=np.zeros_like(rated_AEER, dtype=float),
+            where=rated_AEER != 0
+        )
 
 
-class HVAC1_ESSJun24_reference_heating_annual_energy_use(Variable):
+class HVAC1_ESSJun24_reference_heating_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -76,25 +67,20 @@ class HVAC1_ESSJun24_reference_heating_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      heating_capacity = buildings('HVAC1_ESSJun24_heating_capacity_input', period)
-      equivalent_heating_hours = buildings('HVAC1_ESSJun24_equivalent_heating_hours_input', period)
-      baseline_ACOP = buildings('HVAC1_ESSJun24_baseline_ACOP_input', period)
-      
-      return np.select([    
-                        baseline_ACOP == 0,
-                        (heating_capacity * equivalent_heating_hours) > 0, 
-                        (heating_capacity * equivalent_heating_hours) == 0,
-                        (heating_capacity * equivalent_heating_hours) < 0
-                    ],
-                    [
-                        0,
-                        (heating_capacity * equivalent_heating_hours) / baseline_ACOP,
-                        0,
-                        (heating_capacity * equivalent_heating_hours) / baseline_ACOP
-                    ])
+        heating_capacity = buildings('HVAC1_ESSJun24_heating_capacity_input', period)
+        equivalent_heating_hours = buildings('HVAC1_ESSJun24_equivalent_heating_hours_input', period)
+        baseline_ACOP = buildings('HVAC1_ESSJun24_baseline_ACOP_input', period)
+        numerator = heating_capacity * equivalent_heating_hours
+
+        return np.divide(
+            numerator,
+            baseline_ACOP,
+            out=np.zeros_like(baseline_ACOP, dtype=float),
+            where=baseline_ACOP != 0
+        )
 
 
-class HVAC1_ESSJun24_THEC_or_annual_heating(Variable):
+class HVAC1_ESSJun24_THEC_or_annual_heating(BaseVariable):
     #Check if there is a THEC and if not, use the annual heating energy use formula
     value_type = float
     entity = Building
@@ -115,7 +101,7 @@ class HVAC1_ESSJun24_THEC_or_annual_heating(Variable):
         return result_to_return
   
 
-class HVAC1_ESSJun24_reference_cooling_annual_energy_use(Variable):
+class HVAC1_ESSJun24_reference_cooling_annual_energy_use(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -125,25 +111,20 @@ class HVAC1_ESSJun24_reference_cooling_annual_energy_use(Variable):
     }
 
     def formula(buildings, period, parameters):
-      cooling_capacity = buildings('HVAC1_ESSJun24_cooling_capacity_input', period)
-      equivalent_cooling_hours = buildings('HVAC1_ESSJun24_equivalent_cooling_hours_input', period)
-      baseline_AEER = buildings('HVAC1_ESSJun24_baseline_AEER_input', period)
-      
-      return np.select([  
-                    baseline_AEER == 0,  
-                    (cooling_capacity * equivalent_cooling_hours) > 0, 
-                    (cooling_capacity * equivalent_cooling_hours) == 0,
-                    (cooling_capacity * equivalent_cooling_hours) < 0
-                ],
-                [
-                    0,
-                    (cooling_capacity * equivalent_cooling_hours) / baseline_AEER, 
-                    0,
-                    (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
-                ])
+        cooling_capacity = buildings('HVAC1_ESSJun24_cooling_capacity_input', period)
+        equivalent_cooling_hours = buildings('HVAC1_ESSJun24_equivalent_cooling_hours_input', period)
+        baseline_AEER = buildings('HVAC1_ESSJun24_baseline_AEER_input', period)
+        numerator = cooling_capacity * equivalent_cooling_hours
+
+        return np.divide(
+            numerator,
+            baseline_AEER,
+            out=np.zeros_like(baseline_AEER, dtype=float),
+            where=baseline_AEER != 0
+        )
 
 
-class HVAC1_ESSJun24_TCEC_or_annual_cooling(Variable):
+class HVAC1_ESSJun24_TCEC_or_annual_cooling(BaseVariable):
     #Check if there is a TCEC and if not, use the annual cooling energy use formula
     value_type = float
     entity = Building
@@ -164,7 +145,7 @@ class HVAC1_ESSJun24_TCEC_or_annual_cooling(Variable):
         return result_to_return
 
 
-class HVAC1_ESSJun24_deemed_activity_electricity_savings(Variable):
+class HVAC1_ESSJun24_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -192,7 +173,7 @@ class HVAC1_ESSJun24_AC_Type(Enum):
     ducted_unitary_system = 'Ducted unitary system'
 
 
-class HVAC1_ESSJun24_Air_Conditioner_type_savings(Variable):
+class HVAC1_ESSJun24_Air_Conditioner_type_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = HVAC1_ESSJun24_AC_Type
@@ -211,7 +192,7 @@ class HVAC1_ESSJun24_Activity_Type(Enum):
     replacement_activity = 'Replacement of an existing air conditioner'
 
 
-class HVAC1_ESSJun24_Activity_savings(Variable):
+class HVAC1_ESSJun24_Activity_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = HVAC1_ESSJun24_Activity_Type
@@ -225,7 +206,7 @@ class HVAC1_ESSJun24_Activity_savings(Variable):
     }
     
 
-class HVAC1_ESSJun24_annual_energy_savings(Variable):
+class HVAC1_ESSJun24_annual_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -437,7 +418,7 @@ class HVAC1_ESSJun24_annual_energy_savings(Variable):
       return annual_savings_return
       
 
-class HVAC1_ESSJun24_PDRS__regional_network_factor(Variable):
+class HVAC1_ESSJun24_PDRS__regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -457,7 +438,7 @@ class HVAC1_ESSJun24_PDRS__regional_network_factor(Variable):
         # is used to calculate a single value for regional network factor based on a zipcode provided
 
 
-class HVAC1_ESSJun24_electricity_savings(Variable):
+class HVAC1_ESSJun24_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -475,7 +456,7 @@ class HVAC1_ESSJun24_electricity_savings(Variable):
         return electricity_savings
 
 
-class HVAC1_ESSJun24_ESC_calculation(Variable):
+class HVAC1_ESSJun24_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY, YEAR
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
@@ -9,7 +9,7 @@ import numpy as np
 from datetime import date
 
 
-class ESS_PL_is_eligible_for_public_lighting(Variable):
+class ESS_PL_is_eligible_for_public_lighting(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -20,7 +20,7 @@ class ESS_PL_is_eligible_for_public_lighting(Variable):
         is_eligible_activity_type = buildings('ESS_CL_is_eligible_activity_type', period)
 
 
-class ESS_PL_is_eligible_activity_type(Variable):
+class ESS_PL_is_eligible_activity_type(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -35,21 +35,21 @@ class ESS_PL_is_eligible_activity_type(Variable):
             buildings('ESS_CL_is_building_lighting', period))
 
 
-class ESS_PL_is_lighting_for_roads_and_public_spaces(Variable):
+class ESS_PL_is_lighting_for_roads_and_public_spaces(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the activity a lighting upgrade for Roads and Public Spaces?'
 
 
-class ESS_PL_is_traffic_signals(Variable):
+class ESS_PL_is_traffic_signals(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the activity a lighting upgrade for Traffic Lighting?'
 
 
-class ESS_PL_is_building_lighting(Variable):
+class ESS_PL_is_building_lighting(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

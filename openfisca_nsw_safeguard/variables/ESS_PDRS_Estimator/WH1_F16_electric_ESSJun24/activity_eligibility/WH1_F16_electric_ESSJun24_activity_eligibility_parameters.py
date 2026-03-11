@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class WH1_F16_electric_ESSJun24__equipment_replaced(Variable):
+class WH1_F16_electric_ESSJun24__equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class WH1_F16_electric_ESSJun24__equipment_replaced(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24__equipment_removed(Variable):
+class WH1_F16_electric_ESSJun24__equipment_removed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class WH1_F16_electric_ESSJun24__equipment_removed(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24__engaged_ACP(Variable):
+class WH1_F16_electric_ESSJun24__engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -43,7 +43,7 @@ class WH1_F16_electric_ESSJun24__engaged_ACP(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24__minimum_payment(Variable):
+class WH1_F16_electric_ESSJun24__minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -55,7 +55,7 @@ class WH1_F16_electric_ESSJun24__minimum_payment(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24__building_BCA_not_class_1_or_4(Variable):
+class WH1_F16_electric_ESSJun24__building_BCA_not_class_1_or_4(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -67,7 +67,7 @@ class WH1_F16_electric_ESSJun24__building_BCA_not_class_1_or_4(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24__scheme_admin_approved(Variable):
+class WH1_F16_electric_ESSJun24__scheme_admin_approved(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -84,7 +84,7 @@ class WH1_F16_electric_ESSJun24__StorageVolume(Enum):
     more_than_700_L = 'More than 700 litres'
 
     
-class WH1_F16_electric_ESSJun24__storage_volume(Variable):
+class WH1_F16_electric_ESSJun24__storage_volume(BaseVariable):
     value_type = Enum
     entity = Building
     default_value = WH1_F16_electric_ESSJun24__StorageVolume.more_than_700_L
@@ -97,7 +97,7 @@ class WH1_F16_electric_ESSJun24__storage_volume(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24__storage_volume_int(Variable):
+class WH1_F16_electric_ESSJun24__storage_volume_int(BaseVariable):
     value_type = int
     entity = Building 
     definition_period = ETERNITY
@@ -117,7 +117,7 @@ class WH1_F16_electric_ESSJun24__storage_volume_int(Variable):
       return storage_volume_int
 
 
-class WH1_F16_electric_ESSJun24__certified(Variable):
+class WH1_F16_electric_ESSJun24__certified(BaseVariable):
     #only show this if the storage volume is 700L or less
     value_type = bool
     entity = Building
@@ -131,7 +131,7 @@ class WH1_F16_electric_ESSJun24__certified(Variable):
     }
    
 
-class WH1_F16_electric_ESSJun24__equipment_certified_by_storage_volume(Variable):
+class WH1_F16_electric_ESSJun24__equipment_certified_by_storage_volume(BaseVariable):
     """Checks if storage volume is less than or equal to 700L, and if it is, that it is certified by AS/NZS 2712
     """
     value_type = bool

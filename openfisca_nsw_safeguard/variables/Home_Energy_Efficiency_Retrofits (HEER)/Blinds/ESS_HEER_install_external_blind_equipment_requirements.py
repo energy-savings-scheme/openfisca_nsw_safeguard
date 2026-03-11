@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS_HEER_install_external_blind_new_equipment_is_external_shading_device(Variable):
+class ESS_HEER_install_external_blind_new_equipment_is_external_shading_device(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -12,14 +12,14 @@ class ESS_HEER_install_external_blind_new_equipment_is_external_shading_device(V
             ' as prescribed in Equipment Requirement 1.'
 
 
-class ESS_HEER_install_external_blind_new_equipment_is_automated(Variable):
+class ESS_HEER_install_external_blind_new_equipment_is_automated(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Asks whether the new product is automated.'
 
 
-class ESS_HEER_install_external_blind_minimum_warranty_length(Variable):
+class ESS_HEER_install_external_blind_minimum_warranty_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -31,7 +31,7 @@ class ESS_HEER_install_external_blind_minimum_warranty_length(Variable):
         return warranty_length >= 5
 
 
-class ESS_HEER_install_external_blind_meets_equipment_requirements(Variable):
+class ESS_HEER_install_external_blind_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

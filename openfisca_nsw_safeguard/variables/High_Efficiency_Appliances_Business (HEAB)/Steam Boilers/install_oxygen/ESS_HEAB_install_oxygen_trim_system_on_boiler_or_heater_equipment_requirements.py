@@ -1,10 +1,11 @@
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
+from openfisca_nsw_safeguard.entities import *
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 
 
-class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_end_user_equipment_has_oxygen_trim_system(Variable):
+class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_end_user_equipment_has_oxygen_trim_system(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -13,7 +14,7 @@ class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_end_user_equipment
     # weighting tool. if this is false, there is no need to ask the below questions.
 
 
-class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_oxygen_trim_system_has_flue_gas_sensor(Variable):
+class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_oxygen_trim_system_has_flue_gas_sensor(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +22,7 @@ class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_oxygen_trim_system
             ' a flue gas sensor, connected to a control panel?'
 
 
-class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_trim_system_capable_of_controlling_burner_air_supply(Variable):
+class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_trim_system_capable_of_controlling_burner_air_supply(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -29,7 +30,7 @@ class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_trim_system_capabl
             ' damper on the burner air supply?'
 
 
-class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_trim_system_capable_of_controlling_variable_speed_drive(Variable):
+class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_trim_system_capable_of_controlling_variable_speed_drive(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +38,7 @@ class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_trim_system_capabl
             ' speed drive on the fan motor?'
 
 
-class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_meets_equipment_requirements(Variable):
+class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

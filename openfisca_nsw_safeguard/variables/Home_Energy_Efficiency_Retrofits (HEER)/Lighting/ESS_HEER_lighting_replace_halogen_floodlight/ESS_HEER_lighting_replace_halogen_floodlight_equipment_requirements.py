@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_new_end_user_equipment_is_eligible(Variable):
+class ESS_HEER_lighting_replace_halogen_floodlight_new_end_user_equipment_is_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class ESS_HEER_lighting_replace_halogen_floodlight_new_end_user_equipment_is_eli
         return (is_CFLi + is_LED_luminaire_floodlight)
 
 
-class meets_A9_4_requirements(Variable):
+class meets_A9_4_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -32,7 +32,7 @@ class meets_A9_4_requirements(Variable):
             ' table A9.4, as required by Equipment Requirement 2.'
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_minimum_lamp_life(Variable):
+class ESS_HEER_lighting_replace_halogen_floodlight_minimum_lamp_life(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -50,7 +50,7 @@ class ESS_HEER_lighting_replace_halogen_floodlight_minimum_lamp_life(Variable):
         return (is_CFLi * condition_new_lamp_life) + is_LED_luminaire_floodlight
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_light_beam_angles_are_consistent(Variable):
+class ESS_HEER_lighting_replace_halogen_floodlight_light_beam_angles_are_consistent(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -65,7 +65,7 @@ class ESS_HEER_lighting_replace_halogen_floodlight_light_beam_angles_are_consist
         return light_beam_angles_are_consistent
 
 
-class ESS_HEER_lighting_replace_halogen_floodlight_meets_equipment_requirements(Variable):
+class ESS_HEER_lighting_replace_halogen_floodlight_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

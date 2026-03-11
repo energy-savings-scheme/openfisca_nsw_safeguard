@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class PDRS_RF2_replace_refrigerated_cabinet_peak_demand_savings(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_peak_demand_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -39,7 +39,7 @@ class PDRS_RF2_replace_refrigerated_cabinet_peak_demand_savings(Variable):
                 )
 
 
-class PDRS_RF2_replace_refrigerated_cabinet_baseline_input_power(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -69,7 +69,7 @@ class PDRS_RF2_replace_refrigerated_cabinet_baseline_input_power(Variable):
                 )
 
 
-class PDRS_RF2_replace_refrigerated_cabinet_input_power(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -88,7 +88,7 @@ class PDRS_RF2_replace_refrigerated_cabinet_input_power(Variable):
                 )
 
 
-class PDRS_RF2_replace_refrigerated_cabinet_baseline_peak_adjustment_factor(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_baseline_peak_adjustment_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -111,7 +111,7 @@ class PDRS_RF2_replace_refrigerated_cabinet_baseline_peak_adjustment_factor(Vari
 
 
 
-class PDRS_RF2_replace_refrigerated_cabinet_meets_all_eligibility_criteria(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_meets_all_eligibility_criteria(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

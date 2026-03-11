@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class PDRS_ROOA_firmness_factor(Variable):
+class PDRS_ROOA_firmness_factor(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class PDRS_ROOA_firmness_factor(Variable):
         return contribution_factor*load_factor*duration_factor
 
 
-class PDRS_ROOA_fridge_peak_demand_savings(Variable):
+class PDRS_ROOA_fridge_peak_demand_savings(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY

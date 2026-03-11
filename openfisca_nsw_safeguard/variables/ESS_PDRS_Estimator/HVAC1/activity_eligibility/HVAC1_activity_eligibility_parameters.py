@@ -1,8 +1,8 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 class HVAC1NewInstallationReplacement(Enum):
@@ -11,7 +11,7 @@ class HVAC1NewInstallationReplacement(Enum):
 
 
 
-class HVAC1_new_installation_or_replacement(Variable):
+class HVAC1_new_installation_or_replacement(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = HVAC1NewInstallationReplacement
@@ -24,7 +24,7 @@ class HVAC1_new_installation_or_replacement(Variable):
     }
 
 
-class HVAC1_new_installation_or_replacement_eligible(Variable):
+class HVAC1_new_installation_or_replacement_eligible(BaseVariable):
     """Checks if the type of activity is eligible
     """
     value_type = bool
@@ -47,7 +47,7 @@ class HVAC1_new_installation_or_replacement_eligible(Variable):
       return activity_type_eligible
 
 
-class HVAC1_installed_by_qualified_person(Variable):
+class HVAC1_installed_by_qualified_person(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -59,7 +59,7 @@ class HVAC1_installed_by_qualified_person(Variable):
     }
 
 
-class HVAC1_engaged_ACP(Variable):
+class HVAC1_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -73,7 +73,7 @@ class HVAC1_engaged_ACP(Variable):
     }
 
 
-class HVAC1_equipment_registered_in_GEMS(Variable):
+class HVAC1_equipment_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -86,7 +86,7 @@ class HVAC1_equipment_registered_in_GEMS(Variable):
     }
 
 
-class HVAC1_new_equipment_cooling_capacity(Variable):
+class HVAC1_new_equipment_cooling_capacity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -100,7 +100,7 @@ class HVAC1_new_equipment_cooling_capacity(Variable):
     }
 
 
-class HVAC1_AEER_greater_than_minimum(Variable):
+class HVAC1_AEER_greater_than_minimum(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -115,7 +115,7 @@ class HVAC1_AEER_greater_than_minimum(Variable):
     }
 
 
-class HVAC1_TCPSF_greater_than_minimum(Variable):
+class HVAC1_TCPSF_greater_than_minimum(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -136,7 +136,7 @@ class DefaultValuesClimateZone(Enum):
     cold_zone = "Cold zone"
 
 
-class HVAC1_climate_zone(Variable):
+class HVAC1_climate_zone(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = DefaultValuesClimateZone
@@ -148,7 +148,7 @@ class HVAC1_climate_zone(Variable):
     }
 
 
-class HVAC1_new_equipment_heating_capacity(Variable):
+class HVAC1_new_equipment_heating_capacity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -168,7 +168,7 @@ class HVAC1_new_equipment_heating_capacity(Variable):
     }
 
 
-class HVAC1_HSPF_mixed_eligible(Variable):
+class HVAC1_HSPF_mixed_eligible(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -189,7 +189,7 @@ class HVAC1_HSPF_mixed_eligible(Variable):
     }
 
 
-class HVAC1_ACOP_eligible(Variable):
+class HVAC1_ACOP_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -210,7 +210,7 @@ class HVAC1_ACOP_eligible(Variable):
     }
 
 
-class HVAC1_HSPF_cold_eligible(Variable):
+class HVAC1_HSPF_cold_eligible(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

@@ -417,7 +417,7 @@
         non_ducted_split_system,
         ducted_unitary_system,
         non_ducted_split_system,
-        new_installation_activity
+        ducted_unitary_system
       ]
     HVAC1_ESSJun24_Activity:
       [

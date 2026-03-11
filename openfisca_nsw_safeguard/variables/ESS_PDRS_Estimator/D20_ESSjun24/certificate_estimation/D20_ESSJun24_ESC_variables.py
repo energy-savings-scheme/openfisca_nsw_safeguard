@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
@@ -10,7 +10,7 @@ import numpy as np
 """
 
 
-class D20_ESSJun24_PDRS__postcode(Variable):
+class D20_ESSJun24_PDRS__postcode(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class D20_ESSJun24_PDRS__postcode(Variable):
     }
 
 
-class D20_ESSJun24_BCA_climate_zone_by_postcode(Variable):
+class D20_ESSJun24_BCA_climate_zone_by_postcode(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -61,7 +61,7 @@ class D20_ESSJun24_BCA_climate_zone_by_postcode(Variable):
         return BCA_climate_zone_to_check
     
     
-class D20_ESSJun24_BCA_climate_zone_by_postcode_int(Variable):
+class D20_ESSJun24_BCA_climate_zone_by_postcode_int(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -78,7 +78,7 @@ class D20_ESSJun24_BCA_climate_zone_by_postcode_int(Variable):
         return climate_zone_int
     
 
-class D20_ESSJun24_get_HP_zone_by_BCA_climate_zone(Variable): 
+class D20_ESSJun24_get_HP_zone_by_BCA_climate_zone(BaseVariable): 
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -91,7 +91,7 @@ class D20_ESSJun24_get_HP_zone_by_BCA_climate_zone(Variable):
         return heat_pump_zone_int
     
 
-class D20_ESSJun24_regional_network_factor(Variable):
+class D20_ESSJun24_regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -103,7 +103,7 @@ class D20_ESSJun24_regional_network_factor(Variable):
         return rnf.calc(postcode)
 
 
-class D20_ESSJun24_replacement_activity(Variable):
+class D20_ESSJun24_replacement_activity(BaseVariable):
     value_type = bool
     default_value = True
     entity = Building
@@ -121,7 +121,7 @@ class D20_ESSJun24_System_Size(Enum):
     system_size_medium = 'medium'
 
 
-class D20_ESSJun24_system_size(Variable):
+class D20_ESSJun24_system_size(BaseVariable):
     value_type = Enum
     entity = Building
     definition_period = ETERNITY
@@ -135,7 +135,7 @@ class D20_ESSJun24_system_size(Variable):
     }
 
 
-class D20_ESSJun24_system_size_int(Variable):
+class D20_ESSJun24_system_size_int(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -154,7 +154,7 @@ class D20_ESSJun24_system_size_int(Variable):
         return system_size_int
 
 
-class D20_ESSJun24_Baseline_A(Variable):
+class D20_ESSJun24_Baseline_A(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -166,7 +166,7 @@ class D20_ESSJun24_Baseline_A(Variable):
         return Baseline_A
 
 
-class D20_ESSJun24_Bs(Variable):
+class D20_ESSJun24_Bs(BaseVariable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -179,7 +179,7 @@ class D20_ESSJun24_Bs(Variable):
     }
 
 
-class D20_ESSJun24_Be(Variable):
+class D20_ESSJun24_Be(BaseVariable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -192,7 +192,7 @@ class D20_ESSJun24_Be(Variable):
     }
 
 
-class D20_ESSJun24_Baseline_B(Variable):
+class D20_ESSJun24_Baseline_B(BaseVariable):
     #baseline B is also the deemed activity gas savings value
     value_type = float
     entity = Building

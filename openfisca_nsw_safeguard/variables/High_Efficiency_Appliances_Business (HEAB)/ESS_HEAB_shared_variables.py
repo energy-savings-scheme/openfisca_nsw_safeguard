@@ -1,8 +1,8 @@
 
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 import time
 import datetime
@@ -18,14 +18,14 @@ today = today_date_and_time.astype('datetime64[D]')
 # variables used to calculate age of equipment.
 
 
-class ESS_HEAB_existing_equipment_installation_date(Variable):
+class ESS_HEAB_existing_equipment_installation_date(BaseVariable):
     value_type = date
     entity = Building
     definition_period = ETERNITY
     label = 'What is the installation date for the existing equipment?'
 
 
-class ESS_HEAB_existing_equipment_age(Variable):
+class ESS_HEAB_existing_equipment_age(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -38,7 +38,7 @@ class ESS_HEAB_existing_equipment_age(Variable):
         existing_equipment_age_as_int = (existing_equipment_age_in_years).astype('int')
         return (existing_equipment_age_as_int)
 
-class ESS_HEAB_new_product_warranty_length(Variable):
+class ESS_HEAB_new_product_warranty_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY

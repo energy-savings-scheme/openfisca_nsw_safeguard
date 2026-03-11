@@ -1,17 +1,18 @@
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw_base.entities import *
+from openfisca_nsw_safeguard.entities import *
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 
 
-class ESS_HEAB_install_close_circuit_AC_is_close_control_air_conditioner(Variable):
+class ESS_HEAB_install_close_circuit_AC_is_close_control_air_conditioner(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Is the product a close control air conditioner?'
 
 
-class ESS_HEAB_install_close_circuit_AC_is_registered_in_GEMS(Variable):
+class ESS_HEAB_install_close_circuit_AC_is_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +22,7 @@ class ESS_HEAB_install_close_circuit_AC_is_registered_in_GEMS(Variable):
     # dropdown from said Registry in the form of an Enum?
 
 
-class ESS_HEAB_install_close_circuit_AC_complies_with_GEMS_2012_CCAC(Variable):
+class ESS_HEAB_install_close_circuit_AC_complies_with_GEMS_2012_CCAC(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +31,7 @@ class ESS_HEAB_install_close_circuit_AC_complies_with_GEMS_2012_CCAC(Variable):
     # what does complying with this Determination mean?
 
 
-class ESS_HEAB_install_close_circuit_AC_EER_20_percent_higher_than_baseline(Variable):
+class ESS_HEAB_install_close_circuit_AC_EER_20_percent_higher_than_baseline(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -55,7 +56,7 @@ class ESS_HEAB_install_close_circuit_AC_EER_20_percent_higher_than_baseline(Vari
         return percentage_increase > 20
 
 
-class ESS_HEAB_install_close_circuit_AC_meets_equipment_requirements(Variable):
+class ESS_HEAB_install_close_circuit_AC_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

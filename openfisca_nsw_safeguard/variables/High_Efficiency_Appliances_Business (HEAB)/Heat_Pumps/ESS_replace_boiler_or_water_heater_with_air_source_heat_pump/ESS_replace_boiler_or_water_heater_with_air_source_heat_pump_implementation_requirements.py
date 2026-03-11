@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_hot_water_pump_is_removed(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_hot_water_pump_is_removed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -13,7 +13,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_existing_hot_
         'alias':  'The existing hot water pump has been removed'
     }
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_is_installed(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_is_installed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
     }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_implementation_requirements(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

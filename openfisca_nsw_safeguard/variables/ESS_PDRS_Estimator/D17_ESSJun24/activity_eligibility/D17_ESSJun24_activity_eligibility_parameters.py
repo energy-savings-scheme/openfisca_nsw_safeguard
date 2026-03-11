@@ -1,12 +1,12 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 
-class D17_ESSJun24_equipment_replaced(Variable):
+class D17_ESSJun24_equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -19,7 +19,7 @@ class D17_ESSJun24_equipment_replaced(Variable):
     }
 
 
-class D17_ESSJun24_engaged_ACP(Variable):
+class D17_ESSJun24_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -33,7 +33,7 @@ class D17_ESSJun24_engaged_ACP(Variable):
     }
 
 
-class D17_ESSJun24_minimum_payment(Variable):
+class D17_ESSJun24_minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -46,7 +46,7 @@ class D17_ESSJun24_minimum_payment(Variable):
     }
 
 
-class D17_ESSJun24_equipment_removed(Variable):
+class D17_ESSJun24_equipment_removed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -58,7 +58,7 @@ class D17_ESSJun24_equipment_removed(Variable):
     }
 
 
-class D17_ESSJun24_equipment_installed(Variable):
+class D17_ESSJun24_equipment_installed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -70,7 +70,7 @@ class D17_ESSJun24_equipment_installed(Variable):
     }
 
 
-class D17_ESSJun24_installed_by_qualified_person(Variable):
+class D17_ESSJun24_installed_by_qualified_person(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -82,7 +82,7 @@ class D17_ESSJun24_installed_by_qualified_person(Variable):
     }
 
 
-class D17_ESSJun24_equipment_registered_IPART(Variable):
+class D17_ESSJun24_equipment_registered_IPART(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -99,7 +99,7 @@ class D17_ESSJun24_equipment_registered_IPART(Variable):
     }
 
 
-class D17_ESSJun24_split_system(Variable):
+class D17_ESSJun24_split_system(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -111,7 +111,7 @@ class D17_ESSJun24_split_system(Variable):
     }
 
 
-class D17_ESSJun24_safety_requirement(Variable):
+class D17_ESSJun24_safety_requirement(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

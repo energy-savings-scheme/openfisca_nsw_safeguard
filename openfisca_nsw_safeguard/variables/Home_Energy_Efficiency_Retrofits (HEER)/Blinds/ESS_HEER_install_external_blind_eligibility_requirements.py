@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS_HEER_install_external_blind_site_must_be_residential_or_small_building(Variable):
+class ESS_HEER_install_external_blind_site_must_be_residential_or_small_building(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_HEER_install_external_blind_site_must_be_residential_or_small_building
         )
 
 
-class ESS_HEER_install_external_blind_window_or_door_is_fully_glazed(Variable):
+class ESS_HEER_install_external_blind_window_or_door_is_fully_glazed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -31,7 +31,7 @@ class ESS_HEER_install_external_blind_window_or_door_is_fully_glazed(Variable):
             ' on is fully glazed, as prescribed in Eligibility Requirement 2.'
 
 
-class ESS_HEER_install_external_blind_window_or_door_does_not_face_south(Variable):
+class ESS_HEER_install_external_blind_window_or_door_does_not_face_south(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -48,7 +48,7 @@ class ESS_HEER_install_external_blind_window_or_door_does_not_face_south(Variabl
         return not(condition_degrees_from_true_north)
 
 
-class ESS_HEER_install_external_blind_window_or_door_orientation(Variable):
+class ESS_HEER_install_external_blind_window_or_door_orientation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -56,7 +56,7 @@ class ESS_HEER_install_external_blind_window_or_door_orientation(Variable):
             ' true north.'
 
 
-class ESS_HEER_install_external_blind_meets_eligibility_requirements(Variable):
+class ESS_HEER_install_external_blind_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

@@ -1,14 +1,14 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 # detailed in PDRS activity XX
 
-class PDRS_HVAC_2_replace_meets_eligibility_requirements(Variable):
+class PDRS_HVAC_2_replace_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -30,7 +30,7 @@ class PDRS_HVAC_2_replace_meets_eligibility_requirements(Variable):
         return np.logical_not(is_residential) * np.logical_not(no_existing_AC) * is_class2
 
 
-class PDRS_HVAC_2_replace_meets_equipment_requirements(Variable):
+class PDRS_HVAC_2_replace_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -50,7 +50,7 @@ class PDRS_HVAC_2_replace_meets_equipment_requirements(Variable):
         return is_in_GEM * exceeds_benchmark_TCSPF_or_AEER
 
 
-class PDRS_HVAC_2_replace_meets_implementation_requirements(Variable):
+class PDRS_HVAC_2_replace_meets_implementation_requirements(BaseVariable):
     """ Equipment_is_removed is found in appliances_implementation_requirements
     """
     value_type = bool
@@ -74,7 +74,7 @@ class PDRS_HVAC_2_replace_meets_implementation_requirements(Variable):
         return is_installed * is_removed * performed_by_qualified_person
 
 
-class PDRS_HVAC_2_replace_meets_all_requirements(Variable):
+class PDRS_HVAC_2_replace_meets_all_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -96,14 +96,14 @@ class PDRS_HVAC_2_replace_meets_all_requirements(Variable):
         return implementation * eligibility * equipment
 
 
-class PDRS_HVAC_2_replacement(Variable):
+class PDRS_HVAC_2_replacement(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
 
 
-class Equipment_is_installed(Variable):
+class Equipment_is_installed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

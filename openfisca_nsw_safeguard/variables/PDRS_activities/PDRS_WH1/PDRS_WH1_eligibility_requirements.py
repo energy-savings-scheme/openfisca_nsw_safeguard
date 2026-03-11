@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
-class PDRS_WH1_meets_eligibility_requirements(Variable):
+class PDRS_WH1_meets_eligibility_requirements(BaseVariable):
   value_type = bool
   entity = Building
   default_value = False
@@ -33,7 +33,7 @@ class GasHeaterEquipmentTypes(Enum):
 #we shouldn't have two lists of possible gas heaters
 
 
-class gas_heater_equipment_type(Variable):
+class gas_heater_equipment_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = GasHeaterEquipmentTypes

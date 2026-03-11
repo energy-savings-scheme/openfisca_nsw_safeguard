@@ -1,14 +1,14 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 # detailed in PDRS activity XX
 
-class PDRS_HVAC_1_replace_meets_eligibility_requirements(Variable):
+class PDRS_HVAC_1_replace_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -21,7 +21,7 @@ class PDRS_HVAC_1_replace_meets_eligibility_requirements(Variable):
     }
 
 
-class PDRS_HVAC_1_replace_meets_equipment_requirements(Variable):
+class PDRS_HVAC_1_replace_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -42,7 +42,7 @@ class PDRS_HVAC_1_replace_meets_equipment_requirements(Variable):
         return is_in_GEM * exceeds_benchmark
 
 
-class PDRS_HVAC_1_replace_meets_implementation_requirements(Variable):
+class PDRS_HVAC_1_replace_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -64,7 +64,7 @@ class PDRS_HVAC_1_replace_meets_implementation_requirements(Variable):
         return is_installed * is_removed * performed_by_qualified_person
 
 
-class PDRS_HVAC_1_replace_meets_all_requirements(Variable):
+class PDRS_HVAC_1_replace_meets_all_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False

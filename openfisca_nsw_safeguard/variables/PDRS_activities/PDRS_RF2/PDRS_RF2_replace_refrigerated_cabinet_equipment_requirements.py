@@ -1,13 +1,13 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 import numpy as np
 
-class PDRS_RF2_replace_refrigerated_cabinet_activity_new_equipment_is_RC(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_activity_new_equipment_is_RC(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -17,7 +17,7 @@ class PDRS_RF2_replace_refrigerated_cabinet_activity_new_equipment_is_RC(Variabl
         "regulation_reference": PDRS_2022["XX", "fridge"]
     }
 
-class PDRS_RF2_replace_refrigerated_cabinet_is_under_baseline_EEI(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_is_under_baseline_EEI(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -39,7 +39,7 @@ class PDRS_RF2_replace_refrigerated_cabinet_is_under_baseline_EEI(Variable):
                             new_product_EEI < 81)
 
 
-class PDRS_RF2_replace_refrigerated_cabinet_is_registered_in_GEMS(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_is_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -50,7 +50,7 @@ class PDRS_RF2_replace_refrigerated_cabinet_is_registered_in_GEMS(Variable):
     }
 
 
-class PDRS_RF2_replace_refrigerated_cabinet_meets_equipment_requirements(Variable):
+class PDRS_RF2_replace_refrigerated_cabinet_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

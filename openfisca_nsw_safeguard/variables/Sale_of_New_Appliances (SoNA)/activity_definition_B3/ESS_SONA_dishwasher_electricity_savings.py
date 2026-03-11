@@ -1,18 +1,18 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS__SONA_dishwasher_number_of_place_settings(Variable):
+class ESS__SONA_dishwasher_number_of_place_settings(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'How many place settings does the dishwasher have?'
 
 
-class ESS__SONA_dishwasher_electricity_savings(Variable):
+class ESS__SONA_dishwasher_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

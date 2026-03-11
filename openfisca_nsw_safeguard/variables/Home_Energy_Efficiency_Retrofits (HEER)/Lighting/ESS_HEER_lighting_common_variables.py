@@ -1,13 +1,13 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 from openfisca_nsw_safeguard.variables.ESS_lighting_common_variables import LightingEquipmentClass
 
-class ESS_HEER_lighting_existing_lamp_type(Variable):
+class ESS_HEER_lighting_existing_lamp_type(BaseVariable):
     value_type = Enum
     possible_values = LightingEquipmentClass
     default_value = LightingEquipmentClass.T12_linear
@@ -17,7 +17,7 @@ class ESS_HEER_lighting_existing_lamp_type(Variable):
             ' in Schedule A.'
 
 
-class ESS_HEER_lighting_new_lamp_type(Variable):
+class ESS_HEER_lighting_new_lamp_type(BaseVariable):
     value_type = Enum
     possible_values = LightingEquipmentClass
     default_value = LightingEquipmentClass.T12_linear
@@ -27,7 +27,7 @@ class ESS_HEER_lighting_new_lamp_type(Variable):
             ' in Schedule A.'
 
 
-class ESS_HEER_lighting_existing_lamp_circuit_power(Variable):
+class ESS_HEER_lighting_existing_lamp_circuit_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -35,28 +35,28 @@ class ESS_HEER_lighting_existing_lamp_circuit_power(Variable):
             'in W, as measured in accordance with Table A9.4.'
 
 
-class ESS_HEER_existing_lamp_rating(Variable):
+class ESS_HEER_existing_lamp_rating(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'Asks for the rated wattage of the existing lamp.'  # need to check whether lamp rating is int or float
 
 
-class ESS_HEER_existing_lamp_length(Variable):
+class ESS_HEER_existing_lamp_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'What is the length of the existing lamp, in millimetres?'
 
 
-class ESS_HEER_number_of_existing_lamps(Variable):
+class ESS_HEER_number_of_existing_lamps(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'How many lamps are in the existing luminaire?'
 
 
-class ESS_HEER_lighting_new_lamp_circuit_power(Variable):
+class ESS_HEER_lighting_new_lamp_circuit_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -64,28 +64,28 @@ class ESS_HEER_lighting_new_lamp_circuit_power(Variable):
             'in W, as measured in accordance with Table A9.4.'
 
 
-class ESS_HEER_new_lamp_life(Variable):
+class ESS_HEER_new_lamp_life(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'measures the Lamp Life of the replacement light in hours'
 
 
-class ESS_HEER_lighting_new_lamp_light_output(Variable):
+class ESS_HEER_lighting_new_lamp_light_output(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'What is the light output of the new lamp?'
 
 
-class ESS_HEER_new_lamp_length(Variable):
+class ESS_HEER_new_lamp_length(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
     label = 'What is the length of the new lamp, in millimetres?'
 
 
-class ESS_HEER_downward_light_output(Variable):
+class ESS_HEER_downward_light_output(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -93,14 +93,14 @@ class ESS_HEER_downward_light_output(Variable):
             ' Equipment, in lumens.'
 
 
-class ESS_HEER_original_light_beam_angle(Variable):
+class ESS_HEER_original_light_beam_angle(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     label = 'user input for the angle of the original lamp light beam.'
 
 
-class ESS_HEER_new_light_beam_angle(Variable):
+class ESS_HEER_new_light_beam_angle(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

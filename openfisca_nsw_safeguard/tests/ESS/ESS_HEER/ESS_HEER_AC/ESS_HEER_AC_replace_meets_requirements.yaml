@@ -3,7 +3,7 @@
       ACs are eligible.
   period: 2022
   input: 
-    product_class: non_ducted_split_system
+    Air_Conditioner_type: non_ducted_split_system
     AC_HSPF_mixed: 5
     AC_HSPF_cold: 5
     AC_ACOP: 5
@@ -28,7 +28,7 @@
       ACs are eligible.
   period: 2022
   input: 
-    product_class: non_ducted_split_system
+    Air_Conditioner_type: non_ducted_split_system
     AC_HSPF_mixed: 5
     AC_HSPF_cold: 5
     AC_ACOP: 5

@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_with_LED_existing_lamp_is_tungsten_halogen_240V_or_ELV_or_infrafred_ELV(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_with_LED_existing_lamp_is_tungsten_halogen_240V_or_ELV_or_infrafred_ELV(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_with_LED_existing_lamp_is_tung
         return is_tungsten_halogen_240V + is_tungsten_halogen_ELV + is_infrared_coated_ELV
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_with_LED_is_multifacted_reflector(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_with_LED_is_multifacted_reflector(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -32,7 +32,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_with_LED_is_multifacted_reflec
             ' E1.'  # insert definition requirements
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_with_LED_existing_lamp_rating_is_35W_or_50W(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_with_LED_existing_lamp_rating_is_35W_or_50W(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -49,7 +49,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_with_LED_existing_lamp_rating_
         return np.where(condition_lamp_rating, True, False)
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_with_LED_is_in_working_order(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_with_LED_is_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -58,7 +58,7 @@ class ESS_HEER_lighting_replace_halogen_downlight_with_LED_is_in_working_order(V
             ' E1.'  # insert definition requirements
 
 
-class ESS_HEER_lighting_replace_halogen_downlight_with_LED_meets_eligibility_requirements(Variable):
+class ESS_HEER_lighting_replace_halogen_downlight_with_LED_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

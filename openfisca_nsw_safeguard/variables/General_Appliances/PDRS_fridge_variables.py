@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class Fridge_is_classified_as_refrigerator(Variable):
+class Fridge_is_classified_as_refrigerator(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class Fridge_is_classified_as_refrigerator(Variable):
     }
 
 
-class Fridge_not_primary(Variable):
+class Fridge_not_primary(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -27,7 +27,7 @@ class Fridge_not_primary(Variable):
     }
 
 
-class Fridge_in_working_order(Variable):
+class Fridge_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -38,7 +38,7 @@ class Fridge_in_working_order(Variable):
     }
 
 
-class Fridge_capacity_more_than_200L(Variable):
+class Fridge_capacity_more_than_200L(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -49,7 +49,7 @@ class Fridge_capacity_more_than_200L(Variable):
     }
 
 
-class Fridge_total_number_one_less(Variable):
+class Fridge_total_number_one_less(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -60,7 +60,7 @@ class Fridge_total_number_one_less(Variable):
     }
 
 
-class another_fridge_provides_primary_refrigeration(Variable):
+class another_fridge_provides_primary_refrigeration(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

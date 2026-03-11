@@ -1,26 +1,26 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_motor_is_installed_into_refrigerated_cabinet(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_motor_is_installed_into_refrigerated_cabinet(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Has the motor been installed into a refrigerated cabinet?'
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_motor_is_installed_into_reach_in_freezer(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_motor_is_installed_into_reach_in_freezer(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Has the motor been installed into a reach in freezer?'
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_motor_is_installed_into_cold_room_evaporator_in_use(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_motor_is_installed_into_cold_room_evaporator_in_use(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -28,7 +28,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_motor_is_installed_into_cold_roo
             ' which is in use?'
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_unit_in_RC_freezer_or_cold_room(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_unit_in_RC_freezer_or_cold_room(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -42,7 +42,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_unit_in_RC_freezer_or_cold_room(
         return (installed_in_RC + installed_in_reach_in_freezer + installed_in_cold_room)
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_unit_replaces_equivalent_shaded_pole_motor_unit(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_unit_replaces_equivalent_shaded_pole_motor_unit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -50,7 +50,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_unit_replaces_equivalent_shaded_
             ' motor unit?'
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_unit_replaces_permanent_split_capacitor_motor(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_unit_replaces_permanent_split_capacitor_motor(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -58,7 +58,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_unit_replaces_permanent_split_ca
             ' capacitor motor?'
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_replaces_equivalent_shaded_or_permanent_split_unit(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_replaces_equivalent_shaded_or_permanent_split_unit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -71,14 +71,14 @@ class ESS_HEAB_install_motor_to_provide_cooling_replaces_equivalent_shaded_or_pe
         return (replaces_shaded_pole_motor_unit + replaces_permanent_split_capacitor_motor)
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_unit_installed_to_manufacturer_guidelines(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_unit_installed_to_manufacturer_guidelines(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Has the unit been installed according to manufacturer guidelines?'
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_unit_installed_to_administrator_requirements(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_unit_installed_to_administrator_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -86,7 +86,7 @@ class ESS_HEAB_install_motor_to_provide_cooling_unit_installed_to_administrator_
             ' requirements set out by the Scheme Administrator?'
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_meets_installation_requirements(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_meets_installation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

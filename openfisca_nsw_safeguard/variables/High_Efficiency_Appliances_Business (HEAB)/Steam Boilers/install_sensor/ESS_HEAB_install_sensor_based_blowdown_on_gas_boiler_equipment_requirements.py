@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 
-class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_is_capable_of_automatic_blowdown(Variable):
+class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_is_capable_of_automatic_blowdown(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -15,7 +15,7 @@ class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_is_capable_of_automat
             ' steam boiler?'
 
 
-class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_meets_equipment_requirements(Variable):
+class ESS_HEAB_install_sensor_based_blowdown_on_gas_boiler_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

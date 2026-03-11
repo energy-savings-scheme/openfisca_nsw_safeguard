@@ -1,12 +1,12 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 
-class BESS2_demand_response_contract(Variable):
+class BESS2_demand_response_contract(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -18,7 +18,7 @@ class BESS2_demand_response_contract(Variable):
     }
 
 
-class BESS2_existing_solar_battery(Variable):
+class BESS2_existing_solar_battery(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -30,7 +30,7 @@ class BESS2_existing_solar_battery(Variable):
     }
 
 
-class BESS2_solar_panels_existing_address(Variable):
+class BESS2_solar_panels_existing_address(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -42,7 +42,7 @@ class BESS2_solar_panels_existing_address(Variable):
     }
     
 
-class BESS2_life_support_equipment(Variable):
+class BESS2_life_support_equipment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -54,7 +54,7 @@ class BESS2_life_support_equipment(Variable):
     }
 
 
-class BESS2_battery_capacity(Variable):
+class BESS2_battery_capacity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -66,7 +66,7 @@ class BESS2_battery_capacity(Variable):
     }
 
 
-class BESS2_implementation_date(Variable):
+class BESS2_implementation_date(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -78,7 +78,7 @@ class BESS2_implementation_date(Variable):
     }
 
 
-class BESS2_internet_connectable(Variable):
+class BESS2_internet_connectable(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -90,7 +90,7 @@ class BESS2_internet_connectable(Variable):
     }
 
 
-class BESS2_battery_controllable_third_party(Variable):
+class BESS2_battery_controllable_third_party(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -102,7 +102,7 @@ class BESS2_battery_controllable_third_party(Variable):
     }
 
 
-class BESS2_approved_battery_list(Variable):
+class BESS2_approved_battery_list(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

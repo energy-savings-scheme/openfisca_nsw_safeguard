@@ -26,17 +26,11 @@
         6,
         2
       ]
-    C1_PDRSAug24_PDRS__postcode:
-      [
-        2024, #rnf 1
-        2800,  #rnf 1.03
-        2076  #rnf 1
-      ]
   output:
     C1_PDRSAug24_energy_savings:
       [
         17.1,
-        35.226,
+        34.2,
         11.4
       ]
 
@@ -48,14 +42,10 @@
       [
         28.5
       ]
-    C1_PDRSAug24_PDRS__postcode:
-      [
-        2536 #rnf of 1.03
-      ]
   output:
     C1_PDRSAug24_electricity_savings:
       [
-        29.355
+        28.5
       ]
 
 - name: test C1 ESC calculation simple version
@@ -94,11 +84,6 @@
         5, #deemed activity electricity savings 28.5
         74 #deemed activity electricity savings 421.8
       ]
-    C1_PDRSAug24_PDRS__postcode:
-      [
-        2536, #rnf of 1.03
-        2787  #rnf of 1.03
-      ]
     C1_PDRSAug24_storage_volume:
       [
         True,
@@ -107,6 +92,6 @@
   output:
     C1_PDRSAug24_ESC_calculation:
       [
-        31.1163,
-        460.5212
+        30.21,
+        447.1079
       ]

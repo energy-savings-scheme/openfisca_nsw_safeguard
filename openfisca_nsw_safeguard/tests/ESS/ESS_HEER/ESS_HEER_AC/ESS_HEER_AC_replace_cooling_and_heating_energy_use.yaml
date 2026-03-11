@@ -1,4 +1,4 @@
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted split systems in hot zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -27,7 +27,7 @@
                                                     9100,
                                                     18530.908
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted split systems in average zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -56,7 +56,7 @@
                                                     3064.2856,
                                                     6240
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted split systems in cold zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -85,7 +85,7 @@
                                                     2035.7142,
                                                     4145.4546
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted unitary systems in hot zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -114,7 +114,7 @@
                                                     9100,
                                                     18530.908
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted unitary systems in average zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -143,7 +143,7 @@
                                                     3064.2856,
                                                     6240
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted unitary systems in cold zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -172,7 +172,7 @@
                                                     2035.7142,
                                                     4145.4546
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted split systems in hot zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -201,7 +201,7 @@
                                                     9100,
                                                     18530.908
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted split systems in average zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -230,7 +230,7 @@
                                                     3064.2856,
                                                     6240
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted split systems in cold zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -259,7 +259,7 @@
                                                     2035.7142,
                                                     4145.4546
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted unitary systems in hot zone zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -283,12 +283,12 @@
                       ]                        
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
-                                                    1147.7478,
-                                                    3043.686,
+                                                    1365,
+                                                    3185,
                                                     9100,
                                                     18530.908
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted unitary systems in average zone.
   period: 2023
   absolute_error_margin: 50
   input:
@@ -312,12 +312,12 @@
                       ]                        
   output: 
     ESS_HEER_AC_replace_reference_cooling_annual_energy_use: [
-                                                    386.48648,
-                                                    1024.9147,
+                                                    459.64285,
+                                                    1072.5,
                                                     3064.2856,
                                                     6240
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted unitary systems in cold zone.
   period: 2023
   absolute_error_margin: 50
   input:

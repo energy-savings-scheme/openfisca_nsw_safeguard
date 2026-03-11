@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 
-class RF1_get_network_loss_factor_by_postcode(Variable):
+class RF1_get_network_loss_factor_by_postcode(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +21,7 @@ class RF1_get_network_loss_factor_by_postcode(Variable):
         return network_loss_factor.calc(postcode)
 
 
-class RF1_peak_demand_savings_capacity(Variable):
+class RF1_peak_demand_savings_capacity(BaseVariable):
     reference = 'peak demand savings capacity'
     value_type = float
     entity = Building
@@ -42,7 +42,7 @@ class RF1_peak_demand_savings_capacity(Variable):
         return ((temp1 - temp2) * firmness_factor)
     
 
-class RF1_peak_demand_reduction_capacity(Variable):
+class RF1_peak_demand_reduction_capacity(BaseVariable):
     reference = 'peak demand reduction capacity'
     value_type = float
     entity = Building

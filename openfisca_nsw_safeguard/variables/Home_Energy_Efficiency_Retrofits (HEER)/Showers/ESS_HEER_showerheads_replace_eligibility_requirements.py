@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_showerheads_replace_with_low_flow_showerhead_uses_eligible_hot_water_service(Variable):
+class ESS_HEER_showerheads_replace_with_low_flow_showerhead_uses_eligible_hot_water_service(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_HEER_showerheads_replace_with_low_flow_showerhead_uses_eligible_hot_wa
         return is_electric_resistance + is_electric_boosted_solar + is_electric_heat_pump + is_gas_fired_storage + is_gas_fired_instantaneous + is_gas_boosted_solar  # note addition is used to define "or" with booleans
 
 
-class ESS_HEER_showerheads_replace_with_low_flow_showerhead_has_existing_showerhead(Variable):
+class ESS_HEER_showerheads_replace_with_low_flow_showerhead_has_existing_showerhead(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -40,7 +40,7 @@ class HotWaterSupplyService(Enum):
     gas_boosted_solar_water_heater = 'A gas boosted solar water heater.'
 
 
-class ESS_HEER_hot_water_supply_service(Variable):
+class ESS_HEER_hot_water_supply_service(BaseVariable):
     value_type = Enum
     possible_values = HotWaterSupplyService
     default_value = HotWaterSupplyService.electric_resistance_water_heater

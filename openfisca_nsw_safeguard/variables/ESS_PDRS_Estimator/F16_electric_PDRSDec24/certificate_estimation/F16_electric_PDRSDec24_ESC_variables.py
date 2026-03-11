@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class F16_electric_PDRSDec24_replacement_activity(Variable):
+class F16_electric_PDRSDec24_replacement_activity(BaseVariable):
     value_type = bool
     default_value = True
     entity = Building
@@ -18,7 +18,7 @@ class F16_electric_PDRSDec24_replacement_activity(Variable):
     }
 
 
-class F16_electric_PDRSDec24_HP_capacity_factor(Variable):
+class F16_electric_PDRSDec24_HP_capacity_factor(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -32,7 +32,7 @@ class F16_electric_PDRSDec24_HP_capacity_factor(Variable):
     }
 
 
-class F16_electric_PDRSDec24_WH_capacity_factor(Variable):
+class F16_electric_PDRSDec24_WH_capacity_factor(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -46,7 +46,7 @@ class F16_electric_PDRSDec24_WH_capacity_factor(Variable):
     }
 
 
-class F16_electric_PDRSDec24_HP_gas(Variable):
+class F16_electric_PDRSDec24_HP_gas(BaseVariable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -60,7 +60,7 @@ class F16_electric_PDRSDec24_HP_gas(Variable):
     }
 
 
-class F16_electric_PDRSDec24_HP_elec(Variable):
+class F16_electric_PDRSDec24_HP_elec(BaseVariable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -74,7 +74,7 @@ class F16_electric_PDRSDec24_HP_elec(Variable):
     }
 
 
-class F16_electric_PDRSDec24_com_peak_load(Variable):
+class F16_electric_PDRSDec24_com_peak_load(BaseVariable):
     reference = 'MJ per day'
     value_type = float
     entity = Building
@@ -88,7 +88,7 @@ class F16_electric_PDRSDec24_com_peak_load(Variable):
     }
 
 
-class F16_electric_PDRSDec24_regional_network_factor(Variable):
+class F16_electric_PDRSDec24_regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -100,7 +100,7 @@ class F16_electric_PDRSDec24_regional_network_factor(Variable):
         return rnf.calc(postcode)
     
 
-class F16_electric_PDRSDec24_total_heat_pump_thermal_capacity(Variable):
+class F16_electric_PDRSDec24_total_heat_pump_thermal_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -110,7 +110,7 @@ class F16_electric_PDRSDec24_total_heat_pump_thermal_capacity(Variable):
     }
  
 
-class F16_electric_PDRSDec24_number_of_heat_pumps(Variable):
+class F16_electric_PDRSDec24_number_of_heat_pumps(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

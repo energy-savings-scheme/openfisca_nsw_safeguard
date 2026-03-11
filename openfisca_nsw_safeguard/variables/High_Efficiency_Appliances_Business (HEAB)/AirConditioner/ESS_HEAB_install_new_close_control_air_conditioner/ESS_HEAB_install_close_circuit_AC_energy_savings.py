@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 
-class ESS_HEAB_install_close_circuit_AC_electricity_savings(Variable):
+class ESS_HEAB_install_close_circuit_AC_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class ESS_HEAB_install_close_circuit_AC_electricity_savings(Variable):
     def formula(buildings, period, parameters):
         cooling_capacity = buildings('new_AC_cooling_capacity', period)
         EER = buildings('new_AC_EER', period) # probably should write EER in full
-        capacity = select(
+        capacity = np.select(
                           [
                                 cooling_capacity < 19.05,
                                 cooling_capacity >= 19.05 and cooling_capacity < 39.5,

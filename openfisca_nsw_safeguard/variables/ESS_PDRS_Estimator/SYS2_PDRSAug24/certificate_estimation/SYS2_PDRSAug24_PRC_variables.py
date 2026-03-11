@@ -1,13 +1,13 @@
 import enum
 from multiprocessing import pool
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class SYS2_PDRSAug24_input_power(Variable):
+class SYS2_PDRSAug24_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +21,7 @@ class SYS2_PDRSAug24_input_power(Variable):
 
 
 
-class SYS2_PDRSAug24_baseline_input_power(Variable):
+class SYS2_PDRSAug24_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -47,7 +47,7 @@ class SYS2_PDRSAug24_baseline_input_power(Variable):
         return baseline_input_power
 
 
-class SYS2_PDRSAug24_get_network_loss_factor_by_postcode(Variable):
+class SYS2_PDRSAug24_get_network_loss_factor_by_postcode(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

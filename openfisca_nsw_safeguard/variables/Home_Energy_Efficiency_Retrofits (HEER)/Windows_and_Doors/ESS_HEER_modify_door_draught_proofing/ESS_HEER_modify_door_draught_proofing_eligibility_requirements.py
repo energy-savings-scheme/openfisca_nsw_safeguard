@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_modify_external_door_draught_proofing_doors_have_gaps_between_door_and_frame(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_doors_have_gaps_between_door_and_frame(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class ESS_HEER_modify_external_door_draught_proofing_doors_have_gaps_between_doo
             ' Energy Savings Scheme Rule 2020.'  # IPART to define what this means and how to measure this
 
 
-class ESS_HEER_modify_external_door_draught_proofing_door_is_external(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_door_is_external(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class ESS_HEER_modify_external_door_draught_proofing_door_is_external(Variable):
             ' Equipment Requirement 1 of Energy Savings Scheme Rule 2020.'
 
 
-class ESS_HEER_modify_external_door_draught_proofing_meets_eligibility_requirements(Variable):
+class ESS_HEER_modify_external_door_draught_proofing_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

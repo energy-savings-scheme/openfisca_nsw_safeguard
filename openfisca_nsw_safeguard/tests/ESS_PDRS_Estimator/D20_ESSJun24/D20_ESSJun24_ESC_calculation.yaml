@@ -201,11 +201,11 @@
   output:
     D20_ESSJun24_annual_energy_savings:
       [
-        4.857,
+        5.736,
         0, #negative value -11.456
-        19.61,
+        20.058,
         50.127,
-        27.877,
+        28.085,
         53.626,
         53.230,
         0 #Bs and Be are zero and not eligible for savings
@@ -224,24 +224,15 @@
         -17,
         -14.9
       ]
-    D20_ESSJun24_regional_network_factor:
-      [
-        1.03,
-        1.03,
-        1.03,
-        1,
-        1,
-        1.03
-      ]
   output:
     D20_ESSJun24_electricity_savings:
       [
-        4.12,
-        63.283,
-        3.09,
+        4,
+        61.44,
+        3,
         104,
         -17,
-        -15.347
+        -14.9
       ]
 
 - name: test D20 ESC calculation

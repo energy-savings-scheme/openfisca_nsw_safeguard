@@ -1,8 +1,9 @@
-from openfisca_core.variables import Variable
+
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 import numpy as np
@@ -26,7 +27,7 @@ class RCProductClass(Enum):
     product_class_fifteen = 'RDC is in product class 15.'
 
 
-class refrigerated_cabinet_product_class(Variable):
+class refrigerated_cabinet_product_class(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCProductClass
@@ -43,7 +44,7 @@ class RCProductType(Enum):
     RSC = 'Product is a refrigerated storage cabinet.'
 
 
-class refrigerated_cabinet_product_type(Variable):
+class refrigerated_cabinet_product_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCProductType
@@ -110,7 +111,7 @@ class RCDutyClass(Enum):
     light_duty = 'RDC is a light duty RC.'
 
 
-class refrigerated_cabinet_duty_class(Variable):
+class refrigerated_cabinet_duty_class(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCDutyClass
@@ -119,7 +120,7 @@ class refrigerated_cabinet_duty_class(Variable):
     label = 'What is the duty class for the refrigerated cabinet?'
 
 
-class new_refrigerated_cabinet_EEI(Variable):
+class new_refrigerated_cabinet_EEI(BaseVariable):
     value_type = float
     entity = Building
     default_value = 0
@@ -127,7 +128,7 @@ class new_refrigerated_cabinet_EEI(Variable):
     label = 'What is the EEI of the new refrigerated cabinet?'
 
 
-class new_refrigerated_cabinet_total_energy_consumption(Variable):
+class new_refrigerated_cabinet_total_energy_consumption(BaseVariable):
     value_type = float
     entity = Building
     default_value = 0
@@ -135,7 +136,7 @@ class new_refrigerated_cabinet_total_energy_consumption(Variable):
     label = 'What is the total energy consumption of the new refrigerated cabinet?'
 
 
-class new_refrigerated_cabinet_total_display_area(Variable):
+class new_refrigerated_cabinet_total_display_area(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -146,7 +147,7 @@ class new_refrigerated_cabinet_total_display_area(Variable):
     }
 
 
-class ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS(Variable):
+class ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -157,7 +158,7 @@ class ESS_HEAB_refrigerated_cabinet_is_registered_in_GEMS(Variable):
     }
 
 
-class ESS_HEAB_new_equipment_is_RC(Variable):
+class ESS_HEAB_new_equipment_is_RC(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -168,7 +169,7 @@ class ESS_HEAB_new_equipment_is_RC(Variable):
     }
 
 
-class ESS_HEAB_number_of_RCs_installed(Variable):
+class ESS_HEAB_number_of_RCs_installed(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY

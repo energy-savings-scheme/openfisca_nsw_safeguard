@@ -1,10 +1,11 @@
-from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 
-class ESS__HEAB_install_new_high_efficiency_motor_meets_equipment_requirements(Variable):
+
+class ESS__HEAB_install_new_high_efficiency_motor_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -27,7 +28,7 @@ class ESS__HEAB_install_new_high_efficiency_motor_meets_equipment_requirements(V
         return is_registered * is_high_efficiency 
 
 
-class ESS__HEAB_install_new_high_efficiency_motor_meets_installation_requirements(Variable):
+class ESS__HEAB_install_new_high_efficiency_motor_meets_installation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -47,7 +48,7 @@ class ESS__HEAB_install_new_high_efficiency_motor_meets_installation_requirement
                 (rated_output >= 0.73) * (rated_output < 185)
                 )
 
-class ESS__HEAB_install_new_high_efficiency_motor_meets_all_requirements(Variable):
+class ESS__HEAB_install_new_high_efficiency_motor_meets_all_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False

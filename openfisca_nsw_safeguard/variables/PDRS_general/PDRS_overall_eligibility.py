@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
-class PDRS__is_eligible_activity(Variable):
+class PDRS__is_eligible_activity(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -56,7 +56,7 @@ class PDRS__is_eligible_activity(Variable):
         return is_eligible
 
 
-class PDRS__provides_capacity_to_reduce_demand(Variable):
+class PDRS__provides_capacity_to_reduce_demand(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -68,7 +68,7 @@ class PDRS__provides_capacity_to_reduce_demand(Variable):
     }
 
 
-class PDRS__is_eligible_for_PDRS_creation(Variable):
+class PDRS__is_eligible_for_PDRS_creation(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -79,7 +79,7 @@ class PDRS__is_eligible_for_PDRS_creation(Variable):
     }
 
 
-class PDRS__is_in_PDRS_jurisdiction(Variable):
+class PDRS__is_in_PDRS_jurisdiction(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -90,7 +90,7 @@ class PDRS__is_in_PDRS_jurisdiction(Variable):
     }
 
 
-class PDRS__is_lawful_activity(Variable):
+class PDRS__is_lawful_activity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -102,7 +102,7 @@ class PDRS__is_lawful_activity(Variable):
     }
 
 
-class PDRS__greenhouse_emissions_increase(Variable):
+class PDRS__greenhouse_emissions_increase(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -114,7 +114,7 @@ class PDRS__greenhouse_emissions_increase(Variable):
     }
 
 
-class PDRS__meets_mandatory_requirement(Variable):
+class PDRS__meets_mandatory_requirement(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -126,7 +126,7 @@ class PDRS__meets_mandatory_requirement(Variable):
     }
 
 
-class PDRS__is_standard_control_service(Variable):
+class PDRS__is_standard_control_service(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -137,7 +137,7 @@ class PDRS__is_standard_control_service(Variable):
     }
 
 
-class PDRS__is_prescribed_transmission_service(Variable):
+class PDRS__is_prescribed_transmission_service(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -148,7 +148,7 @@ class PDRS__is_prescribed_transmission_service(Variable):
     }
 
 
-class PDRS__is_non_network_option(Variable):
+class PDRS__is_non_network_option(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -159,7 +159,7 @@ class PDRS__is_non_network_option(Variable):
     }
 
 
-class PDRS__reduces_safety_levels(Variable):
+class PDRS__reduces_safety_levels(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -170,7 +170,7 @@ class PDRS__reduces_safety_levels(Variable):
     }
 
 
-class PDRS__is_eligible_for_RET(Variable):
+class PDRS__is_eligible_for_RET(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -181,7 +181,7 @@ class PDRS__is_eligible_for_RET(Variable):
     }
 
 
-class PDRS__tradeable_certificates(Variable):
+class PDRS__tradeable_certificates(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

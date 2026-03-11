@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class F16_gas_equipment_replaced(Variable):
+class F16_gas_equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -18,7 +18,7 @@ class F16_gas_equipment_replaced(Variable):
     }
 
 
-class F16_gas_installed_by_qualified_person(Variable):
+class F16_gas_installed_by_qualified_person(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -30,7 +30,7 @@ class F16_gas_installed_by_qualified_person(Variable):
     }
 
 
-class F16_gas_split_system(Variable):
+class F16_gas_split_system(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -42,7 +42,7 @@ class F16_gas_split_system(Variable):
     }
 
 
-class F16_gas_safety_requirement(Variable):
+class F16_gas_safety_requirement(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -54,7 +54,7 @@ class F16_gas_safety_requirement(Variable):
     }
 
 
-class F16_gas_engaged_ACP(Variable):
+class F16_gas_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -68,7 +68,7 @@ class F16_gas_engaged_ACP(Variable):
     }
 
 
-class F16_gas_minimum_payment(Variable):
+class F16_gas_minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -80,7 +80,7 @@ class F16_gas_minimum_payment(Variable):
     }
 
 
-class F16_gas_building_BCA_not_class_1_or_4(Variable):
+class F16_gas_building_BCA_not_class_1_or_4(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -92,7 +92,7 @@ class F16_gas_building_BCA_not_class_1_or_4(Variable):
     }
 
 
-class F16_gas_4234_certified(Variable):
+class F16_gas_4234_certified(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -104,7 +104,7 @@ class F16_gas_4234_certified(Variable):
     }
 
     
-class F16_gas_storage_volume(Variable):
+class F16_gas_storage_volume(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -116,7 +116,7 @@ class F16_gas_storage_volume(Variable):
     }
 
 
-class F16_gas_certified(Variable):
+class F16_gas_certified(BaseVariable):
     #only show this if the storage volume is 700L or less
     value_type = bool
     entity = Building
@@ -130,7 +130,7 @@ class F16_gas_certified(Variable):
     }
    
 
-class F16_gas_equipment_certified_by_storage_volume(Variable):
+class F16_gas_equipment_certified_by_storage_volume(BaseVariable):
     """Checks if storage volume is less than or equal to 700L, and if it is, that it is certified by AS/NZS 2712
     """
     value_type = bool

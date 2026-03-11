@@ -1,25 +1,28 @@
+import numpy as np
+
 from openfisca_core.variables import *
 from openfisca_core.periods import YEAR, ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
-import numpy as np
+
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 
 
-class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_has_digital_burner_control_system(Variable):
+class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_has_digital_burner_control_system(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Does the equipment have a digital burner control system installed?'
 
 
-class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_digital_burner_control_system_will_be_installed(Variable):
+class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_digital_burner_control_system_will_be_installed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Will a digital burner control system be installed?'
 
 
-class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_meets_eligibility_requirements(Variable):
+class ESS_HEAB_install_oxygen_trim_system_on_boiler_or_heater_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

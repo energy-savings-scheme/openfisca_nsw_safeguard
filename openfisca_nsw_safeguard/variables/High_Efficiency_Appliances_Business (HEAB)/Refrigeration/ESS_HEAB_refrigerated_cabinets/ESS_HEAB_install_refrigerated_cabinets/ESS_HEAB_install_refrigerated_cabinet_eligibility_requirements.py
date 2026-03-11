@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
 from openfisca_core.periods import ETERNITY
-from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
 
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
-class ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC(Variable):
+
+class ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class ESS_HEAB_install_refrigerated_cabinet_activity_is_installation_of_RC(Varia
     }
 
 
-class ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements(Variable):
+class ESS_HEAB_install_refrigerated_cabinet_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

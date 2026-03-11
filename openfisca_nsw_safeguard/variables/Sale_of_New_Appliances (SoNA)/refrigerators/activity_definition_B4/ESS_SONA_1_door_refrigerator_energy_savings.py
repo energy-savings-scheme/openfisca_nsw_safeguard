@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS_SONA_1_door_refrigerator_electricity_savings(Variable):
+class ESS_SONA_1_door_refrigerator_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -25,7 +25,7 @@ class ESS_SONA_1_door_refrigerator_electricity_savings(Variable):
         return deemed_equipment_electricity_savings
 
 
-class ESS_SONA_1_door_refrigerator_energy_savings(Variable):
+class ESS_SONA_1_door_refrigerator_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

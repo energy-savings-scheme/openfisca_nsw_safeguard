@@ -1,33 +1,33 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class product_applied_to_door_bottom_seal(Variable):
+class product_applied_to_door_bottom_seal(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Product is applied to door bottom seal.'
 
 
-class product_applied_to_set_door_jamb(Variable):
+class product_applied_to_set_door_jamb(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Product is applied to set door jamb.'
 
 
-class product_applied_to_head_seals(Variable):
+class product_applied_to_head_seals(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     label = 'Product is applied to door head seals.'
 
 
-class product_applied_to_correct_part_of_door(Variable):
+class product_applied_to_correct_part_of_door(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -42,7 +42,7 @@ class product_applied_to_correct_part_of_door(Variable):
         return door_bottom_seal + (set_door_jamb * head_seals)
 
 
-class product_restricts_airflow(Variable):
+class product_restricts_airflow(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -51,7 +51,7 @@ class product_restricts_airflow(Variable):
             ' in Implementation Requirement 2.'
 
 
-class product_installed_according_to_instructions(Variable):
+class product_installed_according_to_instructions(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -60,7 +60,7 @@ class product_installed_according_to_instructions(Variable):
             ' Implementation Requirement 3.'
 
 
-class all_external_doors_are_draught_proofed(Variable):
+class all_external_doors_are_draught_proofed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

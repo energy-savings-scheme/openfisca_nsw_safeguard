@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
@@ -12,7 +12,7 @@ class motor_type(Enum):
     ventilation = "Ventilation"
 
 
-class motor_type_var(Variable):
+class motor_type_var(BaseVariable):
     entity = Building
     value_type = Enum
     possible_values = motor_type
@@ -34,7 +34,7 @@ class motor_poles_number(Enum):
     poles_8 = "The motor is a 8 poles motor."
 
 
-class motor_poles_number_var(Variable):
+class motor_poles_number_var(BaseVariable):
     entity = Building
     value_type = Enum
     possible_values = motor_poles_number
@@ -49,7 +49,7 @@ class motor_poles_number_var(Variable):
     }
 
 
-class PDRS__motors__baseline_motor_efficiency(Variable):
+class PDRS__motors__baseline_motor_efficiency(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -91,7 +91,7 @@ class PDRS__motors__baseline_motor_efficiency(Variable):
         return baseline_motor_efficiency
 
 
-class motor_registered_under_GEM(Variable):
+class motor_registered_under_GEM(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -101,7 +101,7 @@ class motor_registered_under_GEM(Variable):
     }
 
 
-class motor_3_phase_high_efficiency(Variable):
+class motor_3_phase_high_efficiency(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -111,7 +111,7 @@ class motor_3_phase_high_efficiency(Variable):
     }
 
 
-class motors_rated_output(Variable):
+class motors_rated_output(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY

@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 class ESS_BCAClimateZone(Enum):
     BCA_Climate_Zone_1 = 'Activity takes place in BCA Climate Zone 1.'
@@ -14,7 +14,7 @@ class ESS_BCAClimateZone(Enum):
     BCA_Climate_Zone_8 = 'Activity takes place in BCA Climate Zone 8.'
 
 
-class BCA_climate_zone(Variable):
+class BCA_climate_zone(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = ESS_BCAClimateZone
@@ -64,7 +64,7 @@ class BCABuildingClass(Enum):
     BCA_Class_10c = 'A private bushfire shelter.'
 
 
-class BCA_building_class(Variable):
+class BCA_building_class(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = BCABuildingClass

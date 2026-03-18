@@ -7,7 +7,7 @@ from openfisca_core.periods import DateUnit
 
 # This BaseVariable class constructor is based on Openfisca Core
 # We currently using constructor from class Variable
-# specifically openfisca core 40.0.1
+# specifically openfisca core 43.3.11
 # and add the metadata block code for our needs right now.
 class BaseVariable(Variable):
     def __init__(self, baseline_variable=None) -> None:

@@ -1,13 +1,13 @@
 from xml.etree import ElementInclude
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class SYS1_baseline_input_power(Variable):
+class SYS1_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -25,7 +25,7 @@ class SYS1_baseline_input_power(Variable):
         return baseline_input_power
     
     
-class SYS1_baseline_peak_adjustment_factor(Variable):
+class SYS1_baseline_peak_adjustment_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -44,7 +44,7 @@ class SYS1_baseline_peak_adjustment_factor(Variable):
         return baseline_peak_adjustment_factor
 
 
-class SYS1_input_power(Variable):
+class SYS1_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -61,7 +61,7 @@ class SYS1_input_power(Variable):
         return input_power
 
 
-class SYS1_peak_demand_savings_capacity(Variable):
+class SYS1_peak_demand_savings_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -87,7 +87,7 @@ class SYS1_motor_frequency_Options(Enum):
     motor_60_hz = '60 Hz'
 
 
-class SYS1_new_equipment_motor_frequency_peak_savings(Variable):
+class SYS1_new_equipment_motor_frequency_peak_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_motor_frequency_Options
@@ -109,7 +109,7 @@ class SYS1_no_of_poles_Options(Enum):
     poles_8 = '8 poles'
 
 
-class SYS1_new_equipment_no_of_poles_peak_savings(Variable):
+class SYS1_new_equipment_no_of_poles_peak_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_no_of_poles_Options
@@ -124,7 +124,7 @@ class SYS1_new_equipment_no_of_poles_peak_savings(Variable):
     }
 
 
-class SYS1_existing_equipment_no_of_poles_peak_savings(Variable):
+class SYS1_existing_equipment_no_of_poles_peak_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = SYS1_no_of_poles_Options
@@ -139,7 +139,7 @@ class SYS1_existing_equipment_no_of_poles_peak_savings(Variable):
     }
 
 
-class SYS1_peak_demand_annual_savings(Variable):
+class SYS1_peak_demand_annual_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -289,7 +289,7 @@ class SYS1_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return
         
 
-class SYS1_peak_demand_reduction_capacity(Variable):
+class SYS1_peak_demand_reduction_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -329,7 +329,7 @@ class SYS1_peak_demand_reduction_capacity(Variable):
         return peak_demand_savings_capacity * summer_peak_demand_reduction_duration * lifetime
     
     
-class SYS1_PRC_calculation(Variable):
+class SYS1_PRC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

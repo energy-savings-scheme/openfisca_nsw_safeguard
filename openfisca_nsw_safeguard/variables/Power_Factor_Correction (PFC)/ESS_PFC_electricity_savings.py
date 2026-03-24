@@ -1,13 +1,13 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 import numpy as np
 
-class ESS__PFC_real_power_component(Variable):
+class ESS__PFC_real_power_component(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +30,7 @@ class ESS__PFC_DistributionDistrict(Enum):
     AusGrid = 'Implementation takes place in the Ausgrid Distribution District.'
 
 
-class ESS__PFC_distribution_district(Variable):
+class ESS__PFC_distribution_district(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = ESS__PFC_DistributionDistrict
@@ -46,7 +46,7 @@ class ESS__PFC_distribution_district(Variable):
     }
 
 
-class ESS__PFC_initial_power_factor(Variable):
+class ESS__PFC_initial_power_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -61,7 +61,7 @@ class ESS__PFC_initial_power_factor(Variable):
     }
 
 
-class ESS__PFC_final_power_factor(Variable):
+class ESS__PFC_final_power_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -76,7 +76,7 @@ class ESS__PFC_final_power_factor(Variable):
     }
 
 
-class ESS__PFC_installed_capacitors_rating(Variable):
+class ESS__PFC_installed_capacitors_rating(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -90,7 +90,7 @@ class ESS__PFC_installed_capacitors_rating(Variable):
     }
 
 
-class ESS__PFC_power_savings(Variable):
+class ESS__PFC_power_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -122,7 +122,7 @@ class ESS__PFC_power_savings(Variable):
         return power_savings
 
 
-class ESS__PFC_electricity_savings(Variable):
+class ESS__PFC_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

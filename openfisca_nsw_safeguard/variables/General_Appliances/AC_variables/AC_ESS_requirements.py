@@ -1,14 +1,14 @@
 from openfisca_core.entities import entity
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 import numpy as np
 
-class AC_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
+class AC_TCSPF_or_AEER_exceeds_ESS_benchmark(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -47,15 +47,20 @@ class AC_TCSPF_or_AEER_exceeds_ESS_benchmark(Variable):
                                     ]
                                     )
         TCSPF_is_zero = ((AC_TCSPF == 0) + (AC_TCSPF == None))
-        AC_exceeds_benchmark = np.where(
+        AC_exceeds_benchmark = np.select(
+        [
             TCSPF_is_zero,
+            np.logical_not(TCSPF_is_zero)
+        ],
+        [
             (AC_AEER >= parameters(period).PDRS.AC.table_D16_5[product_class][cooling_capacity]),
             (AC_TCSPF >= parameters(period).PDRS.AC.table_D16_4[product_class][cooling_capacity])
-            )
+        ])
+
         return AC_exceeds_benchmark
 
 
-class AC_HSPF_or_ACOP_exceeds_ESS_benchmark(Variable):
+class AC_HSPF_or_ACOP_exceeds_ESS_benchmark(BaseVariable):
     """ This variable is used if the AC climate zone is hot or average and there is a GEMS heating capacity
     """
     value_type = bool

@@ -64,7 +64,8 @@
         2000, #baseline PAEC 1700
         2001, #baseline PAEC 2000
         1999, #baseline PAEC 1700
-        1350  #baseline PAEC 1500
+        1350,  #baseline PAEC 1500
+        1261.71
       ]
     SYS2_PDRSAug24_projected_annual_energy_consumption:
       [
@@ -75,18 +76,8 @@
         400,
         657,
         789,
-        2000
-      ]
-    SYS2_PDRSAug24_PDRS__postcode:
-      [
-        2024,
-        2024,
-        2024,
-        2800, #rnf 1.03
-        2800,
-        2800,
-        2024,
-        2024
+        2000,
+        627.25
       ]
   output:
     SYS2_PDRSAug24_energy_savings:
@@ -94,11 +85,12 @@
         13,
         12.9,
         16.5,
-        9.27,
-        13.39,
-        13.83,
+        9,
+        13,
+        13.42,
         9.11,
-        0
+        0,
+        8.73
       ]
 
 - name: test SYS2 electricity savings
@@ -109,20 +101,16 @@
       [
         6,
         24,
-        0
-      ]
-    SYS2_PDRSAug24_PDRS__postcode:
-      [
-        2043, #rnf 1
-        2321, #rnf 1.03
-        2074  #rnf 1
+        0,
+        12.90
       ]
   output:
     SYS2_PDRSAug24_electricity_savings:
       [
         6,
-        24.72,
-        0
+        24,
+        0,
+        12.90  
       ]
     
 - name: test SYS2 ESC calculation
@@ -135,10 +123,7 @@
         12.9,
         16.5,
         9.27,
-        13.39,
-        13.83,
-        9.11,
-        -5
+        13.39
       ]
     SYS2_PDRSAug24_maximum_tested_input_power:
       [
@@ -146,44 +131,32 @@
         0,
         0,
         1,
-        1,
-        1,
-        1,
         1
       ]
     SYS2_PDRSAug24_daily_run_time:
       [
-        1,
+        6,
         0,
         0,
-        1,
-        1,
-        1,
         1,
         1
       ]
-    SYS2_PDRSAug24_PAEC_baseline:
+    SYS2_PDRSAug24_PDRS__regional_network_factor:
       [
-        1,
-        1,
-        0,
-        1,
-        1,
-        1,
-        1,
-        1
-      ]
+        1.03,
+        1.0,
+        1.03,
+        1.0,
+        1.03
+      ]  
   output:
     SYS2_PDRSAug24_ESC_calculation:
       [
         13.78,
         0,
         0,     #fails because there is zero product data
-        9.83,
-        14.19,
-        14.66,
-        9.66,
-        0
+        9.82,
+        14.61
       ]
 
 - name: test SYS2 ESC calculation 0 values

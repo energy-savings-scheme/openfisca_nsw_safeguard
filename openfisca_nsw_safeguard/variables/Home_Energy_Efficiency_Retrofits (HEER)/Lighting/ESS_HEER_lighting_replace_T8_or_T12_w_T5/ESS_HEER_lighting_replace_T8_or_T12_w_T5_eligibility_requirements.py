@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5_existing_lamp_is_T8_or_T12_fluoro_luminaire(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5_existing_lamp_is_T8_or_T12_fluoro_luminaire(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5_existing_lamp_is_T8_or_T12_fluoro
         return is_T12_linear + is_T8_linear  # note addition is used to define "or" with booleans
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5_is_in_working_order(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5_is_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -32,7 +32,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5_is_in_working_order(Variable):
             ' E1.'  # insert definition requirements
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5_is_not_modified_with_T5_adaptor_kit(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5_is_not_modified_with_T5_adaptor_kit(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -41,7 +41,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_w_T5_is_not_modified_with_T5_adaptor_k
             ' in Activity Definition E4 and defined in Table A9.1.'  # this light type is not defined anywhere in the rule (and probably should be!)
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_w_T5_meets_eligibility_requirements(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_w_T5_meets_eligibility_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

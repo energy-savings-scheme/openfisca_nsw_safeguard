@@ -1,19 +1,19 @@
 import numpy as np
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
 class AC_Type(Enum):
     non_ducted_split_system = 'The AC is a non-ducted split system.'
     ducted_split_system = 'The AC is a ducted split system.'
-    non_ducted_unitary_system = 'The AC is a non-ducted split system.'
-    ducted_unitary_system = 'The AC is a ducted split system.'
+    non_ducted_unitary_system = 'The AC is a non-ducted unitary system.'
+    ducted_unitary_system = 'The AC is a ducted unitary system.'
 
 
-class Air_Conditioner_type(Variable):
+class Air_Conditioner_type(BaseVariable):
     # name="AC Type as defined in GEMS or MEPS"
     reference = "GEMS or MEPS"
     value_type = Enum
@@ -35,7 +35,7 @@ class AC_cooling_capacity(Enum):
     more_than_65 = "cooling capacity >= 65kW"
 
 
-class Air_Conditioner__cooling_capacity(Variable):
+class Air_Conditioner__cooling_capacity(BaseVariable):
     reference = "unit in kw"
     value_type = float
     entity = Building
@@ -47,7 +47,7 @@ class Air_Conditioner__cooling_capacity(Variable):
     }
 
 
-class AC_cooling_capacity_enum(Variable):
+class AC_cooling_capacity_enum(BaseVariable):
     value_type = Enum
     entity = Building
     label = "What is the product cooling capacity Enum used to look up the table?"
@@ -87,7 +87,7 @@ class AC_heating_capacity(Enum):
     more_than_65 = "heating capacity >= 65kW"
 
 
-class Air_Conditioner__heating_capacity(Variable):
+class Air_Conditioner__heating_capacity(BaseVariable):
     reference = "unit in kw"
     value_type = float
     entity = Building
@@ -99,7 +99,7 @@ class Air_Conditioner__heating_capacity(Variable):
     }
 
 
-class AC_heating_capacity_enum(Variable):
+class AC_heating_capacity_enum(BaseVariable):
     value_type = Enum
     entity = Building
     label = "What is the product heating capacity Enum used to look up the table?"
@@ -132,7 +132,7 @@ class AC_heating_capacity_enum(Variable):
 
 
 
-class AC_TCSPF_mixed(Variable):
+class AC_TCSPF_mixed(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -143,7 +143,7 @@ class AC_TCSPF_mixed(Variable):
 }
 
 
-class AC_HSPF_mixed(Variable):
+class AC_HSPF_mixed(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -154,7 +154,7 @@ class AC_HSPF_mixed(Variable):
 }
 
 
-class AC_HSPF_cold(Variable):
+class AC_HSPF_cold(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -165,7 +165,7 @@ class AC_HSPF_cold(Variable):
 }
 
 
-class AC_input_power(Variable):
+class AC_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -175,7 +175,7 @@ class AC_input_power(Variable):
 }
 
 
-class AC_AEER(Variable):
+class AC_AEER(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -186,7 +186,7 @@ class AC_AEER(Variable):
 }
 
 
-class AC_ACOP(Variable):
+class AC_ACOP(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -204,7 +204,7 @@ class ACClimateZone(Enum):
     cold_zone = "AC is installed in the cold zone."
 
 
-class AC_climate_zone(Variable):
+class AC_climate_zone(BaseVariable):
     value_type = Enum
     entity = Building
     label = "What is the climate zone the End-User equipment is installed in?"
@@ -217,7 +217,7 @@ class AC_climate_zone(Variable):
     }
 
 
-class HVAC_2_TCPSF_greater_than_minimum(Variable):
+class HVAC_2_TCPSF_greater_than_minimum(BaseVariable):
     value_type = bool
     entity = Building
     label = 'Is your TCPSF equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'
@@ -227,7 +227,7 @@ class HVAC_2_TCPSF_greater_than_minimum(Variable):
     }
 
 
-class HVAC_2_AEER_greater_than_minimum(Variable):
+class HVAC_2_AEER_greater_than_minimum(BaseVariable):
     value_type = bool
     entity = Building
     label = 'Is your AEER equal to or greater than the Minimum for the same Product Type and Cooling Capacity?'

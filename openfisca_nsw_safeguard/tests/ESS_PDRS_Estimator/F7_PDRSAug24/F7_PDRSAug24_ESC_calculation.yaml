@@ -249,16 +249,10 @@
         25,
         25
       ]
-    F7_PDRSAug24_PDRS__postcode:
-      [
-        2321,  #1.03
-        2313,  #1
-        2753
-      ]
   output:
     F7_PDRSAug24_electricity_savings:
       [
-        -385975.328,
+        -374733.34,
         744600,
         46.2986
       ]

@@ -1,13 +1,13 @@
 from xml.etree import ElementInclude
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class F17_individual_heat_pump_thermal_capacity(Variable):
+class F17_individual_heat_pump_thermal_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class F17_individual_heat_pump_thermal_capacity(Variable):
         return individual_heat_pump_thermal_capacity
     
 
-class F17_confidence_factor(Variable):
+class F17_confidence_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -62,7 +62,7 @@ class F17_confidence_factor(Variable):
         return confidence_factor
 
 
-class F17_Ref_Elec(Variable):
+class F17_Ref_Elec(BaseVariable):
     """ Annual Electrical Energy used by a reference electric resistance water heater in a year
     """
     value_type = float
@@ -81,7 +81,7 @@ class F17_Ref_Elec(Variable):
         return ref_elec
 
 
-class F17_deemed_activity_gas_savings(Variable):
+class F17_deemed_activity_gas_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -99,7 +99,7 @@ class F17_deemed_activity_gas_savings(Variable):
       return deemed_gas_savings
 
 
-class F17_deemed_activity_electricity_savings(Variable):
+class F17_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -117,7 +117,7 @@ class F17_deemed_activity_electricity_savings(Variable):
         return deemed_electricity_savings
 
 
-class F17_electricity_savings(Variable):
+class F17_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -128,13 +128,12 @@ class F17_electricity_savings(Variable):
 
     def formula(buildings, period, parameters):
         deemed_activity_electricity_savings = buildings('F17_deemed_activity_electricity_savings', period)
-        regional_network_factor = buildings('F17_regional_network_factor', period)
 
-        electricity_savings = deemed_activity_electricity_savings * regional_network_factor
+        electricity_savings = deemed_activity_electricity_savings
         return electricity_savings
 
 
-class F17_annual_energy_savings(Variable):
+class F17_annual_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -174,7 +173,7 @@ class F17_annual_energy_savings(Variable):
         return annual_savings_return
 
 
-class F17_ESC_calculation(Variable):
+class F17_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -185,6 +184,7 @@ class F17_ESC_calculation(Variable):
 
     def formula(buildings, period, parameters):
         installation_eligibility = buildings('F17_installation_activity', period)
+        regional_network_factor = buildings('F17_regional_network_factor', period)
         electricity_savings = buildings('F17_electricity_savings', period)
         electricity_certificate_conversion_factor = 1.06
         gas_savings = buildings('F17_deemed_activity_gas_savings', period) #gas savings and deemed activity gas savings are the same value
@@ -196,7 +196,7 @@ class F17_ESC_calculation(Variable):
                 np.logical_not(installation_eligibility)
             ],
             [
-                (electricity_savings * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor),
+                (electricity_savings * regional_network_factor * electricity_certificate_conversion_factor) + (gas_savings * gas_certificate_conversion_factor),
                 0
             ])
 

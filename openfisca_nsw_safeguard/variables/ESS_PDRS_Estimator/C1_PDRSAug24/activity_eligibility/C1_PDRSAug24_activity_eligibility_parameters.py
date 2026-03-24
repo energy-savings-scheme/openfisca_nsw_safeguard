@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class C1_PDRSAug24_removal(Variable):
+class C1_PDRSAug24_removal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class C1_PDRSAug24_removal(Variable):
     }
 
 
-class C1_PDRSAug24_primary_refrigeration(Variable):
+class C1_PDRSAug24_primary_refrigeration(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class C1_PDRSAug24_primary_refrigeration(Variable):
     }
 
 
-class C1_PDRSAug24_engaged_ACP(Variable):
+class C1_PDRSAug24_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -43,7 +43,7 @@ class C1_PDRSAug24_engaged_ACP(Variable):
     }
 
 
-class C1_PDRSAug24_residential_building(Variable):
+class C1_PDRSAug24_residential_building(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -55,7 +55,7 @@ class C1_PDRSAug24_residential_building(Variable):
     }
 
 
-class C1_PDRSAug24_in_working_order(Variable):
+class C1_PDRSAug24_in_working_order(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -67,7 +67,7 @@ class C1_PDRSAug24_in_working_order(Variable):
     }
 
 
-class C1_PDRSAug24_classified_group(Variable):
+class C1_PDRSAug24_classified_group(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -79,7 +79,7 @@ class C1_PDRSAug24_classified_group(Variable):
     }
 
 
-class C1_PDRSAug24_capacity_200_litres_or_more(Variable):
+class C1_PDRSAug24_capacity_200_litres_or_more(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

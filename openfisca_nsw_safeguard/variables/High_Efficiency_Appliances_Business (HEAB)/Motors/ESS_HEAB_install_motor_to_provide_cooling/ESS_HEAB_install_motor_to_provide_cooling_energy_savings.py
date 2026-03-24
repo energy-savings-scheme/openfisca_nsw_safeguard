@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 
-class ESS_HEAB_install_motor_to_provide_cooling_electricity_savings(Variable):
+class ESS_HEAB_install_motor_to_provide_cooling_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -46,7 +46,7 @@ class F5ControlSystem(Enum):
     # set to a minimum of 8 hours on low speed per day.
 
 
-class F5_control_system(Variable):
+class F5_control_system(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = F5ControlSystem
@@ -62,7 +62,7 @@ class F5RefrigeratorSystemType(Enum):
     cool_room = 'Motor is installed in a cool room.'
 
 
-class F5_refrigerator_type(Variable):
+class F5_refrigerator_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = F5RefrigeratorSystemType
@@ -72,7 +72,7 @@ class F5_refrigerator_type(Variable):
             ' being installed in, in Activity Definition F5?'
 
 
-class F5_input_power(Variable):
+class F5_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

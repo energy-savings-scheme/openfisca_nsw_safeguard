@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS__SONA_end_user_equipment_is_clothes_washing_machine(Variable):
+class ESS__SONA_end_user_equipment_is_clothes_washing_machine(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -20,7 +20,7 @@ class ESS__SONA_end_user_equipment_is_clothes_washing_machine(Variable):
         return is_washing_machine
 
 
-class ESS__SONA_equipment_is_top_or_front_loader(Variable):
+class ESS__SONA_equipment_is_top_or_front_loader(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +30,7 @@ class ESS__SONA_equipment_is_top_or_front_loader(Variable):
                 # change to enum when you get chance
 
 
-class ESS__SONA_washing_machine_is_eligible(Variable):
+class ESS__SONA_washing_machine_is_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

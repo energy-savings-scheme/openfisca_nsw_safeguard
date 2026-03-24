@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
@@ -11,7 +11,7 @@ import numpy as np
 """
 
 
-class BESS1_PDRS__postcode(Variable):
+class BESS1_PDRS__postcode(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class BESS1_PDRS__postcode(Variable):
     }
 
 
-class BESS1_installation_activity(Variable):
+class BESS1_installation_activity(BaseVariable):
     value_type = bool
     default_value = True
     entity = Building
@@ -37,7 +37,7 @@ class BESS1_installation_activity(Variable):
     }
 
 
-class BESS1_usable_battery_capacity(Variable):
+class BESS1_usable_battery_capacity(BaseVariable):
     value_type = float
     default_value = True
     entity = Building
@@ -49,7 +49,7 @@ class BESS1_usable_battery_capacity(Variable):
     }
 
 
-class BESS1_get_network_loss_factor_by_postcode(Variable):
+class BESS1_get_network_loss_factor_by_postcode(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

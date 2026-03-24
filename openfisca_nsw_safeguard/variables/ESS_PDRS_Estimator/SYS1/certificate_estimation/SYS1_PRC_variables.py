@@ -1,13 +1,13 @@
 from decimal import FloatOperation
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 
-class SYS1_PDRS__postcode(Variable):
+class SYS1_PDRS__postcode(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +21,7 @@ class SYS1_PDRS__postcode(Variable):
     }
 
 
-class SYS1_get_network_loss_factor_by_postcode(Variable):
+class SYS1_get_network_loss_factor_by_postcode(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class SYS1_get_network_loss_factor_by_postcode(Variable):
         return network_loss_factor.calc(postcode)
 
 
-class SYS1_BCA_climate_zone_by_postcode(Variable):
+class SYS1_BCA_climate_zone_by_postcode(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY

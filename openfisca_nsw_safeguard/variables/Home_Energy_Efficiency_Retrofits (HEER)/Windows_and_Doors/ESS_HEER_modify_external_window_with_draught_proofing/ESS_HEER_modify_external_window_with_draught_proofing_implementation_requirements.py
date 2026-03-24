@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_product_applied_to_window_sash_perimeter(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_product_applied_to_window_sash_perimeter(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -12,7 +12,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_product_applied_to_w
             ' As prescribed by Implementation Requirement 1.'
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_product_restricts_airflow(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_product_restricts_airflow(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -21,7 +21,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_product_restricts_ai
             ' in Implementation Requirement 2.'
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_product_installed_according_to_instructions(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_product_installed_according_to_instructions(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +30,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_product_installed_ac
             ' Implementation Requirement 3.'
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_all_external_windows_are_draught_proofed(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_all_external_windows_are_draught_proofed(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -39,7 +39,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_all_external_windows
             ' in accordance with Implementation Requirement 4.'  # this means you need to run the eligibility requirement for every door on the size and probably have a flag saying
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_installed_in_accordance_with_BCA(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_installed_in_accordance_with_BCA(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -48,7 +48,7 @@ class ESS_HEER_modify_external_window_with_draught_proofing_installed_in_accorda
             ' Scheme Administrator.'
 
 
-class ESS_HEER_modify_external_window_with_draught_proofing_meets_implementation_requirements(Variable):
+class ESS_HEER_modify_external_window_with_draught_proofing_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

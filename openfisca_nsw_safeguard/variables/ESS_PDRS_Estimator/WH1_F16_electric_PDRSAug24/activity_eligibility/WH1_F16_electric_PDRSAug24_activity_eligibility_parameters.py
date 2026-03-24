@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class WH1_F16_electric_PDRSAug24__equipment_replaced(Variable):
+class WH1_F16_electric_PDRSAug24__equipment_replaced(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class WH1_F16_electric_PDRSAug24__equipment_replaced(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__existing_equipment_removed(Variable):
+class WH1_F16_electric_PDRSAug24__existing_equipment_removed(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class WH1_F16_electric_PDRSAug24__existing_equipment_removed(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__equipment_installed_on_site(Variable):
+class WH1_F16_electric_PDRSAug24__equipment_installed_on_site(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -41,7 +41,7 @@ class WH1_F16_electric_PDRSAug24__equipment_installed_on_site(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__qualified_install_removal(Variable):
+class WH1_F16_electric_PDRSAug24__qualified_install_removal(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -53,7 +53,7 @@ class WH1_F16_electric_PDRSAug24__qualified_install_removal(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__engaged_ACP(Variable):
+class WH1_F16_electric_PDRSAug24__engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -67,7 +67,7 @@ class WH1_F16_electric_PDRSAug24__engaged_ACP(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__minimum_payment(Variable):
+class WH1_F16_electric_PDRSAug24__minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -79,7 +79,7 @@ class WH1_F16_electric_PDRSAug24__minimum_payment(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__building_BCA_class_1_or_4(Variable):
+class WH1_F16_electric_PDRSAug24__building_BCA_class_1_or_4(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -91,7 +91,7 @@ class WH1_F16_electric_PDRSAug24__building_BCA_class_1_or_4(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__4234_certified(Variable):
+class WH1_F16_electric_PDRSAug24__4234_certified(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -103,7 +103,7 @@ class WH1_F16_electric_PDRSAug24__4234_certified(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__scheme_admin_approved(Variable):
+class WH1_F16_electric_PDRSAug24__scheme_admin_approved(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -115,7 +115,7 @@ class WH1_F16_electric_PDRSAug24__scheme_admin_approved(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__minimum_annual_energy(Variable):
+class WH1_F16_electric_PDRSAug24__minimum_annual_energy(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -135,7 +135,7 @@ class WH1_F16_electric_PDRSAug24__StorageVolume(Enum):
     more_than_700_L = 'More than 700 litres'
 
     
-class WH1_F16_electric_PDRSAug24__storage_volume(Variable):
+class WH1_F16_electric_PDRSAug24__storage_volume(BaseVariable):
     value_type = Enum
     entity = Building
     default_value = WH1_F16_electric_PDRSAug24__StorageVolume.more_than_700_L
@@ -148,7 +148,7 @@ class WH1_F16_electric_PDRSAug24__storage_volume(Variable):
     }
 
 
-class WH1_F16_electric_PDRSAug24__certified(Variable):
+class WH1_F16_electric_PDRSAug24__certified(BaseVariable):
     #only show this if the storage volume is 700L or less
     value_type = bool
     entity = Building
@@ -162,7 +162,7 @@ class WH1_F16_electric_PDRSAug24__certified(Variable):
     }
    
 
-class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_ESCs(Variable):
+class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_ESCs(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -184,7 +184,7 @@ class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_ESCs(Variable):
       return eligible_by_storage_for_ESCs
     
 
-class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_PRCs(Variable):
+class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_PRCs(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -206,7 +206,7 @@ class WH1_F16_electric_PDRSAug24__eligible_by_storage_for_PRCs(Variable):
       return eligible_by_storage_for_PRCs
     
 
-class WH1_F16_electric_PDRSAug24__certified_and_eligible(Variable):
+class WH1_F16_electric_PDRSAug24__certified_and_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

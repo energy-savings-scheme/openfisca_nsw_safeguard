@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021, PDRS_2022
 
 
-class is_installed_centralised_system_common_area_BCA_Class2_building(Variable):
+class is_installed_centralised_system_common_area_BCA_Class2_building(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -14,7 +14,7 @@ class is_installed_centralised_system_common_area_BCA_Class2_building(Variable):
         'dependency': 'PDRS__residential_building==True'
     }
 
-class Appliance_is_registered_in_GEMS(Variable):
+class Appliance_is_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -24,7 +24,7 @@ class Appliance_is_registered_in_GEMS(Variable):
         "regulation_reference": ESS_2021["XX", "GA"]
     }
 
-class HVAC2_appliance_is_registered_in_GEMS(Variable):
+class HVAC2_appliance_is_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -35,7 +35,7 @@ class HVAC2_appliance_is_registered_in_GEMS(Variable):
     }
 
 
-class Appliance_demand_response_capability(Variable):
+class Appliance_demand_response_capability(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

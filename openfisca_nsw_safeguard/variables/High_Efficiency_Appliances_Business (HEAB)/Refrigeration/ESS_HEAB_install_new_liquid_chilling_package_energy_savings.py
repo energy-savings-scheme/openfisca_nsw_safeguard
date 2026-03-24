@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
 
-class ESS_HEAB_install_new_liquid_chilling_package_electricity_savings(Variable):
+class ESS_HEAB_install_new_liquid_chilling_package_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -41,7 +41,7 @@ class LCPType(Enum):
     water_cooled = 'Product is a water-cooled LCP.'
 
 
-class ESS_HEAB_install_new_liquid_chilling_package_LCP_type(Variable):
+class ESS_HEAB_install_new_liquid_chilling_package_LCP_type(BaseVariable):
     value_type = Enum
     possible_values = LCPType
     default_value = LCPType.air_cooled
@@ -51,7 +51,7 @@ class ESS_HEAB_install_new_liquid_chilling_package_LCP_type(Variable):
             ' User Equipment?'
 
 
-class ESS_HEAB_install_new_liquid_chilling_package_integrated_part_load_value(Variable):
+class ESS_HEAB_install_new_liquid_chilling_package_integrated_part_load_value(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -59,7 +59,7 @@ class ESS_HEAB_install_new_liquid_chilling_package_integrated_part_load_value(Va
             ' Chilling Package, as determined using AS 4776?'
 
 
-class ESS_HEAB_install_new_liquid_chilling_package_cooling_capacity(Variable):
+class ESS_HEAB_install_new_liquid_chilling_package_cooling_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

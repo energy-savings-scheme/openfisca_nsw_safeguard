@@ -1,4 +1,4 @@
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted split systems in hot zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -26,7 +26,7 @@
                                                     8219.3545,
                                                     17572.414
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted split systems in average zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -54,7 +54,7 @@
                                                     2767.742,
                                                     5917.241
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted split systems in cold zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -82,7 +82,7 @@
                                                     1838.7097,
                                                     3931.0344
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted unitary systems in hot zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -110,7 +110,7 @@
                                                     8219.3545,
                                                     17572.414
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted unitary systems in average zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -138,7 +138,7 @@
                                                     2767.742,
                                                     5917.241
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for non-ducted unitary systems in cold zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -166,7 +166,7 @@
                                                     1838.7097,
                                                     3931.0344
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted split systems in hot zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -194,7 +194,7 @@
                                                     8219.3545,
                                                     17572.414
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted split systems in average zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -222,7 +222,7 @@
                                                     2767.742,
                                                     5917.241
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted split systems in cold zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -250,7 +250,7 @@
                                                     1838.7097,
                                                     3931.0344
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted unitary systems in hot zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -273,12 +273,12 @@
                       ]                        
   output: 
     ESS_HEER_AC_install_reference_cooling_annual_energy_use: [
-                                                    1044.2623,
-                                                    2769.5652,
+                                                    1232.9032,
+                                                    2876.7742,
                                                     8219.3545,
                                                     17572.414
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted unitary systems in average zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -301,12 +301,12 @@
                       ]                        
   output: 
     ESS_HEER_AC_install_reference_cooling_annual_energy_use: [
-                                                    351.63934,
-                                                    932.6087,
+                                                    415.1613,
+                                                    968.70966,
                                                     2767.742,
                                                     5917.241
                                                     ]
-- name: Test AC cooling annual energy use for non-ducted split systems.
+- name: Test AC cooling annual energy use for ducted unitary systems in cold zone.
   period: 2022
   input:
     new_AC_cooling_capacity: [
@@ -329,8 +329,8 @@
                       ]                        
   output: 
     ESS_HEER_AC_install_reference_cooling_annual_energy_use: [
-                                                    233.60655,
-                                                    619.56525,
+                                                    275.80646,
+                                                    643.5484,
                                                     1838.7097,
                                                     3931.0344
                                                     ]

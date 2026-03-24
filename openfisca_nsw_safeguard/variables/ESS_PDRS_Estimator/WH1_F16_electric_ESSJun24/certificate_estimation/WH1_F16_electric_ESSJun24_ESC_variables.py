@@ -1,14 +1,14 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 """ Parameters for WH1 ESC Calculation
     These variables use VEU Registry data
 """
-class WH1_F16_electric_ESSJun24_HP_capacity_factor(Variable):
+class WH1_F16_electric_ESSJun24_HP_capacity_factor(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -22,7 +22,7 @@ class WH1_F16_electric_ESSJun24_HP_capacity_factor(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24_WH_capacity_factor(Variable):
+class WH1_F16_electric_ESSJun24_WH_capacity_factor(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -36,7 +36,7 @@ class WH1_F16_electric_ESSJun24_WH_capacity_factor(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24_HP_gas(Variable):
+class WH1_F16_electric_ESSJun24_HP_gas(BaseVariable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -50,7 +50,7 @@ class WH1_F16_electric_ESSJun24_HP_gas(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24_com_peak_load(Variable):
+class WH1_F16_electric_ESSJun24_com_peak_load(BaseVariable):
     reference = 'MJ per day'
     value_type = float
     entity = Building
@@ -64,7 +64,7 @@ class WH1_F16_electric_ESSJun24_com_peak_load(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24_HP_elec(Variable):
+class WH1_F16_electric_ESSJun24_HP_elec(BaseVariable):
     reference = 'Gj per year'
     value_type = float
     entity = Building
@@ -78,7 +78,7 @@ class WH1_F16_electric_ESSJun24_HP_elec(Variable):
     }
 
 
-class WH1_F16_electric_ESSJun24_regional_network_factor(Variable):
+class WH1_F16_electric_ESSJun24_regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -90,7 +90,7 @@ class WH1_F16_electric_ESSJun24_regional_network_factor(Variable):
         return rnf.calc(postcode)
 
 
-class WH1_F16_electric_ESSJun24_replacement_activity(Variable):
+class WH1_F16_electric_ESSJun24_replacement_activity(BaseVariable):
     value_type = bool
     default_value = True
     entity = Building

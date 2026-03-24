@@ -1,13 +1,13 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY, YEAR
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 import numpy as np
 
-class ESS__NABERS_forward_electricity_savings(Variable):
+class ESS__NABERS_forward_electricity_savings(BaseVariable):
     value_type = float
     default_value = 0
     entity = Building
@@ -39,7 +39,7 @@ class ESS__NABERS_forward_electricity_savings(Variable):
         return electricity_savings
 
 
-class ESS__NABERS_forward_gas_savings(Variable):
+class ESS__NABERS_forward_gas_savings(BaseVariable):
     value_type = float
     default_value = 0
     entity = Building
@@ -70,7 +70,7 @@ class ESS__NABERS_forward_gas_savings(Variable):
         return gas_savings
 
 
-class ESS__NABERS_electricity_savings(Variable):
+class ESS__NABERS_electricity_savings(BaseVariable):
     value_type = float
     default_value = 0
     entity = Building
@@ -98,7 +98,7 @@ class ESS__NABERS_electricity_savings(Variable):
                           forward_created_elec_savings])
 
 
-class ESS__NABERS_gas_savings(Variable):
+class ESS__NABERS_gas_savings(BaseVariable):
     value_type = float
     default_value = 0
     entity = Building

@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_with_LED_new_end_user_equipment_is_LED_linear_lamp(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_with_LED_new_end_user_equipment_is_LED_linear_lamp(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -22,7 +22,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_with_LED_new_end_user_equipment_is_LED
         return is_LED_linear
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_with_LED_is_not_retrofit_or_modified(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_with_LED_is_not_retrofit_or_modified(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_with_LED_is_not_retrofit_or_modified(V
         return not(is_retrofit_LED_linear + is_modified_LED_linear)
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_with_LED_meets_A9_4_requirements(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_with_LED_meets_A9_4_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -45,7 +45,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_with_LED_meets_A9_4_requirements(Varia
             ' table A9.4, as required by Equipment Requirement 2.'
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_with_LED_minimum_lamp_life(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_with_LED_minimum_lamp_life(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -59,7 +59,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_with_LED_minimum_lamp_life(Variable):
         return condition_new_lamp_life
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_with_LED_is_compatible_with_circuit_dimmers(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_with_LED_is_compatible_with_circuit_dimmers(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -67,7 +67,7 @@ class ESS_HEER_lighting_replace_T8_or_T12_with_LED_is_compatible_with_circuit_di
             ' on the same circuit as the new lamp.'
 
 
-class ESS_HEER_lighting_replace_T8_or_T12_with_LED_meets_equipment_requirements(Variable):
+class ESS_HEER_lighting_replace_T8_or_T12_with_LED_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

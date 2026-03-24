@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 import datetime
 import time
@@ -9,7 +9,7 @@ from datetime import datetime as py_datetime
 from datetime import date
 
 
-class PDRS__can_create_PDRS_certificate(Variable):
+class PDRS__can_create_PDRS_certificate(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -49,7 +49,7 @@ class PDRS__can_create_PDRS_certificate(Variable):
         return is_eligible
 
 
-class PDRS__have_implemented_PDR_activity(Variable):
+class PDRS__have_implemented_PDR_activity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -63,7 +63,7 @@ class PDRS__have_implemented_PDR_activity(Variable):
     }
 
 
-class PDRS__have_accreditation(Variable):
+class PDRS__have_accreditation(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -76,7 +76,7 @@ class PDRS__have_accreditation(Variable):
     }
 
 
-class PDRS__implementation_after_1_April_2022(Variable):
+class PDRS__implementation_after_1_April_2022(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -90,7 +90,7 @@ class PDRS__implementation_after_1_April_2022(Variable):
     }
 
 
-class PDRS__certificates_have_been_calculated(Variable):
+class PDRS__certificates_have_been_calculated(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -103,7 +103,7 @@ class PDRS__certificates_have_been_calculated(Variable):
     }
 
 
-class PDRS__application_during_transition_period(Variable):
+class PDRS__application_during_transition_period(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -116,7 +116,7 @@ class PDRS__application_during_transition_period(Variable):
     }
 
 
-class PDRS__is_IPART_approved_accreditation(Variable):
+class PDRS__is_IPART_approved_accreditation(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -129,7 +129,7 @@ class PDRS__is_IPART_approved_accreditation(Variable):
     }
 
 
-class PDRS__certificate_already_been_created_during_compliance_period(Variable):
+class PDRS__certificate_already_been_created_during_compliance_period(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -142,7 +142,7 @@ class PDRS__certificate_already_been_created_during_compliance_period(Variable):
     }
 
 
-class PDRS__have_provided_required_data_and_evidence(Variable):
+class PDRS__have_provided_required_data_and_evidence(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -155,7 +155,7 @@ class PDRS__have_provided_required_data_and_evidence(Variable):
     }
 
 
-class PDRS__used_administrator_registry(Variable):
+class PDRS__used_administrator_registry(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -168,7 +168,7 @@ class PDRS__used_administrator_registry(Variable):
     }
 
 
-class PDRS__registration_date_before_30_Sept(Variable):
+class PDRS__registration_date_before_30_Sept(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -181,7 +181,7 @@ class PDRS__registration_date_before_30_Sept(Variable):
     }
 
 
-class PDRS__testing_evidence_is_required(Variable):
+class PDRS__testing_evidence_is_required(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

@@ -1,10 +1,10 @@
 import enum
 from multiprocessing import pool
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 class SYS2PoolSize(Enum):
@@ -17,7 +17,7 @@ class SYS2PoolSize(Enum):
     over_70001_L = 'More than 70,000 litres'
 
 
-class SYS2_pool_size(Variable):
+class SYS2_pool_size(BaseVariable):
     value_type = Enum
     entity = Building
     definition_period = ETERNITY
@@ -31,7 +31,7 @@ class SYS2_pool_size(Variable):
     }
 
 
-class SYS2_pool_size_int(Variable):
+class SYS2_pool_size_int(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -59,7 +59,7 @@ class SYS2_pool_size_int(Variable):
       return pool_size_int
 
 
-class SYS2_baseline_input_power(Variable):
+class SYS2_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -78,7 +78,7 @@ class SYS2PoolPumpType(Enum):
     multiple_speed_pool_pump = 'Multi speed'
 
 
-class SYS2_pool_pump_type(Variable):
+class SYS2_pool_pump_type(BaseVariable):
     value_type = Enum
     entity = Building
     default_value = SYS2PoolPumpType.variable_speed_pool_pump
@@ -92,7 +92,7 @@ class SYS2_pool_pump_type(Variable):
     }
 
 
-class SYS2_input_power(Variable):
+class SYS2_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -106,7 +106,7 @@ class SYS2_input_power(Variable):
         return input_power
 
 
-class SYS2_get_network_loss_factor_by_postcode(Variable):
+class SYS2_get_network_loss_factor_by_postcode(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

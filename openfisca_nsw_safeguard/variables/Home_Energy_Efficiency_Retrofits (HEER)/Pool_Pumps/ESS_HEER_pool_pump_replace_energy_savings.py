@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class ESS_HEER_pool_pump_replace_electricity_savings_factor(Variable):
+class ESS_HEER_pool_pump_replace_electricity_savings_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class PoolPumpStarRating(Enum):
     ten_stars = u'New pool pump has a Star Rating of 10 stars.'
 
 
-class ESS_HEER_pool_pump_star_rating(Variable):
+class ESS_HEER_pool_pump_star_rating(BaseVariable):
     value_type = Enum
     possible_values = PoolPumpStarRating
     default_value = PoolPumpStarRating.one_star

@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class RF2_input_power(Variable):
+class RF2_input_power(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class RF2_input_power(Variable):
       return input_power
 
 
-class RF2_lifetime_by_rc_class(Variable):
+class RF2_lifetime_by_rc_class(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -72,7 +72,7 @@ class RF2_lifetime_by_rc_class(Variable):
         return lifetime_by_rc_class
 
 
-class RF2_deemed_activity_electricity_savings(Variable):
+class RF2_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -82,15 +82,21 @@ class RF2_deemed_activity_electricity_savings(Variable):
     }
 
     def formula(buildings, period, parameters):
-      total_energy_consumption = buildings('RF2_total_energy_consumption', period)
-      baseline_EEI = buildings('RF2_baseline_EEI', period)
-      product_EEI = buildings('RF2_product_EEI', period)
-      af = buildings('RF2_af', period)
-      lifetime_by_rc_class = buildings('RF2_lifetime_by_rc_class', period)
+        total_energy_consumption = buildings('RF2_total_energy_consumption', period)
+        baseline_EEI = buildings('RF2_baseline_EEI', period)
+        product_EEI = buildings('RF2_product_EEI', period)
+        af = buildings('RF2_af', period)
+        lifetime_by_rc_class = buildings('RF2_lifetime_by_rc_class', period)
+        ratio = np.divide(
+            baseline_EEI,
+            product_EEI,
+            out=np.zeros_like(product_EEI),
+            where=product_EEI != 0
+        )
       
-      deemed_electricity_savings = np.multiply(total_energy_consumption * (baseline_EEI / product_EEI - 1) * af * 365, (lifetime_by_rc_class / 1000))
-      return deemed_electricity_savings
-    
+        deemed_electricity_savings = np.multiply(total_energy_consumption * (ratio - 1) * af * 365, (lifetime_by_rc_class / 1000))
+        return deemed_electricity_savings
+
 
 class RF2ProductClass(Enum):
     product_class_one = 'Class 1'
@@ -110,7 +116,7 @@ class RF2ProductClass(Enum):
     product_class_fifteen = 'Class 15'
 
 
-class RF2_product_class_savings(Variable):
+class RF2_product_class_savings(BaseVariable):
     value_type = Enum
     entity = Building
     definition_period = ETERNITY
@@ -130,7 +136,7 @@ class RCDutyClass_savings(Enum):
     light_duty = 'Light duty'
 
 
-class RF2_duty_class_savings(Variable):
+class RF2_duty_class_savings(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCDutyClass_savings
@@ -144,7 +150,7 @@ class RF2_duty_class_savings(Variable):
     }
 
 
-class RF2_annual_energy_savings(Variable):
+class RF2_annual_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -312,7 +318,7 @@ class RF2_annual_energy_savings(Variable):
         ])
         return annual_savings_return
     
-class RF2_PDRS__regional_network_factor(Variable):
+class RF2_PDRS__regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -331,7 +337,7 @@ class RF2_PDRS__regional_network_factor(Variable):
         return rnf.calc(postcode) 
 
 
-class RF2_electricity_savings(Variable):
+class RF2_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -349,7 +355,7 @@ class RF2_electricity_savings(Variable):
         return RF2_electricity_savings
   
 
-class RF2_ESC_calculation(Variable):
+class RF2_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
@@ -27,7 +27,7 @@ class ESS_MethodType(Enum):
 
 
 
-class ESS__method_type(Variable):
+class ESS__method_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = ESS_MethodType
@@ -341,7 +341,7 @@ class ESS_ActivityDefinition(Enum):
     not_defined_activity = 'Certificates are created under a method that is not defined in Schedules B through F.'
 
 
-class ESS_activity_definition(Variable):
+class ESS_activity_definition(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = ESS_ActivityDefinition

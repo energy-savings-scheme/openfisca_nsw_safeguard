@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class ESS_HEER_showerheads_replace_new_end_user_equipment_is_showerhead(Variable):
+class ESS_HEER_showerheads_replace_new_end_user_equipment_is_showerhead(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -14,14 +14,14 @@ class ESS_HEER_showerheads_replace_new_end_user_equipment_is_showerhead(Variable
             ' AS/NZS 3662– Performance of showers for bathing.'  # IPART to define what this means
 
 
-class ESS_HEER_showerheads_replace_WELS_rating(Variable):
+class ESS_HEER_showerheads_replace_WELS_rating(BaseVariable):
     value_type = float  # need to check if this is Enum?
     entity = Building
     definition_period = ETERNITY
     label = 'Asks for the WELS rating of the showerhead.'
 
 
-class ESS_HEER_showerheads_replace_showerhead_nominal_flow_rate(Variable):
+class ESS_HEER_showerheads_replace_showerhead_nominal_flow_rate(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -29,7 +29,7 @@ class ESS_HEER_showerheads_replace_showerhead_nominal_flow_rate(Variable):
             ' according to AS/NZS 6400 – Water efficient products.'
 
 
-class ESS_HEER_showerheads_replace_WELS_rating_and_flow_rating_are_eligible(Variable):
+class ESS_HEER_showerheads_replace_WELS_rating_and_flow_rating_are_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -45,7 +45,7 @@ class ESS_HEER_showerheads_replace_WELS_rating_and_flow_rating_are_eligible(Vari
         return condition_minimum_WELS_rating * condition_nominal_flow_rating
 
 
-class ESS_HEER_showerheads_replace_minimum_warranty_length(Variable):
+class ESS_HEER_showerheads_replace_minimum_warranty_length(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -57,7 +57,7 @@ class ESS_HEER_showerheads_replace_minimum_warranty_length(Variable):
         return warranty_length >= 2 # need to rewrite as parameter
 
 
-class ESS_HEER_showerheads_replace_meets_equipment_requirements(Variable):
+class ESS_HEER_showerheads_replace_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

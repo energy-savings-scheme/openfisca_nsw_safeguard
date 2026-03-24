@@ -1,13 +1,13 @@
-from openfisca_core.variables import Variable
-from openfisca_core.periods import ETERNITY
-from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
-
-from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 import numpy as np
 
+from openfisca_core.periods import ETERNITY
+from openfisca_nsw_safeguard.entities import Building
 
-class ESS_HEAB_install_high_efficiency_motor_energy_savings(Variable):
+from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
+from openfisca_nsw_safeguard.base_variables import BaseVariable
+
+
+class ESS_HEAB_install_high_efficiency_motor_energy_savings(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -27,7 +27,7 @@ class ESS_HEAB_install_high_efficiency_motor_energy_savings(Variable):
         return meets_all_requirements * savings
 
 
-class ESS_HEAB_install_high_efficiency_motor_equipment_electricity_savings(Variable):
+class ESS_HEAB_install_high_efficiency_motor_equipment_electricity_savings(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -87,7 +87,7 @@ class ESS_HEAB_install_high_efficiency_motor_equipment_electricity_savings(Varia
         return electricity_savings
 
 
-class ESS_HEAB_install_high_efficiency_motor_load_utilisation_factor(Variable):
+class ESS_HEAB_install_high_efficiency_motor_load_utilisation_factor(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY

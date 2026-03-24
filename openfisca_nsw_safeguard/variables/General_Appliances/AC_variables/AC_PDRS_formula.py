@@ -2,12 +2,12 @@ from wsgiref.validate import InputWrapper
 import numpy as np
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022, ESS_2021
 
 
-class PDRS_AC_baseline_input_power(Variable):
+class PDRS_AC_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     label = 'returns the baseline input power for an Air Conditioner'
@@ -25,7 +25,7 @@ class PDRS_AC_baseline_input_power(Variable):
         return cooling_capacity / baseline_AEER
 
 
-class PDRS_AC_baseline_peak_adjustment_factor(Variable):
+class PDRS_AC_baseline_peak_adjustment_factor(BaseVariable):
     value_type = float
     entity = Building
     label = 'returns the baseline peak adjustment factor for an Air Conditioner'
@@ -43,7 +43,7 @@ class PDRS_AC_baseline_peak_adjustment_factor(Variable):
 
 
 
-class Air_Conditioner__baseline_AEER(Variable):
+class Air_Conditioner__baseline_AEER(BaseVariable):
     value_type = float
     entity = Building
     label = 'returns the baseline input power for an Air Conditioner'
@@ -85,7 +85,7 @@ class Air_Conditioner__baseline_AEER(Variable):
         return baseline_AEER
 
 
-class PDRS_AC_duration_factor(Variable):
+class PDRS_AC_duration_factor(BaseVariable):
     reference = 'computing duration factor during the peak hour usage as part of the firmness factor in PDRS Air Conditioner savings.'
     entity = Building
     value_type = float
@@ -110,7 +110,7 @@ class PDRS_AC_duration_factor(Variable):
         return operation_hrs[installation_purpose]*ratio[installation_purpose]*weekdays_ratio/peak_hours
 
 
-class PDRS_AC_firmness_factor(Variable):
+class PDRS_AC_firmness_factor(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -133,7 +133,7 @@ class PDRS_AC_firmness_factor(Variable):
         return contribution_factor*load_factor*duration_factor
 
 
-class PDRS_AC_input_power(Variable):
+class PDRS_AC_input_power(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -145,7 +145,7 @@ class PDRS_AC_input_power(Variable):
     }
 
 
-class PDRS_AC_peak_demand_savings(Variable):
+class PDRS_AC_peak_demand_savings(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY

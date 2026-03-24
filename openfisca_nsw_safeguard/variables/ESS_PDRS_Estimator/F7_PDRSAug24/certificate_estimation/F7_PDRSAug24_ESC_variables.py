@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class F7_PDRSAug24_PDRS__postcode(Variable):
+class F7_PDRSAug24_PDRS__postcode(BaseVariable):
     # this variable is used as the first input on all estimator certificate calculation pages
     value_type = int
     entity = Building
@@ -18,7 +18,7 @@ class F7_PDRSAug24_PDRS__postcode(Variable):
     }
 
 
-class F7_PDRSAug24_regional_network_factor(Variable):
+class F7_PDRSAug24_regional_network_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -37,7 +37,7 @@ class F7_PDRSAug24_regional_network_factor(Variable):
         # is used to calculate a single value for regional network factor based on a zipcode provided
     
 
-class F7_PDRSAug24_replacement_activity(Variable):
+class F7_PDRSAug24_replacement_activity(BaseVariable):
     value_type = bool
     default_value = False
     entity = Building
@@ -50,7 +50,7 @@ class F7_PDRSAug24_replacement_activity(Variable):
     }
 
 
-class F7_PDRSAug24_new_equipment_rated_output(Variable):
+class F7_PDRSAug24_new_equipment_rated_output(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -64,7 +64,7 @@ class F7_PDRSAug24_new_equipment_rated_output(Variable):
     }
 
 
-class F7_PDRSAug24_existing_equipment_rated_output(Variable):
+class F7_PDRSAug24_existing_equipment_rated_output(BaseVariable):
     reference = 'unit in kW'
     value_type = float
     entity = Building
@@ -78,7 +78,7 @@ class F7_PDRSAug24_existing_equipment_rated_output(Variable):
     }
 
     
-class F7_PDRSAug24_new_efficiency(Variable):
+class F7_PDRSAug24_new_efficiency(BaseVariable):
     reference = 'percent'
     value_type = float
     entity = Building
@@ -91,7 +91,7 @@ class F7_PDRSAug24_new_efficiency(Variable):
     }
 
 
-class F7_PDRSAug24_new_equipment_baseline_efficiency(Variable):
+class F7_PDRSAug24_new_equipment_baseline_efficiency(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -158,7 +158,7 @@ class F7_PDRSAug24_new_equipment_baseline_efficiency(Variable):
         return new_equipment_baseline_efficiency
 
 
-class F7_PDRSAug24_existing_equipment_baseline_efficiency(Variable):
+class F7_PDRSAug24_existing_equipment_baseline_efficiency(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -230,7 +230,7 @@ class F7_PDRSAug24_motor_frequency_Options(Enum):
     motor_60_hz = '60 Hz'
 
 
-class F7_PDRSAug24_new_equipment_motor_frequency(Variable):
+class F7_PDRSAug24_new_equipment_motor_frequency(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = F7_PDRSAug24_motor_frequency_Options
@@ -245,7 +245,7 @@ class F7_PDRSAug24_new_equipment_motor_frequency(Variable):
     }
 
 
-class F7_PDRSAug24_existing_equipment_motor_frequency(Variable):
+class F7_PDRSAug24_existing_equipment_motor_frequency(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = F7_PDRSAug24_motor_frequency_Options
@@ -267,7 +267,7 @@ class F7_PDRSAug24_no_of_poles_Options(Enum):
     poles_8 = '8 poles'
 
 
-class F7_PDRSAug24_new_equipment_no_of_poles(Variable):
+class F7_PDRSAug24_new_equipment_no_of_poles(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = F7_PDRSAug24_no_of_poles_Options
@@ -282,7 +282,7 @@ class F7_PDRSAug24_new_equipment_no_of_poles(Variable):
     }
 
 
-class F7_PDRSAug24_existing_equipment_no_of_poles(Variable):
+class F7_PDRSAug24_existing_equipment_no_of_poles(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = F7_PDRSAug24_no_of_poles_Options
@@ -320,7 +320,7 @@ class F7_PDRSAug24_BusinessClassification_Options(Enum):
     division_S = 'Division S (Other Services) business'
 
 
-class F7_PDRSAug24_business_classification(Variable):
+class F7_PDRSAug24_business_classification(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = F7_PDRSAug24_BusinessClassification_Options
@@ -357,7 +357,7 @@ class F7_PDRSAug24_end_use_service_Options(Enum):
     water_heating = 'Water heating'
 
 
-class F7_PDRSAug24_end_use_service(Variable):
+class F7_PDRSAug24_end_use_service(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = F7_PDRSAug24_end_use_service_Options
@@ -371,7 +371,7 @@ class F7_PDRSAug24_end_use_service(Variable):
     }
 
 
-class F7_PDRSAug24_load_utilisation_factor(Variable):
+class F7_PDRSAug24_load_utilisation_factor(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import ESS_2021
 
 
-class ESS_PDRS_is_residential(Variable):
+class ESS_PDRS_is_residential(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -28,7 +28,7 @@ class ESS_PDRS_is_residential(Variable):
         return is_residential
 
 
-class Appliance_located_in_small_business_building(Variable):
+class Appliance_located_in_small_business_building(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

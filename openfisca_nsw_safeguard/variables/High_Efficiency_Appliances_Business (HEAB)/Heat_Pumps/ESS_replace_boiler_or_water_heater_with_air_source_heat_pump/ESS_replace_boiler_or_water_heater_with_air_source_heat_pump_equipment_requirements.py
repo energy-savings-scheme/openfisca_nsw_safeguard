@@ -1,11 +1,11 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_AS4234_requirements(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_AS4234_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -25,7 +25,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_AS4234_
 # in IPART's product registry, products can be modelled for both HP3-AU and HP5-AU.
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_has_minimum_energy_savings(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_has_minimum_energy_savings(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -41,7 +41,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
         return (energy_savings >= 60)
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_energy_savings(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     default_value = 0
@@ -84,7 +84,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
         return energy_savings
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_HP3_energy_savings(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_HP3_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     default_value = 0
@@ -95,7 +95,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
       }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_HP5_energy_savings(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_HP5_energy_savings(BaseVariable):
     value_type = float
     entity = Building
     default_value = 0
@@ -106,7 +106,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
       }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_storage_volume(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_storage_volume(BaseVariable):
     value_type = int
     entity = Building
     default_value = False
@@ -116,7 +116,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
           'alias':  'Storage volume',
       }
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_ASNZ_2712_certified(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pump_ASNZ_2712_certified(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -127,7 +127,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_hot_water_pum
       }
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_storage_certified(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_storage_certified(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -151,7 +151,7 @@ class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_storage_certi
         )
 
 
-class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_equipment_requirements(Variable):
+class ESS_replace_boiler_or_water_heater_with_air_source_heat_pump_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

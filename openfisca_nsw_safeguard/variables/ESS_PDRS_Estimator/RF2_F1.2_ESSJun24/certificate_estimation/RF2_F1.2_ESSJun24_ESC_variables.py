@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
@@ -9,7 +9,7 @@ import numpy as np
 ''' Parameters for RF2 ESC Calculation
 '''
 
-class RF2_F1_2_ESSJun24_PDRS__postcode(Variable):
+class RF2_F1_2_ESSJun24_PDRS__postcode(BaseVariable):
     # this variable is used as the first input on all estimator certificate calculation pages
     value_type = int
     entity = Building
@@ -42,7 +42,7 @@ class RF2_F1_2_ESSJun24ProductClass(Enum):
     product_class_fifteen = 'Class 15'
 
 
-class RF2_F1_2_ESSJun24_product_class(Variable):
+class RF2_F1_2_ESSJun24_product_class(BaseVariable):
     value_type = str
     entity = Building
     default_value = 'Class 1'
@@ -55,7 +55,7 @@ class RF2_F1_2_ESSJun24_product_class(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_product_class_int(Variable):
+class RF2_F1_2_ESSJun24_product_class_int(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -121,7 +121,7 @@ class RF2_F1_2_ESSJun24_product_class_int(Variable):
       return product_class_int
     
 
-class RF2_F1_2_ESSJun24_replacement_activity(Variable):  
+class RF2_F1_2_ESSJun24_replacement_activity(BaseVariable):  
     value_type = bool
     default_value = True
     entity = Building
@@ -140,7 +140,7 @@ class RCDutyClass(Enum):
     light_duty =  'Light duty'
 
 
-class RF2_F1_2_ESSJun24_duty_class(Variable):
+class RF2_F1_2_ESSJun24_duty_class(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCDutyClass
@@ -155,7 +155,7 @@ class RF2_F1_2_ESSJun24_duty_class(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_total_energy_consumption(Variable):
+class RF2_F1_2_ESSJun24_total_energy_consumption(BaseVariable):
     #Total energy consumption
     reference = 'kWh per day'
     value_type = float
@@ -169,7 +169,7 @@ class RF2_F1_2_ESSJun24_total_energy_consumption(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_product_EEI(Variable):
+class RF2_F1_2_ESSJun24_product_EEI(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -181,7 +181,7 @@ class RF2_F1_2_ESSJun24_product_EEI(Variable):
     }
 
 
-class RF2_F1_2_ESSJun24_af(Variable):
+class RF2_F1_2_ESSJun24_af(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -238,7 +238,7 @@ class RF2_F1_2_ESSJun24_af(Variable):
       return af
     
     
-class RF2_F1_2_ESSJun24_baseline_EEI(Variable):
+class RF2_F1_2_ESSJun24_baseline_EEI(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -303,7 +303,7 @@ class RCProductType(Enum):
     RSC = 'Refrigerated storage cabinet'
 
 
-class RF2_F1_2_ESSJun24_product_type(Variable):
+class RF2_F1_2_ESSJun24_product_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = RCProductType
@@ -400,7 +400,7 @@ class RF2_F1_2_ESSJun24_product_type(Variable):
       return product_type
 
 
-class RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility(Variable):
+class RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
@@ -426,7 +426,7 @@ class RF2_F1_2_ESSJun24_product_minimum_EEI_eligibility(Variable):
         return product_EEI_eligibility_check
 
 
-class RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility(Variable):
+class RF2_F1_2_ESSJun24_product_EEI_ESC_install_eligibility(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

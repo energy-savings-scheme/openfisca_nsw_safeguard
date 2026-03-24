@@ -1,9 +1,9 @@
 from decimal import FloatOperation
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 """ Parameters for WH1 PRC Calculation
@@ -16,7 +16,7 @@ from openfisca_nsw_base.entities import Building
 """ These variables use VEU Registry data
 """
 
-class WH1_annual_energy_savings(Variable):
+class WH1_annual_energy_savings(BaseVariable):
     reference = 'Percentage'
     value_type = float
     entity = Building
@@ -31,7 +31,7 @@ class WH1_annual_energy_savings(Variable):
 
 """ These variables use Rule tables
 """
-class WH1_PDRS__postcode(Variable):
+class WH1_PDRS__postcode(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -45,7 +45,7 @@ class WH1_PDRS__postcode(Variable):
     }
 
 
-class WH1_BCA_climate_zone_by_postcode(Variable):
+class WH1_BCA_climate_zone_by_postcode(BaseVariable):
     value_type = str
     entity = Building
     definition_period = ETERNITY
@@ -83,7 +83,7 @@ class WH1_BCA_climate_zone_by_postcode(Variable):
         return BCA_climate_zone_to_check
     
     
-class WH1_BCA_climate_zone_by_postcode_int(Variable):
+class WH1_BCA_climate_zone_by_postcode_int(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -100,7 +100,7 @@ class WH1_BCA_climate_zone_by_postcode_int(Variable):
         return climate_zone_int
     
 
-class WH1_get_HP_zone_by_BCA_climate_zone(Variable): 
+class WH1_get_HP_zone_by_BCA_climate_zone(BaseVariable): 
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -113,7 +113,7 @@ class WH1_get_HP_zone_by_BCA_climate_zone(Variable):
         return heat_pump_zone_int
 
 
-class WH1_get_network_loss_factor_by_postcode(Variable):
+class WH1_get_network_loss_factor_by_postcode(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -129,7 +129,7 @@ class WH1_get_network_loss_factor_by_postcode(Variable):
         return network_loss_factor.calc(postcode)
 
 
-class WH1_annual_energy_savings_eligible(Variable):
+class WH1_annual_energy_savings_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

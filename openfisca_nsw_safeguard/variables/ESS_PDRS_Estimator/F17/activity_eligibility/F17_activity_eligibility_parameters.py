@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class F17_equipment_new_installation(Variable):
+class F17_equipment_new_installation(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -17,7 +17,7 @@ class F17_equipment_new_installation(Variable):
     }
 
 
-class F17_4234_certified(Variable):
+class F17_4234_certified(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -29,7 +29,7 @@ class F17_4234_certified(Variable):
     }
 
 
-class F17_installed_by_qualified_person(Variable):
+class F17_installed_by_qualified_person(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -41,7 +41,7 @@ class F17_installed_by_qualified_person(Variable):
     }
     
 
-class F17_split_system(Variable):
+class F17_split_system(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -53,7 +53,7 @@ class F17_split_system(Variable):
     }
 
 
-class F17_safety_requirement(Variable):
+class F17_safety_requirement(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -65,7 +65,7 @@ class F17_safety_requirement(Variable):
     }
 
 
-class F17_engaged_ACP(Variable):
+class F17_engaged_ACP(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -79,7 +79,7 @@ class F17_engaged_ACP(Variable):
     }
 
 
-class F17_minimum_payment(Variable):
+class F17_minimum_payment(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -91,7 +91,7 @@ class F17_minimum_payment(Variable):
     }
 
 
-class F17_building_BCA_not_class_1_or_4(Variable):
+class F17_building_BCA_not_class_1_or_4(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -103,7 +103,7 @@ class F17_building_BCA_not_class_1_or_4(Variable):
     }
 
 
-class F17_storage_volume(Variable):
+class F17_storage_volume(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -115,7 +115,7 @@ class F17_storage_volume(Variable):
     }
 
 
-class F17_certified(Variable):
+class F17_certified(BaseVariable):
     #only show this if the storage volume is 700L or less 
     value_type = bool
     entity = Building
@@ -129,7 +129,7 @@ class F17_certified(Variable):
     }
 
 
-class F17_equipment_certified_by_storage_volume(Variable):
+class F17_equipment_certified_by_storage_volume(BaseVariable):
     """Checks if storage volume is less than or equal to 700L, and if it is, that it is certified by AS/NZS 2712"""
     value_type = bool
     entity = Building

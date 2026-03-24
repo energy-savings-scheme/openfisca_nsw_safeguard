@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class D18_deemed_activity_electricity_savings(Variable):
+class D18_deemed_activity_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -30,7 +30,7 @@ class D18_System_Size(Enum):
     system_size_medium = 'medium'
 
 
-class D18_annual_energy_savings(Variable):
+class D18_annual_energy_savings(BaseVariable):
     value_type = float  
     entity = Building
     definition_period = ETERNITY
@@ -79,7 +79,7 @@ class D18_annual_energy_savings(Variable):
         return annual_savings_return
 
 
-class D18_electricity_savings(Variable):
+class D18_electricity_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -96,7 +96,7 @@ class D18_electricity_savings(Variable):
         return electricity_savings
 
 
-class D18_ESC_calculation(Variable):
+class D18_ESC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

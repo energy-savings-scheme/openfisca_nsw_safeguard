@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 
-class PDRS_motor_install_meets_equipment_requirements(Variable):
+class PDRS_motor_install_meets_equipment_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -27,7 +27,7 @@ class PDRS_motor_install_meets_equipment_requirements(Variable):
         return is_registered * is_high_efficiency 
 
 
-class PDRS_motor_install_meets_implementation_requirements(Variable):
+class PDRS_motor_install_meets_implementation_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False
@@ -47,7 +47,7 @@ class PDRS_motor_install_meets_implementation_requirements(Variable):
                 (rated_output >= 0.73) * (rated_output < 185)
                 )
 
-class PDRS_motor_install_meets_all_requirements(Variable):
+class PDRS_motor_install_meets_all_requirements(BaseVariable):
     value_type = bool
     entity = Building
     default_value = False

@@ -1,15 +1,15 @@
 
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 from openfisca_nsw_safeguard.regulation_reference import PDRS_2022
 
 import numpy as np 
 
 
-class PDRS_HVAC_1_peak_demand_saving_capacity(Variable):
+class PDRS_HVAC_1_peak_demand_saving_capacity(BaseVariable):
     entity = Building
     value_type = float
     definition_period = ETERNITY
@@ -42,7 +42,7 @@ class PDRS_HVAC_1_peak_demand_saving_capacity(Variable):
             )
 
 
-class PDRS_HVAC_1_baseline_input_power(Variable):
+class PDRS_HVAC_1_baseline_input_power(BaseVariable):
     value_type = float
     entity = Building
     label = 'returns the baseline input power for an Air Conditioner'
@@ -60,7 +60,7 @@ class PDRS_HVAC_1_baseline_input_power(Variable):
         return cooling_capacity / baseline_AEER
 
 
-class PDRS_HVAC_1_baseline_AEER(Variable):
+class PDRS_HVAC_1_baseline_AEER(BaseVariable):
     value_type = float
     entity = Building
     label = 'returns the baseline input power for an Air Conditioner, for activity HVAC 1'
@@ -102,7 +102,7 @@ class PDRS_HVAC_1_baseline_AEER(Variable):
         return baseline_AEER
 
 
-class PDRS_HVAC_1_TCSPF_or_AEER_exceeds_benchmark(Variable):
+class PDRS_HVAC_1_TCSPF_or_AEER_exceeds_benchmark(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

@@ -1,12 +1,12 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
 
-class BESS1_demand_shifting_component(Variable):
+class BESS1_demand_shifting_component(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -23,7 +23,7 @@ class BESS1_demand_shifting_component(Variable):
         return demand_shifting_component
     
 
-class BESS1_peak_demand_shifting_capacity(Variable):
+class BESS1_peak_demand_shifting_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -40,7 +40,7 @@ class BESS1_peak_demand_shifting_capacity(Variable):
         return peak_demand_shifting_capacity
 
 
-class BESS1_peak_demand_annual_savings(Variable):
+class BESS1_peak_demand_annual_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -78,7 +78,7 @@ class BESS1_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return
 
 
-class BESS1_peak_demand_reduction_capacity(Variable):
+class BESS1_peak_demand_reduction_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -96,7 +96,7 @@ class BESS1_peak_demand_reduction_capacity(Variable):
        return peak_demand_reduction_capacity
 
 
-class BESS1_PRC_calculation(Variable):
+class BESS1_PRC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

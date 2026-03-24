@@ -1,11 +1,11 @@
 import numpy as np
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class SYS2_peak_demand_savings_capacity(Variable):
+class SYS2_peak_demand_savings_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -36,7 +36,7 @@ class SYS2PoolSize(Enum):
     over_70001_L = 'More than 70,000 litres'
 
 
-class SYS2_pool_size_savings(Variable):
+class SYS2_pool_size_savings(BaseVariable):
     value_type = Enum
     entity = Building
     definition_period = ETERNITY
@@ -57,7 +57,7 @@ class SYS2PoolPumpType(Enum):
     multiple_speed_pool_pump = 'Multi speed'
 
 
-class SYS2_pool_pump_type_savings(Variable):
+class SYS2_pool_pump_type_savings(BaseVariable):
     value_type = Enum
     entity = Building
     default_value = SYS2PoolPumpType.variable_speed_pool_pump
@@ -83,7 +83,7 @@ class SYS2StarRating(Enum):
     ten_stars = '10'
 
     
-class SYS2_star_rating_peak_savings(Variable):
+class SYS2_star_rating_peak_savings(BaseVariable):
     value_type = Enum
     entity = Building
     default_value = SYS2StarRating.four_and_a_half_stars
@@ -97,7 +97,7 @@ class SYS2_star_rating_peak_savings(Variable):
     }
 
 
-class SYS2_peak_demand_annual_savings(Variable):
+class SYS2_peak_demand_annual_savings(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -165,7 +165,7 @@ class SYS2_peak_demand_annual_savings(Variable):
         return peak_demand_annual_savings_return        
 
 
-class SYS2_peak_demand_reduction_capacity(Variable):
+class SYS2_peak_demand_reduction_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -183,7 +183,7 @@ class SYS2_peak_demand_reduction_capacity(Variable):
         return peak_demand_reduction_capacity
 
 
-class SYS2_PRC_calculation(Variable):
+class SYS2_PRC_calculation(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY

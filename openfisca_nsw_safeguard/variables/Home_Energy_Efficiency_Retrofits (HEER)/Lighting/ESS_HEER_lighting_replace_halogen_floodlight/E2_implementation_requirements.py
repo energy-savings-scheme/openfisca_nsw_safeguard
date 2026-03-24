@@ -1,10 +1,10 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
-class E2_is_installed_by_authorised_person(Variable):
+class E2_is_installed_by_authorised_person(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

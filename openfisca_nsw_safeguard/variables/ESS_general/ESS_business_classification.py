@@ -1,7 +1,7 @@
-from openfisca_core.variables import Variable
+from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
-from openfisca_nsw_base.entities import Building
+from openfisca_nsw_safeguard.entities import Building
 
 
 class BusinessClassification(Enum):
@@ -26,7 +26,7 @@ class BusinessClassification(Enum):
     division_S = 'Business is a Division S (Other Services) business.'
 
 
-class ANZSIC_business_classification(Variable):
+class ANZSIC_business_classification(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = BusinessClassification
@@ -61,7 +61,7 @@ class EndUseServices(Enum):
     water_heating = 'The End Use Service is for water heating.'
 
 
-class ESS_PDRS_End_Use_Service(Variable):
+class ESS_PDRS_End_Use_Service(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = EndUseServices

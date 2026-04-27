@@ -28,7 +28,7 @@ jobs:
 
       - name: Run test suite
         run: |
-          docker compose exec app make test
+          docker compose exec openfisca-app make test
 
   deploy:
     needs: test
@@ -50,6 +50,7 @@ jobs:
             cd openfisca_nsw_safeguard
             git fetch --all
             git reset --hard origin/staging
+            git pull origin staging
             docker compose up --build -d
             exit
 

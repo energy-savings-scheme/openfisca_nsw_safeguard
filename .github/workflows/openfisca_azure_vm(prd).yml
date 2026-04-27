@@ -28,7 +28,7 @@ jobs:
 
       - name: Run test suite
         run: |
-          docker compose exec app make test
+          docker compose exec openfisca-app make test
 
   deploy:
     needs: test
@@ -47,10 +47,10 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            source venv/bin/activate
             cd openfisca_nsw_safeguard
             git fetch --all
             git reset --hard origin/master
+            git pull origin master
             docker compose up --build -d
             exit
 

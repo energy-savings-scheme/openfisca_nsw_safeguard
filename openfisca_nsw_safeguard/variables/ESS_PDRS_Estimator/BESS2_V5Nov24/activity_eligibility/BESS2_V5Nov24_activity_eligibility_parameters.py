@@ -28,18 +28,6 @@ class BESS2_V5Nov24_existing_solar_battery(BaseVariable):
         'sorting' : 2,
         'eligibility_clause' : """In PDRS BESS2 Eligibility Requirements Clause 1 it states that there must be an existing Battery Energy Storage System installed at the National Metering Identifier(s)."""
     }
-
-
-# class BESS2_V5Nov24_solar_panels_existing_address(BaseVariable):
-#     value_type = bool
-#     entity = Building
-#     default_value = True
-#     definition_period = ETERNITY
-#     metadata = {
-#         'display_question' : 'Are there solar panels already installed at this address?',
-#         'sorting' : 3,
-#         'eligibility_clause' : """In PDRS BESS2 Eligibility Requirements Clause 2 it states that a behind the meter solar photovoltaic system must be installed at the same National Metering Identifier(s) as the existing Battery Energy Storage System."""
-#     }
     
 
 class BESS2_V5Nov24_life_support_equipment(BaseVariable):
@@ -79,39 +67,27 @@ class BESS2_V5Nov24_battery_capacity(BaseVariable):
     }
 
 
-class BESS2_V5Nov24_length_battery_warranty(BaseVariable):#******************************************************************************************************************
+class BESS2_V5Nov24_length_battery_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Does the battery have a remaining warranty of at least 6 years?',
-        'sorting' : 7,
+        'sorting' : 6,
         'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 3 it states that each item of End-User Equipment must have a minimum 6 years remaining on the warranty."""
     }
 
 
-class BESS2_V5Nov24_temperature_range_warranty(BaseVariable):
+class BESS2_V5Nov24_equipment_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Does the warranty define the normal use conditions of the battery as a minimum ambient temperature range of -10°C to 50°C?',
-        'sorting' : 8,
-        'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 4 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than a minimum ambient temperature range of -10°C to 50°C."""
-    }
-
-
-class BESS2_V5Nov24_minimum_throughput_warranty_before_April_2026(BaseVariable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Does the warranty include a minimum throughput of 2.8MWh per kWh of usable capacity?',
-        'sorting' : 9,
-        'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 4 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than a minimum warranted cumulative energy throughput equivalent to 2.8 MWh per kWh of Usable Battery Capacity where the Implementation Date is before 1 April 2026."""
+        'display_question' : 'Does participation in the activity affect the validity of the End-User Equipment warranty?',
+        'sorting' : 7,
+        'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 4 it states that participation in the activity must not void or diminish the End-User Equipment warranty."""
     }
 
 
@@ -122,19 +98,7 @@ class BESS2_V5Nov24_internet_connectable(BaseVariable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the battery internet connectable?',
-        'sorting' : 10,
-        'eligibility_clause' : """In PDRS BESS2 Implementation Requirements Clause 1 it states that the internet connection and Demand Response Aggregator control of the End-User Equipment must be demonstrated to be operational to the satisfaction of the Scheme Administrator."""
-    }
-
-
-class BESS2_V5Nov24_battery_controllable_third_party(BaseVariable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Is the battery controllable by a third party energy retailer or service provider?',
-        'sorting' : 11,
+        'sorting' : 8,
         'eligibility_clause' : """In PDRS BESS2 Implementation Requirements Clause 1 it states that the internet connection and Demand Response Aggregator control of the End-User Equipment must be demonstrated to be operational to the satisfaction of the Scheme Administrator."""
     }
 
@@ -146,6 +110,6 @@ class BESS2_V5Nov24_approved_battery_list(BaseVariable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Is the battery a registered product on the Clean Energy Council approved battery list?',
-        'sorting' : 12,
+        'sorting' : 9,
         'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 1 it states that the End-User Equipment must be listed on the approved product list specified by the Scheme Administrator."""
     }

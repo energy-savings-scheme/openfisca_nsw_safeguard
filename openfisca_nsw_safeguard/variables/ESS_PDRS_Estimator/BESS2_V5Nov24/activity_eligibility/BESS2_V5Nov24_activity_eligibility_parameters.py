@@ -30,16 +30,16 @@ class BESS2_V5Nov24_existing_solar_battery(BaseVariable):
     }
 
 
-class BESS2_V5Nov24_solar_panels_existing_address(BaseVariable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Are there solar panels already installed at this address?',
-        'sorting' : 3,
-        'eligibility_clause' : """In PDRS BESS2 Eligibility Requirements Clause 2 it states that a behind the meter solar photovoltaic system must be installed at the same National Metering Identifier(s) as the existing Battery Energy Storage System."""
-    }
+# class BESS2_V5Nov24_solar_panels_existing_address(BaseVariable):
+#     value_type = bool
+#     entity = Building
+#     default_value = True
+#     definition_period = ETERNITY
+#     metadata = {
+#         'display_question' : 'Are there solar panels already installed at this address?',
+#         'sorting' : 3,
+#         'eligibility_clause' : """In PDRS BESS2 Eligibility Requirements Clause 2 it states that a behind the meter solar photovoltaic system must be installed at the same National Metering Identifier(s) as the existing Battery Energy Storage System."""
+#     }
     
 
 class BESS2_V5Nov24_life_support_equipment(BaseVariable):
@@ -49,7 +49,7 @@ class BESS2_V5Nov24_life_support_equipment(BaseVariable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Are you aware that demand response is not allowed where there is life support equipment?',
-        'sorting' : 4,
+        'sorting' : 3,
         'eligibility_clause' : """In PDRS BESS2 Eligibility Requirements Clause 3 it states that there must not be any Life Support Equipment used at the Site."""
     }
 
@@ -61,7 +61,7 @@ class BESS2_V5Nov24_engaged_ACP(BaseVariable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
-        'sorting' : 5,
+        'sorting' : 4,
         'eligibility_clause' : """In PDRS Clause 6 it states that an Accredited Certificate Provider may only create Peak Reduction Certificates for a Recognised Peak Activity if:<br />
                                   (a) the Accredited Certificate Provider is accredited in respect of the activity on or before the Implementation Date for the activity."""
     }
@@ -73,13 +73,13 @@ class BESS2_V5Nov24_battery_capacity(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is the battery capacity between 2- 28kWh?',
-        'sorting' : 6,
-        'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 2 it states that the End-User Equipment must have a Usable Battery Capacity greater than 2 kWh and less than 28 kWh as recorded on the approved product list specified by the Scheme Administrator."""
+        'display_question' : 'Is the battery capacity between 2- 50kWh?',
+        'sorting' : 5,
+        'eligibility_clause' : """In PDRS BESS2 Equipment Requirements Clause 2 it states that the End-User Equipment must have a Usable Battery Capacity greater than 2 kWh and less than or equal to 50 kWh as recorded on the approved product list specified by the Scheme Administrator."""
     }
 
 
-class BESS2_V5Nov24_length_battery_warranty(BaseVariable):
+class BESS2_V5Nov24_length_battery_warranty(BaseVariable):#******************************************************************************************************************
     value_type = bool
     entity = Building
     default_value = True

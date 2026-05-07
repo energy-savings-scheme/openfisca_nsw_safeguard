@@ -1,0 +1,215 @@
+- name: Test usable battery capacity
+  period: 2026-05-01
+  absolute_error_margin: 0.1
+  input:
+    BESS3_nominal_battery_capacity_input:
+      [
+        20.0,
+        25.0,
+        28.0
+      ]
+    BESS3_number_of_dwellings_input:
+      [
+        4.0,
+        3.0,
+        5.0
+      ]
+    BESS3_inverter_rated_discharge_power_input:
+      [
+        6.0,
+        4.0,
+        5.0
+      ]
+  output:
+    BESS3_usable_battery_capacity:
+      [
+        18.0,
+        15.0,
+        20.0
+      ]
+
+- name: Test demand shifting component
+  period: 2026-05-01
+  absolute_error_margin: 0.1
+  input:
+    BESS3_nominal_battery_capacity_input:
+      [
+        20.0,
+        25.0,
+        28.0
+      ]
+    BESS3_number_of_dwellings_input:
+      [
+        4.0,
+        3.0,
+        5.0
+      ]
+    BESS3_inverter_rated_discharge_power_input:
+      [
+        6.0,
+        4.0,
+        5.0
+      ]
+    BESS3_solar_or_battery_only:
+      [
+        1,
+        1,
+        0
+      ]
+  output:
+    BESS3_demand_shifting_component:
+      [
+        2.16,
+        1.8,
+        1.67
+      ]
+
+- name: Test peak demand shifting capacity
+  period: 2026-05-01
+  absolute_error_margin: 0.1
+  input:
+    BESS3_nominal_battery_capacity_input:
+      [
+        20.0,
+        25.0,
+        28.0
+      ]
+    BESS3_number_of_dwellings_input:
+      [
+        4.0,
+        3.0,
+        5.0
+      ]
+    BESS3_inverter_rated_discharge_power_input:
+      [
+        6.0,
+        4.0,
+        5.0
+      ]
+    BESS3_solar_or_battery_only:
+      [
+        1,
+        1,
+        0
+      ]
+  output:
+    BESS3_peak_demand_shifting_capacity:
+      [
+        2.16,
+        1.8,
+        1.67
+      ]
+
+- name: Test peak demand reduction capacity
+  period: 2026-05-01
+  absolute_error_margin: 0.1
+  input:
+    BESS3_nominal_battery_capacity_input:
+      [
+        20.0,
+        25.0,
+        28.0
+      ]
+    BESS3_number_of_dwellings_input:
+      [
+        4.0,
+        3.0,
+        5.0
+      ]
+    BESS3_inverter_rated_discharge_power_input:
+      [
+        6.0,
+        4.0,
+        5.0
+      ]
+    BESS3_solar_or_battery_only:
+      [
+        1,
+        1,
+        0
+      ]
+  output:
+    BESS3_peak_demand_reduction_capacity:
+      [
+        194.4,
+        161.9998,
+        153.54
+      ]
+
+- name: Test peak demand savings
+  period: 2026-05-01
+  absolute_error_margin: 0.1
+  input:
+    BESS3_nominal_battery_capacity_input:
+      [
+        20.0,
+        25.0,
+        28.0
+      ]
+    BESS3_number_of_dwellings_input:
+      [
+        4.0,
+        3.0,
+        5.0
+      ]
+    BESS3_inverter_rated_discharge_power_input:
+      [
+        6.0,
+        4.0,
+        5.0
+      ]
+    BESS3_solar_or_battery_only:
+      [
+        1,
+        1,
+        0
+      ]
+  output:
+    BESS3_peak_demand_savings:
+      [
+        194.4,
+        161.9998,
+        153.54
+      ]
+
+- name: Test PRC calculation
+  period: 2026-05-01
+  absolute_error_margin: 0.1
+  input:
+    BESS3_postcode:
+      [
+        2850,
+        2700,
+        2250
+      ]
+    BESS3_nominal_battery_capacity_input:
+      [
+        20.0,
+        25.0,
+        28.0
+      ]
+    BESS3_number_of_dwellings_input:
+      [
+        4.0,
+        3.0,
+        5.0
+      ]
+    BESS3_inverter_rated_discharge_power_input:
+      [
+        6.0,
+        4.0,
+        5.0
+      ]
+    BESS3_solar_or_battery_only:
+      [
+        1,
+        1,
+        0
+      ]
+  output:
+    BESS3_PRC_calculation:
+      [
+        2041.2,
+        1700.9999,
+        1596.816
+      ]

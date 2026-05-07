@@ -10,7 +10,7 @@ firmness_factor:
         value: 0.8
   BESS3:
     values:
-      2026-06-01:
+      2026-05-01:
         value: 1
   HVAC1:
     values:

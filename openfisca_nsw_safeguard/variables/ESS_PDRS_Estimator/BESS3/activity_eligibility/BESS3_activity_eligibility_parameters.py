@@ -63,23 +63,23 @@ class BESS3_minimum_payment(BaseVariable):
     metadata = {
         'display_question' : 'Is the purchaser aware that they are required to make a minimum payment towards the cost of the upgrade?',
         'sorting' : 5,
-        'eligibility_clause' : """In PDRS Clause 8.3.1 it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $1,000 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using Activity Definition BESS3;"""
+        'eligibility_clause' : """In PDRS Clause 8.1.1 it states that the Accredited Certificate Provider has evidence satisfactory to the Scheme Administrator that the Purchaser has paid for the Implementation, assessment and other associated works carried out at the Site a Net Amount of at least $1,000 (excluding GST) for each item of End-User Equipment installed as part of an Implementation using Activity Definition BESS3;"""
     }
 
 
-class BESS1_PDRSDec24_battery_capacity(BaseVariable):
+class BESS3_battery_capacity(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is the battery capacity between 2 - 28kWh?',
+        'display_question' : 'Is the usable battery capacity between 20 - 200kWh?',
         'sorting' : 6,
-        'eligibility_clause' : """In PDRS BESS1 Eligibility Requirements Clause 2 it states that the End-User Equipment must have a Usable Battery Capacity greater than 2 kWh and less than 28 kWh as recorded on the approved product list specified by the Scheme Administrator."""
+        'eligibility_clause' : """In PDRS BESS3 Eligibility Requirements Clause 2 it states that the End-User Equipment must have a Usable Battery Capacity greater than 20 kWh as recorded on the approved product list specified by the Scheme Administrator. The minimum total installed capacity is 20 kWh, while the maximum is 200 kWh."""
     }
 
 
-class BESS1_PDRSDec24_length_battery_warranty(BaseVariable):
+class BESS3_length_battery_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -87,11 +87,11 @@ class BESS1_PDRSDec24_length_battery_warranty(BaseVariable):
     metadata = {
         'display_question' : 'Does the battery have a warranty of at least 10 years?',
         'sorting' : 7,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 4 it states that each item of End-User Equipment, excluding inverters installed prior to the Implementation Date, must have a warranty of at least 10 years and guarantee that at least seventy percent (70%) of Usable Battery Capacity is retained 10 years from the date the End-User Equipment is installed at the site."""
+        'eligibility_clause' : """In PDRS BESS3 Equipment Requirements Clause 5 it states that each item of End-User Equipment, excluding inverters installed prior to the Implementation Date, must have a warranty of at least 10 years and guarantee that at least seventy percent (70%) of Usable Battery Capacity is retained 10 years from the date the End-User Equipment is installed at the site."""
     }
 
 
-class BESS1_PDRSDec24_retainable_battery_capacity_warranty(BaseVariable):
+class BESS3_retainable_battery_capacity_warranty(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -99,54 +99,52 @@ class BESS1_PDRSDec24_retainable_battery_capacity_warranty(BaseVariable):
     metadata = {
         'display_question' : "Does the warranty guarantee that at least seventy percent (70%) of the battery's usable capacity is retained 10 years from the installation date?",
         'sorting' : 8,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 4 it states that each item of End-User Equipment, excluding inverters installed prior to the Implementation Date, must have a warranty of at least 10 years and guarantee that at least seventy percent (70%) of Usable Battery Capacity is retained 10 years from the date the End-User Equipment is installed at the site."""
+        'eligibility_clause' : """In PDRS BESS3 Equipment Requirements Clause 5 it states that each item of End-User Equipment, excluding inverters installed prior to the Implementation Date, must have a warranty of at least 10 years and guarantee that at least seventy percent (70%) of Usable Battery Capacity is retained 10 years from the date the End-User Equipment is installed at the site."""
     }
     
 
-class BESS1_PDRSDec24_temperature_range_warranty(BaseVariable):
+class BESS3_approved_batteries_list(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Does the warranty define the normal use conditions of the battery as a minimum ambient temperature range of -10°C to 50°C?',
+        'display_question' : 'Is the battery listed on an approved product list specified by the Scheme Administrator?',
         'sorting' : 9,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 6 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than:<br />
-                                    (a) A minimum ambient temperature range of -10 °C to 50 °C"""
+        'eligibility_clause' : """In PDRS BESS3 Equipment Requirements Clause 1 it states that the End-User Equipment must be listed on an approved product list specified by the Scheme Administrator."""
     }
 
 
-class BESS1_PDRSDec24_minimum_throughput_warranty_before_April_2026(BaseVariable):
+class BESS3_battery_inverter_output(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Does the warranty include a minimum throughput of 2.8MWh per kWh of usable capacity?',
+        'display_question' : 'Does the battery capacity not exceed six times the battery inverter output?',
         'sorting' : 10,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 6 it states that each End-User Equipment warranty must define the normal use conditions during the operation of the End-User Equipment as not being less than:<br />
-                                    (b) A minimum warranted cumulative energy throughput equivalent to 2.8 MWh per kWh of Usable Battery Capacity where the Implementation Date is before 1 April 2026"""
+        'eligibility_clause' : """In PDRS BESS3 Equipment Requirements Clause 3 it states that the Usable Battery Capacity of the End-User Equipment must not exceed six times the Battery Inverter Output of the End-User Equipment as recorded on the approved product list specified by the Scheme Administrator."""
     }
 
 
-class BESS1_PDRSDec24_InstallationLocation(Enum):
+class BESS3_InstallationLocation(Enum):
     installed_outdoors = 'Installed outdoors'
     installed_indoors = 'Installed indoors'
 
 
-class BESS1_PDRSDec24_installation_location(BaseVariable):
+class BESS1_installation_location(BaseVariable):
     value_type = Enum
     entity = Building
-    possible_values = BESS1_PDRSDec24_InstallationLocation
-    default_value = BESS1_PDRSDec24_InstallationLocation.installed_outdoors
+    possible_values = BESS3_InstallationLocation
+    default_value = BESS3_InstallationLocation.installed_outdoors
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Where is your Battery Energy Storage System installed?',
+        'display_question' : 'Will the battery be installed outdoors?',
         'sorting' : 11
     }
 
 
-class BESS1_PDRSDec24_installation_location_eligible(BaseVariable):
+class BESS3_installation_location_eligible(BaseVariable):
     """Checks if the location type is eligible
     """
     value_type = bool
@@ -154,12 +152,12 @@ class BESS1_PDRSDec24_installation_location_eligible(BaseVariable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      location_type = buildings('BESS1_PDRSDec24_installation_location', period)
+      location_type = buildings('BESS3_installation_location', period)
 
       location_type_eligible = np.select(
         [
-          (location_type == BESS1_PDRSDec24_InstallationLocation.installed_outdoors),
-          (location_type == BESS1_PDRSDec24_InstallationLocation.installed_indoors)
+          (location_type == BESS3_InstallationLocation.installed_outdoors),
+          (location_type == BESS3_InstallationLocation.installed_indoors)
         ],
         [
           True,

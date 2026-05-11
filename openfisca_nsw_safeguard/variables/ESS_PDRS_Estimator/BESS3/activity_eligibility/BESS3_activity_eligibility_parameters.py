@@ -165,103 +165,45 @@ class BESS3_installation_location_eligible(BaseVariable):
         ])
 
       return location_type_eligible
-    
 
-class BESS1_PDRSDec24_smoke_alarm(BaseVariable):
-    #only show this question if the battery is installed indoors
+
+class BESS3_behind_meter(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is a working smoke alarm installed in the immediate vicinity of the battery?',
+        'display_question' : 'Is the battery installed behind the meter in accordance with AS/NZS 5139?',
         'sorting' : 12,
-        'conditional' : 'True',
-        'eligibility_clause' : """In PDRS BESS1 Implementation Requirements Clause 5 it states that where the Battery Energy Storage system is installed indoors, a working smoke alarm that meets AS 3786 must be installed in the immediate vicinity."""
+        'eligibility_clause' : """In PDRS BESS3 Implmentation Requirements Clause 2 it states that the End-User Equipment must be installed behind the meter and in accordance with AS/NZS 5139."""
     }
 
 
-class BESS1_PDRSDec24_installed_indoors_has_smoke_alarm(BaseVariable):
-    """Checks if it's installed outdoors, and if it is, that a smoke alarm has been installed 
-    """
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-    
-    def formula(buildings, period, parameters):
-      location_type = buildings('BESS1_PDRSDec24_installation_location', period)
-      smoke_alarm_installed = buildings('BESS1_PDRSDec24_smoke_alarm', period)
-
-      installed_indoors_has_smoke_alarm = np.select(
-        [
-          (location_type == BESS1_PDRSDec24_InstallationLocation.installed_outdoors) * smoke_alarm_installed,
-          (location_type == BESS1_PDRSDec24_InstallationLocation.installed_outdoors) * np.logical_not(smoke_alarm_installed),
-          (location_type == BESS1_PDRSDec24_InstallationLocation.installed_indoors) * smoke_alarm_installed,
-          (location_type == BESS1_PDRSDec24_InstallationLocation.installed_indoors) * np.logical_not(smoke_alarm_installed)
-        ],
-        [
-          True,
-          True,
-          True,
-          False
-        ])
-
-      return installed_indoors_has_smoke_alarm
-
-
-class BESS1_PDRSDec24_inverter_installed(BaseVariable):
+class BESS3_approved_installer_list(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Do you already have an inverter installed?',
+        'display_question' : 'Is the installer on the approved installer list?',
         'sorting' : 13,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each item of End-Equipment that is a inverter installed prior to the Implementation Date must have a warranty of at least 10 years from the date that it was installed."""
+        'eligibility_clause' : """In PDRS BESS3 Implementation Requirements Clause 3 it states that the End-User Equipment must be installed by an installer on an approved installer list specified by the Scheme Administrator."""
     }
 
 
-class BESS1_PDRSDec24_inverter_warranty_length_eligible(BaseVariable):
+class BESS3_licensed_person(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Does the inverter have a warranty of at least 10 years?',
+        'display_question' : 'Is the battery internet connectable?',
         'sorting' : 14,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 5 it states that each item of End-Equipment that is a inverter installed prior to the Implementation Date must have a warranty of at least 10 years from the date that it was installed."""
+        'eligibility_clause' : """In PDRS BESS3 Implementation Requirements Clause 4 it states that the activity must be performed by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
 
-class BESS1_has_inverter_and_warranty_length_eligible(BaseVariable):
-    """Checks if there is an inverter, and if there is, that the inverter warranty length is eligible
-    """
-    value_type = bool
-    entity = Building 
-    definition_period = ETERNITY
-
-    def formula(buildings, period, parameters):
-      inverter_installed = buildings('BESS1_PDRSDec24_inverter_installed', period)
-      warranty_length_eligible = buildings('BESS1_PDRSDec24_inverter_warranty_length_eligible', period)
-
-      activity_type_eligible = np.select(
-        [
-          inverter_installed * warranty_length_eligible,
-          inverter_installed * np.logical_not(warranty_length_eligible),
-          np.logical_not(inverter_installed) * warranty_length_eligible,
-          np.logical_not(inverter_installed) * np.logical_not(warranty_length_eligible),
-        ],
-        [
-          True,
-          False,
-          True,
-          True
-        ])
-
-      return activity_type_eligible
-
-
-class BESS1_PDRSDec24_battery_internet_connectable(BaseVariable):
+class BESS3_internet_connectable(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -269,11 +211,11 @@ class BESS1_PDRSDec24_battery_internet_connectable(BaseVariable):
     metadata = {
         'display_question' : 'Is the battery internet connectable?',
         'sorting' : 15,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 3 it states that the End-User Equipment must be internet connectable and controllable by a Demand Response Aggregator."""
+        'eligibility_clause' : """In PDRS BESS3 Equipment Requirements Clause 4 it states that the End-User Equipment must be internet connectable and controllable by a Demand Response Aggregator."""
     }
 
 
-class BESS1_PDRSDec24_battery_controllable_third_party(BaseVariable):
+class BESS1_controlled_aggregator(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True
@@ -281,49 +223,5 @@ class BESS1_PDRSDec24_battery_controllable_third_party(BaseVariable):
     metadata = {
         'display_question' : 'Is the battery controllable by a third party energy retailer or service provider?',
         'sorting' : 16,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 3 it states that the End-User Equipment must be internet connectable and controllable by a Demand Response Aggregator."""
-    }
-
-
-class BESS1_PDRSDec24_approved_product_list(BaseVariable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Is the installed battery a registered product on the Clean Energy Council approved battery list?',
-        'sorting' : 17,
-        'eligibility_clause' : """In PDRS BESS1 Equipment Requirements Clause 1 it states that the End-User Equipment must be listed on the approved product list specified by the Scheme Administrator."""
-    }
-
-
-class BESS1_PDRSDec24_approved_installer(BaseVariable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Has the installation of the End-User equipment been performed by an approved installer who is on the Solar Accreditation Australia installer list?',
-        'sorting' : 18,
-        'eligibility_clause' : """In PDRS BESS1 Implementation Requirements Clause 1 it states that the End-User Equipment must be installed in accordance with AS/NZS 5139.<br />
-                                  In PDRS BESS1 Implementation Requirements Clause 2 it states that the End-User Equipment must be installed by an installer on an approved installer list specified by the Scheme Administrator.<br />
-                                  In PDRS BESS1 Implementation Requirements Clause 3 it states that the activity must be performed by a suitably Licensed person in compliance with the relevant standards and legislation."""
-    }
-
-
-class BESS1_PDRSDec24_DER_register(BaseVariable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Has an application been made to register the installation on the AEMO Distributed Energy Resource (DER) Register?',
-        'sorting' : 19,
-        'eligibility_clause' : """The transitional arrangement in BESS1 Clause 11.6 states that BESS1 Implementation Requirement 4 does not apply to any Implementation for which an Accredited Certificate Provider applies to register the creation of certificates on or before:<br />
-                                    (a) 19 June 2025 <br />
-                                    (b) or where the Scheme Administrator has specified another date by notice Published under this clause - that other date.<br />
-                                  <br /> 
-                                  11.7 Where Implementation Requirement 4 of Activity Definition BESS1 does not apply to an Implementation due to clause 11.6:<br />
-                                    (a) the following Implementation Requirement applies instead: “The ACP must have made a proper application to register the installation of the End-User Equipment on the DER Register”; and<br />
-                                    (b) within 60 days of the Implementation Date, the ACP must ensure that the installation of the End-User Equipment is registered on the DER Register."""
+        'eligibility_clause' : """In PDRS BESS3 Equipment Requirements Clause 4 it states that the End-User Equipment must be internet connectable and controllable by a Demand Response Aggregator."""
     }

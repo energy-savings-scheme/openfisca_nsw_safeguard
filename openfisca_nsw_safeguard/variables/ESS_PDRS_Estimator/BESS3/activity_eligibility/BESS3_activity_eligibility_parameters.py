@@ -132,7 +132,7 @@ class BESS3_InstallationLocation(Enum):
     installed_indoors = 'Installed indoors'
 
 
-class BESS1_installation_location(BaseVariable):
+class BESS3_installation_location(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = BESS3_InstallationLocation
@@ -215,7 +215,7 @@ class BESS3_internet_connectable(BaseVariable):
     }
 
 
-class BESS1_controlled_aggregator(BaseVariable):
+class BESS3_controlled_aggregator(BaseVariable):
     value_type = bool
     entity = Building
     default_value = True

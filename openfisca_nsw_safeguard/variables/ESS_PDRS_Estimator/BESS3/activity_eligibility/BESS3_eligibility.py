@@ -5,41 +5,39 @@ from openfisca_nsw_safeguard.entities import Building
 import numpy as np
 
 
-class BESS1_PDRSDec24_installation_final_activity_eligibility(BaseVariable):
+class BESS3_installation_final_activity_eligibility(BaseVariable):
     """
-        Formula to calculate the BESS1 installation activity eligibility
+        Formula to calculate the BESS3 installation activity eligibility
     """
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     metadata = {
-        "alias": "BESS1 activity installation eligibility requirements",
+        "alias": "BESS3 activity installation eligibility requirements",
         "variable-type": "output"
     }
 
     def formula(buildings, period, parameter):
-       equipment_installation = buildings('BESS1_PDRSDec24_new_installation', period)
-       new_solar_battery = buildings('BESS1_PDRSDec24_new_solar_battery', period)
-       solar_panels = buildings('BESS1_PDRSDec24_solar_panels', period)
-       ACP_engaged = buildings('BESS1_PDRSDec24_engaged_ACP', period)
-       minimum_payment = buildings('BESS1_PDRSDec24_minimum_payment', period)
-       battery_capacity = buildings('BESS1_PDRSDec24_battery_capacity', period)
-       battery_warranty_length = buildings('BESS1_PDRSDec24_length_battery_warranty', period)
-       battery_warranty_retainable_capacity = buildings('BESS1_PDRSDec24_retainable_battery_capacity_warranty', period)
-       battery_warranty_temperature_range = buildings('BESS1_PDRSDec24_temperature_range_warranty', period)
-       battery_warranty_throughput_before_April_2026 = buildings ('BESS1_PDRSDec24_minimum_throughput_warranty_before_April_2026', period)
-       installation_location_eligible = buildings('BESS1_PDRSDec24_installation_location_eligible', period)
-       installed_indoors_has_smoke_alarm = buildings('BESS1_PDRSDec24_installed_indoors_has_smoke_alarm', period)
-       has_inverter_and_warranty_length_eligible = buildings('BESS1_has_inverter_and_warranty_length_eligible', period) 
-       battery_internet_connectable = buildings('BESS1_PDRSDec24_battery_internet_connectable', period)
-       battery_controllable_third_party = buildings('BESS1_PDRSDec24_battery_controllable_third_party', period)
-       approved_product_list = buildings('BESS1_PDRSDec24_approved_product_list', period)
-       approved_installer = buildings('BESS1_PDRSDec24_approved_installer', period)
-       DER_Register = buildings('BESS1_PDRSDec24_DER_register', period)
+       equipment_installation = buildings('BESS3_new_installation', period)
+       apartment_dwellings = buildings('BESS3_apartment_dwellings', period)
+       nmi = buildings('BESS3_nmi', period)
+       engaged_acp = buildings('BESS3_engaged_ACP', period)
+       minimum_payment = buildings('BESS3_minimum_payment', period)
+       battery_capacity = buildings('BESS3_battery_capacity', period)
+       length_battery_warranty = buildings('BESS3_length_battery_warranty', period)
+       retainable_battery_capacity_warranty = buildings('BESS3_retainable_battery_capacity_warranty', period)
+       approved_batteries_list = buildings('BESS3_approved_batteries_list', period)
+       battery_inverter_output = buildings('BESS3_battery_inverter_output', period)
+       installation_location = buildings('BESS3_installation_location', period)
+       behind_meter = buildings('BESS3_behind_meter', period)
+       approved_installer_list = buildings('BESS3_approved_installer_list', period)
+       licensed_person = buildings('BESS3_licensed_person', period)
+       internet_connectable = buildings('BESS3_internet_connectable', period)
+       controlled_aggregator = buildings('BESS3_controlled_aggregator', period)
 
-       end_formula = ( equipment_installation * new_solar_battery * solar_panels * ACP_engaged * minimum_payment * battery_capacity * 
-                       battery_warranty_length * battery_warranty_retainable_capacity * battery_warranty_temperature_range * battery_warranty_throughput_before_April_2026 *
-                       installation_location_eligible * installed_indoors_has_smoke_alarm * has_inverter_and_warranty_length_eligible * battery_internet_connectable * battery_controllable_third_party * 
-                       approved_product_list * approved_installer * DER_Register)
+
+       end_formula = ( equipment_installation * apartment_dwellings * nmi * engaged_acp * minimum_payment * battery_capacity *
+                       length_battery_warranty * retainable_battery_capacity_warranty * approved_batteries_list * battery_inverter_output *
+                        installation_location * behind_meter * approved_installer_list * licensed_person * internet_connectable * controlled_aggregator)
 
        return end_formula

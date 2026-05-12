@@ -14,9 +14,6 @@
         True,
         True,
         True,
-        True,
-        True,
-        True,
         False
       ]
     BESS2_V5Nov24_existing_solar_battery:
@@ -31,26 +28,6 @@
         True,
         True,
         True,
-        True,
-        True,
-        True,
-        False
-      ]
-    BESS2_V5Nov24_solar_panels_existing_address:
-      [
-        True,
-        True,
-        True,
-        False, #not eligible
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
         False
       ]
     BESS2_V5Nov24_life_support_equipment:
@@ -58,10 +35,7 @@
         True,
         True,
         True,
-        True,
         False, #not eligible
-        True,
-        True,
         True,
         True,
         True,
@@ -76,10 +50,7 @@
         True,
         True,
         True,
-        True,
         False, #not eligible
-        True,
-        True,
         True,
         True,
         True,
@@ -94,10 +65,7 @@
         True,
         True,
         True,
-        True,
         False, #not eligible
-        True,
-        True,
         True,
         True,
         True,
@@ -112,16 +80,13 @@
         True,
         True,
         True,
-        True,
         False, #not eligible
-        True,
-        True,
         True,
         True,
         True,
         False
       ]
-    BESS2_V5Nov24_temperature_range_warranty:
+    BESS2_V5Nov24_equipment_warranty:
       [
         True,
         True,
@@ -130,53 +95,13 @@
         True,
         True,
         True,
-        True,
         False, #not eligible
-        True,
-        True,
-        True,
-        True,
-        False
-      ]
-    BESS2_V5Nov24_minimum_throughput_warranty_before_April_2026:
-      [
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        False, #not eligible
-        True,
         True,
         True,
         False
       ]
     BESS2_V5Nov24_internet_connectable:
       [
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        True,
-        False, #not eligible
-        True,
-        True,
-        False
-      ]
-    BESS2_V5Nov24_battery_controllable_third_party:
-      [
-        True,
-        True,
-        True,
         True,
         True,
         True,
@@ -200,9 +125,6 @@
         True,
         True,
         True,
-        True,
-        True,
-        True,
         False, #not eligible
         False
       ]
@@ -210,9 +132,6 @@
     BESS2_V5Nov24_installation_final_activity_eligibility:
       [
         True,  #all true
-        False,
-        False,
-        False,
         False,
         False,
         False,

@@ -3,7 +3,7 @@ from openfisca_nsw_safeguard.entities import Building
 from openfisca_core.periods import ETERNITY
 
 
-class BESS3_PDRS__postcode(BaseVariable):
+class BESS3_postcode(BaseVariable):
     value_type = int
     entity = Building
     definition_period = ETERNITY
@@ -16,7 +16,7 @@ class BESS3_PDRS__postcode(BaseVariable):
     }
 
 
-class BESS3_PDRS__nominal_battery_capacity_input(BaseVariable):
+class BESS3_nominal_battery_capacity_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -28,8 +28,8 @@ class BESS3_PDRS__nominal_battery_capacity_input(BaseVariable):
     }
 
 
-class BESS3_PDRS__number_of_dwellings_input(BaseVariable):
-    value_type = int
+class BESS3_number_of_dwellings_input(BaseVariable):
+    value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata= {
@@ -40,7 +40,7 @@ class BESS3_PDRS__number_of_dwellings_input(BaseVariable):
     }
 
 
-class BESS3_PDRS__inverter_rated_discharge_power_input(BaseVariable):
+class BESS3_inverter_rated_discharge_power_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
@@ -52,7 +52,7 @@ class BESS3_PDRS__inverter_rated_discharge_power_input(BaseVariable):
     }
 
 
-class BESS3_PDRS__solar_or_battery_only(BaseVariable):
+class BESS3_solar_or_battery_only(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY

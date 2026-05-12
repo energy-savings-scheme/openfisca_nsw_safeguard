@@ -127,44 +127,16 @@ class BESS3_battery_inverter_output(BaseVariable):
     }
 
 
-class BESS3_InstallationLocation(Enum):
-    installed_outdoors = 'Installed outdoors'
-    installed_indoors = 'Installed indoors'
-
-
 class BESS3_installation_location(BaseVariable):
-    value_type = Enum
+    value_type = bool
     entity = Building
-    possible_values = BESS3_InstallationLocation
-    default_value = BESS3_InstallationLocation.installed_outdoors
+    default_value = True
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Will the battery be installed outdoors?',
-        'sorting' : 11
+        'sorting' : 11,
+        'eligibility_clause' : """In PDRS BESS3 Implementation Requirements Clause 1 it states that the End-User Equipment must be installed outdoors."""
     }
-
-
-class BESS3_installation_location_eligible(BaseVariable):
-    """Checks if the location type is eligible
-    """
-    value_type = bool
-    entity = Building
-    definition_period = ETERNITY
-
-    def formula(buildings, period, parameters):
-      location_type = buildings('BESS3_installation_location', period)
-
-      location_type_eligible = np.select(
-        [
-          (location_type == BESS3_InstallationLocation.installed_outdoors),
-          (location_type == BESS3_InstallationLocation.installed_indoors)
-        ],
-        [
-          True,
-          True
-        ])
-
-      return location_type_eligible
 
 
 class BESS3_behind_meter(BaseVariable):

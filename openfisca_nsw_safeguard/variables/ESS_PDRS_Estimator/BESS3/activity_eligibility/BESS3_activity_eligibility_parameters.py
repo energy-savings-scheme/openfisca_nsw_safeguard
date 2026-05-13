@@ -169,7 +169,7 @@ class BESS3_licensed_person(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is the battery internet connectable?',
+        'display_question' : 'Will the battery be installed by a suitably licensed installer in compliance with the relevant standards and legislation?',
         'sorting' : 14,
         'eligibility_clause' : """In PDRS BESS3 Implementation Requirements Clause 4 it states that the activity must be performed by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }

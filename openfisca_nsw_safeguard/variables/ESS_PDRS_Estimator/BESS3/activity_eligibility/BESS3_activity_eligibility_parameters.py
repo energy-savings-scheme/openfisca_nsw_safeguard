@@ -75,7 +75,7 @@ class BESS3_battery_capacity(BaseVariable):
     metadata = {
         'display_question' : 'Is the usable battery capacity between 20 - 200kWh?',
         'sorting' : 6,
-        'eligibility_clause' : """In PDRS BESS3 Eligibility Requirements Clause 2 it states that the End-User Equipment must have a Usable Battery Capacity greater than 20 kWh as recorded on the approved product list specified by the Scheme Administrator. The minimum total installed capacity is 20 kWh, while the maximum is 200 kWh."""
+        'eligibility_clause' : """In PDRS BESS3 Eligibility Requirements Clause 2 it states that the End-User Equipment must have a Usable Battery Capacity greater than 20 kWh and less than or equal to 200 kWh as recorded on the approved product list specified by the Scheme Administrator."""
     }
 
 

@@ -22,8 +22,8 @@ class BESS3_battery_capacity_input(BaseVariable):
     definition_period = ETERNITY
     metadata= {
         'variable-type' : 'user-input',
-        'label': 'Battery Capacity (kWh)',
-        'display_question' : 'What is the Battery Capacity (kWh)?',
+        'label': 'Battery capacity (kWh)',
+        'display_question' : 'What is the battery capacity (kWh)?',
         'sorting' : 2,
     }
 
@@ -46,8 +46,8 @@ class BESS3_inverter_output_input(BaseVariable):
     definition_period = ETERNITY
     metadata= {
         'variable-type' : 'user-input',
-        'label': 'Inverter Output (kW)',
-        'display_question' : 'What is the Battery Inverter Output?',
+        'label': 'Inverter output (kW)',
+        'display_question' : 'What is the battery inverter output?',
         'sorting' : 4,
     }
 
@@ -59,6 +59,6 @@ class BESS3_solar_or_battery_only(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Solar or battery only',
-        'display_question' : 'Is the battery installed within 90 days of new Solar PV?',
+        'display_question' : 'Is the battery installed within 90 days of new solar PV?',
         'sorting' : 5,
     }

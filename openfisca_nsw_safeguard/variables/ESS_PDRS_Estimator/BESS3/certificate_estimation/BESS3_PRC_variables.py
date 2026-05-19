@@ -16,14 +16,14 @@ class BESS3_postcode(BaseVariable):
     }
 
 
-class BESS3_nominal_battery_capacity_input(BaseVariable):
+class BESS3_battery_capacity_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata= {
         'variable-type' : 'user-input',
-        'label': 'Nominal battery capacity (kWh)',
-        'display_question' : 'What is the Nominal Battery Capacity (kWh) as recorded?',
+        'label': 'Battery Capacity (kWh)',
+        'display_question' : 'What is the Battery Capacity (kWh)?',
         'sorting' : 2,
     }
 
@@ -35,19 +35,19 @@ class BESS3_number_of_dwellings_input(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Number of dwellings',
-        'display_question' : 'What is the total number of lot dwellings?',
+        'display_question' : 'What is the total number of dwellings?',
         'sorting' : 3,
     }
 
 
-class BESS3_inverter_rated_discharge_power_input(BaseVariable):
+class BESS3_inverter_output_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata= {
         'variable-type' : 'user-input',
-        'label': 'Inverter rated discharge power (kW)',
-        'display_question' : 'What is the Inverter Rated Discharge Power (kW)?',
+        'label': 'Inverter Output (kW)',
+        'display_question' : 'What is the Battery Inverter Output?',
         'sorting' : 4,
     }
 

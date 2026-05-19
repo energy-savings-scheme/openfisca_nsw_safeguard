@@ -14,15 +14,15 @@ class BESS3_usable_battery_capacity(BaseVariable):
     }
 
     def formula(building, period, parameters):
-        nominal_battery_capacity_input = building('BESS3_nominal_battery_capacity_input', period)
+        battery_capacity_input = building('BESS3_battery_capacity_input', period)
         number_of_dwellings_input = building('BESS3_number_of_dwellings_input', period)
-        inverter_rated_discharge_power_input = building('BESS3_inverter_rated_discharge_power_input', period)
+        inverter_output_input = building('BESS3_inverter_output_input', period)
 
-        nominal_battery_capacity = nominal_battery_capacity_input * 90 / 100
+        battery_capacity = battery_capacity_input
         number_of_dwellings = number_of_dwellings_input * 5
-        inverter_rated_discharge_power = inverter_rated_discharge_power_input * 4
+        inverter_output = inverter_output_input * 4
 
-        return np.minimum.reduce([nominal_battery_capacity, number_of_dwellings, inverter_rated_discharge_power])
+        return np.minimum.reduce([battery_capacity, number_of_dwellings, inverter_output])
 
 
 class BESS3_demand_shifting_component(BaseVariable):

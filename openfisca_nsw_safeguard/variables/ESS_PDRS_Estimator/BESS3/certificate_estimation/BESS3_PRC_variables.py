@@ -16,14 +16,14 @@ class BESS3_postcode(BaseVariable):
     }
 
 
-class BESS3_nominal_battery_capacity_input(BaseVariable):
+class BESS3_battery_capacity_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata= {
         'variable-type' : 'user-input',
-        'label': 'Nominal battery capacity (kWh)',
-        'display_question' : 'What is the Nominal Battery Capacity (kWh) as recorded?',
+        'label': 'Battery capacity (kWh)',
+        'display_question' : 'What is the battery capacity (kWh)?',
         'sorting' : 2,
     }
 
@@ -35,19 +35,19 @@ class BESS3_number_of_dwellings_input(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Number of dwellings',
-        'display_question' : 'What is the total number of lot dwellings?',
+        'display_question' : 'What is the total number of dwellings?',
         'sorting' : 3,
     }
 
 
-class BESS3_inverter_rated_discharge_power_input(BaseVariable):
+class BESS3_inverter_output_input(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
     metadata= {
         'variable-type' : 'user-input',
-        'label': 'Inverter rated discharge power (kW)',
-        'display_question' : 'What is the Inverter Rated Discharge Power (kW)?',
+        'label': 'Inverter output (kW)',
+        'display_question' : 'What is the battery inverter output?',
         'sorting' : 4,
     }
 
@@ -59,6 +59,6 @@ class BESS3_solar_or_battery_only(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Solar or battery only',
-        'display_question' : 'Is the battery installed within 90 days of new Solar PV?',
+        'display_question' : 'Is the battery installed within 90 days of new solar PV?',
         'sorting' : 5,
     }

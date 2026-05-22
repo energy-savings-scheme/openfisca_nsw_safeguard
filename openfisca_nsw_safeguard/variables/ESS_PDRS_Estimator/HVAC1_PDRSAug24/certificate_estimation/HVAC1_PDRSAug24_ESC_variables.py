@@ -17,7 +17,7 @@ class HVAC1_PDRSAug24_heating_capacity_input(BaseVariable):
         "alias": "Air Conditioner Heating Capacity",
         'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
         'sorting' : 9,
-        'label': 'Rated heated capacity (kW)'
+        'label': 'Rated heating capacity (kW)'
     }
 
 
@@ -154,6 +154,18 @@ class HVAC1_PDRSAug24_PDRS__postcode(BaseVariable):
         'sorting' : 1,
         'label': 'Postcode'
         }
+
+
+class HVAC1_PDRSAug24_product_class(BaseVariable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+      'variable-type': 'user-input',
+      'label': 'Product Class',
+      'display_question': 'Product Class of the selected Brand and Model',
+      'sorting' : 6
+    }
 
 
 class HVAC1_PDRSAug24_residential_THEC(BaseVariable):

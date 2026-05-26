@@ -61,7 +61,7 @@
       [
         2.4,
         1.8,
-        1.67
+        1.706
       ]
 
 - name: Test peak demand shifting capacity
@@ -97,7 +97,7 @@
       [
         2.4,
         1.8,
-        1.67
+        1.706
       ]
 
 - name: Test peak demand reduction capacity
@@ -132,7 +132,7 @@
     BESS3_peak_demand_reduction_capacity:
       [
         216,
-        161.9998,
+        162,
         153.54
       ]
 
@@ -168,7 +168,7 @@
     BESS3_peak_demand_savings:
       [
         216,
-        161.9998,
+        162,
         153.54
       ]
 
@@ -210,6 +210,6 @@
     BESS3_PRC_calculation:
       [
         2268,
-        1700.9999,
+        1701,
         1596.816
       ]

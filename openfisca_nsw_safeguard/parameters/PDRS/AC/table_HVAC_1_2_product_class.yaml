@@ -1,0 +1,100 @@
+description: Residential Minimum AEER Requirements, new PDRS Table HVAC1.2 
+reference: New PDRS Technical Manual 2026
+TCSPF_mixed:
+  product_class_8:
+    values:
+      2021-01-01:
+        value: 5.5
+  product_class_18:
+    values:
+      2021-01-01:
+        value: 5.5
+  product_class_9:
+    values:
+      2021-01-01:
+        value: 4.5
+  product_class_19:
+    values:
+      2021-01-01:
+        value: 4.5
+  product_class_10:
+    values:
+      2021-01-01:
+        value: 4.0
+  product_class_11:
+    values:
+      2021-01-01:
+        value: 4.0
+  product_class_20:
+    values:
+      2021-01-01:
+        value: 4.0
+  product_class_5:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_6:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_7:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_12:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_21:
+    values:
+      2021-01-01:
+        value: 3.0
+AEER:
+  product_class_8:
+    values:
+      2021-01-01:
+        value: 4.3
+  product_class_18:
+    values:
+      2021-01-01:
+        value: 4.3
+  product_class_9:
+    values:
+      2021-01-01:
+        value: 3.6
+  product_class_19:
+    values:
+      2021-01-01:
+        value: 3.6
+  product_class_10:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_11:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_20:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_5:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_6:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_7:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_12:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_21:
+    values:
+      2021-01-01:
+        value: 3.3

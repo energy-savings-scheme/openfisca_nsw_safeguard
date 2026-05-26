@@ -1,0 +1,200 @@
+description: Baseline ACOP and AEERs for new air conditioner installations, as identified in Table D16.2
+reference: PDRS Technical Manual May 2026
+AEER:
+  new_installation_activity:
+    product_class_8:
+      values:
+        2021-01-01:
+          value: 3.66
+    product_class_18:
+      values:
+        2021-01-01:
+          value: 3.66
+    product_class_9:
+      values:
+        2021-01-01:
+          value: 3.22
+    product_class_19:
+      values:
+        2021-01-01:
+          value: 3.22
+    product_class_5:
+      values:
+        2021-01-01:
+          value: 3.1
+    product_class_6:
+      values:
+        2021-01-01:
+          value: 3.1
+    product_class_10:
+      values:
+        2021-01-01:
+          value: 3.1
+    product_class_11:
+      values:
+        2021-01-01:
+          value: 3.1
+    product_class_20:
+      values:
+        2021-01-01:
+          value: 3.1
+    product_class_7:
+      values:
+        2021-01-01:
+          value: 2.9
+    product_class_12:
+      values:
+        2021-01-01:
+          value: 2.9
+    product_class_21:
+      values:
+        2021-01-01:
+          value: 2.9
+  replacement_activity:
+    product_class_8:
+      values:
+        2021-01-01:
+          value: 3.33
+    product_class_18:
+      values:
+        2021-01-01:
+          value: 3.33
+    product_class_9:
+      values:
+        2021-01-01:
+          value: 2.93
+    product_class_19:
+      values:
+        2021-01-01:
+          value: 2.93
+    product_class_5:
+      values:
+        2021-01-01:
+          value: 2.8
+    product_class_6:
+      values:
+        2021-01-01:
+          value: 2.8
+    product_class_10:
+      values:
+        2021-01-01:
+          value: 2.8
+    product_class_11:
+      values:
+        2021-01-01:
+          value: 2.8
+    product_class_20:
+      values:
+        2021-01-01:
+          value: 2.8
+    product_class_7:
+      values:
+        2021-01-01:
+          value: 2.75
+    product_class_12:
+      values:
+        2021-01-01:
+          value: 2.75
+    product_class_21:
+      values:
+        2021-01-01:
+          value: 2.75
+ACOP:
+  new_installation_activity:
+    product_class_8:
+      values:
+        2021-01-01:
+          value: 2.33
+    product_class_18:
+      values:
+        2021-01-01:
+          value: 2.33
+    product_class_9:
+      values:
+        2021-01-01:
+          value: 2.11
+    product_class_19:
+      values:
+        2021-01-01:
+          value: 2.11
+    product_class_5:
+      values:
+        2021-01-01:
+          value: 2.05
+    product_class_6:
+      values:
+        2021-01-01:
+          value: 2.05
+    product_class_10:
+      values:
+        2021-01-01:
+          value: 2.05
+    product_class_11:
+      values:
+        2021-01-01:
+          value: 2.05
+    product_class_20:
+      values:
+        2021-01-01:
+          value: 2.05
+    product_class_7:
+      values:
+        2021-01-01:
+          value: 1.95
+    product_class_12:
+      values:
+        2021-01-01:
+          value: 1.95
+    product_class_21:
+      values:
+        2021-01-01:
+          value: 1.95
+  replacement_activity:
+    product_class_8:
+      values:
+        2021-01-01:
+          value: 2.17
+    product_class_18:
+      values:
+        2021-01-01:
+          value: 2.17
+    product_class_9:
+      values:
+        2021-01-01:
+          value: 1.97
+    product_class_19:
+      values:
+        2021-01-01:
+          value: 1.97
+    product_class_5:
+      values:
+        2021-01-01:
+          value: 1.90
+    product_class_6:
+      values:
+        2021-01-01:
+          value: 1.90
+    product_class_10:
+      values:
+        2021-01-01:
+          value: 1.90
+    product_class_11:
+      values:
+        2021-01-01:
+          value: 1.90
+    product_class_20:
+      values:
+        2021-01-01:
+          value: 1.90
+    product_class_7:
+      values:
+        2021-01-01:
+          value: 1.88
+    product_class_12:
+      values:
+        2021-01-01:
+          value: 1.88
+    product_class_21:
+      values:
+        2021-01-01:
+          value: 1.88

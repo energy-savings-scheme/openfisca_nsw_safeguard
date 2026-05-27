@@ -14,10 +14,27 @@
         True,
         True,
         True,
+        True,
         False
       ]
     BESS2_V5Nov24_existing_solar_battery:
       [
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        False
+      ]
+    BESS2_V5Nov24_BCA_class_1:
+      [
+        True,
         True,
         True,
         False, #not eligible
@@ -35,6 +52,7 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
@@ -43,9 +61,10 @@
         True,
         True,
         False
-      ]
-    BESS2_V5Nov24_engaged_ACP:
+      ]      
+    BESS2_V5Nov24_approved_battery_list:
       [
+        True,
         True,
         True,
         True,
@@ -60,6 +79,7 @@
       ]
     BESS2_V5Nov24_battery_capacity:
       [
+        True,
         True,
         True,
         True,
@@ -80,6 +100,7 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
@@ -88,6 +109,7 @@
       ]
     BESS2_V5Nov24_equipment_warranty:
       [
+        True,
         True,
         True,
         True,
@@ -110,16 +132,18 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         False
       ]
-    BESS2_V5Nov24_approved_battery_list:
+    BESS2_V5Nov24_engaged_ACP:
       [
         True,
         True,
         True,
-        True, 
+        True,
+        True,
         True,
         True,
         True,
@@ -127,11 +151,12 @@
         True,
         False, #not eligible
         False
-      ]
+      ]      
   output:
     BESS2_V5Nov24_installation_final_activity_eligibility:
       [
         True,  #all true
+        False,
         False,
         False,
         False,

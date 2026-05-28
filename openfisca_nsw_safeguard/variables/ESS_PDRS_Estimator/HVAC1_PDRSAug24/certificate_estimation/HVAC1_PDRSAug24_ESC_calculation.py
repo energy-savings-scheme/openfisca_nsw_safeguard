@@ -167,29 +167,6 @@ class HVAC1_PDRSAug24_deemed_activity_electricity_savings(BaseVariable):
       return deemed_electricity_savings
     
 
-class HVAC1_PDRSAug24_AC_Type(Enum):
-    non_ducted_single_split_system = 'Non-ducted single split system'
-    ducted_single_split_system = 'Ducted single split system'
-    non_ducted_multi_split_system = 'Non-ducted multi-split system'
-    ducted_multi_split_system = 'Ducted multi-split system'
-    non_ducted_unitary_system = 'Non-ducted unitary system'
-    ducted_unitary_system = 'Ducted unitary system'
-
-
-class HVAC1_PDRSAug24_Air_Conditioner_type_savings(BaseVariable):
-    value_type = Enum
-    entity = Building
-    possible_values = HVAC1_PDRSAug24_AC_Type
-    default_value = HVAC1_PDRSAug24_AC_Type.non_ducted_single_split_system
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type' : 'user-input',
-        'label': 'Air conditioner type',
-        'display_question' : 'What is your air conditioner type?',
-        'sorting' : 4
-    }
-
-
 class HVAC1_PDRSAug24_Activity_Type(Enum):
     new_installation_activity = 'Installation of a new air conditioner'
     replacement_activity = 'Replacement of an existing air conditioner'

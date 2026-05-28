@@ -231,6 +231,17 @@
   period: 2024
   absolute_error_margin: 0.5
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 8',
+        'Class 10',
+        'Class 8',
+        'Class 10',
+        'Class 8',
+        'Class 9',
+        'Class 9',
+        'Class 10'
+      ]
     HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
       [
         true,
@@ -255,14 +266,14 @@
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
-        ducted_split_system,
-        non_ducted_split_system,
-        ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system
+        non_ducted_single_split_system,
+        ducted_single_split_system,
+        non_ducted_single_split_system,
+        ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
@@ -325,6 +336,12 @@
   period: 2024
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 10',
+        'Class 10',
+        'Class 8'
+      ]
     HVAC2_PDRSAug24_PRC_calculation:
       [
         -0.4,
@@ -349,6 +366,14 @@
   period: 2024
   absolute_error_margin: 0.5
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 10',
+        'Class 8',
+        'Class 10',
+        'Class 7',
+        'Class 5'
+      ]
     HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
       [
         true, #Samsung Electronics AM080DXVGGH/SA
@@ -367,11 +392,11 @@
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [

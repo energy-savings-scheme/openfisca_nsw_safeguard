@@ -22,8 +22,8 @@ class BESS3_battery_capacity_input(BaseVariable):
     definition_period = ETERNITY
     metadata= {
         'variable-type' : 'user-input',
-        'label': 'Battery capacity (kWh)',
-        'display_question' : 'What is the battery capacity (kWh)',
+        'label': 'Usable battery capacity (kWh)',
+        'display_question' : 'The actual amount of energy you can use',
         'sorting' : 2,
     }
 

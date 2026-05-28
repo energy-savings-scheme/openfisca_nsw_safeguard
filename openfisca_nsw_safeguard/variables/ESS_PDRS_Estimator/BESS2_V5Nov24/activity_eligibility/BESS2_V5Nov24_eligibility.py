@@ -20,16 +20,17 @@ class BESS2_V5Nov24_installation_final_activity_eligibility(BaseVariable):
     def formula(buildings, period, parameter):
         demand_response_contract = buildings('BESS2_V5Nov24_demand_response_contract', period)
         existing_solar_battery = buildings('BESS2_V5Nov24_existing_solar_battery', period)
+        BCA_class_1 = buildings('BESS2_V5Nov24_BCA_class_1', period)
         life_support_equipment = buildings('BESS2_V5Nov24_life_support_equipment', period)
-        ACP_engaged = buildings('BESS2_V5Nov24_engaged_ACP', period)
+        approved_battery_list = buildings('BESS2_V5Nov24_approved_battery_list', period)
         battery_capacity = buildings('BESS2_V5Nov24_battery_capacity', period)
         battery_warranty_length = buildings('BESS2_V5Nov24_length_battery_warranty', period)
         equipment_warranty = buildings('BESS2_V5Nov24_equipment_warranty', period)
         battery_internet_connectable = buildings('BESS2_V5Nov24_internet_connectable', period)
-        approved_battery_list = buildings('BESS2_V5Nov24_approved_battery_list', period)
+        ACP_engaged = buildings('BESS2_V5Nov24_engaged_ACP', period)
 
-        end_formula = (demand_response_contract * existing_solar_battery * life_support_equipment *
-                       ACP_engaged * battery_capacity * battery_warranty_length * equipment_warranty * 
-                       battery_internet_connectable * approved_battery_list)
+        end_formula = (demand_response_contract * existing_solar_battery * BCA_class_1 * life_support_equipment * 
+                       approved_battery_list * battery_capacity * battery_warranty_length * equipment_warranty * 
+                       battery_internet_connectable * ACP_engaged)
 
         return end_formula

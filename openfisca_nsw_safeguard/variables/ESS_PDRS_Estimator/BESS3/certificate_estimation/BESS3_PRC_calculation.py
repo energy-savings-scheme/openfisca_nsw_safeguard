@@ -101,5 +101,20 @@ class BESS3_PRC_calculation(BaseVariable):
         postcode = building('BESS3_postcode', period)
         peak_demand_reduction_capacity = building('BESS3_peak_demand_reduction_capacity', period)
         network_loss_factor = parameters(period).PDRS.table_network_loss_factor_by_postcode.calc(postcode)
+        prc_is_eligible = building('BESS3_PRC_is_eligible', period)
+        return peak_demand_reduction_capacity * network_loss_factor * 10 * prc_is_eligible
 
-        return peak_demand_reduction_capacity * network_loss_factor * 10
+
+class BESS3_PRC_is_eligible(BaseVariable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+        battery_capacity_input = building('BESS3_battery_capacity_input', period)
+        number_of_dwellings_input = building('BESS3_number_of_dwellings_input', period)
+        inverter_output_input = building('BESS3_inverter_output_input', period)
+        battery_capacity_valid = (battery_capacity_input >= 20) * (battery_capacity_input <= 200)
+        dwellings_valid = number_of_dwellings_input >= 4
+        inverter_ratio_valid = battery_capacity_input <= (inverter_output_input * 6)
+        return battery_capacity_valid * dwellings_valid * inverter_ratio_valid

@@ -36,15 +36,26 @@ class BESS2_V5Nov24_installation_activity(BaseVariable):
     }
 
 
+
 class BESS2_V5Nov24_usable_battery_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    metadata={
-        'variable-type' : 'input',
-        'label': 'Usable battery capacity (kWh)',
-        'display_question' : 'The actual amount of energy you can use',
-        'sorting' : 3        
+    metadata = {
+        'variable-type': 'output',
+        'label': 'Usable battery capacity (kWh)'
+    }
+
+
+class BESS2_V5Nov24_nominal_battery_capacity(BaseVariable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'user-input',
+        'label': 'Nominal battery capacity (kWh)',
+        'display_question': 'What is the nominal battery capacity (kWh)?',
+        'sorting': 3
     }
 
 

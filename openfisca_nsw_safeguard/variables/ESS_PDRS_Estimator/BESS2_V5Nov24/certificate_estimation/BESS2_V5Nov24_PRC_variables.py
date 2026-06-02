@@ -36,7 +36,6 @@ class BESS2_V5Nov24_installation_activity(BaseVariable):
     }
 
 
-
 class BESS2_V5Nov24_usable_battery_capacity(BaseVariable):
     value_type = float
     entity = Building
@@ -45,6 +44,21 @@ class BESS2_V5Nov24_usable_battery_capacity(BaseVariable):
         'variable-type': 'output',
         'label': 'Usable battery capacity (kWh)'
     }
+
+    def formula(buildings, period, parameters):
+        # Get nominal battery capacity
+        nominal_battery_capacity = buildings('BESS2_V5Nov24_nominal_battery_capacity', period)
+
+        # Apply 90% rule
+        adjusted_capacity = nominal_battery_capacity * 0.9
+
+        # Cap at 28 kWh
+        cap = 28.0
+
+        # Take the lower of the two
+        usable_battery_capacity = np.minimum(adjusted_capacity, cap)
+
+        return usable_battery_capacity
 
 
 class BESS2_V5Nov24_nominal_battery_capacity(BaseVariable):

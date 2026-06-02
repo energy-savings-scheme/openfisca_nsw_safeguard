@@ -364,6 +364,7 @@ class HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark(BaseVariable):
         AC_TCSPF = buildings('HVAC2_PDRSAug24_TCSPF_mixed', period)
         AC_AEER = buildings('HVAC2_PDRSAug24_rated_AEER_input', period)
         product_class = buildings('HVAC2_PDRSAug24_product_class', period)
+        old_product_class = buildings('HVAC2_PDRSAug24_Air_Conditioner_type', period)
         TCSPF_is_zero = ((AC_TCSPF == 0) + (AC_TCSPF == None))
         AC_exceeds_cooling_benchmark = np.where(
             TCSPF_is_zero,

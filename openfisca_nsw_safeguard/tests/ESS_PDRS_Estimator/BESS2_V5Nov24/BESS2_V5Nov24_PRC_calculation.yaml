@@ -16,6 +16,57 @@
         0.535
       ]
 
+- name: Test usable battery capacity - normal cases
+  period: 2025-07
+  input:
+    BESS2_V5Nov24_nominal_battery_capacity:
+     [
+      20,
+      30,
+      40
+      ]
+  output:
+    BESS2_V5Nov24_usable_battery_capacity:
+     [
+      18,
+      27,
+      28
+      ]
+
+- name: Test usable battery capacity - cap at 28
+  period: 2025-07
+  input:
+    BESS2_V5Nov24_nominal_battery_capacity:
+     [
+      35,
+      45,
+      49
+      ]
+  output:
+    BESS2_V5Nov24_usable_battery_capacity:
+     [
+      28,
+      28,
+      28
+      ]
+
+- name: Test usable battery capacity - over 50 returns zero
+  period: 2025-07
+  input:
+    BESS2_V5Nov24_nominal_battery_capacity:
+     [
+      50,
+      55,
+      100
+      ]
+  output:
+    BESS2_V5Nov24_usable_battery_capacity:
+     [
+      0,
+      0,
+      0
+      ]
+
 - name: Test BESS2 peak demand response capacity
   period: 2025-07
   absolute_error_margin: 0.1
@@ -29,9 +80,9 @@
   output:
     BESS2_V5Nov24_peak_demand_response_capacity:
       [
-        1.444,
-        0.642,
-        0.428
+        1.60488,
+        0.71328,
+        0.47551
       ]
 
 - name: Test BESS2 peak demand annual savings
@@ -65,9 +116,9 @@
   output:
     BESS2_V5Nov24_peak_demand_reduction_capacity:
       [
-        51.98,
-        23.11,
-        15.41
+        57.77568,
+        25.678082,
+        17.118721
       ]
 
 - name: Test BESS2 PRC calculation
@@ -95,7 +146,7 @@
   output:
     BESS2_V5Nov24_PRC_calculation:
       [
-        540.6,
-        240.3,
+        600.867,
+        267.052,
         0
       ]

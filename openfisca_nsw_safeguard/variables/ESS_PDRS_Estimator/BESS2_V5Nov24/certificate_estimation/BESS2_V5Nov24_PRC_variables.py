@@ -56,7 +56,14 @@ class BESS2_V5Nov24_usable_battery_capacity(BaseVariable):
         cap = 28.0
 
         # Take the lower of the two
-        usable_battery_capacity = np.minimum(adjusted_capacity, cap)
+        capped_capacity = np.minimum(adjusted_capacity, cap)
+
+        # Final rule: if nominal >= 50 → return 0
+        usable_battery_capacity = np.where(
+            nominal_battery_capacity >= 50,
+            0,
+            capped_capacity
+        )
 
         return usable_battery_capacity
 

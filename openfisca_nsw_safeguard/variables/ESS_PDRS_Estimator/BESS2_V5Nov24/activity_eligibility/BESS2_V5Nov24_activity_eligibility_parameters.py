@@ -38,7 +38,7 @@ class BESS2_V5Nov24_BCA_class_1(BaseVariable):
     metadata = {
         'display_question' : 'Is the Site a BCA Class 1 Building or Small Business Site, as evidenced to the satisfaction of the Scheme Administrator?',
         'sorting' : 3,
-        'eligibility_clause' : """In PDRS Clause 9.1.1The Peak Demand Reduction Capacity for an Implementation is to be calculated using Equation 2c provided that:<br />
+        'eligibility_clause' : """In PDRS Clause 9.1.1 the Peak Demand Reduction Capacity for an Implementation is to be calculated using Equation 2c provided that:<br />
                                   (a) the Site is a BCA Class 1 Building or Small Business Site, as evidenced to the satisfaction of the Scheme Administrator."""
     }
 

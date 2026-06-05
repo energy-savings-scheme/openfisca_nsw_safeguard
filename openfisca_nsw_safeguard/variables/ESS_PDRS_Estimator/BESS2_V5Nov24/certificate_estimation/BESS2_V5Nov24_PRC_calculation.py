@@ -5,7 +5,6 @@ from openfisca_nsw_safeguard.entities import Building
 
 import numpy as np
 
-
 class BESS2_V5Nov24_demand_response_component(BaseVariable):
     value_type = float
     entity = Building

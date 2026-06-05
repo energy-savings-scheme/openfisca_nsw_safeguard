@@ -1,0 +1,307 @@
+description: Residential Minimum TCSPF/HSPF Requirements, as identified in Table D16.4
+reference: PDRS Technical Manual 2026
+TCSPF_mixed:
+  product_class_8:
+    values:
+      2021-01-01:
+        value: 7.0
+  product_class_18:
+    values:
+      2021-01-01:
+        value: 7.0
+  product_class_9:
+    values:
+      2021-01-01:
+        value: 5.5
+  product_class_19:
+    values:
+      2021-01-01:
+        value: 5.5
+  product_class_10:
+    values:
+      2021-01-01:
+        value: 5.0
+  product_class_11:
+    values:
+      2021-01-01:
+        value: 5.0
+  product_class_20:
+    values:
+      2021-01-01:
+        value: 5.0
+  product_class_5:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_6:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_7:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_12:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_21:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_24:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_25:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_27:
+    values:
+      2021-01-01:
+        value: 3.5
+HSPF_mixed:
+  product_class_8:
+    values:
+      2021-01-01:
+        value: 4.5
+  product_class_18:
+    values:
+      2021-01-01:
+        value: 4.5
+  product_class_9:
+    values:
+      2021-01-01:
+        value: 4.0
+  product_class_19:
+    values:
+      2021-01-01:
+        value: 4.0
+  product_class_10:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_11:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_20:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_5:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_6:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_7:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_12:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_21:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_24:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_25:
+    values:
+      2021-01-01:
+        value: 3.0
+  product_class_27:
+    values:
+      2021-01-01:
+        value: 3.0
+HSPF_cold:
+  product_class_8:
+    values:
+      2021-01-01:
+        value: 4.0
+  product_class_18:
+    values:
+      2021-01-01:
+        value: 4.0
+  product_class_9:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_19:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_10:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_11:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_20:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_5:
+    values:
+      2021-01-01:
+        value: 2.5
+  product_class_6:
+    values:
+      2021-01-01:
+        value: 2.5
+  product_class_7:
+    values:
+      2021-01-01:
+        value: 2.5
+  product_class_12:
+    values:
+      2021-01-01:
+        value: 2.5
+  product_class_21:
+    values:
+      2021-01-01:
+        value: 2.5
+  product_class_24:
+    values:
+      2021-01-01:
+        value: 2.5
+  product_class_25:
+    values:
+      2021-01-01:
+        value: 2.5
+  product_class_27:
+    values:
+      2021-01-01:
+        value: 2.5
+AEER:
+  product_class_8:
+    values:
+      2021-01-01:
+        value: 4.3
+  product_class_18:
+    values:
+      2021-01-01:
+        value: 4.3
+  product_class_9:
+    values:
+      2021-01-01:
+        value: 3.6
+  product_class_19:
+    values:
+      2021-01-01:
+        value: 3.6
+  product_class_10:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_11:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_20:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_5:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_6:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_7:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_12:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_21:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_24:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_25:
+    values:
+      2021-01-01:
+        value: 3.3
+  product_class_27:
+    values:
+      2021-01-01:
+        value: 3.3
+ACOP:
+  product_class_8:
+    values:
+      2021-01-01:
+        value: 4.4
+  product_class_18:
+    values:
+      2021-01-01:
+        value: 4.4
+  product_class_9:
+    values:
+      2021-01-01:
+        value: 3.8
+  product_class_19:
+    values:
+      2021-01-01:
+        value: 3.8
+  product_class_10:
+    values:
+      2021-01-01:
+        value: 3.8
+  product_class_11:
+    values:
+      2021-01-01:
+        value: 3.8
+  product_class_20:
+    values:
+      2021-01-01:
+        value: 3.8
+  product_class_5:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_6:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_7:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_12:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_21:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_24:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_25:
+    values:
+      2021-01-01:
+        value: 3.5
+  product_class_27:
+    values:
+      2021-01-01:
+        value: 3.5

@@ -236,6 +236,13 @@ class HVAC1_PDRSAug24_PRC_calculation(BaseVariable):
             ], [
                 0, result_meet_elig
             ])
+
+        product_class_in_range = buildings('HVAC1_PDRSAug24_product_class_is_18_to_21', period)
+        result_to_return = np.where(
+            product_class_in_range,
+            np.minimum(result_to_return, 500),
+            result_to_return
+        )
         return result_to_return
     
 

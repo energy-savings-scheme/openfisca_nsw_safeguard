@@ -1,3 +1,4 @@
+# Deprecated (Changes and combine into table_HVAC_1_1_product_class)
 description: Baseline AEER used in calculating peak demand savings for installing a new AC.
 non_ducted_split_system:
   less_than_4kW:

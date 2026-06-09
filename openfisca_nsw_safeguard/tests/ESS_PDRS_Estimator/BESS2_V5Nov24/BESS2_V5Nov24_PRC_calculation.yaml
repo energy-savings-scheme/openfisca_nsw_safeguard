@@ -2,7 +2,7 @@
   period: 2025-07
   absolute_error_margin: 0.1
   input:
-    BESS2_V5Nov24_nominal_battery_capacity:
+    BESS2_V5Nov24_usable_battery_capacity:
       [
         27,
         12,
@@ -11,60 +11,9 @@
   output:
     BESS2_V5Nov24_demand_response_component:
       [
-        1.805,
-        0.802,
-        0.535
-      ]
-
-- name: Test usable battery capacity - normal cases
-  period: 2025-07
-  input:
-    BESS2_V5Nov24_nominal_battery_capacity:
-     [
-      20,
-      30,
-      40
-      ]
-  output:
-    BESS2_V5Nov24_usable_battery_capacity:
-     [
-      18,
-      27,
-      28
-      ]
-
-- name: Test usable battery capacity - cap at 28
-  period: 2025-07
-  input:
-    BESS2_V5Nov24_nominal_battery_capacity:
-     [
-      35,
-      45,
-      49
-      ]
-  output:
-    BESS2_V5Nov24_usable_battery_capacity:
-     [
-      28,
-      28,
-      28
-      ]
-
-- name: Test usable battery capacity - over 50 returns zero
-  period: 2025-07
-  input:
-    BESS2_V5Nov24_nominal_battery_capacity:
-     [
-      50,
-      55,
-      100
-      ]
-  output:
-    BESS2_V5Nov24_usable_battery_capacity:
-     [
-      0,
-      0,
-      0
+        2.0061,
+        0.8916,
+        0.5944
       ]
 
 - name: Test BESS2 peak demand response capacity
@@ -82,14 +31,14 @@
       [
         1.60488,
         0.71328,
-        0.47551
+        0.47552
       ]
 
 - name: Test BESS2 peak demand annual savings
   period: 2025-07
   absolute_error_margin: 0.1
   input:
-    BESS2_V5Nov24_nominal_battery_capacity:
+    BESS2_V5Nov24_usable_battery_capacity:
       [
         27,
         12,
@@ -98,9 +47,9 @@
   output:
     BESS2_V5Nov24_peak_demand_annual_savings:
       [
-        51.98,
-        23.11,
-        15.41
+        57.77568,
+        25.67808,
+        17.11872
       ]
 
 - name: Test BESS2 peak demand reduction capacity
@@ -117,8 +66,8 @@
     BESS2_V5Nov24_peak_demand_reduction_capacity:
       [
         57.77568,
-        25.678082,
-        17.118721
+        25.67808,
+        17.11872
       ]
 
 - name: Test BESS2 PRC calculation
@@ -146,7 +95,7 @@
   output:
     BESS2_V5Nov24_PRC_calculation:
       [
-        600.867,
-        267.052,
+        600.8671,
+        267.0520,
         0
       ]

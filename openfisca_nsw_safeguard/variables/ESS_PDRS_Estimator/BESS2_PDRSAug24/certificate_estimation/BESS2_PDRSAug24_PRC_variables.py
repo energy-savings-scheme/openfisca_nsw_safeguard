@@ -35,16 +35,47 @@ class BESS2_PDRSAug24_installation_activity(BaseVariable):
         'sorting' : 2
     }
 
-
 class BESS2_PDRSAug24_usable_battery_capacity(BaseVariable):
     value_type = float
     entity = Building
     definition_period = ETERNITY
-    metadata={
-        'variable-type' : 'user-input',
-        'label': 'Usable battery capacity (kWh)',
-        'display_question' : 'The actual amount of energy you can use',
-        'sorting' : 3        
+    metadata = {
+        'variable-type': 'output',
+        'label': 'Usable battery capacity (kWh)'
+    }
+
+    def formula(buildings, period, parameters):
+        # Get nominal battery capacity
+        nominal_battery_capacity = buildings('BESS2_PDRSAug24_nominal_battery_capacity', period)
+
+        # Apply 90% rule
+        adjusted_capacity = nominal_battery_capacity * 0.9
+
+        # Cap at 28 kWh
+        cap = 28.0
+
+        # Take the lower of the two
+        capped_capacity = np.minimum(adjusted_capacity, cap)
+
+        # Final rule: if nominal >= 50 → return 0
+        usable_battery_capacity = np.where(
+            nominal_battery_capacity >= 50,
+            0,
+            capped_capacity
+        )
+
+        return usable_battery_capacity
+
+
+class BESS2_PDRSAug24_nominal_battery_capacity(BaseVariable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+        'variable-type': 'user-input',
+        'label': 'Nominal battery capacity (kWh)',
+        'display_question': 'What is the nominal battery capacity (kWh)?',
+        'sorting': 3
     }
 
 

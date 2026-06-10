@@ -23,7 +23,7 @@
   output:
     BESS3_usable_battery_capacity:
       [
-        20.0,
+        18.0,
         15.0,
         20.0
       ]
@@ -59,7 +59,7 @@
   output:
     BESS3_demand_shifting_component:
       [
-        2.4,
+        2.16,
         1.8,
         1.706
       ]
@@ -95,7 +95,7 @@
   output:
     BESS3_peak_demand_shifting_capacity:
       [
-        2.4,
+        2.16,
         1.8,
         1.706
       ]
@@ -131,7 +131,7 @@
   output:
     BESS3_peak_demand_reduction_capacity:
       [
-        216,
+        194.4,
         162,
         153.54
       ]
@@ -167,7 +167,7 @@
   output:
     BESS3_peak_demand_savings:
       [
-        216,
+        194.4,
         162,
         153.54
       ]
@@ -255,7 +255,7 @@
   output:
     BESS3_PRC_calculation:
       [
-        2268,
+        2041.2,
         2835,
         1596.816
       ]

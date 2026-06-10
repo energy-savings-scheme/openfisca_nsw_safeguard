@@ -18,7 +18,7 @@ class BESS3_usable_battery_capacity(BaseVariable):
         number_of_dwellings_input = building('BESS3_number_of_dwellings_input', period)
         inverter_output_input = building('BESS3_inverter_output_input', period)
 
-        battery_capacity = battery_capacity_input
+        battery_capacity = battery_capacity_input * 0.9
         number_of_dwellings = number_of_dwellings_input * 5
         inverter_output = inverter_output_input * 4
 
@@ -116,5 +116,5 @@ class BESS3_PRC_is_eligible(BaseVariable):
         inverter_output_input = building('BESS3_inverter_output_input', period)
         battery_capacity_valid = (battery_capacity_input >= 20) * (battery_capacity_input <= 200)
         dwellings_valid = number_of_dwellings_input >= 4
-        inverter_ratio_valid = battery_capacity_input <= (inverter_output_input * 6)
+        inverter_ratio_valid = (battery_capacity_input * 0.9) <= (inverter_output_input * 6)
         return battery_capacity_valid * dwellings_valid * inverter_ratio_valid

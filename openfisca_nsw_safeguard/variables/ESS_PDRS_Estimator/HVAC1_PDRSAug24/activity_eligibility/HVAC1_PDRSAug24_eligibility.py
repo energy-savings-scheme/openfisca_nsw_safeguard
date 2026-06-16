@@ -25,6 +25,10 @@ class HVAC1_PDRSAug24_installation_replacement_final_activity_eligibility(BaseVa
         ACP_engaged = buildings('HVAC1_PDRSAug24_engaged_ACP', period)
         minimum_payment = buildings('HVAC1_PDRSAug24_minimum_payment', period)
         registered_GEMS = buildings('HVAC1_PDRSAug24_equipment_registered_in_GEMS', period)
+        model_number_GEMS = buildings('HVAC1_PDRSAug24_model_number_registered_in_GEMS', period)
+        multi_split_class = buildings('HVAC1_PDRSAug24_multi_split_product_class', period)
+        outdoor_units = buildings('HVAC1_PDRSAug24_outdoor_units', period)
+        manufacture_approved = buildings('HVAC1_PDRSAug24_manufacture_approved_GEMS', period)
         cooling_capacity = buildings('HVAC1_PDRSAug24_new_equipment_cooling_capacity', period)
         TCPSF_greater = buildings('HVAC1_PDRSAug24_TCPSF_greater_than_minimum', period)
 
@@ -39,17 +43,19 @@ class HVAC1_PDRSAug24_installation_replacement_final_activity_eligibility(BaseVa
         HSPF_cold_value = buildings('HVAC1_PDRSAug24_HSPF_cold_eligible', period)
         AEER_greater_than_minimum = buildings('HVAC1_PDRSAug24_AEER_greater_than_minimum',period)
         ACOP_value = buildings ('HVAC1_PDRSAug24_ACOP_eligible', period)
+        ACOP_cold_value = buildings('HVAC1_PDRSAug24_ACOP_cold_eligible', period)
 
         # GEMS cooling capacity is NO but AEER greater than minimum YES OR GEMS cooling capacity is YES and TCPSF_greater greater than minimum YES
         gems_cooling_capacity_path = (np.logical_not(cooling_capacity) * AEER_greater_than_minimum) + (cooling_capacity * TCPSF_greater)
         
         hot_zone_intermediary = in_hot_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))
         average_zone_intermediary = in_average_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))
-        cool_zone_intermediary = in_cold_zone * ((heating_capacity * HSPF_cold_value) + (np.logical_not(heating_capacity) * ACOP_value))
+        cool_zone_intermediary = in_cold_zone * ((heating_capacity * HSPF_cold_value) + (np.logical_not(heating_capacity) * ACOP_cold_value))
         
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
         
         end_formula =  ( activity_type_eligible * qualified_install * equipment_installed * ACP_engaged *
-                        minimum_payment * registered_GEMS * gems_cooling_capacity_path * climate_zone_condition )
+                        minimum_payment * registered_GEMS * model_number_GEMS * multi_split_class * outdoor_units *
+                        manufacture_approved * gems_cooling_capacity_path * climate_zone_condition )
         
         return end_formula

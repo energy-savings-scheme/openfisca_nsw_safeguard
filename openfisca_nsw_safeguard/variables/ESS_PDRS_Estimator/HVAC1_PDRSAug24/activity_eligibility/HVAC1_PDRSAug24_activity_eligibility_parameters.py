@@ -229,7 +229,7 @@ class HVAC1_PDRSAug24_new_equipment_heating_capacity(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Does the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?',
+        'display_question' : 'Will the new or replacement End-User equipment have a heating capacity recorded in the GEMS Registry?',
         'sorting' : 15,
         'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3 and 4 it states that:<br />
         3. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry, and is installed in the hot or average zone as defined in Table A27:<br />
@@ -243,33 +243,33 @@ class HVAC1_PDRSAug24_HSPF_mixed_eligible(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is your GEMS Residential HSPF_mixed value equal to or greater than the Minimum Residential HSPF_mixed value for the same Product Class and Cooling Capacity in ESS Table D16.4?',
+        'display_question' : 'Will your GEMS Residential HSPF_mixed value equal to or greater than the Minimum Residential HSPF_mixed value for the same Product Class and Cooling Capacity in ESS Table D16.4?',
         'sorting' : 16,
         'conditional': 'True',
         'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3(a) it states that it must have a Residential HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential HSPF_mixed value for the same Product Class in Table D16.4; or """
     }
 
 
-class HVAC1_PDRSAug24_ACOP_mixed_eligible(BaseVariable):
+class HVAC1_PDRSAug24_ACOP_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     default_value = True
     metadata = {
-        'display_question' : 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Class and Cooling Capacity in ESS Table D16.4?',
+        'display_question' : 'Will your ACOP equal to or greater than the Minimum ACOP for the same Product Class and Cooling Capacity in ESS Table D16.4?',
         'sorting' : 17,
         'conditional': 'True',
         'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3(b) it states that if it does not have a Residential HSPF_mixed value recorded in the GEMS Registry, then it must have a Rated ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Class in Table D16.4."""
     }
 
 
-class HVAC1_PDRSAug24_HSPF_cold_eligible(BaseVariable): ### up to here #####
+class HVAC1_PDRSAug24_HSPF_cold_eligible(BaseVariable):
     value_type = bool
     entity = Building
     definition_period = ETERNITY
     default_value = True
     metadata = {
-        'display_question' : 'Is your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table D16.4?',
+        'display_question' : 'Will your GEMS Commercial HSPF_cold value equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in ESS Table D16.4?',
         'sorting' : 18,
         'conditional': 'True',
         'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 4(a) it states that It must have a Residential HSPF_cold value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential HSPF_cold value for the same Product Class in Table D16.4; or"""
@@ -282,7 +282,7 @@ class HVAC1_PDRSAug24_ACOP_cold_eligible(BaseVariable):
     definition_period = ETERNITY
     default_value = True
     metadata = {
-        'display_question' : 'Is your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table D16.4?',
+        'display_question' : 'Will your ACOP equal to or greater than the Minimum ACOP for the same Product Type and Cooling Capacity in ESS Table D16.4?',
         'sorting' : 19,
         'conditional': 'True',
         'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 4(b) it states that if it does not have a Residential HSPF_cold value recorded in the GEMS Registry, then it must have a Rated ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Class in Table D16.4."""

@@ -37,8 +37,9 @@ class HVAC1_PDRSAug24_installation_replacement_final_activity_eligibility(BaseVa
         in_average_zone = (climate_zone == ACClimateZone.average_zone) # True
         in_hot_zone = (climate_zone == ACClimateZone.hot_zone) # False
         in_cold_zone = (climate_zone == ACClimateZone.cold_zone) # False
-
+        
         heating_capacity = buildings('HVAC1_PDRSAug24_new_equipment_heating_capacity', period)
+        cold_capacity = buildings('HVAC1_PDRSAug24_new_equipment_cold_capacity', period)
         HSPF_mixed_value = buildings('HVAC1_PDRSAug24_HSPF_mixed_eligible', period)
         HSPF_cold_value = buildings('HVAC1_PDRSAug24_HSPF_cold_eligible', period)
         AEER_greater_than_minimum = buildings('HVAC1_PDRSAug24_AEER_greater_than_minimum',period)
@@ -50,7 +51,7 @@ class HVAC1_PDRSAug24_installation_replacement_final_activity_eligibility(BaseVa
         
         hot_zone_intermediary = in_hot_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))
         average_zone_intermediary = in_average_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))
-        cool_zone_intermediary = in_cold_zone * ((heating_capacity * HSPF_cold_value) + (np.logical_not(heating_capacity) * ACOP_cold_value))
+        cool_zone_intermediary = in_cold_zone * ((cold_capacity * HSPF_cold_value) + (np.logical_not(cold_capacity) * ACOP_cold_value))
         
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
         

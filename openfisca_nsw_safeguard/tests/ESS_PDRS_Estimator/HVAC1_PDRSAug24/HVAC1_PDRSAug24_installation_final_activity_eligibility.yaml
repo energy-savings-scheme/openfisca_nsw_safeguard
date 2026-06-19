@@ -156,6 +156,17 @@
         hot_zone,
         average_zone,
       ]
+    HVAC1_PDRSAug24_new_equipment_cold_capacity:
+      [
+        False,
+        False,
+        False,
+        True,
+        True,
+        False,
+        False,
+        False
+      ]  
     HVAC1_PDRSAug24_new_equipment_heating_capacity:
       [
         True,

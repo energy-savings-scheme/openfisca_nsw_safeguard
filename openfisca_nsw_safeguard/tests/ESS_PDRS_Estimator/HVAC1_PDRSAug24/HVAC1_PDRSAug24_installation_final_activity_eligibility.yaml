@@ -68,6 +68,50 @@
         True,
         True
       ]
+    HVAC1_PDRSAug24_model_number_registered_in_GEMS:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+        ]
+    HVAC1_PDRSAug24_multi_split_product_class:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+        ]
+    HVAC1_PDRSAug24_outdoor_units:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+        ]
+    HVAC1_PDRSAug24_manufacture_approved_GEMS:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+        ]
     HVAC1_PDRSAug24_new_equipment_cooling_capacity:
       [
         True,
@@ -112,6 +156,17 @@
         hot_zone,
         average_zone,
       ]
+    HVAC1_PDRSAug24_new_equipment_cold_capacity:
+      [
+        False,
+        False,
+        False,
+        True,
+        True,
+        False,
+        False,
+        False
+      ]  
     HVAC1_PDRSAug24_new_equipment_heating_capacity:
       [
         True,
@@ -146,6 +201,17 @@
         False
       ]
     HVAC1_PDRSAug24_ACOP_eligible:
+      [
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    HVAC1_PDRSAug24_ACOP_cold_eligible:
       [
         True,
         True,

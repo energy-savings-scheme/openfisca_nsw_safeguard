@@ -62,8 +62,8 @@
   output:
     BESS2_PDRSAug24_usable_battery_capacity:
      [
-      0,
-      0,
+      28,
+      28,
       0
       ]
 

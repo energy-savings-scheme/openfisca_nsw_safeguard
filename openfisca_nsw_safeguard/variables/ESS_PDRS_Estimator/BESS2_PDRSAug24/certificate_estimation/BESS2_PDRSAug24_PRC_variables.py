@@ -59,7 +59,7 @@ class BESS2_PDRSAug24_usable_battery_capacity(BaseVariable):
 
         # Final rule: if nominal >= 50 → return 0
         usable_battery_capacity = np.where(
-            nominal_battery_capacity >= 50,
+            adjusted_capacity >= 50,
             0,
             capped_capacity
         )

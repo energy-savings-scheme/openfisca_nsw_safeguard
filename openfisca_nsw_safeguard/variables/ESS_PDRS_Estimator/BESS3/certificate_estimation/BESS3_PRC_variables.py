@@ -22,8 +22,8 @@ class BESS3_battery_capacity_input(BaseVariable):
     definition_period = ETERNITY
     metadata= {
         'variable-type' : 'user-input',
-        'label': 'Usable battery capacity (kWh)',
-        'display_question' : 'The actual amount of energy you can use',
+        'label': 'Nominal battery capacity (kWh)',
+        'display_question' : 'What is the nominal battery capacity (kWh)',
         'sorting' : 2,
     }
 
@@ -59,6 +59,6 @@ class BESS3_solar_or_battery_only(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Solar or battery only',
-        'display_question' : 'Is the battery installed within 90 days of new solar PV',
+        'display_question' : 'Is the battery installed within 90 days of new solar PV capacity',
         'sorting' : 5,
     }

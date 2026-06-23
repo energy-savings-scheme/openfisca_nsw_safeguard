@@ -25,7 +25,7 @@
         True,
         True
       ]
-    HVAC2_engaged_ACP:
+    HVAC2_new_ac_installed_and_operational:
       [
         True,
         True,
@@ -69,6 +69,50 @@
         True,
         False
       ]
+    HVAC2_model_number_registered_in_GEMS:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    HVAC2_multi_split_product_class:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    HVAC2_outdoor_units:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    HVAC2_manufacture_approved_GEMS:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]      
     HVAC2_new_equipment_cooling_capacity:
       [
         True,

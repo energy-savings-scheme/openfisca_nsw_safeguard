@@ -200,6 +200,17 @@
         True,
         True
       ]
+    HVAC1_PDRSAug24_ACOP_cold:
+      [
+        False,
+        False,
+        True,
+        True,
+        True,
+        False,
+        False,
+        False
+      ] 
   output:
     HVAC1_PDRSAug24_installation_replacement_final_activity_eligibility:
       [

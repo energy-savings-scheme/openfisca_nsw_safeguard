@@ -11,9 +11,60 @@
   output:
     BESS2_PDRSAug24_demand_response_component:
       [
-        2.0061,
-        0.8916,
-        0.5944
+        1.9818,
+        0.8808,
+        0.5872
+      ]
+
+- name: Test usable battery capacity - normal cases
+  period: 2025-07
+  input:
+    BESS2_PDRSAug24_nominal_battery_capacity:
+     [
+      20,
+      30,
+      40
+      ]
+  output:
+    BESS2_PDRSAug24_usable_battery_capacity:
+     [
+      18,
+      27,
+      28
+      ]
+
+- name: Test usable battery capacity - cap at 28
+  period: 2025-07
+  input:
+    BESS2_PDRSAug24_nominal_battery_capacity:
+     [
+      35,
+      45,
+      49
+      ]
+  output:
+    BESS2_PDRSAug24_usable_battery_capacity:
+     [
+      28,
+      28,
+      28
+      ]
+
+- name: Test usable battery capacity - over 50 returns zero
+  period: 2025-07
+  input:
+    BESS2_PDRSAug24_nominal_battery_capacity:
+     [
+      50,
+      55,
+      100
+      ]
+  output:
+    BESS2_PDRSAug24_usable_battery_capacity:
+     [
+      28,
+      28,
+      0
       ]
 
 - name: Test BESS2 peak demand response capacity

@@ -44,6 +44,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(BaseVariable):
         HSPF_cold_value = buildings('HVAC2_HSPF_cold_eligible', period)
         AEER_greater_than_minimum = buildings('HVAC2_AEER_greater_than_minimum',period)
         ACOP_value = buildings ('HVAC2_ACOP_eligible', period)
+        ACOP_cold_value = buildings ('HVAC2_ACOP_cold_eligible', period)
 
         # residential building is NO or residential building is yes and is installed in BCA class 2
         residential_building_with_class_2 = np.logical_not(residential_building) + (residential_building * is_installed_in_class_2)
@@ -56,7 +57,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(BaseVariable):
 
         hot_zone_intermediary = in_hot_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))
         average_zone_intermediary = in_average_zone * ((heating_capacity * HSPF_mixed_value) + (np.logical_not(heating_capacity) * ACOP_value))
-        cool_zone_intermediary = in_cold_zone * ((heating_capacity * HSPF_cold_value) + (np.logical_not(heating_capacity) * ACOP_value))
+        cool_zone_intermediary = in_cold_zone * ((heating_capacity * HSPF_cold_value) + (np.logical_not(heating_capacity) * ACOP_cold_value))
         
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
 

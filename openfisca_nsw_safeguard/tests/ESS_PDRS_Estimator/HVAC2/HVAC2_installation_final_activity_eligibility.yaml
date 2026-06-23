@@ -212,6 +212,17 @@
         True,  #ignored
         False
       ]
+    HVAC2_ACOP_cold_eligible:
+      [
+        False,
+        True,
+        True,
+        True,
+        True,
+        True, #eligible
+        True,  #ignored
+        False
+      ]
   output:
     HVAC2_installation_replacement_final_activity_eligibility:
       [

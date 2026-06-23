@@ -4,11 +4,9 @@ from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_safeguard.entities import Building
 
-
 class HVAC1_PDRSAug24_NewInstallationReplacement(Enum):
     new_installation_activity = 'Installation of a new air conditioner'
     replacement_activity = 'Replacement of an existing air conditioner'
-
 
 
 class HVAC1_PDRSAug24_new_installation_or_replacement(BaseVariable):
@@ -23,17 +21,14 @@ class HVAC1_PDRSAug24_new_installation_or_replacement(BaseVariable):
         'sorting' : 1
     }
 
-
 class HVAC1_PDRSAug24_new_installation_or_replacement_eligible(BaseVariable):
     """Checks if the type of activity is eligible
     """
     value_type = bool
     entity = Building 
     definition_period = ETERNITY
-
     def formula(buildings, period, parameters):
       activity_type = buildings('HVAC1_PDRSAug24_new_installation_or_replacement', period)
-
       activity_type_eligible = np.select(
         [
           (activity_type == HVAC1_PDRSAug24_NewInstallationReplacement.new_installation_activity),
@@ -43,9 +38,7 @@ class HVAC1_PDRSAug24_new_installation_or_replacement_eligible(BaseVariable):
           True,
           True
         ])
-
       return activity_type_eligible
-
 
 class HVAC1_PDRSAug24_installed_by_qualified_person(BaseVariable):
     value_type = bool
@@ -58,7 +51,6 @@ class HVAC1_PDRSAug24_installed_by_qualified_person(BaseVariable):
         'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably qualified licence holder in compliance with the relevant standards and legislation."""
     }
 
-
 class HVAC1_PDRSAug24_equipment_installed(BaseVariable):
     value_type = bool
     entity = Building
@@ -67,9 +59,8 @@ class HVAC1_PDRSAug24_equipment_installed(BaseVariable):
     metadata = {
         'display_question' : 'Will the End-User equipment be installed accordance with AS/NZS 5141: 2018?',
         'sorting' : 3,
-        'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must be designed and installed in accordance with AS/NZS 5141: 2018"""
+        'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must be designed and installed in accordance with AS/NZS 5141: 2018"""
     }
-
 
 class HVAC1_PDRSAug24_engaged_ACP(BaseVariable):
     value_type = bool
@@ -83,7 +74,6 @@ class HVAC1_PDRSAug24_engaged_ACP(BaseVariable):
                                   (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
                                   (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
     }
-
 
 class HVAC1_PDRSAug24_minimum_payment(BaseVariable):
     value_type = bool
@@ -100,7 +90,6 @@ class HVAC1_PDRSAug24_minimum_payment(BaseVariable):
                                 (iv) at least $3000 for Multi-split or Ducted systems greater than or equal to 20 kW of cooling capacity using Activity Definition D16."""
     }
 
-
 class HVAC1_PDRSAug24_equipment_registered_in_GEMS(BaseVariable):
     value_type = bool
     entity = Building
@@ -112,7 +101,6 @@ class HVAC1_PDRSAug24_equipment_registered_in_GEMS(BaseVariable):
         'conditonal' : 'True',
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 1 it states that the New End-User Equipment or replacement End-User Equipment must be registered as an air-to-air Air Conditioner in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Air Conditioners up to 65kW) Determination 2019 under Product Classes 5-12 or 18-21 as listed in the GEMS Registry."""
     }
-
 
 class HVAC1_PDRSAug24_model_number_registered_in_GEMS(BaseVariable):
     value_type = bool
@@ -126,7 +114,6 @@ class HVAC1_PDRSAug24_model_number_registered_in_GEMS(BaseVariable):
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 5 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible system for Product Classes 5-12, the model number(s) must match the model number(s) recorded in the GEMS registry."""
     }
 
-
 class HVAC1_PDRSAug24_multi_split_product_class(BaseVariable):
     value_type = bool
     entity = Building
@@ -139,7 +126,6 @@ class HVAC1_PDRSAug24_multi_split_product_class(BaseVariable):
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 6 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible outdoor Multi-split system Product Type under the GEMS Registry for Product Classes 18-21."""
     }
 
-
 class HVAC1_PDRSAug24_outdoor_units(BaseVariable):
     value_type = bool
     entity = Building
@@ -151,7 +137,6 @@ class HVAC1_PDRSAug24_outdoor_units(BaseVariable):
         'conditonal' : 'True',
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 6(b) it states that if the manufacturer brand must be the same for all indoor and outdoor End-User Equipment."""
     }
-
 
 class HVAC1_PDRSAug24_manufacture_approved_GEMS(BaseVariable):
     value_type = bool
@@ -166,7 +151,6 @@ class HVAC1_PDRSAug24_manufacture_approved_GEMS(BaseVariable):
                                   In PDRS HVAC1 Equipment Requirements Clause 6(c) it states that the unit(s) must be an approved combination by the manufacturer."""
     }
 
-
 class HVAC1_PDRSAug24_new_equipment_cooling_capacity(BaseVariable):
     value_type = bool
     entity = Building
@@ -177,7 +161,6 @@ class HVAC1_PDRSAug24_new_equipment_cooling_capacity(BaseVariable):
         'sorting' : 11,
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry"""
     }
-
 
 class HVAC1_PDRSAug24_AEER_greater_than_minimum(BaseVariable):
     value_type = bool
@@ -191,7 +174,6 @@ class HVAC1_PDRSAug24_AEER_greater_than_minimum(BaseVariable):
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2(b) it states that if it does not have a Residential TCSPF_mixed value recorded in the GEMS Registry, then it must have a Rated AEER in the GEMS Registry equal to or greater than the Minimum AEER for the same Product Class in Table D16.4."""
     }
 
-
 class HVAC1_PDRSAug24_TCPSF_greater_than_minimum(BaseVariable):
     value_type = bool
     entity = Building
@@ -204,12 +186,10 @@ class HVAC1_PDRSAug24_TCPSF_greater_than_minimum(BaseVariable):
         'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2(a) it states that it must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the same Product Class in Table D16.4."""
     }
 
-
 class DefaultValuesClimateZone(Enum):
     hot_zone = "Hot zone"
     average_zone = "Average zone"
     cold_zone = "Cold zone"
-
 
 class HVAC1_PDRSAug24_climate_zone(BaseVariable):
     value_type = Enum
@@ -221,7 +201,6 @@ class HVAC1_PDRSAug24_climate_zone(BaseVariable):
         'display_question' : 'Which climate zone will the End-User equipment be installed in, as defined in ESS Table A27?',
         'sorting' : 14
     }
-
 
 class HVAC1_PDRSAug24_new_equipment_heating_capacity(BaseVariable):
     value_type = bool
@@ -235,7 +214,6 @@ class HVAC1_PDRSAug24_new_equipment_heating_capacity(BaseVariable):
                                   In ESS D16 Equipment Requirements Clauses 4 it states that if the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry, and is installed in the cold zone as defined in Table A27."""
     }
 
-
 class HVAC1_PDRSAug24_HSPF_mixed_eligible(BaseVariable):
     value_type = bool
     entity = Building
@@ -247,7 +225,6 @@ class HVAC1_PDRSAug24_HSPF_mixed_eligible(BaseVariable):
         'conditional': 'True',
         'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 3(a) it states that it must have a Residential HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential HSPF_mixed value for the same Product Class in Table D16.4."""
     }
-
 
 class HVAC1_PDRSAug24_ACOP_eligible(BaseVariable):
     value_type = bool
@@ -262,7 +239,6 @@ class HVAC1_PDRSAug24_ACOP_eligible(BaseVariable):
                                   In ESS D16 Equipment Requirements Clauses 4(b) it states that if it does not have a Residential HSPF_cold value recorded in the GEMS Registry, then it must have a Rated ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Class in Table D16.4."""
     }
 
-
 class HVAC1_PDRSAug24_HSPF_cold_eligible(BaseVariable):
     value_type = bool
     entity = Building
@@ -274,3 +250,4 @@ class HVAC1_PDRSAug24_HSPF_cold_eligible(BaseVariable):
         'conditional': 'True',
         'eligibility_clause' : """In ESS D16 Equipment Requirements Clauses 4(a) it states that it must have a Residential HSPF_cold value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential HSPF_cold value for the same Product Class in Table D16.4"""
     }
+

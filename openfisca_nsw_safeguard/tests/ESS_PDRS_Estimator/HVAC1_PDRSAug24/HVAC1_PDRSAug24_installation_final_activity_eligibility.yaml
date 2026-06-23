@@ -78,7 +78,7 @@
         True,
         True,
         True
-        ]
+      ]
     HVAC1_PDRSAug24_multi_split_product_class:
       [
         True,
@@ -89,7 +89,7 @@
         True,
         True,
         True
-        ]
+      ]
     HVAC1_PDRSAug24_outdoor_units:
       [
         True,
@@ -100,7 +100,7 @@
         True,
         True,
         True
-        ]
+      ]
     HVAC1_PDRSAug24_manufacture_approved_GEMS:
       [
         True,
@@ -111,7 +111,7 @@
         True,
         True,
         True
-        ]
+      ]
     HVAC1_PDRSAug24_new_equipment_cooling_capacity:
       [
         True,
@@ -156,17 +156,6 @@
         hot_zone,
         average_zone,
       ]
-    HVAC1_PDRSAug24_new_equipment_cold_capacity:
-      [
-        False,
-        False,
-        False,
-        True,
-        True,
-        False,
-        False,
-        False
-      ]  
     HVAC1_PDRSAug24_new_equipment_heating_capacity:
       [
         True,
@@ -211,17 +200,17 @@
         True,
         True
       ]
-    HVAC1_PDRSAug24_ACOP_cold_eligible:
+    HVAC1_PDRSAug24_ACOP_cold:
       [
-        True,
-        True,
+        False,
         False,
         True,
         True,
         True,
-        True,
-        True
-      ]
+        False,
+        False,
+        False
+      ] 
   output:
     HVAC1_PDRSAug24_installation_replacement_final_activity_eligibility:
       [
@@ -234,7 +223,6 @@
         False,
         False
       ]
-
 - name: test PDRS activity eligibility
   period: 2022
   absolute_error_margin: 0
@@ -250,7 +238,6 @@
         true,
         true
       ]
-
 - name: test PDRS final formula installation eligibility second check
   period: 2022
   absolute_error_margin: 0

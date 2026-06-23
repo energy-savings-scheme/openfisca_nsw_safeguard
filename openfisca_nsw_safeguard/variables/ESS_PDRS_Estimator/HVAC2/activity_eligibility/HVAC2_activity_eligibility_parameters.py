@@ -245,11 +245,11 @@ class HVAC2_new_equipment_heating_capacity(BaseVariable):
         'sorting' : 18,
         'eligibility_clause' : """In ESS F4 Equipment Requirements Clauses 3 and 4 it states that:<br />
         3. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry, and is installed in the hot or average zone as defined in Table A27: <br />
-        a. It must have a Commercial HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Type and Cooling Capacity in Table F4.4; or<br />
-        b. If it does not have a Commercial HSPF_mixed value recorded in the GEMS Registry, then it must have a Rated ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and Cooling Capacity in Table F4.4.<br />
+        a. It must have a Commercial HSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Commercial HSPF_mixed value for the same Product Class in Table F4.4; or<br />
+        b. If it does not have a Commercial HSPF_mixed value recorded in the GEMS Registry, then it must have a Rated ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Class in Table F4.4.<br />
         4. If the New End-User Equipment or replacement End-User Equipment has a Heating Capacity recorded in the GEMS Registry and is installed in the cold zone as defined in Table A27:<br />
-        a. It must have a Commercial HSPF_cold value, as recorded in the GEMS Registry, equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Type and Cooling Capacity in Table F4.4; or<br />
-        b. If it does not have a Commercial HSPF_cold value recorded in the GEMS Registry, then it must have a Rated ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Type and Cooling Capacity in Table F4.4.
+        a. It must have a Commercial HSPF_cold value, as recorded in the GEMS Registry, equal to or greater than the Minimum Commercial HSPF_cold value for the same Product Class in Table F4.4; or<br />
+        b. If it does not have a Commercial HSPF_cold value recorded in the GEMS Registry, then it must have a Rated ACOP in the GEMS Registry equal to or greater than the Minimum Rated ACOP for the same Product Class in Table F4.4.
         """
     }
 

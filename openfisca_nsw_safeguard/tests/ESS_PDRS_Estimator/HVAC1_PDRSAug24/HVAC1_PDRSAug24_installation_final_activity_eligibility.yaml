@@ -78,7 +78,7 @@
         True,
         True,
         True
-        ]
+      ]
     HVAC1_PDRSAug24_multi_split_product_class:
       [
         True,
@@ -89,7 +89,7 @@
         True,
         True,
         True
-        ]
+      ]
     HVAC1_PDRSAug24_outdoor_units:
       [
         True,
@@ -100,7 +100,7 @@
         True,
         True,
         True
-        ]
+      ]
     HVAC1_PDRSAug24_manufacture_approved_GEMS:
       [
         True,
@@ -111,7 +111,7 @@
         True,
         True,
         True
-        ]
+      ]
     HVAC1_PDRSAug24_new_equipment_cooling_capacity:
       [
         True,

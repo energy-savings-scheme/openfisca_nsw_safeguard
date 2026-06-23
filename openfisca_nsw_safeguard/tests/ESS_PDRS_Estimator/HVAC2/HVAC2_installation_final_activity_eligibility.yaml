@@ -36,6 +36,17 @@
         True,
         False #not eligible
       ]
+    HVAC2_minimum_payment:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
     HVAC2_residential_building:
       [
         False,

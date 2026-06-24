@@ -48,7 +48,8 @@ class HVAC1_PDRSAug24_installed_by_qualified_person(BaseVariable):
     metadata = {
         'display_question' : 'Will the removal of the existing equipment and the installation of the End-User equipment be performed or supervised by a suitably qualified licensed person?',
         'sorting' : 2,
-        'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably qualified licence holder in compliance with the relevant standards and legislation."""
+        'eligibility_clause' : """In ESS D16 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably qualified licence holder in compliance with the relevant standards and legislation.<br />
+                                  In PDRS HVAC1 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably Licensed person in compliance with the relevant standards and legislation."""
     }
 
 class HVAC1_PDRSAug24_equipment_installed(BaseVariable):
@@ -59,7 +60,7 @@ class HVAC1_PDRSAug24_equipment_installed(BaseVariable):
     metadata = {
         'display_question' : 'Will the End-User equipment be installed accordance with AS/NZS 5141: 2018?',
         'sorting' : 3,
-        'eligibility_clause' : """In PDRS HVAC1 Implementation Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must be designed and installed in accordance with AS/NZS 5141: 2018"""
+        'eligibility_clause' : """In ESS D16 and PDRS HVAC1 Implementation Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must be designed and installed in accordance with AS/NZS 5141: 2018"""
     }
 
 class HVAC1_PDRSAug24_engaged_ACP(BaseVariable):
@@ -96,10 +97,10 @@ class HVAC1_PDRSAug24_equipment_registered_in_GEMS(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Will the End-User equipment be recorded in the GEMS registry (as defined within the GEMS Determination 2019)?',
+        'display_question' : 'Will the End-User equipment be recorded in the GEMS registry (as defined within the GEMS Determination 2019) under Product Classes 5-12 or 18-21?',
         'sorting' : 6,
         'conditonal' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 1 it states that the New End-User Equipment or replacement End-User Equipment must be registered as an air-to-air Air Conditioner in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Air Conditioners up to 65kW) Determination 2019 under Product Classes 5-12 or 18-21 as listed in the GEMS Registry."""
+        'eligibility_clause' : """In ESS D16 and PDRS HVAC1 Equipment Requirements Clause 1 it states that the New End-User Equipment or replacement End-User Equipment must be registered as an air-to-air Air Conditioner in the GEMS Registry as complying with the Greenhouse and Energy Minimum Standards (Air Conditioners up to 65kW) Determination 2019 under Product Classes 5-12 or 18-21 as listed in the GEMS Registry."""
     }
 
 class HVAC1_PDRSAug24_model_number_registered_in_GEMS(BaseVariable):
@@ -108,10 +109,11 @@ class HVAC1_PDRSAug24_model_number_registered_in_GEMS(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Will the model number(s) match the model number(s) recorded in the GEMS registry?',
+        'display_question' : 'If the End-User equipment is for Product Classes 5-12, do the model number(s) match the model number(s) recorded in the GEMS registry?',
         'sorting' : 7,
         'conditonal' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 5 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible system for Product Classes 5-12, the model number(s) must match the model number(s) recorded in the GEMS registry."""
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clause 5 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible system for Product Classes 5-12, the model number(s) must match the model number(s) recorded in the GEMS registry.<br />
+                                  In PDRS HVAC1 Equipment Requirements Clause 3 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible system for Product Classes 5-12, the model number(s) must match the model number(s) recorded in the GEMS registry."""
     }
 
 class HVAC1_PDRSAug24_multi_split_product_class(BaseVariable):
@@ -120,10 +122,11 @@ class HVAC1_PDRSAug24_multi_split_product_class(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Will the end user equipment be an outdoor Multi-split?',
+        'display_question' : 'Will the End-User equipment be an outdoor Multi-split?',
         'sorting' : 8,
         'conditonal' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 6 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible outdoor Multi-split system Product Type under the GEMS Registry for Product Classes 18-21."""
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clause 6 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible outdoor Multi-split system Product Type under the GEMS Registry for Product Classes 18-21.<br />
+                                  In PDRS HVAC1 Equipment Requirements Clause 4 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible outdoor Multi-split system as recorded in the GEMS Registry for Product Classes 18-21."""
     }
 
 class HVAC1_PDRSAug24_outdoor_units(BaseVariable):
@@ -135,7 +138,8 @@ class HVAC1_PDRSAug24_outdoor_units(BaseVariable):
         'display_question' : 'Will all indoor and outdoor units use the same manufacturer brand?',
         'sorting' : 9,
         'conditonal' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 6(b) it states that if the manufacturer brand must be the same for all indoor and outdoor End-User Equipment."""
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clause 6(b) it states that the manufacturer brand must be the same for all indoor and outdoor End-User Equipment.<br />
+                                  In PDRS HVAC1 Equipment Requirements Clause 4(b) it states that the manufacturer brand must be the same for all indoor and outdoor End-User Equipment. """
     }
 
 class HVAC1_PDRSAug24_manufacture_approved_GEMS(BaseVariable):
@@ -147,8 +151,10 @@ class HVAC1_PDRSAug24_manufacture_approved_GEMS(BaseVariable):
         'display_question' : 'Will the End-User equipment be a manufacturer approved combination with the outdoor unit matching the GEMS-registered model?',
         'sorting' : 10,
         'conditonal' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 6(a) it states that the outdoor unit part of the GEMS registered model number must match the model number of the outdoor unit being installed,<br />
-                                  In PDRS HVAC1 Equipment Requirements Clause 6(c) it states that the unit(s) must be an approved combination by the manufacturer."""
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clause 6(a) it states that the outdoor unit part of the GEMS registered model number must match the model number of the outdoor unit being installed.<br />
+                                  In ESS D16 Equipment Requirements Clause 6(c) it states that the unit(s) must be an approved combination by the manufacturer.<br />
+                                  In PDRS HVAC1 Equipment Requirements Clause 4(a) it states that the outdoor unit part of the GEMS registered model number must match the model number of the outdoor unit being installed.<br />
+                                  In PDRS HVAC1 Equipment Requirements Clause 4(c) it states that the unit(s) must be an approved combination by the manufacturer."""
     }
 
 class HVAC1_PDRSAug24_new_equipment_cooling_capacity(BaseVariable):
@@ -159,7 +165,7 @@ class HVAC1_PDRSAug24_new_equipment_cooling_capacity(BaseVariable):
     metadata = {
         'display_question': 'Will the End-User equipment have a cooling capacity recorded in the GEMS registry?',
         'sorting' : 11,
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry"""
+        'eligibility_clause' : """In ESS D16 and HVAC1 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment has a Cooling Capacity recorded in the GEMS Registry."""
     }
 
 class HVAC1_PDRSAug24_AEER_greater_than_minimum(BaseVariable):
@@ -171,7 +177,8 @@ class HVAC1_PDRSAug24_AEER_greater_than_minimum(BaseVariable):
         'display_question' : 'Will the AEER be equal to or greater than the Minimum AEER for the same Product Class and Cooling Capacity in ESS Table D16.4',
         'sorting' : 12,
         'conditional' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2(b) it states that if it does not have a Residential TCSPF_mixed value recorded in the GEMS Registry, then it must have a Rated AEER in the GEMS Registry equal to or greater than the Minimum AEER for the same Product Class in Table D16.4."""
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clause 2(b) it states that if it does not have a Residential TCSPF_mixed value recorded in the GEMS Registry, then it must have a Rated AEER in the GEMS Registry equal to or greater than the Minimum AEER for the same Product Class in Table D16.4.<br />
+                                  In PDRS HVAC1 Equipment Requirements Clause 2(b) it states that if it does not have a Residential TCSPF_mixed value recorded in the GEMS Registry, then it must have a Rated AEER in the GEMS Registry equal to or greater than the Minimum AEER for the same Product Class in Table HVAC1.2."""
     }
 
 class HVAC1_PDRSAug24_TCPSF_greater_than_minimum(BaseVariable):
@@ -183,7 +190,8 @@ class HVAC1_PDRSAug24_TCPSF_greater_than_minimum(BaseVariable):
         'display_question' : 'Will the GEMS Residential TCSPF_mixed value be equal to or greater than the Minimum Residential TCSPF_mixed value for the same Product Class and Cooling Capacity in ESS Table D16.4?',
         'sorting' : 13,
         'conditional' : 'True',
-        'eligibility_clause' : """In PDRS HVAC1 Equipment Requirements Clause 2(a) it states that it must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the same Product Class in Table D16.4."""
+        'eligibility_clause' : """In ESS D16 Equipment Requirements Clause 2(a) it states that it must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the same Product Class in Table D16.4.<br />
+                                  In PDRS HVAC1 Equipment Requirements Clause 2(a) it states that it must have a Residential TCSPF_mixed value, as recorded in the GEMS Registry, equal to or greater than the Minimum Residential TCSPF_mixed value for the same Product Class in Table HVAC1.2."""
     }
 
 class DefaultValuesClimateZone(Enum):

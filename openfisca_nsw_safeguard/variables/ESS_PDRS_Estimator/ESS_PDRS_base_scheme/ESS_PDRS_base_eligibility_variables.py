@@ -130,19 +130,6 @@ class Base_removing_or_replacing(BaseVariable):
     }
 
 
-class Base_disposal_of_equipment(BaseVariable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        'display_question' : 'Will the End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?',
-        'sorting' : 8,
-        'conditional': 'True',
-        'eligibility_clause' : """In ESS Clause 5.3A(b) and PDRS Clause 5.3(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy Saving Activity and Recognised Peak Activity if it is disposed of lawfully, in accordance with all applicable legal requirements (including, without limitation, any such requirement imposed by or under a law of a State, territory or the Commonwealth), and recycling evidence is obtained for any refrigerants being disposed of, such as a tax invoice or a recycling receipt, or any other evidence acceptable to the Scheme Administrator."""
-    }
-
-
 class Base_resold_reused_or_refurbished(BaseVariable):
     value_type = bool
     entity = Building
@@ -150,9 +137,22 @@ class Base_resold_reused_or_refurbished(BaseVariable):
     definition_period = ETERNITY
     metadata = {
         'display_question' : 'Will the removed End-User equipment be re-sold, refurbished or re-used?',
-        'sorting' : 9,
+        'sorting' : 8,
         'conditional' : 'True',
         'eligibility_clause' : """In ESS Clause 5.3A(a) and PDRS Clause 5.3(a) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy Saving Activity and a Recognised Peak Activity if the End-User Equipment is not refurbished, re-used or resold."""
+    }
+
+
+class Base_disposal_of_equipment(BaseVariable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Will the End-User equipment be disposed of in accordance with legal requirements, (including by obtaining evidence for any refrigerants being disposed of or recycled)?',
+        'sorting' : 9,
+        'conditional': 'True',
+        'eligibility_clause' : """In ESS Clause 5.3A(b) and PDRS Clause 5.3(b) it states that the replacement or removal of End-User Equipment only constitutes a Recognised Energy Saving Activity and Recognised Peak Activity if it is disposed of lawfully, in accordance with all applicable legal requirements (including, without limitation, any such requirement imposed by or under a law of a State, territory or the Commonwealth), and recycling evidence is obtained for any refrigerants being disposed of, such as a tax invoice or a recycling receipt, or any other evidence acceptable to the Scheme Administrator."""
     }
 
 

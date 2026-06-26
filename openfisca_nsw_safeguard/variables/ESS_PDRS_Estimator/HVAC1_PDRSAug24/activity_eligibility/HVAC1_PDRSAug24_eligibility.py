@@ -43,6 +43,10 @@ class HVAC1_PDRSAug24_installation_replacement_final_activity_eligibility(BaseVa
         AEER_greater_than_minimum = buildings('HVAC1_PDRSAug24_AEER_greater_than_minimum',period)
         ACOP_value = buildings ('HVAC1_PDRSAug24_ACOP_eligible', period)
         ACOP_cold_value = buildings ('HVAC1_PDRSAug24_ACOP_cold', period)
+
+        # Multi split Product class is NO or Multi split Product class is YES and outdoor same manufacturer is YES and system are approved is YES
+        outdoor_unit_approval = np.logical_not(multi_split_class) + (multi_split_class * outdoor_units * manufacture_approved)
+
         # GEMS cooling capacity is NO but AEER greater than minimum YES OR GEMS cooling capacity is YES and TCPSF_greater greater than minimum YES
         gems_cooling_capacity_path = (np.logical_not(cooling_capacity) * AEER_greater_than_minimum) + (cooling_capacity * TCPSF_greater)
         
@@ -53,7 +57,7 @@ class HVAC1_PDRSAug24_installation_replacement_final_activity_eligibility(BaseVa
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
         
         end_formula =  ( activity_type_eligible * qualified_install * equipment_installed * ACP_engaged *
-                        minimum_payment * registered_GEMS * model_number_GEMS * multi_split_class * outdoor_units *
-                        manufacture_approved * gems_cooling_capacity_path * climate_zone_condition )
-        
+                        minimum_payment * registered_GEMS * model_number_GEMS * outdoor_unit_approval *
+                        gems_cooling_capacity_path * climate_zone_condition )
+
         return end_formula

@@ -47,16 +47,16 @@
         True,
         True
       ]
-    HVAC2_residential_building:
+    HVAC2_large_business_building:
       [
-        False,
-        False,
-        False,
+        True,
         True,
         True,
         False,
         False,
-        False
+        True,
+        True,
+        True
       ]
     HVAC2_installed_centralised_system_common_area_BCA_Class2_building:
       [

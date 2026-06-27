@@ -23,7 +23,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(BaseVariable):
         qualified_install = buildings('HVAC2_installed_by_qualified_person', period)
         installed_and_operational = buildings('HVAC2_new_ac_installed_and_operational', period)
         minimum_payment = buildings('HVAC2_minimum_payment', period)
-        residential_building = buildings('HVAC2_residential_building', period)
+        large_business_building = buildings('HVAC2_large_business_building', period)
         is_installed_in_class_2 = buildings('HVAC2_installed_centralised_system_common_area_BCA_Class2_building', period)
         registered_GEMS = buildings('HVAC2_equipment_registered_in_GEMS', period)
         model_number_GEMS = buildings('HVAC2_model_number_registered_in_GEMS', period)
@@ -46,8 +46,8 @@ class HVAC2_installation_replacement_final_activity_eligibility(BaseVariable):
         ACOP_value = buildings ('HVAC2_ACOP_eligible', period)
         ACOP_cold_value = buildings ('HVAC2_ACOP_cold_eligible', period)
 
-        # residential building is NO or residential building is yes and is installed in BCA class 2
-        residential_building_with_class_2 = np.logical_not(residential_building) + (residential_building * is_installed_in_class_2)
+        # large business building is yes or large business building is no and is installed in BCA class 2
+        large_business_or_bca_class_2_building = large_business_building + (np.logical_not(large_business_building) * is_installed_in_class_2)
 
         # Multi split Product class is NO or Multi split Product class is YES and outdoor same manufacturer is YES and system are approved is YES
         outdoor_unit_approval = np.logical_not(multi_split_class) + (multi_split_class * outdoor_units * manufacture_approved)
@@ -62,7 +62,7 @@ class HVAC2_installation_replacement_final_activity_eligibility(BaseVariable):
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
 
         end_formula =  ( activity_type_eligible * qualified_install * installed_and_operational  * minimum_payment * 
-                        residential_building_with_class_2 * registered_GEMS * model_number_GEMS * outdoor_unit_approval * 
+                        large_business_or_bca_class_2_building * registered_GEMS * model_number_GEMS * outdoor_unit_approval * 
                         gems_cooling_capacity_path * climate_zone_condition )
 
         return end_formula

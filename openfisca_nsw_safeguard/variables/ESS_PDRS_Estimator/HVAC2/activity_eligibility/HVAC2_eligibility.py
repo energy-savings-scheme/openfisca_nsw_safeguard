@@ -20,7 +20,9 @@ class HVAC2_installation_replacement_final_activity_eligibility(BaseVariable):
     
     def formula(buildings, period, parameter):
         activity_type_eligible = buildings('HVAC2_new_installation_or_replacement_eligible', period)
+        greater_than_30kw = buildings('HVAC2_minimum_cooling_capacity', period)
         qualified_install = buildings('HVAC2_installed_by_qualified_person', period)
+        ACP_engaged = buildings('HVAC2_engaged_ACP', period)
         installed_and_operational = buildings('HVAC2_new_ac_installed_and_operational', period)
         minimum_payment = buildings('HVAC2_minimum_payment', period)
         large_business_building = buildings('HVAC2_large_business_building', period)
@@ -61,8 +63,8 @@ class HVAC2_installation_replacement_final_activity_eligibility(BaseVariable):
         
         climate_zone_condition = hot_zone_intermediary + average_zone_intermediary + cool_zone_intermediary
 
-        end_formula =  ( activity_type_eligible * qualified_install * installed_and_operational  * minimum_payment * 
-                        large_business_or_bca_class_2_building * registered_GEMS * model_number_GEMS * outdoor_unit_approval * 
-                        gems_cooling_capacity_path * climate_zone_condition )
+        end_formula =  ( activity_type_eligible * greater_than_30kw * qualified_install * ACP_engaged * installed_and_operational  * 
+                        minimum_payment * large_business_or_bca_class_2_building * registered_GEMS * model_number_GEMS * 
+                        outdoor_unit_approval * gems_cooling_capacity_path * climate_zone_condition )
 
         return end_formula

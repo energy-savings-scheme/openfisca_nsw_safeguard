@@ -46,6 +46,19 @@ class HVAC2_new_installation_or_replacement_eligible(BaseVariable):
       return activity_type_eligible
 
 
+class HVAC2_minimum_cooling_capacity(BaseVariable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Will the End-User equipment be an Air Conditioner that is greater than or equal to 30 kW Cooling Capacity?',
+        'sorting' : 2,
+        'conditional': 'True',
+        'eligibility_clause' : """In ESS F4 Equipment Requirements Clause 1 and PDRS HVAC2 Equipment Requirements Clause 1 it states that this activity must be an installation of a new high efficiency Air Conditioner or a replacement of an existing Air Conditioner (whether operational or not) with a high efficiency Air Conditioner that is greater than or equal to 30 kW Cooling Capacity."""
+    }
+
+
 class HVAC2_installed_by_qualified_person(BaseVariable):
     value_type = bool
     entity = Building
@@ -53,9 +66,24 @@ class HVAC2_installed_by_qualified_person(BaseVariable):
     definition_period = ETERNITY
     metadata = {
         'display_question': 'Will the activity be performed or supervised by a suitably licensed person in accordance with relevant standards?',
-        'sorting' : 4,
+        'sorting' : 3,
         'conditional': 'True',
         'eligibility_clause' : """In ESS F4 Implementation Requirements Clause 3 and PDRS HVAC2 Implementation Requirements Clause 3 it states that the activity, including the removal of any existing End-User Equipment, must be performed or supervised by a suitably qualified license holder in compliance with the relevant standards and legislation."""
+    }
+
+
+class HVAC2_engaged_ACP(BaseVariable):
+    value_type = bool
+    entity = Building
+    default_value = True
+    definition_period = ETERNITY
+    metadata = {
+        'display_question' : 'Will an Accredited Certificate Provider be engaged before the implementation date?',
+        'sorting' : 4,
+        'conditional': 'True',
+        'eligibility_clause' : """In ESS Clause 6.2 it states that an Accredited Certificate Provider may only create Energy Savings Certificates in respect of the Energy Savings for an Implementation where:<br />
+                                  (a) the Accredited Certificate Provider is the Energy Saver for those Energy Savings as at the Implementation Date; and <br />
+                                  (b) the Accredited Certificate Provider’s Accreditation Date for that Recognised Energy Saving Activity is prior to the Implementation Date."""
     }
 
 
@@ -68,7 +96,7 @@ class HVAC2_new_ac_installed_and_operational(BaseVariable):
         'display_question': 'Will the new End-User Equipment be installed and operational?',
         'sorting' : 5,
         'conditional': 'True',
-        'eligibility_clause' : """In ESS F4 Implementation Requirements Clause 2 and PDRS HVAC2 Implementation Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must be installed"""
+        'eligibility_clause' : """In ESS F4 Implementation Requirements Clause 2 and PDRS HVAC2 Implementation Requirements Clause 2 it states that the New End-User Equipment or replacement End-User Equipment must be installed and operational."""
     }
 
 

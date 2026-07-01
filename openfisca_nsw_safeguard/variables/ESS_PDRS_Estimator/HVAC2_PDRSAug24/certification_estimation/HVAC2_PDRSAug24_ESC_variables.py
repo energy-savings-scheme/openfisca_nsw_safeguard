@@ -17,7 +17,7 @@ class HVAC2_PDRSAug24_heating_capacity_input(BaseVariable):
         "alias": "Air Conditioner Heating Capacity",
         'display_question': 'Rated heating capacity at 7c as recorded in the GEMS Registry',
         'sorting' : 9,
-        'label': 'Rated heated capacity (kW)'
+        'label': 'Rated heating capacity (kW)'
     }
 
 
@@ -40,7 +40,7 @@ class HVAC2_PDRSAug24_rated_ACOP_input(BaseVariable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Rated ACOP",
-        'display_question': 'Annual Coefficient of Performance (ACOP) as defined in GEMS Determination 2019 (Air Conditioners up to 65kW)',
+        'display_question': 'Annual Coefficient of Performance (ACOP) as defined in GEMS',
         'sorting' : 11,
         'label': 'Rated ACOP'
     }
@@ -57,42 +57,9 @@ class HVAC2_PDRSAug24_baseline_AEER_input(BaseVariable):
     }
 
     def formula(building, period, parameters):
-        cooling_capacity = building('HVAC2_PDRSAug24_cooling_capacity_input', period)
-        
-        cooling_capacity_to_check = np.select(
-            [
-                cooling_capacity < 4,
-                (cooling_capacity < 10) * (cooling_capacity >= 4),
-                (cooling_capacity < 39) * (cooling_capacity >= 10),
-                (cooling_capacity < 65) * (cooling_capacity >= 39),
-                cooling_capacity > 65
-            ],
-            [
-                "less_than_4kW",
-                "4kW_to_10kW",
-                "10kW_to_39kW",
-                "39kW_to_65kW",
-                "more_than_65kW"
-            ])
-        
-        air_conditioner_type = building('HVAC2_PDRSAug24_Air_Conditioner_type', period)
-        aircon = np.select(
-            [air_conditioner_type == HVAC2_PDRSAug24_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_PDRSAug24_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_PDRSAug24_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_PDRSAug24_AC_Type.ducted_unitary_system],
-            
-                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
-            )
-       
+        product_class = building('HVAC2_PDRSAug24_product_class', period)
         new_or_replacement_activity = building('HVAC2_PDRSAug24_Activity', period)
-        
-        baseline_aeer = np.select(
-            [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
-                new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
-            
-                [parameters(period).ESS.HEAB.table_F4_2.AEER[aircon][cooling_capacity_to_check],
-                    parameters(period).ESS.HEAB.table_F4_3.AEER[aircon][cooling_capacity_to_check]
-                    ]
-            )
-
+        baseline_aeer = parameters(period).ESS.HEAB.table_F4_2_product_class.AEER[new_or_replacement_activity][product_class]
         return baseline_aeer
 
 
@@ -102,7 +69,7 @@ class HVAC2_PDRSAug24_rated_AEER_input(BaseVariable):
     definition_period = ETERNITY
     metadata = {
         "alias": "Rated AEER",
-        "display_question": 'Annual Energy Efficiency Ratio as defined in GEMS Determination 2019 (Air Conditioners up to 65kW)',
+        "display_question": 'Annual Energy Efficiency Ratio as defined in GEMS',
         'sorting': 7,
         'label': 'Rated AEER'
     }
@@ -154,6 +121,109 @@ class HVAC2_PDRSAug24_PDRS__postcode(BaseVariable):
         'sorting' : 1,
         'label': 'Postcode'
     }
+
+
+class HVAC2ProductClass(Enum):
+    product_class_5 = 'Class 5'
+    product_class_6 = 'Class 6'
+    product_class_7 = 'Class 7'
+    product_class_8 = 'Class 8'
+    product_class_9 = 'Class 9'
+    product_class_10 = 'Class 10'
+    product_class_11 = 'Class 11'
+    product_class_12 = 'Class 12'
+    product_class_18 = 'Class 18'
+    product_class_19 = 'Class 19'
+    product_class_20 = 'Class 20'
+    product_class_21 = 'Class 21'
+    product_class_24 = 'Class 24'
+    product_class_25 = 'Class 25'
+    product_class_27 = 'Class 27'
+
+
+class HVAC2_PDRSAug24_product_class_input(BaseVariable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+    metadata = {
+      'variable-type': 'user-input',
+      'label': 'Product Class',
+      'display_question': 'Product class of the selected brand and model',
+      'sorting' : 6
+    }
+
+
+class HVAC2_PDRSAug24_product_class(BaseVariable):
+    value_type = str
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      product_class = buildings('HVAC2_PDRSAug24_product_class_input', period)
+      product_class = np.select([
+        product_class == HVAC2ProductClass.product_class_5.value,
+        product_class == HVAC2ProductClass.product_class_6.value,
+        product_class == HVAC2ProductClass.product_class_7.value,
+        product_class == HVAC2ProductClass.product_class_8.value,
+        product_class == HVAC2ProductClass.product_class_9.value,
+        product_class == HVAC2ProductClass.product_class_10.value,
+        product_class == HVAC2ProductClass.product_class_11.value,
+        product_class == HVAC2ProductClass.product_class_12.value,
+        product_class == HVAC2ProductClass.product_class_18.value,
+        product_class == HVAC2ProductClass.product_class_19.value,
+        product_class == HVAC2ProductClass.product_class_20.value,
+        product_class == HVAC2ProductClass.product_class_21.value,
+        product_class == HVAC2ProductClass.product_class_24.value,
+        product_class == HVAC2ProductClass.product_class_25.value,
+        product_class == HVAC2ProductClass.product_class_27.value,
+      ], 
+      [
+        HVAC2ProductClass.product_class_5.name,    # returns 'product_class_5'
+        HVAC2ProductClass.product_class_6.name,
+        HVAC2ProductClass.product_class_7.name,
+        HVAC2ProductClass.product_class_8.name,
+        HVAC2ProductClass.product_class_9.name,
+        HVAC2ProductClass.product_class_10.name,
+        HVAC2ProductClass.product_class_11.name,
+        HVAC2ProductClass.product_class_12.name,
+        HVAC2ProductClass.product_class_18.name,
+        HVAC2ProductClass.product_class_19.name,
+        HVAC2ProductClass.product_class_20.name,
+        HVAC2ProductClass.product_class_21.name,
+        HVAC2ProductClass.product_class_24.name,
+        HVAC2ProductClass.product_class_25.name,
+        HVAC2ProductClass.product_class_27.name,
+      ])
+      return product_class
+
+
+class HVAC2_PDRSAug24_product_class_int(BaseVariable):
+    value_type = int
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(buildings, period, parameters):
+      product_class = buildings('HVAC1_PDRSAug24_product_class_input', period)
+      product_class_int = np.select([
+        product_class == HVAC2ProductClass.product_class_5.value,
+        product_class == HVAC2ProductClass.product_class_6.value,
+        product_class == HVAC2ProductClass.product_class_7.value,
+        product_class == HVAC2ProductClass.product_class_8.value,
+        product_class == HVAC2ProductClass.product_class_9.value,
+        product_class == HVAC2ProductClass.product_class_10.value,
+        product_class == HVAC2ProductClass.product_class_11.value,
+        product_class == HVAC2ProductClass.product_class_12.value,
+        product_class == HVAC2ProductClass.product_class_18.value,
+        product_class == HVAC2ProductClass.product_class_19.value,
+        product_class == HVAC2ProductClass.product_class_20.value,
+        product_class == HVAC2ProductClass.product_class_21.value,
+        product_class == HVAC2ProductClass.product_class_24.value,
+        product_class == HVAC2ProductClass.product_class_25.value,
+        product_class == HVAC2ProductClass.product_class_27.value,
+      ], 
+      [ 5, 6, 7, 8, 9, 10, 11, 12, 18, 19, 20, 21, 24, 25, 27, ],
+      default=0)
+      return product_class_int
 
 
 class HVAC2_PDRSAug24_commercial_THEC(BaseVariable):
@@ -220,49 +290,17 @@ class HVAC2_PDRSAug24_baseline_ACOP_input(BaseVariable):
     definition_period = ETERNITY
 
     def formula(building, period, parameters):
-        cooling_capacity = building(
-            'HVAC2_PDRSAug24_cooling_capacity_input', period)
-        
-        cooling_capacity_to_check = np.select(
-            [
-                cooling_capacity < 4,
-                (cooling_capacity < 10) * (cooling_capacity >= 4),
-                (cooling_capacity < 39) * (cooling_capacity >= 10),
-                (cooling_capacity < 65) * (cooling_capacity >= 39),
-                cooling_capacity > 65
-            ],
-            [
-                "less_than_4kW",
-                "4kW_to_10kW",
-                "10kW_to_39kW",
-                "39kW_to_65kW",
-                "more_than_65kW"
-            ])
-        
-        air_conditioner_type = building('HVAC2_PDRSAug24_Air_Conditioner_type', period)
-        aircon = np.select(
-            [air_conditioner_type == HVAC2_PDRSAug24_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC2_PDRSAug24_AC_Type.ducted_split_system, air_conditioner_type == HVAC2_PDRSAug24_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC2_PDRSAug24_AC_Type.ducted_unitary_system],
-            
-                ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
-            )
-        
+        product_class = building('HVAC2_PDRSAug24_product_class', period)
         new_or_replacement_activity = building('HVAC2_PDRSAug24_Activity', period)
-        
-        baseline_acop = np.select(
-            [new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.new_installation_activity,
-                new_or_replacement_activity == HVAC2_PDRSAug24_Activity_Type.replacement_activity],
-            
-                 [parameters(period).ESS.HEAB.table_F4_2.ACOP[aircon][cooling_capacity_to_check], 
-                    parameters(period).ESS.HEAB.table_F4_3.ACOP[aircon][cooling_capacity_to_check] 
-                    ]
-            )
-
+        baseline_acop = parameters(period).ESS.HEAB.table_F4_2_product_class.ACOP[new_or_replacement_activity][product_class]
         return baseline_acop
 
 
 class HVAC2_PDRSAug24_AC_Type(Enum):
-    non_ducted_split_system = 'Non-ducted split system'
-    ducted_split_system = 'Ducted split system'
+    non_ducted_single_split_system = 'Non-ducted single split system'
+    ducted_single_split_system = 'Ducted single split system'
+    non_ducted_multi_split_system = 'Non-ducted multi-split system'
+    ducted_multi_split_system = 'Ducted multi-split system'
     non_ducted_unitary_system = 'Non-ducted unitary system'
     ducted_unitary_system = 'Ducted unitary system'
 
@@ -271,7 +309,7 @@ class HVAC2_PDRSAug24_Air_Conditioner_type(BaseVariable):
     value_type = Enum
     entity = Building
     possible_values = HVAC2_PDRSAug24_AC_Type
-    default_value = HVAC2_PDRSAug24_AC_Type.non_ducted_split_system
+    default_value = HVAC2_PDRSAug24_AC_Type.non_ducted_single_split_system
     definition_period = ETERNITY
     metadata = {
         'variable-type' : 'user-input',
@@ -325,36 +363,14 @@ class HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark(BaseVariable):
     def formula(buildings, period, parameters):
         AC_TCSPF = buildings('HVAC2_PDRSAug24_TCSPF_mixed', period)
         AC_AEER = buildings('HVAC2_PDRSAug24_rated_AEER_input', period)
-        product_class = buildings('HVAC2_PDRSAug24_Air_Conditioner_type', period)
-        # AC_Class = (product_class.possible_values)
-        new_AC_cooling_capacity = buildings('HVAC2_PDRSAug24_cooling_capacity_input', period)
-        cooling_capacity = np.select(
-                                    [
-                                        (new_AC_cooling_capacity < 4),
-                                        ((new_AC_cooling_capacity >= 4) * (new_AC_cooling_capacity < 6)),
-                                        ((new_AC_cooling_capacity >= 6) * (new_AC_cooling_capacity < 10)),
-                                        ((new_AC_cooling_capacity >= 10) * (new_AC_cooling_capacity < 13)),
-                                        ((new_AC_cooling_capacity >= 13) * (new_AC_cooling_capacity < 25)),
-                                        ((new_AC_cooling_capacity >= 25) * (new_AC_cooling_capacity <= 65)),
-                                        (new_AC_cooling_capacity > 65)
-                                    ],
-                                    [
-                                        "less_than_4kW",
-                                        "4kW_to_6kW",
-                                        "6kW_to_10kW",
-                                        "10kW_to_13kW",
-                                        "13kW_to_25kW",
-                                        "25kW_to_65kW",
-                                        "over_65kW"
-                                    ]
-                                    )
+        product_class = buildings('HVAC2_PDRSAug24_product_class', period)
+        old_product_class = buildings('HVAC2_PDRSAug24_Air_Conditioner_type', period)
         TCSPF_is_zero = ((AC_TCSPF == 0) + (AC_TCSPF == None))
         AC_exceeds_cooling_benchmark = np.where(
             TCSPF_is_zero,
-            (AC_AEER >= parameters(period).PDRS.AC.table_HVAC_2_4[product_class][cooling_capacity]),
-            (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_2_3[product_class][cooling_capacity])
+            (AC_AEER >= parameters(period).PDRS.AC.table_HVAC_2_2_product_class['AEER'][product_class]),
+            (AC_TCSPF >= parameters(period).PDRS.AC.table_HVAC_2_2_product_class['TCSPF_mixed'][product_class])
             )
-
         return AC_exceeds_cooling_benchmark
 
 
@@ -393,28 +409,7 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(BaseVariable):
         AC_HSPF_mixed = buildings('HVAC2_PDRSAug24_HSPF_mixed', period)
         AC_HSPF_cold = buildings('HVAC2_PDRSAug24_HSPF_cold', period)
         AC_ACOP = buildings('HVAC2_PDRSAug24_rated_ACOP_input', period)
-        product_class = buildings('HVAC2_PDRSAug24_Air_Conditioner_type', period)
-        new_AC_cooling_capacity = buildings('HVAC2_PDRSAug24_cooling_capacity_input', period)
-        cooling_capacity = np.select(
-                                    [
-                                        (new_AC_cooling_capacity < 4),
-                                        ((new_AC_cooling_capacity >= 4) * (new_AC_cooling_capacity < 6)),
-                                        ((new_AC_cooling_capacity >= 6) * (new_AC_cooling_capacity < 10)),
-                                        ((new_AC_cooling_capacity >= 10) * (new_AC_cooling_capacity < 13)),
-                                        ((new_AC_cooling_capacity >= 13) * (new_AC_cooling_capacity < 25)),
-                                        ((new_AC_cooling_capacity >= 25) * (new_AC_cooling_capacity <= 65)),
-                                        (new_AC_cooling_capacity > 65)
-                                    ],
-                                    [
-                                        "less_than_4kW",
-                                        "4kW_to_6kW",
-                                        "6kW_to_10kW",
-                                        "10kW_to_13kW",
-                                        "13kW_to_25kW", # this
-                                        "25kW_to_65kW",
-                                        "over_65kW"
-                                    ]
-                                    )
+        product_class = buildings('HVAC2_PDRSAug24_product_class', period)
 
         climate_zone = buildings('HVAC2_PDRSAug24_certificate_climate_zone', period)
         climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
@@ -441,9 +436,9 @@ class HVAC2_PDRSAug24_HSPF_or_ACOP_exceeds_ESS_benchmark(BaseVariable):
                                             np.logical_not(HSPF_is_zero) * np.logical_not(in_cold_zone),
                                             ],
                                             [
-            (AC_ACOP >= parameters(period).ESS.HEAB.table_F4_5['ACOP'][product_class][cooling_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_cold'][product_class][cooling_capacity]),
-            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4['HSPF_mixed'][product_class][cooling_capacity])
+            (AC_ACOP >= parameters(period).ESS.HEAB.table_F4_4_product_class['ACOP'][product_class]),
+            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4_product_class['HSPF_cold'][product_class]),
+            (AC_HSPF >= parameters(period).ESS.HEAB.table_F4_4_product_class['HSPF_mixed'][product_class])
                                             ]
             )
         return AC_exceeds_benchmark

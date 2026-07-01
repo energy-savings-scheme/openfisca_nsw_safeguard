@@ -203,6 +203,13 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 10',
+        'Class 5',
+        'Class 7',
+        'Class 9'
+      ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
         32,
@@ -212,10 +219,10 @@
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
-        ducted_split_system,
+        non_ducted_single_split_system,
+        ducted_single_split_system,
         ducted_unitary_system,
-        non_ducted_split_system
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_Activity:
       [
@@ -229,7 +236,7 @@
       [
         3.1,
         3.1,
-        0,
+        2.9,
         2.93
       ]
 
@@ -237,6 +244,13 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 10',
+        'Class 5',
+        'Class 6',
+        'Class 9'
+      ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
         32,
@@ -246,10 +260,10 @@
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
-        ducted_split_system,
+        non_ducted_single_split_system,
+        ducted_single_split_system,
         ducted_unitary_system,
-        non_ducted_split_system
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_Activity:
       [
@@ -263,7 +277,7 @@
       [
         2.05,
         2.05,
-        0,
+        1.95,
         1.9
       ]
 
@@ -271,13 +285,21 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 10',
+        'Class 11',
+        'Class 18',
+        'Class 11',
+        'Class 20'
+      ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system, # brand: MITSUBISHI HEAVY INDUSTRIES, model: DXC28ZRA-W - DXK28ZRA-W
-        non_ducted_split_system, # brand: ACTRON AIR, model: CRC-100CS - CRE-100CS
-        non_ducted_split_system, # brand: BRAEMAR, model: ACHV25D1S-ASHV25D1S
-        ducted_split_system, # brand: MAMMOTH, model: MSR-J100
-        ducted_split_system, # brand: AIRO, model: APC20RW
+        non_ducted_single_split_system, # brand: MITSUBISHI HEAVY INDUSTRIES, model: DXC28ZRA-W - DXK28ZRA-W
+        non_ducted_single_split_system, # brand: ACTRON AIR, model: CRC-100CS - CRE-100CS
+        non_ducted_single_split_system, # brand: BRAEMAR, model: ACHV25D1S-ASHV25D1S
+        ducted_single_split_system, # brand: MAMMOTH, model: MSR-J100
+        ducted_single_split_system, # brand: AIRO, model: APC20RW
       ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
@@ -306,7 +328,7 @@
   output:
     HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
       [
-        false,
+        true,
         true,
         false,
         true,
@@ -317,12 +339,19 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 10',
+        'Class 11',
+        'Class 18',
+        'Class 20'
+      ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system,
-        non_ducted_split_system
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
@@ -418,6 +447,12 @@
   absolute_error_margin: 0.1
   period: 2024
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 8',
+        'Class 11',
+        'Class 20'
+      ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
         2.5, #Emerald Energy ACSS25
@@ -426,7 +461,7 @@
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
+        non_ducted_single_split_system,
         ducted_unitary_system,
         ducted_unitary_system
       ]
@@ -548,6 +583,11 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 20',
+        'Class 9'
+      ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
         10.1, #Coolmaster TCCF10C1S/AOCF10C-S
@@ -565,7 +605,7 @@
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        ducted_split_system, # baseline AEER input 3.1
+        ducted_single_split_system, # baseline AEER input 3.1
         ducted_unitary_system
       ]
     HVAC2_PDRSAug24_Activity:
@@ -604,6 +644,10 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 19'
+      ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
         7.1 #Panasonic CU-Z71VKR/CS-Z71VKR
@@ -622,7 +666,7 @@
       ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_Activity:
       [
@@ -646,6 +690,10 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 8'
+      ]
     HVAC2_PDRSAug24_cooling_capacity_input:
       [
         1050 #AIRO ACP33HP
@@ -684,9 +732,13 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 9'
+      ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_get_network_loss_factor_by_postcode:
       [
@@ -750,9 +802,13 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 8'
+      ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_get_network_loss_factor_by_postcode:
       [
@@ -816,9 +872,13 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 8'
+      ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system
+        non_ducted_single_split_system
       ]
     HVAC2_PDRSAug24_get_network_loss_factor_by_postcode:
       [
@@ -882,9 +942,13 @@
   period: 2022
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 20'
+      ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        ducted_split_system
+        ducted_single_split_system
       ]
     HVAC2_PDRSAug24_get_network_loss_factor_by_postcode:
       [
@@ -941,17 +1005,22 @@
   output:
     HVAC2_PDRSAug24_ESC_calculation:
       [
-        20
+        0
       ]
 
 - name: test ESC calculation
   period: 2024
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 20',
+        'Class 19'
+      ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
-        non_ducted_split_system   #Bonaire 6920082/6920020/6920027
+        non_ducted_single_split_system,
+        non_ducted_single_split_system   #Bonaire 6920082/6920020/6920027
       ]
     HVAC2_PDRSAug24_get_network_loss_factor_by_postcode:
       [
@@ -1024,13 +1093,18 @@
         0,
         0
       ]
+
 - name: test ESC calculation Samsung electronics
   period: 2024
   absolute_error_margin: 0.1
   input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 11'
+      ]
     HVAC2_PDRSAug24_Air_Conditioner_type:
       [
-        non_ducted_split_system,
+        non_ducted_single_split_system,
       ]
     HVAC2_PDRSAug24_HSPF_cold:
       [

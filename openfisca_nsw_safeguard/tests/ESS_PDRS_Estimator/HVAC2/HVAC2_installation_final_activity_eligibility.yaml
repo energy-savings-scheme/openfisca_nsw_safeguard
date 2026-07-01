@@ -14,6 +14,17 @@
         True,
         True
       ]
+    HVAC2_minimum_cooling_capacity:
+      [
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True
+      ]
     HVAC2_installed_by_qualified_person:
       [
         True,
@@ -30,27 +41,49 @@
         True,
         True,
         True,
+        False,
+        True,
+        True,
+        True,
+        False #not eligible
+      ]
+    HVAC2_new_ac_installed_and_operational:
+      [
+        True,
+        True,
+        True,
         True,
         True,
         True,
         True,
         False #not eligible
       ]
-    HVAC2_residential_building:
+    HVAC2_minimum_payment:
       [
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    HVAC2_large_business_building:
+      [
+        True,
         False,
+        True,
         False,
         False,
         True,
         True,
-        False,
-        False,
-        False
+        True
       ]
     HVAC2_installed_centralised_system_common_area_BCA_Class2_building:
       [
         False,
-        False,
+        True,
         False,
         True, #eligible
         False, #not eligible
@@ -69,10 +102,54 @@
         True,
         False
       ]
-    HVAC2_new_equipment_cooling_capacity:
+    HVAC2_model_number_registered_in_GEMS:
       [
         True,
         True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True
+      ]
+    HVAC2_multi_split_product_class:
+      [
+        False,
+        True,
+        False,
+        True,
+        False,
+        False,
+        False,
+        False
+      ]
+    HVAC2_outdoor_units:
+      [
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True
+      ]
+    HVAC2_manufacture_approved_GEMS:
+      [
+        True,
+        True,
+        True,
+        False,
+        True,
+        True,
+        True,
+        True
+      ]      
+    HVAC2_new_equipment_cooling_capacity:
+      [
+        True,
+        False,
         True,
         True,
         True,
@@ -116,7 +193,7 @@
     HVAC2_new_equipment_heating_capacity:
       [
         True,
-        True,
+        False,
         True,
         True,
         True,
@@ -157,13 +234,24 @@
         True,  #ignored
         False
       ]
+    HVAC2_ACOP_cold_eligible:
+      [
+        False,
+        True,
+        True,
+        False,
+        True,
+        True, #eligible
+        True,  #ignored
+        False
+      ]
   output:
     HVAC2_installation_replacement_final_activity_eligibility:
       [
         True,
+        True, # Set optional opposed to default but should not affect eligibilty
         True,
-        True,
-        True,
+        False,
         False,
         True,
         False,

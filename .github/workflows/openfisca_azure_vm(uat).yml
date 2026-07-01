@@ -20,7 +20,7 @@ jobs:
     # Ensure just run when there is PR or commit push to branch
     if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Build docker
         run: |

@@ -167,27 +167,6 @@ class HVAC1_PDRSAug24_deemed_activity_electricity_savings(BaseVariable):
       return deemed_electricity_savings
     
 
-class HVAC1_PDRSAug24_AC_Type(Enum):
-    non_ducted_split_system = 'Non-ducted split system'
-    ducted_split_system = 'Ducted split system'
-    non_ducted_unitary_system = 'Non-ducted unitary system'
-    ducted_unitary_system = 'Ducted unitary system'
-
-
-class HVAC1_PDRSAug24_Air_Conditioner_type_savings(BaseVariable):
-    value_type = Enum
-    entity = Building
-    possible_values = HVAC1_PDRSAug24_AC_Type
-    default_value = HVAC1_PDRSAug24_AC_Type.non_ducted_split_system
-    definition_period = ETERNITY
-    metadata = {
-        'variable-type' : 'user-input',
-        'label': 'Air conditioner type',
-        'display_question' : 'What is your air conditioner type?',
-        'sorting' : 4
-    }
-
-
 class HVAC1_PDRSAug24_Activity_Type(Enum):
     new_installation_activity = 'Installation of a new air conditioner'
     replacement_activity = 'Replacement of an existing air conditioner'
@@ -217,193 +196,8 @@ class HVAC1_PDRSAug24_annual_energy_savings(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
-        #baseline AEER
-        cooling_capacity = buildings('HVAC1_PDRSAug24_cooling_capacity_input', period)
-        air_conditioner_type = buildings('HVAC1_PDRSAug24_Air_Conditioner_type', period)
-        new_or_replacement_activity = buildings('HVAC1_PDRSAug24_Activity', period)
-
-        cooling_capacity_to_check = np.select(
-                [
-                    cooling_capacity < 4,
-                    (cooling_capacity < 10) * (cooling_capacity >= 4),
-                    (cooling_capacity < 39) * (cooling_capacity >= 10),
-                    (cooling_capacity < 65) * (cooling_capacity >= 39),
-                    cooling_capacity > 65
-                ],
-                [
-                    "less_than_4kW",
-                    "4kW_to_10kW",
-                    "10kW_to_39kW",
-                    "39kW_to_65kW",
-                    "more_than_65kW"
-                ])
-        
-        aircon = np.select(
-                [air_conditioner_type == HVAC1_PDRSAug24_AC_Type.non_ducted_split_system, 
-                air_conditioner_type == HVAC1_PDRSAug24_AC_Type.ducted_split_system, air_conditioner_type == HVAC1_PDRSAug24_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC1_PDRSAug24_AC_Type.ducted_unitary_system],
-                
-                    ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
-                )
-            
-        baseline_AEER = np.select(
-                [new_or_replacement_activity == HVAC1_PDRSAug24_Activity_Type.new_installation_activity,
-                    new_or_replacement_activity == HVAC1_PDRSAug24_Activity_Type.replacement_activity],
-                
-                    [parameters(period).ESS.HEER.table_D16_2.AEER[aircon][cooling_capacity_to_check],
-                        parameters(period).ESS.HEER.table_D16_3.AEER[aircon][cooling_capacity_to_check]
-                        ]
-                )
-
-        #equivalent cooling hours
-        climate_zone = buildings('HVAC1_PDRSAug24_certificate_climate_zone', period)
-        climate_zone_str = np.select([climate_zone == 1, climate_zone == 2, climate_zone == 3],
-                                        ['hot_zone', 'average_zone', 'cold_zone'])
-        equivalent_cooling_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_cooling_hours[climate_zone_str]
-
-        #rated AEER
-        rated_AEER = buildings('HVAC1_PDRSAug24_rated_AEER_input', period)
-
-        #cooling annual energy use
-        annual_cooling = np.select([  
-                        rated_AEER == 0,
-                        (cooling_capacity * equivalent_cooling_hours) > 0, 
-                        (cooling_capacity * equivalent_cooling_hours) == 0,
-                        (cooling_capacity * equivalent_cooling_hours) < 0
-                    ],
-                    [
-                        0,
-                        (cooling_capacity * equivalent_cooling_hours) / rated_AEER, 
-                        0,
-                        (cooling_capacity * equivalent_cooling_hours) / rated_AEER
-                    ])
-
-        #TCEC or annual cooling
-        tcec = buildings('HVAC1_PDRSAug24_residential_TCEC',period)
-
-        tcec_or_annual_cooling = np.select([
-                tcec > 0, 
-                tcec <= 0 #if there is no TCEC use annual cooling energy formula
-            ],
-            [
-                tcec,
-                annual_cooling
-            ])
-
-        #reference cooling energy use
-        reference_cooling = np.select([  
-                        baseline_AEER == 0,  
-                        (cooling_capacity * equivalent_cooling_hours) > 0, 
-                        (cooling_capacity * equivalent_cooling_hours) == 0,
-                        (cooling_capacity * equivalent_cooling_hours) < 0
-                    ],
-                    [
-                        0,
-                        (cooling_capacity * equivalent_cooling_hours) / baseline_AEER, 
-                        0,
-                        (cooling_capacity * equivalent_cooling_hours) / baseline_AEER
-                    ])
-
-        #baseline ACOP
-        cooling_capacity_to_check = np.select(
-                [
-                    cooling_capacity < 4,
-                    (cooling_capacity < 10) * (cooling_capacity >= 4),
-                    (cooling_capacity < 39) * (cooling_capacity >= 10),
-                    (cooling_capacity < 65) * (cooling_capacity >= 39),
-                    cooling_capacity > 65
-                ],
-                [
-                    "less_than_4kW",
-                    "4kW_to_10kW",
-                    "10kW_to_39kW",
-                    "39kW_to_65kW",
-                    "more_than_65kW"
-                ])
-        
-        aircon = np.select(
-                [air_conditioner_type == HVAC1_PDRSAug24_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC1_PDRSAug24_AC_Type.ducted_split_system, air_conditioner_type == HVAC1_PDRSAug24_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC1_PDRSAug24_AC_Type.ducted_unitary_system],
-                
-                    ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
-                )
-            
-        baseline_ACOP = np.select(
-                [new_or_replacement_activity == HVAC1_PDRSAug24_Activity_Type.new_installation_activity,
-                    new_or_replacement_activity == HVAC1_PDRSAug24_Activity_Type.replacement_activity],
-                
-                    [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
-                        parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
-                        ]
-                )
-
-        #heating capacity input
-        heating_capacity = buildings('HVAC1_PDRSAug24_heating_capacity_input', period)
-
-        #equivalent heating hours
-        equivalent_heating_hours = parameters(period).ESS.HEER.table_D16_1.equivalent_heating_hours[climate_zone_str]
-
-        #rated ACOP
-        rated_ACOP = buildings('HVAC1_PDRSAug24_rated_ACOP_input', period)
-        
-        aircon = np.select(
-                [air_conditioner_type == HVAC1_PDRSAug24_AC_Type.non_ducted_split_system, air_conditioner_type == HVAC1_PDRSAug24_AC_Type.ducted_split_system, air_conditioner_type == HVAC1_PDRSAug24_AC_Type.non_ducted_unitary_system, air_conditioner_type == HVAC1_PDRSAug24_AC_Type.ducted_unitary_system],
-                
-                    ["non_ducted_split_system", "ducted_split_system", "non_ducted_unitary_system", "ducted_unitary_system"]
-                )
-            
-        baseline_ACOP = np.select(
-                [new_or_replacement_activity == HVAC1_PDRSAug24_Activity_Type.new_installation_activity,
-                    new_or_replacement_activity == HVAC1_PDRSAug24_Activity_Type.replacement_activity],
-                
-                    [parameters(period).ESS.HEER.table_D16_2.ACOP[aircon][cooling_capacity_to_check],
-                        parameters(period).ESS.HEER.table_D16_3.ACOP[aircon][cooling_capacity_to_check]
-                        ]
-                )
-
-        #heating annual energy use
-        annual_heating = np.select([  
-                        rated_ACOP == 0,
-                        (heating_capacity * equivalent_heating_hours) > 0, 
-                        (heating_capacity * equivalent_heating_hours) == 0,
-                        (heating_capacity * equivalent_heating_hours) < 0
-                    ],
-                    [
-                        0,
-                        (heating_capacity * equivalent_heating_hours) / rated_ACOP, 
-                        0,
-                        (heating_capacity * equivalent_heating_hours) / rated_ACOP
-                    ])
-
-        #THEC or annual heating
-        thec = buildings('HVAC1_PDRSAug24_residential_THEC',period)
-
-        thec_or_annual_heating = np.select([
-                    thec > 0, 
-                    thec <= 0 #if there is no THEC
-                ],
-                [
-                    thec,
-                    annual_heating
-                ])
-
-        #reference heating annual energy use
-        reference_heating = np.select([    
-                                baseline_ACOP == 0,
-                                (heating_capacity * equivalent_heating_hours) > 0, 
-                                (heating_capacity * equivalent_heating_hours) == 0,
-                                (heating_capacity * equivalent_heating_hours) < 0
-                            ],
-                            [
-                                0,
-                                (heating_capacity * equivalent_heating_hours) / baseline_ACOP,
-                                0,
-                                (heating_capacity * equivalent_heating_hours) / baseline_ACOP
-                            ])
-        
-        #deemed electricity savings
-        lifetime = parameters(period).ESS.ESS_D16.related_constants.lifetime
-        deemed_electricity_savings = np.multiply(((reference_cooling - tcec_or_annual_cooling) + (reference_heating - thec_or_annual_heating)), (lifetime / 1000))
-
-        #electricity savings
+        # annual_savings = deemed_electricity_savings
+        deemed_electricity_savings = buildings('HVAC1_PDRSAug24_deemed_activity_electricity_savings', period)  # 2798.25 
         annual_savings = (deemed_electricity_savings)
         annual_savings_return = np.select([
                 annual_savings <= 0, annual_savings > 0
@@ -411,6 +205,7 @@ class HVAC1_PDRSAug24_annual_energy_savings(BaseVariable):
             [
                 0, annual_savings
             ])
+
         return annual_savings_return
       
 
@@ -489,5 +284,24 @@ class HVAC1_PDRSAug24_ESC_calculation(BaseVariable):
             ], [
                 0, result_meet_elig
             ])
+      # Add cap value for ESC
+      product_class_is_18_to_21 = buildings('HVAC1_PDRSAug24_product_class_is_18_to_21', period)
+      climate_zone = buildings('HVAC1_PDRSAug24_certificate_climate_zone', period)
 
+      # Cap value based on climate zone (only applied when product class is 18-21)
+      # zone_int: 1 = hot, 2 = mixed/average, 3 = cold
+      cap_value = np.select(
+          [
+              climate_zone == 3,                          # cold zone → cap 90
+              (climate_zone == 1) | (climate_zone == 2),  # hot or mixed/average → cap 70
+          ],
+          [90, 70],
+          default=70  # fallback
+      )
+
+      result_to_return = np.where(
+          product_class_is_18_to_21,
+          np.minimum(result_to_return, cap_value),  # apply zone-based cap
+          result_to_return                          # unchanged
+      )
       return result_to_return

@@ -1,0 +1,120 @@
+import numpy as np
+
+from openfisca_nsw_safeguard.base_variables import BaseVariable
+from openfisca_nsw_safeguard.entities import Building
+from openfisca_core.periods import ETERNITY
+
+
+class BESS3_usable_battery_capacity(BaseVariable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata= {
+        'variable-type' : 'output',
+    }
+
+    def formula(building, period, parameters):
+        battery_capacity_input = building('BESS3_battery_capacity_input', period)
+        number_of_dwellings_input = building('BESS3_number_of_dwellings_input', period)
+        inverter_output_input = building('BESS3_inverter_output_input', period)
+
+        battery_capacity = battery_capacity_input * 0.9
+        number_of_dwellings = number_of_dwellings_input * 5
+        inverter_output = inverter_output_input * 4
+
+        return np.minimum.reduce([battery_capacity, number_of_dwellings, inverter_output])
+
+
+class BESS3_demand_shifting_component(BaseVariable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata= {
+        'variable-type' : 'output',
+    }
+
+    def formula(building, period, parameters):
+        usable_battery_capacity = building('BESS3_usable_battery_capacity', period)
+        is_solar_or_battery_only = building('BESS3_solar_or_battery_only', period)
+
+        result = np.select(
+            [is_solar_or_battery_only],
+            [usable_battery_capacity * 0.12],
+            default=usable_battery_capacity * 0.0853
+        )
+
+        return result
+
+
+class BESS3_peak_demand_shifting_capacity(BaseVariable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata= {
+        'variable-type' : 'output',
+    }
+
+    def formula(building, period, parameters):
+        demand_shifting_component = building('BESS3_demand_shifting_component', period)
+        firmness_factor = parameters(period).PDRS.table_A6_firmness_factor['firmness_factor']['BESS3']
+        return demand_shifting_component * firmness_factor
+
+
+class BESS3_peak_demand_reduction_capacity(BaseVariable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata= {
+        'variable-type' : 'output',
+    }
+
+    def formula(building, period, parameters):
+        peak_demand_shifting_capacity = building('BESS3_peak_demand_shifting_capacity', period)
+        summer_peak_demand_reduction_duration = 6
+        lifetime = 15
+        return peak_demand_shifting_capacity * summer_peak_demand_reduction_duration * lifetime
+
+
+class BESS3_peak_demand_savings(BaseVariable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata= {
+        'variable-type' : 'output',
+    }
+
+    def formula(building, period, parameters):
+        peak_demand_reduction_capacity = building('BESS3_peak_demand_reduction_capacity', period)
+        return peak_demand_reduction_capacity
+
+
+class BESS3_PRC_calculation(BaseVariable):
+    value_type = float
+    entity = Building
+    definition_period = ETERNITY
+    metadata= {
+        'variable-type' : 'output',
+        'label': 'Peak Reduction Capacity (PRC) kW',
+    }
+
+    def formula(building, period, parameters):
+        postcode = building('BESS3_postcode', period)
+        peak_demand_reduction_capacity = building('BESS3_peak_demand_reduction_capacity', period)
+        network_loss_factor = parameters(period).PDRS.table_network_loss_factor_by_postcode.calc(postcode)
+        prc_is_eligible = building('BESS3_PRC_is_eligible', period)
+        return peak_demand_reduction_capacity * network_loss_factor * 10 * prc_is_eligible
+
+
+class BESS3_PRC_is_eligible(BaseVariable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+
+    def formula(building, period, parameters):
+        battery_capacity_input = building('BESS3_battery_capacity_input', period)
+        number_of_dwellings_input = building('BESS3_number_of_dwellings_input', period)
+        inverter_output_input = building('BESS3_inverter_output_input', period)
+        battery_capacity_valid = (battery_capacity_input >= 20) * (battery_capacity_input <= 200)
+        dwellings_valid = number_of_dwellings_input >= 4
+        inverter_ratio_valid = (battery_capacity_input * 0.9) <= (inverter_output_input * 6)
+        return battery_capacity_valid * dwellings_valid * inverter_ratio_valid

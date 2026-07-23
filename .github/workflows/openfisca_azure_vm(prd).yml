@@ -38,21 +38,21 @@ jobs:
     # Because when creating a new PR, we dont want to auto deploy this
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     steps:
-      - name: Executing remote ssh commands
-        uses: appleboy/ssh-action@master
+      - name: Azure login
+        uses: azure/login@v3
         with:
-          host: ${{ secrets.PRD_VM_HOST }}
-          username: ${{ secrets.PRD_VM_USER }}
-          key: ${{ secrets.PRD_VM_PRIVATE_KEY }}
-          port: 22
-          script_stop: true
-          script: |
-            source venv/bin/activate
-            cd openfisca_nsw_safeguard
+          creds: ${{ secrets.SAFEGUARD_ESTIMATOR_INTEGRATIONS_AZURE_CREDS }}
+
+      - name: Execute build openfisca prod
+        run: az vm run-command invoke -g ${{ secrets.AZURE_RESOURCE_GROUP_VM_CI_PROD }} -n ${{ secrets.AZURE_VM_CI_NAME_PROD }} \
+          --command-id RunShellScript \
+          --scripts '
+            set -e
+            cd /home/openfiscaAdmin/openfisca_nsw_safeguard
             git fetch --all
             git reset --hard origin/master
             docker compose up --build -d
-            exit
+            '
 
   trigger-djangoapi-deployment:
     needs: deploy

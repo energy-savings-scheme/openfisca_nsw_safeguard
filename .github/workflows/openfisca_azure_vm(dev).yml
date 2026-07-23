@@ -48,7 +48,8 @@ jobs:
           --command-id RunShellScript \
           --scripts '
             set -e
-            cd /home/openfiscaAdmin/openfisca_nsw_safeguard 
+            cd /home/openfiscaAdmin/openfisca_nsw_safeguard
+            git config --global --add safe.directory /home/openfiscaAdmin/openfisca_nsw_safeguard
             git fetch --all 
             git reset --hard origin/develop 
             docker compose up --build -d

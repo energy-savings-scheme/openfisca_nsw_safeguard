@@ -44,7 +44,7 @@ jobs:
           creds: ${{ secrets.SAFEGUARD_ESTIMATOR_INTEGRATIONS_AZURE_CREDS }}
 
       - name: Execute build openfisca prod
-        run: az vm run-command invoke -g ${{ secrets.AZURE_RESOURCE_GROUP_VM_CI_PROD }} -n ${{ secrets.AZURE_VM_CI_NAME_PROD }} \
+        run: az vm run-command invoke -g ${{ secrets.AZURE_RESOURCE_GROUP_PROD }} -n ${{ secrets.AZURE_VM_NAME_PROD }} \
           --command-id RunShellScript \
           --scripts '
             set -e

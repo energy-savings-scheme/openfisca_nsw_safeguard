@@ -45,13 +45,12 @@ jobs:
       - name: Execute build openfisca dev
         run: az vm run-command invoke -g ${{ secrets.AZURE_RESOURCE_GROUP_VM_CI_DEV }} -n ${{ secrets.AZURE_VM_CI_NAME_DEV }} \
           --command-id RunShellScript \
-          --scripts '
-            set -e
-            cd /home/openfiscaAdmin/openfisca_nsw_safeguard
-            git fetch --all
-            git reset --hard origin/develop
-            docker compose up --build -d
-            '
+          --scripts 
+            "set -e" \
+            "cd /home/openfiscaAdmin/openfisca_nsw_safeguard" \
+            "git fetch --all" \
+            "git reset --hard origin/develop" \
+            "docker compose up --build -d"
 
   trigger-djangoapi-deployment:
     needs: deploy

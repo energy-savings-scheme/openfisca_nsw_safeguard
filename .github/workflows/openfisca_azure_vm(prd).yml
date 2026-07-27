@@ -50,8 +50,8 @@ jobs:
           --scripts '
             set -e
             export HOME=/home/openfiscaAdmin
-            cd /home/openfiscaAdmin/openfisca_nsw_safeguard
-            git config --global --add safe.directory /home/openfiscaAdmin/openfisca_nsw_safeguard
+            cd $HOME/openfisca_nsw_safeguard
+            git config --global --add safe.directory $HOME/openfisca_nsw_safeguard
             git fetch --all 
             git reset --hard origin/master 
             docker compose up --build -d

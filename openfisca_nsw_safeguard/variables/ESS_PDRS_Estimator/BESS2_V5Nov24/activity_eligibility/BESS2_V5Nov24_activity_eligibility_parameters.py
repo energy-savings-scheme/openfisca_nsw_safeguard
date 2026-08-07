@@ -12,7 +12,7 @@ class BESS2_V5Nov24_demand_response_contract(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Have you connected a solar battery to a virtual power plant?',
+        'display_question' : 'Have you connected a battery to a virtual power plant?',
         'sorting' : 1,
         'eligibility_clause' : """The PDRS BESS2 activity is to onboard a behind the meter residential battery energy storage system with a demand response aggregator."""
     }
@@ -24,7 +24,7 @@ class BESS2_V5Nov24_existing_solar_battery(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Is there a solar battery already installed at this address?',
+        'display_question' : 'Is there a battery already installed at this address?',
         'sorting' : 2,
         'eligibility_clause' : """In PDRS BESS2 Eligibility Requirements Clause 1 it states that there must be an existing Battery Energy Storage System installed at the National Metering Identifier(s)."""
     }

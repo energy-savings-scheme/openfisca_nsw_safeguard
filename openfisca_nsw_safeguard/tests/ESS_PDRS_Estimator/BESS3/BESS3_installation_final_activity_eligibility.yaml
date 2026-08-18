@@ -21,6 +21,7 @@
         True,
         True,
         True,
+        True,
         False
       ]
     BESS3_apartment_dwellings:
@@ -28,6 +29,7 @@
         True,
         True,
         False, #not eligible
+        True,
         True,
         True,
         True,
@@ -63,6 +65,7 @@
         True,
         True,
         True,
+        True,
         False
       ]
     BESS3_engaged_ACP:
@@ -84,10 +87,34 @@
         True,
         True,
         True,
+        True,
+        False
+      ]
+    BESS3_plan_and_network:
+      [
+        True,
+        True,
+        True,
+        True,
+        True,
+        False, #not eligible
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
+        True,
         False
       ]
     BESS3_minimum_payment:
       [
+        True,
         True,
         True,
         True,
@@ -115,6 +142,7 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
@@ -130,6 +158,7 @@
       ]
     BESS3_length_battery_warranty:
       [
+        True,
         True,
         True,
         True,
@@ -159,6 +188,7 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
@@ -172,6 +202,7 @@
       ]
     BESS3_approved_batteries_list:
       [
+        True,
         True,
         True,
         True,
@@ -203,6 +234,7 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
@@ -214,6 +246,7 @@
       ]
     BESS3_installation_location:
       [
+        True,
         True,
         True,
         True,
@@ -247,6 +280,7 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
@@ -256,6 +290,7 @@
       ]
     BESS3_approved_installer_list:
       [
+        True,
         True,
         True,
         True,
@@ -291,6 +326,7 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         True,
         True,
@@ -298,6 +334,7 @@
       ]
     BESS3_internet_connectable:
       [
+        True,
         True,
         True,
         True,
@@ -335,6 +372,7 @@
         True,
         True,
         True,
+        True,
         False, #not eligible
         False
       ]
@@ -342,6 +380,7 @@
     BESS3_installation_final_activity_eligibility:
       [
         True, #all true
+        False,
         False,
         False,
         False,

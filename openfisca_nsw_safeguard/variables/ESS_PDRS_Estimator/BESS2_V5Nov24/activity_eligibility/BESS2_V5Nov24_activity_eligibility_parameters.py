@@ -51,7 +51,7 @@ class BESS2_V5Nov24_life_support_equipment(BaseVariable):
     metadata = {
         'display_question' : 'Are you aware that demand response is not allowed where there is registered life support equipment?',
         'sorting' : 4,
-        'eligibility_clause' : """In PDRS BESS2 Eligibility Requirements Clause 2 it states that there must not be any Life Support Equipment used at the Site."""
+        'eligibility_clause' : """In PDRS BESS2 Eligibility Requirements Clause 2 it states that there must not be any Registered Life Support Equipment used at the Site."""
     }
 
 

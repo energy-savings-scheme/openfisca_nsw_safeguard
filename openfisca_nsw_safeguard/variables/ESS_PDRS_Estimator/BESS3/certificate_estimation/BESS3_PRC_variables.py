@@ -23,7 +23,7 @@ class BESS3_battery_capacity_input(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Nominal battery capacity (kWh)',
-        'display_question' : 'What is the nominal battery capacity (kWh)',
+        'display_question' : 'What is the nominal battery capacity (kWh)?',
         'sorting' : 2,
     }
 
@@ -35,7 +35,7 @@ class BESS3_number_of_dwellings_input(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Number of dwellings',
-        'display_question' : 'What is the total number of dwellings',
+        'display_question' : 'What is the total number of dwellings?',
         'sorting' : 3,
     }
 
@@ -47,7 +47,7 @@ class BESS3_inverter_output_input(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Inverter output (kW)',
-        'display_question' : 'What is the battery inverter output',
+        'display_question' : 'What is the battery inverter output?',
         'sorting' : 4,
     }
 
@@ -59,6 +59,6 @@ class BESS3_solar_or_battery_only(BaseVariable):
     metadata= {
         'variable-type' : 'user-input',
         'label': 'Solar or battery only',
-        'display_question' : 'Is the battery installed within 90 days of new solar PV capacity',
+        'display_question' : 'Is the battery installed within 90 days of new solar PV capacity?',
         'sorting' : 5,
     }

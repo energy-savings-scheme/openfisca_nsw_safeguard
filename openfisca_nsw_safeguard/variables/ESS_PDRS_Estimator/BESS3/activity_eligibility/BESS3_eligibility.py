@@ -22,6 +22,7 @@ class BESS3_installation_final_activity_eligibility(BaseVariable):
        apartment_dwellings = buildings('BESS3_apartment_dwellings', period)
        nmi = buildings('BESS3_nmi', period)
        engaged_acp = buildings('BESS3_engaged_ACP', period)
+       plan_and_network = buildings('BESS3_plan_and_network', period)
        minimum_payment = buildings('BESS3_minimum_payment', period)
        battery_capacity = buildings('BESS3_battery_capacity', period)
        length_battery_warranty = buildings('BESS3_length_battery_warranty', period)
@@ -36,7 +37,7 @@ class BESS3_installation_final_activity_eligibility(BaseVariable):
        controlled_aggregator = buildings('BESS3_controlled_aggregator', period)
 
 
-       end_formula = ( equipment_installation * apartment_dwellings * nmi * engaged_acp * minimum_payment * battery_capacity *
+       end_formula = ( equipment_installation * apartment_dwellings * nmi * engaged_acp * plan_and_network * minimum_payment * battery_capacity *
                        length_battery_warranty * retainable_battery_capacity_warranty * approved_batteries_list * battery_inverter_output *
                         installation_location * behind_meter * approved_installer_list * licensed_person * internet_connectable * controlled_aggregator)
 

@@ -52,10 +52,10 @@ class HVAC2_minimum_cooling_capacity(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Will the End-User equipment be an Air Conditioner that is greater than or equal to 30 kW Cooling Capacity?',
+        'display_question' : 'Will the New End-User or replacement End-User Equipment be an eligible Multi-split System under the GEMS Registry for Product Classes 20–21 or 27?',
         'sorting' : 2,
         'conditional': 'True',
-        'eligibility_clause' : """In ESS F4 Equipment Requirements Clause 1 and PDRS HVAC2 Equipment Requirements Clause 1 it states that this activity must be an installation of a new high efficiency Air Conditioner or a replacement of an existing Air Conditioner (whether operational or not) with a high efficiency Air Conditioner that is greater than or equal to 30 kW Cooling Capacity."""
+        'eligibility_clause' : """In PDRS HVAC2 Equipment Requirements Clause 2 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible Multi-split System under the GEMS Registry for Product Classes 20-21 and 27, the Rated Cooling Capacity, as calculated in Equation HVAC2.1, must be greater than or equal to 30 kW."""
     }
 
 
@@ -121,7 +121,7 @@ class HVAC2_large_business_building(BaseVariable):
     metadata = {
         'display_question' : 'Will the new End-User Equipment be installed at a Large Business Site?',
         'sorting' : 7,
-        'eligibility_clause' : """In ESS F4 Eligibility Requirements Clause 2 and PDRS HVAC2 Eligibility Requirements Clause 2 it states that for the purposes of clause 9.9.1(d), the new or replacement End-User Equipment must be installed in a Large Business Site and cannot be installed in a Residential Building or Small Business Site."""
+        'eligibility_clause' : """In ESS F4 Eligibility Requirements Clause 2 and PDRS HVAC2 Eligibility Requirements Clause 3 it states that for the purposes of clause 9.9.1(d), the new or replacement End-User Equipment must be installed in a Large Business Site and cannot be installed in a Residential Building or Small Business Site."""
     }
 
 
@@ -134,7 +134,7 @@ class HVAC2_installed_centralised_system_common_area_BCA_Class2_building(BaseVar
         'display_question' : 'Will the installation be in a centralised system or common area in a BCA Class 2 building?',
         'sorting' : 8,
         'conditional': 'True',
-        'eligibility_clause' : """In ESS F4 Eligibility Requirements Clause 2 and PDRS HVAC2 Eligibility Requirements Clause 2 it states that the new or replacement End-User Equipment must be installed in a Large Business Site and cannot be installed in a Residential Building or Small Business Site, unless the activity is the replacement of an existing Air Conditioner in a centralised system or in the common areas of a Class 2 building."""
+        'eligibility_clause' : """In ESS F4 Eligibility Requirements Clause 2 and PDRS HVAC2 Eligibility Requirements Clause 3 it states that the new or replacement End-User Equipment must be installed in a Large Business Site and cannot be installed in a Residential Building or Small Business Site, unless the activity is the replacement of an existing Air Conditioner in a centralised system or in the common areas of a BCA Class 2 building."""
     }
 
 
@@ -144,7 +144,7 @@ class HVAC2_equipment_registered_in_GEMS(BaseVariable):
     default_value = True
     definition_period = ETERNITY
     metadata = {
-        'display_question' : 'Will the End-User Equipment be recorded in the GEMS Registry under an eligible product class: 5-12, 18-21, 24-25 or 27?',
+        'display_question' : 'Will the End-User Equipment be recorded in the GEMS Registry under an eligible product class: 5-12, 20-21, 24-25 or 27?',
         'sorting' : 9,
         'conditonal' : 'True',
         'eligibility_clause' : """In ESS F4 Equipment Requirements Clause 1 and PDRS HVAC2 Equipment Requirements Clause 1 it states that the new or replacement End-User Equipment must be recorded in the GEMS Registry under product classes 5-12, 18-21, 24-25 or 27 listed in the GEMS Registry as complying with either:
@@ -175,7 +175,7 @@ class HVAC2_multi_split_product_class(BaseVariable):
         'display_question' : 'Will the End-User Equipment be an outdoor Multi-split system?',
         'sorting' : 11,
         'conditonal' : 'True',
-        'eligibility_clause' : """In ESS F4 Equipment Requirements Clause 6 and PDRS HVAC2 Equipment Requirements Clause 4 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible outdoor Multi-split system under the GEMS Registry for Product Classes 18-21 and 27."""
+        'eligibility_clause' : """In ESS F4 Equipment Requirements Clause 6 and PDRS HVAC2 Equipment Requirements Clause 4 it states that if the New End-User Equipment or replacement End-User Equipment is an eligible outdoor Multi-split System under the GEMS Registry for Product Classes 20-21 or 27."""
     }
 
 

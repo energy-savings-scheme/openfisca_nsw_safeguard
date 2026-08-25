@@ -147,7 +147,7 @@ class HVAC2_equipment_registered_in_GEMS(BaseVariable):
         'display_question' : 'Will the End-User Equipment be recorded in the GEMS Registry under an eligible product class: 5-12, 20-21, 24-25 or 27?',
         'sorting' : 9,
         'conditonal' : 'True',
-        'eligibility_clause' : """In ESS F4 Equipment Requirements Clause 1 and PDRS HVAC2 Equipment Requirements Clause 1 it states that the new or replacement End-User Equipment must be recorded in the GEMS Registry under product classes 5-12, 18-21, 24-25 or 27 listed in the GEMS Registry as complying with either:
+        'eligibility_clause' : """In ESS F4 Equipment Requirements Clause 1 and PDRS HVAC2 Equipment Requirements Clause 1 it states that the new or replacement End-User Equipment must be recorded in the GEMS Registry under product classes 5-12, 20-21, 24-25 or 27 listed in the GEMS Registry as complying with either:
                                   a. Greenhouse and Energy Minimum Standards (Air Conditioners up to 65 kW) Determination 2019; or
                                   b. Greenhouse and Energy Minimum Standards (Air Conditioners above 65 kW) Determination 2022."""
     }

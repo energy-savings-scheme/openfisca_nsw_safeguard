@@ -2,6 +2,7 @@ from openfisca_nsw_safeguard.base_variables import BaseVariable
 from openfisca_core.periods import ETERNITY
 from openfisca_core.indexed_enums import Enum
 from openfisca_nsw_safeguard.entities import Building
+from openfisca_nsw_safeguard.variables.ESS_PDRS_Estimator.HVAC2_PDRSAug24.certification_estimation.HVAC2_PDRSAug24_ESC_variables import HVAC2_PDRSAug24_AC_Type
 
 import numpy as np
 
@@ -216,6 +217,7 @@ class HVAC2_PDRSAug24_PRC_calculation(BaseVariable):
     }
 
     def formula(buildings, period, parameters):
+        is_eligible = buildings('HVAC2_PDRSAug24_is_product_eligible', period)
         peak_demand_capacity = buildings('HVAC2_PDRSAug24_peak_demand_reduction_capacity', period)
         network_loss_factor = buildings('HVAC2_PDRSAug24_get_network_loss_factor_by_postcode', period)
         kw_to_0_1kw = 10
@@ -223,10 +225,16 @@ class HVAC2_PDRSAug24_PRC_calculation(BaseVariable):
         HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark = buildings('HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark', period)
 
         result = np.floor(peak_demand_capacity * network_loss_factor * kw_to_0_1kw)
+
+        meets_all_conditions = np.logical_and(
+            HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark,
+            is_eligible
+        )
+
         result_meet_elig = np.select(
                         [
-                         HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark,
-                         np.logical_not(HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark)
+                         meets_all_conditions,
+                         np.logical_not(meets_all_conditions)
                          ],
                         [
                             result, 0
@@ -238,7 +246,7 @@ class HVAC2_PDRSAug24_PRC_calculation(BaseVariable):
                 0, result_meet_elig
             ])
         return result_to_return
-    
+
 
 class HVAC2_PDRSAug24_PRC_savings_check(BaseVariable):
     #this variable checks if PRCs are zero, and if they are returns zero peak savings
@@ -263,3 +271,40 @@ class HVAC2_PDRSAug24_PRC_savings_check(BaseVariable):
             ])
 
         return peak_demand_annual_savings_check
+
+
+class HVAC2_PDRSAug24_is_product_eligible(BaseVariable):
+    value_type = bool
+    entity = Building
+    definition_period = ETERNITY
+    label = 'Whether the HVAC2 product passes the product class / cooling capacity / multi-split eligibility filter'
+
+    def formula(buildings, period, parameters):
+        product_class_int = buildings('HVAC2_PDRSAug24_product_class_int', period)
+        cooling_capacity = buildings('HVAC2_PDRSAug24_cooling_capacity_input', period)
+        product_type = buildings('HVAC2_PDRSAug24_Air_Conditioner_type', period)
+
+        # Not eligible: product class 18 or 19
+        product_class_is_18_or_19 = np.isin(product_class_int, [18, 19])
+
+        # Not eligible: product class 20, 21 or 27 UNLESS both
+        # cooling_capacity >= 30 AND it's a multi-split
+        product_class_is_20_21_27 = np.isin(product_class_int, [20, 21, 27])
+
+        is_multi_split = np.logical_or(
+            product_type == HVAC2_PDRSAug24_AC_Type.non_ducted_multi_split_system,
+            product_type == HVAC2_PDRSAug24_AC_Type.ducted_multi_split_system
+        )
+
+        fails_capacity_and_split = np.logical_and(
+            product_class_is_20_21_27,
+            np.logical_not(
+                np.logical_and(cooling_capacity >= 30, is_multi_split)
+            )
+        )
+
+        is_elligible = np.logical_not(
+            np.logical_or(product_class_is_18_or_19, fails_capacity_and_split)
+        )
+
+        return is_elligible

@@ -203,7 +203,7 @@ class HVAC2_PDRSAug24_product_class_int(BaseVariable):
     definition_period = ETERNITY
 
     def formula(buildings, period, parameters):
-      product_class = buildings('HVAC1_PDRSAug24_product_class_input', period)
+      product_class = buildings('HVAC2_PDRSAug24_product_class_input', period)
       product_class_int = np.select([
         product_class == HVAC2ProductClass.product_class_5.value,
         product_class == HVAC2ProductClass.product_class_6.value,

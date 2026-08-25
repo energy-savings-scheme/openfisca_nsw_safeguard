@@ -229,7 +229,7 @@
 
 - name: test HVAC2 PRC calculation
   period: 2024
-  absolute_error_margin: 0.5
+  absolute_error_margin: 0.1
   input:
     HVAC2_PDRSAug24_product_class_input:
       [
@@ -364,7 +364,7 @@
 
 - name: test HVAC2 PRC calculation
   period: 2024
-  absolute_error_margin: 0.5
+  absolute_error_margin: 0.1
   input:
     HVAC2_PDRSAug24_product_class_input:
       [
@@ -438,4 +438,137 @@
         290,
         1028,
         180
+      ]
+
+- name: test HVAC2 Product eligibility
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 19',
+        'Class 18',
+        'Class 20',
+        'Class 21',
+        'Class 27',
+        'Class 7',
+        'Class 11'
+      ]
+    HVAC2_PDRSAug24_Air_Conditioner_type:
+      [
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system,
+        non_ducted_multi_split_system,
+        ducted_multi_split_system,
+        non_ducted_single_split_system,
+        non_ducted_single_split_system
+      ]
+    HVAC2_PDRSAug24_cooling_capacity_input:
+      [
+        22.4,
+        2.5,
+        47.4,
+        29,
+        30,
+        45,
+        10
+      ]
+  output:
+    HVAC2_PDRSAug24_is_product_eligible:
+      [
+        false, # Not eligible class
+        false, # Not eligible class
+        false, # Not eligible not a multi system ac type
+        false, # Not eligible cooling capacity
+        true, # Eligible class 27 (multi split and equal to or more than 30 kWh cooling)
+        true, # Eligible class
+        true  # Eligible class
+      ]
+
+- name: test HVAC2 PRC calculation with eligibility
+  period: 2024
+  absolute_error_margin: 0.1
+  input:
+    HVAC2_PDRSAug24_product_class_input:
+      [
+        'Class 19', # ACTRON (AIR MRC-050DS-2)
+        'Class 20', # AIRION (AR-VI160WV2R)
+        'Class 21', # BRAEMAR (MCHX400D323B)
+        'Class 20', # DAIKIN (REYA12AYM)
+        'Class 27', # HITACHI (RAS-24FSNS)
+        'Class 20' # BONAIRE (H4M105S2AE)
+      ]
+    HVAC2_PDRSAug24_TCSPF_or_AEER_exceeds_ESS_benchmark:
+      [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    HVAC2_PDRSAug24_input_power:
+      [
+        1.9,
+        4.67,
+        9.93,
+        7.713,
+        23.4,
+        2.75
+      ]
+    HVAC2_PDRSAug24_Air_Conditioner_type:
+      [
+        non_ducted_single_split_system,
+        non_ducted_multi_split_system,
+        ducted_multi_split_system,
+        non_ducted_single_split_system,
+        ducted_multi_split_system,
+        non_ducted_single_split_system
+      ]
+    HVAC2_PDRSAug24_cooling_capacity_input:
+      [
+        5.25,
+        15.5,
+        40.0,
+        33.5,
+        67.0,
+        10.7
+      ]
+    HVAC2_PDRSAug24_Activity:
+      [
+        replacement_activity,
+        replacement_activity,
+        new_installation_activity,
+        replacement_activity,
+        new_installation_activity,
+        new_installation_activity
+      ]
+    HVAC2_PDRSAug24_BCA_Climate_Zone:
+      [
+        BCA_Climate_Zone_5,
+        BCA_Climate_Zone_2,
+        BCA_Climate_Zone_4,
+        BCA_Climate_Zone_2,
+        BCA_Climate_Zone_4,
+        BCA_Climate_Zone_4
+      ]
+    HVAC2_PDRSAug24_get_network_loss_factor_by_postcode:
+      [ 
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05
+      ]
+  output:
+    HVAC2_PDRSAug24_PRC_calculation:
+      [
+        0, # not eligible class
+        0, # not eligible cooling capacity
+        1804,
+        0, # not eligible not multi split system
+        0, # product is eligible but prc calculation is 0
+        0 # not eligible, cooling capacity and not multi split system
       ]

@@ -2,8 +2,7 @@
   period: 2026
   absolute_error_margin: 0
   input:
-    BESS3_new_installation:
-      [
+    BESS3_new_installation: [
         True,
         False, #not eligible
         True,
@@ -22,10 +21,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_apartment_dwellings:
-      [
+    BESS3_apartment_dwellings: [
         True,
         True,
         False, #not eligible
@@ -44,10 +42,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_nmi:
-      [
+    BESS3_nmi: [
         True,
         True,
         True,
@@ -66,10 +63,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_engaged_ACP:
-      [
+    BESS3_engaged_ACP: [
         True,
         True,
         True,
@@ -88,10 +84,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_plan_and_network:
-      [
+    BESS3_plan_and_network: [
         True,
         True,
         True,
@@ -110,10 +105,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_minimum_payment:
-      [
+    BESS3_minimum_payment: [
         True,
         True,
         True,
@@ -132,10 +126,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_battery_capacity:
-      [
+    BESS3_battery_capacity: [
         True,
         True,
         True,
@@ -154,10 +147,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_length_battery_warranty:
-      [
+    BESS3_length_battery_warranty: [
         True,
         True,
         True,
@@ -176,10 +168,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_retainable_battery_capacity_warranty:
-      [
+    BESS3_retainable_battery_capacity_warranty: [
         True,
         True,
         True,
@@ -198,10 +189,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_approved_batteries_list:
-      [
+    BESS3_approved_batteries_list: [
         True,
         True,
         True,
@@ -220,10 +210,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_battery_inverter_output:
-      [
+    BESS3_battery_inverter_output: [
         True,
         True,
         True,
@@ -242,10 +231,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_installation_location:
-      [
+    BESS3_installation_location: [
         True,
         True,
         True,
@@ -264,10 +252,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_behind_meter:
-      [
+    BESS3_behind_meter: [
         True,
         True,
         True,
@@ -286,10 +273,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_approved_installer_list:
-      [
+    BESS3_approved_installer_list: [
         True,
         True,
         True,
@@ -308,10 +294,9 @@
         True,
         True,
         True,
-        False
+        False,
       ]
-    BESS3_licensed_person:
-      [
+    BESS3_licensed_person: [
         True,
         True,
         True,
@@ -330,10 +315,9 @@
         False, #not eligible
         True,
         True,
-        False
+        False,
       ]
-    BESS3_internet_connectable:
-      [
+    BESS3_internet_connectable: [
         True,
         True,
         True,
@@ -352,10 +336,9 @@
         True,
         False, #not eligible
         True,
-        False
+        False,
       ]
-    BESS3_controlled_aggregator:
-      [
+    BESS3_controlled_aggregator: [
         True,
         True,
         True,
@@ -374,11 +357,10 @@
         True,
         True,
         False, #not eligible
-        False
+        False,
       ]
   output:
-    BESS3_installation_final_activity_eligibility:
-      [
+    BESS3_installation_final_activity_eligibility: [
         True, #all true
         False,
         False,
@@ -397,5 +379,5 @@
         False,
         False,
         False,
-        False #all false
+        False, #all false
       ]

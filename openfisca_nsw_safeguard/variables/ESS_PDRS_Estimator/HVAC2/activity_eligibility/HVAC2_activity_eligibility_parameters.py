@@ -60,19 +60,6 @@ class HVAC2_minimum_cooling_capacity(BaseVariable):
     }
 
 
-class HVAC2_minimum_cooling_capacity(BaseVariable):
-    value_type = bool
-    entity = Building
-    default_value = True
-    definition_period = ETERNITY
-    metadata = {
-        "display_question": "Will the End-User equipment be an Air Conditioner that is greater than or equal to 30 kW Cooling Capacity?",
-        "sorting": 2,
-        "conditional": "True",
-        "eligibility_clause": """In ESS F4 Equipment Requirements Clause 1 and PDRS HVAC2 Equipment Requirements Clause 1 it states that this activity must be an installation of a new high efficiency Air Conditioner or a replacement of an existing Air Conditioner (whether operational or not) with a high efficiency Air Conditioner that is greater than or equal to 30 kW Cooling Capacity.""",
-    }
-
-
 class HVAC2_installed_by_qualified_person(BaseVariable):
     value_type = bool
     entity = Building
